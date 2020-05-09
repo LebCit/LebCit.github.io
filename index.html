@@ -1,114 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Page Info -->
+    <link rel="manifest" href="/manifest.json" />
+    <title>&lbrace; LebCit &rbrace;</title>
+    <meta name="theme-color" content="#3d4f5d" />
+    <meta
+      name="description"
+      content="Homepage of LebCit website displaying the most recent posts."
+    />
+    <meta
+      name="google-site-verification"
+      content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8"
+    />
 
-	<!-- Page Info -->
-	<link rel='manifest' href='/manifest.json'>
-	<title>&lbrace; LebCit &rbrace;</title>
-	<meta name="theme-color" content="#3d4f5d" />
-	<meta name="description" content="Homepage of LebCit website displaying the most recent posts." />
-	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/img/favicon//favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/img/favicon/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/img/favicon/android-chrome-512x512.png"
+    />
 
-	<!-- Favicon -->
-	<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon//favicon-16x16.png" />
-	<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png" />
-	<link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png" />
-	<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-chrome-192x192.png" />
-	<link rel="icon" type="image/png" sizes="512x512" href="/img/favicon/android-chrome-512x512.png" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="/vendor/normalize-min.css" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
 
-	<!-- Styles -->
-	<link rel="stylesheet" href="/vendor/normalize-min.css" />
-	<link rel="stylesheet" href="/style.css" />
-</head>
+  <body class="home">
+    <div id="layout" class="grid">
+      <main-nav></main-nav>
 
-<body class="home">
-	<div id="layout" class="grid">
-		<main-nav></main-nav>
+      <the-header></the-header>
 
-		<the-header></the-header>
+      <div id="content" class="content unit-1 unit-lg-3-5">
+        <!-- A wrapper for all the blog posts -->
+        <div class="posts">
+          <!-- A single blog post -->
+          <section class="post">
+            <header class="post-header">
+              <h2 class="post-title">
+                <a href="/blog/the-clean-blog-wordpress-theme.html"
+                  >The Clean Blog WordPress theme</a
+                >
+              </h2>
 
-		<div id="content" class="content unit-1 unit-lg-3-5">
-			<div>
-				<!-- A wrapper for all the blog posts -->
-				<div class="posts" data-jo="true" data-jo-content="repeated">
-					<!-- A single blog post -->
+              <p class="post-meta">
+                Updated on
+                <span class="posted-on">09 May 2020</span>
+                under
+                <span class="post-category">Development</span>
+                <span class="post-category">Theme</span>
+              </p>
+            </header>
 
-					<section class="post" style="position: relative; left: 0px; top: 0px;">
-						<header class="post-header">
-							<h2 class="post-title" data-jo-content="editable" style="position: relative;">
-								<a href="/blog/back-to-the-roots-with-a-static-site.html">Back to the roots with a
-									static site</a>
-							</h2>
+            <div class="post-description">
+              <p>
+                The Clean Blog WordPress theme was released in 2017 with a lot
+                of bells and whistles...<br />
+                Two years later, in 2019, it was rewritten from ground up,
+                without any unnecessary functionalities.
+              </p>
+            </div>
 
-							<p class="post-meta" data-jo-content="editable" style="position: relative;">
-								Posted on
-								<span class="posted-on" data-jo-content="editable">04 May 2020</span>
-								under
-								<span class="post-category" data-jo-content="editable">Thoughts</span>
-							</p>
-						</header>
+            <p>
+              <a
+                class="read-more-link"
+                tabindex="0"
+                role="button"
+                href="/blog/the-clean-blog-wordpress-theme.html"
+                >Read More</a
+              >
+            </p>
+          </section>
 
-						<div class="post-description">
-							<p data-jo-content="editable" class="" style="position: relative;">
-								<em>This is a post about my own experience
-									with development and static site.</em><br />From Zero to Hero or at least not a
-								zero anymore !<br />From the Highway to the
-								Classic Road.
-							</p>
-						</div>
+          <!-- A single blog post -->
+          <section class="post">
+            <header class="post-header">
+              <h2 class="post-title">
+                <a href="/blog/back-to-the-roots-with-a-static-site.html"
+                  >Back to the roots with a static site</a
+                >
+              </h2>
 
-						<p data-jo-content="editable" class="" style="position: relative;">
-							<a class="read-more-link" tabindex="0" role="button"
-								href="/blog/back-to-the-roots-with-a-static-site.html" data-jo-content="editable">Read
-								More</a>
-						</p>
-					</section>
-					<section class="post" style="position: relative; left: 0px; top: 0px;">
-						<header class="post-header">
-							<h2 class="post-title" data-jo-content="editable" style="position: relative;">
-								<a href="/blog/full-screen-morphing-search-plugin.html">Full Screen Morphing Search
-									Plugin</a>
-							</h2>
+              <p class="post-meta">
+                Posted on
+                <span class="posted-on">04 May 2020</span>
+                under
+                <span class="post-category">Thoughts</span>
+              </p>
+            </header>
 
-							<p class="post-meta" data-jo-content="editable" style="position: relative;">
-								Updated on
-								<span class="posted-on" data-jo-content="editable">28 April 2020</span>
-								under
-								<span class="post-category" data-jo-content="editable">Development</span>
-							</p>
-						</header>
+            <div class="post-description">
+              <p>
+                <em
+                  >This is a post about my own experience with development and
+                  static site.</em
+                ><br />From Zero to Hero or at least not a zero anymore !<br />From
+                the Highway to the Classic Road.
+              </p>
+            </div>
 
-						<div class="post-description">
-							<p data-jo-content="editable" class="" style="position: relative;">
-								I’m very excited and happy to announce the
-								release (in 2016) of
-								<strong>my first plugin</strong> !<br />This
-								plugin is based on the Simple Morphing
-								Search experimental effect created by Mary
-								Lou (Manoela Ilic).
-							</p>
-						</div>
+            <p>
+              <a
+                class="read-more-link"
+                tabindex="0"
+                role="button"
+                href="/blog/back-to-the-roots-with-a-static-site.html"
+                >Read More</a
+              >
+            </p>
+          </section>
 
-						<p data-jo-content="editable" class="" style="position: relative;">
-							<a class="read-more-link" tabindex="0" role="button"
-								href="/blog/full-screen-morphing-search-plugin.html" data-jo-content="editable">Read
-								More</a>
-						</p>
-					</section>
-				</div>
+          <!-- A single blog post -->
+          <section class="post">
+            <header class="post-header">
+              <h2 class="post-title">
+                <a href="/blog/full-screen-morphing-search-plugin.html"
+                  >Full Screen Morphing Search Plugin</a
+                >
+              </h2>
 
-				<div class="footer unit-1"></div>
-			</div>
-		</div>
-	</div>
+              <p class="post-meta">
+                Updated on
+                <span class="posted-on">28 April 2020</span>
+                under
+                <span class="post-category">Development</span>
+                <span class="post-category">Plugin</span>
+              </p>
+            </header>
 
-	<script src="/global.js"></script>
-	<script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate"></script>
+            <div class="post-description">
+              <p>
+                I’m very excited and happy to announce the release (in 2016) of
+                <strong>my first plugin</strong> !<br />This plugin is based on
+                the Simple Morphing Search experimental effect created by Mary
+                Lou (Manoela Ilic).
+              </p>
+            </div>
 
-	<pwa-update></pwa-update>
-</body>
+            <p>
+              <a
+                class="read-more-link"
+                tabindex="0"
+                role="button"
+                href="/blog/full-screen-morphing-search-plugin.html"
+                >Read More</a
+              >
+            </p>
+          </section>
+        </div>
 
+        <div class="footer unit-1"></div>
+      </div>
+    </div>
+
+    <script src="/global.js"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate"
+    ></script>
+
+    <pwa-update></pwa-update>
+  </body>
 </html>

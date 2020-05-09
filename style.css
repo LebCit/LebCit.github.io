@@ -382,10 +382,17 @@ hr {
 		background-position: top;
 		background-size: cover;
 	}
+	.tcb .sidebar {
+		background-image: url("/img/common/tcb-default-home.jpg");
+		background-repeat: no-repeat;
+		background-position: top;
+		background-size: cover;
+	}
 	.home .sidebar:before,
 	.about .sidebar:before,
 	.fsmsp .sidebar:before,
-	.roots .sidebar:before {
+	.roots .sidebar:before,
+	.tcb .sidebar:before {
 		content: "";
 		position: absolute;
 		top: 0;

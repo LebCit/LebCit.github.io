@@ -388,11 +388,18 @@ hr {
 		background-position: top;
 		background-size: cover;
 	}
+	.error404 .sidebar {
+		background-image: url("/img/common/404.jpg");
+		background-repeat: no-repeat;
+		background-position: top;
+		background-size: cover;
+	}
 	.home .sidebar:before,
 	.about .sidebar:before,
 	.fsmsp .sidebar:before,
 	.roots .sidebar:before,
-	.tcb .sidebar:before {
+	.tcb .sidebar:before,
+	.error404 .sidebar:before {
 		content: "";
 		position: absolute;
 		top: 0;

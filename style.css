@@ -394,12 +394,19 @@ hr {
 		background-position: top;
 		background-size: cover;
 	}
+	.google-products-tb .sidebar {
+		background-image: url("/img/common/thunderbird_by_Les-Haines.jpg");
+		background-repeat: no-repeat;
+		background-position: unset;
+		background-size: cover;
+	}
 	.home .sidebar:before,
 	.about .sidebar:before,
 	.fsmsp .sidebar:before,
 	.roots .sidebar:before,
 	.tcb .sidebar:before,
-	.error404 .sidebar:before {
+	.error404 .sidebar:before,
+	.google-products-tb .sidebar:before {
 		content: "";
 		position: absolute;
 		top: 0;

@@ -63,6 +63,8 @@ this the same font stack that Normalize.css sets for the `body`.
 html,
 .grid [class*="pure-u"] {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	-ms-word-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .overlay {
@@ -406,6 +408,12 @@ hr {
 		background-position: unset;
 		background-size: cover;
 	}
+	.hide-toolbar .sidebar {
+		background-image: url("/img/common/little_girl_hidding_face-by-Caleb_Woods.jpg");
+		background-repeat: no-repeat;
+		background-position: unset;
+		background-size: cover;
+	}
 	.home .sidebar:before,
 	.about .sidebar:before,
 	.fsmsp .sidebar:before,
@@ -413,7 +421,8 @@ hr {
 	.tcb .sidebar:before,
 	.error404 .sidebar:before,
 	.google-products-tb .sidebar:before,
-	.copyright-customizer .sidebar:before {
+	.copyright-customizer .sidebar:before,
+	.hide-toolbar .sidebar:before {
 		content: "";
 		position: absolute;
 		top: 0;

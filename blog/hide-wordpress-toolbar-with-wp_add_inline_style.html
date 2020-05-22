@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Page Info -->
+        <title>
+            Hide WordPress Toolbar with wp_add_inline_style &ndash; &lbrace;
+            LebCit &rbrace;
+        </title>
+        <meta name="theme-color" content="#3d4f5d" />
+        <meta
+            name="description"
+            content="This post is about using wp_add_inline_style to hide the WordPress Toolbar."
+        />
+
+        <!-- Favicon -->
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/img/favicon//favicon-16x16.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/img/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/img/favicon/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/img/favicon/android-chrome-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="512x512"
+            href="/img/favicon/android-chrome-512x512.png"
+        />
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="/vendor/normalize-min.css" />
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+
+    <body class="hide-toolbar">
+        <div id="layout" class="grid">
+            <main-nav></main-nav>
+
+            <the-header></the-header>
+
+            <div class="content unit-1 unit-lg-3-5">
+                <!-- A wrapper for every single post -->
+                <div class="single-post">
+                    <!-- A single post -->
+                    <section class="post-single">
+                        <header class="post-header">
+                            <h2 class="post-title">
+                                Hide WordPress Toolbar with wp_add_inline_style
+                            </h2>
+
+                            <p class="post-meta">
+                                Posted on
+                                <span class="posted-on">22 May 2020</span>
+                                under
+                                <span class="post-category">Tips & Tricks</span>
+                            </p>
+                        </header>
+
+                        <div class="post-content">
+                            <p>
+                                <em
+                                    >This post is about using
+                                    <code>wp_add_inline_style()</code> function
+                                    to hide the WordPress Toolbar or Admin
+                                    Bar.</em
+                                ><br /><br /><a target="_blank" rel="noopener"
+                                    href="https://wordpress.org/support/article/toolbar/"
+                                    >The WordPress Toolbar</a
+                                >
+                                is the little black bar on top of the site that
+                                only the logged in user(s) can see, depending on
+                                their
+                                <a target="_blank" rel="noopener"
+                                    href="https://wordpress.org/support/article/roles-and-capabilities/"
+                                    >role(s)</a
+                                >
+                                and how the Super Admin or the Administrator has
+                                configured the visibility of this bar for each
+                                one…
+                            </p>
+                            <p>
+                                We can set the display status of this bar for
+                                the front side of our website by using the
+                                <a target="_blank" rel="noopener"
+                                    href="https://developer.wordpress.org/reference/functions/show_admin_bar/"
+                                    ><code>show_admin_bar()</code></a
+                                >
+                                function.
+                            </p>
+                            <p>
+                                Also, we can directly target it by it’s CSS
+                                <em><code>id #wpadminbar</code></em> and hide it
+                                like so :
+                            </p>
+                            <pre><code>#wpadminbar {
+    display: none;
+}</code></pre>
+                            <p>
+                                but this way is not allowed for themes/plugins
+                                developers !
+                            </p>
+                            <p>
+                                You can say,
+                                <em>“just use <code>show_admin_bar</code> !”</em
+                                >, and I would ask the following :<br />
+                                <em
+                                    >“what if I want to hide it with CSS without
+                                    using a stylesheet so I can control it with
+                                    JS for later use ?!”</em
+                                >
+                                😉<em><br /></em>It’s not the main reason, you
+                                can have any other reason to hide it with CSS
+                                without using a stylesheet, scenarios are
+                                limitless.
+                            </p>
+                            <p>
+                                This is where
+                                <a target="_blank" rel="noopener"
+                                    href="https://developer.wordpress.org/reference/functions/wp_add_inline_style/"
+                                    ><code>wp_add_inline_style()</code></a
+                                >
+                                function steps in 🙂<br />
+                                In your
+                                <a target="_blank" rel="noopener"
+                                    href="https://codex.wordpress.org/Functions_File_Explained"
+                                    >functions.php</a
+                                >
+                                file, add the following :
+                            </p>
+                            <pre><code>/**
+ * Hide the Toolbar using inline style since we can't use #wpadminbar in CSS.
+ */
+function myfunction_hide_adminbar() {
+    $hide_adminbar = "
+        #wpadminbar{
+            display: none;
+        }";
+    wp_add_inline_style( 'my-stylesheet-handle', $hide_adminbar );
+}
+add_action( 'wp_enqueue_scripts', 'myfunction_hide_adminbar' );</code></pre>
+                            <p>
+                                Please, pay attention to the
+                                <code>$handle</code>
+                                <strong>my-stylesheet-handle</strong> !<br />
+                                You should replace it with the
+                                <code>$handle</code> of your stylesheet !<br />
+                                In your <strong>functions.php</strong> file,
+                                you’ll find something like :
+                            </p>
+                            <pre><code>wp_enqueue_style('your-stylesheet-handle', get_stylesheet_uri());</code></pre>
+                            <p>
+                                <strong>your-stylesheet-handle</strong> is the
+                                <code>$handle</code> of your stylesheet 😉
+                            </p>
+                            <p>
+                                Hope this will be useful 🙂<br />Please don’t
+                                hesitate to share your opinion, suggestions or
+                                other methods.
+                            </p>
+                            <p>SYA,<br />LebCit</p>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="footer"></div>
+            </div>
+        </div>
+
+        <script src="/global.js"></script>
+    </body>
+</html>

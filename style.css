@@ -414,6 +414,12 @@ hr {
 		background-position: unset;
 		background-size: cover;
 	}
+	.changes-customizer .sidebar {
+		background-image: url("/img/common/chiatto-bunny-by-emiliano-vittoriosi.jpg");
+		background-repeat: no-repeat;
+		background-position: unset;
+		background-size: cover;
+	}
 	.home .sidebar:before,
 	.about .sidebar:before,
 	.fsmsp .sidebar:before,
@@ -422,7 +428,8 @@ hr {
 	.error404 .sidebar:before,
 	.google-products-tb .sidebar:before,
 	.copyright-customizer .sidebar:before,
-	.hide-toolbar .sidebar:before {
+	.hide-toolbar .sidebar:before,
+	.changes-customizer .sidebar:before {
 		content: "";
 		position: absolute;
 		top: 0;

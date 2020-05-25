@@ -1,22 +1,22 @@
 .grid {
-	letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
-	text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
+    letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
+    text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
 
-	/* Use flexbox when possible to avoid `letter-spacing` side-effects. */
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-webkit-flex-flow: row wrap;
-	-ms-flex-flow: row wrap;
-	flex-flow: row wrap;
+    /* Use flexbox when possible to avoid `letter-spacing` side-effects. */
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
 
-	/* Prevents distributing space between rows */
-	-webkit-align-content: flex-start;
-	-ms-flex-line-pack: start;
-	align-content: flex-start;
+    /* Prevents distributing space between rows */
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
 }
 
 /*
@@ -24,447 +24,235 @@ Resets the font family back to the OS/browser's default sans-serif font,
 this the same font stack that Normalize.css sets for the `body`.
 */
 .grid [class*="pure-u"] {
-	font-family: sans-serif;
+    font-family: sans-serif;
 }
 
 .unit-1 {
-	display: inline-block;
-	*display: inline;
-	zoom: 1;
-	letter-spacing: normal;
-	word-spacing: normal;
-	vertical-align: top;
-	text-rendering: auto;
-	width: 100%;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+    width: 100%;
 }
 
 * {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 :root {
-	font-size: 16px;
+    font-size: 16px;
 }
 
 @media (min-width: 320px) and (max-width: 1200px) {
-	:root {
-		font-size: calc(16px + (25 - 16) * ((100vw - 320px) / (1200 - 320)));
-	}
+    :root {
+        font-size: calc(16px + (25 - 16) * ((100vw - 320px) / (1200 - 320)));
+    }
 }
 
 @media (min-width: 1200px) {
-	:root {
-		font-size: 25px;
-	}
+    :root {
+        font-size: 25px;
+    }
 }
 
 html,
 .grid [class*="pure-u"] {
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	-ms-word-wrap: break-word;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    -ms-word-wrap: break-word;
     word-wrap: break-word;
 }
 
 .overlay {
-	height: 100%;
-	width: 0;
-	position: fixed;
-	z-index: 2;
-	top: 0;
-	right: 0;
-	background-color: rgb(0, 0, 0);
-	background-color: rgba(0, 0, 0, 0.9);
-	letter-spacing: normal;
-	overflow-x: hidden;
-	transition: 0.5s;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    letter-spacing: normal;
+    overflow-x: hidden;
+    transition: 0.5s;
 }
 
 .overlay-content {
-	position: relative;
-	top: 25%;
-	width: 100%;
-	text-align: center;
-	margin-top: 30px;
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
 }
 
 .overlay a {
-	padding: 8px;
-	text-decoration: none;
-	font-size: 36px;
-	color: #818181;
-	display: block;
-	transition: 0.3s;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
 }
 
 .overlay a:hover,
 .overlay a:focus {
-	color: #f1f1f1;
-	background-color: #222;
-	border: 1px solid red;
-	border-style: dashed;
+    color: #f1f1f1;
+    background-color: #222;
+    border: 1px solid red;
+    border-style: dashed;
 }
 
 .overlay .close-button {
-	position: absolute;
-	top: 20px;
-	right: 45px;
-	font-size: 60px;
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
 }
 
 the-header {
-	flex-grow: 1;
+    flex-grow: 1;
 }
 
 a {
-	text-decoration: none;
-	color: #214ccf;
+    text-decoration: none;
+    color: #214ccf;
 }
 
 a:hover,
 a:focus {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 h3 {
-	font-weight: 100;
+    font-weight: 100;
 }
 
 /* LAYOUT CSS */
 
 .pure-img-responsive {
-	max-width: 100%;
-	height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 #layout {
-	padding: 0;
+    padding: 0;
 }
 
 .header {
-	/*text-align: center;*/
-	top: auto;
-	margin: 1em 1em;
+    /*text-align: center;*/
+    top: auto;
+    margin: 1em 1em;
 }
 
 .sidebar {
-	background: rgb(61, 79, 93);
-	color: #fff;
+    background: rgb(61, 79, 93);
+    color: #fff;
 }
 
 .brand-title,
 .brand-tagline {
-	margin: 0;
+    margin: 0;
 }
 
 .brand-title a {
-	color: #fff;
+    color: #fff;
 }
 
 .brand-tagline {
-	font-weight: 300;
-	color: rgb(176, 202, 219);
-	margin: 0.5em 0 2em 0;
+    font-weight: 300;
+    color: rgb(176, 202, 219);
+    margin: 0.5em 0 2em 0;
 }
 
 .nav-list {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .nav-item {
-	display: inline-block;
+    display: inline-block;
 }
 
 .nav-item a {
-	background: transparent;
-	border: 2px solid rgb(176, 202, 219);
-	border-radius: 2px;
-	color: #fff;
-	padding: 0.5em 1em;
-	margin-top: 1em;
-	letter-spacing: 0.05em;
-	text-transform: uppercase;
-	font-size: 85%;
+    background: transparent;
+    border: 2px solid rgb(176, 202, 219);
+    border-radius: 2px;
+    color: #fff;
+    padding: 0.5em 1em;
+    margin-top: 1em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 85%;
 }
 
 .nav-item a:hover,
 .nav-item a:focus {
-	border: 2px solid rgb(61, 146, 201);
-	text-decoration: none;
+    border: 2px solid rgb(61, 146, 201);
+    text-decoration: none;
 }
 
 .nav-item a svg {
-	fill: aliceblue;
-	vertical-align: bottom;
-	padding: 4px 0 2px;
+    fill: aliceblue;
+    vertical-align: bottom;
+    padding: 4px 0 2px;
 }
 
 .content {
-	padding: 2em 1em 0;
+    padding: 2em 1em 0;
 }
 
 .post {
-	padding-bottom: 0.5em;
+    padding-bottom: 0.5em;
 }
 
 .post-title {
-	font-size: 2em;
-	color: #222;
-	margin-bottom: 0.2em;
+    font-size: 2em;
+    color: #222;
+    margin-bottom: 0.2em;
 }
 
 .post-description,
 .post-content {
-	color: #444;
-	line-height: 1.8em;
+    color: #444;
+    line-height: 1.8em;
 }
 
 .post-meta {
-	color: #16663d;
-	font-size: 90%;
-	margin: 0;
+    color: #16663d;
+    font-size: 90%;
+    margin: 0;
 }
 
 .posted-on {
-	color: #ad1a36;
+    color: #ad1a36;
 }
 
 .post-category {
-	margin: 0 0.1em;
-	padding: 0.3em 1em;
-	color: #fff;
-	background: #ad1a36;
-	font-size: 80%;
+    margin: 0 0.1em;
+    padding: 0.3em 1em;
+    color: #fff;
+    background: #ad1a36;
+    font-size: 80%;
 }
 
 .post-images {
-	margin: 1em 0;
+    margin: 1em 0;
 }
 
 .post-image-meta {
-	margin-top: -3.5em;
-	margin-left: 1em;
-	color: #fff;
-	text-shadow: 0 1px 1px #333;
+    margin-top: -3.5em;
+    margin-left: 1em;
+    color: #fff;
+    text-shadow: 0 1px 1px #333;
 }
 
 .post > p {
-	margin-bottom: 0;
-}
-
-.read-more-link {
-	display: inline-block;
-	padding: 0.7rem 0.9rem;
-	font-size: 1rem;
-	line-height: 1;
-	border: 2px solid rgb(61, 79, 93);
-	border-radius: 3px;
-	background: rgb(61, 79, 93);
-	color: #fff;
-	font-weight: 600;
-	cursor: pointer;
-}
-
-.read-more-link:hover {
-	color: #fff;
-	box-shadow: 0 0.25em rgb(61, 79, 93);
-}
-
-.read-more-link:active,
-.read-more-link:focus {
-	box-shadow: 0.25em 0.25em rgb(61, 79, 93);
-	outline: 0.1em solid;
-}
-
-hr {
-	border: 0;
-	background: #000;
-	height: 1px;
-}
-
-.footer {
-	padding: 1em 0;
-}
-
-.footer a {
-	color: #ccc;
-	font-size: 80%;
-}
-
-.footer .pure-menu a:hover,
-.footer .pure-menu a:focus {
-	background: none;
-}
-
-@media screen and (max-width: 35.5em) {
-	.nav-item a svg {
-		padding-top: 14px;
-	}
-}
-
-@media screen and (min-width: 35.5em) and (max-width: 48em) {
-	.nav-item a svg {
-		padding-top: 12px;
-	}
-}
-
-@media screen and (min-width: 48em) and (max-width: 64em) {
-	.nav-item a svg {
-		padding-top: 10px;
-	}
-	.post-title {
-		font-size: 2.5em;
-		margin-bottom: 0.1em;
-	}
-	.single-post .post-title {
-		font-size: 3em;
-		margin-top: 0;
-	}
-}
-
-@media (max-width: 64em) {
-	.hide {
-		display: none;
-	}
-	.nav {
-		position: fixed;
-		top: 15px;
-		right: 10px;
-		z-index: 1;
-	}
-	.nav-item a {
-		background: black;
-	}
-}
-
-@media (min-width: 64em) {
-	.unit-lg-2-5,
-	.unit-lg-3-5 {
-		display: inline-block;
-		*display: inline;
-		zoom: 1;
-		letter-spacing: normal;
-		word-spacing: normal;
-		vertical-align: top;
-		text-rendering: auto;
-	}
-	.unit-lg-2-5 {
-		width: 40%;
-		*width: 39.969%;
-	}
-	.unit-lg-3-5 {
-		width: 60%;
-		*width: 59.969%;
-	}
-	.home .sidebar {
-		background-image: url("/img/common/vendetta_by_Jon-Tyson.jpg");
-		background-repeat: no-repeat;
-		background-position: top;
-		background-size: cover;
-		
-	}
-	.about .sidebar {
-		background-image: url("/img/common/octopus_by_Ivan_DEBS.jpg");
-		background-repeat: no-repeat;
-		background-position: top;
-		background-size: cover;
-	}
-	.fsmsp .sidebar {
-		background-image: url("/img/common/fsmsp.png");
-		background-repeat: no-repeat;
-		background-position: top;
-		background-size: cover;
-	}
-	.roots .sidebar {
-		background-image: url("/img/common/code_books_by_Greg-Rakozy.jpg");
-		background-repeat: no-repeat;
-		background-position: top;
-		background-size: cover;
-	}
-	.tcb .sidebar {
-		background-image: url("/img/common/tcb-default-home.jpg");
-		background-repeat: no-repeat;
-		background-position: top;
-		background-size: cover;
-	}
-	.error404 .sidebar {
-		background-image: url("/img/common/404.jpg");
-		background-repeat: no-repeat;
-		background-position: top;
-		background-size: cover;
-	}
-	.google-products-tb .sidebar {
-		background-image: url("/img/common/thunderbird_by_Les-Haines.jpg");
-		background-repeat: no-repeat;
-		background-position: unset;
-		background-size: cover;
-	}
-	.copyright-customizer .sidebar {
-		background-image: url("/img/common/copyright-under-magnifying-glass.jpg");
-		background-repeat: no-repeat;
-		background-position: unset;
-		background-size: cover;
-	}
-	.hide-toolbar .sidebar {
-		background-image: url("/img/common/little_girl_hidding_face-by-Caleb_Woods.jpg");
-		background-repeat: no-repeat;
-		background-position: unset;
-		background-size: cover;
-	}
-	.changes-customizer .sidebar {
-		background-image: url("/img/common/chiatto-bunny-by-emiliano-vittoriosi.jpg");
-		background-repeat: no-repeat;
-		background-position: unset;
-		background-size: cover;
-	}
-	.home .sidebar:before,
-	.about .sidebar:before,
-	.fsmsp .sidebar:before,
-	.roots .sidebar:before,
-	.tcb .sidebar:before,
-	.error404 .sidebar:before,
-	.google-products-tb .sidebar:before,
-	.copyright-customizer .sidebar:before,
-	.hide-toolbar .sidebar:before,
-	.changes-customizer .sidebar:before {
-		content: "";
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background-color: rgba(0, 0, 0, 0.6);
-	}
-	.header {
-		position: absolute;
-	}
-	.post-title {
-		font-size: 3em;
-		margin-bottom: 0.1em;
-	}
-	.single-post .post-title {
-		font-size: 4em;
-		margin-top: 0;
-	}
-	.content {
-		padding: 2em 3em 0;
-		margin-left: 40%;
-	}
-	.header {
-		margin: 10% 2em 0;
-		text-align: left;
-	}
-	.sidebar {
-		position: fixed;
-		top: 0;
-		bottom: 0;
-	}
-	.footer {
-		text-align: center;
-	}
+    margin-bottom: 0;
 }
 
 pre {
@@ -483,4 +271,215 @@ code {
     font-family: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
     font-size: 15px;
     font-size: 0.9375rem;
+}
+
+.read-more-link {
+    display: inline-block;
+    padding: 0.7rem 0.9rem;
+    font-size: 1rem;
+    line-height: 1;
+    border: 2px solid rgb(61, 79, 93);
+    border-radius: 3px;
+    background: rgb(61, 79, 93);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.read-more-link:hover {
+    color: #fff;
+    box-shadow: 0 0.25em rgb(61, 79, 93);
+}
+
+.read-more-link:active,
+.read-more-link:focus {
+    box-shadow: 0.25em 0.25em rgb(61, 79, 93);
+    outline: 0.1em solid;
+}
+
+hr {
+    border: 0;
+    background: #000;
+    height: 1px;
+}
+
+.footer {
+    padding: 1em 0;
+}
+
+.footer a {
+    color: #ccc;
+    font-size: 80%;
+}
+
+.footer .pure-menu a:hover,
+.footer .pure-menu a:focus {
+    background: none;
+}
+
+@media screen and (max-width: 35.5em) {
+    .nav-item a svg {
+        padding-top: 14px;
+    }
+}
+
+@media screen and (min-width: 35.5em) and (max-width: 48em) {
+    .nav-item a svg {
+        padding-top: 12px;
+    }
+}
+
+@media screen and (min-width: 48em) and (max-width: 64em) {
+    .nav-item a svg {
+        padding-top: 10px;
+    }
+    .post-title {
+        font-size: 2.5em;
+        margin-bottom: 0.1em;
+    }
+    .single-post .post-title {
+        font-size: 3em;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 64em) {
+    .hide {
+        display: none;
+    }
+    .nav {
+        position: fixed;
+        top: 15px;
+        right: 10px;
+        z-index: 1;
+    }
+    .nav-item a {
+        background: black;
+    }
+}
+
+@media (min-width: 64em) {
+    .unit-lg-2-5,
+    .unit-lg-3-5 {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        letter-spacing: normal;
+        word-spacing: normal;
+        vertical-align: top;
+        text-rendering: auto;
+    }
+    .unit-lg-2-5 {
+        width: 40%;
+        *width: 39.969%;
+    }
+    .unit-lg-3-5 {
+        width: 60%;
+        *width: 59.969%;
+    }
+    .home .sidebar {
+        background-image: url("/img/common/vendetta_by_Jon-Tyson.jpg");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+    }
+    .about .sidebar {
+        background-image: url("/img/common/octopus_by_Ivan_DEBS.jpg");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+    }
+    .fsmsp .sidebar {
+        background-image: url("/img/common/fsmsp.png");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+    }
+    .roots .sidebar {
+        background-image: url("/img/common/code_books_by_Greg-Rakozy.jpg");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+    }
+    .tcb .sidebar {
+        background-image: url("/img/common/tcb-default-home.jpg");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+    }
+    .error404 .sidebar {
+        background-image: url("/img/common/404.jpg");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+    }
+    .google-products-tb .sidebar {
+        background-image: url("/img/common/thunderbird_by_Les-Haines.jpg");
+        background-repeat: no-repeat;
+        background-position: unset;
+        background-size: cover;
+    }
+    .copyright-customizer .sidebar {
+        background-image: url("/img/common/copyright-under-magnifying-glass.jpg");
+        background-repeat: no-repeat;
+        background-position: unset;
+        background-size: cover;
+    }
+    .hide-toolbar .sidebar {
+        background-image: url("/img/common/little_girl_hidding_face-by-Caleb_Woods.jpg");
+        background-repeat: no-repeat;
+        background-position: unset;
+        background-size: cover;
+    }
+    .changes-customizer .sidebar {
+        background-image: url("/img/common/chiatto-bunny-by-emiliano-vittoriosi.jpg");
+        background-repeat: no-repeat;
+        background-position: unset;
+        background-size: cover;
+    }
+    .home .sidebar:before,
+    .about .sidebar:before,
+    .fsmsp .sidebar:before,
+    .roots .sidebar:before,
+    .tcb .sidebar:before,
+    .error404 .sidebar:before,
+    .google-products-tb .sidebar:before,
+    .copyright-customizer .sidebar:before,
+    .hide-toolbar .sidebar:before,
+    .changes-customizer .sidebar:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    .header {
+        position: absolute;
+    }
+    .post-title {
+        font-size: 3em;
+        margin-bottom: 0.1em;
+    }
+    .single-post .post-title {
+        font-size: 4em;
+        margin-top: 0;
+    }
+    .content {
+        padding: 2em 3em 0;
+        margin-left: 40%;
+    }
+    .header {
+        margin: 10% 2em 0;
+        text-align: left;
+    }
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+    }
+    .footer {
+        text-align: center;
+    }
 }

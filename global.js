@@ -3,21 +3,21 @@
 /** Web Components - Custom Elements */
 /** -------------------------------  */
 
-/** MainNav | main-nav */
+/** MainNav | main-navigation */
 class MainNav extends HTMLElement {
 	connectedCallback() {
 		this.innerHTML = `
-			<div id="main-nav" aria-label="Main navigation" class="overlay" tabindex="-1">
+			<div id="main-navigation" aria-label="Main navigation" class="overlay" tabindex="-1">
 				<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
 				<div class="overlay-content">
 					<a href="/about.html">About</a>
-					<a href="https://github.com/LebCit" target="_blank" rel="noopener">GitHub</a>
+					<a href="https://github.com/LebCit" target="_blank" rel="external noopener" aria-label=" (opens in a new tab)">GitHub</a>
 				</div>
 			</div>
 		`;
 	}
 }
-customElements.define('main-nav', MainNav);
+customElements.define('main-navigation', MainNav);
 
 /** TheHeader | the-header */
 class TheHeader extends HTMLElement {
@@ -37,7 +37,7 @@ class TheHeader extends HTMLElement {
 						<ul class="nav-list">
 							
 							<li class="nav-item">
-								<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+								<a id="menu-button" aria-controls="main-navigation" aria-haspopup="true" tabindex="0" role="button">
 									MENU
 									<span class="menu-icon" aria-hidden="true">
 										<svg version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30'><rect width='30' height='5'/><rect y='24' width='30' height='5' /><rect y='12' width='30' height='5'/></svg>
@@ -60,7 +60,7 @@ customElements.define('the-header', TheHeader);
 let openCloseMenu = {};
 openCloseMenu.App = (function () {
 	const navButton = document.getElementById('menu-button');
-	const navMenu = document.querySelector('#main-nav');
+	const navMenu = document.querySelector('#main-navigation');
 	const navLinks = navMenu.querySelectorAll("a");
 	let lastNavLink = navMenu.lastElementChild.lastElementChild;
 	let beforeLastNavLink = lastNavLink.previousElementSibling;

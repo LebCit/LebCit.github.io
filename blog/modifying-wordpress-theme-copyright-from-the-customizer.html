@@ -53,6 +53,10 @@
 
     <body class="copyright-customizer">
         <div id="layout" class="grid">
+            <a class="skip-link screen-reader-text" href="#content"
+                >Skip to content</a
+            >
+
             <main-nav></main-nav>
 
             <the-header></the-header>
@@ -103,7 +107,12 @@
                                     theme-name by theme-author</em
                                 >".<br />I'm going to take the generated footer
                                 by
-                                <a target="_blank" rel="noopener" href="https://underscores.me/">_s</a>
+                                <a
+                                    target="_blank"
+                                    rel="noopener"
+                                    href="https://underscores.me/"
+                                    >_s</a
+                                >
                                 (underscores) as an example for this task.<br />Looking
                                 inside the <strong>footer.php</strong>, we can
                                 see a code like this:
@@ -183,12 +192,12 @@ function midday_site_info() {
     endif;
 }</code></pre>
                             <p>
-                                What in the hell is this ?<br />&emsp; It's nothing 😂
-                                it's just the same pasted elsewhere code in PHP
-                                with some variables and an
+                                What in the hell is this ?<br />&emsp; It's
+                                nothing 😂 it's just the same pasted elsewhere
+                                code in PHP with some variables and an
                                 <code>if/elseif</code> statement to take care of
-                                the user's choice.<br />&emsp; Inside the function,
-                                I've defined 2 variables. Each one is
+                                the user's choice.<br />&emsp; Inside the
+                                function, I've defined 2 variables. Each one is
                                 related to a <code>theme_mod</code> (theme
                                 modification) that we will create and explain in
                                 a moment.<br />&emsp; I've opened an
@@ -203,7 +212,9 @@ function midday_site_info() {
                                 <code>$html</code> variable replicating the
                                 pasted elsewhere code, then I've asked PHP to
                                 echo this code using
-                                <a target="_blank" rel="noopener"
+                                <a
+                                    target="_blank"
+                                    rel="noopener"
                                     href="https://developer.wordpress.org/reference/functions/wp_kses/"
                                     ><code>wp_kses</code></a
                                 >
@@ -226,7 +237,9 @@ function midday_site_info() {
                                     populate the copyright with the content of
                                     the text area allowing the user to use HTML
                                     inside it with </em
-                                ><a target="_blank" rel="noopener"
+                                ><a
+                                    target="_blank"
+                                    rel="noopener"
                                     href="https://developer.wordpress.org/reference/functions/wp_kses_post/"
                                     ><em><code>wp_kses_post</code></em></a
                                 ><em>
@@ -241,21 +254,21 @@ function midday_site_info() {
                                 Customizer
                             </h2>
                             <p>
-                                &emsp; Do you remember the 2 previous variables ? They
-                                where related to theme's modifications. It's
-                                time to create those <code>theme_mod</code> and
-                                test our code.<br />&emsp; To keep the functions.php
-                                file clean, we will put the following in a
-                                customizer.php file if you don't have one
-                                already. Yous just have to require it from
-                                functions.php like so :
+                                &emsp; Do you remember the 2 previous variables
+                                ? They where related to theme's modifications.
+                                It's time to create those
+                                <code>theme_mod</code> and test our code.<br />&emsp;
+                                To keep the functions.php file clean, we will
+                                put the following in a customizer.php file if
+                                you don't have one already. Yous just have to
+                                require it from functions.php like so :
                             </p>
                             <pre><code>require get_template_directory() . '/inc/customizer.php';</code></pre>
                             <p>
-                                &emsp; Please note that in this example the file is in
-                                a folder named inc (for includes) at the root of
-                                the theme or the child theme, you can change
-                                this but be sure to indicate the correct
+                                &emsp; Please note that in this example the file
+                                is in a folder named inc (for includes) at the
+                                root of the theme or the child theme, you can
+                                change this but be sure to indicate the correct
                                 path.<br />&emsp; Now, put the following in
                                 customizer.php, let's see the code and explain
                                 it later:
@@ -362,30 +375,35 @@ add_action( 'customize_register', 'midday_customize_register' );</code></pre>
 add_action( 'customize_register', 'mytheme_customize_register' );</code></pre>
                             <p>
                                 &emsp; This is how we hook a function to the
-                                <a target="_blank" rel="noopener"
+                                <a
+                                    target="_blank"
+                                    rel="noopener"
                                     href="https://codex.wordpress.org/Plugin_API/Action_Reference/customize_register"
                                     ><code>'customize_register'</code></a
                                 >
                                 action and put inside it our panels, sections,
-                                settings and controls.<br />&emsp; Looking at our code,
-                                you can now understand that I've created a
-                                panel, a section, 2 settings and their 2 related
-                                controls.<br />&emsp; I'm not going to dive into the
-                                Customizer, but if you're not familiar with it,
-                                a good start would be this
-                                <a target="_blank" rel="noopener"
+                                settings and controls.<br />&emsp; Looking at
+                                our code, you can now understand that I've
+                                created a panel, a section, 2 settings and their
+                                2 related controls.<br />&emsp; I'm not going to
+                                dive into the Customizer, but if you're not
+                                familiar with it, a good start would be this
+                                <a
+                                    target="_blank"
+                                    rel="noopener"
                                     href="https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1/"
                                     >excellent guide</a
                                 >
-                                by Anthony Hortin.<br />&emsp; Instead, I'm going to
-                                explain a more important aspect here. If you
-                                take a good look at the code, you'll see
+                                by Anthony Hortin.<br />&emsp; Instead, I'm
+                                going to explain a more important aspect here.
+                                If you take a good look at the code, you'll see
                                 something else under each control :
                             </p>
                             <pre><code>$wp_customize-&gt;selective_refresh-&gt;add_partial</code></pre>
                             <p>
                                 What is this and what does it do ?<br />Well,
-                                look closer and you'll figure it out yourself 😂<br />
+                                look closer and you'll figure it out yourself
+                                😂<br />
                                 Just kidding, but in fact it's really clear.<br />Let's
                                 take one setting it's control and the related
                                 selective_refresh:
@@ -423,15 +441,20 @@ $wp_customize-&gt;selective_refresh-&gt;add_partial(
                                 Remember the first variable ?<br />Well here is
                                 it's theme_mod !<br />Take a look at the
                                 <strong>setting</strong> name
-                                <code>midday_footer_copyright_area_checkbox</code> 😉<br />The
-                                important part here is <code>'transport' =&gt;
-                                'postMessage'</code>, because it tells the browser not
-                                to reload, but to make the change(s) in place
-                                !<br />Another important aspect in the
-                                <strong>setting</strong> is <code>'sanitize_callback'
-                                =&gt; 'midday_sanitize_checkbox'</code>, this is a
-                                function to sanitize the checkbox, you should
-                                put it <strong>after</strong> the
+                                <code
+                                    >midday_footer_copyright_area_checkbox</code
+                                >
+                                😉<br />The important part here is
+                                <code>'transport' =&gt; 'postMessage'</code>,
+                                because it tells the browser not to reload, but
+                                to make the change(s) in place !<br />Another
+                                important aspect in the
+                                <strong>setting</strong> is
+                                <code
+                                    >'sanitize_callback' =&gt;
+                                    'midday_sanitize_checkbox'</code
+                                >, this is a function to sanitize the checkbox,
+                                you should put it <strong>after</strong> the
                                 <code>'customize_register'</code> action hook:
                             </p>
                             <pre><code>if ( ! function_exists( 'midday_sanitize_checkbox' ) ) {
@@ -448,24 +471,25 @@ $wp_customize-&gt;selective_refresh-&gt;add_partial(
             return 1;
         }
     }
-}</code> </pre >
+}</code> </pre>
                             <p>
                                 In the <strong>control</strong>, the important
                                 part is the type of the control, as you can see
                                 it's defined as checkbox, no surprise, WYaskIWYG
                                 😂<br />For the <strong>partial</strong>, the
                                 important part is the selector, it must be an
-                                <code>id</code>, now you know why I've added an <code>id</code> previously
-                                👍<br />If you look at the <code>settings</code> and the
-                                <code>render_callback</code> of the <strong>partial</strong>,
-                                you'll understand that everything is related 🔗
-                                and that we are just putting the wright piece in
-                                the wright place 🧩<br /><br />You maybe guessed
-                                it out or not, but yes I'm developing a new
-                                theme called MidDay (in fact I've finished it,
-                                just some clean up remaining) and I'll submit it
-                                very soon 😁<br /><br />I really hope that this
-                                was helpful.<br />SYA,<br />LebCit.
+                                <code>id</code>, now you know why I've added an
+                                <code>id</code> previously 👍<br />If you look
+                                at the <code>settings</code> and the
+                                <code>render_callback</code> of the
+                                <strong>partial</strong>, you'll understand that
+                                everything is related 🔗 and that we are just
+                                putting the wright piece in the wright place
+                                🧩<br /><br />You maybe guessed it out or not,
+                                but yes I'm developing a new theme called MidDay
+                                (in fact I've finished it, just some clean up
+                                remaining) and I'll submit it very soon 😁<br /><br />I
+                                really hope that this was helpful.<br />SYA,<br />LebCit.
                             </p>
                         </div>
                     </section>

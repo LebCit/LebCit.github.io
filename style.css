@@ -407,7 +407,7 @@ hr {
         background-position: top;
         background-size: cover;
     }
-    .error404 .sidebar {
+    .error .sidebar {
         background-image: url("/img/common/404.jpg");
         background-repeat: no-repeat;
         background-position: top;
@@ -442,7 +442,7 @@ hr {
     .fsmsp .sidebar:before,
     .roots .sidebar:before,
     .tcb .sidebar:before,
-    .error404 .sidebar:before,
+    .error .sidebar:before,
     .google-products-tb .sidebar:before,
     .copyright-customizer .sidebar:before,
     .hide-toolbar .sidebar:before,

@@ -11,7 +11,7 @@ class MainNav extends HTMLElement {
 				<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
 				<div class="overlay-content">
 					<a href="/about.html">About</a>
-					<a href="https://github.com/LebCit" target="_blank" rel="external noopener" aria-label=" (opens in a new tab)">GitHub</a>
+					<a href="https://github.com/LebCit" target="_blank" rel="external noopener">GitHub <i class="gg-external" role="img" aria-label=" (opens in a new tab)"></i></a>
 				</div>
 			</div>
 		`;
@@ -168,27 +168,27 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 /** Helps with accessibility for keyboard only users. */
 /** ------------------------------------------------- */
-( function() {
-	var isIe = /(trident|msie)/i.test( navigator.userAgent );
+(function () {
+	var isIe = /(trident|msie)/i.test(navigator.userAgent);
 
-	if ( isIe && document.getElementById && window.addEventListener ) {
-		window.addEventListener( 'hashchange', function() {
-			var id = location.hash.substring( 1 ),
+	if (isIe && document.getElementById && window.addEventListener) {
+		window.addEventListener('hashchange', function () {
+			var id = location.hash.substring(1),
 				element;
 
-			if ( ! ( /^[A-z0-9_-]+$/.test( id ) ) ) {
+			if (!(/^[A-z0-9_-]+$/.test(id))) {
 				return;
 			}
 
-			element = document.getElementById( id );
+			element = document.getElementById(id);
 
-			if ( element ) {
-				if ( ! ( /^(?:a|select|input|button|textarea)$/i.test( element.tagName ) ) ) {
+			if (element) {
+				if (!(/^(?:a|select|input|button|textarea)$/i.test(element.tagName))) {
 					element.tabIndex = -1;
 				}
 
 				element.focus();
 			}
-		}, false );
+		}, false);
 	}
-}() );
+}());

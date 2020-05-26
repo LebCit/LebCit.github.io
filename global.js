@@ -192,3 +192,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		}, false);
 	}
 }());
+
+/** Change document title */
+/** --------------------  */
+// Grab the document title of the current tab.
+let currentTabTitle = document.title;
+// Listen to visibility change events
+document.addEventListener('visibilitychange', function () {
+	// Fires when user leaves site's tab.
+	document.visibilityState === "hidden"
+	// Document title when user leaves site's tab.
+	? (document.title = `Ne Me Quitte Pas 😭`)
+	// Document title when user comes back to site's tab. 
+	: (document.title = currentTabTitle);
+});

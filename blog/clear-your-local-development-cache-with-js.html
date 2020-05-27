@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Page Info -->
+        <title>
+            Clear your local development cache with JS &ndash; &lbrace; LebCit
+            &rbrace;
+        </title>
+        <meta name="theme-color" content="#3d4f5d" />
+        <meta
+            name="description"
+            content="This post is about clearing your local development cache with JavaScript without a server side language."
+        />
+
+        <!-- Favicon -->
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/img/favicon//favicon-16x16.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/img/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/img/favicon/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/img/favicon/android-chrome-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="512x512"
+            href="/img/favicon/android-chrome-512x512.png"
+        />
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="/vendor/normalize-min.css" />
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+
+    <body class="change-title">
+        <div id="layout" class="grid">
+            <a class="skip-link screen-reader-text" href="#content"
+                >Skip to content</a
+            >
+
+            <main-navigation></main-navigation>
+
+            <the-header></the-header>
+
+            <div id="content" class="content unit-1 unit-lg-3-5" rel="main">
+                <!-- A wrapper for every single post -->
+                <div class="single-post">
+                    <!-- A single post -->
+                    <section class="post-single">
+                        <header class="post-header">
+                            <h2 class="post-title">
+                                Clear your local development cache with JS
+                            </h2>
+
+                            <p class="post-meta">
+                                Updated on
+                                <span class="posted-on">27 May 2020</span>
+                                under
+                                <span class="post-category">Tips & Tricks</span>
+                            </p>
+                        </header>
+
+                        <div class="post-content">
+                            <p>
+                                <em
+                                    >This post is about clearing your local
+                                    development cache with JavaScript without a
+                                    server side language.</em
+                                >
+                            </p>
+
+                            <p>
+                                When we use a server side language to get our
+                                changes this is what happens : <br />1- the
+                                Request is made by the browser to the server
+                                <br />2- the Response is sent from the server to
+                                the browser<br />
+                                In this case, if any changes are made within the
+                                files, the server will serve the browser with
+                                those changes. But, what if you're not using a
+                                server side language for your local development
+                                ?!
+                            </p>
+                            <p>
+                                If you're locally developing a website on the
+                                Classic Road (HTML + CSS + JS) without a plugin
+                                in your IDE to synchronize your changes,
+                                <strong>and have some generated cache</strong>,
+                                you'll have to refresh your page twice and
+                                sometimes more to see the changes you've just
+                                made even if you're using a local server as
+                                Laragon, WAMP, MAMP, XAMPP...<br />Did you ever
+                                asked yourself how much time you're spending on
+                                refreshing twice ?!<br />This is a time killer,
+                                it's very annoying, and you're productivity will
+                                be affected !
+                            </p>
+                            <p>
+                                The solution would be to
+                                <strong>clear the cache</strong> when we refresh
+                                the page, you would say "use Ctrl + F5 !" and I
+                                would respond "go try it with your generated
+                                cache !".;
+                            </p>
+                            <p>
+                                To clear the cache when we hit the refresh
+                                button :<br />1- we'll have to access the
+                                <code>loading state</code> of the document
+                                <em>without waiting</em> for stylesheets,
+                                images...<br />2- we'll have to <code>open</code> the
+                                cache and access the particular cache causing
+                                headaches<br />3- we'll have to
+                                <code>delete</code> this particular cache !
+                            </p>
+                            <pre><code>if (document.readyState === 'loading') {  // Loading hasn't finished yet
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('loading...');
+    caches.open('cacheNameCausingHeadaches').then(function (cache) {
+        cache.delete(document.URL).then(function () {
+            console.log('deleted');
+        });
+    });
+});
+}</code></pre>
+                            <p>
+                                Paste this code at the end of your scripts
+                                before the closing body tag and refresh your
+                                page twice for the last time !
+                            </p>
+                            <p>
+                                To get the
+                                <code>cacheNameCausingHeadeaches</code> :
+                            </p>
+                            <pre><code>caches.keys().then(function(keyList) {
+    console.log('keyList');
+});</code></pre>
+                            <p>
+                                I'm here to share and learn 😊 so if you have a
+                                better way without an IDE plugin for a static
+                                site with some cache please let me know because
+                                I like to refresh and see the difference 😉
+                            </p>
+                            <p>Hope this will be useful.</p>
+                            <p>SYA,<br />LebCit.</p>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="footer unit-1"></div>
+            </div>
+        </div>
+
+        <script src="/global.js"></script>
+    </body>
+</html>

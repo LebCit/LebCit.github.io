@@ -96,9 +96,9 @@
                                 the browser<br />
                                 In this case, if any changes are made within the
                                 files, the server will serve the browser with
-                                those changes. But, what if you're not using a
-                                server side language for your local development
-                                ?!
+                                those changes.<br />But, what if you're not
+                                using a server side language for your local
+                                development ?!
                             </p>
                             <p>
                                 If you're locally developing a website on the
@@ -126,10 +126,11 @@
                                 button :<br />1- we'll have to access the
                                 <code>loading state</code> of the document
                                 <em>without waiting</em> for stylesheets,
-                                images...<br />2- we'll have to <code>open</code> the
-                                cache and access the particular cache causing
-                                headaches<br />3- we'll have to
-                                <code>delete</code> this particular cache !
+                                images...<br />2- we'll have to
+                                <code>open</code> the cache and access the
+                                particular cache causing headaches<br />3- we'll
+                                have to <code>delete</code> this particular
+                                cache !
                             </p>
                             <pre><code>if (document.readyState === 'loading') {  // Loading hasn't finished yet
 document.addEventListener('DOMContentLoaded', function () {

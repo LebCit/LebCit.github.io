@@ -238,8 +238,8 @@ wp.customize.bind( 'change', function ( setting ) {
     // Target the Setting, let's take background_image as an example.
     if ( 0 === setting.id.indexOf( 'background_image' ) ) {
         // The background is empty by default.
-                // So, we begin by listening to a non empty value,
-                // to catch the first change when it happens !
+        // So, we begin by listening to a non empty value,
+        // to catch the first change when it happens !
         if ((setting._value) != "") {
             console.log('I Now Have A Background 🙂');
         } else {

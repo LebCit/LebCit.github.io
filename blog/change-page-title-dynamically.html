@@ -128,12 +128,12 @@
 let currentTabTitle = document.title;
 // Listen to visibility change events
 document.addEventListener('visibilitychange', function () {
-// Fires when user leaves your site's tab.
-document.visibilityState === "hidden"
-// Document title when user leaves your site's tab.
-? (document.title = `Ne Me Quitte Pas 😭`)
-// Document title when user comes back to your site's tab.
-: (document.title = currentTabTitle);
+    // Fires when user leaves your site's tab.
+    document.visibilityState === "hidden"
+    // Document title when user leaves your site's tab.
+    ? (document.title = `Ne Me Quitte Pas 😭`)
+    // Document title when user comes back to your site's tab.
+    : (document.title = currentTabTitle);
 });</code></pre>
                             <p>
                                 This

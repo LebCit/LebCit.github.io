@@ -204,7 +204,5 @@ document.addEventListener('visibilitychange', function () {
 		// Document title when user leaves site's tab.
 		? (document.title = `Ne Me Quitte Pas 😭`)
 		// Document title when user comes back to site's tab.
-	// Document title when user comes back to site's tab. 
-		// Document title when user comes back to site's tab.
 		: (document.title = currentTabTitle);
 });

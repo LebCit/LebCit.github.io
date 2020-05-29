@@ -437,6 +437,12 @@ hr {
         background-position: unset;
         background-size: cover;
     }
+    .clear-cache .sidebar {
+        background-image: url("/img/common/memories-jon-tyson.jpg");
+        background-repeat: no-repeat;
+        background-position: unset;
+        background-size: cover;
+    }
     .home .sidebar:before,
     .about .sidebar:before,
     .fsmsp .sidebar:before,
@@ -446,7 +452,8 @@ hr {
     .google-products-tb .sidebar:before,
     .copyright-customizer .sidebar:before,
     .hide-toolbar .sidebar:before,
-    .changes-customizer .sidebar:before {
+    .changes-customizer .sidebar:before,
+    .clear-cache .sidebar:before {
         content: "";
         position: absolute;
         top: 0;

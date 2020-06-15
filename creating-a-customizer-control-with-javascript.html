@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="en-us"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Creating a Customizer control with JavaScript - { LebCit }</title><meta name="description" content="This post is about creating a control, from A to Z, in WordPress Customizer with JavaScript."><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://lebcit.github.io/creating-a-customizer-control-with-javascript.html"><link rel="alternate" type="application/atom+xml" href="https://lebcit.github.io/feed.xml"><link rel="alternate" type="application/json" href="https://lebcit.github.io/feed.json"><meta property="og:title" content="Creating a Customizer control with JavaScript"><meta property="og:image" content="https://lebcit.github.io/media/posts/12/screenshot-creating-a-customizer-control-with-javascript.png"><meta property="og:site_name" content="{ LebCit }"><meta property="og:description" content="This post is about creating a control, from A to Z, in WordPress Customizer with JavaScript."><meta property="og:url" content="https://lebcit.github.io/creating-a-customizer-control-with-javascript.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://lebcit.github.io/media/website/favicon-16x16.png" type="image/png"><link rel="stylesheet" href="https://lebcit.github.io/assets/css/style.css?v=c0ee81d862ed28ffef933d680dfdec7d"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://lebcit.github.io/creating-a-customizer-control-with-javascript.html"},"headline":"Creating a Customizer control with JavaScript","datePublished":"2020-06-01T09:32","dateModified":"2020-06-15T08:33","image":{"@type":"ImageObject","url":"https://lebcit.github.io/media/posts/12/screenshot-creating-a-customizer-control-with-javascript.png","height":626,"width":1366},"description":" This post is about creating a control, from A to Z, in WordPress Customizer with JavaScript. Did you know that you can create panels, sections and controls in the Customizer with JavaScript ? \"The PHP API for their registration is essentially a wrapper for the underlying JS API\" as mentioned by Weston Ruter in&hellip;","author":{"@type":"Person","name":"LebCit"},"publisher":{"@type":"Organization","name":"LebCit"}}</script><meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8"></head><body><div id="layout" class="grid"><a class="skip-link screen-reader-text" href="#content">Skip to content</a><div id="main-navigation" aria-label="Main navigation" class="overlay" tabindex="-1"><a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a><div class="overlay-content"><a href="https://lebcit.github.io/about.html" target="_self">About </a><a href="https://github.com/LebCit" target="_blank">GitHub </a><a href="https://lebcit.github.io/theme/" target="_self">Themes </a><a href="https://lebcit.github.io/plugin/" target="_self">Plugins</a></div></div><div class="sidebar unit-1 unit-lg-2-5" style="background-image:
+						url(https://lebcit.github.io/media/posts/12/screenshot-creating-a-customizer-control-with-javascript.png)"><div class="header"><h1 class="brand-title"><a href="https://lebcit.github.io/">{ LebCit }</a></h1><p class="brand-tagline">Autodidactic WordPress Developer.<br>Love to Read, Learn & DIMySelf !</p><nav class="nav"><ul class="nav-list"><li class="nav-item"><a id="menu-button" aria-controls="main-navigation" aria-haspopup="true" tabindex="0" role="button">MENU <span class="menu-icon" aria-hidden="true"><svg version="1.1" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30"><rect width="30" height="5"/><rect y="24" width="30" height="5"/><rect y="12" width="30" height="5"/></svg></span></a></li></ul></nav></div></div><div id="content" class="content unit-1 unit-lg-3-5"><main class="single-post"><article><header class="post-header"><h2 class="post-title">Creating a Customizer control with JavaScript</h2><p class="post-meta">Posted on <span class="posted-on"><time datetime="June 1st 2020">Jun 1st 2020</time></span><br>Tagged <span class="post-category"><a href="https://lebcit.github.io/customizer/">Customizer</a> </span><span class="post-category"><a href="https://lebcit.github.io/development/">Development</a> </span><span class="post-category"><a href="https://lebcit.github.io/javascript/">JavaScript</a></span></p></header><div id="post-entry" class="post-content"><p><em>This post is about creating a control, from A to Z, in WordPress Customizer with JavaScript.</em></p><p>Did you know that you can create panels, sections and controls in the Customizer with JavaScript ?<br>"The PHP API for their registration is essentially a wrapper for the underlying JS API" as mentioned by Weston Ruter in <a href="https://wp.me/p2AvED-6c4" target="_blank">Improvements to the Customize JS API in 4.9</a>&nbsp;</p><p>He also says "you can also avoid statically registering settings and partials in PHP by instead adding filters to dynamically recognize settings and partials, allowing them to be registered on demand", meaning that you can create settings and partials in JS but will have to register them in PHP via a filter because they must be sanitized and validated by the server for security reasons !</p><p>For this task, we need to :<br>- access the Customizer Pane to create a Panel, a Section, a Setting and a Control with JS<br>- access the Customizer Preview to define the related Partial of the Control with JS<br>- add a filter to validate and sanitize the Setting with PHP<br>For more information about how things are related in the Customizer, please read my post "<a href="https://lebcit.github.io/listen-for-changes-in-customizer-preview.html">Listen for changes in Customizer Preview !</a>"</p><p>I'll explain it as if the reader is a beginner so she/he can understand and follow along.</p><p>My tree looks like this:</p><pre class="line-numbers language-html"><code>- theme ( main folder)
+-- inc (folder)
+--- customizer.php
+-- js (folder)
+--- controls.js
+--- customizer.js
+--- main.js
+-- functions.php</code></pre><p>The functions.php file is used to :<br>- enqueue and localize main.js where we will render on the front end our choice(s) from the Customizer<br>- require the customizer.php file where we hook controls.js (for Customizer Pane) and customizer.js (for Customizer Preview)<br>We can of course hook controls.js and customizer.js from functions.php but it's better to keep things separated.</p><pre class="line-numbers language-html"><code>// File functions.php
+/**
+ * Load and localize main.js.
+ */
+function main_js() {
+    wp_enqueue_script( 'main-js', get_theme_file_uri( '/js/main.js' ), array(), '1.0', true );
+    // Localize the script with new data and pass php variables to JS.
+    $main_js_data = array(
+        /** FOR LATER USE. */
+        'siteTitleColor' =&gt; get_theme_mod('siteTitleColorSetting', '#fff'),
+    );
+    wp_localize_script( 'main-js', 'main_vars', $main_js_data );
+}
+add_action( 'wp_enqueue_scripts', 'main_js' );
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer.php';</code></pre><pre class="line-numbers language-html"><code>// File customizer.php
+/**
+ * Hooking in JS code to affect the controls in the Customizer.
+ */
+function midday_customize_controls_js() {
+    wp_enqueue_script( 'midday-controls', get_template_directory_uri() . '/js/controls.js', array( 'customize-controls' ), filemtime( get_theme_file_path( '/js/controls.js' ) ), true );
+}
+add_action( 'customize_controls_enqueue_scripts', 'midday_customize_controls_js' );
+
+/**
+ * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
+ */
+function midday_customize_preview_js() {
+    wp_enqueue_script( 'midday-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+}
+add_action( 'customize_preview_init', 'midday_customize_preview_js' );</code></pre><p>If you don't know what is <a href="https://developer.wordpress.org/reference/functions/wp_localize_script/" target="_blank">wp_localize_script()</a>, think of it as a bridge between PHP and JS where we can pass variables from PHP to JS.<br>Just to let you know, there is also another function <a href="https://developer.wordpress.org/reference/functions/wp_add_inline_script/" target="_blank">wp_add_inline_script()</a> to add JS code to a registered JS file.</p><p>Now that we are all set, let's create a Panel, a Section, a Setting and a Control in controls.js to change the site title color.</p><pre class="line-numbers language-html"><code>/**
+ * File controls.js
+ *
+ * Access Theme Customizer Controls for a better user experience.
+ */
+(function (api) {
+    api.bind('ready', function () {
+        // Create panel.
+    api.panel.add(
+        new api.Panel('myPanel', {
+        title: 'Theme Options',
+                description: 'Customize Theme',
+                priority: 5 // Optional default is 160.
+        })
+    );
+        // Site Title Color Section.
+        api.section.add(
+            new api.Section('siteTitleColorSection', {
+                title: 'Site Title Color Section',
+                panel: 'myPanel',
+                customizeAction: 'Customizing ▸ Site Title Color', // String above title's Section.
+                priority: 5 // The order of this section in the panel.
+            })
+        );
+        // Site Title Color Setting.
+        api.add(
+            new api.Setting('siteTitleColorSetting', '#fff', {
+                transport: 'postMessage'
+            })
+        );
+        // Site Title Color Control.
+        api.control.add(
+        new wp.customize.ColorControl('siteTitleColorControl', {
+                section: 'siteTitleColorSection',
+                label : 'Site Title Color Control',
+        setting: 'siteTitleColorSetting',
+                priority: 5 // The order of this control in the section.
+        })
+    );
+    });
+}) (wp.customize);</code></pre><p>Please note that the pattern for the Setting is different from the others !<br>For the Setting, we type <code>api.add(setting)</code> and define in the <code>setting</code> an <code>id</code>, a <code>defaultValue</code>, then we pass the desired call type (here we are using <code>postMessage</code>).</p><p>Now, let's access the Customizer Preview in customizer.js and define how the Setting joins the Control to the Partial.</p><pre class="line-numbers language-html"><code>/**
+ * File customizer.js.
+ *
+ * Theme Customizer enhancements for a better user experience.
+ *
+ * Contains handlers to make Theme Customizer preview reload changes asynchronously.
+ */
+
+(function ($) {
+    // Site Title Color.
+    wp.customize("siteTitleColorSetting", function (value) {
+        value.bind(function (new_value) {
+            $(".site-title a").css("color", new_value);
+        });
+    });
+}(jQuery));</code></pre><p>Now, let's add in customizer.php the filter to validate and sanitize our Setting, preferably (for logic) after the code that hooks controls.js</p><pre class="line-numbers language-html"><code>// File customizer.php
+add_filter(
+    'customize_dynamic_setting_args',
+    function( $setting_args, $setting_id ) {
+        if ( 'siteTitleColorSetting' === $setting_id ) {
+            $setting_args = array(
+                'sanitize_callback' =&gt; 'sanitize_hex_color',
+            );
+        }
+        return $setting_args;
+    },
+    10,
+    2
+);</code></pre><p>As you can see, the above function uses the <a href="https://developer.wordpress.org/reference/hooks/customize_dynamic_setting_args/" target="_blank">customize_dynamic_setting_args</a> filter to tell the server to validate/recognize the Setting and to sanitize it.<br>The number 10 is the priority of execution of the function, and the number 2 is the number of arguments the function accepts.<br>More info about <a href="https://developer.wordpress.org/reference/functions/add_filter/" target="_blank">add_filter()</a> in the Code Reference.</p><p>Now, if you go to the Customizer, you'll find the created panel, section, setting and control.<br>If you try to change the site title it will change according to your choice.<br>But if you publish it, nothing will happen on the front end 🤔<br>So, our final step is to render/reflect our choice in the Customizer on the front end.<br>Remember the beginning of this post ?<br>We have loaded and localized main.js for this purpose 😉<br>Open main.js and add the following code</p><pre class="line-numbers language-html"><code>/**
+ * File main.js.
+ *
+ * Handles theme's JS functions.
+ */
+"use strict";
+
+const siteTitleColor = midday_vars.siteTitleColor; // Retriving the passed variable from PHP to JS.
+const siteTitleAnchor = document.querySelector('.site-title a'); // Select the site title anchor.
+if (siteTitleColor) { // If their is any value.
+    siteTitleAnchor.style.color = siteTitleColor; // Add this value as a color to the site title anchor.
+}</code></pre><p>The code is explained and easy to understand, if you have any question don't hesitate !<br></p><p>As a final note, I would like to let you know that I've created the same control with PHP along with the JS one.<br>When we change the site title color with the PHP control (let's say #000) and the JS control (let's say #81d742) and publish our changes, it's the JS control that takes over 💪&nbsp;</p><p>Hope this post will help you begin using the Customizer's JS API instead of it's PHP API 😊</p></div><div id="author-bio"><p>SYA,<br>LebCit.</p></div><nav id="post-navigation"><a href="https://lebcit.github.io/clear-your-local-development-cache-with-js.html" class="prev-post" rel="prev">&larr; Previous (Clear your local development cache with JS)</a></nav><div id="related-posts"><h3>SOME RELATED POSTS</h3><div><section><a href="https://lebcit.github.io/listen-for-changes-in-customizer-preview.html"><img class="img-responsive" src="https://lebcit.github.io/media/posts/9/chiatto-bunny-by-emiliano-vittoriosi.jpg" loading="lazy" height="964" width="640" alt=""></a><h4><a href="https://lebcit.github.io/listen-for-changes-in-customizer-preview.html">Listen for changes in Customizer Preview !</a></h4></section><section><a href="https://lebcit.github.io/hide-wordpress-toolbar-with-wp_add_inline_style.html"><img class="img-responsive" src="https://lebcit.github.io/media/posts/8/little_girl_hidding_face-by-Caleb_Woods.jpg" loading="lazy" height="683" width="1024" alt=""></a><h4><a href="https://lebcit.github.io/hide-wordpress-toolbar-with-wp_add_inline_style.html">Hide WordPress Toolbar with wp_add_inline_style</a></h4></section></div></div></article></main><footer class="footer unit-1"></footer></div></div><script async src="https://lebcit.github.io/assets/js/scripts.js?v=d8709fa0ed7b5cb59eac2a973692919a"></script></body></html>

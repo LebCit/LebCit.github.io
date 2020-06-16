@@ -67,7 +67,7 @@
     {
         "path": "/authors/lebcit/index.html",
         "type": "file",
-        "md5": "fa7f4945b1859c6a6893e34401f36b8b"
+        "md5": "b64056a5728f7aa9eeb72e4e17032812"
     },
     {
         "path": "authors/lebcit/page",
@@ -82,7 +82,7 @@
     {
         "path": "/authors/lebcit/page/2/index.html",
         "type": "file",
-        "md5": "b32f7bbacdf8dd6057872dce7e5c579a"
+        "md5": "4b89bcae0eb5d6d9f7430f831c9391ea"
     },
     {
         "path": "authors/lebcit/page/3",
@@ -92,7 +92,7 @@
     {
         "path": "/authors/lebcit/page/3/index.html",
         "type": "file",
-        "md5": "b142b090a805b9961fcc787864030211"
+        "md5": "c9bc0ae0d9f24514069708f7418ad1fe"
     },
     {
         "path": "back-to-the-roots-with-a-static-site.html",
@@ -117,7 +117,7 @@
     {
         "path": "/copyright/index.html",
         "type": "file",
-        "md5": "24383b4f689509373f11972db1a7f159"
+        "md5": "bf733c5c80a1b993ca74c8b12e11a006"
     },
     {
         "path": "creating-a-customizer-control-with-javascript.html",
@@ -132,7 +132,7 @@
     {
         "path": "/customizer/index.html",
         "type": "file",
-        "md5": "7069ec676dbf40e5800f9c8d88687cc8"
+        "md5": "198142844da4b10ce9c2b7a632c93217"
     },
     {
         "path": "development",
@@ -142,7 +142,7 @@
     {
         "path": "/development/index.html",
         "type": "file",
-        "md5": "2414cec13e75811270c26aa14441c16c"
+        "md5": "4b0b5979ce7cc2de73be8ca296cdc275"
     },
     {
         "path": "development/page",
@@ -157,7 +157,7 @@
     {
         "path": "/development/page/2/index.html",
         "type": "file",
-        "md5": "2e68475b891b56a23f5c9189ce2d5d4c"
+        "md5": "4ab15c4eb4bed4a746fcfe721cd19adf"
     },
     {
         "path": "feed.json",
@@ -167,7 +167,7 @@
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "332a03c5f8faddc7815872b0aeb87b1b"
+        "md5": "9287e089108c0efb61d57c672efe8075"
     },
     {
         "path": "full-screen-morphing-search-plugin.html",
@@ -187,7 +187,7 @@
     {
         "path": "index.html",
         "type": "file",
-        "md5": "dec8f508d1a4230a74c08f0416fc8a36"
+        "md5": "8aedfbdd28dda5da5e7fec7beadcba19"
     },
     {
         "path": "javascript",
@@ -197,7 +197,7 @@
     {
         "path": "/javascript/index.html",
         "type": "file",
-        "md5": "3ee1446a8b8a194fecfb2fba45cb689d"
+        "md5": "2a5841a88b6358cc9834e9119ff1162e"
     },
     {
         "path": "listen-for-changes-in-customizer-preview.html",
@@ -702,7 +702,7 @@
     {
         "path": "/page/2/index.html",
         "type": "file",
-        "md5": "4284943df6536d6d22479610572b1810"
+        "md5": "16d4346bc4ddcd891e7d48c5e6a0e66b"
     },
     {
         "path": "plugin",
@@ -712,7 +712,7 @@
     {
         "path": "/plugin/index.html",
         "type": "file",
-        "md5": "712da683f27aafef6caf452e3ab7b460"
+        "md5": "0fdd40eda46c774daf21e6041b14b1b5"
     },
     {
         "path": "sitemap.xml",
@@ -737,7 +737,7 @@
     {
         "path": "/theme/index.html",
         "type": "file",
-        "md5": "ca0487325a3c4dabde5fb719b97890ad"
+        "md5": "06b1b2e290f2206571ece86658e73707"
     },
     {
         "path": "tips-and-tricks",
@@ -747,7 +747,7 @@
     {
         "path": "/tips-and-tricks/index.html",
         "type": "file",
-        "md5": "d192fdf7fb23f54f163d3202e0865e58"
+        "md5": "314c39cd82d01d3976fce206ec73f15d"
     },
     {
         "path": "tips-and-tricks/page",
@@ -762,7 +762,7 @@
     {
         "path": "/tips-and-tricks/page/2/index.html",
         "type": "file",
-        "md5": "a95ddcd29539c766faa59b1d6be7a18e"
+        "md5": "9ec32d2f65f549de79b993ff9f11f3d0"
     },
     {
         "path": "toolbar",
@@ -772,6 +772,6 @@
     {
         "path": "/toolbar/index.html",
         "type": "file",
-        "md5": "efd8884b53c2b2340038ee20ae37d7bf"
+        "md5": "e351704b70771bb21062481318371c8c"
     }
 ]

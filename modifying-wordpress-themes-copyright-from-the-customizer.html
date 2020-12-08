@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,6 +24,7 @@
 		<script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://lebcit.github.io/modifying-wordpress-themes-copyright-from-the-customizer.html"},"headline":"Modifying WordPress theme's copyright from the Customizer","datePublished":"2020-05-21T22:15","dateModified":"2020-06-12T22:28","image":{"@type":"ImageObject","url":"https://lebcit.github.io/media/posts/7/copyright-under-magnifying-glass.jpg","height":848,"width":1280},"description":" This post is about modifying WordPress theme's copyright from the Customizer. One of the most asked question by new WordPress users is: \"how to change the copyright ?\". They don't want a label of any kind on their site and that's totally comprehensible. In this post, I'll be talking of my own sauce to&hellip;","author":{"@type":"Person","name":"LebCit"},"publisher":{"@type":"Organization","name":"LebCit"}}</script>
 		
 		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8">
+<link rel='manifest' href='/manifest.json'>
 
 	</head>
 	<body>
@@ -197,7 +198,7 @@
 <br>I'm going to take the generated footer by <a href="https://underscores.me/" target="_blank">_s</a> (underscores) as an example for this task.
 <br>Looking inside the <strong>footer.php</strong>, we can see a code like this:
   </p>
-<pre class="line-numbers language-html"><code>&lt;footer id="colophon" class="site-footer"&gt;
+<pre class="line-numbers  language-html"><code>&lt;footer id="colophon" class="site-footer"&gt;
     &lt;div class="site-info"&gt;
         &lt;a href="&lt;?php echo esc_url( __( 'https://wordpress.org/', 'midday' ) ); ?&gt;"&gt;
             &lt;?php
@@ -216,7 +217,7 @@
   <p>
     Here, we are interested with the code inside <code>&lt;div class="site-info"&gt;</code><span style="color: var(--eb-text-primary-color); font-family: var(--font-base); font-size: 1em; font-weight: var(--font-weight-normal);">, so let's cut it, paste it somewhere else (like notepad), and replace it by a php function.&nbsp;</span><br><div class="site-info">The code should now be like the following:</div>
   </p>
-<pre class="line-numbers language-html"><code>&lt;footer id="colophon" class="site-footer"&gt;
+<pre class="line-numbers  language-html"><code>&lt;footer id="colophon" class="site-footer"&gt;
     &lt;div    class="site-info"&gt;
         &lt;?php midday_site_info(); ?&gt;
     &lt;/div&gt;&lt;!-- .site-info --&gt;
@@ -234,7 +235,7 @@
   <p>
     Now we have to connect this&nbsp;<code>midday_site_info()</code>&nbsp;function with the block of code previously pasted elsewhere.<br>In the <a href="https://codex.wordpress.org/Functions_File_Explained" target="_blank">functions.php</a> file of your theme or your child theme, put this code, I'll explain it just after :<br>
   </p>
-<pre class="line-numbers language-html"><code>/**
+<pre class="line-numbers  language-html"><code>/**
  * Output the theme's copyright depending on user's choice.
  */
 function midday_site_info() {
@@ -291,14 +292,14 @@ function midday_site_info() {
     Do you remember the 2 previous variables ? They where related to theme's modifications. It's time to create those <code>theme_mod</code> and test our code.
 <br>To keep the functions.php file clean, we will put the following in a customizer.php file if you don't have one already. Yous just have to require it from functions.php like so :
   </p>
-<pre class="line-numbers language-html"><code>require get_template_directory() . '/inc/customizer.php';  
+<pre class="line-numbers  language-html"><code>require get_template_directory() . '/inc/customizer.php';  
 </code></pre>
 
   <p>
     Please note that in this example the file is in a folder named inc (for includes) at the root of the theme or the child theme, you can change this but be sure to indicate the correct path.
 <br>Now, put the following in customizer.php, let's see the code and explain it later:
   </p>
-<pre class="line-numbers language-html"><code>function midday_customize_register( $wp_customize ) {
+<pre class="line-numbers  language-html"><code>function midday_customize_register( $wp_customize ) {
     /**
      * MidDay Theme Panel
      */
@@ -393,7 +394,7 @@ add_action( 'customize_register', 'midday_customize_register' );</code></pre>
     Don't panic, it's pretty straightforward !
 <br>Let's break it down and you'll see.
   </p>
-<pre class="line-numbers language-html"><code>function mytheme_customize_register( $wp_customize )
+<pre class="line-numbers  language-html"><code>function mytheme_customize_register( $wp_customize )
 {
     //All our sections, settings, and controls will be added here
 }
@@ -405,7 +406,7 @@ add_action( 'customize_register', 'mytheme_customize_register' );</code></pre>
 <br>I'm not going to dive into the Customizer, but if you're not familiar with it, a good start would be this <a href="https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1/" target="_blank">excellent guide</a> by Anthony Hortin.
 <br>Instead, I'm going to explain a more important aspect here. If you take a good look at the code, you'll see something else under each control :
   </p>
-<pre class="line-numbers language-html"><code>$wp_customize-&gt;selective_refresh-&gt;add_partial</code></pre>
+<pre class="line-numbers  language-html"><code>$wp_customize-&gt;selective_refresh-&gt;add_partial</code></pre>
 
   <p>
     What is this and what does it do ?
@@ -413,7 +414,7 @@ add_action( 'customize_register', 'mytheme_customize_register' );</code></pre>
 <br>Just kidding, but in fact it's really clear.
 <br>Let's take one setting it's control and the related selective_refresh:
   </p>
-<pre class="line-numbers language-html"><code>// Default copyright.
+<pre class="line-numbers  language-html"><code>// Default copyright.
 $wp_customize-&gt;add_setting(
     'midday_footer_copyright_area_checkbox',
     array(
@@ -447,7 +448,7 @@ $wp_customize-&gt;selective_refresh-&gt;add_partial(
 <br>The important part here is <code>'transport' =&gt; 'postMessage'</code>, because it tells the browser not to reload, but to make the change(s) in place !
 <br>Another important aspect in the <strong>setting</strong> is <code>'sanitize_callback' =&gt; 'midday_sanitize_checkbox'</code>, this is a function to sanitize the checkbox, you should put it after the <code>'customize_register'</code> action hook:
   </p>
-<pre class="line-numbers language-html"><code>if ( ! function_exists( 'midday_sanitize_checkbox' ) ) {
+<pre class="line-numbers  language-html"><code>if ( ! function_exists( 'midday_sanitize_checkbox' ) ) {
     /**
         * Switch sanitization
         *

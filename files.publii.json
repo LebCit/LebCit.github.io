@@ -2,12 +2,12 @@
     {
         "path": "404.html",
         "type": "file",
-        "md5": "567a8b69aebcc79acf1f708f482e2399"
+        "md5": "96ca8cefde9da33edf0cbb3826ac772f"
     },
     {
         "path": "about.html",
         "type": "file",
-        "md5": "607538cc1df0df88940cdf4581b26392"
+        "md5": "64ef908e570027dee85e1d069d7e3bc7"
     },
     {
         "path": "assets",
@@ -67,7 +67,7 @@
     {
         "path": "/authors/lebcit/index.html",
         "type": "file",
-        "md5": "b64056a5728f7aa9eeb72e4e17032812"
+        "md5": "3f759afeef1cdbed678a2c6f700d7035"
     },
     {
         "path": "authors/lebcit/page",
@@ -82,7 +82,7 @@
     {
         "path": "/authors/lebcit/page/2/index.html",
         "type": "file",
-        "md5": "4b89bcae0eb5d6d9f7430f831c9391ea"
+        "md5": "c2a2f2b66366030e3e4fd1f95b8fe37f"
     },
     {
         "path": "authors/lebcit/page/3",
@@ -92,22 +92,22 @@
     {
         "path": "/authors/lebcit/page/3/index.html",
         "type": "file",
-        "md5": "c9bc0ae0d9f24514069708f7418ad1fe"
+        "md5": "7f7ec29c8923e3bd7cccd90eef48360e"
     },
     {
         "path": "back-to-the-roots-with-a-static-site.html",
         "type": "file",
-        "md5": "0b70768154500820db104b93990b84af"
+        "md5": "456b2d903475e924086b0fbe02a90cb0"
     },
     {
         "path": "change-page-title-dynamically.html",
         "type": "file",
-        "md5": "628588406c97b99729965d9e7e240e34"
+        "md5": "c1d4f0bb265954422591fe9710122dc1"
     },
     {
         "path": "clear-your-local-development-cache-with-js.html",
         "type": "file",
-        "md5": "ba8cabda9ee6b6d2153b10518c58968c"
+        "md5": "bb9ea70f040727bb16034ed5ec4269da"
     },
     {
         "path": "copyright",
@@ -117,12 +117,12 @@
     {
         "path": "/copyright/index.html",
         "type": "file",
-        "md5": "bf733c5c80a1b993ca74c8b12e11a006"
+        "md5": "70d6946b2f58e32ae43f3e0e66d02b2c"
     },
     {
         "path": "creating-a-customizer-control-with-javascript.html",
         "type": "file",
-        "md5": "7b81065bb375169ddc3250ac1b7af83f"
+        "md5": "4c323bb3162cdfb5e438a371c8b6c8ce"
     },
     {
         "path": "customizer",
@@ -132,7 +132,7 @@
     {
         "path": "/customizer/index.html",
         "type": "file",
-        "md5": "198142844da4b10ce9c2b7a632c93217"
+        "md5": "f925f9472607b4b3ace968b116b557c2"
     },
     {
         "path": "development",
@@ -142,7 +142,7 @@
     {
         "path": "/development/index.html",
         "type": "file",
-        "md5": "4b0b5979ce7cc2de73be8ca296cdc275"
+        "md5": "09c21ed28d2c6c35b961bd0a4a953919"
     },
     {
         "path": "development/page",
@@ -157,37 +157,37 @@
     {
         "path": "/development/page/2/index.html",
         "type": "file",
-        "md5": "4ab15c4eb4bed4a746fcfe721cd19adf"
+        "md5": "1c274586b0933ca064c6da7a848dd310"
     },
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "ab279676b05464158e0863eec3e0f627"
+        "md5": "18da94e57fcdf6de7e005ebd7494cb79"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "9287e089108c0efb61d57c672efe8075"
+        "md5": "07090fe2bd31202661c4f5d976376614"
     },
     {
         "path": "full-screen-morphing-search-plugin.html",
         "type": "file",
-        "md5": "aa085e1a3bf23fc6c03297c7b4167dc4"
+        "md5": "f1a6078dfe7c62f6167e9297adf23f97"
     },
     {
         "path": "get-google-products-on-desktop-with-thunderbird.html",
         "type": "file",
-        "md5": "699436d4ada42fb7c6c4ab0a20234497"
+        "md5": "d363b24dcc600f5ec4c49a40596fd8e2"
     },
     {
         "path": "hide-wordpress-toolbar-with-wp_add_inline_style.html",
         "type": "file",
-        "md5": "021d1e3a43fe768c6e00f45c2798c51f"
+        "md5": "60f91c758e8c61023bfbb80912de81c0"
     },
     {
         "path": "index.html",
         "type": "file",
-        "md5": "8aedfbdd28dda5da5e7fec7beadcba19"
+        "md5": "401e3c2201b6ff896b8a61a7cc3c2ede"
     },
     {
         "path": "javascript",
@@ -197,12 +197,12 @@
     {
         "path": "/javascript/index.html",
         "type": "file",
-        "md5": "2a5841a88b6358cc9834e9119ff1162e"
+        "md5": "4e4fe0d541937d22b93847db5c69727e"
     },
     {
         "path": "listen-for-changes-in-customizer-preview.html",
         "type": "file",
-        "md5": "b9e1747411254f32d54f8a6c1f67b77d"
+        "md5": "644b1376aec63e203f77a2ca593502e3"
     },
     {
         "path": "media",
@@ -687,7 +687,7 @@
     {
         "path": "modifying-wordpress-themes-copyright-from-the-customizer.html",
         "type": "file",
-        "md5": "9ea6acef23eb9dbb953f0c6c0a24da5a"
+        "md5": "b18e5d50e391a4aa163581746beed33f"
     },
     {
         "path": "page",
@@ -702,7 +702,7 @@
     {
         "path": "/page/2/index.html",
         "type": "file",
-        "md5": "16d4346bc4ddcd891e7d48c5e6a0e66b"
+        "md5": "dec3f4dcf42d67986a32f8529cc2902f"
     },
     {
         "path": "plugin",
@@ -712,7 +712,7 @@
     {
         "path": "/plugin/index.html",
         "type": "file",
-        "md5": "0fdd40eda46c774daf21e6041b14b1b5"
+        "md5": "42cd4f8375ad228d11c04c4755579417"
     },
     {
         "path": "sitemap.xml",
@@ -727,7 +727,7 @@
     {
         "path": "the-clean-blog-wordpress-theme.html",
         "type": "file",
-        "md5": "100f75ecb352f6e79bbf7b0f34ce8f69"
+        "md5": "08d572d93f0c41ba09a23e5884d43f4e"
     },
     {
         "path": "theme",
@@ -737,7 +737,7 @@
     {
         "path": "/theme/index.html",
         "type": "file",
-        "md5": "06b1b2e290f2206571ece86658e73707"
+        "md5": "acf4fe7e83dfd329211d86d8c7fd55c0"
     },
     {
         "path": "tips-and-tricks",
@@ -747,7 +747,7 @@
     {
         "path": "/tips-and-tricks/index.html",
         "type": "file",
-        "md5": "314c39cd82d01d3976fce206ec73f15d"
+        "md5": "8c777c85800ccbcb61570c80c1de09ca"
     },
     {
         "path": "tips-and-tricks/page",
@@ -762,7 +762,7 @@
     {
         "path": "/tips-and-tricks/page/2/index.html",
         "type": "file",
-        "md5": "9ec32d2f65f549de79b993ff9f11f3d0"
+        "md5": "2ff09f1aa9b7aa0e7dcee6b410d5a7f9"
     },
     {
         "path": "toolbar",
@@ -772,6 +772,6 @@
     {
         "path": "/toolbar/index.html",
         "type": "file",
-        "md5": "e351704b70771bb21062481318371c8c"
+        "md5": "944ac567901f09123408354a5dc2bdcc"
     }
 ]

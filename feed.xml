@@ -3,7 +3,7 @@
     <title>{ LebCit }</title>
     <link href="https://lebcit.github.io/feed.xml" rel="self" />
     <link href="https://lebcit.github.io" />
-    <updated>2020-06-16T06:53:50+03:00</updated>
+    <updated>1970-01-01T02:00:00+02:00</updated>
     <author>
         <name>LebCit</name>
     </author>
@@ -20,17 +20,229 @@
             <category term="Development"/>
             <category term="Customizer"/>
 
-        <updated>2020-06-15T08:33:47+03:00</updated>
+        <updated>2020-12-08T05:57:18+02:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://lebcit.github.io/media/posts/12/screenshot-creating-a-customizer-control-with-javascript.png" alt="" />
-                    [{"id":1555941466744,"type":"publii-paragraph","content":"This post is about creating a control, from A to Z, in WordPress Customizer with JavaScript.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592030062353,"type":"publii-paragraph","content":"Did you know that you can create panels, sections and controls in the Customizer with JavaScript ?\n \"The PHP API for their registration is essentially a wrapper for the underlying JS API\" as mentioned by Weston Ruter in Improvements to&hellip;
+                     This post is about creating a control, from A to Z, in WordPress Customizer with JavaScript. Did you know that you can create panels, sections and controls in the Customizer with JavaScript ? "The PHP API for their registration is essentially a wrapper for the underlying JS API" as mentioned by Weston Ruter in&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <img src="https://lebcit.github.io/media/posts/12/screenshot-creating-a-customizer-control-with-javascript.png" alt="" />
-                [{"id":1555941466744,"type":"publii-paragraph","content":"<em>This post is about creating a control, from A to Z, in WordPress Customizer with JavaScript.</em>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592030062353,"type":"publii-paragraph","content":"Did you know that you can create panels, sections and controls in the Customizer with JavaScript ?\n<br>\"The PHP API for their registration is essentially a wrapper for the underlying JS API\" as mentioned by Weston Ruter in <a href=\"https://wp.me/p2AvED-6c4\" target=\"_blank\">Improvements to the Customize JS API in 4.9</a>&nbsp;","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://wp.me/p2AvED-6c4","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1592030096901,"type":"publii-paragraph","content":"He also says \"you can also avoid statically registering settings and partials in PHP by instead adding filters to dynamically recognize settings and partials, allowing them to be registered on demand\", meaning that you can create settings and partials in JS but will have to register them in PHP via a filter because they must be sanitized and validated by the server for security reasons !","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592030107501,"type":"publii-paragraph","content":"For this task, we need to :\n<br>- access the Customizer Pane to create a Panel, a Section, a Setting and a Control with JS\n<br>- access the Customizer Preview to define the related Partial of the Control with JS\n<br>- add a filter to validate and sanitize the Setting with PHP\n<br>For more information about how things are related in the Customizer, please read my post \"<a href=\"https://lebcit.github.io/listen-for-changes-in-customizer-preview.html\">Listen for changes in Customizer Preview !</a>\"","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://lebcit.github.io/listen-for-changes-in-customizer-preview.html","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false,"download":false}}},{"id":1592030159734,"type":"publii-paragraph","content":"I'll explain it as if the reader is a beginner so she/he can understand and follow along.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592030167038,"type":"publii-paragraph","content":"My tree looks like this:","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592030177408,"type":"publii-code","content":"- theme ( main folder)\n-- inc (folder)\n--- customizer.php\n-- js (folder)\n--- controls.js\n--- customizer.js\n--- main.js\n-- functions.php","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1592030183040,"type":"publii-paragraph","content":"The functions.php file is used to :\n<br>- enqueue and localize main.js where we will render on the front end our choice(s) from the Customizer\n<br>- require the customizer.php file where we hook controls.js (for Customizer Pane) and customizer.js (for Customizer Preview)\n<br>We can of course hook controls.js and customizer.js from functions.php but it's better to keep things separated.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592030207506,"type":"publii-code","content":"// File functions.php\n/**\n * Load and localize main.js.\n */\nfunction main_js() {\n    wp_enqueue_script( 'main-js', get_theme_file_uri( '/js/main.js' ), array(), '1.0', true );\n    // Localize the script with new data and pass php variables to JS.\n    $main_js_data = array(\n        /** FOR LATER USE. */\n        'siteTitleColor' => get_theme_mod('siteTitleColorSetting', '#fff'),\n    );\n    wp_localize_script( 'main-js', 'main_vars', $main_js_data );\n}\nadd_action( 'wp_enqueue_scripts', 'main_js' );\n\n/**\n * Customizer additions.\n */\nrequire get_template_directory() . '/inc/customizer.php';","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1592030227294,"type":"publii-code","content":"// File customizer.php\n/**\n * Hooking in JS code to affect the controls in the Customizer.\n */\nfunction midday_customize_controls_js() {\n    wp_enqueue_script( 'midday-controls', get_template_directory_uri() . '/js/controls.js', array( 'customize-controls' ), filemtime( get_theme_file_path( '/js/controls.js' ) ), true );\n}\nadd_action( 'customize_controls_enqueue_scripts', 'midday_customize_controls_js' );\n\n/**\n * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.\n */\nfunction midday_customize_preview_js() {\n    wp_enqueue_script( 'midday-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );\n}\nadd_action( 'customize_preview_init', 'midday_customize_preview_js' );","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1592030230687,"type":"publii-paragraph","content":"If you don't know what is <a href=\"https://developer.wordpress.org/reference/functions/wp_localize_script/\" target=\"_blank\">wp_localize_script()</a>, think of it as a bridge between PHP and JS where we can pass variables from PHP to JS.\n<br>Just to let you know, there is also another function <a href=\"https://developer.wordpress.org/reference/functions/wp_add_inline_script/\" target=\"_blank\">wp_add_inline_script()</a> to add JS code to a registered JS file.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://developer.wordpress.org/reference/functions/wp_add_inline_script/","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1592030290001,"type":"publii-paragraph","content":"Now that we are all set, let's create a Panel, a Section, a Setting and a Control in controls.js to change the site title color.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592030305506,"type":"publii-code","content":"/**\n * File controls.js\n *\n * Access Theme Customizer Controls for a better user experience.\n */\n(function (api) {\n    api.bind('ready', function () {\n        // Create panel.\n    api.panel.add(\n        new api.Panel('myPanel', {\n        title: 'Theme Options',\n                description: 'Customize Theme',\n                priority: 5 // Optional default is 160.\n        })\n    );\n        // Site Title Color Section.\n        api.section.add(\n            new api.Section('siteTitleColorSection', {\n                title: 'Site Title Color Section',\n                panel: 'myPanel',\n                customizeAction: 'Customizing ▸ Site Title Color', // String above title's Section.\n                priority: 5 // The order of this section in the panel.\n            })\n        );\n        // Site Title Color Setting.\n        api.add(\n            new api.Setting('siteTitleColorSetting', '#fff', {\n                transport: 'postMessage'\n            })\n        );\n        // Site Title Color Control.\n        api.control.add(\n        new wp.customize.ColorControl('siteTitleColorControl', {\n                section: 'siteTitleColorSection',\n                label : 'Site Title Color Control',\n        setting: 'siteTitleColorSetting',\n                priority: 5 // The order of this control in the section.\n        })\n    );\n    });\n}) (wp.customize);","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1592030308315,"type":"publii-paragraph","content":"Please note that the pattern for the Setting is different from the others !\n<br>For the Setting, we type <code>api.add(setting)</code> and define in the <code>setting</code> an <code>id</code>, a <code>defaultValue</code>, then we pass the desired call type (here we are using <code>postMessage</code>).","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592030362978,"type":"publii-paragraph","content":"Now, let's access the Customizer Preview in customizer.js and define how the Setting joins the Control to the Partial.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592030375995,"type":"publii-code","content":"/**\n * File customizer.js.\n *\n * Theme Customizer enhancements for a better user experience.\n *\n * Contains handlers to make Theme Customizer preview reload changes asynchronously.\n */\n\n(function ($) {\n    // Site Title Color.\n    wp.customize(\"siteTitleColorSetting\", function (value) {\n        value.bind(function (new_value) {\n            $(\".site-title a\").css(\"color\", new_value);\n        });\n    });\n}(jQuery));","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1592030380627,"type":"publii-paragraph","content":"Now, let's add in customizer.php the filter to validate and sanitize our Setting, preferably (for logic) after the code that hooks controls.js","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592030399742,"type":"publii-code","content":"// File customizer.php\nadd_filter(\n    'customize_dynamic_setting_args',\n    function( $setting_args, $setting_id ) {\n        if ( 'siteTitleColorSetting' === $setting_id ) {\n            $setting_args = array(\n                'sanitize_callback' => 'sanitize_hex_color',\n            );\n        }\n        return $setting_args;\n    },\n    10,\n    2\n);","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1592030402142,"type":"publii-paragraph","content":"As you can see, the above function uses the <a href=\"https://developer.wordpress.org/reference/hooks/customize_dynamic_setting_args/\" target=\"_blank\">customize_dynamic_setting_args</a> filter to tell the server to validate/recognize the Setting and to sanitize it.\n<br>The number 10 is the priority of execution of the function, and the number 2 is the number of arguments the function accepts.\n<br>More info about <a href=\"https://developer.wordpress.org/reference/functions/add_filter/\" target=\"_blank\">add_filter()</a> in the Code Reference.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://developer.wordpress.org/reference/functions/add_filter/","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1592030462822,"type":"publii-paragraph","content":"Now, if you go to the Customizer, you'll find the created panel, section, setting and control.\n<br>If you try to change the site title it will change according to your choice.\n<br>But if you publish it, nothing will happen on the front end 🤔\n<br>So, our final step is to render/reflect our choice in the Customizer on the front end.\n<br>Remember the beginning of this post ?\n<br>We have loaded and localized main.js for this purpose 😉\n<br>Open main.js and add the following code","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592030477815,"type":"publii-code","content":"/**\n * File main.js.\n *\n * Handles theme's JS functions.\n */\n\"use strict\";\n\nconst siteTitleColor = midday_vars.siteTitleColor; // Retriving the passed variable from PHP to JS.\nconst siteTitleAnchor = document.querySelector('.site-title a'); // Select the site title anchor.\nif (siteTitleColor) { // If their is any value.\n    siteTitleAnchor.style.color = siteTitleColor; // Add this value as a color to the site title anchor.\n}","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1592030480144,"type":"publii-paragraph","content":"The code is explained and easy to understand, if you have any question don't hesitate !<br>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592030515956,"type":"publii-paragraph","content":"As a final note, I would like to let you know that I've created the same control with PHP along with the JS one. \n<br>When we change the site title color with the PHP control (let's say #000) and the JS control (let's say #81d742) and publish our changes, it's the JS control that takes over 💪&nbsp;","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592030524942,"type":"publii-paragraph","content":"Hope this post will help you begin using the Customizer's JS API instead of it's PHP API 😊","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}}]
+                
+  <p>
+    <em>This post is about creating a control, from A to Z, in WordPress Customizer with JavaScript.</em>
+  </p>
+
+  <p>
+    Did you know that you can create panels, sections and controls in the Customizer with JavaScript ?
+<br>"The PHP API for their registration is essentially a wrapper for the underlying JS API" as mentioned by Weston Ruter in <a href="https://wp.me/p2AvED-6c4" target="_blank">Improvements to the Customize JS API in 4.9</a>&nbsp;
+  </p>
+
+  <p>
+    He also says "you can also avoid statically registering settings and partials in PHP by instead adding filters to dynamically recognize settings and partials, allowing them to be registered on demand", meaning that you can create settings and partials in JS but will have to register them in PHP via a filter because they must be sanitized and validated by the server for security reasons !
+  </p>
+
+  <p>
+    For this task, we need to :
+<br>- access the Customizer Pane to create a Panel, a Section, a Setting and a Control with JS
+<br>- access the Customizer Preview to define the related Partial of the Control with JS
+<br>- add a filter to validate and sanitize the Setting with PHP
+<br>For more information about how things are related in the Customizer, please read my post "<a href="https://lebcit.github.io/listen-for-changes-in-customizer-preview.html">Listen for changes in Customizer Preview !</a>"
+  </p>
+
+  <p>
+    I'll explain it as if the reader is a beginner so she/he can understand and follow along.
+  </p>
+
+  <p>
+    My tree looks like this:
+  </p>
+<pre class="line-numbers  language-html"><code>- theme ( main folder)
+-- inc (folder)
+--- customizer.php
+-- js (folder)
+--- controls.js
+--- customizer.js
+--- main.js
+-- functions.php</code></pre>
+
+  <p>
+    The functions.php file is used to :
+<br>- enqueue and localize main.js where we will render on the front end our choice(s) from the Customizer
+<br>- require the customizer.php file where we hook controls.js (for Customizer Pane) and customizer.js (for Customizer Preview)
+<br>We can of course hook controls.js and customizer.js from functions.php but it's better to keep things separated.
+  </p>
+<pre class="line-numbers  language-html"><code>// File functions.php
+/**
+ * Load and localize main.js.
+ */
+function main_js() {
+    wp_enqueue_script( 'main-js', get_theme_file_uri( '/js/main.js' ), array(), '1.0', true );
+    // Localize the script with new data and pass php variables to JS.
+    $main_js_data = array(
+        /** FOR LATER USE. */
+        'siteTitleColor' =&gt; get_theme_mod('siteTitleColorSetting', '#fff'),
+    );
+    wp_localize_script( 'main-js', 'main_vars', $main_js_data );
+}
+add_action( 'wp_enqueue_scripts', 'main_js' );
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer.php';</code></pre>
+<pre class="line-numbers  language-html"><code>// File customizer.php
+/**
+ * Hooking in JS code to affect the controls in the Customizer.
+ */
+function midday_customize_controls_js() {
+    wp_enqueue_script( 'midday-controls', get_template_directory_uri() . '/js/controls.js', array( 'customize-controls' ), filemtime( get_theme_file_path( '/js/controls.js' ) ), true );
+}
+add_action( 'customize_controls_enqueue_scripts', 'midday_customize_controls_js' );
+
+/**
+ * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
+ */
+function midday_customize_preview_js() {
+    wp_enqueue_script( 'midday-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+}
+add_action( 'customize_preview_init', 'midday_customize_preview_js' );</code></pre>
+
+  <p>
+    If you don't know what is <a href="https://developer.wordpress.org/reference/functions/wp_localize_script/" target="_blank">wp_localize_script()</a>, think of it as a bridge between PHP and JS where we can pass variables from PHP to JS.
+<br>Just to let you know, there is also another function <a href="https://developer.wordpress.org/reference/functions/wp_add_inline_script/" target="_blank">wp_add_inline_script()</a> to add JS code to a registered JS file.
+  </p>
+
+  <p>
+    Now that we are all set, let's create a Panel, a Section, a Setting and a Control in controls.js to change the site title color.
+  </p>
+<pre class="line-numbers  language-html"><code>/**
+ * File controls.js
+ *
+ * Access Theme Customizer Controls for a better user experience.
+ */
+(function (api) {
+    api.bind('ready', function () {
+        // Create panel.
+    api.panel.add(
+        new api.Panel('myPanel', {
+        title: 'Theme Options',
+                description: 'Customize Theme',
+                priority: 5 // Optional default is 160.
+        })
+    );
+        // Site Title Color Section.
+        api.section.add(
+            new api.Section('siteTitleColorSection', {
+                title: 'Site Title Color Section',
+                panel: 'myPanel',
+                customizeAction: 'Customizing ▸ Site Title Color', // String above title's Section.
+                priority: 5 // The order of this section in the panel.
+            })
+        );
+        // Site Title Color Setting.
+        api.add(
+            new api.Setting('siteTitleColorSetting', '#fff', {
+                transport: 'postMessage'
+            })
+        );
+        // Site Title Color Control.
+        api.control.add(
+        new wp.customize.ColorControl('siteTitleColorControl', {
+                section: 'siteTitleColorSection',
+                label : 'Site Title Color Control',
+        setting: 'siteTitleColorSetting',
+                priority: 5 // The order of this control in the section.
+        })
+    );
+    });
+}) (wp.customize);</code></pre>
+
+  <p>
+    Please note that the pattern for the Setting is different from the others !
+<br>For the Setting, we type <code>api.add(setting)</code> and define in the <code>setting</code> an <code>id</code>, a <code>defaultValue</code>, then we pass the desired call type (here we are using <code>postMessage</code>).
+  </p>
+
+  <p>
+    Now, let's access the Customizer Preview in customizer.js and define how the Setting joins the Control to the Partial.
+  </p>
+<pre class="line-numbers  language-html"><code>/**
+ * File customizer.js.
+ *
+ * Theme Customizer enhancements for a better user experience.
+ *
+ * Contains handlers to make Theme Customizer preview reload changes asynchronously.
+ */
+
+(function ($) {
+    // Site Title Color.
+    wp.customize("siteTitleColorSetting", function (value) {
+        value.bind(function (new_value) {
+            $(".site-title a").css("color", new_value);
+        });
+    });
+}(jQuery));</code></pre>
+
+  <p>
+    Now, let's add in customizer.php the filter to validate and sanitize our Setting, preferably (for logic) after the code that hooks controls.js
+  </p>
+<pre class="line-numbers  language-html"><code>// File customizer.php
+add_filter(
+    'customize_dynamic_setting_args',
+    function( $setting_args, $setting_id ) {
+        if ( 'siteTitleColorSetting' === $setting_id ) {
+            $setting_args = array(
+                'sanitize_callback' =&gt; 'sanitize_hex_color',
+            );
+        }
+        return $setting_args;
+    },
+    10,
+    2
+);</code></pre>
+
+  <p>
+    As you can see, the above function uses the <a href="https://developer.wordpress.org/reference/hooks/customize_dynamic_setting_args/" target="_blank">customize_dynamic_setting_args</a> filter to tell the server to validate/recognize the Setting and to sanitize it.
+<br>The number 10 is the priority of execution of the function, and the number 2 is the number of arguments the function accepts.
+<br>More info about <a href="https://developer.wordpress.org/reference/functions/add_filter/" target="_blank">add_filter()</a> in the Code Reference.
+  </p>
+
+  <p>
+    Now, if you go to the Customizer, you'll find the created panel, section, setting and control.
+<br>If you try to change the site title it will change according to your choice.
+<br>But if you publish it, nothing will happen on the front end 🤔
+<br>So, our final step is to render/reflect our choice in the Customizer on the front end.
+<br>Remember the beginning of this post ?
+<br>We have loaded and localized main.js for this purpose 😉
+<br>Open main.js and add the following code
+  </p>
+<pre class="line-numbers  language-html"><code>/**
+ * File main.js.
+ *
+ * Handles theme's JS functions.
+ */
+"use strict";
+
+const siteTitleColor = midday_vars.siteTitleColor; // Retriving the passed variable from PHP to JS.
+const siteTitleAnchor = document.querySelector('.site-title a'); // Select the site title anchor.
+if (siteTitleColor) { // If their is any value.
+    siteTitleAnchor.style.color = siteTitleColor; // Add this value as a color to the site title anchor.
+}</code></pre>
+
+  <p>
+    The code is explained and easy to understand, if you have any question don't hesitate !<br>
+  </p>
+
+  <p>
+    As a final note, I would like to let you know that I've created the same control with PHP along with the JS one. 
+<br>When we change the site title color with the PHP control (let's say #000) and the JS control (let's say #81d742) and publish our changes, it's the JS control that takes over 💪&nbsp;
+  </p>
+
+  <p>
+    Hope this post will help you begin using the Customizer's JS API instead of it's PHP API 😊
+  </p>
             ]]>
         </content>
     </entry>
@@ -44,17 +256,73 @@
             <category term="Tips &amp; Tricks"/>
             <category term="JavaScript"/>
 
-        <updated>2020-06-13T09:42:35+03:00</updated>
+        <updated>2020-12-08T05:57:18+02:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://lebcit.github.io/media/posts/11/memories-jon-tyson.jpg" alt="" />
-                    [{"id":1555941466744,"type":"publii-paragraph","content":"This post is about clearing your local development cache with JavaScript without a server side language.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592029396009,"type":"publii-paragraph","content":"When we use a server side language to get our changes this is what happens :\n 1- the Request is made by the browser to the server\n 2- the Response is sent from the server to the browser\n In this&hellip;
+                     This post is about clearing your local development cache with JavaScript without a server side language. When we use a server side language to get our changes this is what happens : 1- the Request is made by the browser to the server 2- the Response is sent from the server to the browser&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <img src="https://lebcit.github.io/media/posts/11/memories-jon-tyson.jpg" alt="" />
-                [{"id":1555941466744,"type":"publii-paragraph","content":"<em>This post is about clearing your local development cache with JavaScript without a server side language.</em>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592029396009,"type":"publii-paragraph","content":"When we use a server side language to get our changes this is what happens :\n<br>1- the Request is made by the browser to the server\n<br>2- the Response is sent from the server to the browser\n<br>In this case, if any changes are made within the files, the server will serve the browser with those changes.\n<br>But, what if you're not using a server side language for your local development ?!","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592029330540,"type":"publii-paragraph","content":"If you're locally developing a website on the Classic Road (HTML + CSS + JS) without a plugin in your IDE to synchronize your changes, <strong>and have some generated cache</strong>, you'll have to refresh your page twice and sometimes more to see the changes you've just made even if you're using a local server as Laragon, WAMP, MAMP, XAMPP...<br>Did you ever asked yourself how much time you're spending on refreshing twice ?!\n<br>This is a time killer, it's very annoying, and you're productivity will be affected !<br>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592029486733,"type":"publii-paragraph","content":"The solution would be to <strong>clear the cache</strong> when we refresh the page, you would say \"use Ctrl + F5 !\" and I would respond \"go try it with your generated cache !\".","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592029497237,"type":"publii-paragraph","content":"To clear the cache when we hit the refresh button :\n<br>1- we'll have to access the <code>loading state</code> of the document <em>without waiting</em> for stylesheets, images...\n<br>2- we'll have to <code>open</code> the cache and access the particular cache causing headaches\n<br>3- we'll have to <code>delete</code> this particular cache !","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592029557029,"type":"publii-code","content":"if (document.readyState === 'loading') {  // Loading hasn't finished yet\ndocument.addEventListener('DOMContentLoaded', function () {\n    console.log('loading...');\n    caches.open('cacheNameCausingHeadaches').then(function (cache) {\n        cache.delete(document.URL).then(function () {\n            console.log('deleted');\n        });\n    });\n});\n}","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1592029559518,"type":"publii-paragraph","content":"Paste this code at the end of your scripts before the closing body tag and refresh your page twice for the last time !","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592029568246,"type":"publii-paragraph","content":"To get the <code>cacheNameCausingHeadeaches</code> :","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592029583168,"type":"publii-code","content":"  caches.keys().then(function(keyList) {\n    console.log('keyList');\n});","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1592029591257,"type":"publii-paragraph","content":"I'm here to share and learn 😊 so if you have a better way without an IDE plugin for a static site with some cache please let me know because I like to refresh and see the difference 😉","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592029600114,"type":"publii-paragraph","content":"Hope this will be useful.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}}]
+                
+  <p>
+    <em>This post is about clearing your local development cache with JavaScript without a server side language.</em>
+  </p>
+
+  <p>
+    When we use a server side language to get our changes this is what happens :
+<br>1- the Request is made by the browser to the server
+<br>2- the Response is sent from the server to the browser
+<br>In this case, if any changes are made within the files, the server will serve the browser with those changes.
+<br>But, what if you're not using a server side language for your local development ?!
+  </p>
+
+  <p>
+    If you're locally developing a website on the Classic Road (HTML + CSS + JS) without a plugin in your IDE to synchronize your changes, <strong>and have some generated cache</strong>, you'll have to refresh your page twice and sometimes more to see the changes you've just made even if you're using a local server as Laragon, WAMP, MAMP, XAMPP...<br>Did you ever asked yourself how much time you're spending on refreshing twice ?!
+<br>This is a time killer, it's very annoying, and you're productivity will be affected !<br>
+  </p>
+
+  <p>
+    The solution would be to <strong>clear the cache</strong> when we refresh the page, you would say "use Ctrl + F5 !" and I would respond "go try it with your generated cache !".
+  </p>
+
+  <p>
+    To clear the cache when we hit the refresh button :
+<br>1- we'll have to access the <code>loading state</code> of the document <em>without waiting</em> for stylesheets, images...
+<br>2- we'll have to <code>open</code> the cache and access the particular cache causing headaches
+<br>3- we'll have to <code>delete</code> this particular cache !
+  </p>
+<pre class="line-numbers  language-html"><code>if (document.readyState === 'loading') {  // Loading hasn't finished yet
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('loading...');
+    caches.open('cacheNameCausingHeadaches').then(function (cache) {
+        cache.delete(document.URL).then(function () {
+            console.log('deleted');
+        });
+    });
+});
+}</code></pre>
+
+  <p>
+    Paste this code at the end of your scripts before the closing body tag and refresh your page twice for the last time !
+  </p>
+
+  <p>
+    To get the <code>cacheNameCausingHeadeaches</code> :
+  </p>
+<pre class="line-numbers  language-html"><code>  caches.keys().then(function(keyList) {
+    console.log('keyList');
+});</code></pre>
+
+  <p>
+    I'm here to share and learn 😊 so if you have a better way without an IDE plugin for a static site with some cache please let me know because I like to refresh and see the difference 😉
+  </p>
+
+  <p>
+    Hope this will be useful.
+  </p>
             ]]>
         </content>
     </entry>
@@ -68,15 +336,55 @@
             <category term="Tips &amp; Tricks"/>
             <category term="JavaScript"/>
 
-        <updated>2020-06-13T09:18:34+03:00</updated>
+        <updated>2020-12-08T05:57:18+02:00</updated>
             <summary>
                 <![CDATA[
-                    [{"id":1555941466744,"type":"publii-paragraph","content":"This post is about changing the document title when the user leaves your site's tab.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592028828065,"type":"publii-paragraph","content":"A good way to grab the the user's attention is of course to write useful content 😁\n Being funny is also a very good strategy to keep users coming back to your blog.\n A little bit of originality won't harm at&hellip;
+                     This post is about changing the document title when the user leaves your site's tab. A good way to grab the the user's attention is of course to write useful content 😁 Being funny is also a very good strategy to keep users coming back to your blog. A little bit of originality won't&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                [{"id":1555941466744,"type":"publii-paragraph","content":"<em>This post is about changing the document title when the user leaves your site's tab.</em>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592028828065,"type":"publii-paragraph","content":"A good way to grab the the user's attention is of course to write useful content 😁\n<br>Being funny is also a very good strategy to keep users coming back to your blog.\n<br>A little bit of originality won't harm at all !","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592028841537,"type":"publii-paragraph","content":"We are going to use the <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API\" target=\"_blank\">Page Visibility API</a> to detect if the user is on your site's tab or on another tab, and change your site's tab title using the <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Document/title\" target=\"_blank\">Document.title</a> property and an awesome french song title 😉","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://developer.mozilla.org/en-US/docs/Web/API/Document/title","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1592028886416,"type":"publii-code","content":"// Grab the document title of your site's current tab.\nlet currentTabTitle = document.title;\n// Listen to visibility change events\ndocument.addEventListener('visibilitychange', function () {\n    // Fires when user leaves your site's tab.\n    document.visibilityState === \"hidden\"\n    // Document title when user leaves your site's tab.\n    ? (document.title = `Ne Me Quitte Pas 😭`)\n    // Document title when user comes back to your site's tab.\n    : (document.title = currentTabTitle);\n});","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1592028936831,"type":"publii-paragraph","content":"This <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator\" target=\"_blank\">Conditional (ternary) operator</a> is like an <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else\" target=\"_blank\">if...else statement</a>&nbsp;","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1592028984853,"type":"publii-paragraph","content":"<strong>Important note</strong>: since the first change will occur when the user leaves your site's tab, we begin by listening to the hidden state (when the page's content is not visible to the user) and we change your tab title to whatever... Once the user gets back to your site's tab, the original tab title will be reassigned since we've grab it earlier.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592029009656,"type":"publii-paragraph","content":"You can see it wright here, change to another tab or open a new one 😉","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592029012000,"type":"publii-paragraph","content":"Don't forget to check out <a href=\"https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwj3_aeeltHpAhUOaBoKHXsKAEQQwqsBMAR6BAgJEA4&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DE7zgNye6HTE&amp;usg=AOvVaw1SFgT4HxCmo1YAr9uEHXDi\" target=\"_blank\">the song</a> 🎶&nbsp;","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj3_aeeltHpAhUOaBoKHXsKAEQQwqsBMAR6BAgJEA4&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DE7zgNye6HTE&usg=AOvVaw1SFgT4HxCmo1YAr9uEHXDi","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}}]
+                
+  <p>
+    <em>This post is about changing the document title when the user leaves your site's tab.</em>
+  </p>
+
+  <p>
+    A good way to grab the the user's attention is of course to write useful content 😁
+<br>Being funny is also a very good strategy to keep users coming back to your blog.
+<br>A little bit of originality won't harm at all !
+  </p>
+
+  <p>
+    We are going to use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API" target="_blank">Page Visibility API</a> to detect if the user is on your site's tab or on another tab, and change your site's tab title using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/title" target="_blank">Document.title</a> property and an awesome french song title 😉
+  </p>
+<pre class="line-numbers  language-html"><code>// Grab the document title of your site's current tab.
+let currentTabTitle = document.title;
+// Listen to visibility change events
+document.addEventListener('visibilitychange', function () {
+    // Fires when user leaves your site's tab.
+    document.visibilityState === "hidden"
+    // Document title when user leaves your site's tab.
+    ? (document.title = `Ne Me Quitte Pas 😭`)
+    // Document title when user comes back to your site's tab.
+    : (document.title = currentTabTitle);
+});</code></pre>
+
+  <p>
+    This <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator" target="_blank">Conditional (ternary) operator</a> is like an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else" target="_blank">if...else statement</a>&nbsp;
+  </p>
+
+  <p>
+    <strong>Important note</strong>: since the first change will occur when the user leaves your site's tab, we begin by listening to the hidden state (when the page's content is not visible to the user) and we change your tab title to whatever... Once the user gets back to your site's tab, the original tab title will be reassigned since we've grab it earlier.
+  </p>
+
+  <p>
+    You can see it wright here, change to another tab or open a new one 😉
+  </p>
+
+  <p>
+    Don't forget to check out <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwj3_aeeltHpAhUOaBoKHXsKAEQQwqsBMAR6BAgJEA4&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DE7zgNye6HTE&amp;usg=AOvVaw1SFgT4HxCmo1YAr9uEHXDi" target="_blank">the song</a> 🎶&nbsp;
+  </p>
             ]]>
         </content>
     </entry>
@@ -91,17 +399,138 @@
             <category term="Development"/>
             <category term="Customizer"/>
 
-        <updated>2020-06-13T09:08:32+03:00</updated>
+        <updated>2020-12-08T05:57:18+02:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://lebcit.github.io/media/posts/9/chiatto-bunny-by-emiliano-vittoriosi.jpg" alt="" />
-                    [{"id":1555941466744,"type":"publii-paragraph","content":"This post is about how to listen for any changes in WordPress Customizer Preview.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592027747003,"type":"publii-paragraph","content":"One of the most beautiful functionalities of WordPress is the Customizer, because it allows developers to give a simple way for users to modify themes/plugins appearance and behavior.\n However, this beauty has it's own code of conduct.\n Let's scratch it a little&hellip;
+                     This post is about how to listen for any changes in WordPress Customizer Preview. One of the most beautiful functionalities of WordPress is the Customizer, because it allows developers to give a simple way for users to modify themes/plugins appearance and behavior. However, this beauty has it's own code of conduct. Let's scratch it&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <img src="https://lebcit.github.io/media/posts/9/chiatto-bunny-by-emiliano-vittoriosi.jpg" alt="" />
-                [{"id":1555941466744,"type":"publii-paragraph","content":"<em>This post is about how to listen for any changes in WordPress Customizer Preview.</em>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592027747003,"type":"publii-paragraph","content":"One of the most beautiful functionalities of WordPress is the Customizer, because it allows developers to give a simple way for users to modify themes/plugins appearance and behavior.\n<br>However, this beauty has it's own code of conduct.\n<br>Let's scratch it a little bit to find out how to listen for changes in the Customizer Preview.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592027765983,"type":"publii-paragraph","content":"I always like to assume that the reader maybe a beginner, like I was a long time ago, and explain everything from A to Z, so she/he can follow the tutorial or jump to any part according to her/his experience.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592027777770,"type":"publii-paragraph","content":"For simplicity and practice, as usual 😊, I’ll be using an <a href=\"https://underscores.me/\" target=\"_blank\">_s</a> (underscores) generated theme, and call it Customizer Preview 😉. It’s a 1 minute process, so don’t be afraid, type in the <em>Theme Name</em>, download it, and upload it like any other theme under <em>Appearance &gt; Themes &gt; Add New &gt; Upload Theme</em>.\n<br>Now you’re all set and we can begin.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://underscores.me/","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1592027838633,"type":"publii-header","content":"Understanding how it’s related","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"understanding-how-its-related"}}},{"id":1592027841546,"type":"publii-paragraph","content":"In the <a href=\"https://codex.wordpress.org/Functions_File_Explained\" target=\"_blank\">functions.php</a> file, search for <strong>customizer.php</strong>, you’ll find a line like this one :","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://codex.wordpress.org/Functions_File_Explained","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1592027895994,"type":"publii-code","content":"require get_template_directory() . '/inc/customizer.php';","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1592027898399,"type":"publii-paragraph","content":"So the file <a href=\"https://codex.wordpress.org/Theme_Customization_API\" target=\"_blank\">customizer.php</a> is located in a folder named <em><strong>inc</strong></em> at the root of the theme.\n<br>If you look inside this file, at the very bottom, you’ll find a little block of code like this one :","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://codex.wordpress.org/Theme_Customization_API","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1592027952597,"type":"publii-code","content":"/**\n * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.\n */\nfunction customizer_preview_customize_preview_js() {\n    wp_enqueue_script( 'customizer-preview-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );\n}\nadd_action( 'customize_preview_init', 'customizer_preview_customize_preview_js' );","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1592027955310,"type":"publii-paragraph","content":"So here, we have a call for another file <strong>customizer.js</strong>, located in a folder named <em><strong>js</strong></em> at the root of the theme.\n<br>If you take a look inside it, you’ll find a bunch of code allowing us to view the changes we make from the Customizer.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592028018285,"type":"publii-header","content":"The Customizer’s Parts","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"the-customizers-parts"}}},{"id":1592028032643,"type":"publii-paragraph","content":"When you open the Customizer, you’ll find yourself in front of screen with two parts :\n<br>a- the <strong>Customizer Pane</strong> where the <strong>Controls</strong> (like Background Image) of a theme are defined in <strong>customizer.php</strong>\n<br>b- the <strong>Customizer Preview</strong> where the <strong>Settings</strong> defined in <strong>customizer.js</strong> act like a bridge between the Controls and their related Partials.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592028081802,"type":"publii-paragraph","content":"A <strong>Partial</strong> is simply a particular part of a theme like the header, the body, the footer, the logo, the site title, the tagline… and so on.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592028096894,"type":"publii-paragraph","content":"As an example, you could have a Control to control the site title color by a Setting linking that color Control to the desired Partial (here the site title).\n<br>Now, when you change the color Control in the Pane, the defined Setting for this color Control calls the related Partial in the Preview and tells him to change according to the modifications of his Control.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592028099956,"type":"publii-paragraph","content":"If you want to dive more into that, you can read about the <a href=\"https://developer.wordpress.org/themes/customize-api/customizer-objects/\" target=\"_blank\">Customizer Objects</a> in the Theme Handbook.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://developer.wordpress.org/themes/customize-api/customizer-objects/","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1592028139059,"type":"publii-header","content":"Listening to changes","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"listening-to-changes"}}},{"id":1592028142195,"type":"publii-paragraph","content":"At this point, you understand how the Customizer’s parts communicate.\n<br>But what if you need to listen for changes in the Preview ?\n<br>This will be mostly a need if you are a developer or in the process of becoming one 💪👍&nbsp;","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592028156556,"type":"publii-paragraph","content":"Quick quizz. Where do you think the following code will go ?\n<br>Don’t look under the code before giving an answer 😁&nbsp;","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592028188394,"type":"publii-code","content":"// Listen for any changes in the Customizer Preview.\nwp.customize.bind( 'change', function ( setting ) {\n    // Target the Setting, let's take background_image as an example.\n    if ( 0 === setting.id.indexOf( 'background_image' ) ) {\n        // The background is empty by default.\n        // So, we begin by listening to a non empty value,\n        // to catch the first change when it happens !\n        if ((setting._value) != \"\") {\n            console.log('I Now Have A Background 🙂');\n        } else {\n            console.log('I Do Not Have A Background 🙁');\n        }\n    }\n});","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1592028248542,"type":"publii-paragraph","content":"What does this code do ?\n<br>It listen to any <code>'change'</code> of a defined <code>( setting )</code>.\n<br>Remember, a Setting is a bridge allowing communication between a Control and it’s related Partial.\n<br>So when a communication occurs, a change is ongoing and then done !\n<br>In the example above, we are listening to any change on the <code>background_image</code>.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592028318793,"type":"publii-paragraph","content":"Did you try to look for <code>background_image</code> in the generated theme from underscores ?!\n<br>If you did, you know by now that it’s not here 🤔 and if you didn’t, don’t, you will not find it !\n<br>Well, I’ve used it as an example to grab your attention on Core Controls/Settings !\n<br>Some Controls/Settings comes with WordPress by default, they can be modified or removed, but this will be for another article.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592028340795,"type":"publii-paragraph","content":"I didn’t forget, I just delayed it 😈\n<br>The code above should go inside <strong>customizer.js</strong> between a :","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1592028360604,"type":"publii-code","content":"(function ($) { ... YES HERE ... } (jQuery));  ","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1592028371814,"type":"publii-paragraph","content":"I really hope that this will be useful.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}}]
+                
+  <p>
+    <em>This post is about how to listen for any changes in WordPress Customizer Preview.</em>
+  </p>
+
+  <p>
+    One of the most beautiful functionalities of WordPress is the Customizer, because it allows developers to give a simple way for users to modify themes/plugins appearance and behavior.
+<br>However, this beauty has it's own code of conduct.
+<br>Let's scratch it a little bit to find out how to listen for changes in the Customizer Preview.
+  </p>
+
+  <p>
+    I always like to assume that the reader maybe a beginner, like I was a long time ago, and explain everything from A to Z, so she/he can follow the tutorial or jump to any part according to her/his experience.
+  </p>
+
+  <p>
+    For simplicity and practice, as usual 😊, I’ll be using an <a href="https://underscores.me/" target="_blank">_s</a> (underscores) generated theme, and call it Customizer Preview 😉. It’s a 1 minute process, so don’t be afraid, type in the <em>Theme Name</em>, download it, and upload it like any other theme under <em>Appearance &gt; Themes &gt; Add New &gt; Upload Theme</em>.
+<br>Now you’re all set and we can begin.
+  </p>
+
+    <h2 id="understanding-how-its-related">
+      Understanding how it’s related
+    </h2>
+
+  <p>
+    In the <a href="https://codex.wordpress.org/Functions_File_Explained" target="_blank">functions.php</a> file, search for <strong>customizer.php</strong>, you’ll find a line like this one :
+  </p>
+<pre class="line-numbers  language-html"><code>require get_template_directory() . '/inc/customizer.php';</code></pre>
+
+  <p>
+    So the file <a href="https://codex.wordpress.org/Theme_Customization_API" target="_blank">customizer.php</a> is located in a folder named <em><strong>inc</strong></em> at the root of the theme.
+<br>If you look inside this file, at the very bottom, you’ll find a little block of code like this one :
+  </p>
+<pre class="line-numbers  language-html"><code>/**
+ * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
+ */
+function customizer_preview_customize_preview_js() {
+    wp_enqueue_script( 'customizer-preview-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+}
+add_action( 'customize_preview_init', 'customizer_preview_customize_preview_js' );</code></pre>
+
+  <p>
+    So here, we have a call for another file <strong>customizer.js</strong>, located in a folder named <em><strong>js</strong></em> at the root of the theme.
+<br>If you take a look inside it, you’ll find a bunch of code allowing us to view the changes we make from the Customizer.
+  </p>
+
+    <h2 id="the-customizers-parts">
+      The Customizer’s Parts
+    </h2>
+
+  <p>
+    When you open the Customizer, you’ll find yourself in front of screen with two parts :
+<br>a- the <strong>Customizer Pane</strong> where the <strong>Controls</strong> (like Background Image) of a theme are defined in <strong>customizer.php</strong>
+<br>b- the <strong>Customizer Preview</strong> where the <strong>Settings</strong> defined in <strong>customizer.js</strong> act like a bridge between the Controls and their related Partials.
+  </p>
+
+  <p>
+    A <strong>Partial</strong> is simply a particular part of a theme like the header, the body, the footer, the logo, the site title, the tagline… and so on.
+  </p>
+
+  <p>
+    As an example, you could have a Control to control the site title color by a Setting linking that color Control to the desired Partial (here the site title).
+<br>Now, when you change the color Control in the Pane, the defined Setting for this color Control calls the related Partial in the Preview and tells him to change according to the modifications of his Control.
+  </p>
+
+  <p>
+    If you want to dive more into that, you can read about the <a href="https://developer.wordpress.org/themes/customize-api/customizer-objects/" target="_blank">Customizer Objects</a> in the Theme Handbook.
+  </p>
+
+    <h2 id="listening-to-changes">
+      Listening to changes
+    </h2>
+
+  <p>
+    At this point, you understand how the Customizer’s parts communicate.
+<br>But what if you need to listen for changes in the Preview ?
+<br>This will be mostly a need if you are a developer or in the process of becoming one 💪👍&nbsp;
+  </p>
+
+  <p>
+    Quick quizz. Where do you think the following code will go ?
+<br>Don’t look under the code before giving an answer 😁&nbsp;
+  </p>
+<pre class="line-numbers  language-html"><code>// Listen for any changes in the Customizer Preview.
+wp.customize.bind( 'change', function ( setting ) {
+    // Target the Setting, let's take background_image as an example.
+    if ( 0 === setting.id.indexOf( 'background_image' ) ) {
+        // The background is empty by default.
+        // So, we begin by listening to a non empty value,
+        // to catch the first change when it happens !
+        if ((setting._value) != "") {
+            console.log('I Now Have A Background 🙂');
+        } else {
+            console.log('I Do Not Have A Background 🙁');
+        }
+    }
+});</code></pre>
+
+  <p>
+    What does this code do ?
+<br>It listen to any <code>'change'</code> of a defined <code>( setting )</code>.
+<br>Remember, a Setting is a bridge allowing communication between a Control and it’s related Partial.
+<br>So when a communication occurs, a change is ongoing and then done !
+<br>In the example above, we are listening to any change on the <code>background_image</code>.
+  </p>
+
+  <p>
+    Did you try to look for <code>background_image</code> in the generated theme from underscores ?!
+<br>If you did, you know by now that it’s not here 🤔 and if you didn’t, don’t, you will not find it !
+<br>Well, I’ve used it as an example to grab your attention on Core Controls/Settings !
+<br>Some Controls/Settings comes with WordPress by default, they can be modified or removed, but this will be for another article.
+  </p>
+
+  <p>
+    I didn’t forget, I just delayed it 😈
+<br>The code above should go inside <strong>customizer.js</strong> between a :
+  </p>
+<pre class="line-numbers  language-html"><code>(function ($) { ... YES HERE ... } (jQuery));  </code></pre>
+
+  <p>
+    I really hope that this will be useful.
+  </p>
             ]]>
         </content>
     </entry>
@@ -116,17 +545,83 @@
             <category term="Tips &amp; Tricks"/>
             <category term="Development"/>
 
-        <updated>2020-06-12T22:40:55+03:00</updated>
+        <updated>2020-12-08T05:57:18+02:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://lebcit.github.io/media/posts/8/little_girl_hidding_face-by-Caleb_Woods.jpg" alt="" />
-                    [{"id":1555941466744,"type":"publii-paragraph","content":"This post is about using wp_add_inline_style() function to hide the WordPress Toolbar or Admin Bar.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591990370658,"type":"publii-paragraph","content":"Ever wanted to hide the WordPress Toolbar ?\n If you are a new developer, you should know that it's not allowed to hide it directly wit CSS.\n But even if you are a junior or senior WordPress user, you should consider&hellip;
+                     This post is about using wp_add_inline_style() function to hide the WordPress Toolbar or Admin Bar. Ever wanted to hide the WordPress Toolbar ? If you are a new developer, you should know that it's not allowed to hide it directly wit CSS. But even if you are a junior or senior WordPress user, you&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <img src="https://lebcit.github.io/media/posts/8/little_girl_hidding_face-by-Caleb_Woods.jpg" alt="" />
-                [{"id":1555941466744,"type":"publii-paragraph","content":"<em>This post is about using wp_add_inline_style() function to hide the WordPress Toolbar or Admin Bar.</em>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591990370658,"type":"publii-paragraph","content":"Ever wanted to hide the WordPress Toolbar ?\n<br>If you are a new developer, you should know that it's not allowed to hide it directly wit CSS.\n<br>But even if you are a junior or senior WordPress user, you should consider this requirement for best practice, also you'll maybe learn something new 😉","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591990401549,"type":"publii-paragraph","content":"<a href=\"https://wordpress.org/support/article/toolbar/\" target=\"_blank\">The WordPress Toolbar</a> is the little black bar on top of the site that only the logged in user(s) can see, depending on their <a href=\"https://wordpress.org/support/article/roles-and-capabilities/\" target=\"_blank\">role(s)</a> and how the Super Admin or the Administrator has configured the visibility of this bar for each one…","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://wordpress.org/support/article/roles-and-capabilities/","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591990469126,"type":"publii-paragraph","content":"We can set the display status of this bar for the front side of our website by using the <a href=\"https://developer.wordpress.org/reference/functions/show_admin_bar/\" target=\"_blank\"><code>show_admin_bar()</code></a> function.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://developer.wordpress.org/reference/functions/show_admin_bar/","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591990507555,"type":"publii-paragraph","content":"Also, we can directly target it by it’s CSS <code>id #wpadminbar</code> and hide it like so :","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591990525485,"type":"publii-code","content":"#wpadminbar {\n    display: none;\n}\n","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1591990536213,"type":"publii-paragraph","content":"but this way is not allowed for themes/plugins developers !","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591990554496,"type":"publii-paragraph","content":"You can say, <em>“just use <code>show_admin_bar</code> !</em>”, and I would ask the following :\n<br>“<em>what if I want to hide it with CSS without using a stylesheet so I can control it with JS for later use ?!</em>” 😉\n<br>It’s not the main reason, you can have any other reason to hide it with CSS without using a stylesheet, scenarios are limitless.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591990600991,"type":"publii-paragraph","content":"This is where <a href=\"https://developer.wordpress.org/reference/functions/wp_add_inline_style/\" target=\"_blank\"><code>wp_add_inline_style()</code></a> function steps in 🙂<br>In your <a href=\"https://codex.wordpress.org/Functions_File_Explained\" target=\"_blank\">functions.php</a> file, add the following :","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://codex.wordpress.org/Functions_File_Explained","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591990661830,"type":"publii-code","content":"/**\n * Hide the Toolbar using inline style since we can't use #wpadminbar in CSS.\n */\nfunction myfunction_hide_adminbar() {\n    $hide_adminbar = \"\n        #wpadminbar{\n            display: none;\n        }\";\n    wp_add_inline_style( 'my-stylesheet-handle', $hide_adminbar );\n}\nadd_action( 'wp_enqueue_scripts', 'myfunction_hide_adminbar' );  ","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1591990676328,"type":"publii-paragraph","content":"Please, pay attention to the <code>$handle</code> <strong>my-stylesheet-handle</strong> !\n<br>You should replace it with the $handle of your stylesheet !\n<br>In your functions.php file, you’ll find something like :","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591990713773,"type":"publii-code","content":"wp_enqueue_style('your-stylesheet-handle', get_stylesheet_uri());","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1591990716093,"type":"publii-paragraph","content":"<strong>your-stylesheet-handle</strong> is the <code>$handle</code> of your stylesheet 😉","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591990746881,"type":"publii-paragraph","content":"Hope this will be useful 🙂\n<br>Please don’t hesitate to share your opinion, suggestions or other methods.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}}]
+                
+  <p>
+    <em>This post is about using wp_add_inline_style() function to hide the WordPress Toolbar or Admin Bar.</em>
+  </p>
+
+  <p>
+    Ever wanted to hide the WordPress Toolbar ?
+<br>If you are a new developer, you should know that it's not allowed to hide it directly wit CSS.
+<br>But even if you are a junior or senior WordPress user, you should consider this requirement for best practice, also you'll maybe learn something new 😉
+  </p>
+
+  <p>
+    <a href="https://wordpress.org/support/article/toolbar/" target="_blank">The WordPress Toolbar</a> is the little black bar on top of the site that only the logged in user(s) can see, depending on their <a href="https://wordpress.org/support/article/roles-and-capabilities/" target="_blank">role(s)</a> and how the Super Admin or the Administrator has configured the visibility of this bar for each one…
+  </p>
+
+  <p>
+    We can set the display status of this bar for the front side of our website by using the <a href="https://developer.wordpress.org/reference/functions/show_admin_bar/" target="_blank"><code>show_admin_bar()</code></a> function.
+  </p>
+
+  <p>
+    Also, we can directly target it by it’s CSS <code>id #wpadminbar</code> and hide it like so :
+  </p>
+<pre class="line-numbers  language-html"><code>#wpadminbar {
+    display: none;
+}
+</code></pre>
+
+  <p>
+    but this way is not allowed for themes/plugins developers !
+  </p>
+
+  <p>
+    You can say, <em>“just use <code>show_admin_bar</code> !</em>”, and I would ask the following :
+<br>“<em>what if I want to hide it with CSS without using a stylesheet so I can control it with JS for later use ?!</em>” 😉
+<br>It’s not the main reason, you can have any other reason to hide it with CSS without using a stylesheet, scenarios are limitless.
+  </p>
+
+  <p>
+    This is where <a href="https://developer.wordpress.org/reference/functions/wp_add_inline_style/" target="_blank"><code>wp_add_inline_style()</code></a> function steps in 🙂<br>In your <a href="https://codex.wordpress.org/Functions_File_Explained" target="_blank">functions.php</a> file, add the following :
+  </p>
+<pre class="line-numbers  language-html"><code>/**
+ * Hide the Toolbar using inline style since we can't use #wpadminbar in CSS.
+ */
+function myfunction_hide_adminbar() {
+    $hide_adminbar = "
+        #wpadminbar{
+            display: none;
+        }";
+    wp_add_inline_style( 'my-stylesheet-handle', $hide_adminbar );
+}
+add_action( 'wp_enqueue_scripts', 'myfunction_hide_adminbar' );  </code></pre>
+
+  <p>
+    Please, pay attention to the <code>$handle</code> <strong>my-stylesheet-handle</strong> !
+<br>You should replace it with the $handle of your stylesheet !
+<br>In your functions.php file, you’ll find something like :
+  </p>
+<pre class="line-numbers  language-html"><code>wp_enqueue_style('your-stylesheet-handle', get_stylesheet_uri());</code></pre>
+
+  <p>
+    <strong>your-stylesheet-handle</strong> is the <code>$handle</code> of your stylesheet 😉
+  </p>
+
+  <p>
+    Hope this will be useful 🙂
+<br>Please don’t hesitate to share your opinion, suggestions or other methods.
+  </p>
             ]]>
         </content>
     </entry>
@@ -142,17 +637,320 @@
             <category term="Customizer"/>
             <category term="Copyright"/>
 
-        <updated>2020-06-12T22:28:31+03:00</updated>
+        <updated>2020-12-08T05:57:18+02:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://lebcit.github.io/media/posts/7/copyright-under-magnifying-glass.jpg" alt="" />
-                    [{"id":1555941466744,"type":"publii-paragraph","content":"This post is about modifying WordPress theme's copyright from the Customizer.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591987337568,"type":"publii-paragraph","content":"One of the most asked question by new WordPress users is:\n \"how to change the copyright ?\".\n They don't want a label of any kind on their site and that's totally comprehensible.\n In this post, I'll be talking of my own sauce to give users&hellip;
+                     This post is about modifying WordPress theme's copyright from the Customizer. One of the most asked question by new WordPress users is: "how to change the copyright ?". They don't want a label of any kind on their site and that's totally comprehensible. In this post, I'll be talking of my own sauce to&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <img src="https://lebcit.github.io/media/posts/7/copyright-under-magnifying-glass.jpg" alt="" />
-                [{"id":1555941466744,"type":"publii-paragraph","content":"<em>This post is about modifying WordPress theme's copyright from the Customizer.</em>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591987337568,"type":"publii-paragraph","content":"One of the most asked question by new WordPress users is:\n<br>\"how to change the copyright ?\".\n<br>They don't want a label of any kind on their site and that's totally comprehensible.\n<br>In this post, I'll be talking of my own sauce to give users the ability to remove or modify the copyright without touching one line of code !","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591987367883,"type":"publii-paragraph","content":"If you are new to the Customizer, don't be afraid, I was too a long time ago...\n<br>So in this post I'll show you a technique to control the copyright of WordPress, generally displayed in the footer of a theme, from the Customizer.\n<br>You can use it in your own theme to give your users a clean and easy way to modify the footer copyright, or use it in a child theme to modify the footer copyright of the parent theme that you are using.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591987395118,"type":"publii-header","content":"1- Replace the footer copyright by a function","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"1-replace-the-footer-copyright-by-a-function"}}},{"id":1591987397799,"type":"publii-paragraph","content":"First of all select the part that should be modified. Generally speaking, it's a sentence like: \"<em>Proudly powered by WordPress, Theme: theme-name by theme-author</em>\".\n<br>I'm going to take the generated footer by <a href=\"https://underscores.me/\" target=\"_blank\">_s</a> (underscores) as an example for this task.\n<br>Looking inside the <strong>footer.php</strong>, we can see a code like this:","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://underscores.me/","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591987532012,"type":"publii-code","content":"<footer id=\"colophon\" class=\"site-footer\">\n    <div class=\"site-info\">\n        <a href=\"<?php echo esc_url( __( 'https://wordpress.org/', 'midday' ) ); ?>\">\n            <?php\n            /* translators: %s: CMS name, i.e. WordPress. */\n            printf( esc_html__( 'Proudly powered by %s', 'midday' ), 'WordPress' );\n            ?>\n        </a>\n        <span class=\"sep\"> | </span>\n            <?php\n            /* translators: 1: Theme name, 2: Theme author. */\n            printf( esc_html__( 'Theme: %1$s by %2$s.', 'midday' ), 'midday', '<a href=\"https://github.com/LebCit\">LebCit</a>' );\n            ?>\n    </div><!-- .site-info -->\n</footer><!-- #colophon -->  ","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1591987593536,"type":"publii-paragraph","content":"Here, we are interested with the code inside <code>&lt;div class=\"site-info\"&gt;</code><span style=\"color: var(--eb-text-primary-color); font-family: var(--font-base); font-size: 1em; font-weight: var(--font-weight-normal);\">, so let's cut it, paste it somewhere else (like notepad), and replace it by a php function.&nbsp;</span><br><div class=\"site-info\">The code should now be like the following:</div>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591987679021,"type":"publii-code","content":"<footer id=\"colophon\" class=\"site-footer\">\n    <div    class=\"site-info\">\n        <?php midday_site_info(); ?>\n    </div><!-- .site-info -->\n</footer><!-- #colophon -->","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1591987696335,"type":"publii-paragraph","content":"You can name the function whatever you like, but be sure to replace any name modification according to the changes you have made in the wright place in the code.\n<br>Please note that I've added an&nbsp;<code>id=\"site-info\"</code><id=\"site-info\"> this will be used in the Customizer.</id=\"site-info\">","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591987779401,"type":"publii-header","content":"2- Put the footer copyright in functions.php","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"2-put-the-footer-copyright-in-functionsphp"}}},{"id":1591987793151,"type":"publii-paragraph","content":"Now we have to connect this&nbsp;<code>midday_site_info()</code>&nbsp;function with the block of code previously pasted elsewhere.<br>In the <a href=\"https://codex.wordpress.org/Functions_File_Explained\" target=\"_blank\">functions.php</a> file of your theme or your child theme, put this code, I'll explain it just after :<br>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://codex.wordpress.org/Functions_File_Explained","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591987930343,"type":"publii-code","content":"/**\n * Output the theme's copyright depending on user's choice.\n */\nfunction midday_site_info() {\n    $midday_footer_copyright_area_checkbox = get_theme_mod( 'midday_footer_copyright_area_checkbox', true );\n    $midday_custom_copyright_textarea      = get_theme_mod( 'midday_custom_copyright_textarea', '' );\n    if ( ! empty( $midday_footer_copyright_area_checkbox ) ) :\n            $html  = '<a href=\"' . esc_url( 'https://wordpress.org/' ) . '\">' . esc_html( 'Proudly powered by WordPress' ) . '</a>';\n            $html .= '<span class=\"sep\"> | </span>';\n            $html .= esc_html( 'Theme: MidDay by ' ) . '<a href=\"' . esc_url( 'https://lebcit.github.io/' ) . '\">' . esc_html( 'LebCit' ) . '</a>';\n            echo wp_kses(\n                $html,\n                array(\n                    'a'  => array(\n                        'href' => array(),\n                    ),\n                    'span'  => array(\n                        'class' => array(),\n                    ),\n                )\n            );\n    elseif ( empty( $midday_footer_copyright_area_checkbox ) && ! empty( $midday_custom_copyright_textarea ) ) :\n        echo wp_kses_post( $midday_custom_copyright_textarea ); // Allow html.\n    endif;\n}","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1591987935229,"type":"publii-paragraph","content":"What in the hell is this ?<br>It's nothing 😂 it's just the same pasted elsewhere code in PHP with some variables and an <code>if/elseif</code> statement to take care of the user's choice.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591988050159,"type":"publii-paragraph","content":"Inside the function, I've defined 2 variables. Each one is related to a <code>theme_mod</code> (theme modification) that we will create and explain in a moment.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591988132153,"type":"publii-paragraph","content":"I've opened an <code>if</code> statement saying:<br>\"<em>if the first variable (remember it's related to a theme_mod, yes it's a checkbox </em>😉<em>) is not empty (so it have a check tick, it's checked) please populate the copyright with the following code</em>\".<br>The code here is pretty easy to understand.\n<br>I've defined an <code>$html</code> variable replicating the pasted elsewhere code, then I've asked PHP to <code>echo</code> this code using <a href=\"https://developer.wordpress.org/reference/functions/wp_kses/\" target=\"_blank\"><code>wp_kses</code></a> filtering the text content and striping out disallowed HTML.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://developer.wordpress.org/reference/functions/wp_kses/","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591988350490,"type":"publii-paragraph","content":"In other words:\n<br>\"<em>hey <code>wp_kses</code>, please <code>echo</code> the defined <code>$html</code> variable, and please allow it to only have a <code>tag</code> with <code>href</code> attribute and <code>span</code> tag with <code>class</code> attribute, thank you very much</em>\" 😊","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591988465814,"type":"publii-paragraph","content":"After that, I've opened an <code>elseif</code> statement saying:\n<br>\"<em>okay, <code>if</code> the first variable is empty (the checkbox is not checked) and the second variable (a text area) is not empty, please populate the copyright with the content of the text area allowing the user to use HTML inside it with <a href=\"https://developer.wordpress.org/reference/functions/wp_kses_post/\" target=\"_blank\"><code>wp_kses_post</code></a> that will keep an eye and make sure the user type allowed HTML only, that's it I've nothing more to ask so please close the <code>if</code> statement with this <code>endif;</code></em>\"","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://developer.wordpress.org/reference/functions/wp_kses_post/","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591988602591,"type":"publii-header","content":"3- Create settings and controls in the Customizer","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"3-create-settings-and-controls-in-the-customizer"}}},{"id":1591988613081,"type":"publii-paragraph","content":"Do you remember the 2 previous variables ? They where related to theme's modifications. It's time to create those <code>theme_mod</code> and test our code.\n<br>To keep the functions.php file clean, we will put the following in a customizer.php file if you don't have one already. Yous just have to require it from functions.php like so :","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591988679149,"type":"publii-code","content":"require get_template_directory() . '/inc/customizer.php';  \n","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1591988701013,"type":"publii-paragraph","content":"Please note that in this example the file is in a folder named inc (for includes) at the root of the theme or the child theme, you can change this but be sure to indicate the correct path.\n<br>Now, put the following in customizer.php, let's see the code and explain it later:","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591989857871,"type":"publii-code","content":"function midday_customize_register( $wp_customize ) {\n    /**\n     * MidDay Theme Panel\n     */\n    $wp_customize->add_panel(\n        'midday_panel',\n        array(\n            'title'       => __( 'MidDay Theme', 'midday' ),\n            'description' => esc_html__( 'Customize MidDay Theme', 'midday' ),\n            'priority'    => 0,\n        )\n    );\n\n    /**\n     * Footer Copyright Area Section.\n     */\n    $wp_customize->add_section(\n        'midday_footer_copyright_area_section',\n        array(\n            'title'       => esc_html__( 'Footer Copyright Area', 'midday' ),\n            'description' => __( 'Modify <b>Footer Copyright Area</b>.', 'midday' ),\n            'panel'       => 'midday_panel',\n            'priority'    => 15,\n        )\n    );\n\n    // Default copyright.\n    $wp_customize->add_setting(\n        'midday_footer_copyright_area_checkbox',\n        array(\n            'default'           => true,\n            'transport'         => 'postMessage',\n            'sanitize_callback' => 'midday_sanitize_checkbox',\n        )\n    );\n\n    $wp_customize->add_control(\n        'midday_footer_copyright_area_checkbox',\n        array(\n            'label'       => __( 'Enable/Disable Default Copyright.', 'midday' ),\n            'description' => __( 'This checkbox, once <b>unchecked</b>,<br>removes <b>Default Copyright.</b>', 'midday' ),\n            'section'     => 'midday_footer_copyright_area_section',\n            'type'        => 'checkbox',\n        )\n    );\n\n    $wp_customize->selective_refresh->add_partial(\n        'midday_footer_copyright_area_checkbox',\n        array(\n            'selector'        => '#site-info',\n            'settings'        => array( 'midday_footer_copyright_area_checkbox' ),\n            'render_callback' => 'midday_site_info',\n        )\n    );\n\n    // Custom copyright.\n    $wp_customize->add_setting(\n        'midday_custom_copyright_textarea',\n        array(\n            'default'           => '',\n            'transport'         => 'postMessage',\n            'sanitize_callback' => 'wp_kses_post', // Allow html.\n        )\n    );\n\n    $wp_customize->add_control(\n        'midday_custom_copyright_textarea',\n        array(\n            'label'       => esc_html__( 'Custom Copyright Textarea', 'midday' ),\n            'description' => __( 'To display a <b>Custom Copyright</b>,<br><b>uncheck</b> the <b>Default Copyright</b> checkbox,<br>then type a custom copyright in the textarea.<br><b>HTML</b> is allowed !', 'midday' ),\n            'section'     => 'midday_footer_copyright_area_section',\n            'type'        => 'textarea',\n            'input_attrs' => array(\n                'style'       => 'border: 1px solid #999',\n                'placeholder' => __( 'Enter Custom Copyright...', 'midday' ),\n            ),\n        )\n    );\n\n    $wp_customize->selective_refresh->add_partial(\n        'midday_custom_copyright_textarea',\n        array(\n            'selector'        => '#site-info',\n            'settings'        => array( 'midday_custom_copyright_textarea' ),\n            'render_callback' => 'midday_site_info',\n        )\n    );\n\n}\nadd_action( 'customize_register', 'midday_customize_register' );","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1591988757804,"type":"publii-paragraph","content":"Don't panic, it's pretty straightforward !\n<br>Let's break it down and you'll see.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591989956188,"type":"publii-code","content":"function mytheme_customize_register( $wp_customize )\n{\n    //All our sections, settings, and controls will be added here\n}\nadd_action( 'customize_register', 'mytheme_customize_register' );","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1591988787967,"type":"publii-paragraph","content":"This is how we hook a function to the <a href=\"https://codex.wordpress.org/Plugin_API/Action_Reference/customize_register\" target=\"_blank\"><code>'customize_register'</code></a> action and put inside it our panels, sections, settings and controls.\n<br>Looking at our code, you can now understand that I've created a panel, a section, 2 settings and their 2 related controls.\n<br>I'm not going to dive into the Customizer, but if you're not familiar with it, a good start would be this <a href=\"https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1/\" target=\"_blank\">excellent guide</a> by Anthony Hortin.\n<br>Instead, I'm going to explain a more important aspect here. If you take a good look at the code, you'll see something else under each control :","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1/","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591989033494,"type":"publii-code","content":"$wp_customize->selective_refresh->add_partial","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1591989043714,"type":"publii-paragraph","content":"What is this and what does it do ?\n<br>Well, look closer and you'll figure it out yourself 😂\n<br>Just kidding, but in fact it's really clear.\n<br>Let's take one setting it's control and the related selective_refresh:","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591989091997,"type":"publii-code","content":"// Default copyright.\n$wp_customize->add_setting(\n    'midday_footer_copyright_area_checkbox',\n    array(\n        'default'           => true,\n        'transport'         => 'postMessage',\n        'sanitize_callback' => 'midday_sanitize_checkbox',\n    )\n);\n\n$wp_customize->add_control(\n    'midday_footer_copyright_area_checkbox',\n    array(\n        'label'       => __( 'Enable/Disable Default Copyright.', 'midday' ),\n        'description' => __( 'This checkbox, once <b>unchecked</b>,<br>removes <b>Default Copyright.</b>', 'midday' ),\n        'section'     => 'midday_footer_copyright_area_section',\n        'type'        => 'checkbox',\n    )\n);\n\n$wp_customize->selective_refresh->add_partial(\n    'midday_footer_copyright_area_checkbox',\n    array(\n        'selector'        => '#site-info',\n        'settings'        => array( 'midday_footer_copyright_area_checkbox' ),\n        'render_callback' => 'midday_site_info',\n    )\n);","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1591989103222,"type":"publii-paragraph","content":"Remember the first variable ?<br>Well here is it's <code>theme_mod</code> !<br>Take a look at the <strong>setting</strong> name <code>midday_footer_copyright_area_checkbox</code> 😉\n<br>The important part here is <code>'transport' =&gt; 'postMessage'</code>, because it tells the browser not to reload, but to make the change(s) in place !\n<br>Another important aspect in the <strong>setting</strong> is <code>'sanitize_callback' =&gt; 'midday_sanitize_checkbox'</code>, this is a function to sanitize the checkbox, you should put it after the <code>'customize_register'</code> action hook:","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591989217389,"type":"publii-code","content":"if ( ! function_exists( 'midday_sanitize_checkbox' ) ) {\n    /**\n        * Switch sanitization\n        *\n        * @param string $input Switch value.\n        * @return integer  Sanitized value\n        */\n    function midday_sanitize_checkbox( $input ) {\n        if ( false === $input ) {\n            return 0;\n        } else {\n            return 1;\n        }\n    }\n}  ","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1591989230303,"type":"publii-paragraph","content":"In the <strong>control</strong>, the important part is the type of the control, as you can see it's defined as checkbox, no surprise, WYaskIWYG 😂<br>For the <strong>partial</strong>, the important part is the selector, it must be an id, now you know why I've added an <code><strong>id</strong></code> previously 👍<br>If you look at the settings and the <code>render_callback</code> of the <strong>partial</strong>, you'll understand that everything is related 🔗 and that we are just putting the wright piece in the wright place 🧩","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591989288655,"type":"publii-paragraph","content":"You maybe guessed it out or not, but yes I'm developing a new theme called MidDay (in fact I've finished it, just some clean up remaining) and I'll submit it very soon 😁","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591989297606,"type":"publii-paragraph","content":"I really hope that this was helpful.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}}]
+                
+  <p>
+    <em>This post is about modifying WordPress theme's copyright from the Customizer.</em>
+  </p>
+
+  <p>
+    One of the most asked question by new WordPress users is:
+<br>"how to change the copyright ?".
+<br>They don't want a label of any kind on their site and that's totally comprehensible.
+<br>In this post, I'll be talking of my own sauce to give users the ability to remove or modify the copyright without touching one line of code !
+  </p>
+
+  <p>
+    If you are new to the Customizer, don't be afraid, I was too a long time ago...
+<br>So in this post I'll show you a technique to control the copyright of WordPress, generally displayed in the footer of a theme, from the Customizer.
+<br>You can use it in your own theme to give your users a clean and easy way to modify the footer copyright, or use it in a child theme to modify the footer copyright of the parent theme that you are using.
+  </p>
+
+    <h2 id="1-replace-the-footer-copyright-by-a-function">
+      1- Replace the footer copyright by a function
+    </h2>
+
+  <p>
+    First of all select the part that should be modified. Generally speaking, it's a sentence like: "<em>Proudly powered by WordPress, Theme: theme-name by theme-author</em>".
+<br>I'm going to take the generated footer by <a href="https://underscores.me/" target="_blank">_s</a> (underscores) as an example for this task.
+<br>Looking inside the <strong>footer.php</strong>, we can see a code like this:
+  </p>
+<pre class="line-numbers  language-html"><code>&lt;footer id="colophon" class="site-footer"&gt;
+    &lt;div class="site-info"&gt;
+        &lt;a href="&lt;?php echo esc_url( __( 'https://wordpress.org/', 'midday' ) ); ?&gt;"&gt;
+            &lt;?php
+            /* translators: %s: CMS name, i.e. WordPress. */
+            printf( esc_html__( 'Proudly powered by %s', 'midday' ), 'WordPress' );
+            ?&gt;
+        &lt;/a&gt;
+        &lt;span class="sep"&gt; | &lt;/span&gt;
+            &lt;?php
+            /* translators: 1: Theme name, 2: Theme author. */
+            printf( esc_html__( 'Theme: %1$s by %2$s.', 'midday' ), 'midday', '&lt;a href="https://github.com/LebCit"&gt;LebCit&lt;/a&gt;' );
+            ?&gt;
+    &lt;/div&gt;&lt;!-- .site-info --&gt;
+&lt;/footer&gt;&lt;!-- #colophon --&gt;  </code></pre>
+
+  <p>
+    Here, we are interested with the code inside <code>&lt;div class="site-info"&gt;</code><span style="color: var(--eb-text-primary-color); font-family: var(--font-base); font-size: 1em; font-weight: var(--font-weight-normal);">, so let's cut it, paste it somewhere else (like notepad), and replace it by a php function.&nbsp;</span><br><div class="site-info">The code should now be like the following:</div>
+  </p>
+<pre class="line-numbers  language-html"><code>&lt;footer id="colophon" class="site-footer"&gt;
+    &lt;div    class="site-info"&gt;
+        &lt;?php midday_site_info(); ?&gt;
+    &lt;/div&gt;&lt;!-- .site-info --&gt;
+&lt;/footer&gt;&lt;!-- #colophon --&gt;</code></pre>
+
+  <p>
+    You can name the function whatever you like, but be sure to replace any name modification according to the changes you have made in the wright place in the code.
+<br>Please note that I've added an&nbsp;<code>id="site-info"</code><id="site-info"> this will be used in the Customizer.</id="site-info">
+  </p>
+
+    <h2 id="2-put-the-footer-copyright-in-functionsphp">
+      2- Put the footer copyright in functions.php
+    </h2>
+
+  <p>
+    Now we have to connect this&nbsp;<code>midday_site_info()</code>&nbsp;function with the block of code previously pasted elsewhere.<br>In the <a href="https://codex.wordpress.org/Functions_File_Explained" target="_blank">functions.php</a> file of your theme or your child theme, put this code, I'll explain it just after :<br>
+  </p>
+<pre class="line-numbers  language-html"><code>/**
+ * Output the theme's copyright depending on user's choice.
+ */
+function midday_site_info() {
+    $midday_footer_copyright_area_checkbox = get_theme_mod( 'midday_footer_copyright_area_checkbox', true );
+    $midday_custom_copyright_textarea      = get_theme_mod( 'midday_custom_copyright_textarea', '' );
+    if ( ! empty( $midday_footer_copyright_area_checkbox ) ) :
+            $html  = '&lt;a href="' . esc_url( 'https://wordpress.org/' ) . '"&gt;' . esc_html( 'Proudly powered by WordPress' ) . '&lt;/a&gt;';
+            $html .= '&lt;span class="sep"&gt; | &lt;/span&gt;';
+            $html .= esc_html( 'Theme: MidDay by ' ) . '&lt;a href="' . esc_url( 'https://lebcit.github.io/' ) . '"&gt;' . esc_html( 'LebCit' ) . '&lt;/a&gt;';
+            echo wp_kses(
+                $html,
+                array(
+                    'a'  =&gt; array(
+                        'href' =&gt; array(),
+                    ),
+                    'span'  =&gt; array(
+                        'class' =&gt; array(),
+                    ),
+                )
+            );
+    elseif ( empty( $midday_footer_copyright_area_checkbox ) && ! empty( $midday_custom_copyright_textarea ) ) :
+        echo wp_kses_post( $midday_custom_copyright_textarea ); // Allow html.
+    endif;
+}</code></pre>
+
+  <p>
+    What in the hell is this ?<br>It's nothing 😂 it's just the same pasted elsewhere code in PHP with some variables and an <code>if/elseif</code> statement to take care of the user's choice.
+  </p>
+
+  <p>
+    Inside the function, I've defined 2 variables. Each one is related to a <code>theme_mod</code> (theme modification) that we will create and explain in a moment.
+  </p>
+
+  <p>
+    I've opened an <code>if</code> statement saying:<br>"<em>if the first variable (remember it's related to a theme_mod, yes it's a checkbox </em>😉<em>) is not empty (so it have a check tick, it's checked) please populate the copyright with the following code</em>".<br>The code here is pretty easy to understand.
+<br>I've defined an <code>$html</code> variable replicating the pasted elsewhere code, then I've asked PHP to <code>echo</code> this code using <a href="https://developer.wordpress.org/reference/functions/wp_kses/" target="_blank"><code>wp_kses</code></a> filtering the text content and striping out disallowed HTML.
+  </p>
+
+  <p>
+    In other words:
+<br>"<em>hey <code>wp_kses</code>, please <code>echo</code> the defined <code>$html</code> variable, and please allow it to only have a <code>tag</code> with <code>href</code> attribute and <code>span</code> tag with <code>class</code> attribute, thank you very much</em>" 😊
+  </p>
+
+  <p>
+    After that, I've opened an <code>elseif</code> statement saying:
+<br>"<em>okay, <code>if</code> the first variable is empty (the checkbox is not checked) and the second variable (a text area) is not empty, please populate the copyright with the content of the text area allowing the user to use HTML inside it with <a href="https://developer.wordpress.org/reference/functions/wp_kses_post/" target="_blank"><code>wp_kses_post</code></a> that will keep an eye and make sure the user type allowed HTML only, that's it I've nothing more to ask so please close the <code>if</code> statement with this <code>endif;</code></em>"
+  </p>
+
+    <h2 id="3-create-settings-and-controls-in-the-customizer">
+      3- Create settings and controls in the Customizer
+    </h2>
+
+  <p>
+    Do you remember the 2 previous variables ? They where related to theme's modifications. It's time to create those <code>theme_mod</code> and test our code.
+<br>To keep the functions.php file clean, we will put the following in a customizer.php file if you don't have one already. Yous just have to require it from functions.php like so :
+  </p>
+<pre class="line-numbers  language-html"><code>require get_template_directory() . '/inc/customizer.php';  
+</code></pre>
+
+  <p>
+    Please note that in this example the file is in a folder named inc (for includes) at the root of the theme or the child theme, you can change this but be sure to indicate the correct path.
+<br>Now, put the following in customizer.php, let's see the code and explain it later:
+  </p>
+<pre class="line-numbers  language-html"><code>function midday_customize_register( $wp_customize ) {
+    /**
+     * MidDay Theme Panel
+     */
+    $wp_customize-&gt;add_panel(
+        'midday_panel',
+        array(
+            'title'       =&gt; __( 'MidDay Theme', 'midday' ),
+            'description' =&gt; esc_html__( 'Customize MidDay Theme', 'midday' ),
+            'priority'    =&gt; 0,
+        )
+    );
+
+    /**
+     * Footer Copyright Area Section.
+     */
+    $wp_customize-&gt;add_section(
+        'midday_footer_copyright_area_section',
+        array(
+            'title'       =&gt; esc_html__( 'Footer Copyright Area', 'midday' ),
+            'description' =&gt; __( 'Modify &lt;b&gt;Footer Copyright Area&lt;/b&gt;.', 'midday' ),
+            'panel'       =&gt; 'midday_panel',
+            'priority'    =&gt; 15,
+        )
+    );
+
+    // Default copyright.
+    $wp_customize-&gt;add_setting(
+        'midday_footer_copyright_area_checkbox',
+        array(
+            'default'           =&gt; true,
+            'transport'         =&gt; 'postMessage',
+            'sanitize_callback' =&gt; 'midday_sanitize_checkbox',
+        )
+    );
+
+    $wp_customize-&gt;add_control(
+        'midday_footer_copyright_area_checkbox',
+        array(
+            'label'       =&gt; __( 'Enable/Disable Default Copyright.', 'midday' ),
+            'description' =&gt; __( 'This checkbox, once &lt;b&gt;unchecked&lt;/b&gt;,&lt;br&gt;removes &lt;b&gt;Default Copyright.&lt;/b&gt;', 'midday' ),
+            'section'     =&gt; 'midday_footer_copyright_area_section',
+            'type'        =&gt; 'checkbox',
+        )
+    );
+
+    $wp_customize-&gt;selective_refresh-&gt;add_partial(
+        'midday_footer_copyright_area_checkbox',
+        array(
+            'selector'        =&gt; '#site-info',
+            'settings'        =&gt; array( 'midday_footer_copyright_area_checkbox' ),
+            'render_callback' =&gt; 'midday_site_info',
+        )
+    );
+
+    // Custom copyright.
+    $wp_customize-&gt;add_setting(
+        'midday_custom_copyright_textarea',
+        array(
+            'default'           =&gt; '',
+            'transport'         =&gt; 'postMessage',
+            'sanitize_callback' =&gt; 'wp_kses_post', // Allow html.
+        )
+    );
+
+    $wp_customize-&gt;add_control(
+        'midday_custom_copyright_textarea',
+        array(
+            'label'       =&gt; esc_html__( 'Custom Copyright Textarea', 'midday' ),
+            'description' =&gt; __( 'To display a &lt;b&gt;Custom Copyright&lt;/b&gt;,&lt;br&gt;&lt;b&gt;uncheck&lt;/b&gt; the &lt;b&gt;Default Copyright&lt;/b&gt; checkbox,&lt;br&gt;then type a custom copyright in the textarea.&lt;br&gt;&lt;b&gt;HTML&lt;/b&gt; is allowed !', 'midday' ),
+            'section'     =&gt; 'midday_footer_copyright_area_section',
+            'type'        =&gt; 'textarea',
+            'input_attrs' =&gt; array(
+                'style'       =&gt; 'border: 1px solid #999',
+                'placeholder' =&gt; __( 'Enter Custom Copyright...', 'midday' ),
+            ),
+        )
+    );
+
+    $wp_customize-&gt;selective_refresh-&gt;add_partial(
+        'midday_custom_copyright_textarea',
+        array(
+            'selector'        =&gt; '#site-info',
+            'settings'        =&gt; array( 'midday_custom_copyright_textarea' ),
+            'render_callback' =&gt; 'midday_site_info',
+        )
+    );
+
+}
+add_action( 'customize_register', 'midday_customize_register' );</code></pre>
+
+  <p>
+    Don't panic, it's pretty straightforward !
+<br>Let's break it down and you'll see.
+  </p>
+<pre class="line-numbers  language-html"><code>function mytheme_customize_register( $wp_customize )
+{
+    //All our sections, settings, and controls will be added here
+}
+add_action( 'customize_register', 'mytheme_customize_register' );</code></pre>
+
+  <p>
+    This is how we hook a function to the <a href="https://codex.wordpress.org/Plugin_API/Action_Reference/customize_register" target="_blank"><code>'customize_register'</code></a> action and put inside it our panels, sections, settings and controls.
+<br>Looking at our code, you can now understand that I've created a panel, a section, 2 settings and their 2 related controls.
+<br>I'm not going to dive into the Customizer, but if you're not familiar with it, a good start would be this <a href="https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1/" target="_blank">excellent guide</a> by Anthony Hortin.
+<br>Instead, I'm going to explain a more important aspect here. If you take a good look at the code, you'll see something else under each control :
+  </p>
+<pre class="line-numbers  language-html"><code>$wp_customize-&gt;selective_refresh-&gt;add_partial</code></pre>
+
+  <p>
+    What is this and what does it do ?
+<br>Well, look closer and you'll figure it out yourself 😂
+<br>Just kidding, but in fact it's really clear.
+<br>Let's take one setting it's control and the related selective_refresh:
+  </p>
+<pre class="line-numbers  language-html"><code>// Default copyright.
+$wp_customize-&gt;add_setting(
+    'midday_footer_copyright_area_checkbox',
+    array(
+        'default'           =&gt; true,
+        'transport'         =&gt; 'postMessage',
+        'sanitize_callback' =&gt; 'midday_sanitize_checkbox',
+    )
+);
+
+$wp_customize-&gt;add_control(
+    'midday_footer_copyright_area_checkbox',
+    array(
+        'label'       =&gt; __( 'Enable/Disable Default Copyright.', 'midday' ),
+        'description' =&gt; __( 'This checkbox, once &lt;b&gt;unchecked&lt;/b&gt;,&lt;br&gt;removes &lt;b&gt;Default Copyright.&lt;/b&gt;', 'midday' ),
+        'section'     =&gt; 'midday_footer_copyright_area_section',
+        'type'        =&gt; 'checkbox',
+    )
+);
+
+$wp_customize-&gt;selective_refresh-&gt;add_partial(
+    'midday_footer_copyright_area_checkbox',
+    array(
+        'selector'        =&gt; '#site-info',
+        'settings'        =&gt; array( 'midday_footer_copyright_area_checkbox' ),
+        'render_callback' =&gt; 'midday_site_info',
+    )
+);</code></pre>
+
+  <p>
+    Remember the first variable ?<br>Well here is it's <code>theme_mod</code> !<br>Take a look at the <strong>setting</strong> name <code>midday_footer_copyright_area_checkbox</code> 😉
+<br>The important part here is <code>'transport' =&gt; 'postMessage'</code>, because it tells the browser not to reload, but to make the change(s) in place !
+<br>Another important aspect in the <strong>setting</strong> is <code>'sanitize_callback' =&gt; 'midday_sanitize_checkbox'</code>, this is a function to sanitize the checkbox, you should put it after the <code>'customize_register'</code> action hook:
+  </p>
+<pre class="line-numbers  language-html"><code>if ( ! function_exists( 'midday_sanitize_checkbox' ) ) {
+    /**
+        * Switch sanitization
+        *
+        * @param string $input Switch value.
+        * @return integer  Sanitized value
+        */
+    function midday_sanitize_checkbox( $input ) {
+        if ( false === $input ) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+}  </code></pre>
+
+  <p>
+    In the <strong>control</strong>, the important part is the type of the control, as you can see it's defined as checkbox, no surprise, WYaskIWYG 😂<br>For the <strong>partial</strong>, the important part is the selector, it must be an id, now you know why I've added an <code><strong>id</strong></code> previously 👍<br>If you look at the settings and the <code>render_callback</code> of the <strong>partial</strong>, you'll understand that everything is related 🔗 and that we are just putting the wright piece in the wright place 🧩
+  </p>
+
+  <p>
+    You maybe guessed it out or not, but yes I'm developing a new theme called MidDay (in fact I've finished it, just some clean up remaining) and I'll submit it very soon 😁
+  </p>
+
+  <p>
+    I really hope that this was helpful.
+  </p>
             ]]>
         </content>
     </entry>
@@ -165,17 +963,96 @@
         <id>https://lebcit.github.io/get-google-products-on-desktop-with-thunderbird.html</id>
             <category term="Tips &amp; Tricks"/>
 
-        <updated>2020-06-12T21:41:17+03:00</updated>
+        <updated>2020-12-08T05:57:18+02:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://lebcit.github.io/media/posts/6/thunderbird_by_Les-Haines.jpg" alt="" />
-                    [{"id":1555941466744,"type":"publii-paragraph","content":"This post is about using Google products on a desktop with Thunderbird.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591957853254,"type":"publii-paragraph","content":"Every time you want to check your Gmail, Agenda, Drive, Keep... on your desktop, you have to open a browser and log in, to be able use them.\n Did you ever asked your self how much time this process is taking in a week,&hellip;
+                     This post is about using Google products on a desktop with Thunderbird. Every time you want to check your Gmail, Agenda, Drive, Keep... on your desktop, you have to open a browser and log in, to be able use them. Did you ever asked your self how much time this process is taking in&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <img src="https://lebcit.github.io/media/posts/6/thunderbird_by_Les-Haines.jpg" alt="" />
-                [{"id":1555941466744,"type":"publii-paragraph","content":"<i>This post is about using Google products on a desktop with Thunderbird.</i>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591957853254,"type":"publii-paragraph","content":"<strong>Every time</strong> you want to check your Gmail, Agenda, Drive, Keep... on your desktop, you have to open a browser and log in, to be able use them.\n<br>Did you ever asked your self how much time this process is taking in a week, a month, a year ?\n<br>Well, with Thunderbird you will not ask yourself that anymore !<i><br></i>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591957913666,"type":"publii-header","content":"Thunderbird","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"thunderbird"}}},{"id":1591957918387,"type":"publii-paragraph","content":"I'm not going to explain in this post how to install Thunderbird, but you can just go to <a href=\"https://www.thunderbird.net/en-US/\" target=\"_blank\">the official website</a> and download it, the installation process is very easy.\n<br>So, assuming you have Thunderbird installed and running, I'm going to explain how to get all Google products directly inside it, and it's also <strong>very</strong> easy to do it.&nbsp;","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://www.thunderbird.net/en-US/","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591957968561,"type":"publii-header","content":"Profile or profiles","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"profile-or-profiles"}}},{"id":1591957976817,"type":"publii-paragraph","content":"When you install Thunderbird and run it, a default profile will be created. You can access the profiles' manager by typing this command :","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591957990080,"type":"publii-code","content":"thunderbird.exe -p","config":{"language":"html","advanced":{"cssClasses":"","id":""}}},{"id":1591958055940,"type":"publii-paragraph","content":"You'll then be able to do various actions, as adding, renaming, deleting... a profile and so on...\n<br>This is not a part of the process but it's important to know that you can do it, maybe you want to add a profile for your work and another for you 😉 this is a very convenient way to separate your personal stuff 👍\n<br>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591958129802,"type":"publii-paragraph","content":"Once a profile is created, start it, add your name (as you want to display it for this account), your e-mail, and your password, and that's it !<br>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591958617712,"type":"publii-paragraph","content":"<strong>Important note</strong> if you use multiple profiles (or even one if you want) : \n<br>you don't have to type the above command each time you want to access the manager, just untick the <em>Don't ask at startup</em> box and now you'll get the manager every time you launch Thunderbird.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591958078927,"type":"publii-header","content":"Google products","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"google-products"}}},{"id":1591958136470,"type":"publii-paragraph","content":"The easiest way is to add only one plugin. To add an extension in Thunderbird, click the main menu button, choose <b>Add-ons</b>, then <b>Extensions</b> in the left panel, search for <i>ThunderKeepPlus</i> and install it.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591958144454,"type":"publii-paragraph","content":"Once installed, it will ask you to connect to your Google account, after that your Google Keep will be displayed, in a new tab inside Thunderbird, as if it was in a browser and you will have access to all Google products as you usually do in a browser 💪","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591958183809,"type":"publii-header","content":"Security !","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"security-"}}},{"id":1591958192835,"type":"publii-paragraph","content":"I don't have to tell you to be aware of this technique because you should only do it on your personal machine only, but I'm telling you just for security and conscience reasons 😊&nbsp;","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591958202621,"type":"publii-header","content":"Final note","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"final-note"}}},{"id":1591958204974,"type":"publii-paragraph","content":"If you want to know more about Thunderbird, head over <a href=\"https://support.mozilla.org/en-US/products/thunderbird\" target=\"_blank\">the official support</a>, everything is well explained.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://support.mozilla.org/en-US/products/thunderbird","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591958247089,"type":"publii-separator","content":false,"config":{"type":"dots","advanced":{"cssClasses":"","id":""}}},{"id":1591958247140,"type":"publii-paragraph","content":"<em>Note: background image used, work of <a href=\"https://pxhere.com/en/photo/417303\" target=\"_blank\">Les Haines</a></em>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"hide","id":""},"link":{"url":"https://pxhere.com/en/photo/417303","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591958299331,"type":"publii-paragraph","content":"Hope this was helpful.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}}]
+                
+  <p>
+    <i>This post is about using Google products on a desktop with Thunderbird.</i>
+  </p>
+
+  <p>
+    <strong>Every time</strong> you want to check your Gmail, Agenda, Drive, Keep... on your desktop, you have to open a browser and log in, to be able use them.
+<br>Did you ever asked your self how much time this process is taking in a week, a month, a year ?
+<br>Well, with Thunderbird you will not ask yourself that anymore !<i><br></i>
+  </p>
+
+    <h2 id="thunderbird">
+      Thunderbird
+    </h2>
+
+  <p>
+    I'm not going to explain in this post how to install Thunderbird, but you can just go to <a href="https://www.thunderbird.net/en-US/" target="_blank">the official website</a> and download it, the installation process is very easy.
+<br>So, assuming you have Thunderbird installed and running, I'm going to explain how to get all Google products directly inside it, and it's also <strong>very</strong> easy to do it.&nbsp;
+  </p>
+
+    <h2 id="profile-or-profiles">
+      Profile or profiles
+    </h2>
+
+  <p>
+    When you install Thunderbird and run it, a default profile will be created. You can access the profiles' manager by typing this command :
+  </p>
+<pre class="line-numbers  language-html"><code>thunderbird.exe -p</code></pre>
+
+  <p>
+    You'll then be able to do various actions, as adding, renaming, deleting... a profile and so on...
+<br>This is not a part of the process but it's important to know that you can do it, maybe you want to add a profile for your work and another for you 😉 this is a very convenient way to separate your personal stuff 👍
+<br>
+  </p>
+
+  <p>
+    Once a profile is created, start it, add your name (as you want to display it for this account), your e-mail, and your password, and that's it !<br>
+  </p>
+
+  <p>
+    <strong>Important note</strong> if you use multiple profiles (or even one if you want) : 
+<br>you don't have to type the above command each time you want to access the manager, just untick the <em>Don't ask at startup</em> box and now you'll get the manager every time you launch Thunderbird.
+  </p>
+
+    <h2 id="google-products">
+      Google products
+    </h2>
+
+  <p>
+    The easiest way is to add only one plugin. To add an extension in Thunderbird, click the main menu button, choose <b>Add-ons</b>, then <b>Extensions</b> in the left panel, search for <i>ThunderKeepPlus</i> and install it.
+  </p>
+
+  <p>
+    Once installed, it will ask you to connect to your Google account, after that your Google Keep will be displayed, in a new tab inside Thunderbird, as if it was in a browser and you will have access to all Google products as you usually do in a browser 💪
+  </p>
+
+    <h2 id="security-">
+      Security !
+    </h2>
+
+  <p>
+    I don't have to tell you to be aware of this technique because you should only do it on your personal machine only, but I'm telling you just for security and conscience reasons 😊&nbsp;
+  </p>
+
+    <h2 id="final-note">
+      Final note
+    </h2>
+
+  <p>
+    If you want to know more about Thunderbird, head over <a href="https://support.mozilla.org/en-US/products/thunderbird" target="_blank">the official support</a>, everything is well explained.
+  </p>
+<hr class="separator separator--dots" />
+
+  <p class="hide">
+    <em>Note: background image used, work of <a href="https://pxhere.com/en/photo/417303" target="_blank">Les Haines</a></em>
+  </p>
+
+  <p>
+    Hope this was helpful.
+  </p>
             ]]>
         </content>
     </entry>
@@ -189,17 +1066,98 @@
             <category term="Theme"/>
             <category term="Development"/>
 
-        <updated>2020-06-15T16:48:02+03:00</updated>
+        <updated>2020-12-08T05:57:18+02:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://lebcit.github.io/media/posts/5/tcb-default-home.jpg" alt="" />
-                    [{"id":1555941466744,"type":"publii-paragraph","content":"This post is about the development and usage of The Clean Blog WordPress theme.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591934623800,"type":"publii-paragraph","content":"The Clean Blog WordPress theme was released in 2017 with a lot of bells and whistles...\n Two years later, in 2019, it was rewritten from ground up, without any unnecessary functionalities.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591933399677,"type":"publii-header","content":"Credits","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"credits"}}},{"id":1591933427713,"type":"publii-paragraph","content":"This WordPress Theme wouldn’t have seen the light without :\n - the&hellip;
+                     This post is about the development and usage of The Clean Blog WordPress theme. The Clean Blog WordPress theme was released in 2017 with a lot of bells and whistles... Two years later, in 2019, it was rewritten from ground up, without any unnecessary functionalities. This WordPress Theme wouldn’t have seen the light without&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <img src="https://lebcit.github.io/media/posts/5/tcb-default-home.jpg" alt="" />
-                [{"id":1555941466744,"type":"publii-paragraph","content":"<em>This post is about the development and usage of The Clean Blog WordPress theme.</em>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591934623800,"type":"publii-paragraph","content":"The Clean Blog WordPress theme was released in 2017 with a lot of bells and whistles...\n<br>Two years later, in 2019, it was rewritten from ground up, without any unnecessary functionalities.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591933399677,"type":"publii-header","content":"Credits","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"credits"}}},{"id":1591933427713,"type":"publii-paragraph","content":"This WordPress Theme wouldn’t have seen the light without :\n<br>- the <a href=\"https://startbootstrap.com/themes/clean-blog/\" target=\"_blank\">Clean Blog</a> template by <a href=\"https://github.com/davidtmiller\" target=\"_blank\">David Miller</a><br>- the starter theme <a href=\"https://underscores.me/\" target=\"_blank\">Underscores</a> by <a href=\"https://automattic.com/\" target=\"_blank\">Automattic</a><br>- and our beloved CMS <a href=\"https://wordpress.org/\" target=\"_blank\">WordPress</a>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://wordpress.org/","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591933922360,"type":"publii-header","content":"About","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"about"}}},{"id":1591934027769,"type":"publii-paragraph","content":"Users, like I was a long time ago, tend to search for themes with ‘cool’ functionalities to make their websites stand out without knowing the real cost (performance, accessibility, best practices, search engine optimization, and so on…) of the ‘bling-bling’ they are using…\n<br>Two years ago, when The Clean Blog was released (in 2017), I was not aware of those critical facts and developed it with a user mindset…\n<br>Today (in 2019), after two more years of diving, learning and improving, I can’t just sit back and let even a few hundreds of people use a bloated theme with a lot of ‘bling-bling’ functionalities !\n<br>As developers improve, they don’t feel shy or ashamed at all to point users in the right direction(s) for a better experience and a better Web even if this mean hours of developing are going to be wasted ( not really because we learn from our mistakes ) and gone with the wind…\n<br>Users are always free to switch from a theme to any other one, but for me, as a conscientious developer, I have to make the best decisions concerning my code for the web and the users experience…\n<br>In short, the new theme is much more well coded and to be very honest is not bloated like the old one…","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591934065010,"type":"publii-header","content":"Usage","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"usage"}}},{"id":1591934072171,"type":"publii-paragraph","content":"1- To use this theme, you have to <a href=\"https://wordpress.org/themes/the-clean-blog/\" target=\"_blank\" class=\"\">download</a> it from the WordPress themes repository and add it under <em>Appearance→Themes→Add New→Upload Theme</em>, or search for <strong>The Clean Blog</strong> under <em>Appearance→Themes→Add New</em> in the backend.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://wordpress.org/themes/the-clean-blog/","noFollow":{},"targetBlank":true,"sponsored":{},"ugc":{},"download":false}}},{"id":1591934119152,"type":"publii-paragraph","content":"2- Since the theme is Bootstrap based, I've wrote a lightweight JavaScript plugin, <a href=\"https://github.com/LebCit/bsWalker.js\" target=\"_blank\">bsWalker.js</a>, to take care of multilevel dropdown navigation.\n<br>To create an item link with children :\n<br>- go to Appearance→Menus in the backend\n<br>- create a <strong>Custom Link</strong>\n<br>- in <em>URL</em> type <strong>#</strong>\n<br>- in <em>Link Text</em> type the label of your choice\n<br>- put children links under this custom link\n<br>- in <strong>Menu Settings</strong>, under the created menu, choose <strong>Primary</strong> as location and save your menu\n<br>- nothing more to do, that's it ! 😁","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://github.com/LebCit/bsWalker.js","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591934283073,"type":"publii-paragraph","content":"3- In the Customizer (<em>Appearance→Customize</em> or <em>Customize</em> link in the Admin Bar), you'll find a panel named <em>The Clean Blog Theme</em> and four sections (for now: <em>Homepage Header Slider, Featured Image Display, Footer Social Sites Links and Footer Copyright Area</em>) under it. Under each section, controls are explained in details.\n<br>Note that the third section <em>Header Image</em> is only for the home page, each post and page can have their own header image by assigning a <em>Featured image</em> to the post or the page.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591934380424,"type":"publii-paragraph","content":"4- The only plugin I've used is <a href=\"https://freqdec.github.io/slabText/\" target=\"_blank\">slabText</a> by <a href=\"https://github.com/freqdec\" target=\"_blank\">Brian McAllister</a> to control the size of the site title, so don't worry if your site title is long, it will be big and bold ✨","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://github.com/freqdec","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591934439503,"type":"publii-paragraph","content":"5- The Clean Blog (TCB) is a Responsive WordPress theme, perfect for personal or company blogs.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591934446057,"type":"publii-header","content":"Feedback ?","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"feedback-"}}},{"id":1591934460618,"type":"publii-paragraph","content":"Head over the <a href=\"https://wordpress.org/support/theme/the-clean-blog\" target=\"_blank\">support page</a> to tell me if you’re having some issues or if you wish to see some features added to the theme 😉\n<br>You can also leave a review on the <a href=\"https://wordpress.org/support/theme/the-clean-blog/reviews/\" target=\"_blank\">reviews page</a> to give me a push 👍\n<br>Thanks in advance for your feedback !","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://wordpress.org/support/theme/the-clean-blog/reviews/","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591934516330,"type":"publii-header","content":"Final word","config":{"headingLevel":2,"textAlign":"left","link":{"url":"","noFollow":false,"targetBlank":false,"sponsored":false,"ugc":false},"advanced":{"cssClasses":"","customId":false,"id":"final-word"}}},{"id":1591934520395,"type":"publii-paragraph","content":"I really hope that this theme will be useful for a lot of WordPress users and that they'll enjoy using it. I'll be making improvements to TCB from time to time, so don't worry, and be talking about it here, so stay tuned !","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}}]
+                
+  <p>
+    <em>This post is about the development and usage of The Clean Blog WordPress theme.</em>
+  </p>
+
+  <p>
+    The Clean Blog WordPress theme was released in 2017 with a lot of bells and whistles...
+<br>Two years later, in 2019, it was rewritten from ground up, without any unnecessary functionalities.
+  </p>
+
+    <h2 id="credits">
+      Credits
+    </h2>
+
+  <p>
+    This WordPress Theme wouldn’t have seen the light without :
+<br>- the <a href="https://startbootstrap.com/themes/clean-blog/" target="_blank">Clean Blog</a> template by <a href="https://github.com/davidtmiller" target="_blank">David Miller</a><br>- the starter theme <a href="https://underscores.me/" target="_blank">Underscores</a> by <a href="https://automattic.com/" target="_blank">Automattic</a><br>- and our beloved CMS <a href="https://wordpress.org/" target="_blank">WordPress</a>
+  </p>
+
+    <h2 id="about">
+      About
+    </h2>
+
+  <p>
+    Users, like I was a long time ago, tend to search for themes with ‘cool’ functionalities to make their websites stand out without knowing the real cost (performance, accessibility, best practices, search engine optimization, and so on…) of the ‘bling-bling’ they are using…
+<br>Two years ago, when The Clean Blog was released (in 2017), I was not aware of those critical facts and developed it with a user mindset…
+<br>Today (in 2019), after two more years of diving, learning and improving, I can’t just sit back and let even a few hundreds of people use a bloated theme with a lot of ‘bling-bling’ functionalities !
+<br>As developers improve, they don’t feel shy or ashamed at all to point users in the right direction(s) for a better experience and a better Web even if this mean hours of developing are going to be wasted ( not really because we learn from our mistakes ) and gone with the wind…
+<br>Users are always free to switch from a theme to any other one, but for me, as a conscientious developer, I have to make the best decisions concerning my code for the web and the users experience…
+<br>In short, the new theme is much more well coded and to be very honest is not bloated like the old one…
+  </p>
+
+    <h2 id="usage">
+      Usage
+    </h2>
+
+  <p>
+    1- To use this theme, you have to <a href="https://wordpress.org/themes/the-clean-blog/" target="_blank" class="">download</a> it from the WordPress themes repository and add it under <em>Appearance→Themes→Add New→Upload Theme</em>, or search for <strong>The Clean Blog</strong> under <em>Appearance→Themes→Add New</em> in the backend.
+  </p>
+
+  <p>
+    2- Since the theme is Bootstrap based, I've wrote a lightweight JavaScript plugin, <a href="https://github.com/LebCit/bsWalker.js" target="_blank">bsWalker.js</a>, to take care of multilevel dropdown navigation.
+<br>To create an item link with children :
+<br>- go to Appearance→Menus in the backend
+<br>- create a <strong>Custom Link</strong>
+<br>- in <em>URL</em> type <strong>#</strong>
+<br>- in <em>Link Text</em> type the label of your choice
+<br>- put children links under this custom link
+<br>- in <strong>Menu Settings</strong>, under the created menu, choose <strong>Primary</strong> as location and save your menu
+<br>- nothing more to do, that's it ! 😁
+  </p>
+
+  <p>
+    3- In the Customizer (<em>Appearance→Customize</em> or <em>Customize</em> link in the Admin Bar), you'll find a panel named <em>The Clean Blog Theme</em> and four sections (for now: <em>Homepage Header Slider, Featured Image Display, Footer Social Sites Links and Footer Copyright Area</em>) under it. Under each section, controls are explained in details.
+<br>Note that the third section <em>Header Image</em> is only for the home page, each post and page can have their own header image by assigning a <em>Featured image</em> to the post or the page.
+  </p>
+
+  <p>
+    4- The only plugin I've used is <a href="https://freqdec.github.io/slabText/" target="_blank">slabText</a> by <a href="https://github.com/freqdec" target="_blank">Brian McAllister</a> to control the size of the site title, so don't worry if your site title is long, it will be big and bold ✨
+  </p>
+
+  <p>
+    5- The Clean Blog (TCB) is a Responsive WordPress theme, perfect for personal or company blogs.
+  </p>
+
+    <h2 id="feedback-">
+      Feedback ?
+    </h2>
+
+  <p>
+    Head over the <a href="https://wordpress.org/support/theme/the-clean-blog" target="_blank">support page</a> to tell me if you’re having some issues or if you wish to see some features added to the theme 😉
+<br>You can also leave a review on the <a href="https://wordpress.org/support/theme/the-clean-blog/reviews/" target="_blank">reviews page</a> to give me a push 👍
+<br>Thanks in advance for your feedback !
+  </p>
+
+    <h2 id="final-word">
+      Final word
+    </h2>
+
+  <p>
+    I really hope that this theme will be useful for a lot of WordPress users and that they'll enjoy using it. I'll be making improvements to TCB from time to time, so don't worry, and be talking about it here, so stay tuned !
+  </p>
             ]]>
         </content>
     </entry>
@@ -211,17 +1169,44 @@
         <link href="https://lebcit.github.io/about.html"/>
         <id>https://lebcit.github.io/about.html</id>
 
-        <updated>2020-06-13T01:02:10+03:00</updated>
+        <updated>2020-12-08T05:57:18+02:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://lebcit.github.io/media/posts/4/octopus_by_Ivan_DEBS.jpg" alt="" />
-                    [{"id":1555941466744,"type":"publii-paragraph","content":"I'm LebCit, a Citizen of a small country called Lebanon in the Middle East. I love to read a lot, learn as much as I can, and of course apply and share with others 😉","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591913109742,"type":"publii-paragraph","content":"Once (in 2000) I wanted to make a website, I heired a so called developer who not only stoled me but&hellip;
+                     I'm LebCit, a Citizen of a small country called Lebanon in the Middle East. I love to read a lot, learn as much as I can, and of course apply and share with others 😉 Once (in 2000) I wanted to make a website, I heired a so called developer who not only stoled&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <img src="https://lebcit.github.io/media/posts/4/octopus_by_Ivan_DEBS.jpg" alt="" />
-                [{"id":1555941466744,"type":"publii-paragraph","content":"I'm LebCit, a <strong>Cit</strong>izen of a small country called <strong>Leb</strong>anon in the Middle East. I love to read a lot, learn as much as I can, and of course apply and share with others 😉","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591913109742,"type":"publii-paragraph","content":"Once (in 2000) I wanted to make a website, I heired a so called developer who not only stoled me but was also no-good at all ! 😠\n<br>So, with no knowledge at all in development, I started with Joomla then Drupal and finally felled in love with WordPress 💘 !\n<br>Today I’m a WordPress <a href=\"https://profiles.wordpress.org/lebcit/#content-themes\" target=\"_blank\">theme</a> and <a href=\"https://profiles.wordpress.org/lebcit/#content-plugins\" target=\"_blank\">plugin</a> developer !","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://profiles.wordpress.org/lebcit/#content-plugins","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591913157627,"type":"publii-paragraph","content":"A little bit perfectionist, always trying to improve, I'm now diving in Accessibility, SEO, usability over functionality.\n<br>This new quest made me take off the highway and go back to the roots : HTML, CSS, JS (Vanilla or Chocolate but not jQuery 🤣).","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591913166260,"type":"publii-separator","content":false,"config":{"type":"dots","advanced":{"cssClasses":"","id":""}}},{"id":1591913166311,"type":"publii-paragraph","content":"I've used <a href=\"https://getpublii.com/\" target=\"_blank\">Publii</a> to bake this site, on the classic, solid and clear road !","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://getpublii.com/","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591913234118,"type":"publii-paragraph","content":"I'll be talking about it later, so stay tuned !","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591913392777,"type":"publii-paragraph","content":"<em>Note: background image used, work of a talented lebanese artist Ivan DEBS , representing the political situation of Lebanon since 1990...</em>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"hide","id":""}}}]
+                
+  <p>
+    I'm LebCit, a <strong>Cit</strong>izen of a small country called <strong>Leb</strong>anon in the Middle East. I love to read a lot, learn as much as I can, and of course apply and share with others 😉
+  </p>
+
+  <p>
+    Once (in 2000) I wanted to make a website, I heired a so called developer who not only stoled me but was also no-good at all ! 😠
+<br>So, with no knowledge at all in development, I started with Joomla then Drupal and finally felled in love with WordPress 💘 !
+<br>Today I’m a WordPress <a href="https://profiles.wordpress.org/lebcit/#content-themes" target="_blank">theme</a> and <a href="https://profiles.wordpress.org/lebcit/#content-plugins" target="_blank">plugin</a> developer !
+  </p>
+
+  <p>
+    A little bit perfectionist, always trying to improve, I'm now diving in Accessibility, SEO, usability over functionality.
+<br>This new quest made me take off the highway and go back to the roots : HTML, CSS, JS (Vanilla or Chocolate but not jQuery 🤣).
+  </p>
+<hr class="separator separator--dots" />
+
+  <p>
+    I've used <a href="https://getpublii.com/" target="_blank">Publii</a> to bake this site, on the classic, solid and clear road !
+  </p>
+
+  <p>
+    I'll be talking about it later, so stay tuned !
+  </p>
+
+  <p class="hide">
+    <em>Note: background image used, work of a talented lebanese artist Ivan DEBS , representing the political situation of Lebanon since 1990...</em>
+  </p>
             ]]>
         </content>
     </entry>
@@ -234,17 +1219,74 @@
         <id>https://lebcit.github.io/back-to-the-roots-with-a-static-site.html</id>
             <category term="Development"/>
 
-        <updated>2020-06-12T06:35:37+03:00</updated>
+        <updated>2020-12-08T05:57:18+02:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://lebcit.github.io/media/posts/3/code_books_by_Greg-Rakozy.jpg" alt="" />
-                    [{"id":1555941466744,"type":"publii-paragraph","content":"This is a post about my own experience with development and static site.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591911864551,"type":"publii-paragraph","content":"From Zero to Hero or at least not a zero anymore ! From the Highway to the Classic Road.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591911892500,"type":"publii-paragraph","content":"If you didn't read my About section, you can quickly guess from the tagline that I'm a self-taught developer.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://lebcit.github.io/about.html","noFollow":null,"targetBlank":false,"sponsored":null,"ugc":null,"download":false}}},{"id":1591911963750,"type":"publii-paragraph","content":"I didn't have a clue about the&hellip;
+                     This is a post about my own experience with development and static site. From Zero to Hero or at least not a zero anymore ! From the Highway to the Classic Road. If you didn't read my About section, you can quickly guess from the tagline that I'm a self-taught developer. I didn't have&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <img src="https://lebcit.github.io/media/posts/3/code_books_by_Greg-Rakozy.jpg" alt="" />
-                [{"id":1555941466744,"type":"publii-paragraph","content":"<em>This is a post about my own experience with development and static site.</em>","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591911864551,"type":"publii-paragraph","content":"From Zero to Hero or at least not a zero anymore !<br>From the Highway to the Classic Road.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591911892500,"type":"publii-paragraph","content":"If you didn't read my <a href=\"https://lebcit.github.io/about.html\" class=\"\">About</a> section, you can quickly guess from the tagline that I'm a self-taught developer.","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://lebcit.github.io/about.html","noFollow":null,"targetBlank":false,"sponsored":null,"ugc":null,"download":false}}},{"id":1591911963750,"type":"publii-paragraph","content":"I didn't have a clue about the amazing world of code, or even heard about HTML, CSS or JS.\n<br>So with a will to understand, after being played and robbed by a so-called developer, my first task was to learn English ! Oh, yeah 🤣","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591911983207,"type":"publii-paragraph","content":"After acquiring a basic level of understanding, the real deal was to confront this nightmare,&nbsp;<code>the code</code> 👻\n<br>From where should I begin ?!\n<br>What should I learn first ?!\n<br>How to create a website ?!\n<br>...\n<br>So many questions with no clear answer for me 😱&nbsp;","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591912412129,"type":"publii-paragraph","content":"Since I wanted to start quick (newbie error), I took the wrong path and started to seek for easy ways to create a website (don't want to talk about it, very bad memory). It took me a while to realise that this was not a good choice and that I'm not really learning...<br>    A friend talked about a tool for creating dynamic websites called Joomla, I created my first website with Joomla and coded a little bit, but Joomla was (for me) illogical (not clear/consistent), so I tried Drupal (a cannon to kill a fly), then discovered WordPress 💘","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591912428360,"type":"publii-paragraph","content":"I don't know why, but I felled at home with WordPress, especially with the Codex, the Forums and tons of tutorials everywhere on the Web, the nightmare was turning to a dream coming true...\n<br>    Meanwhile, my English was improving with all the readings and my experience was getting pleasant and smoother.\n<br>    So I decided to make <a href=\"https://wordpress.org/plugins/full-screen-morphing-search/\" target=\"_blank\">my first plugin</a> (2016), then <a href=\"https://wordpress.org/themes/the-clean-blog/\" target=\"_blank\">my first theme</a> (2017), and I did it with a lot of difficulties... I wanted to quit many times, but a voice in my head was telling me: \"continue, you've already spent a lot of time over this and you are so close, don't give up now !\".","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://wordpress.org/themes/the-clean-blog/","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591912450011,"type":"publii-paragraph","content":"Since then, I've helped as much as I can other people, the same way great developers helped me by pointing to the right direction.\n<br>    But, yes there is always a but, I've written again my plugin and my theme from ground up, because I was improving, and everything with bells and whistles in the code world became (for me) useless.\n<br>    I was turning to usability over functionality, simplicity over complexity and accessibility over bling bling code !","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591912463149,"type":"publii-paragraph","content":"Last year (2019), I was watching a lot of great developers turning their personal sites to static and a growing interest for <a href=\"https://www.staticgen.com/\" target=\"_blank\">SSG</a> and <a href=\"https://headlesscms.org/\" target=\"_blank\">headlesCMS</a> .\n<br>    I was wondering why ?\n<br>    I had a .tk domain that stopped working from one day to the next ! Another lesson in this world...\n<br>    So, it was time to turn over and try the static world. I've found myself in a completely new playground and didn't want to waste time, again, just to output basic HTML...","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""},"link":{"url":"https://headlesscms.org/","noFollow":false,"targetBlank":true,"sponsored":false,"ugc":false,"download":false}}},{"id":1591912473294,"type":"publii-paragraph","content":"I was working on a new WordPress theme, and decided to bake it on the Classic Road and use it for me as a beginning point to my new site.\n<br>    Big, bold and clear 😉&nbsp;","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}},{"id":1591912483272,"type":"publii-paragraph","content":"I really hope that you like it. Soon I'll be talking about how I made it, stay tuned !","config":{"textAlign":"left","advanced":{"style":"","cssClasses":"","id":""}}}]
+                
+  <p>
+    <em>This is a post about my own experience with development and static site.</em>
+  </p>
+
+  <p>
+    From Zero to Hero or at least not a zero anymore !<br>From the Highway to the Classic Road.
+  </p>
+
+  <p>
+    If you didn't read my <a href="https://lebcit.github.io/about.html" class="">About</a> section, you can quickly guess from the tagline that I'm a self-taught developer.
+  </p>
+
+  <p>
+    I didn't have a clue about the amazing world of code, or even heard about HTML, CSS or JS.
+<br>So with a will to understand, after being played and robbed by a so-called developer, my first task was to learn English ! Oh, yeah 🤣
+  </p>
+
+  <p>
+    After acquiring a basic level of understanding, the real deal was to confront this nightmare,&nbsp;<code>the code</code> 👻
+<br>From where should I begin ?!
+<br>What should I learn first ?!
+<br>How to create a website ?!
+<br>...
+<br>So many questions with no clear answer for me 😱&nbsp;
+  </p>
+
+  <p>
+    Since I wanted to start quick (newbie error), I took the wrong path and started to seek for easy ways to create a website (don't want to talk about it, very bad memory). It took me a while to realise that this was not a good choice and that I'm not really learning...<br>    A friend talked about a tool for creating dynamic websites called Joomla, I created my first website with Joomla and coded a little bit, but Joomla was (for me) illogical (not clear/consistent), so I tried Drupal (a cannon to kill a fly), then discovered WordPress 💘
+  </p>
+
+  <p>
+    I don't know why, but I felled at home with WordPress, especially with the Codex, the Forums and tons of tutorials everywhere on the Web, the nightmare was turning to a dream coming true...
+<br>    Meanwhile, my English was improving with all the readings and my experience was getting pleasant and smoother.
+<br>    So I decided to make <a href="https://wordpress.org/plugins/full-screen-morphing-search/" target="_blank">my first plugin</a> (2016), then <a href="https://wordpress.org/themes/the-clean-blog/" target="_blank">my first theme</a> (2017), and I did it with a lot of difficulties... I wanted to quit many times, but a voice in my head was telling me: "continue, you've already spent a lot of time over this and you are so close, don't give up now !".
+  </p>
+
+  <p>
+    Since then, I've helped as much as I can other people, the same way great developers helped me by pointing to the right direction.
+<br>    But, yes there is always a but, I've written again my plugin and my theme from ground up, because I was improving, and everything with bells and whistles in the code world became (for me) useless.
+<br>    I was turning to usability over functionality, simplicity over complexity and accessibility over bling bling code !
+  </p>
+
+  <p>
+    Last year (2019), I was watching a lot of great developers turning their personal sites to static and a growing interest for <a href="https://www.staticgen.com/" target="_blank">SSG</a> and <a href="https://headlesscms.org/" target="_blank">headlesCMS</a> .
+<br>    I was wondering why ?
+<br>    I had a .tk domain that stopped working from one day to the next ! Another lesson in this world...
+<br>    So, it was time to turn over and try the static world. I've found myself in a completely new playground and didn't want to waste time, again, just to output basic HTML...
+  </p>
+
+  <p>
+    I was working on a new WordPress theme, and decided to bake it on the Classic Road and use it for me as a beginning point to my new site.
+<br>    Big, bold and clear 😉&nbsp;
+  </p>
+
+  <p>
+    I really hope that you like it. Soon I'll be talking about how I made it, stay tuned !
+  </p>
             ]]>
         </content>
     </entry>

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+			<title>Hide WordPress Toolbar with wp_add_inline_style - { LebCit }</title>
+		
+		<meta name="description" content="This post is about using wp_add_inline_style() function to hide the WordPress Toolbar or Admin Bar.">
+		<link rel="stylesheet" href="/css/main.min.css">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{ LebCit }">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{ LebCit }">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"/>
+		<link href="https://unpkg.com/prismjs@1.23.0/themes/prism-okaidia.css" rel="stylesheet">
+	</head>
+	<body>
+	
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+			<div id="main-nav" aria-label="Main navigation" class="overlay" tabindex="-1">
+				<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
+				<div class="overlay-content">
+						<a href="/">Home</a>
+						<a href="/about/">About</a>
+						<a href="/posts/">Archive</a>
+					<a href="https://github.com/LebCit" target="_blank">GitHub</a>
+				</div>
+			</div>
+
+			<header id="masthead"
+				
+					class="site-header unit-1 unit-lg-2-5 bio"
+					style="background-image:url(/img/little-girl-covering-her-face-with-her-hands.webp)"
+				
+			>
+
+				<div class="sidebar">
+					<div class="site-branding">
+						<h1 class="site-title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-description">
+							Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !
+						</p>
+					</div>
+
+					<nav class="nav" aria-label="MENU">
+						<ul class="nav-list">
+							<li class="nav-item">
+								<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+									MENU
+									<span class="menu-icon" aria-hidden="true">
+										<svg version='1.1' x='0px' y='0px' width='30px' height='30px' viewbox='0 0 30 30' enable-background='new 0 0 30 30'><rect width='30' height='5'/><rect y='24' width='30' height='5'/><rect y='12' width='30' height='5'/></svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+
+					</nav><!-- #site-navigation -->
+				</div>
+			</header><!-- #masthead -->
+
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main  class="single-post" >
+					
+<header class="post-header">
+		<h1 class="post-title">Hide WordPress Toolbar with wp_add_inline_style</h1>
+		
+		
+		<p class="post-meta">
+			Posted on
+			<span class="posted-on">
+				<time class="post-date" datetime="2020-05-22">22 May 2020</time>
+			</span>
+			
+
+			
+			
+				<br>
+				Tagged
+				
+					<span class="post-tag">
+						<a href="/tags/Development/">Development</a>
+					</span>
+					<span class="post-tag">
+						<a href="/tags/Tips and Tricks/">Tips and Tricks</a>
+					</span>
+					<span class="post-tag">
+						<a href="/tags/Toolbar/">Toolbar</a>
+					</span>
+			
+		</p>
+		
+</header>
+
+<div class="post-content">
+  <p><em>This post is about using <code>wp_add_inline_style()</code> function to hide the WordPress Toolbar or Admin Bar.</em></p>
+<p>Ever wanted to hide the WordPress Toolbar ?<br>
+If you are a new developer, you should know that it's not allowed to hide it directly wit CSS.<br>
+But even if you are a junior or senior WordPress user, you should consider this requirement for best practice, also you'll maybe learn something new 😉</p>
+<p><a href="https://wordpress.org/support/article/toolbar/" target="_blank" rel="external noopener noreferrer">The WordPress Toolbar</a> is the little black bar on top of the site that only the logged in user(s) can see, depending on their <a href="https://wordpress.org/support/article/roles-and-capabilities/" target="_blank" rel="external noopener noreferrer">role(s)</a> and how the Super Admin or the Administrator has configured the visibility of this bar for each one…</p>
+<p>We can set the display status of this bar for the front side of our website by using the <a href="https://developer.wordpress.org/reference/functions/show_admin_bar/" target="_blank" rel="external noopener noreferrer">show_admin_bar()</a> function.</p>
+<p>Also, we can directly target it by it’s CSS <em><code>id #wpadminbar</code></em> and hide it like so :</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">#wpadminbar</span> <span class="token punctuation">{</span><br>    <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>but this way is not allowed for themes/plugins developers !</p>
+<p>You can say, <em>“just use <code>show_admin_bar</code> !”</em>, and I would ask the following :<br>
+<em>“what if I want to hide it with CSS without using a stylesheet so I can control it with JS for later use ?!”</em> 😉<br>
+It’s not the main reason, you can have any other reason to hide it with CSS without using a stylesheet, scenarios are limitless.</p>
+<p>This is where <a href="https://developer.wordpress.org/reference/functions/wp_add_inline_style/" target="_blank" rel="external noopener noreferrer">wp_add_inline_style()</a> function steps in 🙂<br>
+In your <a href="https://codex.wordpress.org/Functions_File_Explained" target="_blank" rel="external noopener noreferrer">functions.php</a> file, add the following :</p>
+<pre class="language-php"><code class="language-php"><span class="token comment">/**<br> * Hide the Toolbar using inline style since we can't use #wpadminbar in CSS.<br> */</span><br><span class="token keyword">function</span> <span class="token function">myfunction_hide_adminbar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token variable">$hide_adminbar</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"<br>        #wpadminbar{<br>            display: none;<br>        }"</span><span class="token punctuation">;</span><br>    <span class="token function">wp_add_inline_style</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'my-stylesheet-handle'</span><span class="token punctuation">,</span> <span class="token variable">$hide_adminbar</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'wp_enqueue_scripts'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'myfunction_hide_adminbar'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Please, pay attention to the <code>$handle</code> <strong>my-stylesheet-handle</strong> !<br>
+You should replace it with the <code>$handle</code> of your stylesheet !<br>
+In your <strong>functions.php</strong> file, you’ll find something like :</p>
+<pre class="language-php"><code class="language-php"><span class="token function">wp_enqueue_style</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'your-stylesheet-handle'</span><span class="token punctuation">,</span> <span class="token function">get_stylesheet_uri</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><strong>your-stylesheet-handle</strong> is the <code>$handle</code> of your stylesheet 😉</p>
+<p>Hope this will be useful 🙂<br>
+Please don’t hesitate to share your opinion, suggestions or other methods.</p>
+
+	<p class="author-greetings">SYA,<br>LebCit.</p>
+</div>
+
+
+
+<nav class="post-navigation" aria-label="Post navigation"><a href="/posts/modifying-wordpress-theme-copyright-from-the-customizer/" class="prev-post" rel="prev">Previous: Modifying WordPress theme&#39;s copyright from the Customizer</a><a href="/posts/listen-for-changes-in-customizer-preview/" class="next-post" rel="next">Next: Listen for changes in Customizer Preview !</a>
+</nav>
+
+
+
+	<div class="related-posts">
+		<h3>SOME RELATED POSTS</h3>
+		<div>
+			<section>
+				<a href="/posts/full-screen-morphing-search-plugin/">
+					<img class="img-responsive" src="/img/man-hand-holding-lens.webp"
+					
+					
+					alt="Man hand holding lens">
+				</a>
+				<h4>
+					<a href="/posts/full-screen-morphing-search-plugin/">Full Screen Morphing Search Plugin</a>
+				</h4>
+			</section>
+			<section>
+				<a href="/posts/the-clean-blog-wordpress-theme/">
+					<img class="img-responsive" src="/img/man-hands-typing-on-keyboard-of-laptop-with-screen-showing-wordpress-backend.webp"
+					
+					
+					alt="Man hands typing on keyboard of laptop with screen showing wordpress backend">
+				</a>
+				<h4>
+					<a href="/posts/the-clean-blog-wordpress-theme/">The Clean Blog WordPress theme</a>
+				</h4>
+			</section>
+		</div>
+	</div>
+
+
+				</main><!-- #main -->
+			</div><!-- #content -->
+
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<strong>2016 - 2021 | { LebCit }</strong><br>
+					Proudly created with  <a href="https://www.11ty.dev/" target="_blank">11ty</a>
+				</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+
+			<!-- Current page: /posts/hide-wordpress-toolbar-with-wp_add_inline_style/ -->
+			
+		</div><!-- #page -->
+
+
+		<script type="text/javascript" src="/js/main.min.js"></script>
+		
+	</body>
+</html>

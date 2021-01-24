@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+			<title>The Clean Blog WordPress theme - { LebCit }</title>
+		
+		<meta name="description" content="This post is about the development and usage of The Clean Blog WordPress theme.">
+		<link rel="stylesheet" href="/css/main.min.css">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{ LebCit }">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{ LebCit }">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"/>
+		<link href="https://unpkg.com/prismjs@1.23.0/themes/prism-okaidia.css" rel="stylesheet">
+	</head>
+	<body>
+	
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+			<div id="main-nav" aria-label="Main navigation" class="overlay" tabindex="-1">
+				<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
+				<div class="overlay-content">
+						<a href="/">Home</a>
+						<a href="/about/">About</a>
+						<a href="/posts/">Archive</a>
+					<a href="https://github.com/LebCit" target="_blank">GitHub</a>
+				</div>
+			</div>
+
+			<header id="masthead"
+				
+					class="site-header unit-1 unit-lg-2-5 bio"
+					style="background-image:url(/img/man-hands-typing-on-keyboard-of-laptop-with-screen-showing-wordpress-backend.webp)"
+				
+			>
+
+				<div class="sidebar">
+					<div class="site-branding">
+						<h1 class="site-title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-description">
+							Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !
+						</p>
+					</div>
+
+					<nav class="nav" aria-label="MENU">
+						<ul class="nav-list">
+							<li class="nav-item">
+								<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+									MENU
+									<span class="menu-icon" aria-hidden="true">
+										<svg version='1.1' x='0px' y='0px' width='30px' height='30px' viewbox='0 0 30 30' enable-background='new 0 0 30 30'><rect width='30' height='5'/><rect y='24' width='30' height='5'/><rect y='12' width='30' height='5'/></svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+
+					</nav><!-- #site-navigation -->
+				</div>
+			</header><!-- #masthead -->
+
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main  class="single-post" >
+					
+<header class="post-header">
+		<h1 class="post-title">The Clean Blog WordPress theme</h1>
+		
+		
+		<p class="post-meta">
+			Posted on
+			<span class="posted-on">
+				<time class="post-date" datetime="2020-05-09">09 May 2020</time>
+			</span>
+			
+
+			
+			
+				<br>
+				Tagged
+				
+					<span class="post-tag">
+						<a href="/tags/Development/">Development</a>
+					</span>
+					<span class="post-tag">
+						<a href="/tags/Theme/">Theme</a>
+					</span>
+			
+		</p>
+		
+</header>
+
+<div class="post-content">
+  <p>Hello everyone,</p>
+<p><em>This post is about the development and usage of The Clean Blog WordPress theme.</em></p>
+<h2 id="credits">Credits <a class="direct-link" href="#credits">#</a></h2>
+<p>This WordPress Theme wouldn’t have seen the light without :</p>
+<ul>
+<li>the <a href="https://startbootstrap.com/themes/clean-blog/" target="_blank" rel="external noopener noreferrer">Clean Blog</a> template by <a href="https://github.com/davidtmiller" target="_blank" rel="external noopener noreferrer">David Miller</a></li>
+<li>the starter theme <a href="https://underscores.me/" target="_blank" rel="external noopener noreferrer">Underscores</a> by <a href="https://automattic.com/" target="_blank" rel="external noopener noreferrer">Automattic</a></li>
+<li>and our beloved CMS <a href="https://wordpress.org/" target="_blank" rel="external noopener noreferrer">WordPress</a></li>
+</ul>
+<h2 id="about">About <a class="direct-link" href="#about">#</a></h2>
+<p>Users, like I was a long time ago, tend to search for themes with ‘cool’ functionalities to make their websites stand out without knowing the real cost (performance, accessibility, best practices, search engine optimization, and so on…) of the ‘bling-bling’ they are using…<br>
+Two years ago, when <em>The Clean Blog</em> was released (in 2017), I was not aware of those critical facts and developed it with a user mindset…<br>
+Today (in 2019), after two more years of diving, learning and improving, I can’t just sit back and let even a few hundreds of people use a bloated theme with a lot of ‘bling-bling’ functionalities !<br>
+As developers improve, they don’t feel shy or ashamed at all to point users in the right direction(s) for a better experience and a better Web even if this mean hours of developing are going to be wasted ( not really because we learn from our mistakes ) and gone with the wind…<br>
+Users are always free to switch from a theme to any other one, but for me, as a conscientious developer, I have to make the best decisions concerning my code for the web and the users experience…<br>
+In short, the new theme is much more well coded and to be very honest is not bloated like the old one…</p>
+<h2 id="usage">Usage <a class="direct-link" href="#usage">#</a></h2>
+<p>1- To use this theme, you have to <a href="https://wordpress.org/themes/the-clean-blog/" target="_blank" rel="external noopener noreferrer">download</a> it from the WordPress themes repository and add it under <em>Appearance→Themes→Add New→Upload Theme</em>, or search for <strong>The Clean Blog</strong> under <em>Appearance→Themes→Add New</em> in the backend.</p>
+<p>2- Since the theme is Bootstrap based, I've wrote a lightweight JavaScript plugin, <a href="https://github.com/LebCit/bsWalker.js" target="_blank" rel="external noopener noreferrer">bsWalker.js</a> , to take care of multilevel dropdown navigation.<br>
+To create an item link with children :</p>
+<ul>
+<li>go to <em>Appearance→Menus</em> in the backend</li>
+<li>create a <strong>Custom Link</strong></li>
+<li>in <em>URL</em> type <strong>#</strong></li>
+<li>in <em>Link Text</em> type the label of your choice</li>
+<li>put children links under this custom link</li>
+<li>in <strong>Menu Settings</strong>, under the created menu, choose <strong>Primary</strong> as location and save your menu</li>
+<li>nothing more to do, that's it ! 😁</li>
+</ul>
+<p>3- In the Customizer (<em>Appearance→Customize</em> or <em>Customize</em> link in the Admin Bar), you'll find a panel named <em>The Clean Blog Theme</em> and four sections (for now: <em>Homepage Header Slider, Featured Image Display, Footer Social Sites Links and Footer Copyright Area</em>) under it. Under each section, controls are explained in details.<br>
+Note that the third section <em>Header Image</em> is only for the home page, each post and page can have their own header image by assigning a <em>Featured image</em> to the post or the page.</p>
+<p>4- The only plugin I've used is <a href="https://freqdec.github.io/slabText/" target="_blank" rel="external noopener noreferrer">slabText</a> by <a href="https://github.com/freqdec" target="_blank" rel="external noopener noreferrer">Brian McAllister</a> to control the size of the site title, so don't worry if your site title is long, it will be big and bold ✨</p>
+<p>5- The Clean Blog (TCB) is a Responsive WordPress theme, perfect for personal or company blogs.</p>
+<h2 id="feedback-%3F">Feedback ? <a class="direct-link" href="#feedback-%3F">#</a></h2>
+<p>Head over the <a href="https://wordpress.org/support/theme/the-clean-blog" target="_blank" rel="external noopener noreferrer">support page</a> to tell me if you’re having some issues or if you wish to see some features added to the theme 😉<br>
+You can also leave a review on the <a href="https://wordpress.org/support/theme/the-clean-blog/reviews/" target="_blank" rel="external noopener noreferrer">reviews page</a> to give me a push 👍<br>
+Thanks in advance for your feedback !</p>
+<h2 id="final-word">Final word <a class="direct-link" href="#final-word">#</a></h2>
+<p>I really hope that this theme will be useful for a lot of WordPress users and that they'll enjoy using it. I'll be making improvements to TCB from time to time, so don't worry, and be talking about it here, so stay tuned !</p>
+
+	<p class="author-greetings">SYA,<br>LebCit.</p>
+</div>
+
+
+
+<nav class="post-navigation" aria-label="Post navigation"><a href="/posts/back-to-the-roots-with-a-static-site/" class="prev-post" rel="prev">Previous: Back to the roots with a static site</a><a href="/posts/get-google-products-on-desktop-with-thunderbird/" class="next-post" rel="next">Next: Get Google products on desktop with Thunderbird</a>
+</nav>
+
+
+
+	<div class="related-posts">
+		<h3>SOME RELATED POSTS</h3>
+		<div>
+			<section>
+				<a href="/posts/full-screen-morphing-search-plugin/">
+					<img class="img-responsive" src="/img/man-hand-holding-lens.webp"
+					
+					
+					alt="Man hand holding lens">
+				</a>
+				<h4>
+					<a href="/posts/full-screen-morphing-search-plugin/">Full Screen Morphing Search Plugin</a>
+				</h4>
+			</section>
+			<section>
+				<a href="/posts/hide-wordpress-toolbar-with-wp_add_inline_style/">
+					<img class="img-responsive" src="/img/little-girl-covering-her-face-with-her-hands.webp"
+					
+					
+					alt="Little girl covering her face with her hands">
+				</a>
+				<h4>
+					<a href="/posts/hide-wordpress-toolbar-with-wp_add_inline_style/">Hide WordPress Toolbar with wp_add_inline_style</a>
+				</h4>
+			</section>
+		</div>
+	</div>
+
+
+				</main><!-- #main -->
+			</div><!-- #content -->
+
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<strong>2016 - 2021 | { LebCit }</strong><br>
+					Proudly created with  <a href="https://www.11ty.dev/" target="_blank">11ty</a>
+				</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+
+			<!-- Current page: /posts/the-clean-blog-wordpress-theme/ -->
+			
+		</div><!-- #page -->
+
+
+		<script type="text/javascript" src="/js/main.min.js"></script>
+		
+	</body>
+</html>

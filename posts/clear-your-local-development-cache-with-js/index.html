@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+			<title>Clear your local development cache with JS - { LebCit }</title>
+		
+		<meta name="description" content="This post is about clearing your local development cache with JavaScript without a server side language.">
+		<link rel="stylesheet" href="/css/main.min.css">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{ LebCit }">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{ LebCit }">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"/>
+		<link href="https://unpkg.com/prismjs@1.23.0/themes/prism-okaidia.css" rel="stylesheet">
+	</head>
+	<body>
+	
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+			<div id="main-nav" aria-label="Main navigation" class="overlay" tabindex="-1">
+				<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
+				<div class="overlay-content">
+						<a href="/">Home</a>
+						<a href="/about/">About</a>
+						<a href="/posts/">Archive</a>
+					<a href="https://github.com/LebCit" target="_blank">GitHub</a>
+				</div>
+			</div>
+
+			<header id="masthead"
+				
+					class="site-header unit-1 unit-lg-2-5 bio"
+					style="background-image:url(/img/stacked-memory-photos.webp)"
+				
+			>
+
+				<div class="sidebar">
+					<div class="site-branding">
+						<h1 class="site-title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-description">
+							Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !
+						</p>
+					</div>
+
+					<nav class="nav" aria-label="MENU">
+						<ul class="nav-list">
+							<li class="nav-item">
+								<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+									MENU
+									<span class="menu-icon" aria-hidden="true">
+										<svg version='1.1' x='0px' y='0px' width='30px' height='30px' viewbox='0 0 30 30' enable-background='new 0 0 30 30'><rect width='30' height='5'/><rect y='24' width='30' height='5'/><rect y='12' width='30' height='5'/></svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+
+					</nav><!-- #site-navigation -->
+				</div>
+			</header><!-- #masthead -->
+
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main  class="single-post" >
+					
+<header class="post-header">
+		<h1 class="post-title">Clear your local development cache with JS</h1>
+		
+		
+		<p class="post-meta">
+			Posted on
+			<span class="posted-on">
+				<time class="post-date" datetime="2020-05-27">27 May 2020</time>
+			</span>
+			
+
+			
+			
+				<br>
+				Tagged
+				
+					<span class="post-tag">
+						<a href="/tags/JavaScript/">JavaScript</a>
+					</span>
+					<span class="post-tag">
+						<a href="/tags/Tips and Tricks/">Tips and Tricks</a>
+					</span>
+			
+		</p>
+		
+</header>
+
+<div class="post-content">
+  <p><em>This post is about clearing your local development cache with JavaScript without a server side language.</em></p>
+<p>When we use a server side language to get our changes this is what happens :<br>
+1- the Request is made by the browser to the server<br>
+2- the Response is sent from the server to the browser<br>
+In this case, if any changes are made within the files, the server will serve the browser with those changes.<br>
+But, what if you're not using a server side language for your local development ?!</p>
+<p>If you're locally developing a website on the Classic Road (HTML + CSS + JS) without a plugin in your IDE to synchronize your changes, <strong>and have some generated cache</strong>, you'll have to refresh your page twice and sometimes more to see the changes you've just made even if you're using a local server as Laragon, WAMP, MAMP, XAMPP...<br>
+Did you ever asked yourself how much time you're spending on refreshing twice ?!<br>
+This is a time killer, it's very annoying, and you're productivity will be affected !</p>
+<p>The solution would be to <strong>clear the cache</strong> when we refresh the page, you would say &quot;use Ctrl + F5 !&quot; and I would respond &quot;go try it with your generated cache !&quot;.</p>
+<p>To clear the cache when we hit the refresh button :<br>
+1- we'll have to access the <code>loading state</code> of the document <em>without waiting</em> for stylesheets, images...<br>
+2- we'll have to <code>open</code> the cache and access the particular cache causing headaches<br>
+3- we'll have to <code>delete</code> this particular cache !</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>document<span class="token punctuation">.</span>readyState <span class="token operator">===</span> <span class="token string">'loading'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment">// Loading hasn't finished yet</span><br>    document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'DOMContentLoaded'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'loading...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        caches<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">'cacheNameCausingHeadaches'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">cache</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            cache<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token constant">URL</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'deleted'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Paste this code at the end of your scripts before the closing body tag and refresh your page twice for the last time !</p>
+<p>To get the <code>cacheNameCausingHeadeaches</code> :</p>
+<pre class="language-js"><code class="language-js">caches<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">keyList</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'keyList'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>I'm here to share and learn 😊 so if you have a better way without an IDE plugin for a static site with some cache please let me know because I like to refresh and see the difference 😉</p>
+<p>Hope this will be useful.</p>
+
+	<p class="author-greetings">SYA,<br>LebCit.</p>
+</div>
+
+
+
+<nav class="post-navigation" aria-label="Post navigation"><a href="/posts/change-page-title-dynamically/" class="prev-post" rel="prev">Previous: Change page title dynamically</a><a href="/posts/creating-a-customizer-control-with-javascript/" class="next-post" rel="next">Next: Creating a Customizer control with JavaScript</a>
+</nav>
+
+
+
+	<div class="related-posts">
+		<h3>SOME RELATED POSTS</h3>
+		<div>
+			<section>
+				<a href="/posts/change-page-title-dynamically/">
+					<img class="img-responsive" src="/img/graphic-of-white-camera-on-black-background-no-image-available.webp"
+					
+					
+					alt="Graphic of white camera on black background no image available">
+				</a>
+				<h4>
+					<a href="/posts/change-page-title-dynamically/">Change page title dynamically</a>
+				</h4>
+			</section>
+			<section>
+				<a href="/posts/creating-a-customizer-control-with-javascript/">
+					<img class="img-responsive" src="/img/screenshot-creating-a-customizer-control-with-javascript.webp"
+					
+					
+					alt="Screenshot creating a customizer control with javascript">
+				</a>
+				<h4>
+					<a href="/posts/creating-a-customizer-control-with-javascript/">Creating a Customizer control with JavaScript</a>
+				</h4>
+			</section>
+		</div>
+	</div>
+
+
+				</main><!-- #main -->
+			</div><!-- #content -->
+
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<strong>2016 - 2021 | { LebCit }</strong><br>
+					Proudly created with  <a href="https://www.11ty.dev/" target="_blank">11ty</a>
+				</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+
+			<!-- Current page: /posts/clear-your-local-development-cache-with-js/ -->
+			
+		</div><!-- #page -->
+
+
+		<script type="text/javascript" src="/js/main.min.js"></script>
+		
+	</body>
+</html>

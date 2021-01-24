@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+			<title>Listen for changes in Customizer Preview ! - { LebCit }</title>
+		
+		<meta name="description" content="This post is about how to listen for any changes in WordPress Customizer Preview.">
+		<link rel="stylesheet" href="/css/main.min.css">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{ LebCit }">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{ LebCit }">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"/>
+		<link href="https://unpkg.com/prismjs@1.23.0/themes/prism-okaidia.css" rel="stylesheet">
+	</head>
+	<body>
+	
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+			<div id="main-nav" aria-label="Main navigation" class="overlay" tabindex="-1">
+				<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
+				<div class="overlay-content">
+						<a href="/">Home</a>
+						<a href="/about/">About</a>
+						<a href="/posts/">Archive</a>
+					<a href="https://github.com/LebCit" target="_blank">GitHub</a>
+				</div>
+			</div>
+
+			<header id="masthead"
+				
+					class="site-header unit-1 unit-lg-2-5 bio"
+					style="background-image:url(/img/ears-of-chiatto-bunny.webp)"
+				
+			>
+
+				<div class="sidebar">
+					<div class="site-branding">
+						<h1 class="site-title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-description">
+							Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !
+						</p>
+					</div>
+
+					<nav class="nav" aria-label="MENU">
+						<ul class="nav-list">
+							<li class="nav-item">
+								<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+									MENU
+									<span class="menu-icon" aria-hidden="true">
+										<svg version='1.1' x='0px' y='0px' width='30px' height='30px' viewbox='0 0 30 30' enable-background='new 0 0 30 30'><rect width='30' height='5'/><rect y='24' width='30' height='5'/><rect y='12' width='30' height='5'/></svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+
+					</nav><!-- #site-navigation -->
+				</div>
+			</header><!-- #masthead -->
+
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main  class="single-post" >
+					
+<header class="post-header">
+		<h1 class="post-title">Listen for changes in Customizer Preview !</h1>
+		
+		
+		<p class="post-meta">
+			Posted on
+			<span class="posted-on">
+				<time class="post-date" datetime="2020-05-24">24 May 2020</time>
+			</span>
+			
+
+			
+			
+				<br>
+				Tagged
+				
+					<span class="post-tag">
+						<a href="/tags/Customizer/">Customizer</a>
+					</span>
+					<span class="post-tag">
+						<a href="/tags/Development/">Development</a>
+					</span>
+					<span class="post-tag">
+						<a href="/tags/Tips and Tricks/">Tips and Tricks</a>
+					</span>
+			
+		</p>
+		
+</header>
+
+<div class="post-content">
+  <p><em>This post is about how to listen for any changes in WordPress Customizer Preview.</em></p>
+<p>One of the most beautiful functionalities of WordPress is the Customizer, because it allows developers to give a simple way for users to modify themes/plugins appearance and behavior.<br>
+However, this beauty has it's own code of conduct.<br>
+Let's scratch it a little bit to find out how to listen for changes in the Customizer Preview.</p>
+<p>I always like to assume that the reader maybe a beginner, like I was a long time ago, and explain everything from A to Z, so she/he can follow the tutorial or jump to any part according to her/his experience.</p>
+<p>For simplicity and practice, as usual 😊, I’ll be using an <a href="https://underscores.me/" target="_blank" rel="external noopener noreferrer">_s</a> (underscores) generated theme, and call it <em>Customizer Preview</em> 😉. It’s a 1 minute process, so don’t be afraid, type in the <em>Theme Name,</em> download it, and upload it like any other theme under <em>Appearance &gt; Themes &gt; Add New &gt; Upload Theme</em>.<br>
+Now you’re all set and we can begin.</p>
+<h2 id="understanding-how-it%E2%80%99s-related">Understanding how it’s related <a class="direct-link" href="#understanding-how-it%E2%80%99s-related">#</a></h2>
+<p>In the <a href="https://codex.wordpress.org/Functions_File_Explained" target="_blank" rel="external noopener noreferrer">functions.php</a> file, search for <em>customizer.php</em>, you’ll find a line like this one :</p>
+<pre class="language-php"><code class="language-php"><span class="token keyword">require</span> <span class="token function">get_template_directory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'/inc/customizer.php'</span><span class="token punctuation">;</span></code></pre>
+<p>So the file <a href="https://codex.wordpress.org/Theme_Customization_API" target="_blank" rel="external noopener noreferrer">customizer.php</a> is located in a folder named <em><strong>inc</strong></em> at the root of the theme.<br>
+If you look inside this file, at the very bottom, you’ll find a little block of code like this one :</p>
+<pre class="language-php"><code class="language-php"><span class="token comment">/**<br> * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.<br> */</span><br><span class="token keyword">function</span> <span class="token function">customizer_preview_customize_preview_js</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token function">wp_enqueue_script</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'customizer-preview-customizer'</span><span class="token punctuation">,</span> <span class="token function">get_template_directory_uri</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'/js/customizer.js'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'customize-preview'</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'20151215'</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'customize_preview_init'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'customizer_preview_customize_preview_js'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>So here, we have a call for another file <strong>customizer.js</strong>, located in a folder named <em><strong>js</strong></em> at the root of the theme.<br>
+If you take a look inside it, you’ll find a bunch of code allowing us to view the changes we make from the Customizer.</p>
+<h2 id="the-customizer%E2%80%99s-parts">The Customizer’s Parts <a class="direct-link" href="#the-customizer%E2%80%99s-parts">#</a></h2>
+<p>When you open the Customizer, you’ll find yourself in front of a screen with two parts :<br>
+a- the <strong>Customizer Pane</strong> where the <strong>Controls</strong> (like Background Image) of a theme are defined in <strong>customizer.php</strong><br>
+b- the <strong>Customizer Preview</strong> where the <strong>Settings</strong> defined in <strong>customizer.js</strong> act like a bridge between the Controls and their related Partials.</p>
+<p>A <strong>Partial</strong> is simply a particular part of a theme like the header, the body, the footer, the logo, the site title, the tagline… and so on.</p>
+<p>As an example, you could have a Control to control the site title color by a Setting linking that color Control to the desired Partial (here the site title).<br>
+Now, when you change the color Control in the Pane, the defined Setting for this color Control calls the related Partial in the Preview and tells him to change according to the modifications of his Control.</p>
+<p>If you want to dive more into that, you can read about the <a href="https://developer.wordpress.org/themes/customize-api/customizer-objects/" target="_blank" rel="external noopener noreferrer">Customizer Objects</a> in the Theme Handbook.</p>
+<h2 id="listening-to-changes">Listening to changes <a class="direct-link" href="#listening-to-changes">#</a></h2>
+<p>At this point, you understand how the Customizer’s parts communicate.<br>
+But what if you need to listen for changes in the Preview ?<br>
+This will be mostly a need if you are a developer or in the process of becoming one 💪👍</p>
+<p>Quick quizz. Where do you think the following code will go ?<br>
+Don’t look under the code before giving an answer 😁</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Listen for any changes in the Customizer Preview.</span><br>wp<span class="token punctuation">.</span><span class="token function">customize</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span> <span class="token string">'change'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span> <span class="token parameter">setting</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token comment">// Target the Setting, let's take background_image as an example.</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token number">0</span> <span class="token operator">===</span> setting<span class="token punctuation">.</span>id<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span> <span class="token string">'background_image'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token comment">// The background is empty by default.</span><br>        <span class="token comment">// So, we begin by listening to a non empty value,</span><br>        <span class="token comment">// to catch the first change when it happens !</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>setting<span class="token punctuation">.</span>_value<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I Now Have A Background 🙂'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><br>            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I Do Not Have A Background 🙁'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>What does this code do ?<br>
+It listen to any <code>'change'</code> of a defined <code>( setting )</code>.<br>
+Remember, a Setting is a bridge allowing communication between a Control and it’s related Partial.<br>
+So when a communication occurs, a change is ongoing and then done !<br>
+In the example above, we are listening to any change on the <code>background_image</code>.</p>
+<p>Did you try to look for <code>background_image</code> in the generated theme from underscores ?!<br>
+If you did, you know by now that it’s not here 🤔 and if you didn’t, don’t, you will not find it !<br>
+Well, I’ve used it as an example to grab your attention on Core Controls/Settings !<br>
+Some Controls/Settings comes with WordPress by default, they can be modified or removed, but this will be for another article.</p>
+<p>I didn’t forget, I just delayed it 😈<br>
+The code above should go inside <strong>customizer.js</strong> between a :</p>
+<pre class="language-js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">$</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token constant">YES</span> <span class="token constant">HERE</span> <span class="token operator">...</span> <span class="token punctuation">}</span> <span class="token punctuation">(</span>jQuery<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>I really hope that this will be useful.</p>
+
+	<p class="author-greetings">SYA,<br>LebCit.</p>
+</div>
+
+
+
+<nav class="post-navigation" aria-label="Post navigation"><a href="/posts/hide-wordpress-toolbar-with-wp_add_inline_style/" class="prev-post" rel="prev">Previous: Hide WordPress Toolbar with wp_add_inline_style</a><a href="/posts/change-page-title-dynamically/" class="next-post" rel="next">Next: Change page title dynamically</a>
+</nav>
+
+
+
+	<div class="related-posts">
+		<h3>SOME RELATED POSTS</h3>
+		<div>
+			<section>
+				<a href="/posts/modifying-wordpress-theme-copyright-from-the-customizer/">
+					<img class="img-responsive" src="/img/copyright-word-under-magnifying-glass.webp"
+					
+					
+					alt="Copyright word under magnifying glass">
+				</a>
+				<h4>
+					<a href="/posts/modifying-wordpress-theme-copyright-from-the-customizer/">Modifying WordPress theme&#39;s copyright from the Customizer</a>
+				</h4>
+			</section>
+			<section>
+				<a href="/posts/creating-a-customizer-control-with-javascript/">
+					<img class="img-responsive" src="/img/screenshot-creating-a-customizer-control-with-javascript.webp"
+					
+					
+					alt="Screenshot creating a customizer control with javascript">
+				</a>
+				<h4>
+					<a href="/posts/creating-a-customizer-control-with-javascript/">Creating a Customizer control with JavaScript</a>
+				</h4>
+			</section>
+		</div>
+	</div>
+
+
+				</main><!-- #main -->
+			</div><!-- #content -->
+
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<strong>2016 - 2021 | { LebCit }</strong><br>
+					Proudly created with  <a href="https://www.11ty.dev/" target="_blank">11ty</a>
+				</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+
+			<!-- Current page: /posts/listen-for-changes-in-customizer-preview/ -->
+			
+		</div><!-- #page -->
+
+
+		<script type="text/javascript" src="/js/main.min.js"></script>
+		
+	</body>
+</html>

@@ -5,12 +5,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 			<title>{ LebCit }</title>
+			<link rel='manifest' href='/manifest.json'>
 		
 		<meta name="description" content="Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !">
 		<link rel="stylesheet" href="/css/main.min.css">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{ LebCit }">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{ LebCit }">
 		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png"/>
+		<link rel="icon" type="image/png" sizes="180x180" href="/img/favicon/apple-touch-icon.png"/>
+		<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-chrome-192x192.png"/>
+		<link rel="icon" type="image/png" sizes="512x512" href="/img/favicon/android-chrome-512x512.png"/>
 		<link href="https://unpkg.com/prismjs@1.23.0/themes/prism-okaidia.css" rel="stylesheet">
 	</head>
 	<body>
@@ -218,6 +223,15 @@
 
 
 		<script type="text/javascript" src="/js/main.min.js"></script>
+
+		
+			<script
+			type="module"
+			src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate"
+			></script>
+
+			<pwa-update></pwa-update>
+		
 		
 	</body>
 </html>

@@ -26,7 +26,7 @@
 &lt;li&gt;access the Customizer Pane to create a Panel, a Section, a Setting and a Control with JS&lt;/li&gt;
 &lt;li&gt;access the Customizer Preview to define the related Partial of the Control with JS&lt;/li&gt;
 &lt;li&gt;add a filter to validate and sanitize the Setting with PHP&lt;br /&gt;
-For more information about how things are related in the Customizer, please read my post &lt;a href=&quot;https://lebcit.github.io/posts/listen-for-changes-in-customizer-preview.md&quot;&gt;Listen for changes in Customizer Preview !&lt;/a&gt;&lt;/li&gt;
+For more information about how things are related in the Customizer, please read my post &lt;a href=&quot;https://lebcit.github.io/posts/listen-for-changes-in-customizer-preview/&quot;&gt;Listen for changes in Customizer Preview !&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;I&#39;ll explain it as if the reader is a beginner so she/he can understand and follow along.&lt;/p&gt;
 &lt;p&gt;My tree looks like this:&lt;/p&gt;
@@ -401,7 +401,7 @@ Big, bold and clear 😉&lt;/p&gt;
 		<content type="html">&lt;p&gt;&lt;em&gt;This post is about my first WordPress plugin, full screen morphing search.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I’m very excited and happy to announce the release (in 2016) of &lt;strong&gt;my first plugin&lt;/strong&gt; ! This &lt;a href=&quot;https://wordpress.org/plugins/full-screen-morphing-search/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;plugin&lt;/a&gt; is based on the &lt;a href=&quot;http://tympanus.net/codrops/2014/11/04/simple-morphing-search/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;Simple Morphing Search&lt;/a&gt; experimental effect created by &lt;a href=&quot;http://tympanus.net/codrops/author/crnacura/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;Mary Lou (Manoela Ilic)&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;It took me a week of hard work to implement this effect into WordPress. Some CSS rules were added, others slightly modified and some of them completely removed ! The JS is not the same at all ! The original effect is triggered with a function by clicking on a search input. This function relies on another script (&lt;a href=&quot;https://github.com/desandro/classie#classie---class-helper-functions&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;classie – class helper functions&lt;/a&gt;) to get the job done. I’ve removed them and created a simple JavaScript file that does the same job with 60 lines less code !&lt;/p&gt;
-&lt;p&gt;I hope that this plugin will be useful for everyone using it. If you try it, don’t be shy and give me you feedback on the &lt;a href=&quot;https://wordpress.org/support/plugin/full-screen-morphing-search/reviews/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;repo&lt;/a&gt; 🙂&lt;/p&gt;
+&lt;p&gt;I hope that this plugin will be useful for everyone using it. If you try it, don’t be shy and give me your feedback on the &lt;a href=&quot;https://wordpress.org/support/plugin/full-screen-morphing-search/reviews/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;repo&lt;/a&gt; 🙂&lt;/p&gt;
 </content>
 	</entry>
 </feed>

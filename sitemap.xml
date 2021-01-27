@@ -87,17 +87,17 @@
   </url>
   
   <url>
-    <loc>https://lebcit.github.io/tags/Toolbar/</loc>
-    <lastmod>2021-01-23</lastmod>
-  </url>
-  
-  <url>
     <loc>https://lebcit.github.io/tags/Customizer/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
   <url>
-    <loc>https://lebcit.github.io/tags/Theme/</loc>
+    <loc>https://lebcit.github.io/tags/Plugin/</loc>
+    <lastmod>2021-01-23</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lebcit.github.io/tags/Toolbar/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
@@ -107,7 +107,7 @@
   </url>
   
   <url>
-    <loc>https://lebcit.github.io/tags/Plugin/</loc>
+    <loc>https://lebcit.github.io/tags/Theme/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
 </urlset>

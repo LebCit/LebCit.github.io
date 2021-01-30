@@ -28,6 +28,11 @@
 			"sizes": "192x192"
 		},
 		{
+			"src": "/img/favicon/maskable-icon.png",
+			"sizes": "196x196",
+			"purpose": "maskable"
+		},
+		{
 			"src": "/img/favicon/android-chrome-512x512.png",
 			"sizes": "512x512"
 		}],

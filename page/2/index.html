@@ -13,7 +13,7 @@
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{ LebCit }">
 		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"/>
 		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png"/>
-		<link rel="icon" type="image/png" sizes="180x180" href="/img/favicon/apple-touch-icon.png"/>
+		<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/favicon/apple-touch-icon.png"/>
 		<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-chrome-192x192.png"/>
 		<link rel="icon" type="image/png" sizes="512x512" href="/img/favicon/android-chrome-512x512.png"/>
 		<link href="https://unpkg.com/prismjs@1.23.0/themes/prism-okaidia.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 	
 		<div id="page" class="site grid">
 			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-			<div id="main-nav" aria-label="Main navigation" class="overlay" tabindex="-1">
+			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
 				<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
 				<div class="overlay-content">
 						<a href="/">Home</a>
@@ -35,12 +35,11 @@
 
 			<header id="masthead"
 				
-					
 					class="site-header unit-1 unit-lg-2-5 bio"
 					style="background-image:url(/img/vendetta-surrounded-by-star-wars-stormtroopers-graffiti.webp)"
 				
 			>
-
+				<div class="site-header-overlay"></div>
 				<div class="sidebar">
 					<div class="site-branding">
 						<h1 class="site-title">
@@ -51,11 +50,11 @@
 						</p>
 					</div>
 
-					<nav class="nav" aria-label="MENU">
+					<nav id="nav" class="nav" aria-label="MENU">
 						<ul class="nav-list">
 							<li class="nav-item">
 								<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
-									MENU
+									<span>MENU</span>
 									<span class="menu-icon" aria-hidden="true">
 										<svg version='1.1' x='0px' y='0px' width='30px' height='30px' viewbox='0 0 30 30' enable-background='new 0 0 30 30'><rect width='30' height='5'/><rect y='24' width='30' height='5'/><rect y='12' width='30' height='5'/></svg>
 									</span>
@@ -78,7 +77,7 @@
 		<a href="/posts/get-google-products-on-desktop-with-thunderbird/" class="postlist-link" rel="bookmark">Get Google products on desktop with Thunderbird </a>
 		</h2>
 		<p class="post-meta">
-			Posted on
+			<span>Posted on</span>
 			<span class="posted-on">
 				<time class="postlist-date" datetime="2020-05-14">14 May 2020</time>
 			</span>
@@ -104,7 +103,7 @@
 		</p>
 	</div>
 	<p>
-		<a class="read-more-link" aria-label="Read More about Get Google products on desktop with Thunderbird" tabindex="0" role="button" href="/posts/get-google-products-on-desktop-with-thunderbird/" target="_self">Read More</a>
+		<a class="read-more-link" aria-label="Read More about Get Google products on desktop with Thunderbird" tabindex="0" role="button" href="/posts/get-google-products-on-desktop-with-thunderbird/" target="_self">Read The Post</a>
 	</p>
 </article>
 
@@ -117,7 +116,7 @@
 		<a href="/posts/the-clean-blog-wordpress-theme/" class="postlist-link" rel="bookmark">The Clean Blog WordPress theme </a>
 		</h2>
 		<p class="post-meta">
-			Posted on
+			<span>Posted on</span>
 			<span class="posted-on">
 				<time class="postlist-date" datetime="2020-05-09">09 May 2020</time>
 			</span>
@@ -146,7 +145,7 @@
 		</p>
 	</div>
 	<p>
-		<a class="read-more-link" aria-label="Read More about The Clean Blog WordPress theme" tabindex="0" role="button" href="/posts/the-clean-blog-wordpress-theme/" target="_self">Read More</a>
+		<a class="read-more-link" aria-label="Read More about The Clean Blog WordPress theme" tabindex="0" role="button" href="/posts/the-clean-blog-wordpress-theme/" target="_self">Read The Post</a>
 	</p>
 </article>
 
@@ -159,7 +158,7 @@
 		<a href="/posts/back-to-the-roots-with-a-static-site/" class="postlist-link" rel="bookmark">Back to the roots with a static site </a>
 		</h2>
 		<p class="post-meta">
-			Posted on
+			<span>Posted on</span>
 			<span class="posted-on">
 				<time class="postlist-date" datetime="2020-05-04">04 May 2020</time>
 			</span>
@@ -185,7 +184,7 @@
 		</p>
 	</div>
 	<p>
-		<a class="read-more-link" aria-label="Read More about Back to the roots with a static site" tabindex="0" role="button" href="/posts/back-to-the-roots-with-a-static-site/" target="_self">Read More</a>
+		<a class="read-more-link" aria-label="Read More about Back to the roots with a static site" tabindex="0" role="button" href="/posts/back-to-the-roots-with-a-static-site/" target="_self">Read The Post</a>
 	</p>
 </article>
 
@@ -208,8 +207,10 @@
 
 			<footer id="colophon" class="site-footer unit-1">
 				<div id="site-info" class="site-info">
-					<strong>2016 - 2021 | { LebCit }</strong><br>
-					Proudly created with  <a href="https://www.11ty.dev/" target="_blank">11ty</a>
+					<p>
+						<strong>2016 - 2021 | { LebCit }</strong><br>
+						<span>Proudly created with</span>  <a href="https://www.11ty.dev/" target="_blank">11ty</a>
+					</p>
 				</div><!-- .site-info -->
 			</footer><!-- #colophon -->
 

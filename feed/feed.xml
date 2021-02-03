@@ -5,12 +5,66 @@
 	
 	<link href="https://lebcit.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://lebcit.github.io/"/>
-	<updated>2020-06-01T00:00:00Z</updated>
+	<updated>2021-02-02T00:00:00Z</updated>
 	<id>https://lebcit.github.io/</id>
 	<author>
 		<name>LebCit</name>
 		<email></email>
 	</author>
+	
+	<entry>
+		<title>MidDay WordPress theme</title>
+		<link href="https://lebcit.github.io/posts/midday-wordpress-theme/"/>
+		<updated>2021-02-02T00:00:00Z</updated>
+		<id>https://lebcit.github.io/posts/midday-wordpress-theme/</id>
+		<content type="html">&lt;p&gt;Hello everyone,&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This post is about the development and usage of MidDay WordPress theme.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;credits&quot;&gt;Credits &lt;a class=&quot;direct-link&quot; href=&quot;https://lebcit.github.io/posts/midday-wordpress-theme/#credits&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This WordPress theme wouldn’t have seen the light without :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.w3schools.com/w3css/tryw3css_templates_bw_portfolio.htm&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;Black &amp;amp; White Portfolio Template&lt;/a&gt; by &lt;a href=&quot;https://www.w3schools.com/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;w3schools.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://purecss.io/layouts/blog/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;Blog&lt;/a&gt; template by &lt;a href=&quot;https://purecss.io/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;Pure.css&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://aristath.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;Ari Stathopoulos&lt;/a&gt; blog&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://underscores.me/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;Underscores&lt;/a&gt; starter theme for WordPress&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://necolas.github.io/normalize.css/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;Normalize.css&lt;/a&gt; by &lt;a href=&quot;https://github.com/necolas&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;Nicolas Gallagher&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;and our beloved CMS &lt;a href=&quot;https://wordpress.org/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;WordPress&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;about&quot;&gt;About &lt;a class=&quot;direct-link&quot; href=&quot;https://lebcit.github.io/posts/midday-wordpress-theme/#about&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;After releasing my first WordPress theme, &lt;a href=&quot;https://wordpress.org/themes/the-clean-blog/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;The Clean Blog&lt;/a&gt;, in 2017 and rewriting it from ground up in 2019, I wanted to create a new responsive, clear, clean, bold and dead simple WordPress theme, without any unnecessary functionalities or bells and whistles...&lt;br /&gt;
+My main concern was typography, I wanted a responsive, big and bold typography, so I chose &lt;a href=&quot;https://twitter.com/MikeRiethmuller&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;Mike Riethmuller&lt;/a&gt; approach explained in &lt;a href=&quot;https://www.madebymike.com.au/writing/precise-control-responsive-typography/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;Precise control over responsive typography&lt;/a&gt;.&lt;br /&gt;
+Then, looking here and there for templates with big sidebar, I&#39;ve been inspired by the templates mentioned above.&lt;br /&gt;
+A little from this, a little from that, and MidDay&#39;s HTML template was born.&lt;br /&gt;
+Finally, MidDay&#39;s HTML template was ported to WordPress.&lt;/p&gt;
+&lt;h2 id=&quot;usage&quot;&gt;Usage &lt;a class=&quot;direct-link&quot; href=&quot;https://lebcit.github.io/posts/midday-wordpress-theme/#usage&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;1- To use this theme, you have to &lt;a href=&quot;https://wordpress.org/themes/midday/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;download&lt;/a&gt; it from the WordPress themes repository and add it under &lt;em&gt;Appearance→Themes→Add New→Upload Theme&lt;/em&gt;, or search for &lt;strong&gt;MidDay&lt;/strong&gt; under &lt;em&gt;Appearance→Themes→Add New&lt;/em&gt; in the backend.&lt;/p&gt;
+&lt;p&gt;2- Please note that this theme&#39;s menu is a one level depth only, meaning that there is no sub-menu, so even if you add them they will not appear.&lt;/p&gt;
+&lt;p&gt;3- In the Customizer (&lt;em&gt;Appearance→Customize&lt;/em&gt; or &lt;em&gt;Customize&lt;/em&gt; link in the Admin Bar), you&#39;ll find a panel named &lt;em&gt;MidDay Theme&lt;/em&gt; and three sections (for now: &lt;em&gt;Sidebar Image&lt;/em&gt;, &lt;em&gt;Title &amp;amp; Tagline Color&lt;/em&gt;, and &lt;em&gt;Footer Copyright Area&lt;/em&gt;) under it.&lt;br /&gt;
+Under each section, controls are explained in details.&lt;br /&gt;
+Note that the first section &lt;em&gt;Sidebar Image&lt;/em&gt; is only for the home page, each post and page can have their own sidebar image by assigning a Featured image to the post or the page.&lt;/p&gt;
+&lt;p&gt;4- MidDay is a Responsive, Clear, Clean, Bold and dead Simple WordPress theme. Perfect for personal or company blogs.&lt;/p&gt;
+&lt;h2 id=&quot;frequently-asked-questions&quot;&gt;Frequently Asked Questions &lt;a class=&quot;direct-link&quot; href=&quot;https://lebcit.github.io/posts/midday-wordpress-theme/#frequently-asked-questions&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;details&gt;
+&lt;summary&gt;The Menu is not opening !&lt;/summary&gt;
+This is because this menu needs at least 2 items !
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;The Menu is not showing children items !&lt;/summary&gt;
+This is because this menu is a one level menu only !
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;Does this theme support any plugins?&lt;/summary&gt;
+MidDay includes support for Infinite Scroll in Jetpack.
+&lt;/details&gt;
+&lt;h2 id=&quot;feedback-%2F-issue-%3F&quot;&gt;Feedback / Issue ? &lt;a class=&quot;direct-link&quot; href=&quot;https://lebcit.github.io/posts/midday-wordpress-theme/#feedback-%2F-issue-%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Head over the &lt;a href=&quot;https://wordpress.org/support/theme/midday/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;support&lt;/a&gt; page to tell me if you’re having some issues or if you wish to see some features added to the theme 😉&lt;br /&gt;
+You can also leave a review on the &lt;a href=&quot;https://wordpress.org/support/theme/midday/reviews/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;reviews&lt;/a&gt; page to give me a push 👍&lt;br /&gt;
+Thanks in advance for your feedback !&lt;/p&gt;
+&lt;h2 id=&quot;final-word&quot;&gt;Final word &lt;a class=&quot;direct-link&quot; href=&quot;https://lebcit.github.io/posts/midday-wordpress-theme/#final-word&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I really hope that this theme will be useful for a lot of WordPress users and that they&#39;ll enjoy using it.&lt;br /&gt;
+I&#39;ll be making improvements to MidDay from time to time, and be talking about it here, so stay tuned !&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This documentation is also available on &lt;a href=&quot;https://github.com/LebCit/midday/wiki/MidDay-documentation&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;GitHub&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Creating a Customizer control with JavaScript</title>

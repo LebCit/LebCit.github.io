@@ -72,6 +72,11 @@
   </url>
   
   <url>
+    <loc>https://lebcit.github.io/tags/Development/</loc>
+    <lastmod>2021-01-23</lastmod>
+  </url>
+  
+  <url>
     <loc>https://lebcit.github.io/tags/Tips%20and%20Tricks/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
@@ -82,7 +87,7 @@
   </url>
   
   <url>
-    <loc>https://lebcit.github.io/tags/Development/</loc>
+    <loc>https://lebcit.github.io/tags/Plugin/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
@@ -92,7 +97,7 @@
   </url>
   
   <url>
-    <loc>https://lebcit.github.io/tags/Plugin/</loc>
+    <loc>https://lebcit.github.io/tags/Copyright/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
@@ -107,12 +112,12 @@
   </url>
   
   <url>
-    <loc>https://lebcit.github.io/tags/Copyright/</loc>
-    <lastmod>2021-01-23</lastmod>
+    <loc>https://lebcit.github.io/posts/midday-wordpress-theme/</loc>
+    <lastmod>2021-02-02</lastmod>
   </url>
   
   <url>
-    <loc>https://lebcit.github.io/posts/midday-wordpress-theme/</loc>
-    <lastmod>2021-02-02</lastmod>
+    <loc>https://lebcit.github.io/posts/automatically-close-other-details/</loc>
+    <lastmod>2021-02-10</lastmod>
   </url>
 </urlset>

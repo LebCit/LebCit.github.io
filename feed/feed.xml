@@ -5,12 +5,51 @@
 	
 	<link href="https://lebcit.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://lebcit.github.io/"/>
-	<updated>2021-02-10T00:00:00Z</updated>
+	<updated>2022-06-26T00:00:00Z</updated>
 	<id>https://lebcit.github.io/</id>
 	<author>
 		<name>LebCit</name>
 		<email></email>
 	</author>
+	
+	<entry>
+		<title>To Node or not ? Deta is the answer !</title>
+		<link href="https://lebcit.github.io/posts/to-node-or-not-deta-is-the-answer/"/>
+		<updated>2022-06-26T00:00:00Z</updated>
+		<id>https://lebcit.github.io/posts/to-node-or-not-deta-is-the-answer/</id>
+		<content type="html">&lt;p&gt;&lt;em&gt;This post is about exploring &lt;a href=&quot;https://nodejs.org/en/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;Node.js&lt;/a&gt; with &lt;a href=&quot;https://www.deta.sh/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;Deta Cloud&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;motivation&quot;&gt;Motivation &lt;a class=&quot;direct-link&quot; href=&quot;https://lebcit.github.io/posts/to-node-or-not-deta-is-the-answer/#motivation&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;After &lt;a href=&quot;https://lebcit.github.io/posts/back-to-the-roots-with-a-static-site/&quot;&gt;getting back to the roots with a static site&lt;/a&gt; and working with Node.js on real projects in the static world, I wanted to try it on a server to dive a little bit deeper and understand how it works by itself.&lt;/p&gt;
+&lt;h2 id=&quot;quest-%26-luck&quot;&gt;Quest &amp;amp; luck &lt;a class=&quot;direct-link&quot; href=&quot;https://lebcit.github.io/posts/to-node-or-not-deta-is-the-answer/#quest-%26-luck&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;So, I started to search for a free Node.js hosting and it took me a while, with a lot of chance, to land on an awesome project called Deta.&lt;br /&gt;
+The great developers behind Deta define it as &lt;strong&gt;The Cloud for Doers &amp;amp; Dreamers&lt;/strong&gt; and describe it as &lt;em&gt;the universe&#39;s most developer friendly cloud platform&lt;/em&gt;.&lt;br /&gt;
+Honestly speaking, I can only confirm those declarations because I&#39;ve tried some other platforms !&lt;/p&gt;
+&lt;p&gt;Deta gives you :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;blazing fast micro servers, called &lt;strong&gt;Micros&lt;/strong&gt;, to get your apps to live.&lt;/li&gt;
+&lt;li&gt;fast, scalable and secure NoSQL database with unlimited storage, called &lt;strong&gt;Base&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;safely encrypted 10GB cloud storage, called &lt;strong&gt;Drive&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All of those services are completely and 100% &lt;strong&gt;FREE&lt;/strong&gt; with no catch at all !&lt;/p&gt;
+&lt;h2 id=&quot;simplicity&quot;&gt;Simplicity &lt;a class=&quot;direct-link&quot; href=&quot;https://lebcit.github.io/posts/to-node-or-not-deta-is-the-answer/#simplicity&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The amazing part of Deta is it&#39;s simplicity.!&lt;br /&gt;
+One statement on Deta&#39;s homepage tells everything about it :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You don&#39;t need a degree to use Deta&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The &lt;a href=&quot;https://docs.deta.sh/docs/home&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;Docs&lt;/a&gt; are straightforward with simple examples to get you right away on the track.&lt;br /&gt;
+The &lt;a href=&quot;https://docs.deta.sh/docs/cli/commands&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;CLI&lt;/a&gt; to manage &lt;strong&gt;Micros&lt;/strong&gt; is crystal clear and dead simple.&lt;/p&gt;
+&lt;p&gt;Since my &lt;a href=&quot;https://docs.deta.sh/docs/micros/getting_started#creating-your-first-micro&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;first_micro&lt;/a&gt;, Deta gave me, and give me everyday, the opportunity to learn, apply, test, deploy and evolve as a developer in many ways.&lt;/p&gt;
+&lt;p&gt;I was finally able to understand how much power and flexibility a Node.js server can give if configured correctly.&lt;br /&gt;
+I&#39;ve also been able to work for real with &lt;a href=&quot;https://graphql.org/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;GraphQL&lt;/a&gt; without DB adapters/connectors.&lt;br /&gt;
+And so on...&lt;/p&gt;
+&lt;h2 id=&quot;final-word&quot;&gt;Final word &lt;a class=&quot;direct-link&quot; href=&quot;https://lebcit.github.io/posts/to-node-or-not-deta-is-the-answer/#final-word&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Deta is, for me, the best Node.js platform you could ever dream of !&lt;br /&gt;
+Deta is made by great developers with developers concerns in mind !&lt;br /&gt;
+Deta&#39;s spirit reflects the generosity and kindness of it&#39;s team who&#39;s always there to help !&lt;/p&gt;
+&lt;p&gt;Thank you Deta 💘&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Automatically close other &lt;details&gt;</title>

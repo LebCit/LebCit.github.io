@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+			<title>To Node or not ? Deta is the answer ! - { LebCit }</title>
+		
+		<meta name="description" content="This post is about exploring Node.js with Deta Cloud.">
+		<link rel="stylesheet" href="/css/main.min.css">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{ LebCit }">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{ LebCit }">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png"/>
+		<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/favicon/apple-touch-icon.png"/>
+		<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-chrome-192x192.png"/>
+		<link rel="icon" type="image/png" sizes="512x512" href="/img/favicon/android-chrome-512x512.png"/>
+		<link href="https://unpkg.com/prismjs@1.23.0/themes/prism-okaidia.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+				<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
+				<div class="overlay-content">
+						<a href="/">Home</a>
+						<a href="/about/">About</a>
+						<a href="/posts/">Archive</a>
+						<a href="/tags/">Tags</a>
+					<a href="https://github.com/LebCit" target="_blank">GitHub</a>
+				</div>
+			</div>
+
+			<header id="masthead"
+				
+					class="site-header unit-1 unit-lg-2-5 bio"
+					style="background-image:url(/img/computer-screen-displaying-node-js-modules.webp)"
+				
+			>
+				<div class="site-header-overlay"></div>
+				<div class="sidebar">
+					<div class="site-branding">
+						<h1 class="site-title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-description">
+							Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !
+						</p>
+					</div>
+
+					<nav id="nav" class="nav" aria-label="MENU">
+						<ul class="nav-list">
+							<li class="nav-item">
+								<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg version='1.1' x='0px' y='0px' width='30px' height='30px' viewbox='0 0 30 30' enable-background='new 0 0 30 30'><rect width='30' height='5'/><rect y='24' width='30' height='5'/><rect y='12' width='30' height='5'/></svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+
+					</nav><!-- #site-navigation -->
+				</div>
+			</header><!-- #masthead -->
+
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main  class="single-post" >
+					
+<header class="post-header">
+		<h1 class="post-title">To Node or not ? Deta is the answer !</h1>
+		
+		
+		<p class="post-meta">
+			<span>Posted on</span>
+			<span class="posted-on">
+				<time class="post-date" datetime="2022-06-26">26 Jun 2022</time>
+			</span>
+			
+
+			
+			
+				<br>
+				Tagged
+				
+					<span class="post-tag">
+						<a href="/tags/Development/">Development</a>
+					</span>
+					<span class="post-tag">
+						<a href="/tags/JavaScript/">JavaScript</a>
+					</span>
+					<span class="post-tag">
+						<a href="/tags/Node.js/">Node.js</a>
+					</span>
+			
+		</p>
+		
+</header>
+
+<div class="post-content">
+  <p><em>This post is about exploring <a href="https://nodejs.org/en/" target="_blank" rel="external noopener noreferrer">Node.js</a> with <a href="https://www.deta.sh/" target="_blank" rel="external noopener noreferrer">Deta Cloud</a>.</em></p>
+<h2 id="motivation">Motivation <a class="direct-link" href="#motivation">#</a></h2>
+<p>After <a href="/posts/back-to-the-roots-with-a-static-site/">getting back to the roots with a static site</a> and working with Node.js on real projects in the static world, I wanted to try it on a server to dive a little bit deeper and understand how it works by itself.</p>
+<h2 id="quest-%26-luck">Quest &amp; luck <a class="direct-link" href="#quest-%26-luck">#</a></h2>
+<p>So, I started to search for a free Node.js hosting and it took me a while, with a lot of chance, to land on an awesome project called Deta.<br>
+The great developers behind Deta define it as <strong>The Cloud for Doers &amp; Dreamers</strong> and describe it as <em>the universe's most developer friendly cloud platform</em>.<br>
+Honestly speaking, I can only confirm those declarations because I've tried some other platforms !</p>
+<p>Deta gives you :</p>
+<ul>
+<li>blazing fast micro servers, called <strong>Micros</strong>, to get your apps to live.</li>
+<li>fast, scalable and secure NoSQL database with unlimited storage, called <strong>Base</strong>.</li>
+<li>safely encrypted 10GB cloud storage, called <strong>Drive</strong>.</li>
+</ul>
+<p>All of those services are completely and 100% <strong>FREE</strong> with no catch at all !</p>
+<h2 id="simplicity">Simplicity <a class="direct-link" href="#simplicity">#</a></h2>
+<p>The amazing part of Deta is it's simplicity.!<br>
+One statement on Deta's homepage tells everything about it :</p>
+<blockquote>
+<p>You don't need a degree to use Deta</p>
+</blockquote>
+<p>The <a href="https://docs.deta.sh/docs/home" target="_blank" rel="external noopener noreferrer">Docs</a> are straightforward with simple examples to get you right away on the track.<br>
+The <a href="https://docs.deta.sh/docs/cli/commands" target="_blank" rel="external noopener noreferrer">CLI</a> to manage <strong>Micros</strong> is crystal clear and dead simple.</p>
+<p>Since my <a href="https://docs.deta.sh/docs/micros/getting_started#creating-your-first-micro" target="_blank" rel="external noopener noreferrer">first_micro</a>, Deta gave me, and give me everyday, the opportunity to learn, apply, test, deploy and evolve as a developer in many ways.</p>
+<p>I was finally able to understand how much power and flexibility a Node.js server can give if configured correctly.<br>
+I've also been able to work for real with <a href="https://graphql.org/" target="_blank" rel="external noopener noreferrer">GraphQL</a> without DB adapters/connectors.<br>
+And so on...</p>
+<h2 id="final-word">Final word <a class="direct-link" href="#final-word">#</a></h2>
+<p>Deta is, for me, the best Node.js platform you could ever dream of !<br>
+Deta is made by great developers with developers concerns in mind !<br>
+Deta's spirit reflects the generosity and kindness of it's team who's always there to help !</p>
+<p>Thank you Deta 💘</p>
+
+	<p class="author-greetings">SYA,<br>LebCit.</p>
+</div>
+
+
+
+<nav class="post-navigation" aria-label="Post navigation"><a href="/posts/automatically-close-other-details/" class="prev-post" rel="prev">Previous: Automatically close other &lt;details&gt;</a>
+</nav>
+
+
+
+	<div class="related-posts">
+		<h3>SOME RELATED POSTS</h3>
+		<div>
+			<section>
+				<a href="/posts/back-to-the-roots-with-a-static-site/">
+					<img class="img-responsive" src="/img/code-books-with-plant.webp"
+					
+					
+					alt="Code books with plant.">
+				</a>
+				<h4>
+					<a href="/posts/back-to-the-roots-with-a-static-site/">Back to the roots with a static site</a>
+				</h4>
+			</section>
+			<section>
+				<a href="/posts/clear-your-local-development-cache-with-js/">
+					<img class="img-responsive" src="/img/stacked-memory-photos.webp"
+					
+					
+					alt="Stacked memory photos.">
+				</a>
+				<h4>
+					<a href="/posts/clear-your-local-development-cache-with-js/">Clear your local development cache with JS</a>
+				</h4>
+			</section>
+		</div>
+	</div>
+
+
+				</main><!-- #main -->
+			</div><!-- #content -->
+
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2022 | { LebCit }</strong><br>
+						<span>Proudly created with</span>  <a href="https://www.11ty.dev/" target="_blank">11ty</a>
+					</p>
+				</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+
+			<!-- Current page: /posts/to-node-or-not-deta-is-the-answer/ -->
+			
+		</div><!-- #page -->
+
+		<script type="text/javascript" src="/js/main.min.js"></script>
+
+		
+		
+	</body>
+</html>

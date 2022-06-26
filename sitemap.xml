@@ -112,6 +112,11 @@
   </url>
   
   <url>
+    <loc>https://lebcit.github.io/tags/Node.js/</loc>
+    <lastmod>2021-01-23</lastmod>
+  </url>
+  
+  <url>
     <loc>https://lebcit.github.io/posts/midday-wordpress-theme/</loc>
     <lastmod>2021-02-02</lastmod>
   </url>
@@ -119,5 +124,10 @@
   <url>
     <loc>https://lebcit.github.io/posts/automatically-close-other-details/</loc>
     <lastmod>2021-02-10</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lebcit.github.io/posts/to-node-or-not-deta-is-the-answer/</loc>
+    <lastmod>2022-06-26</lastmod>
   </url>
 </urlset>

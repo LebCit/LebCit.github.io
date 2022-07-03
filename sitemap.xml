@@ -72,6 +72,11 @@
   </url>
   
   <url>
+    <loc>https://lebcit.github.io/tags/Development/</loc>
+    <lastmod>2021-01-23</lastmod>
+  </url>
+  
+  <url>
     <loc>https://lebcit.github.io/tags/Tips%20and%20Tricks/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
@@ -82,32 +87,7 @@
   </url>
   
   <url>
-    <loc>https://lebcit.github.io/tags/Development/</loc>
-    <lastmod>2021-01-23</lastmod>
-  </url>
-  
-  <url>
     <loc>https://lebcit.github.io/tags/Customizer/</loc>
-    <lastmod>2021-01-23</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://lebcit.github.io/tags/Plugin/</loc>
-    <lastmod>2021-01-23</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://lebcit.github.io/tags/Toolbar/</loc>
-    <lastmod>2021-01-23</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://lebcit.github.io/tags/Theme/</loc>
-    <lastmod>2021-01-23</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://lebcit.github.io/tags/Copyright/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
@@ -132,6 +112,26 @@
   </url>
   
   <url>
+    <loc>https://lebcit.github.io/tags/Plugin/</loc>
+    <lastmod>2021-01-23</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lebcit.github.io/tags/Toolbar/</loc>
+    <lastmod>2021-01-23</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lebcit.github.io/tags/Theme/</loc>
+    <lastmod>2021-01-23</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lebcit.github.io/tags/Copyright/</loc>
+    <lastmod>2021-01-23</lastmod>
+  </url>
+  
+  <url>
     <loc>https://lebcit.github.io/posts/midday-wordpress-theme/</loc>
     <lastmod>2021-02-02</lastmod>
   </url>
@@ -148,6 +148,6 @@
   
   <url>
     <loc>https://lebcit.github.io/posts/csp-nonce-with-nodejs-and-ejs/</loc>
-    <lastmod>2022-06-30</lastmod>
+    <lastmod>2022-07-03</lastmod>
   </url>
 </urlset>

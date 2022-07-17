@@ -155,4 +155,9 @@
     <loc>https://lebcit.github.io/posts/templating-a-nodejs-app-with-ejs/</loc>
     <lastmod>2022-07-09</lastmod>
   </url>
+  
+  <url>
+    <loc>https://lebcit.github.io/posts/improving-a-nodejs-app-built-with-express-and-ejs/</loc>
+    <lastmod>2022-07-16</lastmod>
+  </url>
 </urlset>

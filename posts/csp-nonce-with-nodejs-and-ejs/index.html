@@ -253,7 +253,7 @@ It's a time consuming process if your code changes a lot, but commonly used and 
 Note that a <code>nonce-value</code> will not allow stylesheet requests originating from the <code>@import</code> rule !</p>
 <p>To use a nonce, for a script, we have to declare at the top of our <code>script-src</code> directive the <code>'strict-dynamic'</code> expression to allow the execution of that script as well as any script loaded by this root script.<br>
 When using the <code>'strict-dynamic'</code> expression, other expressions such as <code>'self'</code> or <code>'unsafe-inline'</code> will be ignored.</p>
-<p>I like to keep my code clean an maintainable because at one point or another I'll want to update it, this is why I split (as most developers) my code into pieces where each one is easily trackable in a near or far future.<br>
+<p>I like to keep my code clean and maintainable because at one point or another I'll want to update it, this is why I split (as most developers) my code into pieces where each one is easily trackable in a near or far future.<br>
 Let's add a file called <code>nonces.js</code> in the <code>middleware</code> folder, the app structure now looks like the following tree :</p>
 <pre class="language-text"><code class="language-text">Application's root without node_modules folder<br>├── index.js<br>├── middleware<br>│  ├── helmet.js<br>│  └── nonces.js<br>├── package-lock.json<br>├── package.json<br>└── views<br>  └── index.ejs</code></pre>
 <p>Open <code>nonces.js</code> and add the following content :</p>

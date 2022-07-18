@@ -72,17 +72,17 @@
   </url>
   
   <url>
-    <loc>https://lebcit.github.io/tags/Development/</loc>
-    <lastmod>2021-01-23</lastmod>
-  </url>
-  
-  <url>
     <loc>https://lebcit.github.io/tags/Tips%20and%20Tricks/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
   <url>
     <loc>https://lebcit.github.io/tags/JavaScript/</loc>
+    <lastmod>2021-01-23</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lebcit.github.io/tags/Development/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
@@ -132,6 +132,11 @@
   </url>
   
   <url>
+    <loc>https://lebcit.github.io/tags/Express/</loc>
+    <lastmod>2021-01-23</lastmod>
+  </url>
+  
+  <url>
     <loc>https://lebcit.github.io/posts/midday-wordpress-theme/</loc>
     <lastmod>2021-02-02</lastmod>
   </url>
@@ -159,5 +164,10 @@
   <url>
     <loc>https://lebcit.github.io/posts/improving-a-nodejs-app-built-with-express-and-ejs/</loc>
     <lastmod>2022-07-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lebcit.github.io/posts/express-global-router-for-a-dry-code/</loc>
+    <lastmod>2022-07-18</lastmod>
   </url>
 </urlset>

@@ -112,6 +112,11 @@
   </url>
   
   <url>
+    <loc>https://lebcit.github.io/tags/Express/</loc>
+    <lastmod>2021-01-23</lastmod>
+  </url>
+  
+  <url>
     <loc>https://lebcit.github.io/tags/Plugin/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
@@ -128,11 +133,6 @@
   
   <url>
     <loc>https://lebcit.github.io/tags/Copyright/</loc>
-    <lastmod>2021-01-23</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://lebcit.github.io/tags/Express/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
@@ -169,5 +169,10 @@
   <url>
     <loc>https://lebcit.github.io/posts/express-global-router-for-a-dry-code/</loc>
     <lastmod>2022-07-18</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lebcit.github.io/posts/markdown-blog-with-ejs/</loc>
+    <lastmod>2022-07-25</lastmod>
   </url>
 </urlset>

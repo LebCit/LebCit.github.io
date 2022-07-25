@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+			<title>Markdown blog with EJS - { LebCit }</title>
+		
+		<meta name="description" content="This post is about creating a Markdown blog with EJS.">
+		<link rel="stylesheet" href="/css/main.min.css">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{ LebCit }">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{ LebCit }">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png"/>
+		<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/favicon/apple-touch-icon.png"/>
+		<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-chrome-192x192.png"/>
+		<link rel="icon" type="image/png" sizes="512x512" href="/img/favicon/android-chrome-512x512.png"/>
+		<link href="https://unpkg.com/prismjs@1.23.0/themes/prism-okaidia.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+				<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
+				<div class="overlay-content">
+						<a href="/">Home</a>
+						<a href="/about/">About</a>
+						<a href="/posts/">Archive</a>
+						<a href="/tags/">Tags</a>
+					<a href="https://github.com/LebCit" target="_blank">GitHub</a>
+				</div>
+			</div>
+
+			<header id="masthead"
+				
+					class="site-header unit-1 unit-lg-2-5 bio"
+					style="background-image:url(/img/markdown-logo-with-white-background.webp)"
+				
+			>
+				<div class="site-header-overlay"></div>
+				<div class="sidebar">
+					<div class="site-branding">
+						<h1 class="site-title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-description">
+							Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !
+						</p>
+					</div>
+
+					<nav id="nav" class="nav" aria-label="MENU">
+						<ul class="nav-list">
+							<li class="nav-item">
+								<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg version='1.1' x='0px' y='0px' width='30px' height='30px' viewbox='0 0 30 30' enable-background='new 0 0 30 30'><rect width='30' height='5'/><rect y='24' width='30' height='5'/><rect y='12' width='30' height='5'/></svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+
+					</nav><!-- #site-navigation -->
+				</div>
+			</header><!-- #masthead -->
+
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main  class="single-post" >
+					
+<header class="post-header">
+		<h1 class="post-title">Markdown blog with EJS</h1>
+		
+		
+		<p class="post-meta">
+			<span>Posted on</span>
+			<span class="posted-on">
+				<time class="post-date" datetime="2022-07-25">25 Jul 2022</time>
+			</span>
+			
+
+			
+			
+				<br>
+				Tagged
+				
+					<span class="post-tag">
+						<a href="/tags/Development/">Development</a>
+					</span>
+					<span class="post-tag">
+						<a href="/tags/EJS/">EJS</a>
+					</span>
+					<span class="post-tag">
+						<a href="/tags/Express/">Express</a>
+					</span>
+					<span class="post-tag">
+						<a href="/tags/Node.js/">Node.js</a>
+					</span>
+			
+		</p>
+		
+</header>
+
+<div class="post-content">
+  <p><em>This post is about creating a Markdown blog with EJS.</em></p>
+<h2 id="intro">Intro <a class="direct-link" href="#intro">#</a></h2>
+<p>Writing a post content with HTML is not as easy as doing it with <a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="external noopener noreferrer">Markdown</a>.<br>
+Since my coming <a href="/posts/back-to-the-roots-with-a-static-site/">back to the roots whit a static site</a>, I write my posts content with Markdown.<br>
+A little time after that, I discovered <a href="/posts/to-node-or-not-deta-is-the-answer/">Deta Cloud</a> and was able to try everything I've learned about Node.js on a live server.<br>
+My favorite templating language is <a href="https://ejs.co/" target="_blank" rel="external noopener noreferrer">EJS</a>, and I wanted to create a dead simple blog by combining the content of a Markdown file with an EJS template.<br>
+After a lot of research and tries &amp; fails, I've understood the mechanism needed to accomplish my goal.<br>
+I found some tutorials about the subject and this tutorial is inspired by the last one I stumbled on, <a href="https://julianterenzio.io/blog/Building%20A%20Markdown%20Blog%20App%20with%20Express%20and%C2%A0EJS" target="_blank" rel="external noopener noreferrer">Building A Markdown Blog App with Express and EJS</a>, with some improvements and all the details.</p>
+<h2 id="requirements">Requirements <a class="direct-link" href="#requirements">#</a></h2>
+<p>To execute our magic spell, we'll need the following packages :</p>
+<ol>
+<li>EJS, to template our application</li>
+<li><a href="https://expressjs.com/" target="_blank" rel="external noopener noreferrer">Express</a>, the web framework for Node.js</li>
+<li><a href="https://www.npmjs.com/package/gray-matter" target="_blank" rel="external noopener noreferrer">gray-matter</a>, to parse the front matter from the Markdown files</li>
+<li><a href="https://www.npmjs.com/package/markdown-it" target="_blank" rel="external noopener noreferrer">markdown-it</a>, to parse the Markdown files content</li>
+</ol>
+<p>To install them with one command :</p>
+<p><code>npm i ejs express gray-matter markdown-it</code></p>
+<h2 id="server-setup">Server setup <a class="direct-link" href="#server-setup">#</a></h2>
+<p>In your main server file, mine is <code>index.js</code>, put the following :</p>
+<details>
+<summary>/index.js</summary>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token comment">// Built-in module to access and interact with the file system</span><br><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"fs"</span><span class="token punctuation">)</span><br><span class="token comment">// To parse front matter from Markdown files</span><br><span class="token keyword">const</span> matter <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"gray-matter"</span><span class="token punctuation">)</span><br><br>app<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"view engine"</span><span class="token punctuation">,</span> <span class="token string">"ejs"</span><span class="token punctuation">)</span><br>app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>express<span class="token punctuation">.</span><span class="token function">static</span><span class="token punctuation">(</span><span class="token string">"public"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><br><span class="token keyword">const</span> <span class="token function-variable function">getPosts</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	<span class="token comment">// Get the posts from their directory</span><br>	<span class="token keyword">const</span> posts <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readdirSync</span><span class="token punctuation">(</span>__dirname <span class="token operator">+</span> <span class="token string">"/views/posts"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">post</span><span class="token punctuation">)</span> <span class="token operator">=></span> post<span class="token punctuation">.</span><span class="token function">endsWith</span><span class="token punctuation">(</span><span class="token string">".md"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br>	<span class="token comment">// Set the post content as an empty array</span><br>	<span class="token keyword">const</span> postContent <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><br>	<span class="token comment">// Inject into the post content array the front matter</span><br>	posts<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">post</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>		postContent<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>matter<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>__dirname <span class="token operator">+</span> <span class="token string">"/views/posts/"</span> <span class="token operator">+</span> post<span class="token punctuation">)</span><span class="token punctuation">)</span><br>	<span class="token punctuation">}</span><span class="token punctuation">)</span><br><br>	<span class="token comment">/**<br>	 * 1- Return a list of posts as a two dimensional array containing for each one :<br>	 * . the post filename with it's extension (e.g : postFilename.md)<br>	 * . the post content as an object {content:"Markdown content as a string", data:{front matter}, excerpt:""}<br>	 * 2- Return each array as an object and create a Date instance from it's date front matter<br>	 * 3- Sort posts by publication's date in descending order (newest to oldest)<br>	 */</span><br>	<span class="token keyword">const</span> postsList <span class="token operator">=</span> posts<br>		<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">post<span class="token punctuation">,</span> i</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>			<span class="token keyword">return</span> <span class="token punctuation">[</span>post<span class="token punctuation">,</span> postContent<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><br>		<span class="token punctuation">}</span><span class="token punctuation">)</span><br>		<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>			<span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token operator">...</span>obj<span class="token punctuation">,</span> <span class="token literal-property property">date</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">.</span>date<span class="token punctuation">)</span> <span class="token punctuation">}</span><br>		<span class="token punctuation">}</span><span class="token punctuation">)</span><br>		<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">objA<span class="token punctuation">,</span> objB</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">Number</span><span class="token punctuation">(</span>objB<span class="token punctuation">.</span>date<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">Number</span><span class="token punctuation">(</span>objA<span class="token punctuation">.</span>date<span class="token punctuation">)</span><span class="token punctuation">)</span><br><br>	<span class="token keyword">return</span> postsList<br><span class="token punctuation">}</span><br><br><span class="token comment">// Render the list of posts on the main route</span><br>app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"postsList"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>		<span class="token literal-property property">posts</span><span class="token operator">:</span> <span class="token function">getPosts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>	<span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token comment">// Using a route parameter to render each post on a route matching it's filename</span><br>app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/posts/:post"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	<span class="token keyword">const</span> postTitle <span class="token operator">=</span> req<span class="token punctuation">.</span>params<span class="token punctuation">.</span>post <span class="token comment">// Get the Markdown filename</span><br><br>	<span class="token comment">// Read the Markdown file and parse it's front matter</span><br>	<span class="token keyword">const</span> post <span class="token operator">=</span> matter<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>__dirname <span class="token operator">+</span> <span class="token string">"/views/posts/"</span> <span class="token operator">+</span> postTitle <span class="token operator">+</span> <span class="token string">".md"</span><span class="token punctuation">)</span><br><br>	<span class="token comment">// Convert the Markdown file content to HTML with markdown-it</span><br>	<span class="token keyword">const</span> md <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"markdown-it"</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">html</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">// Allows HTML tags inside the Markdown file</span><br>	<span class="token keyword">const</span> content <span class="token operator">=</span> post<span class="token punctuation">.</span>content <span class="token comment">// Read the Markdown file content</span><br>	<span class="token keyword">const</span> html <span class="token operator">=</span> md<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span> <span class="token comment">// Convert the Markdown file content to HTML</span><br><br>	<span class="token comment">// Render the postsTemplate for each post and pass it's front matter as a data object into postsTemplate</span><br>	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"postsTemplate"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>		<span class="token literal-property property">title</span><span class="token operator">:</span> post<span class="token punctuation">.</span>data<span class="token punctuation">.</span>title<span class="token punctuation">,</span><br>		<span class="token literal-property property">date</span><span class="token operator">:</span> post<span class="token punctuation">.</span>data<span class="token punctuation">.</span>date<span class="token punctuation">,</span><br>		<span class="token literal-property property">postContent</span><span class="token operator">:</span> html<span class="token punctuation">,</span><br>	<span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token comment">// Launching the application on port 3000</span><br>app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">App 🚀 @ http://localhost:3000</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+</details>
+<p>As you can see everything is explained in detail.<br>
+<em>Nota bene : I'm directly using the views folder as the template files location, no need to declare it, Express detects it by default, and the Markdown files are under the views folder inside another folder called posts</em>.</p>
+<p>I want to bring your attention to one particular point.<br>
+When we render the <code>postTemplate</code> and pass the Markdown front matter and content as a data object, we can add and pass as many <code>key: value</code> pair as we want, but we can't call an undefined <code>key</code> inside the <code>postTemplate</code> !<br>
+So, if you add a <code>description: my post description</code> to the front matter of the Markdown file, you can't call it directly inside the <code>postTemplate</code> without adding it in the data object.<br>
+<em>Nota bene : No need to declare the <code>.ejs</code> extension for a template file, Express detects it by default</em>.</p>
+<h2 id="rendering-the-frontend">Rendering the frontend <a class="direct-link" href="#rendering-the-frontend">#</a></h2>
+<p>As you have seen in <code>index.js</code>, I'm rendering a list of posts on the main route from a template called <code>postsList.ejs</code>. Add the following to this file :</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- /views/postsList.ejs --></span><br><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Home | My blog<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><br>			Welcome to my blog<br>			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span><br>			List of recent posts<br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><br>		&lt;% posts.forEach(post => { %><br>		<span class="token comment">&lt;!-- Get the Markdown filename without it's extension --></span><br>		&lt;% const postFilename = post[0].replace(/\.[^/.]+$/, "") %><br>		<span class="token comment">&lt;!-- Get the Markdown post title from it's front matter --></span><br>		&lt;% const postTitle = post[1].data.title %><br>		<span class="token comment">&lt;!-- Render the title as a link to the post --></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/posts/&lt;%= postFilename %><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>&lt;%= postTitle%><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span><br>		&lt;% }) %><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre>
+<p>Now, each post has the same structure, one template file called <code>postsTemplate.ejs</code>. Add the following to this one :</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- /views/postsTemplate.ejs --></span><br><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>&lt;%= title %> | My blog<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>&lt;%= title %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>&lt;%= date %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>&lt;%- postContent %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre>
+<p>Everything is in place, we can now write our posts with Markdown in the <code>views</code> folder under the <code>posts</code> folder 🥳</p>
+<p>I've created two files for you to see the output if you try it :</p>
+<pre class="language-md"><code class="language-md"><span class="token front-matter-block"><span class="token punctuation">---</span><br><span class="token front-matter yaml language-yaml">title: My first article<br>date: 2022/07/23</span><br><span class="token punctuation">---</span></span><br><br>This is the content of my first article<br><br><span class="token comment">&lt;!--- /views/posts/my-first-article.md --></span></code></pre>
+<pre class="language-md"><code class="language-md"><span class="token front-matter-block"><span class="token punctuation">---</span><br><span class="token front-matter yaml language-yaml">title: A second post<br>date: 2022/07/25</span><br><span class="token punctuation">---</span></span><br><br>Here goes the content of my second post<br><br><span class="token comment">&lt;!--- /views/posts/a-second-post.md --></span></code></pre>
+<p>The app structure looks like the following tree :</p>
+<pre class="language-txt"><code class="language-txt">// App's structure without the node_modules folder<br>├── index.js<br>├── package-lock.json<br>├── package.json<br>└── views<br>  ├── posts<br>  │  ├── a-second-post.md<br>  │  └── my-first-article.md<br>  ├── postsList.ejs<br>  └── postsTemplate.ejs</code></pre>
+<p>I hope that this tutorial will be helpful for everyone trying to create a Markdown blog with EJS.</p>
+
+	<p class="author-greetings">SYA,<br>LebCit.</p>
+</div>
+
+
+
+<nav class="post-navigation" aria-label="Post navigation"><a href="/posts/express-global-router-for-a-dry-code/" class="prev-post" rel="prev">Previous: Express global router for a DRY code</a>
+</nav>
+
+
+
+	<div class="related-posts">
+		<h3>SOME RELATED POSTS</h3>
+		<div>
+			<section>
+				<a href="/posts/templating-a-nodejs-app-with-ejs/">
+					<img class="img-responsive" src="/img/block-of-red-orange-yellow-and-green-lego.webp"
+					
+					
+					alt="Block of red orange yellow and green pieces of lego.">
+				</a>
+				<h4>
+					<a href="/posts/templating-a-nodejs-app-with-ejs/">Templating a Node.js app with EJS</a>
+				</h4>
+			</section>
+			<section>
+				<a href="/posts/express-global-router-for-a-dry-code/">
+					<img class="img-responsive" src="/img/connected-strings.webp"
+					
+					
+					alt="Black strings connected with each other like a network forming a globe.">
+				</a>
+				<h4>
+					<a href="/posts/express-global-router-for-a-dry-code/">Express global router for a DRY code</a>
+				</h4>
+			</section>
+		</div>
+	</div>
+
+
+				</main><!-- #main -->
+			</div><!-- #content -->
+
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2022 | { LebCit }</strong><br>
+						<span>Proudly created with</span>  <a href="https://www.11ty.dev/" target="_blank">11ty</a>
+					</p>
+				</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+
+			<!-- Current page: /posts/markdown-blog-with-ejs/ -->
+			
+		</div><!-- #page -->
+
+		<script type="text/javascript" src="/js/main.min.js"></script>
+
+		
+		
+	</body>
+</html>

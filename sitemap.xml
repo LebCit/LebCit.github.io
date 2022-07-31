@@ -72,22 +72,17 @@
   </url>
   
   <url>
+    <loc>https://lebcit.github.io/tags/Development/</loc>
+    <lastmod>2021-01-23</lastmod>
+  </url>
+  
+  <url>
     <loc>https://lebcit.github.io/tags/Tips%20and%20Tricks/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
   <url>
     <loc>https://lebcit.github.io/tags/JavaScript/</loc>
-    <lastmod>2021-01-23</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://lebcit.github.io/tags/Development/</loc>
-    <lastmod>2021-01-23</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://lebcit.github.io/tags/Customizer/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
@@ -108,6 +103,11 @@
   
   <url>
     <loc>https://lebcit.github.io/tags/Nonce/</loc>
+    <lastmod>2021-01-23</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lebcit.github.io/tags/Customizer/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
@@ -174,5 +174,10 @@
   <url>
     <loc>https://lebcit.github.io/posts/markdown-blog-with-ejs/</loc>
     <lastmod>2022-07-25</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lebcit.github.io/posts/turn-a-markdown-blog-to-a-simple-ssg/</loc>
+    <lastmod>2022-07-31</lastmod>
   </url>
 </urlset>

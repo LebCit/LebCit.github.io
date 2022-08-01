@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+			<title>Click without JavaScript ! - { LebCit }</title>
+		
+		<meta name="description" content="This post is about clicking on an element without JavaScript.">
+		<link rel="stylesheet" href="/css/main.min.css">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{ LebCit }">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{ LebCit }">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png"/>
+		<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/favicon/apple-touch-icon.png"/>
+		<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-chrome-192x192.png"/>
+		<link rel="icon" type="image/png" sizes="512x512" href="/img/favicon/android-chrome-512x512.png"/>
+		<link href="https://unpkg.com/prismjs@1.23.0/themes/prism-okaidia.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+				<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
+				<div class="overlay-content">
+						<a href="/">Home</a>
+						<a href="/about/">About</a>
+						<a href="/posts/">Archive</a>
+						<a href="/tags/">Tags</a>
+					<a href="https://github.com/LebCit" target="_blank">GitHub</a>
+				</div>
+			</div>
+
+			<header id="masthead"
+				
+					class="site-header unit-1 unit-lg-2-5 bio"
+					style="background-image:url(/img/hand-pointing-upward-on-a-pink-background.webp)"
+				
+			>
+				<div class="site-header-overlay"></div>
+				<div class="sidebar">
+					<div class="site-branding">
+						<h1 class="site-title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-description">
+							Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !
+						</p>
+					</div>
+
+					<nav id="nav" class="nav" aria-label="MENU">
+						<ul class="nav-list">
+							<li class="nav-item">
+								<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg version='1.1' x='0px' y='0px' width='30px' height='30px' viewbox='0 0 30 30' enable-background='new 0 0 30 30'><rect width='30' height='5'/><rect y='24' width='30' height='5'/><rect y='12' width='30' height='5'/></svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+
+					</nav><!-- #site-navigation -->
+				</div>
+			</header><!-- #masthead -->
+
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main  class="single-post" >
+					
+<header class="post-header">
+		<h1 class="post-title">Click without JavaScript !</h1>
+		
+		
+		<p class="post-meta">
+			<span>Posted on</span>
+			<span class="posted-on">
+				<time class="post-date" datetime="2022-08-01">01 Aug 2022</time>
+			</span>
+			
+
+			
+			
+				<br>
+				Tagged
+				
+					<span class="post-tag">
+						<a href="/tags/CSS/">CSS</a>
+					</span>
+					<span class="post-tag">
+						<a href="/tags/Tips and Tricks/">Tips and Tricks</a>
+					</span>
+			
+		</p>
+		
+</header>
+
+<div class="post-content">
+  <p><em>This post is about clicking on an element without JavaScript.</em></p>
+<h2 id="intro">Intro <a class="direct-link" href="#intro">#</a></h2>
+<p>Let's say that you have a button on which you want to click and perform a simple action like displaying some hidden content.<br>
+You'll directly think :</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"btn"</span><span class="token punctuation">)</span><br>btn<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	<span class="token comment">// display my hidden content...</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>What if I tell you that you could do it with CSS ?!</p>
+<h2 id="the-%3Atarget-css-pseudo-class">The :target CSS pseudo-class <a class="direct-link" href="#the-%3Atarget-css-pseudo-class">#</a></h2>
+<p>While surfing the net, you surely clicked before on a <code>hash-link</code>, a link that redirects to a particular section in a page, just like the above <a href="#intro">Intro</a> heading !<br>
+It could also redirect to another page, but always to a particular <code>target</code> on the page.<br>
+The <code>target</code> is this case is a link with a hash <code>#</code> :</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#intro<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Intro<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></code></pre>
+<p>This is why we call it a <code>hash-link</code>.</p>
+<p>CSS has a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:target" target="_blank" rel="external noopener noreferrer">:target</a> <em>pseudo-class</em>, that can be used to select a <code>target</code> and style it !<br>
+Are you already thinking about the <code>display</code> property ? 😉<br>
+Let's do it !</p>
+<p><a href="#the-code">Reveal the code !</a></p>
+<div id="the-code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#the-code<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Reveal the code !<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>the-code<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>This block of code is displayed after you click on the link<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#hide-the-code<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Hide the code !<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">#the-code</span> <span class="token punctuation">{</span><br>	<span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">#the-code:target</span> <span class="token punctuation">{</span><br>	<span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p><a href="#hide-the-code">Hide the code !</a></p>
+</div>
+<style>
+#the-code {
+	display: none;
+}
+
+#the-code:target {
+	display: block;
+}
+</style>
+<p>So how does this work ?!<br>
+It's quite simple :</p>
+<ol>
+<li>We have a <code>hash-link</code> :</li>
+</ol>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#the-code<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Reveal the code !<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></code></pre>
+<ol start="2">
+<li>We have a <code>div</code> with an <code>ID</code> matching the <code>hash-link</code> :</li>
+</ol>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>the-code<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<ol start="3">
+<li>We hide this <code>div</code> by default :</li>
+</ol>
+<pre class="language-css"><code class="language-css"><span class="token selector">#the-code</span> <span class="token punctuation">{</span><br>	<span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<ol start="4">
+<li>Then we display it if the <code>hash-link</code> becomes the target :</li>
+</ol>
+<pre class="language-css"><code class="language-css"><span class="token selector">#the-code:target</span> <span class="token punctuation">{</span><br>	<span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>I've also added at the end of the <code>div</code> a <code>hash-link</code> that doesn't correspond to any <code>target</code> :</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#hide-the-code<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Hide the code !<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></code></pre>
+<p>When this one is clicked, the <code>target</code> is changed and the block of code goes back to it's original state, hidden, since this <code>hash-link</code> doesn't match it's <code>ID</code>.</p>
+<p>Hope you'll find it useful.</p>
+
+	<p class="author-greetings">SYA,<br>LebCit.</p>
+</div>
+
+
+
+<nav class="post-navigation" aria-label="Post navigation"><a href="/posts/turn-a-markdown-blog-to-a-simple-ssg/" class="prev-post" rel="prev">Previous: Turn a Markdown blog to a simple SSG</a>
+</nav>
+
+
+
+	<div class="related-posts">
+		<h3>SOME RELATED POSTS</h3>
+		<div>
+			<section>
+				<a href="/posts/change-page-title-dynamically/">
+					<img class="img-responsive" src="/img/graphic-of-white-camera-on-black-background-no-image-available.webp"
+					
+					
+					alt="Graphic of white camera on black background. No image available for this post.">
+				</a>
+				<h4>
+					<a href="/posts/change-page-title-dynamically/">Change page title dynamically</a>
+				</h4>
+			</section>
+			<section>
+				<a href="/posts/automatically-close-other-details/">
+					<img class="img-responsive" src="/img/matrix-background.webp"
+					
+					
+					alt="Matrix background.">
+				</a>
+				<h4>
+					<a href="/posts/automatically-close-other-details/">Automatically close other &lt;details&gt;</a>
+				</h4>
+			</section>
+		</div>
+	</div>
+
+
+				</main><!-- #main -->
+			</div><!-- #content -->
+
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2022 | { LebCit }</strong><br>
+						<span>Proudly created with</span>  <a href="https://www.11ty.dev/" target="_blank">11ty</a>
+					</p>
+				</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+
+			<!-- Current page: /posts/click-without-javascript/ -->
+			
+		</div><!-- #page -->
+
+		<script type="text/javascript" src="/js/main.min.js"></script>
+
+		
+		
+	</body>
+</html>

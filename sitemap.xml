@@ -77,7 +77,7 @@
   </url>
   
   <url>
-    <loc>https://lebcit.github.io/tags/CSS/</loc>
+    <loc>https://lebcit.github.io/tags/JavaScript/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
@@ -87,12 +87,12 @@
   </url>
   
   <url>
-    <loc>https://lebcit.github.io/tags/JavaScript/</loc>
+    <loc>https://lebcit.github.io/tags/CSS/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
   <url>
-    <loc>https://lebcit.github.io/tags/Plugin/</loc>
+    <loc>https://lebcit.github.io/tags/Customizer/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
@@ -117,12 +117,12 @@
   </url>
   
   <url>
-    <loc>https://lebcit.github.io/tags/Customizer/</loc>
+    <loc>https://lebcit.github.io/tags/Express/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
   <url>
-    <loc>https://lebcit.github.io/tags/Express/</loc>
+    <loc>https://lebcit.github.io/tags/Plugin/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
@@ -132,12 +132,17 @@
   </url>
   
   <url>
+    <loc>https://lebcit.github.io/tags/Theme/</loc>
+    <lastmod>2021-01-23</lastmod>
+  </url>
+  
+  <url>
     <loc>https://lebcit.github.io/tags/Copyright/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
   <url>
-    <loc>https://lebcit.github.io/tags/Theme/</loc>
+    <loc>https://lebcit.github.io/tags/Markdown/</loc>
     <lastmod>2021-01-23</lastmod>
   </url>
   
@@ -189,5 +194,10 @@
   <url>
     <loc>https://lebcit.github.io/posts/click-without-javascript/</loc>
     <lastmod>2022-08-01</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lebcit.github.io/posts/blog-doc-a-tiny-and-dead-simple-ssg/</loc>
+    <lastmod>2022-11-13</lastmod>
   </url>
 </urlset>

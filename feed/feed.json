@@ -9,6 +9,12 @@
     "url": "https://lebcit.github.io/about/"
   },
   "items": [{
+      "id": "https://lebcit.github.io/posts/blog-doc-a-tiny-and-dead-simple-ssg/",
+      "url": "https://lebcit.github.io/posts/blog-doc-a-tiny-and-dead-simple-ssg/",
+      "title": "Blog-Doc, a tiny and dead simple SSG !",
+      "content_html": "<p><em>This post is about Blog-Doc, a tiny and dead simple static site generator written in JavaScript.</em></p>\n<p>Blog-Doc uses EJS as a templating language and Markdown to write and format the markup of the generated posts and pages.</p>\n<h2 id=\"motivation\">Motivation <a class=\"direct-link\" href=\"#motivation\">#</a></h2>\n<p>It's after some of my previous tutorials about templating a Node.js app with EJS and turning it to a simple SSG with the ability to write posts and pages in Markdown that I've decided to put it all together and bring it to the light as a proof of concept and prototype.</p>\n<h2 id=\"live-demo-%26-documentation\">Live demo &amp; documentation <a class=\"direct-link\" href=\"#live-demo-%26-documentation\">#</a></h2>\n<p>An overview of the app and it's documentation can be found on <a href=\"https://blog-doc.deta.dev/\" target=\"_blank\" rel=\"external noopener noreferrer\">Blog-Doc</a> live demo site.</p>\n<h2 id=\"nota-bene\">Nota Bene <a class=\"direct-link\" href=\"#nota-bene\">#</a></h2>\n<p>You can take Blog-Doc as a prototype and modify it totally to use it with another design and/or another template language.</p>\n<p>I really hope that this app will be useful in any way for a lot of people out there, I'm considering it as my personal contribution to the Node.js, Express, EJS and Markdown communities.</p>\n",
+      "date_published": "2022-11-13T00:00:00Z"
+    },{
       "id": "https://lebcit.github.io/posts/click-without-javascript/",
       "url": "https://lebcit.github.io/posts/click-without-javascript/",
       "title": "Click without JavaScript !",

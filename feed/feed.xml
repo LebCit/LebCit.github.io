@@ -5,12 +5,29 @@
 	
 	<link href="https://lebcit.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://lebcit.github.io/"/>
-	<updated>2022-08-01T00:00:00Z</updated>
+	<updated>2022-11-13T00:00:00Z</updated>
 	<id>https://lebcit.github.io/</id>
 	<author>
 		<name>LebCit</name>
 		<email></email>
 	</author>
+	
+	<entry>
+		<title>Blog-Doc, a tiny and dead simple SSG !</title>
+		<link href="https://lebcit.github.io/posts/blog-doc-a-tiny-and-dead-simple-ssg/"/>
+		<updated>2022-11-13T00:00:00Z</updated>
+		<id>https://lebcit.github.io/posts/blog-doc-a-tiny-and-dead-simple-ssg/</id>
+		<content type="html">&lt;p&gt;&lt;em&gt;This post is about Blog-Doc, a tiny and dead simple static site generator written in JavaScript.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Blog-Doc uses EJS as a templating language and Markdown to write and format the markup of the generated posts and pages.&lt;/p&gt;
+&lt;h2 id=&quot;motivation&quot;&gt;Motivation &lt;a class=&quot;direct-link&quot; href=&quot;https://lebcit.github.io/posts/blog-doc-a-tiny-and-dead-simple-ssg/#motivation&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;It&#39;s after some of my previous tutorials about templating a Node.js app with EJS and turning it to a simple SSG with the ability to write posts and pages in Markdown that I&#39;ve decided to put it all together and bring it to the light as a proof of concept and prototype.&lt;/p&gt;
+&lt;h2 id=&quot;live-demo-%26-documentation&quot;&gt;Live demo &amp;amp; documentation &lt;a class=&quot;direct-link&quot; href=&quot;https://lebcit.github.io/posts/blog-doc-a-tiny-and-dead-simple-ssg/#live-demo-%26-documentation&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;An overview of the app and it&#39;s documentation can be found on &lt;a href=&quot;https://blog-doc.deta.dev/&quot; target=&quot;_blank&quot; rel=&quot;external noopener noreferrer&quot;&gt;Blog-Doc&lt;/a&gt; live demo site.&lt;/p&gt;
+&lt;h2 id=&quot;nota-bene&quot;&gt;Nota Bene &lt;a class=&quot;direct-link&quot; href=&quot;https://lebcit.github.io/posts/blog-doc-a-tiny-and-dead-simple-ssg/#nota-bene&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;You can take Blog-Doc as a prototype and modify it totally to use it with another design and/or another template language.&lt;/p&gt;
+&lt;p&gt;I really hope that this app will be useful in any way for a lot of people out there, I&#39;m considering it as my personal contribution to the Node.js, Express, EJS and Markdown communities.&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Click without JavaScript !</title>

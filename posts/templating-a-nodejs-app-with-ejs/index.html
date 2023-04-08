@@ -1,115 +1,443 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-			<title>Templating a Node.js app with EJS - { LebCit }</title>
-		
-		<meta name="description" content="This post is about templating a Node.js application with EJS.">
-		<link rel="stylesheet" href="/css/main.min.css">
-		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{ LebCit }">
-		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{ LebCit }">
-		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"/>
-		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png"/>
-		<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/favicon/apple-touch-icon.png"/>
-		<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-chrome-192x192.png"/>
-		<link rel="icon" type="image/png" sizes="512x512" href="/img/favicon/android-chrome-512x512.png"/>
-		<link href="https://unpkg.com/prismjs@1.23.0/themes/prism-okaidia.css" rel="stylesheet">
-		
-	</head>
-	<body>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
+	<meta name="description" content="This post is about templating a Node.js application with EJS" />
+	
+
+	<title>Templating a Node.js app with EJS | { LebCit }</title>
+
+	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon_32.png" />
+	<link rel="stylesheet" href="/css/main.min.css" />
+	<link rel="stylesheet" href="/css/code-theme.min.css" />
+	<style>
+	.post-title {
+		font-size: 2em;
+		color: #222;
+		margin-bottom: 0.2em;
+	}
+
+	.post-content {
+		color: #444;
+		line-height: 1.8em;
+	}
+
+	.post-content a {
+		color: #000036;
+		text-decoration-line: underline;
+		text-decoration-color: #ea215a;
+		text-decoration-style: double;
+		text-decoration-thickness: 0.125em;
+		text-underline-offset: 1.5px;
+		text-decoration-skip-ink: none;
+		transition: 0.5s;
+	}
+
+	.post-content a:hover,
+	.post-content a:focus,
+	.post-content a:active {
+		text-decoration: none;
+		color: white;
+		box-shadow: inset 0 -1.3em 0 0 #000;
+		outline: thin dotted #ea215a;
+	}
+</style>
+
+
+<style>
+	.single-post :not(pre) code {
+		background-color: #272822;
+		color: #f8f8f2;
+		border-radius: 0.3rem;
+		padding: 4px 5px 5px;
+	}
+</style>
+  
+<style>
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.post-title {
+			font-size: 3em;
+			margin-top: 0;
+		}
+	}
+
+	@media (min-width: 64em) {
+		.post-title {
+			/* will affect single-post*/
+			font-size: 4em;
+			margin-top: 0;
+		}
+	}
+</style>
+    
+<style>
+	.post-meta {
+		color: #16663d;
+		font-size: 90%;
+		margin: 0;
+	}
+
+	.posted-on {
+		color: #ad1a36;
+	}
+
+	.post-tag {
+		margin: 0 0.1em;
+		padding: 0.2em 0.8em;
+		background: #ad1a36;
+		font-size: 80%;
+	}
+
+	.post-tag a {
+		color: #fff;
+	}
+</style>
+  
+
+</head>
+
+
+	<body>
 		<div id="page" class="site grid">
 			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
-				<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
-				<div class="overlay-content">
-						<a href="/">Home</a>
-						<a href="/about/">About</a>
-						<a href="/posts/">Archive</a>
-						<a href="/tags/">Tags</a>
-					<a href="https://github.com/LebCit" target="_blank">GitHub</a>
-				</div>
-			</div>
 
-			<header id="masthead"
-				
-					class="site-header unit-1 unit-lg-2-5 bio"
-					style="background-image:url(/img/block-of-red-orange-yellow-and-green-lego.webp)"
-				
-			>
-				<div class="site-header-overlay"></div>
-				<div class="sidebar">
-					<div class="site-branding">
-						<h1 class="site-title">
-							<a href="/">{ LebCit }</a>
-						</h1>
-						<p class="site-description">
-							Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !
-						</p>
-					</div>
+			<style>
+	.invisible {
+		visibility: hidden;
+	}
 
-					<nav id="nav" class="nav" aria-label="MENU">
-						<ul class="nav-list">
-							<li class="nav-item">
-								<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
-									<span>MENU</span>
-									<span class="menu-icon" aria-hidden="true">
-										<svg version='1.1' x='0px' y='0px' width='30px' height='30px' viewbox='0 0 30 30' enable-background='new 0 0 30 30'><rect width='30' height='5'/><rect y='24' width='30' height='5'/><rect y='12' width='30' height='5'/></svg>
-									</span>
-								</a>
-							</li>
-						</ul>
+	.overlay {
+		position: fixed;
+		width: 0;
+		height: 100%;
+		top: 0;
+		right: 0;
+		background-color: rgba(0, 0, 0, 0.9);
+		z-index: 2;
+		letter-spacing: normal;
+		overflow-x: hidden;
+		transition: 0.5s;
+	}
 
-					</nav><!-- #site-navigation -->
-				</div>
-			</header><!-- #masthead -->
+	.overlay-content {
+		position: relative;
+		top: 25%;
+		width: 100%;
+		text-align: center;
+		margin-top: 30px;
+	}
+
+	.overlay li {
+		list-style: none;
+	}
+
+	.overlay a {
+		padding: 8px;
+		text-decoration: none;
+		font-size: 36px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+	}
+
+	.overlay a:hover,
+	.overlay a:focus {
+		color: #f1f1f1;
+		background-color: #222;
+		border: 1px solid red;
+		border-style: dashed;
+	}
+
+	.overlay .close-button {
+		position: absolute;
+		top: 20px;
+		right: 45px;
+		font-size: 60px;
+	}
+</style>
+
+<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+	<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">
+		&times;
+	</a>
+	
+	<div class="overlay-content">
+		<a href="/">Home</a>
+		
+		<li class="pure-menu-item">
+			<a href="/posts">Archive</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/tags">Tags</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/search">Search</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/pages/about">About Me</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/rss.xml">RSS</a>
+		</li>
+		
+	</div>
+</div>
+  <style>
+	/* SITE HEADER */
+	.site-header {
+		background: rgb(61, 79, 93);
+		color: #fff;
+	}
+
+	.sidebar {
+		margin: 1em;
+	}
+
+	.site-title,
+	.site-description {
+		margin: 0;
+		line-height: 1.2;
+	}
+
+	.site-title a {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.site-title a:hover,
+	.site-title a:focus {
+		text-decoration: underline;
+	}
+
+	.site-description {
+		font-weight: 300;
+		color: rgb(176, 202, 219);
+		margin: 0.5em 0 2em 0;
+	}
+
+	/* MENU BUTTON */
+	.nav-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.nav-item {
+		display: inline-block;
+	}
+
+	.nav-item a {
+		background: black;
+		border: 2px solid rgb(176, 202, 219);
+		border-radius: 2px;
+		color: #fff;
+		padding: 0.5em 1em;
+		margin-top: 1em;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		font-size: 85%;
+	}
+
+	.nav-item a:hover,
+	.nav-item a:focus {
+		border: 2px solid rgb(61, 146, 201);
+		text-decoration: none;
+	}
+
+	.nav-item a svg {
+		fill: aliceblue;
+		vertical-align: bottom;
+		padding: 4px 0 2px;
+	}
+
+	@media screen and (max-width: 35.5em) {
+		.nav-item a svg {
+			padding-top: 14px;
+		}
+	}
+
+	@media screen and (min-width: 35.5em) and (max-width: 48em) {
+		.nav-item a svg {
+			padding-top: 12px;
+		}
+	}
+
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.nav-item a svg {
+			padding-top: 10px;
+		}
+	}
+
+	/* more then 1023px an less then 1024px */
+	@media (max-width: 63.969em) {
+		.site-header.bio {
+			background-image: none !important;
+		}
+		.nav {
+			position: fixed;
+			top: 15px;
+			right: 10px;
+			z-index: 1;
+		}
+	}
+
+	@media (min-width: 64em) {
+		.site-header {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			overflow-y: auto;
+		}
+
+		.site-header.bio {
+			background-repeat: no-repeat;
+			background-position: top;
+			background-size: cover;
+		}
+
+		.site-header.bio .site-header-overlay {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.6);
+		}
+
+		/* The emerging W3C standard
+ that is currently Firefox-only */
+		.site-header {
+			scrollbar-width: thin;
+		}
+
+		/* Works on Chrome/Edge/Safari */
+		.site-header::-webkit-scrollbar {
+			width: 7px;
+		}
+
+		.site-header::-webkit-scrollbar-track {
+			background: #313d48;
+		}
+
+		.site-header::-webkit-scrollbar-thumb {
+			background-color: #81898f;
+		}
+
+		.sidebar {
+			margin: 10% 2em;
+			text-align: left;
+		}
+
+		.site-header.bio .sidebar {
+			position: sticky;
+		}
+	}
+</style>
+<header id="masthead"  class="site-header unit-1 unit-lg-2-5 bio" style="background-image:
+	url('/img/block-of-red-orange-yellow-and-green-lego.webp')"  >
+	<div class="site-header-overlay"></div>
+	
+	<div class="sidebar">
+		<div class="site-branding">
+			<h1 class="site-title">
+				<a href="/">{ LebCit }</a>
+			</h1>
+			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !</p>
+		</div>
+
+		
+		<nav id="nav" class="nav" aria-label="MENU">
+			<ul class="nav-list">
+				<li class="nav-item">
+					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+						<span>MENU</span>
+						<span class="menu-icon" aria-hidden="true">
+							<svg
+								version="1.1"
+								x="0px"
+								y="0px"
+								width="30px"
+								height="30px"
+								viewbox="0 0 30 30"
+								enable-background="new 0 0 30 30"
+							>
+								<rect width="30" height="5" />
+								<rect y="24" width="30" height="5" />
+								<rect y="12" width="30" height="5" />
+							</svg>
+						</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		
+	</div>
+	
+</header>
+
 
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				<main  class="single-post" >
-					
-<header class="post-header">
-		<h1 class="post-title">Templating a Node.js app with EJS</h1>
-		
-		
-		<p class="post-meta">
-			<span>Posted on</span>
-			<span class="posted-on">
-				<time class="post-date" datetime="2022-07-09">09 Jul 2022</time>
-			</span>
-			
+				  
+				<main class="single-post"><style>
+	.author-greetings {
+		color: #000;
+		line-height: normal;
+	}
+</style>
 
-			
-			
-				<br>
-				Tagged
-				
-					<span class="post-tag">
-						<a href="/tags/Development/">Development</a>
-					</span>
-					<span class="post-tag">
-						<a href="/tags/EJS/">EJS</a>
-					</span>
-					<span class="post-tag">
-						<a href="/tags/JavaScript/">JavaScript</a>
-					</span>
-					<span class="post-tag">
-						<a href="/tags/Node.js/">Node.js</a>
-					</span>
-			
-		</p>
+<header class="post-header">
+	<h1 class="post-title">Templating a Node.js app with EJS</h1>
+	
+	<p class="post-meta">
+		<span>Posted on</span>
+		<span class="posted-on">
+			<time class="postList-date" datetime='2022-07/09'>
+				Sat Jul 09 2022
+			</time>
+		</span>
+
+		<br />
+		Tagged  
+		<span class="post-tag">
+			<a href="/tags/Development">Development</a>
+		</span>
 		
+		<span class="post-tag">
+			<a href="/tags/JavaScript">JavaScript</a>
+		</span>
+		
+		<span class="post-tag">
+			<a href="/tags/Node.js">Node.js</a>
+		</span>
+		
+		<span class="post-tag">
+			<a href="/tags/EJS">EJS</a>
+		</span>
+		  
+	</p>
+	
 </header>
 
 <div class="post-content">
-  <p><em>This post is about templating a Node.js application with EJS.</em></p>
-<h2 id="intro">Intro <a class="direct-link" href="#intro">#</a></h2>
-<p>There are a lot of tutorials about EJS out there, as well as a lot of <a href="https://stackoverflow.com/questions/tagged/ejs" target="_blank" rel="external noopener noreferrer">questions/answers</a>.<br>
+	
+	<p>
+		<em>This post is about templating a Node.js application with EJS</em>
+		.
+	</p>
+	  <h2>Intro</h2>
+<p>There are a lot of tutorials about EJS out there, as well as a lot of <a href="https://stackoverflow.com/questions/tagged/ejs">questions/answers</a>.<br>
 I decided to make my own as a beginner's guide, full of details, to bring the reader's attention about what could be going on or maybe off...</p>
 <p>In this post, we are going to build a basic Node.js web application using EJS as a templating language.<br>
 So, we'll go through the process step by step and explain every step to understand it 🧠</p>
-<h2 id="template-engines">Template engines <a class="direct-link" href="#template-engines">#</a></h2>
+<h2>Template engines</h2>
 <p>A template engine, processor or parser, is a software designed to inject data into a file, that commonly have the same extension as the template language or refers to, by using special markups that the template engine is programmed to understand and execute, resulting in a document where data have been passed from one end to another.</p>
 <p>Why don't we put the desired data directly into the file ?<br>
 Good question !<br>
@@ -117,28 +445,29 @@ The simple answer is that template engines where created not only to structure t
 <p>Today, template engines are mostly used to build server-side applications structured as fragments, using a template language to combine those small pieces and pass data across them to rapidly produce a ready to use application.</p>
 <p>Some popular JavaScript template engines :</p>
 <ul>
-<li><a href="https://ejs.co/" target="_blank" rel="external noopener noreferrer">EJS</a> : Embedded JavaScript templating</li>
-<li><a href="https://pugjs.org/api/getting-started.html" target="_blank" rel="external noopener noreferrer">Pug</a> : Robust, elegant, feature rich template engine for Node.js</li>
-<li><a href="https://handlebarsjs.com/" target="_blank" rel="external noopener noreferrer">Handlebars</a> : Minimal templating on steroids</li>
-<li><a href="https://mozilla.github.io/nunjucks/" target="_blank" rel="external noopener noreferrer">Nunjucks</a> : A rich and powerful templating language for JavaScript</li>
-<li><a href="https://github.com/janl/mustache.js" target="_blank" rel="external noopener noreferrer">Mustache</a> : Logic-less  templates with JavaScript</li>
+<li><a href="https://ejs.co/">EJS</a> : Embedded JavaScript templating</li>
+<li><a href="https://pugjs.org/api/getting-started.html">Pug</a> : Robust, elegant, feature rich template engine for Node.js</li>
+<li><a href="https://handlebarsjs.com/">Handlebars</a> : Minimal templating on steroids</li>
+<li><a href="https://mozilla.github.io/nunjucks/">Nunjucks</a> : A rich and powerful templating language for JavaScript</li>
+<li><a href="https://github.com/janl/mustache.js">Mustache</a> : Logic-less {{mustache}} templates with JavaScript</li>
 </ul>
 <p>I prefer and recommend EJS because :</p>
 <blockquote>
 <p>It's just plain JavaScript.</p>
 </blockquote>
-<h2 id="setup">Setup <a class="direct-link" href="#setup">#</a></h2>
-<p>To follow up this tutorial, you'll need to install on your machine <a href="https://nodejs.org/en/" target="_blank" rel="external noopener noreferrer">Node.js</a>, always go for the Long Time Support version, at the time of writing this post it's 16.15.1 LTS.<br>
-You'll also need a code editor, I use and strongly recommend <a href="https://code.visualstudio.com/" target="_blank" rel="external noopener noreferrer">VS Code</a>, the best and most developer friendly code editor in my opinion.</p>
+<h2>Setup</h2>
+<p>To follow up this tutorial, you'll need to install on your machine <a href="https://nodejs.org/en/">Node.js</a>, always go for the Long Time Support version, at the time of writing this post it's 16.15.1 LTS.<br>
+You'll also need a code editor, I use and strongly recommend <a href="https://code.visualstudio.com/">VS Code</a>, the best and most developer friendly code editor in my opinion.</p>
 <p>Now, create a folder named ejs where you usually stock your projects, mine is simply projects.<br>
-Open this folder in VS Code, then open the <a href="https://code.visualstudio.com/docs/editor/integrated-terminal" target="_blank" rel="external noopener noreferrer">TERMINAL</a> by pressing on 'Ctrl' and '`' (the backtick character under Esc) at the same time.<br>
-Type the following command to initialize a project using <a href="https://www.npmjs.com/" target="_blank" rel="external noopener noreferrer">npm</a> (Node Package Manager) :</p>
-<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> init -y</code></pre>
-<p>This command will create a <code>package.json</code> file at the root of your ejs project. This <code>JSON</code> file contains all the information about your project.<br>
-You can add a <code>description</code>, modify the <code>version</code>'s app as well as the <code>main</code> entry file of the app (default is <code>index.js</code>), add <code>scripts</code>, <code>keywords</code>, your name as the <code>author</code>, and keep track of installed packages (we'll see this last one in a moment).<br>
+Open this folder in VS Code, then open the <a href="https://code.visualstudio.com/docs/editor/integrated-terminal">TERMINAL</a> by pressing on 'Ctrl' and '`' (the backtick character under Esc) at the same time.<br>
+Type the following command to initialize a project using <a href="https://www.npmjs.com/">npm</a> (Node Package Manager) :</p>
+<pre><code class="hljs language-bash">npm init -y
+</code></pre>
+<p>This command will create a <code class="hljs"><span class="hljs-keyword">package</span>.json</code> file at the root of your ejs project. This <code class="hljs"><span class="hljs-built_in">JSON</span></code> file contains all the information about your project.<br>
+You can add a <code class="hljs"><span class="hljs-attribute">description</span></code>, modify the <code class="hljs"><span class="hljs-built_in">version</span></code>'s app as well as the <code class="hljs"><span class="hljs-selector-tag">main</span></code> entry file of the app (default is <code class="hljs"><span class="hljs-keyword">index</span>.js</code>), add <code class="hljs"><span class="hljs-attribute">scripts</span></code>, <code class="hljs"><span class="hljs-attribute">keywords</span></code>, your name as the <code class="hljs"><span class="hljs-attribute">author</span></code>, and keep track of installed packages (we'll see this last one in a moment).<br>
 You can leave it as it is, and it's also fine, since we are just testing and not publishing our app.</p>
-<h2 id="express">Express <a class="direct-link" href="#express">#</a></h2>
-<p>Since we're building a web app in Node.js, we'll be using <a href="https://expressjs.com/" target="_blank" rel="external noopener noreferrer">Express</a> to simplify our development and take advantage of it's features :</p>
+<h2>Express</h2>
+<p>Since we're building a web app in Node.js, we'll be using <a href="https://expressjs.com/">Express</a> to simplify our development and take advantage of it's features :</p>
 <ul>
 <li>Fast server-side development : Time saver, by using features of Node.js as functions</li>
 <li>Middleware : Access application's request-response cycle</li>
@@ -149,124 +478,263 @@ You can leave it as it is, and it's also fine, since we are just testing and not
 <p>Express is the most popular Node.js web framework, written in plain JavaScript, that helps developers build web and mobile applications quickly with ease.<br>
 Express let's also developers build the way they want, without forcing them into a specific way of doing things, this is why it's called unopinionated !</p>
 <p>Install Express by typing the following command in the TERMINAL :</p>
-<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> i express<br><span class="token comment"># i stands for install</span></code></pre>
+<pre><code class="hljs language-bash">npm i express
+<span class="hljs-comment"># i stands for install</span>
+</code></pre>
 <p>This command will install Express into the application.<br>
-You'll see after running this command a <code>node_modules</code> folder as well as a <code>package-lock.json</code> file at the root of the app.</p>
+You'll see after running this command a <code class="hljs"><span class="hljs-attribute">node_modules</span></code> folder as well as a <code class="hljs">package-<span class="hljs-keyword">lock</span>.json</code> file at the root of the app.</p>
 <p>We now have to display the famous <em>Hello World !</em> with Express.<br>
-The main entry file, if you didn't change it in <code>package.json</code>, is <code>index.js</code>, this file is commonly known as the main server file.<br>
+The main entry file, if you didn't change it in <code class="hljs"><span class="hljs-keyword">package</span>.json</code>, is <code class="hljs"><span class="hljs-keyword">index</span>.js</code>, this file is commonly known as the main server file.<br>
 Create this file at the root of the app.<br>
 The app structure should now look like the following tree :</p>
-<pre class="language-txt"><code class="language-txt">Application's root without node_modules folder<br>├── index.js<br>├── package-lock.json<br>└── package.json</code></pre>
-<p>Put the following code in <code>index.js</code> :</p>
+<pre><code class="hljs language-txt">Application&#x27;s root without node_modules folder
+├── index.js
+├── package-lock.json
+└── package.json
+</code></pre>
+<p>Put the following code in <code class="hljs"><span class="hljs-keyword">index</span>.js</code> :</p>
 <details>
 <summary>/index.js</summary>
-<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br>app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">"Hello World !"</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token comment">// Launching the app on port 3000</span><br>app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">App launched @ http://localhost:3000</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
+<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>()
+
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+	res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;Hello World !&quot;</span>)
+})
+
+<span class="hljs-comment">// Launching the app on port 3000</span>
+app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> {
+	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`App launched @ http://localhost:3000`</span>)
+})
+</code></pre>
 </details>
 <p>To run this app, simply type in the TERMINAL the following command :</p>
-<pre class="language-bash"><code class="language-bash"><span class="token function">node</span> index</code></pre>
+<pre><code class="hljs language-bash">node index
+</code></pre>
 <p>You'll immediately see under it :</p>
-<pre class="language-bash"><code class="language-bash">App launched @ http://localhost:3000</code></pre>
+<pre><code class="hljs language-bash">App launched @ http://localhost:3000
+</code></pre>
 <p>Put your mouse over the link and click on <strong>Follow link</strong>.<br>
-If you don't see it, put your mouse over the link, press <code>Ctrl</code> and click on the link.<br>
+If you don't see it, put your mouse over the link, press <code class="hljs"><span class="hljs-attribute">Ctrl</span></code> and click on the link.<br>
 You now should see a beautiful <em>Hello World !</em> in your default browser !</p>
-<h2 id="nodemon">Nodemon <a class="direct-link" href="#nodemon">#</a></h2>
+<h2>Nodemon</h2>
 <p>Remember that this app is a server-side one !<br>
 Brief and quick example.<br>
-Try to change <em>Hello World !</em> in <code>index.js</code> to whatever other string, let's say <em>Hi from server-side !</em> and save the file.<br>
+Try to change <em>Hello World !</em> in <code class="hljs"><span class="hljs-keyword">index</span>.js</code> to whatever other string, let's say <em>Hi from server-side !</em> and save the file.<br>
 If you reload your browser nothing happens, no change is made !<br>
 This is because the server is still running up your previous code.<br>
 To display your new string, you should stop the server, restart it, then reload the browser.<br>
 You can do the following in the TERMINAL :</p>
 <ol>
-<li>Focus inside your TERMINAL and click <code>Ctrl+c</code>, this will stop the server</li>
-<li>Type <code>node index</code>, this will restart the server</li>
+<li>Focus inside your TERMINAL and click <code class="hljs">Ctrl+<span class="hljs-keyword">c</span></code>, this will stop the server</li>
+<li>Type <code class="hljs"><span class="hljs-keyword">node</span> <span class="hljs-title">index</span></code>, this will restart the server</li>
 <li>Reload your browser and your new string appears</li>
 </ol>
 <p>When developing, you'll inspect your changes in the browser as much as you're coding, the above process to see the new output is unproductive, a time killer, and will make your hate coding.</p>
-<p>Fortunately, their is a very popular and well maintained package called <a href="https://www.npmjs.com/package/nodemon" target="_blank" rel="external noopener noreferrer">nodemon</a> that takes care of automatically restarting the Node.js application when changes are detected for a <code>.js</code>, <code>.mjs</code> or <code>.json</code> file in the working directory.<br>
+<p>Fortunately, their is a very popular and well maintained package called <a href="https://www.npmjs.com/package/nodemon">nodemon</a> that takes care of automatically restarting the Node.js application when changes are detected for a <code class="hljs"><span class="hljs-title">.js</span></code>, <code class="hljs"><span class="hljs-title">.mjs</span></code> or <code class="hljs"><span class="hljs-title">.json</span></code> file in the working directory.<br>
 Nodemon is configurable and will allow us to define which directories and extensions to watch or even ignore, and that's just great !</p>
-<p>Let's install Nodemon.<br>
+<p>Let's install Nodemon.
 In the TERMINAL, type the following command :</p>
-<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> i -D nodemon<br><span class="token comment"># -D is a flag standing for development</span></code></pre>
+<pre><code class="hljs language-bash">npm i -D nodemon
+<span class="hljs-comment"># -D is a flag standing for development</span>
+</code></pre>
 <p>This command will install Nodemon as a development package, this means that we need this package only for development and not for production/deployment.<br>
-Open <code>package.json</code>, remove <code>test</code> command under <code>scripts</code> and replace it by the following one :</p>
-<pre class="language-json"><code class="language-json"><span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"nodemon index.js"</span></code></pre>
+Open <code class="hljs"><span class="hljs-keyword">package</span>.json</code>, remove <code class="hljs"><span class="hljs-built_in">test</span></code> command under <code class="hljs"><span class="hljs-attribute">scripts</span></code> and replace it by the following one :</p>
+<pre><code class="hljs language-json"><span class="hljs-attr">&quot;start&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;nodemon index.js&quot;</span>
+</code></pre>
 <p>The file should now look like this :</p>
 <details>
 <summary>/package.json</summary>
-<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span><br>	<span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"ejs"</span><span class="token punctuation">,</span><br>	<span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span><br>	<span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span><br>	<span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"index.js"</span><span class="token punctuation">,</span><br>	<span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>		<span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"nodemon index.js"</span><br>	<span class="token punctuation">}</span><span class="token punctuation">,</span><br>	<span class="token property">"keywords"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><br>	<span class="token property">"author"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span><br>	<span class="token property">"license"</span><span class="token operator">:</span> <span class="token string">"ISC"</span><span class="token punctuation">,</span><br>	<span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>		<span class="token property">"express"</span><span class="token operator">:</span> <span class="token string">"^4.18.1"</span><br>	<span class="token punctuation">}</span><span class="token punctuation">,</span><br>	<span class="token property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>		<span class="token property">"nodemon"</span><span class="token operator">:</span> <span class="token string">"^2.0.19"</span><br>	<span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+	<span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ejs&quot;</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1.0.0&quot;</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;main&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;index.js&quot;</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+		<span class="hljs-attr">&quot;start&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;nodemon index.js&quot;</span>
+	<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;keywords&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;author&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;license&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ISC&quot;</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;dependencies&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+		<span class="hljs-attr">&quot;express&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^4.18.1&quot;</span>
+	<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;devDependencies&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+		<span class="hljs-attr">&quot;nodemon&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^2.0.19&quot;</span>
+	<span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
 </details>
 <p>Now, all you have to do is to stop the server if it's running then type in the TERMINAL :</p>
-<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> start</code></pre>
+<pre><code class="hljs language-bash">npm start
+</code></pre>
 <p>You'll get directly under it :</p>
-<pre class="language-bash"><code class="language-bash"><span class="token operator">></span> ejs@1.0.0 start<br><span class="token operator">></span> nodemon index.js<br><br><span class="token punctuation">[</span>nodemon<span class="token punctuation">]</span> <span class="token number">2.0</span>.19<br><span class="token punctuation">[</span>nodemon<span class="token punctuation">]</span> to restart at any time, enter <span class="token variable"><span class="token variable">`</span>rs<span class="token variable">`</span></span><br><span class="token punctuation">[</span>nodemon<span class="token punctuation">]</span> watching path<span class="token punctuation">(</span>s<span class="token punctuation">)</span>: *.*<br><span class="token punctuation">[</span>nodemon<span class="token punctuation">]</span> watching extensions: js,mjs,json<br><span class="token punctuation">[</span>nodemon<span class="token punctuation">]</span> starting <span class="token variable"><span class="token variable">`</span><span class="token function">node</span> index.js<span class="token variable">`</span></span><br>App 🚀 @ http://localhost:3000</code></pre>
-<p>Yes, I've replaced <em>launched</em> by 🚀 in <code>index.js</code>.<br>
+<pre><code class="hljs language-bash">&gt; ejs@1.0.0 start
+&gt; nodemon index.js
+
+[nodemon] 2.0.19
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node index.js`
+App 🚀 @ http://localhost:3000
+</code></pre>
+<p>Yes, I've replaced <em>launched</em> by 🚀 in <code class="hljs"><span class="hljs-keyword">index</span>.js</code>.<br>
 Follow the link.<br>
 Try now to change <em>Hi from server-side !</em> to anything else, save the file and then reload your browser.<br>
 Great ! The server have restarted the app and you can now see your changes, after you have saved them, by reloading the browser.</p>
-<h2 id="first-ejs-file">First EJS file <a class="direct-link" href="#first-ejs-file">#</a></h2>
+<h2>First EJS file</h2>
 <p>To start using EJS in Node.js, we have first to install it, you should by now know where to type the following command :</p>
-<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> i ejs</code></pre>
-<p>Update <code>index.js</code> to <code>set</code> EJS as our template engine :</p>
+<pre><code class="hljs language-bash">npm i ejs
+</code></pre>
+<p>Update <code class="hljs"><span class="hljs-keyword">index</span>.js</code> to <code class="hljs"><span class="hljs-keyword">set</span></code> EJS as our template engine :</p>
 <details>
 <summary>/index.js</summary>
-<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token comment">// Set EJS as template engine</span><br>app<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"view engine"</span><span class="token punctuation">,</span> <span class="token string">"ejs"</span><span class="token punctuation">)</span><br><br>app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">"Hello World !"</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token comment">// Launching the app on port 3000</span><br>app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">App 🚀 @ http://localhost:3000</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
+<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>()
+
+<span class="hljs-comment">// Set EJS as template engine</span>
+app.<span class="hljs-title function_">set</span>(<span class="hljs-string">&quot;view engine&quot;</span>, <span class="hljs-string">&quot;ejs&quot;</span>)
+
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+	res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;Hello World !&quot;</span>)
+})
+
+<span class="hljs-comment">// Launching the app on port 3000</span>
+app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> {
+	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`App 🚀 @ http://localhost:3000`</span>)
+})
+</code></pre>
 </details>
 <p>Since EJS is now installed, let's use it !<br>
-To do so, we have to create a <code>views</code> folder at the root of our app.<br>
-Express will look inside this folder to <code>render</code> our page(s) by using EJS as a template engine.<br>
-Inside <code>views</code>, create an <code>index.ejs</code> file.<br>
+To do so, we have to create a <code class="hljs"><span class="hljs-attribute">views</span></code> folder at the root of our app.<br>
+Express will look inside this folder to <code class="hljs"><span class="hljs-attribute">render</span></code> our page(s) by using EJS as a template engine.<br>
+Inside <code class="hljs"><span class="hljs-attribute">views</span></code>, create an <code class="hljs"><span class="hljs-keyword">index</span>.ejs</code> file.<br>
 The app structure should now look like the following tree :</p>
-<pre class="language-txt"><code class="language-txt">Application's root without node_modules folder<br>├── index.js<br>├── package-lock.json<br>├── package.json<br>└── views<br>  └── index.ejs</code></pre>
-<p>Put the following content inside <code>index.ejs</code> :</p>
+<pre><code class="hljs language-txt">Application&#x27;s root without node_modules folder
+├── index.js
+├── package-lock.json
+├── package.json
+└── views
+  └── index.ejs
+</code></pre>
+<p>Put the following content inside <code class="hljs"><span class="hljs-keyword">index</span>.ejs</code> :</p>
 <details>
 <summary>/views/index.ejs</summary>
-<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>EJS App Homepage<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Hello from EJS<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre>
+<pre><code class="hljs language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span> /&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>EJS App Homepage<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello from EJS<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
 </details>
-<p>As you can see, an <code>.ejs</code> file is just <code>HTML</code> in which we can use plain <code>JavaScript</code>, and we'll do that later on.</p>
-<p>Now, all we have to do to <code>render</code> this template is to modify only one line in <code>index.js</code>.<br>
+<p>As you can see, an <code class="hljs"><span class="hljs-title">.ejs</span></code> file is just <code class="hljs"><span class="hljs-selector-tag">HTML</span></code> in which we can use plain <code class="hljs"><span class="hljs-attribute">JavaScript</span></code>, and we'll do that later on.</p>
+<p>Now, all we have to do to <code class="hljs"><span class="hljs-attribute">render</span></code> this template is to modify only one line in <code class="hljs"><span class="hljs-keyword">index</span>.js</code>.<br>
 Replace<br>
-<code>res.send(&quot;Hello World !&quot;)</code><br>
+<code class="hljs">res.<span class="hljs-built_in">send</span>(<span class="hljs-string">&quot;Hello World !&quot;</span>)</code><br>
 by<br>
-<code>res.render(&quot;index&quot;)</code><br>
+<code class="hljs">res.<span class="hljs-keyword">render</span>(<span class="hljs-string">&quot;index&quot;</span>)</code>
 No need to specify the extension of the file because Express has been told to use EJS as a template engine.</p>
 <p>If your server is still running, just reload your browser, otherwise restart it and follow the link.<br>
 Congrats, your first EJS file is rendered !<br>
 You can try to modify it, save your modification(s), and refresh your browser to see the changes.</p>
-<h2 id="livereload">LiveReload <a class="direct-link" href="#livereload">#</a></h2>
+<h2>LiveReload</h2>
 <p>Earlier, we've solved a half of the problem, no need to shut down the server and restart it anymore.<br>
 But what about the browser, should I always refresh it ?<br>
 Absolutely not ! This would also be an insane development step to do in today's world !<br>
 Imagine having to refresh each and every time you make some changes...</p>
 <p>Let's bring into our project 2 packages that will do the work for us.<br>
 Type the following command :</p>
-<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> i -D livereload connect-livereload</code></pre>
-<p>This command will install <a href="https://www.npmjs.com/package/livereload" target="_blank" rel="external noopener noreferrer">livereload</a> and <a href="https://www.npmjs.com/package/connect-livereload" target="_blank" rel="external noopener noreferrer">connect-livereload</a> as development dependencies, just like Nodemon.<br>
+<pre><code class="hljs language-bash">npm i -D livereload connect-livereload
+</code></pre>
+<p>This command will install <a href="https://www.npmjs.com/package/livereload">livereload</a> and <a href="https://www.npmjs.com/package/connect-livereload">connect-livereload</a> as development dependencies, just like Nodemon.<br>
 As you can guest, they work together, along with Nodemon, to reload the browser when files on the server have been modified.</p>
-<p>Let's implement this behavior by updating <code>index.js</code> :</p>
+<p>Let's implement this behavior by updating <code class="hljs"><span class="hljs-keyword">index</span>.js</code> :</p>
 <details>
 <summary>/index.js</summary>
-<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token comment">// Set EJS as template engine</span><br>app<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"view engine"</span><span class="token punctuation">,</span> <span class="token string">"ejs"</span><span class="token punctuation">)</span><br><br><span class="token comment">// Require livereload and connectLiveReload</span><br><span class="token keyword">const</span> livereload <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"livereload"</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> connectLiveReload <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"connect-livereload"</span><span class="token punctuation">)</span><br><br><span class="token comment">// Create a server with livereload and fire it up</span><br><span class="token keyword">const</span> liveReloadServer <span class="token operator">=</span> livereload<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token comment">// Refresh the browser after each saved change on the server with a delay of 100 ms</span><br>liveReloadServer<span class="token punctuation">.</span>server<span class="token punctuation">.</span><span class="token function">once</span><span class="token punctuation">(</span><span class="token string">"connection"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>		liveReloadServer<span class="token punctuation">.</span><span class="token function">refresh</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><br>	<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token comment">// Add livereload script to the response</span><br>app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">connectLiveReload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><br><span class="token comment">// Render the main route with EJS</span><br>app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"index"</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token comment">// Launching the app on port 3000</span><br>app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">App 🚀 @ http://localhost:3000</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
+<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>()
+
+<span class="hljs-comment">// Set EJS as template engine</span>
+app.<span class="hljs-title function_">set</span>(<span class="hljs-string">&quot;view engine&quot;</span>, <span class="hljs-string">&quot;ejs&quot;</span>)
+
+<span class="hljs-comment">// Require livereload and connectLiveReload</span>
+<span class="hljs-keyword">const</span> livereload = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;livereload&quot;</span>)
+<span class="hljs-keyword">const</span> connectLiveReload = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;connect-livereload&quot;</span>)
+
+<span class="hljs-comment">// Create a server with livereload and fire it up</span>
+<span class="hljs-keyword">const</span> liveReloadServer = livereload.<span class="hljs-title function_">createServer</span>()
+
+<span class="hljs-comment">// Refresh the browser after each saved change on the server with a delay of 100 ms</span>
+liveReloadServer.<span class="hljs-property">server</span>.<span class="hljs-title function_">once</span>(<span class="hljs-string">&quot;connection&quot;</span>, <span class="hljs-function">() =&gt;</span> {
+	<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+		liveReloadServer.<span class="hljs-title function_">refresh</span>(<span class="hljs-string">&quot;/&quot;</span>)
+	}, <span class="hljs-number">100</span>)
+})
+
+<span class="hljs-comment">// Add livereload script to the response</span>
+app.<span class="hljs-title function_">use</span>(<span class="hljs-title function_">connectLiveReload</span>())
+
+<span class="hljs-comment">// Render the main route with EJS</span>
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+	res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;index&quot;</span>)
+})
+
+<span class="hljs-comment">// Launching the app on port 3000</span>
+app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> {
+	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`App 🚀 @ http://localhost:3000`</span>)
+})
+</code></pre>
 </details>
 <p>A final step is needed for this to work as expected.<br>
-We'll have to add a command under <code>scripts</code> in <code>package.json</code> :</p>
+We'll have to add a command under <code class="hljs"><span class="hljs-attribute">scripts</span></code> in <code class="hljs"><span class="hljs-keyword">package</span>.json</code> :</p>
 <details>
 <summary>/package.json</summary>
-<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span><br>	<span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"ejs"</span><span class="token punctuation">,</span><br>	<span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span><br>	<span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span><br>	<span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"index.js"</span><span class="token punctuation">,</span><br>	<span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>		<span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"nodemon index.js"</span><span class="token punctuation">,</span><br>		<span class="token property">"watch"</span><span class="token operator">:</span> <span class="token string">"nodemon -e js,ejs"</span> <span class="token comment">// Added command</span><br>	<span class="token punctuation">}</span><span class="token punctuation">,</span><br>	<span class="token property">"keywords"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><br>	<span class="token property">"author"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span><br>	<span class="token property">"license"</span><span class="token operator">:</span> <span class="token string">"ISC"</span><span class="token punctuation">,</span><br>	<span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>		<span class="token property">"ejs"</span><span class="token operator">:</span> <span class="token string">"^3.1.8"</span><span class="token punctuation">,</span><br>		<span class="token property">"express"</span><span class="token operator">:</span> <span class="token string">"^4.18.1"</span><br>	<span class="token punctuation">}</span><span class="token punctuation">,</span><br>	<span class="token property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>		<span class="token property">"connect-livereload"</span><span class="token operator">:</span> <span class="token string">"^0.6.1"</span><span class="token punctuation">,</span><br>		<span class="token property">"livereload"</span><span class="token operator">:</span> <span class="token string">"^0.9.3"</span><span class="token punctuation">,</span><br>		<span class="token property">"nodemon"</span><span class="token operator">:</span> <span class="token string">"^2.0.19"</span><br>	<span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+	<span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ejs&quot;</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1.0.0&quot;</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;main&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;index.js&quot;</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+		<span class="hljs-attr">&quot;start&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;nodemon index.js&quot;</span><span class="hljs-punctuation">,</span>
+		<span class="hljs-attr">&quot;watch&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;nodemon -e js,ejs&quot;</span> <span class="hljs-comment">// Added command</span>
+	<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;keywords&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;author&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;license&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ISC&quot;</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;dependencies&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+		<span class="hljs-attr">&quot;ejs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^3.1.8&quot;</span><span class="hljs-punctuation">,</span>
+		<span class="hljs-attr">&quot;express&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^4.18.1&quot;</span>
+	<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+	<span class="hljs-attr">&quot;devDependencies&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+		<span class="hljs-attr">&quot;connect-livereload&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^0.6.1&quot;</span><span class="hljs-punctuation">,</span>
+		<span class="hljs-attr">&quot;livereload&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^0.9.3&quot;</span><span class="hljs-punctuation">,</span>
+		<span class="hljs-attr">&quot;nodemon&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^2.0.19&quot;</span>
+	<span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
 </details>
-<p>This command tells Nodemon to watch for changes of files with a <code>.js</code> or <code>.ejs</code> extension in the app.<br>
+<p>This command tells Nodemon to watch for changes of files with a <code class="hljs"><span class="hljs-title">.js</span></code> or <code class="hljs"><span class="hljs-title">.ejs</span></code> extension in the app.<br>
 <em>Nota bene</em> : you can change the name of the command to whatever you like !<br>
 So for example you could rename <em>start</em> to <em>fire</em> and maybe <em>watch</em> to <em>build</em>...</p>
 <p>Now comes the moment of truth.<br>
 If the server is running stop it.<br>
 Type the following command :</p>
-<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> run <span class="token function">watch</span></code></pre>
+<pre><code class="hljs language-bash">npm run watch
+</code></pre>
 <p>If you follow the link, you should see a big <em>Hello from EJS</em>.<br>
 Now, try to change it to whatever you like and save.<br>
 <strong>Abracadabra</strong>, the browser reloads automatically and your changes are rendered to the browser instantly !</p>
-<h2 id="templating-with-ejs">Templating with EJS <a class="direct-link" href="#templating-with-ejs">#</a></h2>
+<h2>Templating with EJS</h2>
 <p>Templating is the mechanism of combining multiple parts into one.<br>
-In the <code>views</code> folder, create a new folder called <code>partials</code>.<br>
+In the <code class="hljs"><span class="hljs-attribute">views</span></code> folder, create a new folder called <code class="hljs"><span class="hljs-attribute">partials</span></code>.<br>
 This folder will contain the different parts of our app.<br>
 As you know, the main parts of a webpage are :</p>
 <ol>
@@ -275,308 +743,540 @@ As you know, the main parts of a webpage are :</p>
 <li>The footer</li>
 </ol>
 <p>Sometimes, there is also a sidebar, but it's generally a part of the body.</p>
-<p>Now, create 2 files inside the <code>partials</code> folder :<br>
-<code>head.ejs</code> and <code>footer.ejs</code>.</p>
+<p>Now, create 2 files inside the <code class="hljs"><span class="hljs-attribute">partials</span></code> folder :<br>
+<code class="hljs"><span class="hljs-built_in">head</span>.ejs</code> and <code class="hljs"><span class="hljs-selector-tag">footer</span><span class="hljs-selector-class">.ejs</span></code>.</p>
 <details>
 <summary>/views/partials/head.ejs</summary>
-<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>EJS App Homepage<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span></code></pre>
+<pre><code class="hljs language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span> /&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>EJS App Homepage<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
 </details>
 <details>
 <summary>/views/partials/footer.ejs</summary>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
 </details>
 <p>Man, your code is a mess !<br>
-There is no closing tags for <code>html</code> and <code>body</code> in <code>head.ejs</code>, moreover there is two lonely closing tags for <code>html</code> and <code>body</code> in <code>footer.ejs</code> !<br>
+There is no closing tags for <code class="hljs"><span class="hljs-selector-tag">html</span></code> and <code class="hljs"><span class="hljs-keyword">body</span></code> in <code class="hljs"><span class="hljs-built_in">head</span>.ejs</code>, moreover there is two lonely closing tags for <code class="hljs"><span class="hljs-selector-tag">html</span></code> and <code class="hljs"><span class="hljs-keyword">body</span></code> in <code class="hljs"><span class="hljs-selector-tag">footer</span><span class="hljs-selector-class">.ejs</span></code> !<br>
 I know, be patient, the magic is coming.<br>
-Update <code>index.ejs</code> with the following content :</p>
+Update <code class="hljs"><span class="hljs-keyword">index</span>.ejs</code> with the following content :</p>
 <details>
 <summary>/views/index.ejs</summary>
-<pre class="language-html"><code class="language-html">&lt;%- include('partials/head') %><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>I'm templating with EJS<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><br><br>&lt;%- include('partials/footer') %></code></pre>
+<pre><code class="hljs language-html">&lt;%- include(&#x27;partials/head&#x27;) %&gt;
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>I&#x27;m templating with EJS<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+&lt;%- include(&#x27;partials/footer&#x27;) %&gt;
+</code></pre>
 </details>
 <p>Save and go take a look at your browser 😁<br>
 The code is self explanatory.<br>
-We are using the <code>include()</code> function of EJS, to <strong>include</strong> a template into another <strong>at a specific location</strong>.<br>
+We are using the <code class="hljs"><span class="hljs-function"><span class="hljs-title">include</span><span class="hljs-params">()</span></span></code> function of EJS, to <strong>include</strong> a template into another <strong>at a specific location</strong>.<br>
 This is a <strong>HUGE</strong> step in your dev journey, trust me !</p>
 <p>Ok, it's very nice, but what's the benefit since we could put it all together ?! 🤔<br>
 Good question !<br>
 The first obvious benefit is to write a <strong>DRY</strong> (Don't Repeat Yourself) code !<br>
 If you have ever built a static website before, you'll know that you would include the header, maybe a sidebar, and the footer for each and every page.<br>
 Well, this will not be the case anymore 😉<br>
-The second and most amazing benefit is that you'll be able to write dynamic code by using JavaScript inside the template, you already did it with <code>include()</code>, but we'll see much more in the next section.</p>
-<h2 id="passing-data">Passing data <a class="direct-link" href="#passing-data">#</a></h2>
+The second and most amazing benefit is that you'll be able to write dynamic code by using JavaScript inside the template, you already did it with <code class="hljs"><span class="hljs-function"><span class="hljs-title">include</span><span class="hljs-params">()</span></span></code>, but we'll see much more in the next section.</p>
+<h2>Passing data</h2>
 <p>This is, in my opinion, the most powerful, used and sensitive functionality of any template engine !<br>
 Although, we should be aware of how to use it and what we are passing from one file to another and especially from one end (the backend/server) to another (the frontend/browser) !</p>
-<h3 id="simple-routing">Simple routing <a class="direct-link" href="#simple-routing">#</a></h3>
+<h3>Simple routing</h3>
 <hr>
 <p>Let's begin by adding another page to our app.<br>
-Create an <code>about.ejs</code> file in the <code>views</code> folder :</p>
+Create an <code class="hljs"><span class="hljs-keyword">about</span>.ejs</code> file in the <code class="hljs"><span class="hljs-attribute">views</span></code> folder :</p>
 <details>
 <summary>/views/about.ejs</summary>
-<pre class="language-html"><code class="language-html">&lt;%- include('partials/head') %><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>About me<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><br>	I'm LebCit, a Citizen of a small country called<br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://www.google.com/maps/@33.8735578,35.84741,9z<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Lebanon<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><br>	in the Middle East.<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br><br>&lt;%- include('partials/footer') %></code></pre>
+<pre><code class="hljs language-html">&lt;%- include(&#x27;partials/head&#x27;) %&gt;
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>About me<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+	I&#x27;m LebCit, a Citizen of a small country called
+	<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://www.google.com/maps/@33.8735578,35.84741,9z&quot;</span>&gt;</span>Lebanon<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+	in the Middle East.
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+&lt;%- include(&#x27;partials/footer&#x27;) %&gt;
+</code></pre>
 </details>
 <p>While your server is running up, try to go to the following route :</p>
-<pre class="language-txt"><code class="language-txt">http://localhost:3000/about</code></pre>
-<p>You will see an <code>error</code> page with the following message :</p>
-<pre class="language-txt"><code class="language-txt">Cannot GET /about</code></pre>
-<p>This is because the <code>/about</code> route was not defined in the backend.<br>
-Open <code>index.js</code> and add under the main route a new one :</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// Rendering about page on the /about route</span><br>app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/about"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"about"</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<pre><code class="hljs language-txt">http://localhost:3000/about
+</code></pre>
+<p>You will see an <code class="hljs"><span class="hljs-keyword">error</span></code> page with the following message :</p>
+<pre><code class="hljs language-txt">Cannot GET /about
+</code></pre>
+<p>This is because the <code class="hljs">/<span class="hljs-keyword">about</span></code> route was not defined in the backend.<br>
+Open <code class="hljs"><span class="hljs-keyword">index</span>.js</code> and add under the main route a new one :</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// Rendering about page on the /about route</span>
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/about&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+	res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;about&quot;</span>)
+})
+</code></pre>
 <p>Go back to your browser and refresh it.<br>
 Why the browser did not refresh itself ?<br>
-Your server did reload the app, but your browser is on an <code>error</code> page and <code>livereload</code> is now blocked, so even if you make changes they will not be reflected on the frontend.<br>
-When you refresh your browser, you'll see the content of <code>about.ejs</code>.</p>
-<p>Simple exercise : try to <code>render</code> <code>about.ejs</code> on <code>about-me</code> route.</p>
-<h3 id="data-object">Data object <a class="direct-link" href="#data-object">#</a></h3>
+Your server did reload the app, but your browser is on an <code class="hljs"><span class="hljs-keyword">error</span></code> page and <code class="hljs"><span class="hljs-attribute">livereload</span></code> is now blocked, so even if you make changes they will not be reflected on the frontend.<br>
+When you refresh your browser, you'll see the content of <code class="hljs"><span class="hljs-keyword">about</span>.ejs</code>.</p>
+<p>Simple exercise : try to <code class="hljs"><span class="hljs-attribute">render</span></code> <code class="hljs"><span class="hljs-keyword">about</span>.ejs</code> on <code class="hljs"><span class="hljs-keyword">about</span>-<span class="hljs-keyword">me</span></code> route.</p>
+<h3>Data object</h3>
 <hr>
-<p>If you look closer to the browser's title when you're viewing the content of <code>about.ejs</code>, you'll notice that it's the same one as <code>index.ejs</code> : <em>EJS App Homepage</em><br>
-This is because they share the same <code>&lt;title&gt;</code> passed from <code>head.ejs</code> !<br>
-The <code>&lt;title&gt;</code> is intended to announce the content of a page, so our pages cannot have the same <code>&lt;title&gt;</code> since they provide different content.<br>
-In a real life situation, an app will have a different <code>&lt;title&gt;</code> for each page rendered on a route.</p>
-<p>To give our pages different titles, we'll use the <code>data object</code> of EJS on a rendered page.<br>
-First of all, make sure that you're viewing <code>about.ejs</code> in your browser.<br>
-Modify the code that renders it in <code>index.js</code> to :</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">/**<br> * Rendering about page on the /about route,<br> * while passing the document title as a data object.<br> */</span><br>app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/about"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"about"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">docTitle</span><span class="token operator">:</span> <span class="token string">"About me | EJS App"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<p>In <code>head.ejs</code>, modify the <code>&lt;title&gt;</code> line to :</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>&lt;%= docTitle %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span></code></pre>
-<p>We are passing the <code>docTitle</code> value <code>About me | EJS App</code> from the backend to the frontend as a variable for a rendered page on a route into the <code>&lt;title&gt;</code> tag.<br>
+<p>If you look closer to the browser's title when you're viewing the content of <code class="hljs"><span class="hljs-keyword">about</span>.ejs</code>, you'll notice that it's the same one as <code class="hljs"><span class="hljs-keyword">index</span>.ejs</code> : <em>EJS App Homepage</em><br>
+This is because they share the same <code class="hljs"><span class="hljs-section">&lt;title&gt;</span></code> passed from <code class="hljs"><span class="hljs-built_in">head</span>.ejs</code> !<br>
+The <code class="hljs"><span class="hljs-section">&lt;title&gt;</span></code> is intended to announce the content of a page, so our pages cannot have the same <code class="hljs"><span class="hljs-section">&lt;title&gt;</span></code> since they provide different content.<br>
+In a real life situation, an app will have a different <code class="hljs"><span class="hljs-section">&lt;title&gt;</span></code> for each page rendered on a route.</p>
+<p>To give our pages different titles, we'll use the <code class="hljs"><span class="hljs-class"><span class="hljs-keyword">data</span> object</span></code> of EJS on a rendered page.<br>
+First of all, make sure that you're viewing <code class="hljs"><span class="hljs-keyword">about</span>.ejs</code> in your browser.<br>
+Modify the code that renders it in <code class="hljs"><span class="hljs-keyword">index</span>.js</code> to :</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">/**
+ * Rendering about page on the /about route,
+ * while passing the document title as a data object.
+ */</span>
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/about&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+	res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;about&quot;</span>, { <span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;About me | EJS App&quot;</span> })
+})
+</code></pre>
+<p>In <code class="hljs"><span class="hljs-built_in">head</span>.ejs</code>, modify the <code class="hljs"><span class="hljs-section">&lt;title&gt;</span></code> line to :</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&lt;%= docTitle %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+</code></pre>
+<p>We are passing the <code class="hljs"><span class="hljs-attribute">docTitle</span></code> value <code class="hljs"><span class="hljs-keyword">About</span> me | <span class="hljs-type">EJS</span> App</code> from the backend to the frontend as a variable for a rendered page on a route into the <code class="hljs"><span class="hljs-section">&lt;title&gt;</span></code> tag.<br>
 Save both files and go take a look at the browser's title 😁</p>
-<p>Now, go to the homepage at <code>http://localhost:3000/</code> !!!<br>
+<p>Now, go to the homepage at <code class="hljs">http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">3000</span>/</code> !!!<br>
 <strong>Don't panic and read</strong> : this is a crucial rule if you ever want to be a developer when you see an error !<br>
-Express is amazing, it's showing you the exact position where the error occurred, as well as the error itself : <code>docTitle is not defined</code>.<br>
-Remember that in <code>index.ejs</code> we are including <code>head.ejs</code>.<br>
-Of course ! In <code>head.ejs</code> there is a variable called <code>docTitle</code>, but we didn't pass it into the page <code>index.ejs</code> rendered on the main route !<br>
-To do so, modify the main route in <code>index.js</code> to :</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">/**<br> * Rendering index page on the main route,<br> * while passing the document title as a data object.<br> */</span><br>app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"index"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">docTitle</span><span class="token operator">:</span> <span class="token string">"Homepage | EJS App"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+Express is amazing, it's showing you the exact position where the error occurred, as well as the error itself : <code class="hljs">docTitle <span class="hljs-literal">is</span><span class="hljs-built_in"> not</span> defined</code>.
+Remember that in <code class="hljs"><span class="hljs-keyword">index</span>.ejs</code> we are including <code class="hljs"><span class="hljs-built_in">head</span>.ejs</code>.<br>
+Of course ! In <code class="hljs"><span class="hljs-built_in">head</span>.ejs</code> there is a variable called <code class="hljs"><span class="hljs-attribute">docTitle</span></code>, but we didn't pass it into the page <code class="hljs"><span class="hljs-keyword">index</span>.ejs</code> rendered on the main route !<br>
+To do so, modify the main route in <code class="hljs"><span class="hljs-keyword">index</span>.js</code> to :</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">/**
+ * Rendering index page on the main route,
+ * while passing the document title as a data object.
+ */</span>
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+	res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;index&quot;</span>, { <span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;Homepage | EJS App&quot;</span> })
+})
+</code></pre>
 <p>Save the file and refresh your browser.<br>
 <em>You now know why you have to refresh your browser in this case !</em><br>
 Switch between the homepage and the about page, they are displaying different titles ! Great job !</p>
-<h3 id="don't-repeat-yourself">Don't Repeat Yourself <a class="direct-link" href="#don't-repeat-yourself">#</a></h3>
+<h3>Don't Repeat Yourself</h3>
 <hr>
-<p>Suppose the <code>&lt;h1&gt;</code> tags in <code>index.ejs</code> and <code>about.ejs</code> represent titles of the content in each page, like an article title, just a little bit more descriptive than the document title.<br>
+<p>Suppose the <code class="hljs"><span class="hljs-section">&lt;h1&gt;</span></code> tags in <code class="hljs"><span class="hljs-keyword">index</span>.ejs</code> and <code class="hljs"><span class="hljs-keyword">about</span>.ejs</code> represent titles of the content in each page, like an article title, just a little bit more descriptive than the document title.<br>
 Let's render them by using the data object :</p>
-<pre class="language-js"><code class="language-js">app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"index"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">docTitle</span><span class="token operator">:</span> <span class="token string">"Homepage | EJS App"</span><span class="token punctuation">,</span> <span class="token literal-property property">pageTitle</span><span class="token operator">:</span> <span class="token string">"Homepage of templating with EJS application"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<pre class="language-js"><code class="language-js">app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/about"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"about"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">docTitle</span><span class="token operator">:</span> <span class="token string">"About me | EJS App"</span><span class="token punctuation">,</span> <span class="token literal-property property">pageTitle</span><span class="token operator">:</span> <span class="token string">"A little bit about myself"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<p>And of course in each file the <code>&lt;h1&gt;</code> line becomes :<br>
-<code>&lt;h1&gt;&lt;%= pageTitle %&gt;&lt;/h1&gt;</code></p>
+<pre><code class="hljs language-js">app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+	res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;index&quot;</span>, { <span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;Homepage | EJS App&quot;</span>, <span class="hljs-attr">pageTitle</span>: <span class="hljs-string">&quot;Homepage of templating with EJS application&quot;</span> })
+})
+</code></pre>
+<pre><code class="hljs language-js">app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/about&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+	res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;about&quot;</span>, { <span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;About me | EJS App&quot;</span>, <span class="hljs-attr">pageTitle</span>: <span class="hljs-string">&quot;A little bit about myself&quot;</span> })
+})
+</code></pre>
+<p>And of course in each file the <code class="hljs"><span class="hljs-section">&lt;h1&gt;</span></code> line becomes :<br>
+<code class="hljs"><span class="hljs-section">&lt;h1&gt;</span><span class="hljs-section">&lt;%= pageTitle %&gt;</span><span class="hljs-section">&lt;/h1&gt;</span></code></p>
 <p>Suppose now that we have in our app just 50 articles, so we will have to write at the very beginning of each blog post the previous line of code.<br>
 We would be misusing the template engine, since one of it's benefits is to write <strong>DRY</strong> code !</p>
 <p>To solve this :</p>
 <ol>
-<li>We can create a file for this line and include it at the desired place, just like <code>head.ejs</code> and <code>footer.ejs</code>.</li>
-<li>Or we can put the line just after the opening <code>&lt;body&gt;</code> tag at the end of <code>head.ejs</code>, since this <code>&lt;h1&gt;</code> (article title) appears directly after including <code>head.ejs</code> in both files.</li>
+<li>We can create a file for this line and include it at the desired place, just like <code class="hljs"><span class="hljs-built_in">head</span>.ejs</code> and <code class="hljs"><span class="hljs-selector-tag">footer</span><span class="hljs-selector-class">.ejs</span></code>.</li>
+<li>Or we can put the line just after the opening <code class="hljs">&lt;<span class="hljs-keyword">body</span>&gt;</code> tag at the end of <code class="hljs"><span class="hljs-built_in">head</span>.ejs</code>, since this <code class="hljs"><span class="hljs-section">&lt;h1&gt;</span></code> (article title) appears directly after including <code class="hljs"><span class="hljs-built_in">head</span>.ejs</code> in both files.</li>
 </ol>
 <p>In this particular case, I prefer the second approach because it's just one line and not a partial or a huge block of code to be repeated.<br>
 The file would look like :</p>
 <details>
 <summary>/views/partials/head.ejs</summary>
-<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>&lt;%= docTitle %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>&lt;%= pageTitle %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span></code></pre>
+<pre><code class="hljs language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span> /&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&lt;%= docTitle %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>&lt;%= pageTitle %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+</code></pre>
 </details>
 <p>Now you have a little idea about passing data from the backend to the frontend as well as one or two benefits a template engine can provide.</p>
-<h2 id="navigation">Navigation <a class="direct-link" href="#navigation">#</a></h2>
-<p>A user can't guess the different routes of an application.<br>
+<h2>Navigation</h2>
+<p>A user can't guess the different routes of an application.
 An app should help the user to explore and use it's content by providing a way to navigate between it's different routes.<br>
 This is where the navigation comes in.</p>
-<p>Create a <code>nav.ejs</code> in <code>partials.ejs</code> with the following content :</p>
+<p>Create a <code class="hljs"><span class="hljs-selector-tag">nav</span><span class="hljs-selector-class">.ejs</span></code> in <code class="hljs">partials.ejs</code> with the following content :</p>
 <details>
 <summary>/views/partials/nav.ejs</summary>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/about<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>About me<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">></span></span></code></pre>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/&quot;</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/about&quot;</span>&gt;</span>About me<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+</code></pre>
 </details>
-<p>Pay attention, the <code>href</code> attributes are the same as the defined routes on the server !</p>
-<p>Now, let's include this part in <code>head.ejs</code> after the opening <code>&lt;body&gt;</code> tag and before the <code>&lt;h1&gt;</code> :</p>
+<p>Pay attention, the <code class="hljs"><span class="hljs-attribute">href</span></code> attributes are the same as the defined routes on the server !</p>
+<p>Now, let's include this part in <code class="hljs"><span class="hljs-built_in">head</span>.ejs</code> after the opening <code class="hljs">&lt;<span class="hljs-keyword">body</span>&gt;</code> tag and before the <code class="hljs"><span class="hljs-section">&lt;h1&gt;</span></code> :</p>
 <details>
 <summary>/views/partials/head.ejs</summary>
-<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>&lt;%= docTitle %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span><br>		&lt;%- include('nav') %><br><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>&lt;%= pageTitle %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span></code></pre>
+<pre><code class="hljs language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span> /&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&lt;%= docTitle %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+		&lt;%- include(&#x27;nav&#x27;) %&gt;
+
+		<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>&lt;%= pageTitle %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+</code></pre>
 </details>
 <p>Save both files and take a look at your browser.<br>
 You should have a working navigation above the page title.</p>
-<h2 id="static-files">Static files <a class="direct-link" href="#static-files">#</a></h2>
-<p>For now, we've been rendering <code>.ejs</code> files, including them one into another, and passing some basic data from the backend to the frontend using the <code>data object</code> of EJS.</p>
+<h2>Static files</h2>
+<p>For now, we've been rendering <code class="hljs"><span class="hljs-title">.ejs</span></code> files, including them one into another, and passing some basic data from the backend to the frontend using the <code class="hljs"><span class="hljs-class"><span class="hljs-keyword">data</span> object</span></code> of EJS.</p>
 <p>All of this is great but does not put you on the right track by itself to build an entire app.<br>
-You'll quickly need to insert images, style the page(s) with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="external noopener noreferrer">CSS</a>, add some interactivity with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="external noopener noreferrer">JavaScript</a>...</p>
+You'll quickly need to insert images, style the page(s) with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a>, add some interactivity with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a>...</p>
 <p>As I told you before, <em>Express is amazing</em> !<br>
 One line inside the main server file is all we need to start serving static files.<br>
-Update <code>index.js</code> by putting the magical line just bellow the template engine :</p>
-<pre class="language-js"><code class="language-js"><span class="token operator">...</span><br><br><span class="token comment">// Set EJS as template engine</span><br>app<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"view engine"</span><span class="token punctuation">,</span> <span class="token string">"ejs"</span><span class="token punctuation">)</span><br><br><span class="token comment">// Serve static files from a folder named public</span><br>app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>express<span class="token punctuation">.</span><span class="token function">static</span><span class="token punctuation">(</span><span class="token string">'public'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><br><span class="token operator">...</span></code></pre>
-<p>Now, create a <code>public</code> folder at the root of your application.<br>
+Update <code class="hljs"><span class="hljs-keyword">index</span>.js</code> by putting the magical line just bellow the template engine :</p>
+<pre><code class="hljs language-js">...
+
+<span class="hljs-comment">// Set EJS as template engine</span>
+app.<span class="hljs-title function_">set</span>(<span class="hljs-string">&quot;view engine&quot;</span>, <span class="hljs-string">&quot;ejs&quot;</span>)
+
+<span class="hljs-comment">// Serve static files from a folder named public</span>
+app.<span class="hljs-title function_">use</span>(express.<span class="hljs-title function_">static</span>(<span class="hljs-string">&#x27;public&#x27;</span>))
+
+...
+</code></pre>
+<p>Now, create a <code class="hljs"><span class="hljs-keyword">public</span></code> folder at the root of your application.<br>
 Remember that this folder will hold files intended to be rendered directly in the browser/frontend.</p>
-<h3 id="images">Images <a class="direct-link" href="#images">#</a></h3>
+<h3>Images</h3>
 <hr>
-<p>Let's begin by creating an <code>img</code> folder inside the <code>public</code> folder.<br>
-I'll be getting 2 images from <a href="https://www.pexels.com/" target="_blank" rel="external noopener noreferrer">Pexels</a> :</p>
+<p>Let's begin by creating an <code class="hljs"><span class="hljs-selector-tag">img</span></code> folder inside the <code class="hljs"><span class="hljs-keyword">public</span></code> folder.<br>
+I'll be getting 2 images from <a href="https://www.pexels.com/">Pexels</a> :</p>
 <ol>
-<li><a href="https://www.pexels.com/photo/computer-humor-the-codefather-funny-programming-meme-11035548/" target="_blank" rel="external noopener noreferrer">The code father</a> 🤣</li>
-<li><a href="https://www.pexels.com/photo/aerial-view-of-city-buildings-4659944/" target="_blank" rel="external noopener noreferrer">Byblos</a> one of the oldest cities in the world</li>
+<li><a href="https://www.pexels.com/photo/computer-humor-the-codefather-funny-programming-meme-11035548/">The code father</a> 🤣</li>
+<li><a href="https://www.pexels.com/photo/aerial-view-of-city-buildings-4659944/">Byblos</a> one of the oldest cities in the world</li>
 </ol>
-<p>I've downloaded the smallest available size for each of them, and renamed them to <code>the-code-father.jpg</code> and <code>byblos.jpg</code>.<br>
-I'll be including <code>the-code-father.jpg</code> into <code>index.ejs</code> :</p>
-<pre class="language-html"><code class="language-html">&lt;%- include('partials/head') %><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>img/the-code-father.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br><br>&lt;%- include('partials/footer') %></code></pre>
-<p>Now it's your turn to insert <code>byblos.jpg</code> into <code>about.ejs</code>.</p>
-<h3 id="styles">Styles <a class="direct-link" href="#styles">#</a></h3>
+<p>I've downloaded the smallest available size for each of them, and renamed them to <code class="hljs"><span class="hljs-symbol">the</span>-<span class="hljs-meta">code</span>-father.jpg</code> and <code class="hljs">byblos.jpg</code>.<br>
+I'll be including <code class="hljs"><span class="hljs-symbol">the</span>-<span class="hljs-meta">code</span>-father.jpg</code> into <code class="hljs"><span class="hljs-keyword">index</span>.ejs</code> :</p>
+<pre><code class="hljs language-html">&lt;%- include(&#x27;partials/head&#x27;) %&gt;
+
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;img/the-code-father.jpg&quot;</span> /&gt;</span>
+
+&lt;%- include(&#x27;partials/footer&#x27;) %&gt;
+</code></pre>
+<p>Now it's your turn to insert <code class="hljs">byblos.jpg</code> into <code class="hljs"><span class="hljs-keyword">about</span>.ejs</code>.</p>
+<h3>Styles</h3>
 <hr>
 <p>We can load styles into a page by :</p>
 <ol>
-<li>Having a stylesheet in our app and load it in the <code>&lt;head&gt;</code> of the document.</li>
-<li>Load a stylesheet in the <code>&lt;head&gt;</code> of the document from a CDN, Content Delivery Network, like <a href="https://www.jsdelivr.com/" target="_blank" rel="external noopener noreferrer">JSDELIVR</a>.</li>
+<li>Having a stylesheet in our app and load it in the <code class="hljs"><span class="hljs-section">&lt;head&gt;</span></code> of the document.</li>
+<li>Load a stylesheet in the <code class="hljs"><span class="hljs-section">&lt;head&gt;</span></code> of the document from a CDN, Content Delivery Network, like <a href="https://www.jsdelivr.com/">JSDELIVR</a>.</li>
 </ol>
 <p>The same logic applies for fonts.</p>
-<p>Create a <code>css</code> folder under the <code>public</code> one.<br>
-Inside the <code>css</code> folder, create a file called <code>main.css</code>.<br>
+<p>Create a <code class="hljs"><span class="hljs-attribute">css</span></code> folder under the <code class="hljs"><span class="hljs-keyword">public</span></code> one.<br>
+Inside the <code class="hljs"><span class="hljs-attribute">css</span></code> folder, create a file called <code class="hljs"><span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.css</span></code>.<br>
 Basic definition : CSS is used to design the display of webpages.<br>
-Let's change the color of the page title to blue, by adding the following in <code>main.css</code>:</p>
-<pre class="language-css"><code class="language-css"><span class="token selector">h1</span> <span class="token punctuation">{</span><br>	<span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+Let's change the color of the page title to blue, by adding the following in <code class="hljs"><span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.css</span></code>:</p>
+<pre><code class="hljs language-css"><span class="hljs-selector-tag">h1</span> {
+	<span class="hljs-attribute">color</span>: blue;
+}
+</code></pre>
 <p>If you go to your browser, nothing has changed and in fact it didn't reload for 2 reasons :</p>
 <ol>
-<li>We didn't add in the <code>&lt;head&gt;</code> of the document the link that connects this stylesheet, <code>main.css</code>, to the document itself.</li>
-<li>We didn't instruct Nodemon to reload the app nor the browser when <code>.css</code> files have been changed.</li>
+<li>We didn't add in the <code class="hljs"><span class="hljs-section">&lt;head&gt;</span></code> of the document the link that connects this stylesheet, <code class="hljs"><span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.css</span></code>, to the document itself.</li>
+<li>We didn't instruct Nodemon to reload the app nor the browser when <code class="hljs"><span class="hljs-title">.css</span></code> files have been changed.</li>
 </ol>
-<p>Open <code>head.ejs</code> and add the link that injects <code>main.css</code> into the document :</p>
-<pre class="language-html"><code class="language-html">...<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>&lt;%= docTitle %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span><br><br><span class="token comment">&lt;!-- Load main.css stylesheet --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>css/main.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>...</code></pre>
-<p>If you take a look at your browser, the <code>&lt;h1&gt;</code> tags are now blue.<br>
-Wait we didn't instruct Nodemon to watch <code>.css</code> files !<br>
-That's right, but it's watching <code>.ejs</code> files, where a change have been made.</p>
-<p>Try to change <code>blue</code> to <code>red</code> in <code>main.css</code>.<br>
-Look at your browser, <code>&lt;h1&gt;</code> tags are still in blue.<br>
-Open <code>package.json</code> and update the <code>watch</code> command to :<br>
-<code>&quot;watch&quot;: &quot;nodemon -e js,ejs,css&quot;</code><br>
-We are now watching for changes in <code>.css</code> files also.<br>
-Stop the server and restart it again, <code>&lt;h1&gt;</code> tags are now red.<br>
+<p>Open <code class="hljs"><span class="hljs-built_in">head</span>.ejs</code> and add the link that injects <code class="hljs"><span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.css</span></code> into the document :</p>
+<pre><code class="hljs language-html">...
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&lt;%= docTitle %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Load main.css stylesheet --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;css/main.css&quot;</span> /&gt;</span>
+...
+</code></pre>
+<p>If you take a look at your browser, the <code class="hljs"><span class="hljs-section">&lt;h1&gt;</span></code> tags are now blue.<br>
+Wait we didn't instruct Nodemon to watch <code class="hljs"><span class="hljs-title">.css</span></code> files !<br>
+That's right, but it's watching <code class="hljs"><span class="hljs-title">.ejs</span></code> files, where a change have been made.</p>
+<p>Try to change <code class="hljs"><span class="hljs-attribute">blue</span></code> to <code class="hljs"><span class="hljs-built_in">red</span></code> in <code class="hljs"><span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.css</span></code>.<br>
+Look at your browser, <code class="hljs"><span class="hljs-section">&lt;h1&gt;</span></code> tags are still in blue.<br>
+Open <code class="hljs"><span class="hljs-keyword">package</span>.json</code> and update the <code class="hljs"><span class="hljs-attribute">watch</span></code> command to :<br>
+<code class="hljs"><span class="hljs-attr">&quot;watch&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;nodemon -e js,ejs,css&quot;</span></code><br>
+We are now watching for changes in <code class="hljs"><span class="hljs-title">.css</span></code> files also.<br>
+Stop the server and restart it again, <code class="hljs"><span class="hljs-section">&lt;h1&gt;</span></code> tags are now red.<br>
 Change red to any color you want and the changes will now by reflect on the frontend.</p>
 <p>This is really nice, but for an app you'll need some ready to use styles to save time and fasten your development.<br>
 This is where CSS frameworks come in.<br>
-There are a lot of CSS frameworks out there, I'll be using <a href="https://purecss.io/" target="_blank" rel="external noopener noreferrer">Pure.css</a> :</p>
+There are a lot of CSS frameworks out there, I'll be using <a href="https://purecss.io/">Pure.css</a> :</p>
 <blockquote>
 <p>A set of small, responsive CSS modules that you can use in every web project.</p>
 </blockquote>
-<p>To load <code>Pure.css</code> I'll be using JSDELIVR :</p>
-<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Load main.css stylesheet --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>css/main.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br><span class="token comment">&lt;!-- Load Pure.css stylesheet --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.min.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<p>To load <code class="hljs"><span class="hljs-keyword">Pure</span>.css</code> I'll be using JSDELIVR :</p>
+<pre><code class="hljs language-html"><span class="hljs-comment">&lt;!-- Load main.css stylesheet --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;css/main.css&quot;</span> /&gt;</span>
+<span class="hljs-comment">&lt;!-- Load Pure.css stylesheet --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.min.css&quot;</span> /&gt;</span>
+</code></pre>
 <p>If you look at your browser, you'll notice some minor changes but nothing much.<br>
-To see it in action, modify <code>nav.ejs</code> :</p>
+To see it in action, modify <code class="hljs"><span class="hljs-selector-tag">nav</span><span class="hljs-selector-class">.ejs</span></code> :</p>
 <details>
 <summary>/views/partials/nav.ejs</summary>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pure-menu pure-menu-horizontal<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pure-menu-list<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pure-menu-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pure-menu-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/about<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>About me<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">></span></span></code></pre>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pure-menu pure-menu-horizontal&quot;</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pure-menu-list&quot;</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pure-menu-item&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/&quot;</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pure-menu-item&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/about&quot;</span>&gt;</span>About me<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+</code></pre>
 </details>
 <p>Save and take a look at your browser.<br>
 Congrats, you've just used pre-made styles from a loaded framework.<br>
 Read the framework's documentation and play with it's classes to style your page(s).<br>
-You can also take a look at the <a href="https://purecss.io/layouts/" target="_blank" rel="external noopener noreferrer">Layouts</a> that <code>Pure.css</code> provides to have a better understanding of how you can use it.</p>
-<h3 id="javascript">JavaScript <a class="direct-link" href="#javascript">#</a></h3>
+You can also take a look at the <a href="https://purecss.io/layouts/">Layouts</a> that <code class="hljs"><span class="hljs-keyword">Pure</span>.css</code> provides to have a better understanding of how you can use it.</p>
+<h3>JavaScript</h3>
 <hr>
-<p>There is no simple definition for <code>JavaScript</code>...<br>
-Look at <a href="https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites" target="_blank" rel="external noopener noreferrer">the frontend technology used in most popular websites</a>.<br>
-Check also Stack Overflow's 2021 Developer Survey regarding <a href="https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages" target="_blank" rel="external noopener noreferrer">Programming, scripting, and markup languages</a>.<br>
-In today's world, web development is mostly about <code>JavaScript</code>.<br>
+<p>There is no simple definition for <code class="hljs"><span class="hljs-attribute">JavaScript</span></code>...<br>
+Look at <a href="https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites">the frontend technology used in most popular websites</a>.<br>
+Check also Stack Overflow's 2021 Developer Survey regarding <a href="https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages">Programming, scripting, and markup languages</a>.<br>
+In today's world, web development is mostly about <code class="hljs"><span class="hljs-attribute">JavaScript</span></code>.<br>
 You have been using it all along from the beginning of this tutorial !</p>
-<p>In <code>index.ejs</code> add a <code>&lt;button&gt;</code> inside a <code>&lt;div&gt;</code> under the <code>&lt;img /&gt;</code> :</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><br>	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>btn<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pure-button<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>A Button<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
-<p>Create a <code>scripts</code> folder in <code>public</code>.<br>
-Inside <code>scripts</code>, create a file named <code>main.js</code> and add the following content inside it :</p>
+<p>In <code class="hljs"><span class="hljs-keyword">index</span>.ejs</code> add a <code class="hljs"><span class="hljs-section">&lt;button&gt;</span></code> inside a <code class="hljs"><span class="hljs-section">&lt;div&gt;</span></code> under the <code class="hljs"><span class="hljs-section">&lt;img /&gt;</span></code> :</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;btn&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pure-button&quot;</span>&gt;</span>A Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>Create a <code class="hljs"><span class="hljs-attribute">scripts</span></code> folder in <code class="hljs"><span class="hljs-keyword">public</span></code>.<br>
+Inside <code class="hljs"><span class="hljs-attribute">scripts</span></code>, create a file named <code class="hljs"><span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.js</span></code> and add the following content inside it :</p>
 <details>
 <summary>/public/scripts/main.js</summary>
-<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"btn"</span><span class="token punctuation">)</span><br><span class="token keyword">if</span> <span class="token punctuation">(</span>btn<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>	btn<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>		<span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Hello from JavaScript !"</span><span class="token punctuation">)</span><br>	<span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;btn&quot;</span>)
+<span class="hljs-keyword">if</span> (btn) {
+	btn.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-function">() =&gt;</span> {
+		<span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;Hello from JavaScript !&quot;</span>)
+	})
+}
+</code></pre>
 </details>
 <p>Just like a stylesheet, a script file should be loaded into the document to work.<br>
 It's safer, and best practice, to load scripts at the very end of a document.<br>
-Modify <code>footer.ejs</code> to look like :</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>scripts/main.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre>
-<p>If you visit the homepage of the app and click on the button, you'll see a popup with the message defined in <code>main.js</code>.<br>
-<code>JavaScript</code> can do much more than simple interactions, you can control and modify everything in a document...</p>
+Modify <code class="hljs"><span class="hljs-selector-tag">footer</span><span class="hljs-selector-class">.ejs</span></code> to look like :</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;scripts/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>If you visit the homepage of the app and click on the button, you'll see a popup with the message defined in <code class="hljs"><span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.js</span></code>.<br>
+<code class="hljs"><span class="hljs-attribute">JavaScript</span></code> can do much more than simple interactions, you can control and modify everything in a document...</p>
 <p>There is a countless number of JavaScript frameworks out there to make your development easier and faster or make you hate it, so be very careful of what you're using and always ask yourself if you really need it or not !</p>
 <p>A personal note about JavaScript : <strong><em>I love vanilla JS</em></strong><br>
 Meaning that I'm not a fan of frontend JS frameworks, but that's just me...</p>
-<h3 id="paths">Paths <a class="direct-link" href="#paths">#</a></h3>
+<h3>Paths</h3>
 <hr>
 <p><strong>Important subsection ahead !</strong></p>
-<p>You may have noticed or not, but you where using <em>relative paths</em> to <code>include()</code> templates in each other and load assets into the document.</p>
+<p>You may have noticed or not, but you where using <em>relative paths</em> to <code class="hljs"><span class="hljs-function"><span class="hljs-title">include</span><span class="hljs-params">()</span></span></code> templates in each other and load assets into the document.</p>
 <p>Consider the tree of our app :</p>
-<pre class="language-txt"><code class="language-txt">Application's root without node_modules folder<br>├── index.js<br>├── package-lock.json<br>├── package.json<br>├── public<br>│  ├── css<br>│  │  └── main.css<br>│  ├── img<br>│  │  ├── byblos.jpg<br>│  │  └── the-code-father.jpg<br>│  └── scripts<br>│    └── main.js<br>└── views<br>  ├── about.ejs<br>  ├── index.ejs<br>  └── partials<br>    ├── footer.ejs<br>    ├── head.ejs<br>    └── nav.ejs</code></pre>
-<p>The root is the <code>ejs</code> folder.<br>
-If 2 or more files lives in the same folder, we say that they are <code>at the same level</code>.</p>
+<pre><code class="hljs language-txt">Application&#x27;s root without node_modules folder
+├── index.js
+├── package-lock.json
+├── package.json
+├── public
+│  ├── css
+│  │  └── main.css
+│  ├── img
+│  │  ├── byblos.jpg
+│  │  └── the-code-father.jpg
+│  └── scripts
+│    └── main.js
+└── views
+  ├── about.ejs
+  ├── index.ejs
+  └── partials
+    ├── footer.ejs
+    ├── head.ejs
+    └── nav.ejs
+</code></pre>
+<p>The root is the <code class="hljs"><span class="hljs-attribute">ejs</span></code> folder.<br>
+If 2 or more files lives in the same folder, we say that they are <code class="hljs"><span class="hljs-keyword">at</span> <span class="hljs-keyword">the</span> same level</code>.</p>
 <p>Sometimes, we need to call a file into another, this is where we should be careful about the process.<br>
-Always read the documentation of the <code>tools</code> you are using.</p>
-<p>If we where developing without backend technologies, and wanted to load <code>main.css</code> in <code>index.ejs</code>, we would write :</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../../public/css/main.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+Always read the documentation of the <code class="hljs"><span class="hljs-attribute">tools</span></code> you are using.</p>
+<p>If we where developing without backend technologies, and wanted to load <code class="hljs"><span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.css</span></code> in <code class="hljs"><span class="hljs-keyword">index</span>.ejs</code>, we would write :</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;../../public/css/main.css&quot;</span> /&gt;</span>
+</code></pre>
 <p>Since we where using Express and EJS as a defined template engine, we where able to use <em>relative paths</em> to call our files.</p>
-<p>⚠️ Never begin with the <code>views</code> folder when templating, he's already detected by Express !!!</p>
-<p>When using <code>include()</code> :</p>
+<p>⚠️ Never begin with the <code class="hljs"><span class="hljs-attribute">views</span></code> folder when templating, he's already detected by Express !!!</p>
+<p>When using <code class="hljs"><span class="hljs-function"><span class="hljs-title">include</span><span class="hljs-params">()</span></span></code> :</p>
 <ol>
-<li>If two files are at the same level and we wanted to <code>include()</code> one of them into another, we just type the file name, no need for the extension, like we did with :<br>
-<code>&lt;%- include('nav') %&gt;</code></li>
+<li>If two files are at the same level and we wanted to <code class="hljs"><span class="hljs-function"><span class="hljs-title">include</span><span class="hljs-params">()</span></span></code> one of them into another, we just type the file name, no need for the extension, like we did with :
+<code class="hljs">&lt;%- include(<span class="hljs-string">&#x27;nav&#x27;</span>) %&gt;</code></li>
 <li>Otherwise, we navigate to the desired file by typing the folder(s) name(s) where the file is, then the file name without it's extension, like we did for :<br>
-<code>&lt;%- include('partials/head') %&gt;</code> and<br>
-<code>&lt;%- include('partials/footer') %&gt;</code></li>
+<code class="hljs">&lt;%- include(<span class="hljs-string">&#x27;partials/head&#x27;</span>) %&gt;</code> and
+<code class="hljs">&lt;%- include(<span class="hljs-string">&#x27;partials/footer&#x27;</span>) %&gt;</code></li>
 </ol>
-<p>⚠️ Never begin with the <code>public</code> folder when using it in a template, he's already detected by Express !!!</p>
-<p>When calling files from <code>public</code> :</p>
+<p>⚠️ Never begin with the <code class="hljs"><span class="hljs-keyword">public</span></code> folder when using it in a template, he's already detected by Express !!!</p>
+<p>When calling files from <code class="hljs"><span class="hljs-keyword">public</span></code> :</p>
 <ol>
-<li>If the file is directly inside the <code>public</code> folder, we just call it <strong>with it's extension</strong>.<br>
-Let's say that <code>the-code-father.jpg</code> was directly inside the public folder and we wanted to call it inside <code>index.ejs</code>, we would write :<br>
-<code>&lt;img src=&quot;the-code-father.jpg&quot; /&gt;</code></li>
+<li>If the file is directly inside the <code class="hljs"><span class="hljs-keyword">public</span></code> folder, we just call it <strong>with it's extension</strong>.<br>
+Let's say that <code class="hljs"><span class="hljs-symbol">the</span>-<span class="hljs-meta">code</span>-father.jpg</code> was directly inside the public folder and we wanted to call it inside <code class="hljs"><span class="hljs-keyword">index</span>.ejs</code>, we would write :<br>
+<code class="hljs">&lt;<span class="hljs-selector-tag">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-string">&quot;the-code-father.jpg&quot;</span> /&gt;</code></li>
 <li>Otherwise, we navigate to the desired file by typing the folder(s) name(s) where the file is, then the file name <strong>with it's extension</strong>, like we did for :<br>
-<code>&lt;img src=&quot;img/the-code-father.jpg&quot; /&gt;</code></li>
+<code class="hljs">&lt;<span class="hljs-selector-tag">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-string">&quot;img/the-code-father.jpg&quot;</span> /&gt;</code></li>
 </ol>
-<h2 id="conclusion">Conclusion <a class="direct-link" href="#conclusion">#</a></h2>
+<h2>Conclusion</h2>
 <p>I hope that this tutorial will help a lot of new developers to start using EJS as a template engine in Node.js and understand how things are related together.</p>
 <p>Next one will be about improving this app 😉</p>
 <p><em>This tutorial was specially made for my beloved son 💘</em></p>
 
-	<p class="author-greetings">SYA,<br>LebCit.</p>
+	<p class="author-greetings">
+		SYA,
+		<br />
+		LebCit.
+	</p>
 </div>
 
+  <style>
+	.post-navigation {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
 
+	.post-navigation a {
+		margin: 1.5em 0;
+		border: 2px solid #000;
+		background: #000;
+		display: inline-block;
+		padding: 0.7rem 0.9rem;
+		font-size: 1rem;
+		line-height: 1;
+		border-radius: 3px;
+		color: #fff;
+		font-weight: 600;
+		cursor: pointer;
+	}
 
-<nav class="post-navigation" aria-label="Post navigation"><a href="/posts/csp-nonce-with-nodejs-and-ejs/" class="prev-post" rel="prev">Previous: CSP nonce with Node.js and EJS</a><a href="/posts/improving-a-nodejs-app-built-with-express-and-ejs/" class="next-post" rel="next">Next: Improving a Node.js app built with Express and EJS</a>
+	.post-navigation .next-post {
+		grid-column-end: -1;
+	}
+
+	.post-navigation a:hover {
+		color: #fff;
+		box-shadow: 0 0.25em #000;
+	}
+
+	.post-navigation a:active,
+	.post-navigation a:focus {
+		color: #fff;
+		box-shadow: 0.25em 0.25em #000;
+		outline: 0.1em solid;
+	}
+
+	@media screen and (max-width: 48em) {
+		.post-navigation {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, 1fr);
+			grid-row-gap: 16px;
+		}
+
+		.post-navigation a {
+			margin: 0;
+		}
+	}
+</style>
+
+<nav class="post-navigation" aria-label="Post navigation">
+	
+	<a href="/posts/csp-nonce-with-nodejs-and-ejs" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: CSP nonce with Node.js and EJS
+	</a>
+	  
+	<a href="/posts/improving-a-nodejs-app-built-with-express-and-ejs" class="next-post" rel="next" aria-label="Go to the next post">Next: Improving a Node.js app built with Express and EJS</a>
+	
 </nav>
+   <style>
+	.related-posts div {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
+</style>
 
-
-
-	<div class="related-posts">
-		<h3>SOME RELATED POSTS</h3>
-		<div>
-			<section>
-				<a href="/posts/to-node-or-not-deta-is-the-answer/">
-					<img class="img-responsive" src="/img/computer-screen-displaying-node-js-modules.webp"
-					
-					
-					alt="Computer screen displaying node js modules.">
-				</a>
-				<h4>
-					<a href="/posts/to-node-or-not-deta-is-the-answer/">To Node or not ? Deta is the answer !</a>
-				</h4>
-			</section>
-			<section>
-				<a href="/posts/csp-nonce-with-nodejs-and-ejs/">
-					<img class="img-responsive" src="/img/key-attached-to-another-in-the-lock-of-a-door.webp"
-					
-					
-					alt="Key attached to another in the lock of a door.">
-				</a>
-				<h4>
-					<a href="/posts/csp-nonce-with-nodejs-and-ejs/">CSP nonce with Node.js and EJS</a>
-				</h4>
-			</section>
-		</div>
+<div class="related-posts">
+	<h3>SOME RELATED POSTS</h3>
+	<div>
+		      
+		<section>
+			<a href="/posts/csp-nonce-with-nodejs-and-ejs">
+				    
+				<img
+					class="img-responsive"
+					src="/img/key-attached-to-another-in-the-lock-of-a-door.webp"
+					alt="Key attached to another in the lock of a door"
+				/>
+				
+			</a>
+			<h4>
+				<a href="/posts/csp-nonce-with-nodejs-and-ejs">CSP nonce with Node.js and EJS</a>
+			</h4>
+		</section>
+		      
+		<section>
+			<a href="/posts/to-node-or-not-deta-is-the-answer">
+				    
+				<img
+					class="img-responsive"
+					src="/img/computer-screen-displaying-node-js-modules.webp"
+					alt="Computer screen displaying node js modules"
+				/>
+				
+			</a>
+			<h4>
+				<a href="/posts/to-node-or-not-deta-is-the-answer">To Node or not ? Deta is the answer !</a>
+			</h4>
+		</section>
+		
 	</div>
+</div>
+  
+</main>
+				       
+			</div>
+			 <style>
+	.site-footer {
+		text-align: center;
+		padding-top: 2em;
+	}
+	@media (min-width: 64em) {
+		.site-footer {
+			padding: 2em 3em;
+			margin-left: 40%;
+		}
+	}
+</style>
 
+<footer id="colophon" class="site-footer unit-1">
+	        
 
-				</main><!-- #main -->
-			</div><!-- #content -->
+	<div id="site-info" class="site-info">
+		<p>
+			<strong>2016 - 2023 | { LebCit }</strong>
+			<br />
+			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc-space'>Blog-Doc</a>
+		</p>
+	</div>
+</footer>
 
-			<footer id="colophon" class="site-footer unit-1">
-				<div id="site-info" class="site-info">
-					<p>
-						<strong>2016 - 2022 | { LebCit }</strong><br>
-						<span>Proudly created with</span>  <a href="https://www.11ty.dev/" target="_blank">11ty</a>
-					</p>
-				</div><!-- .site-info -->
-			</footer><!-- #colophon -->
-
-			<!-- Current page: /posts/templating-a-nodejs-app-with-ejs/ -->
-			
-		</div><!-- #page -->
-
-		<script type="text/javascript" src="/js/main.min.js"></script>
-
-		
-		
+		</div>
+		 
+		<script src="/js/main.js"></script>
 	</body>
 </html>

@@ -1,165 +1,573 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-			<title>Full Screen Morphing Search Plugin - { LebCit }</title>
-		
-		<meta name="description" content="This post is about my first WordPress plugin, full screen morphing search.">
-		<link rel="stylesheet" href="/css/main.min.css">
-		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{ LebCit }">
-		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{ LebCit }">
-		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"/>
-		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png"/>
-		<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/favicon/apple-touch-icon.png"/>
-		<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-chrome-192x192.png"/>
-		<link rel="icon" type="image/png" sizes="512x512" href="/img/favicon/android-chrome-512x512.png"/>
-		<link href="https://unpkg.com/prismjs@1.23.0/themes/prism-okaidia.css" rel="stylesheet">
-		
-	</head>
-	<body>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
+	<meta name="description" content="This post is about my first WordPress plugin, full screen morphing search" />
+	
+
+	<title>Full Screen Morphing Search Plugin | { LebCit }</title>
+
+	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon_32.png" />
+	<link rel="stylesheet" href="/css/main.min.css" />
+	<link rel="stylesheet" href="/css/code-theme.min.css" />
+	<style>
+	.post-title {
+		font-size: 2em;
+		color: #222;
+		margin-bottom: 0.2em;
+	}
+
+	.post-content {
+		color: #444;
+		line-height: 1.8em;
+	}
+
+	.post-content a {
+		color: #000036;
+		text-decoration-line: underline;
+		text-decoration-color: #ea215a;
+		text-decoration-style: double;
+		text-decoration-thickness: 0.125em;
+		text-underline-offset: 1.5px;
+		text-decoration-skip-ink: none;
+		transition: 0.5s;
+	}
+
+	.post-content a:hover,
+	.post-content a:focus,
+	.post-content a:active {
+		text-decoration: none;
+		color: white;
+		box-shadow: inset 0 -1.3em 0 0 #000;
+		outline: thin dotted #ea215a;
+	}
+</style>
+
+
+<style>
+	.single-post :not(pre) code {
+		background-color: #272822;
+		color: #f8f8f2;
+		border-radius: 0.3rem;
+		padding: 4px 5px 5px;
+	}
+</style>
+  
+<style>
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.post-title {
+			font-size: 3em;
+			margin-top: 0;
+		}
+	}
+
+	@media (min-width: 64em) {
+		.post-title {
+			/* will affect single-post*/
+			font-size: 4em;
+			margin-top: 0;
+		}
+	}
+</style>
+    
+<style>
+	.post-meta {
+		color: #16663d;
+		font-size: 90%;
+		margin: 0;
+	}
+
+	.posted-on {
+		color: #ad1a36;
+	}
+
+	.post-tag {
+		margin: 0 0.1em;
+		padding: 0.2em 0.8em;
+		background: #ad1a36;
+		font-size: 80%;
+	}
+
+	.post-tag a {
+		color: #fff;
+	}
+</style>
+  
+
+</head>
+
+
+	<body>
 		<div id="page" class="site grid">
 			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
-				<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
-				<div class="overlay-content">
-						<a href="/">Home</a>
-						<a href="/about/">About</a>
-						<a href="/posts/">Archive</a>
-						<a href="/tags/">Tags</a>
-					<a href="https://github.com/LebCit" target="_blank">GitHub</a>
-				</div>
-			</div>
 
-			<header id="masthead"
-				
-					class="site-header unit-1 unit-lg-2-5 bio"
-					style="background-image:url(/img/man-hand-holding-lens.webp)"
-				
-			>
-				<div class="site-header-overlay"></div>
-				<div class="sidebar">
-					<div class="site-branding">
-						<h1 class="site-title">
-							<a href="/">{ LebCit }</a>
-						</h1>
-						<p class="site-description">
-							Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !
-						</p>
-					</div>
+			<style>
+	.invisible {
+		visibility: hidden;
+	}
 
-					<nav id="nav" class="nav" aria-label="MENU">
-						<ul class="nav-list">
-							<li class="nav-item">
-								<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
-									<span>MENU</span>
-									<span class="menu-icon" aria-hidden="true">
-										<svg version='1.1' x='0px' y='0px' width='30px' height='30px' viewbox='0 0 30 30' enable-background='new 0 0 30 30'><rect width='30' height='5'/><rect y='24' width='30' height='5'/><rect y='12' width='30' height='5'/></svg>
-									</span>
-								</a>
-							</li>
-						</ul>
+	.overlay {
+		position: fixed;
+		width: 0;
+		height: 100%;
+		top: 0;
+		right: 0;
+		background-color: rgba(0, 0, 0, 0.9);
+		z-index: 2;
+		letter-spacing: normal;
+		overflow-x: hidden;
+		transition: 0.5s;
+	}
 
-					</nav><!-- #site-navigation -->
-				</div>
-			</header><!-- #masthead -->
+	.overlay-content {
+		position: relative;
+		top: 25%;
+		width: 100%;
+		text-align: center;
+		margin-top: 30px;
+	}
+
+	.overlay li {
+		list-style: none;
+	}
+
+	.overlay a {
+		padding: 8px;
+		text-decoration: none;
+		font-size: 36px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+	}
+
+	.overlay a:hover,
+	.overlay a:focus {
+		color: #f1f1f1;
+		background-color: #222;
+		border: 1px solid red;
+		border-style: dashed;
+	}
+
+	.overlay .close-button {
+		position: absolute;
+		top: 20px;
+		right: 45px;
+		font-size: 60px;
+	}
+</style>
+
+<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+	<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">
+		&times;
+	</a>
+	
+	<div class="overlay-content">
+		<a href="/">Home</a>
+		
+		<li class="pure-menu-item">
+			<a href="/posts">Archive</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/tags">Tags</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/search">Search</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/pages/about">About Me</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/rss.xml">RSS</a>
+		</li>
+		
+	</div>
+</div>
+  <style>
+	/* SITE HEADER */
+	.site-header {
+		background: rgb(61, 79, 93);
+		color: #fff;
+	}
+
+	.sidebar {
+		margin: 1em;
+	}
+
+	.site-title,
+	.site-description {
+		margin: 0;
+		line-height: 1.2;
+	}
+
+	.site-title a {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.site-title a:hover,
+	.site-title a:focus {
+		text-decoration: underline;
+	}
+
+	.site-description {
+		font-weight: 300;
+		color: rgb(176, 202, 219);
+		margin: 0.5em 0 2em 0;
+	}
+
+	/* MENU BUTTON */
+	.nav-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.nav-item {
+		display: inline-block;
+	}
+
+	.nav-item a {
+		background: black;
+		border: 2px solid rgb(176, 202, 219);
+		border-radius: 2px;
+		color: #fff;
+		padding: 0.5em 1em;
+		margin-top: 1em;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		font-size: 85%;
+	}
+
+	.nav-item a:hover,
+	.nav-item a:focus {
+		border: 2px solid rgb(61, 146, 201);
+		text-decoration: none;
+	}
+
+	.nav-item a svg {
+		fill: aliceblue;
+		vertical-align: bottom;
+		padding: 4px 0 2px;
+	}
+
+	@media screen and (max-width: 35.5em) {
+		.nav-item a svg {
+			padding-top: 14px;
+		}
+	}
+
+	@media screen and (min-width: 35.5em) and (max-width: 48em) {
+		.nav-item a svg {
+			padding-top: 12px;
+		}
+	}
+
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.nav-item a svg {
+			padding-top: 10px;
+		}
+	}
+
+	/* more then 1023px an less then 1024px */
+	@media (max-width: 63.969em) {
+		.site-header.bio {
+			background-image: none !important;
+		}
+		.nav {
+			position: fixed;
+			top: 15px;
+			right: 10px;
+			z-index: 1;
+		}
+	}
+
+	@media (min-width: 64em) {
+		.site-header {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			overflow-y: auto;
+		}
+
+		.site-header.bio {
+			background-repeat: no-repeat;
+			background-position: top;
+			background-size: cover;
+		}
+
+		.site-header.bio .site-header-overlay {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.6);
+		}
+
+		/* The emerging W3C standard
+ that is currently Firefox-only */
+		.site-header {
+			scrollbar-width: thin;
+		}
+
+		/* Works on Chrome/Edge/Safari */
+		.site-header::-webkit-scrollbar {
+			width: 7px;
+		}
+
+		.site-header::-webkit-scrollbar-track {
+			background: #313d48;
+		}
+
+		.site-header::-webkit-scrollbar-thumb {
+			background-color: #81898f;
+		}
+
+		.sidebar {
+			margin: 10% 2em;
+			text-align: left;
+		}
+
+		.site-header.bio .sidebar {
+			position: sticky;
+		}
+	}
+</style>
+<header id="masthead"  class="site-header unit-1 unit-lg-2-5 bio" style="background-image:
+	url('/img/man-hand-holding-lens.webp')"  >
+	<div class="site-header-overlay"></div>
+	
+	<div class="sidebar">
+		<div class="site-branding">
+			<h1 class="site-title">
+				<a href="/">{ LebCit }</a>
+			</h1>
+			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !</p>
+		</div>
+
+		
+		<nav id="nav" class="nav" aria-label="MENU">
+			<ul class="nav-list">
+				<li class="nav-item">
+					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+						<span>MENU</span>
+						<span class="menu-icon" aria-hidden="true">
+							<svg
+								version="1.1"
+								x="0px"
+								y="0px"
+								width="30px"
+								height="30px"
+								viewbox="0 0 30 30"
+								enable-background="new 0 0 30 30"
+							>
+								<rect width="30" height="5" />
+								<rect y="24" width="30" height="5" />
+								<rect y="12" width="30" height="5" />
+							</svg>
+						</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		
+	</div>
+	
+</header>
+
 
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				<main  class="single-post" >
-					
-<header class="post-header">
-		<h1 class="post-title">Full Screen Morphing Search Plugin</h1>
-		
-		
-		<p class="post-meta">
-			<span>Posted on</span>
-			<span class="posted-on">
-				<time class="post-date" datetime="2020-04-28">28 Apr 2020</time>
-			</span>
-			
+				  
+				<main class="single-post"><style>
+	.author-greetings {
+		color: #000;
+		line-height: normal;
+	}
+</style>
 
-			
-			
-				<br>
-				Tagged
-				
-					<span class="post-tag">
-						<a href="/tags/Development/">Development</a>
-					</span>
-					<span class="post-tag">
-						<a href="/tags/Plugin/">Plugin</a>
-					</span>
-			
-		</p>
+<header class="post-header">
+	<h1 class="post-title">Full Screen Morphing Search Plugin</h1>
+	
+	<p class="post-meta">
+		<span>Posted on</span>
+		<span class="posted-on">
+			<time class="postList-date" datetime='2020-04/28'>
+				Tue Apr 28 2020
+			</time>
+		</span>
+
+		<br />
+		Tagged  
+		<span class="post-tag">
+			<a href="/tags/Development">Development</a>
+		</span>
 		
+		<span class="post-tag">
+			<a href="/tags/Plugin">Plugin</a>
+		</span>
+		  
+	</p>
+	
 </header>
 
 <div class="post-content">
-  <p><em>This post is about my first WordPress plugin, full screen morphing search.</em></p>
-<p>I’m very excited and happy to announce the release (in 2016) of <strong>my first plugin</strong> ! This <a href="https://wordpress.org/plugins/full-screen-morphing-search/" target="_blank" rel="external noopener noreferrer">plugin</a> is based on the <a href="http://tympanus.net/codrops/2014/11/04/simple-morphing-search/" target="_blank" rel="external noopener noreferrer">Simple Morphing Search</a> experimental effect created by <a href="http://tympanus.net/codrops/author/crnacura/" target="_blank" rel="external noopener noreferrer">Mary Lou (Manoela Ilic)</a>.</p>
-<p>It took me a week of hard work to implement this effect into WordPress. Some CSS rules were added, others slightly modified and some of them completely removed ! The JS is not the same at all ! The original effect is triggered with a function by clicking on a search input. This function relies on another script (<a href="https://github.com/desandro/classie#classie---class-helper-functions" target="_blank" rel="external noopener noreferrer">classie – class helper functions</a>) to get the job done. I’ve removed them and created a simple JavaScript file that does the same job with 60 lines less code !</p>
-<p>I hope that this plugin will be useful for everyone using it. If you try it, don’t be shy and give me your feedback on the <a href="https://wordpress.org/support/plugin/full-screen-morphing-search/reviews/" target="_blank" rel="external noopener noreferrer">repo</a> 🙂</p>
+	
+	<p>
+		<em>This post is about my first WordPress plugin, full screen morphing search</em>
+		.
+	</p>
+	  <p>I’m very excited and happy to announce the release (in 2016) of <strong>my first plugin</strong> ! This <a href="https://wordpress.org/plugins/full-screen-morphing-search/">plugin</a> is based on the <a href="http://tympanus.net/codrops/2014/11/04/simple-morphing-search/">Simple Morphing Search</a> experimental effect created by <a href="http://tympanus.net/codrops/author/crnacura/">Mary Lou (Manoela Ilic)</a>.</p>
+<p>It took me a week of hard work to implement this effect into WordPress. Some CSS rules were added, others slightly modified and some of them completely removed ! The JS is not the same at all ! The original effect is triggered with a function by clicking on a search input. This function relies on another script (<a href="https://github.com/desandro/classie#classie---class-helper-functions">classie – class helper functions</a>) to get the job done. I’ve removed them and created a simple JavaScript file that does the same job with 60 lines less code !</p>
+<p>I hope that this plugin will be useful for everyone using it. If you try it, don’t be shy and give me your feedback on the <a href="https://wordpress.org/support/plugin/full-screen-morphing-search/reviews/">repo</a> 🙂</p>
 
-	<p class="author-greetings">SYA,<br>LebCit.</p>
+	<p class="author-greetings">
+		SYA,
+		<br />
+		LebCit.
+	</p>
 </div>
 
+  <style>
+	.post-navigation {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
 
+	.post-navigation a {
+		margin: 1.5em 0;
+		border: 2px solid #000;
+		background: #000;
+		display: inline-block;
+		padding: 0.7rem 0.9rem;
+		font-size: 1rem;
+		line-height: 1;
+		border-radius: 3px;
+		color: #fff;
+		font-weight: 600;
+		cursor: pointer;
+	}
 
-<nav class="post-navigation" aria-label="Post navigation"><a href="/posts/back-to-the-roots-with-a-static-site/" class="next-post" rel="next">Next: Back to the roots with a static site</a>
+	.post-navigation .next-post {
+		grid-column-end: -1;
+	}
+
+	.post-navigation a:hover {
+		color: #fff;
+		box-shadow: 0 0.25em #000;
+	}
+
+	.post-navigation a:active,
+	.post-navigation a:focus {
+		color: #fff;
+		box-shadow: 0.25em 0.25em #000;
+		outline: 0.1em solid;
+	}
+
+	@media screen and (max-width: 48em) {
+		.post-navigation {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, 1fr);
+			grid-row-gap: 16px;
+		}
+
+		.post-navigation a {
+			margin: 0;
+		}
+	}
+</style>
+
+<nav class="post-navigation" aria-label="Post navigation">
+	  
+	<a href="/posts/back-to-the-roots-with-a-static-site" class="next-post" rel="next" aria-label="Go to the next post">Next: Back to the roots with a static site</a>
+	
 </nav>
+   <style>
+	.related-posts div {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
+</style>
 
-
-
-	<div class="related-posts">
-		<h3>SOME RELATED POSTS</h3>
-		<div>
-			<section>
-				<a href="/posts/the-clean-blog-wordpress-theme/">
-					<img class="img-responsive" src="/img/man-hands-typing-on-keyboard-of-laptop-with-screen-showing-wordpress-backend.webp"
-					
-					
-					alt="Man hands typing on keyboard of laptop with screen showing wordpress backend.">
-				</a>
-				<h4>
-					<a href="/posts/the-clean-blog-wordpress-theme/">The Clean Blog WordPress theme</a>
-				</h4>
-			</section>
-			<section>
-				<a href="/posts/hide-wordpress-toolbar-with-wp_add_inline_style/">
-					<img class="img-responsive" src="/img/little-girl-covering-her-face-with-her-hands.webp"
-					
-					
-					alt="Little girl covering her face with her hands.">
-				</a>
-				<h4>
-					<a href="/posts/hide-wordpress-toolbar-with-wp_add_inline_style/">Hide WordPress Toolbar with wp_add_inline_style</a>
-				</h4>
-			</section>
-		</div>
+<div class="related-posts">
+	<h3>SOME RELATED POSTS</h3>
+	<div>
+		      
+		<section>
+			<a href="/posts/hide-wordpress-toolbar-with-wp_add_inline_style">
+				    
+				<img
+					class="img-responsive"
+					src="/img/little-girl-covering-her-face-with-her-hands.webp"
+					alt="Little girl covering her face with her hands"
+				/>
+				
+			</a>
+			<h4>
+				<a href="/posts/hide-wordpress-toolbar-with-wp_add_inline_style">Hide WordPress Toolbar with wp_add_inline_style</a>
+			</h4>
+		</section>
+		      
+		<section>
+			<a href="/posts/the-clean-blog-wordpress-theme">
+				    
+				<img
+					class="img-responsive"
+					src="/img/man-hands-typing-on-keyboard-of-laptop-with-screen-showing-wordpress-backend.webp"
+					alt="Man hands typing on keyboard of laptop with screen showing wordpress backend"
+				/>
+				
+			</a>
+			<h4>
+				<a href="/posts/the-clean-blog-wordpress-theme">The Clean Blog WordPress theme</a>
+			</h4>
+		</section>
+		
 	</div>
+</div>
+  
+</main>
+				       
+			</div>
+			 <style>
+	.site-footer {
+		text-align: center;
+		padding-top: 2em;
+	}
+	@media (min-width: 64em) {
+		.site-footer {
+			padding: 2em 3em;
+			margin-left: 40%;
+		}
+	}
+</style>
 
+<footer id="colophon" class="site-footer unit-1">
+	        
 
-				</main><!-- #main -->
-			</div><!-- #content -->
+	<div id="site-info" class="site-info">
+		<p>
+			<strong>2016 - 2023 | { LebCit }</strong>
+			<br />
+			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc-space'>Blog-Doc</a>
+		</p>
+	</div>
+</footer>
 
-			<footer id="colophon" class="site-footer unit-1">
-				<div id="site-info" class="site-info">
-					<p>
-						<strong>2016 - 2022 | { LebCit }</strong><br>
-						<span>Proudly created with</span>  <a href="https://www.11ty.dev/" target="_blank">11ty</a>
-					</p>
-				</div><!-- .site-info -->
-			</footer><!-- #colophon -->
-
-			<!-- Current page: /posts/full-screen-morphing-search-plugin/ -->
-			
-		</div><!-- #page -->
-
-		<script type="text/javascript" src="/js/main.min.js"></script>
-
-		
-		
+		</div>
+		 
+		<script src="/js/main.js"></script>
 	</body>
 </html>

@@ -1,259 +1,923 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-			<title>Improving a Node.js app built with Express and EJS - { LebCit }</title>
-		
-		<meta name="description" content="This post is about improving a Node.js application built with Express and EJS.">
-		<link rel="stylesheet" href="/css/main.min.css">
-		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{ LebCit }">
-		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{ LebCit }">
-		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"/>
-		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png"/>
-		<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/favicon/apple-touch-icon.png"/>
-		<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-chrome-192x192.png"/>
-		<link rel="icon" type="image/png" sizes="512x512" href="/img/favicon/android-chrome-512x512.png"/>
-		<link href="https://unpkg.com/prismjs@1.23.0/themes/prism-okaidia.css" rel="stylesheet">
-		
-	</head>
-	<body>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
+	<meta name="description" content="This post is about improving a Node.js application built with Express and EJS" />
+	
+
+	<title>Improving a Node.js app built with Express and EJS | { LebCit }</title>
+
+	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon_32.png" />
+	<link rel="stylesheet" href="/css/main.min.css" />
+	<link rel="stylesheet" href="/css/code-theme.min.css" />
+	<style>
+	.post-title {
+		font-size: 2em;
+		color: #222;
+		margin-bottom: 0.2em;
+	}
+
+	.post-content {
+		color: #444;
+		line-height: 1.8em;
+	}
+
+	.post-content a {
+		color: #000036;
+		text-decoration-line: underline;
+		text-decoration-color: #ea215a;
+		text-decoration-style: double;
+		text-decoration-thickness: 0.125em;
+		text-underline-offset: 1.5px;
+		text-decoration-skip-ink: none;
+		transition: 0.5s;
+	}
+
+	.post-content a:hover,
+	.post-content a:focus,
+	.post-content a:active {
+		text-decoration: none;
+		color: white;
+		box-shadow: inset 0 -1.3em 0 0 #000;
+		outline: thin dotted #ea215a;
+	}
+</style>
+
+
+<style>
+	.single-post :not(pre) code {
+		background-color: #272822;
+		color: #f8f8f2;
+		border-radius: 0.3rem;
+		padding: 4px 5px 5px;
+	}
+</style>
+  
+<style>
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.post-title {
+			font-size: 3em;
+			margin-top: 0;
+		}
+	}
+
+	@media (min-width: 64em) {
+		.post-title {
+			/* will affect single-post*/
+			font-size: 4em;
+			margin-top: 0;
+		}
+	}
+</style>
+    
+<style>
+	.post-meta {
+		color: #16663d;
+		font-size: 90%;
+		margin: 0;
+	}
+
+	.posted-on {
+		color: #ad1a36;
+	}
+
+	.post-tag {
+		margin: 0 0.1em;
+		padding: 0.2em 0.8em;
+		background: #ad1a36;
+		font-size: 80%;
+	}
+
+	.post-tag a {
+		color: #fff;
+	}
+</style>
+  
+
+</head>
+
+
+	<body>
 		<div id="page" class="site grid">
 			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
-				<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
-				<div class="overlay-content">
-						<a href="/">Home</a>
-						<a href="/about/">About</a>
-						<a href="/posts/">Archive</a>
-						<a href="/tags/">Tags</a>
-					<a href="https://github.com/LebCit" target="_blank">GitHub</a>
-				</div>
-			</div>
 
-			<header id="masthead"
-				
-					class="site-header unit-1 unit-lg-2-5 bio"
-					style="background-image:url(/img/a-lego-wall.webp)"
-				
-			>
-				<div class="site-header-overlay"></div>
-				<div class="sidebar">
-					<div class="site-branding">
-						<h1 class="site-title">
-							<a href="/">{ LebCit }</a>
-						</h1>
-						<p class="site-description">
-							Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !
-						</p>
-					</div>
+			<style>
+	.invisible {
+		visibility: hidden;
+	}
 
-					<nav id="nav" class="nav" aria-label="MENU">
-						<ul class="nav-list">
-							<li class="nav-item">
-								<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
-									<span>MENU</span>
-									<span class="menu-icon" aria-hidden="true">
-										<svg version='1.1' x='0px' y='0px' width='30px' height='30px' viewbox='0 0 30 30' enable-background='new 0 0 30 30'><rect width='30' height='5'/><rect y='24' width='30' height='5'/><rect y='12' width='30' height='5'/></svg>
-									</span>
-								</a>
-							</li>
-						</ul>
+	.overlay {
+		position: fixed;
+		width: 0;
+		height: 100%;
+		top: 0;
+		right: 0;
+		background-color: rgba(0, 0, 0, 0.9);
+		z-index: 2;
+		letter-spacing: normal;
+		overflow-x: hidden;
+		transition: 0.5s;
+	}
 
-					</nav><!-- #site-navigation -->
-				</div>
-			</header><!-- #masthead -->
+	.overlay-content {
+		position: relative;
+		top: 25%;
+		width: 100%;
+		text-align: center;
+		margin-top: 30px;
+	}
+
+	.overlay li {
+		list-style: none;
+	}
+
+	.overlay a {
+		padding: 8px;
+		text-decoration: none;
+		font-size: 36px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+	}
+
+	.overlay a:hover,
+	.overlay a:focus {
+		color: #f1f1f1;
+		background-color: #222;
+		border: 1px solid red;
+		border-style: dashed;
+	}
+
+	.overlay .close-button {
+		position: absolute;
+		top: 20px;
+		right: 45px;
+		font-size: 60px;
+	}
+</style>
+
+<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+	<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">
+		&times;
+	</a>
+	
+	<div class="overlay-content">
+		<a href="/">Home</a>
+		
+		<li class="pure-menu-item">
+			<a href="/posts">Archive</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/tags">Tags</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/search">Search</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/pages/about">About Me</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/rss.xml">RSS</a>
+		</li>
+		
+	</div>
+</div>
+  <style>
+	/* SITE HEADER */
+	.site-header {
+		background: rgb(61, 79, 93);
+		color: #fff;
+	}
+
+	.sidebar {
+		margin: 1em;
+	}
+
+	.site-title,
+	.site-description {
+		margin: 0;
+		line-height: 1.2;
+	}
+
+	.site-title a {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.site-title a:hover,
+	.site-title a:focus {
+		text-decoration: underline;
+	}
+
+	.site-description {
+		font-weight: 300;
+		color: rgb(176, 202, 219);
+		margin: 0.5em 0 2em 0;
+	}
+
+	/* MENU BUTTON */
+	.nav-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.nav-item {
+		display: inline-block;
+	}
+
+	.nav-item a {
+		background: black;
+		border: 2px solid rgb(176, 202, 219);
+		border-radius: 2px;
+		color: #fff;
+		padding: 0.5em 1em;
+		margin-top: 1em;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		font-size: 85%;
+	}
+
+	.nav-item a:hover,
+	.nav-item a:focus {
+		border: 2px solid rgb(61, 146, 201);
+		text-decoration: none;
+	}
+
+	.nav-item a svg {
+		fill: aliceblue;
+		vertical-align: bottom;
+		padding: 4px 0 2px;
+	}
+
+	@media screen and (max-width: 35.5em) {
+		.nav-item a svg {
+			padding-top: 14px;
+		}
+	}
+
+	@media screen and (min-width: 35.5em) and (max-width: 48em) {
+		.nav-item a svg {
+			padding-top: 12px;
+		}
+	}
+
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.nav-item a svg {
+			padding-top: 10px;
+		}
+	}
+
+	/* more then 1023px an less then 1024px */
+	@media (max-width: 63.969em) {
+		.site-header.bio {
+			background-image: none !important;
+		}
+		.nav {
+			position: fixed;
+			top: 15px;
+			right: 10px;
+			z-index: 1;
+		}
+	}
+
+	@media (min-width: 64em) {
+		.site-header {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			overflow-y: auto;
+		}
+
+		.site-header.bio {
+			background-repeat: no-repeat;
+			background-position: top;
+			background-size: cover;
+		}
+
+		.site-header.bio .site-header-overlay {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.6);
+		}
+
+		/* The emerging W3C standard
+ that is currently Firefox-only */
+		.site-header {
+			scrollbar-width: thin;
+		}
+
+		/* Works on Chrome/Edge/Safari */
+		.site-header::-webkit-scrollbar {
+			width: 7px;
+		}
+
+		.site-header::-webkit-scrollbar-track {
+			background: #313d48;
+		}
+
+		.site-header::-webkit-scrollbar-thumb {
+			background-color: #81898f;
+		}
+
+		.sidebar {
+			margin: 10% 2em;
+			text-align: left;
+		}
+
+		.site-header.bio .sidebar {
+			position: sticky;
+		}
+	}
+</style>
+<header id="masthead"  class="site-header unit-1 unit-lg-2-5 bio" style="background-image:
+	url('/img/a-lego-wall.webp')"  >
+	<div class="site-header-overlay"></div>
+	
+	<div class="sidebar">
+		<div class="site-branding">
+			<h1 class="site-title">
+				<a href="/">{ LebCit }</a>
+			</h1>
+			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !</p>
+		</div>
+
+		
+		<nav id="nav" class="nav" aria-label="MENU">
+			<ul class="nav-list">
+				<li class="nav-item">
+					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+						<span>MENU</span>
+						<span class="menu-icon" aria-hidden="true">
+							<svg
+								version="1.1"
+								x="0px"
+								y="0px"
+								width="30px"
+								height="30px"
+								viewbox="0 0 30 30"
+								enable-background="new 0 0 30 30"
+							>
+								<rect width="30" height="5" />
+								<rect y="24" width="30" height="5" />
+								<rect y="12" width="30" height="5" />
+							</svg>
+						</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		
+	</div>
+	
+</header>
+
 
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				<main  class="single-post" >
-					
-<header class="post-header">
-		<h1 class="post-title">Improving a Node.js app built with Express and EJS</h1>
-		
-		
-		<p class="post-meta">
-			<span>Posted on</span>
-			<span class="posted-on">
-				<time class="post-date" datetime="2022-07-17">17 Jul 2022</time>
-			</span>
-			
+				  
+				<main class="single-post"><style>
+	.author-greetings {
+		color: #000;
+		line-height: normal;
+	}
+</style>
 
-			
-			
-				<br>
-				Tagged
-				
-					<span class="post-tag">
-						<a href="/tags/Development/">Development</a>
-					</span>
-					<span class="post-tag">
-						<a href="/tags/EJS/">EJS</a>
-					</span>
-					<span class="post-tag">
-						<a href="/tags/JavaScript/">JavaScript</a>
-					</span>
-					<span class="post-tag">
-						<a href="/tags/Node.js/">Node.js</a>
-					</span>
-			
-		</p>
+<header class="post-header">
+	<h1 class="post-title">Improving a Node.js app built with Express and EJS</h1>
+	
+	<p class="post-meta">
+		<span>Posted on</span>
+		<span class="posted-on">
+			<time class="postList-date" datetime='2022-07/17'>
+				Sun Jul 17 2022
+			</time>
+		</span>
+
+		<br />
+		Tagged  
+		<span class="post-tag">
+			<a href="/tags/Development">Development</a>
+		</span>
 		
+		<span class="post-tag">
+			<a href="/tags/JavaScript">JavaScript</a>
+		</span>
+		
+		<span class="post-tag">
+			<a href="/tags/Node.js">Node.js</a>
+		</span>
+		
+		<span class="post-tag">
+			<a href="/tags/EJS">EJS</a>
+		</span>
+		  
+	</p>
+	
 </header>
 
 <div class="post-content">
-  <p><em>This post is about improving a Node.js application built with Express and EJS.</em></p>
-<h2 id="intro">Intro <a class="direct-link" href="#intro">#</a></h2>
+	
+	<p>
+		<em>This post is about improving a Node.js application built with Express and EJS</em>
+		.
+	</p>
+	  <h2>Intro</h2>
 <p>In the <a href="/posts/templating-a-nodejs-app-with-ejs">last tutorial</a>, we've built a basic Node.js web application using EJS and Express. So, to understand this one, you should have followed the previous.</p>
 <p>In this post, we are going to improve this application to make it look nicer on the server.<br>
 As usual, I'll be explaining every step so you get the most out of this tutorial if you follow.</p>
-<h2 id="dynamic-content">Dynamic content <a class="direct-link" href="#dynamic-content">#</a></h2>
+<h2>Dynamic content</h2>
 <p>Till now, we had a homepage with an image and a button that displays a message when you click on it.<br>
 We also had an about page with a link inside a paragraph and an image under it.<br>
 Both pages have different document title, different page title, and the same menu.</p>
 <p>Nothing fancy in fact, but let's assume that our homepage will display a list of titles.<br>
 Those titles may come from each post in a blog.</p>
-<p>Update <code>index.js</code> to create a list of titles of posts that will be rendered on the homepage.</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// /index.js</span><br><span class="token operator">...</span><br>app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>	<span class="token keyword">let</span> posts <span class="token operator">=</span> <span class="token punctuation">[</span><br>		<span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"Who invented JavaScript ?"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span><br>		<span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"My first JavaScript piece"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span><br>		<span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"Logging into the console !"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span><br>	<span class="token punctuation">]</span><br>	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"index"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>		<span class="token literal-property property">docTitle</span><span class="token operator">:</span> <span class="token string">"Homepage | EJS App"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">pageTitle</span><span class="token operator">:</span> <span class="token string">"Homepage of templating with EJS application"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">posts</span><span class="token operator">:</span> posts<span class="token punctuation">,</span><br>	<span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token operator">...</span></code></pre>
-<p>We are creating an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="external noopener noreferrer">array</a> of <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics" target="_blank" rel="external noopener noreferrer">objects</a> inside the main route <code>&quot;/&quot;</code> called <code>posts</code>, where each object has a <code>key</code> and in front of each one a <code>value</code>.</p>
-<p>Remember that our main route renders <code>index.ejs</code>. So to access and display those titles, we should update <code>index.ejs</code> to integrate them like so :</p>
-<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- /views/index.ejs --></span><br>...<br><span class="token comment">&lt;!-- Looping through the posts array --></span><br>&lt;% posts.forEach((post) => { %><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>&lt;%= post.title %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span><br>&lt;% }) %><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>btn<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pure-button<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>A Button<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><br>...</code></pre>
-<p>We are looping through the <code>posts</code> array using the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" target="_blank" rel="external noopener noreferrer">forEach()</a> method.<br>
+<p>Update <code class="hljs"><span class="hljs-keyword">index</span>.js</code> to create a list of titles of posts that will be rendered on the homepage.</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// /index.js</span>
+...
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) {
+	<span class="hljs-keyword">let</span> posts = [
+		{ <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Who invented JavaScript ?&quot;</span> },
+		{ <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;My first JavaScript piece&quot;</span> },
+		{ <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Logging into the console !&quot;</span> },
+	]
+	res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;index&quot;</span>, {
+		<span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;Homepage | EJS App&quot;</span>,
+		<span class="hljs-attr">pageTitle</span>: <span class="hljs-string">&quot;Homepage of templating with EJS application&quot;</span>,
+		<span class="hljs-attr">posts</span>: posts,
+	})
+})
+...
+</code></pre>
+<p>We are creating an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a> of <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics">objects</a> inside the main route <code class="hljs"><span class="hljs-string">&quot;/&quot;</span></code> called <code class="hljs"><span class="hljs-attribute">posts</span></code>, where each object has a <code class="hljs"><span class="hljs-attribute">key</span></code> and in front of each one a <code class="hljs"><span class="hljs-attribute">value</span></code>.</p>
+<p>Remember that our main route renders <code class="hljs"><span class="hljs-keyword">index</span>.ejs</code>. So to access and display those titles, we should update <code class="hljs"><span class="hljs-keyword">index</span>.ejs</code> to integrate them like so :</p>
+<pre><code class="hljs language-html"><span class="hljs-comment">&lt;!-- /views/index.ejs --&gt;</span>
+...
+<span class="hljs-comment">&lt;!-- Looping through the posts array --&gt;</span>
+&lt;% posts.forEach((post) =&gt; { %&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>&lt;%= post.title %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+&lt;% }) %&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;btn&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pure-button&quot;</span>&gt;</span>A Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+...
+</code></pre>
+<p>We are looping through the <code class="hljs"><span class="hljs-attribute">posts</span></code> array using the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">forEach()</a> method.<br>
 <strong>Note how we are opening and closing EJS tags !</strong><br>
 It's very important to understand the logic of opening and closing the EJS and HTML tags when using them together.<br>
-The code isn't difficult at all, we are telling EJS to get the <code>posts</code>, and <code>forEach</code> one we want to display it's <code>title</code> inside an <code>&lt;h2&gt;</code> tag.<br>
+The code isn't difficult at all, we are telling EJS to get the <code class="hljs"><span class="hljs-attribute">posts</span></code>, and <code class="hljs"><span class="hljs-keyword">forEach</span></code> one we want to display it's <code class="hljs"><span class="hljs-built_in">title</span></code> inside an <code class="hljs"><span class="hljs-section">&lt;h2&gt;</span></code> tag.<br>
 Save both files and take a look at the homepage.<br>
 Great job !</p>
 <p>In addition to a title, a post should have at least a description to give the reader an idea about it's content, maybe an image to make it more appealing, and a date indicating how recent and relevant it is in today's world.<br>
 Of course it should also have a link to the post itself, but we are not going to do it since we're not going to create them on the frontend.<br>
 Let's update our files to look like so :</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// /index.js</span><br><span class="token operator">...</span><br>app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>	<span class="token keyword">let</span> posts <span class="token operator">=</span> <span class="token punctuation">[</span><br>		<span class="token punctuation">{</span><br>			<span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"Who invented JavaScript ?"</span><span class="token punctuation">,</span><br>			<span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">"A post about the father of JavaScript"</span><span class="token punctuation">,</span><br>			<span class="token literal-property property">date</span><span class="token operator">:</span> <span class="token string">"2022-06-03"</span><span class="token punctuation">,</span><br>		<span class="token punctuation">}</span><span class="token punctuation">,</span><br>		<span class="token punctuation">{</span><br>			<span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"My first JavaScript piece"</span><span class="token punctuation">,</span><br>			<span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">"A post about my first JavaScript block"</span><span class="token punctuation">,</span><br>			<span class="token literal-property property">date</span><span class="token operator">:</span> <span class="token string">"2022-06-10"</span><span class="token punctuation">,</span><br>		<span class="token punctuation">}</span><span class="token punctuation">,</span><br>		<span class="token punctuation">{</span><br>			<span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"Logging into the console !"</span><span class="token punctuation">,</span><br>			<span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">"A post about messages in the console"</span><span class="token punctuation">,</span><br>			<span class="token literal-property property">date</span><span class="token operator">:</span> <span class="token string">"2022-06-17"</span><span class="token punctuation">,</span><br>		<span class="token punctuation">}</span><span class="token punctuation">,</span><br>	<span class="token punctuation">]</span><br>	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"index"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>		<span class="token literal-property property">docTitle</span><span class="token operator">:</span> <span class="token string">"Homepage | EJS App"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">pageTitle</span><span class="token operator">:</span> <span class="token string">"Homepage of templating with EJS application"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">posts</span><span class="token operator">:</span> posts<span class="token punctuation">,</span><br>	<span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token operator">...</span></code></pre>
-<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- /views/index.ejs --></span><br>...<br><span class="token comment">&lt;!-- Looping through the posts array --></span><br>&lt;% posts.forEach((post) => { %><br><span class="token comment">&lt;!-- Adding the title inside an &lt;h2> --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>&lt;%= post.title %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span><br><span class="token comment">&lt;!-- Adding the date inside a paragraph --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>posted on &lt;%= post.date %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br><span class="token comment">&lt;!-- Adding the description inside an &lt;h3> --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>&lt;%= post.description %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span><br>&lt;% }) %><br><span class="token comment">&lt;!-- Closing the loop --></span><br>...</code></pre>
-<p>Save both files and take a look at the homepage.<br>
+<pre><code class="hljs language-js"><span class="hljs-comment">// /index.js</span>
+...
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) {
+	<span class="hljs-keyword">let</span> posts = [
+		{
+			<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Who invented JavaScript ?&quot;</span>,
+			<span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about the father of JavaScript&quot;</span>,
+			<span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-03&quot;</span>,
+		},
+		{
+			<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;My first JavaScript piece&quot;</span>,
+			<span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about my first JavaScript block&quot;</span>,
+			<span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-10&quot;</span>,
+		},
+		{
+			<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Logging into the console !&quot;</span>,
+			<span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about messages in the console&quot;</span>,
+			<span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-17&quot;</span>,
+		},
+	]
+	res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;index&quot;</span>, {
+		<span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;Homepage | EJS App&quot;</span>,
+		<span class="hljs-attr">pageTitle</span>: <span class="hljs-string">&quot;Homepage of templating with EJS application&quot;</span>,
+		<span class="hljs-attr">posts</span>: posts,
+	})
+})
+...
+</code></pre>
+<pre><code class="hljs language-html"><span class="hljs-comment">&lt;!-- /views/index.ejs --&gt;</span>
+...
+<span class="hljs-comment">&lt;!-- Looping through the posts array --&gt;</span>
+&lt;% posts.forEach((post) =&gt; { %&gt;
+<span class="hljs-comment">&lt;!-- Adding the title inside an &lt;h2&gt; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>&lt;%= post.title %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- Adding the date inside a paragraph --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>posted on &lt;%= post.date %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- Adding the description inside an &lt;h3&gt; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>&lt;%= post.description %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+&lt;% }) %&gt;
+<span class="hljs-comment">&lt;!-- Closing the loop --&gt;</span>
+...
+</code></pre>
+<p>Save both files and take a look at the homepage.
 All of this is great, but imagine that we have a blog of 50 posts and each post have a title, a link, a description, an image, a date of publication, a date of update, and some tags 😱<br>
-Yes, <code>index.js</code> would be crowded and difficult to maintain with a huge block of information just for the posts.<br>
+Yes, <code class="hljs"><span class="hljs-keyword">index</span>.js</code> would be crowded and difficult to maintain with a huge block of information just for the posts.<br>
 We'll be addressing this in the next section.</p>
-<h2 id="organizing-the-backend">Organizing the backend <a class="direct-link" href="#organizing-the-backend">#</a></h2>
+<h2>Organizing the backend</h2>
 <p>Since we are working on a server-side application, our code on the backend will evolve and get longer.<br>
 We shouldn't put everything inside our main server file because it will become almost impossible to look for a specific portion to update it or find a bug and correct it...</p>
 <p>I don't think that their is a developer who doesn't split his code.<br>
 We split our code into pieces where each one is easily trackable in a near or far future to keep it clean and maintainable.</p>
-<h3 id="routing">Routing <a class="direct-link" href="#routing">#</a></h3>
+<h3>Routing</h3>
 <hr>
-<p>For now we only have 2 routes, main <code>&quot;/&quot;</code> and <code>&quot;/about&quot;</code>, but when our application will have some other routes where each one have it's logic and functionalities, our main server file will be huge, a little bit ugly and unmaintainable.</p>
+<p>For now we only have 2 routes, main <code class="hljs"><span class="hljs-string">&quot;/&quot;</span></code> and <code class="hljs"><span class="hljs-string">&quot;/about&quot;</span></code>, but when our application will have some other routes where each one have it's logic and functionalities, our main server file will be huge, a little bit ugly and unmaintainable.</p>
 <p>Do you remember the <a href="/posts/templating-a-nodejs-app-with-ejs/#simple-routing">Simple routing</a> section ?<br>
 Well now we'll do a better one by putting each route in it's own file.</p>
-<p>To do so, we'll use the <a href="https://expressjs.com/en/guide/routing.html#express-router" target="_blank" rel="external noopener noreferrer">express.Router</a> class.<br>
-Create a new folder called <code>routes</code> at the root of the app.<br>
-Inside this folder, create a file called <code>home.js</code> with the following content :</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// /routes/home.js</span><br><br><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token comment">// Defining a route</span><br>router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	<span class="token keyword">let</span> posts <span class="token operator">=</span> <span class="token punctuation">[</span><br>		<span class="token punctuation">{</span><br>			<span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"Who invented JavaScript ?"</span><span class="token punctuation">,</span><br>			<span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">"A post about the father of JavaScript"</span><span class="token punctuation">,</span><br>			<span class="token literal-property property">date</span><span class="token operator">:</span> <span class="token string">"2022-06-03"</span><span class="token punctuation">,</span><br>		<span class="token punctuation">}</span><span class="token punctuation">,</span><br>		<span class="token punctuation">{</span><br>			<span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"My first JavaScript piece"</span><span class="token punctuation">,</span><br>			<span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">"A post about my first JavaScript block"</span><span class="token punctuation">,</span><br>			<span class="token literal-property property">date</span><span class="token operator">:</span> <span class="token string">"2022-06-10"</span><span class="token punctuation">,</span><br>		<span class="token punctuation">}</span><span class="token punctuation">,</span><br>		<span class="token punctuation">{</span><br>			<span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"Logging into the console !"</span><span class="token punctuation">,</span><br>			<span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">"A post about messages in the console"</span><span class="token punctuation">,</span><br>			<span class="token literal-property property">date</span><span class="token operator">:</span> <span class="token string">"2022-06-17"</span><span class="token punctuation">,</span><br>		<span class="token punctuation">}</span><span class="token punctuation">,</span><br>	<span class="token punctuation">]</span><br>	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"index"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>		<span class="token literal-property property">docTitle</span><span class="token operator">:</span> <span class="token string">"Homepage | EJS App"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">pageTitle</span><span class="token operator">:</span> <span class="token string">"Homepage of templating with EJS application"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">posts</span><span class="token operator">:</span> posts<span class="token punctuation">,</span><br>	<span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router</code></pre>
-<p>Instead of <code>app.get</code> we use <code>router.get</code> and <code>export</code> it as a <code>module</code>.<br>
-Now, in <code>index.js</code>, replace the main route by this :</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// /index.js</span><br><span class="token operator">...</span><br><span class="token comment">/**<br> * Rendering index page on the main route,<br> * using the express.Router class.<br> */</span><br>app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./routes/home"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><span class="token operator">...</span><br></code></pre>
-<p>Here we are telling Express to look for the file <code>home.js</code> that lives under the <code>routes</code> folder and to execute it's content on the main route <code>&quot;/&quot;</code>.</p>
-<p>So far, so good, but the <code>posts</code> array will grow and now this <code>home.js</code> file will not be maintainable, so let's get it out of there inside a separate file where only the posts info lives.<br>
-Create a file called <code>postsListInfo.js</code> inside the <code>routes</code> folder :</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// /routes/postsListInfo.js</span><br><br>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">[</span><br>	<span class="token punctuation">{</span><br>		<span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"Who invented JavaScript ?"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">"A post about the father of JavaScript"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">date</span><span class="token operator">:</span> <span class="token string">"2022-06-03"</span><span class="token punctuation">,</span><br>	<span class="token punctuation">}</span><span class="token punctuation">,</span><br>	<span class="token punctuation">{</span><br>		<span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"My first JavaScript piece"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">"A post about my first JavaScript block"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">date</span><span class="token operator">:</span> <span class="token string">"2022-06-10"</span><span class="token punctuation">,</span><br>	<span class="token punctuation">}</span><span class="token punctuation">,</span><br>	<span class="token punctuation">{</span><br>		<span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"Logging into the console !"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">"A post about messages in the console"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">date</span><span class="token operator">:</span> <span class="token string">"2022-06-17"</span><span class="token punctuation">,</span><br>	<span class="token punctuation">}</span><span class="token punctuation">,</span><br><span class="token punctuation">]</span></code></pre>
+<p>To do so, we'll use the <a href="https://expressjs.com/en/guide/routing.html#express-router">express.Router</a> class.<br>
+Create a new folder called <code class="hljs"><span class="hljs-attribute">routes</span></code> at the root of the app.<br>
+Inside this folder, create a file called <code class="hljs">home.js</code> with the following content :</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/home.js</span>
+
+<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
+<span class="hljs-keyword">const</span> router = express.<span class="hljs-title class_">Router</span>()
+
+<span class="hljs-comment">// Defining a route</span>
+router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+	<span class="hljs-keyword">let</span> posts = [
+		{
+			<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Who invented JavaScript ?&quot;</span>,
+			<span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about the father of JavaScript&quot;</span>,
+			<span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-03&quot;</span>,
+		},
+		{
+			<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;My first JavaScript piece&quot;</span>,
+			<span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about my first JavaScript block&quot;</span>,
+			<span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-10&quot;</span>,
+		},
+		{
+			<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Logging into the console !&quot;</span>,
+			<span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about messages in the console&quot;</span>,
+			<span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-17&quot;</span>,
+		},
+	]
+	res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;index&quot;</span>, {
+		<span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;Homepage | EJS App&quot;</span>,
+		<span class="hljs-attr">pageTitle</span>: <span class="hljs-string">&quot;Homepage of templating with EJS application&quot;</span>,
+		<span class="hljs-attr">posts</span>: posts,
+	})
+})
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = router
+</code></pre>
+<p>Instead of <code class="hljs">app.<span class="hljs-keyword">get</span></code> we use <code class="hljs">router.<span class="hljs-keyword">get</span></code> and <code class="hljs"><span class="hljs-keyword">export</span></code> it as a <code class="hljs"><span class="hljs-keyword">module</span></code>.<br>
+Now, in <code class="hljs"><span class="hljs-keyword">index</span>.js</code>, replace the main route by this :</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// /index.js</span>
+...
+<span class="hljs-comment">/**
+ * Rendering index page on the main route,
+ * using the express.Router class.
+ */</span>
+app.<span class="hljs-title function_">use</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./routes/home&quot;</span>))
+...
+
+</code></pre>
+<p>Here we are telling Express to look for the file <code class="hljs">home.js</code> that lives under the <code class="hljs"><span class="hljs-attribute">routes</span></code> folder and to execute it's content on the main route <code class="hljs"><span class="hljs-string">&quot;/&quot;</span></code>.</p>
+<p>So far, so good, but the <code class="hljs"><span class="hljs-attribute">posts</span></code> array will grow and now this <code class="hljs">home.js</code> file will not be maintainable, so let's get it out of there inside a separate file where only the posts info lives.<br>
+Create a file called <code class="hljs">postsListInfo<span class="hljs-number">.</span><span class="hljs-keyword">js</span></code> inside the <code class="hljs"><span class="hljs-attribute">routes</span></code> folder :</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/postsListInfo.js</span>
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = [
+	{
+		<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Who invented JavaScript ?&quot;</span>,
+		<span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about the father of JavaScript&quot;</span>,
+		<span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-03&quot;</span>,
+	},
+	{
+		<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;My first JavaScript piece&quot;</span>,
+		<span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about my first JavaScript block&quot;</span>,
+		<span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-10&quot;</span>,
+	},
+	{
+		<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Logging into the console !&quot;</span>,
+		<span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about messages in the console&quot;</span>,
+		<span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-17&quot;</span>,
+	},
+]
+</code></pre>
 <p>See, we directly exported the array itself.<br>
-Now, all we have to do is update <code>home.js</code> like so :</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// /routes/home.js</span><br><br><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token keyword">let</span> posts <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./postsListInfo"</span><span class="token punctuation">)</span><br><br><span class="token comment">// Defining a route</span><br>router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"index"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>		<span class="token literal-property property">docTitle</span><span class="token operator">:</span> <span class="token string">"Homepage | EJS App"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">pageTitle</span><span class="token operator">:</span> <span class="token string">"Homepage of templating with EJS application"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">posts</span><span class="token operator">:</span> posts<span class="token punctuation">,</span><br>	<span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router</code></pre>
+Now, all we have to do is update <code class="hljs">home.js</code> like so :</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/home.js</span>
+
+<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
+<span class="hljs-keyword">const</span> router = express.<span class="hljs-title class_">Router</span>()
+
+<span class="hljs-keyword">let</span> posts = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./postsListInfo&quot;</span>)
+
+<span class="hljs-comment">// Defining a route</span>
+router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+	res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;index&quot;</span>, {
+		<span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;Homepage | EJS App&quot;</span>,
+		<span class="hljs-attr">pageTitle</span>: <span class="hljs-string">&quot;Homepage of templating with EJS application&quot;</span>,
+		<span class="hljs-attr">posts</span>: posts,
+	})
+})
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = router
+</code></pre>
 <p>Pay attention !</p>
 <ol>
-<li>Since the two files are at the same level, we directly require <code>postsListInfo.js</code>. See <a href="/posts/templating-a-nodejs-app-with-ejs/#paths">Paths</a>.</li>
-<li>The variable <code>posts</code> assigned to this require statement <strong>should</strong> match the <code>value</code> of the <code>data object</code> !<br>
-We could name the variable <code>postsListInfo</code>, but the <code>data object</code> would now be <code>posts: postsListInfo</code>. See <a href="/posts/templating-a-nodejs-app-with-ejs/#data-object">Data object</a>.</li>
+<li>Since the two files are at the same level, we directly require <code class="hljs">postsListInfo<span class="hljs-number">.</span><span class="hljs-keyword">js</span></code>. See <a href="/posts/templating-a-nodejs-app-with-ejs/#paths">Paths</a>.</li>
+<li>The variable <code class="hljs"><span class="hljs-attribute">posts</span></code> assigned to this require statement <strong>should</strong> match the <code class="hljs"><span class="hljs-attribute">value</span></code> of the <code class="hljs"><span class="hljs-class"><span class="hljs-keyword">data</span> object</span></code> !<br>
+We could name the variable <code class="hljs"><span class="hljs-attribute">postsListInfo</span></code>, but the <code class="hljs"><span class="hljs-class"><span class="hljs-keyword">data</span> object</span></code> would now be <code class="hljs"><span class="hljs-symbol">posts:</span> postsListInfo</code>. See <a href="/posts/templating-a-nodejs-app-with-ejs/#data-object">Data object</a>.</li>
 </ol>
 <p>Save both files and take a look at the homepage.<br>
 Great job ! We now have the same display on the frontend, but with a clean, clear and maintainable code on the backend !</p>
-<p><em>Nota bene : we could create at the root of the app a folder just for the <code>postsListInfo.js</code> file and <code>require</code> it from there</em>.</p>
-<p>Lets's now put the <code>&quot;/about&quot;</code> route in it's own file.<br>
-Under <code>routes</code>, create a file called <code>about.js</code> with the following content :</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// /routes/about.js</span><br><br><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token comment">// Defining a route</span><br>router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"about"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">docTitle</span><span class="token operator">:</span> <span class="token string">"About me | EJS App"</span><span class="token punctuation">,</span> <span class="token literal-property property">pageTitle</span><span class="token operator">:</span> <span class="token string">"A little bit about myself"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router</code></pre>
-<p>We are defining a route on which we'll render <code>about.ejs</code>.<br>
-Now replace <code>&quot;/about&quot;</code> route in <code>index.js</code> by :</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// /index.js</span><br><span class="token operator">...</span><br><span class="token comment">/**<br> * Rendering about page on the /about route,<br> * using the express.Router class.<br> */</span><br>app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">"/about"</span><span class="token punctuation">,</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./routes/about"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><span class="token operator">...</span></code></pre>
-<p>Here we are telling Express to look for the file <code>about.js</code> that lives under the <code>routes</code> folder and to execute it's content on the <code>&quot;/about&quot;</code> route.</p>
+<p><em>Nota bene : we could create at the root of the app a folder just for the <code class="hljs">postsListInfo<span class="hljs-number">.</span><span class="hljs-keyword">js</span></code> file and <code class="hljs"><span class="hljs-built_in">require</span></code> it from there</em>.</p>
+<p>Lets's now put the <code class="hljs"><span class="hljs-string">&quot;/about&quot;</span></code> route in it's own file.<br>
+Under <code class="hljs"><span class="hljs-attribute">routes</span></code>, create a file called <code class="hljs"><span class="hljs-keyword">about</span>.js</code> with the following content :</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/about.js</span>
+
+<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
+<span class="hljs-keyword">const</span> router = express.<span class="hljs-title class_">Router</span>()
+
+<span class="hljs-comment">// Defining a route</span>
+router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+	res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;about&quot;</span>, { <span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;About me | EJS App&quot;</span>, <span class="hljs-attr">pageTitle</span>: <span class="hljs-string">&quot;A little bit about myself&quot;</span> })
+})
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = router
+</code></pre>
+<p>We are defining a route on which we'll render <code class="hljs"><span class="hljs-keyword">about</span>.ejs</code>.<br>
+Now replace <code class="hljs"><span class="hljs-string">&quot;/about&quot;</span></code> route in <code class="hljs"><span class="hljs-keyword">index</span>.js</code> by :</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// /index.js</span>
+...
+<span class="hljs-comment">/**
+ * Rendering about page on the /about route,
+ * using the express.Router class.
+ */</span>
+app.<span class="hljs-title function_">use</span>(<span class="hljs-string">&quot;/about&quot;</span>, <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./routes/about&quot;</span>))
+...
+</code></pre>
+<p>Here we are telling Express to look for the file <code class="hljs"><span class="hljs-keyword">about</span>.js</code> that lives under the <code class="hljs"><span class="hljs-attribute">routes</span></code> folder and to execute it's content on the <code class="hljs"><span class="hljs-string">&quot;/about&quot;</span></code> route.</p>
 <p>Now, if you ever want to make changes on a specific route, you know where to make them, it will always be under one specific file 😉</p>
-<h3 id="don't-repeat-yourself">Don't Repeat Yourself <a class="direct-link" href="#don't-repeat-yourself">#</a></h3>
+<h3>Don't Repeat Yourself</h3>
 <hr>
 <p>Do you remember the <a href="/posts/templating-a-nodejs-app-with-ejs/#don't-repeat-yourself">DRY</a> section ?<br>
 Well, in the backend also, you should avoid to repeat yourself !</p>
-<p>If you take a closer look to <code>postsListInfo.js</code>, you'll notice that every description begins with <em>A post about</em>, assuming that you'll follow this pattern for each and every post's description, or maybe a much longer one such as <em>The content of the following post is about</em>, we could do the following :</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// /routes/postsListInfo.js</span><br><br><span class="token keyword">const</span> descIntro <span class="token operator">=</span> <span class="token string">"The content of the following post is about"</span><br><br>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">[</span><br>	<span class="token punctuation">{</span><br>		<span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"Who invented JavaScript ?"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>descIntro<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> the father of JavaScript</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span><br>		<span class="token literal-property property">date</span><span class="token operator">:</span> <span class="token string">"2022-06-03"</span><span class="token punctuation">,</span><br>	<span class="token punctuation">}</span><span class="token punctuation">,</span><br>	<span class="token punctuation">{</span><br>		<span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"My first JavaScript piece"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>descIntro<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> my first JavaScript block</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span><br>		<span class="token literal-property property">date</span><span class="token operator">:</span> <span class="token string">"2022-06-10"</span><span class="token punctuation">,</span><br>	<span class="token punctuation">}</span><span class="token punctuation">,</span><br>	<span class="token punctuation">{</span><br>		<span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"Logging into the console !"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>descIntro<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> messages in the console</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span><br>		<span class="token literal-property property">date</span><span class="token operator">:</span> <span class="token string">"2022-06-17"</span><span class="token punctuation">,</span><br>	<span class="token punctuation">}</span><span class="token punctuation">,</span><br><span class="token punctuation">]</span></code></pre>
+<p>If you take a closer look to <code class="hljs">postsListInfo<span class="hljs-number">.</span><span class="hljs-keyword">js</span></code>, you'll notice that every description begins with <em>A post about</em>, assuming that you'll follow this pattern for each and every post's description, or maybe a much longer one such as <em>The content of the following post is about</em>, we could do the following :</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/postsListInfo.js</span>
+
+<span class="hljs-keyword">const</span> descIntro = <span class="hljs-string">&quot;The content of the following post is about&quot;</span>
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = [
+	{
+		<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Who invented JavaScript ?&quot;</span>,
+		<span class="hljs-attr">description</span>: <span class="hljs-string">`<span class="hljs-subst">${descIntro}</span> the father of JavaScript`</span>,
+		<span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-03&quot;</span>,
+	},
+	{
+		<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;My first JavaScript piece&quot;</span>,
+		<span class="hljs-attr">description</span>: <span class="hljs-string">`<span class="hljs-subst">${descIntro}</span> my first JavaScript block`</span>,
+		<span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-10&quot;</span>,
+	},
+	{
+		<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Logging into the console !&quot;</span>,
+		<span class="hljs-attr">description</span>: <span class="hljs-string">`<span class="hljs-subst">${descIntro}</span> messages in the console`</span>,
+		<span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-17&quot;</span>,
+	},
+]
+</code></pre>
 <p><strong>WHAT IS THIS ?!</strong><br>
-This is a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank" rel="external noopener noreferrer">Template string</a>.<br>
-You can pass a variable into a string by writing the whole string inside backtick and call your variable inside a <code>${}</code> at the desired place.<br>
-<code>Template literals</code> are much more powerful than that, they can be used inside functions to create reusable blocks, yes just like template engines...</p>
-<p>On the other hand, if you look at <code>home.js</code> and <code>about.js</code>, they both begin with the same block of code :</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p>To resolve this one, we'll use a <code>global.router</code> configuration.<br>
-Update the content of those files as well as <code>index.js</code> :</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// /routes/home.js</span><br><br><span class="token keyword">const</span> router <span class="token operator">=</span> global<span class="token punctuation">.</span>router<br><br><span class="token keyword">let</span> posts <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./postsListInfo"</span><span class="token punctuation">)</span><br><br><span class="token comment">// Rendering index.ejs on the main route.</span><br>router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"index"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>		<span class="token literal-property property">docTitle</span><span class="token operator">:</span> <span class="token string">"Homepage | EJS App"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">pageTitle</span><span class="token operator">:</span> <span class="token string">"Homepage of templating with EJS application"</span><span class="token punctuation">,</span><br>		<span class="token literal-property property">posts</span><span class="token operator">:</span> posts<span class="token punctuation">,</span><br>	<span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router</code></pre>
-<pre class="language-js"><code class="language-js"><span class="token comment">// /routes/about.js</span><br><br><span class="token keyword">const</span> router <span class="token operator">=</span> global<span class="token punctuation">.</span>router<br><br><span class="token comment">// Rendering about.ejs on /about route.</span><br>router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/about"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"about"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">docTitle</span><span class="token operator">:</span> <span class="token string">"About me | EJS App"</span><span class="token punctuation">,</span> <span class="token literal-property property">pageTitle</span><span class="token operator">:</span> <span class="token string">"A little bit about myself"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router</code></pre>
-<pre class="language-js"><code class="language-js"><span class="token comment">// /index.js complete file</span><br><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token comment">// Set EJS as template engine</span><br>app<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"view engine"</span><span class="token punctuation">,</span> <span class="token string">"ejs"</span><span class="token punctuation">)</span><br><br><span class="token comment">// Serve static files from a folder named public</span><br>app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>express<span class="token punctuation">.</span><span class="token function">static</span><span class="token punctuation">(</span><span class="token string">"public"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><br><span class="token comment">// Require livereload and connectLiveReload</span><br><span class="token keyword">const</span> livereload <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"livereload"</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> connectLiveReload <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"connect-livereload"</span><span class="token punctuation">)</span><br><br><span class="token comment">// Create a server with livereload and fire it up</span><br><span class="token keyword">const</span> liveReloadServer <span class="token operator">=</span> livereload<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><br><span class="token comment">// Refresh the browser after each saved change on the server with a delay of 100 ms</span><br>liveReloadServer<span class="token punctuation">.</span>server<span class="token punctuation">.</span><span class="token function">once</span><span class="token punctuation">(</span><span class="token string">"connection"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>		liveReloadServer<span class="token punctuation">.</span><span class="token function">refresh</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><br>	<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><br><span class="token comment">// Add livereload script to the response</span><br>app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">connectLiveReload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><br><span class="token comment">/** Start Routing */</span><br><span class="token comment">// Parse an express router to a global router variable</span><br><span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token punctuation">(</span>global<span class="token punctuation">.</span>router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><span class="token comment">// Use the global router variable</span><br>app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">)</span><br><span class="token comment">// Execute home.js content on the entry route of the app.</span><br>app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./routes/home"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><span class="token comment">// Execute about.js content on the entry route of the app.</span><br>app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./routes/about"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br><span class="token comment">/** End Routing */</span><br><br><span class="token comment">// Launching the app on port 3000</span><br>app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">App 🚀 @ http://localhost:3000</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+This is a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">Template string</a>.<br>
+You can pass a variable into a string by writing the whole string inside backtick and call your variable inside a <code class="hljs"><span class="hljs-variable">${}</span></code> at the desired place.<br>
+<code class="hljs"><span class="hljs-attribute">Template literals</span></code> are much more powerful than that, they can be used inside functions to create reusable blocks, yes just like template engines...</p>
+<p>On the other hand, if you look at <code class="hljs">home.js</code> and <code class="hljs"><span class="hljs-keyword">about</span>.js</code>, they both begin with the same block of code :</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
+<span class="hljs-keyword">const</span> router = express.<span class="hljs-title class_">Router</span>()
+</code></pre>
+<p>To resolve this one, we'll use a <code class="hljs"><span class="hljs-keyword">global</span>.router</code> configuration.<br>
+Update the content of those files as well as <code class="hljs"><span class="hljs-keyword">index</span>.js</code> :</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/home.js</span>
+
+<span class="hljs-keyword">const</span> router = <span class="hljs-variable language_">global</span>.<span class="hljs-property">router</span>
+
+<span class="hljs-keyword">let</span> posts = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./postsListInfo&quot;</span>)
+
+<span class="hljs-comment">// Rendering index.ejs on the main route.</span>
+router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+	res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;index&quot;</span>, {
+		<span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;Homepage | EJS App&quot;</span>,
+		<span class="hljs-attr">pageTitle</span>: <span class="hljs-string">&quot;Homepage of templating with EJS application&quot;</span>,
+		<span class="hljs-attr">posts</span>: posts,
+	})
+})
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = router
+</code></pre>
+<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/about.js</span>
+
+<span class="hljs-keyword">const</span> router = <span class="hljs-variable language_">global</span>.<span class="hljs-property">router</span>
+
+<span class="hljs-comment">// Rendering about.ejs on /about route.</span>
+router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/about&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+	res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;about&quot;</span>, { <span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;About me | EJS App&quot;</span>, <span class="hljs-attr">pageTitle</span>: <span class="hljs-string">&quot;A little bit about myself&quot;</span> })
+})
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = router
+</code></pre>
+<pre><code class="hljs language-js"><span class="hljs-comment">// /index.js complete file</span>
+<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
+<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>()
+
+<span class="hljs-comment">// Set EJS as template engine</span>
+app.<span class="hljs-title function_">set</span>(<span class="hljs-string">&quot;view engine&quot;</span>, <span class="hljs-string">&quot;ejs&quot;</span>)
+
+<span class="hljs-comment">// Serve static files from a folder named public</span>
+app.<span class="hljs-title function_">use</span>(express.<span class="hljs-title function_">static</span>(<span class="hljs-string">&quot;public&quot;</span>))
+
+<span class="hljs-comment">// Require livereload and connectLiveReload</span>
+<span class="hljs-keyword">const</span> livereload = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;livereload&quot;</span>)
+<span class="hljs-keyword">const</span> connectLiveReload = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;connect-livereload&quot;</span>)
+
+<span class="hljs-comment">// Create a server with livereload and fire it up</span>
+<span class="hljs-keyword">const</span> liveReloadServer = livereload.<span class="hljs-title function_">createServer</span>()
+
+<span class="hljs-comment">// Refresh the browser after each saved change on the server with a delay of 100 ms</span>
+liveReloadServer.<span class="hljs-property">server</span>.<span class="hljs-title function_">once</span>(<span class="hljs-string">&quot;connection&quot;</span>, <span class="hljs-function">() =&gt;</span> {
+	<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+		liveReloadServer.<span class="hljs-title function_">refresh</span>(<span class="hljs-string">&quot;/&quot;</span>)
+	}, <span class="hljs-number">100</span>)
+})
+
+<span class="hljs-comment">// Add livereload script to the response</span>
+app.<span class="hljs-title function_">use</span>(<span class="hljs-title function_">connectLiveReload</span>())
+
+<span class="hljs-comment">/** Start Routing */</span>
+<span class="hljs-comment">// Parse an express router to a global router variable</span>
+<span class="hljs-keyword">const</span> router = (<span class="hljs-variable language_">global</span>.<span class="hljs-property">router</span> = express.<span class="hljs-title class_">Router</span>())
+<span class="hljs-comment">// Use the global router variable</span>
+app.<span class="hljs-title function_">use</span>(router)
+<span class="hljs-comment">// Execute home.js content on the entry route of the app.</span>
+app.<span class="hljs-title function_">use</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./routes/home&quot;</span>))
+<span class="hljs-comment">// Execute about.js content on the entry route of the app.</span>
+app.<span class="hljs-title function_">use</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./routes/about&quot;</span>))
+<span class="hljs-comment">/** End Routing */</span>
+
+<span class="hljs-comment">// Launching the app on port 3000</span>
+app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> {
+	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`App 🚀 @ http://localhost:3000`</span>)
+})
+</code></pre>
 <p>Now you know the basics to organize your backend and make it maintainable.</p>
-<p>To test your new skills, I suggest that you replicate the <strong>Blog</strong> of Pure.css <a href="https://purecss.io/layouts/" target="_blank" rel="external noopener noreferrer">Layouts</a> as a Node.js app.</p>
+<p>To test your new skills, I suggest that you replicate the <strong>Blog</strong> of Pure.css <a href="https://purecss.io/layouts/">Layouts</a> as a Node.js app.</p>
 <p>I hope that this was helpful.</p>
 
-	<p class="author-greetings">SYA,<br>LebCit.</p>
+	<p class="author-greetings">
+		SYA,
+		<br />
+		LebCit.
+	</p>
 </div>
 
+  <style>
+	.post-navigation {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
 
+	.post-navigation a {
+		margin: 1.5em 0;
+		border: 2px solid #000;
+		background: #000;
+		display: inline-block;
+		padding: 0.7rem 0.9rem;
+		font-size: 1rem;
+		line-height: 1;
+		border-radius: 3px;
+		color: #fff;
+		font-weight: 600;
+		cursor: pointer;
+	}
 
-<nav class="post-navigation" aria-label="Post navigation"><a href="/posts/templating-a-nodejs-app-with-ejs/" class="prev-post" rel="prev">Previous: Templating a Node.js app with EJS</a><a href="/posts/express-global-router-for-a-dry-code/" class="next-post" rel="next">Next: Express global router for a DRY code</a>
+	.post-navigation .next-post {
+		grid-column-end: -1;
+	}
+
+	.post-navigation a:hover {
+		color: #fff;
+		box-shadow: 0 0.25em #000;
+	}
+
+	.post-navigation a:active,
+	.post-navigation a:focus {
+		color: #fff;
+		box-shadow: 0.25em 0.25em #000;
+		outline: 0.1em solid;
+	}
+
+	@media screen and (max-width: 48em) {
+		.post-navigation {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, 1fr);
+			grid-row-gap: 16px;
+		}
+
+		.post-navigation a {
+			margin: 0;
+		}
+	}
+</style>
+
+<nav class="post-navigation" aria-label="Post navigation">
+	
+	<a href="/posts/templating-a-nodejs-app-with-ejs" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: Templating a Node.js app with EJS
+	</a>
+	  
+	<a href="/posts/express-global-router-for-a-dry-code" class="next-post" rel="next" aria-label="Go to the next post">Next: Express global router for a DRY code</a>
+	
 </nav>
+   <style>
+	.related-posts div {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
+</style>
 
-
-
-	<div class="related-posts">
-		<h3>SOME RELATED POSTS</h3>
-		<div>
-			<section>
-				<a href="/posts/csp-nonce-with-nodejs-and-ejs/">
-					<img class="img-responsive" src="/img/key-attached-to-another-in-the-lock-of-a-door.webp"
-					
-					
-					alt="Key attached to another in the lock of a door.">
-				</a>
-				<h4>
-					<a href="/posts/csp-nonce-with-nodejs-and-ejs/">CSP nonce with Node.js and EJS</a>
-				</h4>
-			</section>
-			<section>
-				<a href="/posts/templating-a-nodejs-app-with-ejs/">
-					<img class="img-responsive" src="/img/block-of-red-orange-yellow-and-green-lego.webp"
-					
-					
-					alt="Block of red orange yellow and green pieces of lego.">
-				</a>
-				<h4>
-					<a href="/posts/templating-a-nodejs-app-with-ejs/">Templating a Node.js app with EJS</a>
-				</h4>
-			</section>
-		</div>
+<div class="related-posts">
+	<h3>SOME RELATED POSTS</h3>
+	<div>
+		      
+		<section>
+			<a href="/posts/csp-nonce-with-nodejs-and-ejs">
+				    
+				<img
+					class="img-responsive"
+					src="/img/key-attached-to-another-in-the-lock-of-a-door.webp"
+					alt="Key attached to another in the lock of a door"
+				/>
+				
+			</a>
+			<h4>
+				<a href="/posts/csp-nonce-with-nodejs-and-ejs">CSP nonce with Node.js and EJS</a>
+			</h4>
+		</section>
+		      
+		<section>
+			<a href="/posts/templating-a-nodejs-app-with-ejs">
+				    
+				<img
+					class="img-responsive"
+					src="/img/block-of-red-orange-yellow-and-green-lego.webp"
+					alt="Block of red orange yellow and green lego"
+				/>
+				
+			</a>
+			<h4>
+				<a href="/posts/templating-a-nodejs-app-with-ejs">Templating a Node.js app with EJS</a>
+			</h4>
+		</section>
+		
 	</div>
+</div>
+  
+</main>
+				       
+			</div>
+			 <style>
+	.site-footer {
+		text-align: center;
+		padding-top: 2em;
+	}
+	@media (min-width: 64em) {
+		.site-footer {
+			padding: 2em 3em;
+			margin-left: 40%;
+		}
+	}
+</style>
 
+<footer id="colophon" class="site-footer unit-1">
+	        
 
-				</main><!-- #main -->
-			</div><!-- #content -->
+	<div id="site-info" class="site-info">
+		<p>
+			<strong>2016 - 2023 | { LebCit }</strong>
+			<br />
+			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc-space'>Blog-Doc</a>
+		</p>
+	</div>
+</footer>
 
-			<footer id="colophon" class="site-footer unit-1">
-				<div id="site-info" class="site-info">
-					<p>
-						<strong>2016 - 2022 | { LebCit }</strong><br>
-						<span>Proudly created with</span>  <a href="https://www.11ty.dev/" target="_blank">11ty</a>
-					</p>
-				</div><!-- .site-info -->
-			</footer><!-- #colophon -->
-
-			<!-- Current page: /posts/improving-a-nodejs-app-built-with-express-and-ejs/ -->
-			
-		</div><!-- #page -->
-
-		<script type="text/javascript" src="/js/main.min.js"></script>
-
-		
-		
+		</div>
+		 
+		<script src="/js/main.js"></script>
 	</body>
 </html>

@@ -4,10 +4,10 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-	<meta name="description" content="This post is about Blog-Doc, a tiny and dead simple static site generator written in JavaScript" />
+	<meta name="description" content="Make a research in the site&#39;s posts" />
 	
 
-	<title>Blog-Doc, a tiny and dead simple SSG ! | { LebCit }</title>
+	<title>Search | { LebCit }</title>
 
 	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon_32.png" />
 	<link rel="stylesheet" href="/css/main.min.css" />
@@ -45,33 +45,23 @@
 	}
 </style>
 
-
-<style>
-	.single-post :not(pre) code {
-		background-color: #272822;
-		color: #f8f8f2;
-		border-radius: 0.3rem;
-		padding: 4px 5px 5px;
-	}
-</style>
-  
+    
 <style>
 	@media screen and (min-width: 48em) and (max-width: 63.938em) {
 		.post-title {
-			font-size: 3em;
-			margin-top: 0;
+			font-size: 2.5em;
+			margin-bottom: 0.1em;
 		}
 	}
 
 	@media (min-width: 64em) {
 		.post-title {
-			/* will affect single-post*/
-			font-size: 4em;
-			margin-top: 0;
+			font-size: 3em;
+			margin-bottom: 0.1em;
 		}
 	}
 </style>
-    
+  
 <style>
 	.post-meta {
 		color: #16663d;
@@ -95,6 +85,39 @@
 	}
 </style>
   
+<style>
+	
+
+	.read-more-link {
+		display: inline-block;
+        border: 2px solid rgb(61, 79, 93);
+		background: rgb(61, 79, 93);
+		padding: 0.7rem 0.9rem;
+		font-size: 1rem;
+		line-height: 1;
+		border-radius: 3px;
+		color: #fff;
+		font-weight: 600;
+		cursor: pointer;
+	}
+
+	.read-more-link:hover {
+        color: #fff;
+		box-shadow: 0 0.25em rgb(61, 79, 93);
+	}
+
+	.read-more-link:active,
+	.read-more-link:focus {
+		color: #fff;
+		box-shadow: 0.25em 0.25em rgb(61, 79, 93);
+		outline: 0.1em solid;
+	}
+
+	.read-more-link:visited {
+		color: #fff;
+	}
+</style>
+
 
 </head>
 
@@ -342,7 +365,7 @@
 	}
 </style>
 <header id="masthead"  class="site-header unit-1 unit-lg-2-5 bio" style="background-image:
-	url('/img/digital-art-painting-of-giant-clocks-mechanisms.webp')"  >
+	url('/img/daniel-lerman-fr3YLb9UHSQ-unsplash.webp')"  >
 	<div class="site-header-overlay"></div>
 	
 	<div class="sidebar">
@@ -385,180 +408,42 @@
 
 
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				  
-				<main class="single-post"><style>
-	.author-greetings {
-		color: #000;
-		line-height: normal;
-	}
-</style>
-
-<header class="post-header">
-	<h1 class="post-title">Blog-Doc, a tiny and dead simple SSG !</h1>
-	
-	<p class="post-meta">
-		<span>Posted on</span>
-		<span class="posted-on">
-			<time class="postList-date" datetime='2022-11/13'>
-				Sun Nov 13 2022
-			</time>
-		</span>
-
-		<br />
-		Tagged  
-		<span class="post-tag">
-			<a href="/tags/Development">Development</a>
-		</span>
-		
-		<span class="post-tag">
-			<a href="/tags/Node.js">Node.js</a>
-		</span>
-		
-		<span class="post-tag">
-			<a href="/tags/Express">Express</a>
-		</span>
-		
-		<span class="post-tag">
-			<a href="/tags/EJS">EJS</a>
-		</span>
-		
-		<span class="post-tag">
-			<a href="/tags/Markdown">Markdown</a>
-		</span>
-		  
-	</p>
-	
-</header>
-
-<div class="post-content">
-	
-	<p>
-		<em>This post is about Blog-Doc, a tiny and dead simple static site generator written in JavaScript</em>
-		.
-	</p>
-	  <p>Blog-Doc uses EJS as a templating language and Markdown to write and format the markup of the generated posts and pages.</p>
-<h2>Motivation</h2>
-<p>It's after some of my previous tutorials about templating a Node.js app with EJS and turning it to a simple SSG with the ability to write posts and pages in Markdown that I've decided to put it all together and bring it to the light as a proof of concept and prototype.</p>
-<h2>Live demo &amp; documentation</h2>
-<p>An overview of the app and it's documentation can be found on <a href="https://blog-doc.deta.dev/">Blog-Doc</a> live demo site.</p>
-<h2>Nota Bene</h2>
-<p>You can take Blog-Doc as a prototype and modify it totally to use it with another design and/or another template language.</p>
-<p>I really hope that this app will be useful in any way for a lot of people out there, I'm considering it as my personal contribution to the Node.js, Express, EJS and Markdown communities.</p>
-
-	<p class="author-greetings">
-		SYA,
-		<br />
-		LebCit.
-	</p>
-</div>
-
-  <style>
-	.post-navigation {
+				      
+				<main class="site-main"><style>
+	form#searchForm {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 16px;
+	}
+	#searchInput {
+		width: 100%;
+		margin: 10px 0;
+		padding: 10px;
+	}
+	.archive-link {
+		text-decoration: none;
 	}
 
-	.post-navigation a {
-		margin: 1.5em 0;
-		border: 2px solid #000;
-		background: #000;
-		display: inline-block;
-		padding: 0.7rem 0.9rem;
-		font-size: 1rem;
-		line-height: 1;
-		border-radius: 3px;
-		color: #fff;
-		font-weight: 600;
-		cursor: pointer;
-	}
-
-	.post-navigation .next-post {
-		grid-column-end: -1;
-	}
-
-	.post-navigation a:hover {
-		color: #fff;
-		box-shadow: 0 0.25em #000;
-	}
-
-	.post-navigation a:active,
-	.post-navigation a:focus {
-		color: #fff;
-		box-shadow: 0.25em 0.25em #000;
-		outline: 0.1em solid;
-	}
-
-	@media screen and (max-width: 48em) {
-		.post-navigation {
-			display: grid;
-			grid-template-columns: 1fr;
-			grid-template-rows: repeat(2, 1fr);
-			grid-row-gap: 16px;
-		}
-
-		.post-navigation a {
-			margin: 0;
-		}
+	.archive-link:hover,
+	.archive-link:focus {
+		text-decoration: underline;
 	}
 </style>
-
-<nav class="post-navigation" aria-label="Post navigation">
-	
-	<a href="/posts/click-without-javascript" class="prev-post" rel="prev" aria-label="Go to the previous post">
-		Previous: Click without JavaScript !
-	</a>
-	  
-</nav>
-   <style>
-	.related-posts div {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 16px;
-	}
-</style>
-
-<div class="related-posts">
-	<h3>SOME RELATED POSTS</h3>
+<h1>Make a research in the site's posts.</h1>
+<form id="searchForm" 
+	action="/search/index.html" method="GET"  >
 	<div>
-		      
-		<section>
-			<a href="/posts/turn-a-markdown-blog-to-a-simple-ssg">
-				    
-				<img
-					class="img-responsive"
-					src="/img/connected-gears-inside-pocket-watch.webp"
-					alt="Connected gears inside pocket watch"
-				/>
-				
-			</a>
-			<h4>
-				<a href="/posts/turn-a-markdown-blog-to-a-simple-ssg">Turn a Markdown blog to a simple SSG</a>
-			</h4>
-		</section>
-		      
-		<section>
-			<a href="/posts/markdown-blog-with-ejs">
-				    
-				<img
-					class="img-responsive"
-					src="/img/markdown-logo-with-white-background.webp"
-					alt="Markdown logo with white background"
-				/>
-				
-			</a>
-			<h4>
-				<a href="/posts/markdown-blog-with-ejs">Markdown blog with EJS</a>
-			</h4>
-		</section>
-		
+		<label for="searchInput">Searchbox at your service :</label>
+		<input id="searchInput" name="searchString" type="search" placeholder="Type your search's keyword(s) here..." />
 	</div>
+	<button type="submit" class="read-more-link">CLICK ME TO LAUNCH YOUR SEARCH !</button>
+</form>
+
+<div id="searchResult">
+	
 </div>
+
   
 </main>
-				       
+				   
 			</div>
 			 <style>
 	.site-footer {
@@ -574,7 +459,25 @@
 </style>
 
 <footer id="colophon" class="site-footer unit-1">
-	        
+	
+<style>
+	/* more then 1023px an less then 1024px */
+	@media (max-width: 63.969em) {
+		.hide {
+			display: none;
+		}
+	}
+</style>
+    
+<p class="post-content hide">
+	<em>
+		Note:
+		<a href="https://unsplash.com/photos/fr3YLb9UHSQ">background photo</a>
+		used, by
+		<a href="https://unsplash.com/@dlerman6">Daniel Lerman</a>
+	</em>
+</p>
+    
 
 	<div id="site-info" class="site-info">
 		<p>
@@ -587,6 +490,8 @@
 
 		</div>
 		 
+		<script src="/js/search.js"></script>
+		
 		<script src="/js/main.js"></script>
 	</body>
 </html>

@@ -1,207 +1,643 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-			<title>Listen for changes in Customizer Preview ! - { LebCit }</title>
-		
-		<meta name="description" content="This post is about how to listen for any changes in WordPress Customizer Preview.">
-		<link rel="stylesheet" href="/css/main.min.css">
-		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{ LebCit }">
-		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{ LebCit }">
-		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"/>
-		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png"/>
-		<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/favicon/apple-touch-icon.png"/>
-		<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-chrome-192x192.png"/>
-		<link rel="icon" type="image/png" sizes="512x512" href="/img/favicon/android-chrome-512x512.png"/>
-		<link href="https://unpkg.com/prismjs@1.23.0/themes/prism-okaidia.css" rel="stylesheet">
-		
-	</head>
-	<body>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
+	<meta name="description" content="This post is about how to listen for any changes in WordPress Customizer Preview" />
+	
+
+	<title>Listen for changes in Customizer Preview ! | { LebCit }</title>
+
+	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon_32.png" />
+	<link rel="stylesheet" href="/css/main.min.css" />
+	<link rel="stylesheet" href="/css/code-theme.min.css" />
+	<style>
+	.post-title {
+		font-size: 2em;
+		color: #222;
+		margin-bottom: 0.2em;
+	}
+
+	.post-content {
+		color: #444;
+		line-height: 1.8em;
+	}
+
+	.post-content a {
+		color: #000036;
+		text-decoration-line: underline;
+		text-decoration-color: #ea215a;
+		text-decoration-style: double;
+		text-decoration-thickness: 0.125em;
+		text-underline-offset: 1.5px;
+		text-decoration-skip-ink: none;
+		transition: 0.5s;
+	}
+
+	.post-content a:hover,
+	.post-content a:focus,
+	.post-content a:active {
+		text-decoration: none;
+		color: white;
+		box-shadow: inset 0 -1.3em 0 0 #000;
+		outline: thin dotted #ea215a;
+	}
+</style>
+
+
+<style>
+	.single-post :not(pre) code {
+		background-color: #272822;
+		color: #f8f8f2;
+		border-radius: 0.3rem;
+		padding: 4px 5px 5px;
+	}
+</style>
+  
+<style>
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.post-title {
+			font-size: 3em;
+			margin-top: 0;
+		}
+	}
+
+	@media (min-width: 64em) {
+		.post-title {
+			/* will affect single-post*/
+			font-size: 4em;
+			margin-top: 0;
+		}
+	}
+</style>
+    
+<style>
+	.post-meta {
+		color: #16663d;
+		font-size: 90%;
+		margin: 0;
+	}
+
+	.posted-on {
+		color: #ad1a36;
+	}
+
+	.post-tag {
+		margin: 0 0.1em;
+		padding: 0.2em 0.8em;
+		background: #ad1a36;
+		font-size: 80%;
+	}
+
+	.post-tag a {
+		color: #fff;
+	}
+</style>
+  
+
+</head>
+
+
+	<body>
 		<div id="page" class="site grid">
 			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
-				<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
-				<div class="overlay-content">
-						<a href="/">Home</a>
-						<a href="/about/">About</a>
-						<a href="/posts/">Archive</a>
-						<a href="/tags/">Tags</a>
-					<a href="https://github.com/LebCit" target="_blank">GitHub</a>
-				</div>
-			</div>
 
-			<header id="masthead"
-				
-					class="site-header unit-1 unit-lg-2-5 bio"
-					style="background-image:url(/img/ears-of-chiatto-bunny.webp)"
-				
-			>
-				<div class="site-header-overlay"></div>
-				<div class="sidebar">
-					<div class="site-branding">
-						<h1 class="site-title">
-							<a href="/">{ LebCit }</a>
-						</h1>
-						<p class="site-description">
-							Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !
-						</p>
-					</div>
+			<style>
+	.invisible {
+		visibility: hidden;
+	}
 
-					<nav id="nav" class="nav" aria-label="MENU">
-						<ul class="nav-list">
-							<li class="nav-item">
-								<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
-									<span>MENU</span>
-									<span class="menu-icon" aria-hidden="true">
-										<svg version='1.1' x='0px' y='0px' width='30px' height='30px' viewbox='0 0 30 30' enable-background='new 0 0 30 30'><rect width='30' height='5'/><rect y='24' width='30' height='5'/><rect y='12' width='30' height='5'/></svg>
-									</span>
-								</a>
-							</li>
-						</ul>
+	.overlay {
+		position: fixed;
+		width: 0;
+		height: 100%;
+		top: 0;
+		right: 0;
+		background-color: rgba(0, 0, 0, 0.9);
+		z-index: 2;
+		letter-spacing: normal;
+		overflow-x: hidden;
+		transition: 0.5s;
+	}
 
-					</nav><!-- #site-navigation -->
-				</div>
-			</header><!-- #masthead -->
+	.overlay-content {
+		position: relative;
+		top: 25%;
+		width: 100%;
+		text-align: center;
+		margin-top: 30px;
+	}
+
+	.overlay li {
+		list-style: none;
+	}
+
+	.overlay a {
+		padding: 8px;
+		text-decoration: none;
+		font-size: 36px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+	}
+
+	.overlay a:hover,
+	.overlay a:focus {
+		color: #f1f1f1;
+		background-color: #222;
+		border: 1px solid red;
+		border-style: dashed;
+	}
+
+	.overlay .close-button {
+		position: absolute;
+		top: 20px;
+		right: 45px;
+		font-size: 60px;
+	}
+</style>
+
+<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+	<a href="javascript:void(0)" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">
+		&times;
+	</a>
+	
+	<div class="overlay-content">
+		<a href="/">Home</a>
+		
+		<li class="pure-menu-item">
+			<a href="/posts">Archive</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/tags">Tags</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/search">Search</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/pages/about">About Me</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/rss.xml">RSS</a>
+		</li>
+		
+	</div>
+</div>
+  <style>
+	/* SITE HEADER */
+	.site-header {
+		background: rgb(61, 79, 93);
+		color: #fff;
+	}
+
+	.sidebar {
+		margin: 1em;
+	}
+
+	.site-title,
+	.site-description {
+		margin: 0;
+		line-height: 1.2;
+	}
+
+	.site-title a {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.site-title a:hover,
+	.site-title a:focus {
+		text-decoration: underline;
+	}
+
+	.site-description {
+		font-weight: 300;
+		color: rgb(176, 202, 219);
+		margin: 0.5em 0 2em 0;
+	}
+
+	/* MENU BUTTON */
+	.nav-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.nav-item {
+		display: inline-block;
+	}
+
+	.nav-item a {
+		background: black;
+		border: 2px solid rgb(176, 202, 219);
+		border-radius: 2px;
+		color: #fff;
+		padding: 0.5em 1em;
+		margin-top: 1em;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		font-size: 85%;
+	}
+
+	.nav-item a:hover,
+	.nav-item a:focus {
+		border: 2px solid rgb(61, 146, 201);
+		text-decoration: none;
+	}
+
+	.nav-item a svg {
+		fill: aliceblue;
+		vertical-align: bottom;
+		padding: 4px 0 2px;
+	}
+
+	@media screen and (max-width: 35.5em) {
+		.nav-item a svg {
+			padding-top: 14px;
+		}
+	}
+
+	@media screen and (min-width: 35.5em) and (max-width: 48em) {
+		.nav-item a svg {
+			padding-top: 12px;
+		}
+	}
+
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.nav-item a svg {
+			padding-top: 10px;
+		}
+	}
+
+	/* more then 1023px an less then 1024px */
+	@media (max-width: 63.969em) {
+		.site-header.bio {
+			background-image: none !important;
+		}
+		.nav {
+			position: fixed;
+			top: 15px;
+			right: 10px;
+			z-index: 1;
+		}
+	}
+
+	@media (min-width: 64em) {
+		.site-header {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			overflow-y: auto;
+		}
+
+		.site-header.bio {
+			background-repeat: no-repeat;
+			background-position: top;
+			background-size: cover;
+		}
+
+		.site-header.bio .site-header-overlay {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.6);
+		}
+
+		/* The emerging W3C standard
+ that is currently Firefox-only */
+		.site-header {
+			scrollbar-width: thin;
+		}
+
+		/* Works on Chrome/Edge/Safari */
+		.site-header::-webkit-scrollbar {
+			width: 7px;
+		}
+
+		.site-header::-webkit-scrollbar-track {
+			background: #313d48;
+		}
+
+		.site-header::-webkit-scrollbar-thumb {
+			background-color: #81898f;
+		}
+
+		.sidebar {
+			margin: 10% 2em;
+			text-align: left;
+		}
+
+		.site-header.bio .sidebar {
+			position: sticky;
+		}
+	}
+</style>
+<header id="masthead"  class="site-header unit-1 unit-lg-2-5 bio" style="background-image:
+	url('/img/ears-of-chiatto-bunny.webp')"  >
+	<div class="site-header-overlay"></div>
+	
+	<div class="sidebar">
+		<div class="site-branding">
+			<h1 class="site-title">
+				<a href="/">{ LebCit }</a>
+			</h1>
+			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !</p>
+		</div>
+
+		
+		<nav id="nav" class="nav" aria-label="MENU">
+			<ul class="nav-list">
+				<li class="nav-item">
+					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+						<span>MENU</span>
+						<span class="menu-icon" aria-hidden="true">
+							<svg
+								version="1.1"
+								x="0px"
+								y="0px"
+								width="30px"
+								height="30px"
+								viewbox="0 0 30 30"
+								enable-background="new 0 0 30 30"
+							>
+								<rect width="30" height="5" />
+								<rect y="24" width="30" height="5" />
+								<rect y="12" width="30" height="5" />
+							</svg>
+						</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		
+	</div>
+	
+</header>
+
 
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				<main  class="single-post" >
-					
-<header class="post-header">
-		<h1 class="post-title">Listen for changes in Customizer Preview !</h1>
-		
-		
-		<p class="post-meta">
-			<span>Posted on</span>
-			<span class="posted-on">
-				<time class="post-date" datetime="2020-05-24">24 May 2020</time>
-			</span>
-			
+				  
+				<main class="single-post"><style>
+	.author-greetings {
+		color: #000;
+		line-height: normal;
+	}
+</style>
 
-			
-			
-				<br>
-				Tagged
-				
-					<span class="post-tag">
-						<a href="/tags/Customizer/">Customizer</a>
-					</span>
-					<span class="post-tag">
-						<a href="/tags/Development/">Development</a>
-					</span>
-					<span class="post-tag">
-						<a href="/tags/Tips and Tricks/">Tips and Tricks</a>
-					</span>
-			
-		</p>
+<header class="post-header">
+	<h1 class="post-title">Listen for changes in Customizer Preview !</h1>
+	
+	<p class="post-meta">
+		<span>Posted on</span>
+		<span class="posted-on">
+			<time class="postList-date" datetime='2020-05/24'>
+				Sun May 24 2020
+			</time>
+		</span>
+
+		<br />
+		Tagged  
+		<span class="post-tag">
+			<a href="/tags/Development">Development</a>
+		</span>
 		
+		<span class="post-tag">
+			<a href="/tags/Tips and Tricks">Tips and Tricks</a>
+		</span>
+		
+		<span class="post-tag">
+			<a href="/tags/Customizer">Customizer</a>
+		</span>
+		  
+	</p>
+	
 </header>
 
 <div class="post-content">
-  <p><em>This post is about how to listen for any changes in WordPress Customizer Preview.</em></p>
-<p>One of the most beautiful functionalities of WordPress is the Customizer, because it allows developers to give a simple way for users to modify themes/plugins appearance and behavior.<br>
+	
+	<p>
+		<em>This post is about how to listen for any changes in WordPress Customizer Preview</em>
+		.
+	</p>
+	  <p>One of the most beautiful functionalities of WordPress is the Customizer, because it allows developers to give a simple way for users to modify themes/plugins appearance and behavior.<br>
 However, this beauty has it's own code of conduct.<br>
 Let's scratch it a little bit to find out how to listen for changes in the Customizer Preview.</p>
 <p>I always like to assume that the reader maybe a beginner, like I was a long time ago, and explain everything from A to Z, so she/he can follow the tutorial or jump to any part according to her/his experience.</p>
-<p>For simplicity and practice, as usual 😊, I’ll be using an <a href="https://underscores.me/" target="_blank" rel="external noopener noreferrer">_s</a> (underscores) generated theme, and call it <em>Customizer Preview</em> 😉. It’s a 1 minute process, so don’t be afraid, type in the <em>Theme Name,</em> download it, and upload it like any other theme under <em>Appearance &gt; Themes &gt; Add New &gt; Upload Theme</em>.<br>
+<p>For simplicity and practice, as usual 😊, I’ll be using an <a href="https://underscores.me/">_s</a> (underscores) generated theme, and call it <em>Customizer Preview</em> 😉. It’s a 1 minute process, so don’t be afraid, type in the <em>Theme Name,</em> download it, and upload it like any other theme under <em>Appearance &gt; Themes &gt; Add New &gt; Upload Theme</em>.<br>
 Now you’re all set and we can begin.</p>
-<h2 id="understanding-how-it%E2%80%99s-related">Understanding how it’s related <a class="direct-link" href="#understanding-how-it%E2%80%99s-related">#</a></h2>
-<p>In the <a href="https://codex.wordpress.org/Functions_File_Explained" target="_blank" rel="external noopener noreferrer">functions.php</a> file, search for <em>customizer.php</em>, you’ll find a line like this one :</p>
-<pre class="language-php"><code class="language-php"><span class="token keyword">require</span> <span class="token function">get_template_directory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'/inc/customizer.php'</span><span class="token punctuation">;</span></code></pre>
-<p>So the file <a href="https://codex.wordpress.org/Theme_Customization_API" target="_blank" rel="external noopener noreferrer">customizer.php</a> is located in a folder named <strong><em>inc</em></strong> at the root of the theme.<br>
+<h2>Understanding how it’s related</h2>
+<p>In the <a href="https://codex.wordpress.org/Functions_File_Explained">functions.php</a> file, search for <em>customizer.php</em>, you’ll find a line like this one :</p>
+<pre><code class="hljs language-php"><span class="hljs-keyword">require</span> <span class="hljs-title function_ invoke__">get_template_directory</span>() . <span class="hljs-string">&#x27;/inc/customizer.php&#x27;</span>;
+</code></pre>
+<p>So the file <a href="https://codex.wordpress.org/Theme_Customization_API">customizer.php</a> is located in a folder named <strong><em>inc</em></strong> at the root of the theme.
 If you look inside this file, at the very bottom, you’ll find a little block of code like this one :</p>
-<pre class="language-php"><code class="language-php"><span class="token comment">/**<br> * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.<br> */</span><br><span class="token keyword">function</span> <span class="token function-definition function">customizer_preview_customize_preview_js</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token function">wp_enqueue_script</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'customizer-preview-customizer'</span><span class="token punctuation">,</span> <span class="token function">get_template_directory_uri</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'/js/customizer.js'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'customize-preview'</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'20151215'</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'customize_preview_init'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'customizer_preview_customize_preview_js'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre><code class="hljs language-php"><span class="hljs-comment">/**
+ * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">customizer_preview_customize_preview_js</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-title function_ invoke__">wp_enqueue_script</span>( <span class="hljs-string">&#x27;customizer-preview-customizer&#x27;</span>, <span class="hljs-title function_ invoke__">get_template_directory_uri</span>() . <span class="hljs-string">&#x27;/js/customizer.js&#x27;</span>, <span class="hljs-keyword">array</span>( <span class="hljs-string">&#x27;customize-preview&#x27;</span> ), <span class="hljs-string">&#x27;20151215&#x27;</span>, <span class="hljs-literal">true</span> );
+}
+<span class="hljs-title function_ invoke__">add_action</span>( <span class="hljs-string">&#x27;customize_preview_init&#x27;</span>, <span class="hljs-string">&#x27;customizer_preview_customize_preview_js&#x27;</span> );
+</code></pre>
 <p>So here, we have a call for another file <strong>customizer.js</strong>, located in a folder named <strong><em>js</em></strong> at the root of the theme.<br>
 If you take a look inside it, you’ll find a bunch of code allowing us to view the changes we make from the Customizer.</p>
-<h2 id="the-customizer%E2%80%99s-parts">The Customizer’s Parts <a class="direct-link" href="#the-customizer%E2%80%99s-parts">#</a></h2>
-<p>When you open the Customizer, you’ll find yourself in front of a screen with two parts :<br>
+<h2>The Customizer’s Parts</h2>
+<p>When you open the Customizer, you’ll find yourself in front of a screen with two parts :
 a- the <strong>Customizer Pane</strong> where the <strong>Controls</strong> (like Background Image) of a theme are defined in <strong>customizer.php</strong><br>
 b- the <strong>Customizer Preview</strong> where the <strong>Settings</strong> defined in <strong>customizer.js</strong> act like a bridge between the Controls and their related Partials.</p>
 <p>A <strong>Partial</strong> is simply a particular part of a theme like the header, the body, the footer, the logo, the site title, the tagline… and so on.</p>
 <p>As an example, you could have a Control to control the site title color by a Setting linking that color Control to the desired Partial (here the site title).<br>
 Now, when you change the color Control in the Pane, the defined Setting for this color Control calls the related Partial in the Preview and tells him to change according to the modifications of his Control.</p>
-<p>If you want to dive more into that, you can read about the <a href="https://developer.wordpress.org/themes/customize-api/customizer-objects/" target="_blank" rel="external noopener noreferrer">Customizer Objects</a> in the Theme Handbook.</p>
-<h2 id="listening-to-changes">Listening to changes <a class="direct-link" href="#listening-to-changes">#</a></h2>
+<p>If you want to dive more into that, you can read about the <a href="https://developer.wordpress.org/themes/customize-api/customizer-objects/">Customizer Objects</a> in the Theme Handbook.</p>
+<h2>Listening to changes</h2>
 <p>At this point, you understand how the Customizer’s parts communicate.<br>
 But what if you need to listen for changes in the Preview ?<br>
 This will be mostly a need if you are a developer or in the process of becoming one 💪👍</p>
 <p>Quick quizz. Where do you think the following code will go ?<br>
 Don’t look under the code before giving an answer 😁</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// Listen for any changes in the Customizer Preview.</span><br>wp<span class="token punctuation">.</span><span class="token function">customize</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token string">"change"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">setting</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>	<span class="token comment">// Target the Setting, let's take background_image as an example.</span><br>	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">===</span> setting<span class="token punctuation">.</span>id<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"background_image"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>		<span class="token comment">// The background is empty by default.</span><br>		<span class="token comment">// So, we begin by listening to a non empty value,</span><br>		<span class="token comment">// to catch the first change when it happens !</span><br>		<span class="token keyword">if</span> <span class="token punctuation">(</span>setting<span class="token punctuation">.</span>_value <span class="token operator">!=</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>			console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"I Now Have A Background 🙂"</span><span class="token punctuation">)</span><br>		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><br>			console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"I Do Not Have A Background 🙁"</span><span class="token punctuation">)</span><br>		<span class="token punctuation">}</span><br>	<span class="token punctuation">}</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<pre><code class="hljs language-js"><span class="hljs-comment">// Listen for any changes in the Customizer Preview.</span>
+wp.<span class="hljs-property">customize</span>.<span class="hljs-title function_">bind</span>(<span class="hljs-string">&quot;change&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">setting</span>) {
+	<span class="hljs-comment">// Target the Setting, let&#x27;s take background_image as an example.</span>
+	<span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> === setting.<span class="hljs-property">id</span>.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;background_image&quot;</span>)) {
+		<span class="hljs-comment">// The background is empty by default.</span>
+		<span class="hljs-comment">// So, we begin by listening to a non empty value,</span>
+		<span class="hljs-comment">// to catch the first change when it happens !</span>
+		<span class="hljs-keyword">if</span> (setting.<span class="hljs-property">_value</span> != <span class="hljs-string">&quot;&quot;</span>) {
+			<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;I Now Have A Background 🙂&quot;</span>)
+		} <span class="hljs-keyword">else</span> {
+			<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;I Do Not Have A Background 🙁&quot;</span>)
+		}
+	}
+})
+</code></pre>
 <p>What does this code do ?<br>
-It listen to any <code>'change'</code> of a defined <code>( setting )</code>.<br>
+It listen to any <code class="hljs"><span class="hljs-symbol">&#x27;change</span>&#x27;</code> of a defined <code class="hljs">( <span class="hljs-keyword">setting</span> )</code>.<br>
 Remember, a Setting is a bridge allowing communication between a Control and it’s related Partial.<br>
 So when a communication occurs, a change is ongoing and then done !<br>
-In the example above, we are listening to any change on the <code>background_image</code>.</p>
-<p>Did you try to look for <code>background_image</code> in the generated theme from underscores ?!<br>
+In the example above, we are listening to any change on the <code class="hljs"><span class="hljs-attribute">background_image</span></code>.</p>
+<p>Did you try to look for <code class="hljs"><span class="hljs-attribute">background_image</span></code> in the generated theme from underscores ?!<br>
 If you did, you know by now that it’s not here 🤔 and if you didn’t, don’t, you will not find it !<br>
 Well, I’ve used it as an example to grab your attention on Core Controls/Settings !<br>
 Some Controls/Settings comes with WordPress by default, they can be modified or removed, but this will be for another article.</p>
-<p>I didn’t forget, I just delayed it 😈<br>
+<p>I didn’t forget, I just delayed it 😈
 The code above should go inside <strong>customizer.js</strong> between a :</p>
-<pre class="language-js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">$</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token constant">YES</span> <span class="token constant">HERE</span> <span class="token operator">...</span> <span class="token punctuation">}</span> <span class="token punctuation">(</span>jQuery<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre><code class="hljs language-js">(<span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) { ... <span class="hljs-variable constant_">YES</span> <span class="hljs-variable constant_">HERE</span> ... } (jQuery));
+</code></pre>
 <p>I really hope that this will be useful.</p>
 
-	<p class="author-greetings">SYA,<br>LebCit.</p>
+	<p class="author-greetings">
+		SYA,
+		<br />
+		LebCit.
+	</p>
 </div>
 
+  <style>
+	.post-navigation {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
 
+	.post-navigation a {
+		margin: 1.5em 0;
+		border: 2px solid #000;
+		background: #000;
+		display: inline-block;
+		padding: 0.7rem 0.9rem;
+		font-size: 1rem;
+		line-height: 1;
+		border-radius: 3px;
+		color: #fff;
+		font-weight: 600;
+		cursor: pointer;
+	}
 
-<nav class="post-navigation" aria-label="Post navigation"><a href="/posts/hide-wordpress-toolbar-with-wp_add_inline_style/" class="prev-post" rel="prev">Previous: Hide WordPress Toolbar with wp_add_inline_style</a><a href="/posts/change-page-title-dynamically/" class="next-post" rel="next">Next: Change page title dynamically</a>
+	.post-navigation .next-post {
+		grid-column-end: -1;
+	}
+
+	.post-navigation a:hover {
+		color: #fff;
+		box-shadow: 0 0.25em #000;
+	}
+
+	.post-navigation a:active,
+	.post-navigation a:focus {
+		color: #fff;
+		box-shadow: 0.25em 0.25em #000;
+		outline: 0.1em solid;
+	}
+
+	@media screen and (max-width: 48em) {
+		.post-navigation {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, 1fr);
+			grid-row-gap: 16px;
+		}
+
+		.post-navigation a {
+			margin: 0;
+		}
+	}
+</style>
+
+<nav class="post-navigation" aria-label="Post navigation">
+	
+	<a href="/posts/hide-wordpress-toolbar-with-wp_add_inline_style" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: Hide WordPress Toolbar with wp_add_inline_style
+	</a>
+	  
+	<a href="/posts/change-page-title-dynamically" class="next-post" rel="next" aria-label="Go to the next post">Next: Change page title dynamically</a>
+	
 </nav>
+   <style>
+	.related-posts div {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
+</style>
 
-
-
-	<div class="related-posts">
-		<h3>SOME RELATED POSTS</h3>
-		<div>
-			<section>
-				<a href="/posts/modifying-wordpress-theme-copyright-from-the-customizer/">
-					<img class="img-responsive" src="/img/copyright-word-under-magnifying-glass.webp"
-					
-					
-					alt="Copyright word under magnifying glass.">
-				</a>
-				<h4>
-					<a href="/posts/modifying-wordpress-theme-copyright-from-the-customizer/">Modifying WordPress theme&#39;s copyright from the Customizer</a>
-				</h4>
-			</section>
-			<section>
-				<a href="/posts/creating-a-customizer-control-with-javascript/">
-					<img class="img-responsive" src="/img/screenshot-creating-a-customizer-control-with-javascript.webp"
-					
-					
-					alt="Screenshot creating a customizer control with javascript.">
-				</a>
-				<h4>
-					<a href="/posts/creating-a-customizer-control-with-javascript/">Creating a Customizer control with JavaScript</a>
-				</h4>
-			</section>
-		</div>
+<div class="related-posts">
+	<h3>SOME RELATED POSTS</h3>
+	<div>
+		      
+		<section>
+			<a href="/posts/creating-a-customizer-control-with-javascript">
+				    
+				<img
+					class="img-responsive"
+					src="/img/screenshot-creating-a-customizer-control-with-javascript.webp"
+					alt="Screenshot creating a customizer control with javascript"
+				/>
+				
+			</a>
+			<h4>
+				<a href="/posts/creating-a-customizer-control-with-javascript">Creating a Customizer control with JavaScript</a>
+			</h4>
+		</section>
+		      
+		<section>
+			<a href="/posts/modifying-wordpress-theme-copyright-from-the-customizer">
+				    
+				<img
+					class="img-responsive"
+					src="/img/copyright-word-under-magnifying-glass.webp"
+					alt="Copyright word under magnifying glass"
+				/>
+				
+			</a>
+			<h4>
+				<a href="/posts/modifying-wordpress-theme-copyright-from-the-customizer">Modifying WordPress theme&#39;s copyright from the Customizer</a>
+			</h4>
+		</section>
+		
 	</div>
+</div>
+  
+</main>
+				       
+			</div>
+			 <style>
+	.site-footer {
+		text-align: center;
+		padding-top: 2em;
+	}
+	@media (min-width: 64em) {
+		.site-footer {
+			padding: 2em 3em;
+			margin-left: 40%;
+		}
+	}
+</style>
 
+<footer id="colophon" class="site-footer unit-1">
+	        
 
-				</main><!-- #main -->
-			</div><!-- #content -->
+	<div id="site-info" class="site-info">
+		<p>
+			<strong>2016 - 2023 | { LebCit }</strong>
+			<br />
+			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc-space'>Blog-Doc</a>
+		</p>
+	</div>
+</footer>
 
-			<footer id="colophon" class="site-footer unit-1">
-				<div id="site-info" class="site-info">
-					<p>
-						<strong>2016 - 2022 | { LebCit }</strong><br>
-						<span>Proudly created with</span>  <a href="https://www.11ty.dev/" target="_blank">11ty</a>
-					</p>
-				</div><!-- .site-info -->
-			</footer><!-- #colophon -->
-
-			<!-- Current page: /posts/listen-for-changes-in-customizer-preview/ -->
-			
-		</div><!-- #page -->
-
-		<script type="text/javascript" src="/js/main.min.js"></script>
-
-		
-		
+		</div>
+		 
+		<script src="/js/main.js"></script>
 	</body>
 </html>

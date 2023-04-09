@@ -6,9 +6,27 @@
 		<description>Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !</description>
 		<language>en-US</language>
 		<copyright>Copyright (c) 2022 - Present, LebCit under the MIT License</copyright>
-		<pubDate>Sat, 12 Nov 2022 22:00:00 GMT</pubDate>
-		<lastBuildDate>Sat, 12 Nov 2022 22:00:00 GMT</lastBuildDate>
+		<pubDate>Sat, 08 Apr 2023 21:00:00 GMT</pubDate>
+		<lastBuildDate>Sat, 08 Apr 2023 21:00:00 GMT</lastBuildDate>
 		<docs>https://www.rssboard.org/rss-specification</docs>
+		
+			<item>
+				<title>Blog-Doc, The Simplest Node.js CMS &amp; SSG !</title>
+				<link>https://lebcit.github.io/posts/blog-doc-the-simplest-nodejs-cms-ssg</link>
+				
+				<description>turning Blog-Doc into a CMS and SSG</description>
+				
+				
+				
+				<category domain="https://lebcit.github.io/tags/Blog-Doc">Blog-Doc</category>
+				
+				<category domain="https://lebcit.github.io/tags/CMS">CMS</category>
+				
+				<category domain="https://lebcit.github.io/tags/SSG">SSG</category>
+				
+				
+				<pubDate>Sat, 08 Apr 2023 21:00:00 GMT</pubDate>
+			</item>
 		
 			<item>
 				<title>Blog-Doc, a tiny and dead simple SSG !</title>

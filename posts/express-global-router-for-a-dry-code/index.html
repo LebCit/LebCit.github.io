@@ -11,8 +11,10 @@
 
 	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon_32.png" />
 	<link rel="stylesheet" href="/css/main.min.css" />
-	<link rel="stylesheet" href="/css/code-theme.min.css" />
-	<style>
+
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs-okaidia-theme/prism-okaidia.min.css" />
+	  <style>
 	.post-title {
 		font-size: 2em;
 		color: #222;
@@ -430,67 +432,67 @@
 	</p>
 	  <p>When developing a Node.js app with Express, we'll usually have two or more routes.<br>
 If we use the <a href="https://expressjs.com/en/guide/routing.html#express-router">express.Router</a> class to put each route in a separate file, we'll always have to begin with the same block of code :</p>
-<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
-<span class="hljs-keyword">const</span> router = express.<span class="hljs-title class_">Router</span>()
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <p>There is a better approach by using a global router.</p>
-<p>In the main server file, we'll parse an <a href="https://expressjs.com/en/guide/routing.html#express-router">express.Router</a> to a <code class="hljs"><span class="hljs-keyword">global</span>.router</code> assigned to a <code class="hljs"><span class="hljs-attribute">router</span></code> variable, and in each route we'll only use this global router.</p>
-<p>Let's say we have only two routes : main <code class="hljs"><span class="hljs-string">&quot;/&quot;</span></code> and about <code class="hljs"><span class="hljs-string">&quot;/about&quot;</span></code>.<br>
+<p>In the main server file, we'll parse an <a href="https://expressjs.com/en/guide/routing.html#express-router">express.Router</a> to a <code>global.router</code> assigned to a <code>router</code> variable, and in each route we'll only use this global router.</p>
+<p>Let's say we have only two routes : main <code>&quot;/&quot;</code> and about <code>&quot;/about&quot;</code>.<br>
 Following the common way, any route in it's own file will look like :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/aRoute.js</span>
-<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
-<span class="hljs-keyword">const</span> router = express.<span class="hljs-title class_">Router</span>()
+<pre class="language-js"><code class="language-js"><span class="token comment">// /routes/aRoute.js</span>
+<span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
-	res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;A route content&quot;</span>)
-})
+router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+	res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">"A route content"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
 <p>Then, in the main server file we'll have :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /index.js</span>
-...
-app.<span class="hljs-title function_">use</span>(<span class="hljs-string">&quot;/a-route&quot;</span>, <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./routes/aRoute&quot;</span>))
-...
+<pre class="language-js"><code class="language-js"><span class="token comment">// /index.js</span>
+<span class="token operator">...</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">"/a-route"</span><span class="token punctuation">,</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./routes/aRoute"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token operator">...</span>
 </code></pre>
 <p>But by using a global router we can do the following :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /index.js</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// /index.js</span>
 
-<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
-<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>()
+<span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="hljs-comment">// Parse an express router to a global router variable</span>
-<span class="hljs-keyword">const</span> router = (<span class="hljs-variable language_">global</span>.<span class="hljs-property">router</span> = express.<span class="hljs-title class_">Router</span>())
-<span class="hljs-comment">// Use the global router variable</span>
-app.<span class="hljs-title function_">use</span>(router)
+<span class="token comment">// Parse an express router to a global router variable</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token punctuation">(</span>global<span class="token punctuation">.</span>router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">// Use the global router variable</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">)</span>
 
-<span class="hljs-comment">// Routes</span>
-app.<span class="hljs-title function_">use</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./routes/main&quot;</span>))
-app.<span class="hljs-title function_">use</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./routes/about&quot;</span>))
+<span class="token comment">// Routes</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./routes/main"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./routes/about"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-<span class="hljs-comment">// Launching the app on port 3000</span>
-app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> {
-	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`App 🚀 @ http://localhost:3000`</span>)
-})
+<span class="token comment">// Launching the app on port 3000</span>
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">App 🚀 @ http://localhost:3000</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
 <p>Then our two routes will look like so :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/main.js</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// /routes/main.js</span>
 
-<span class="hljs-keyword">const</span> router = <span class="hljs-variable language_">global</span>.<span class="hljs-property">router</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> global<span class="token punctuation">.</span>router
 
-router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
-	res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;Welcome to the main route&quot;</span>)
-})
+router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+	res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">"Welcome to the main route"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = router
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router
 </code></pre>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/about.js</span>
+<pre class="language-js"><code class="language-js"><span class="token comment">// /routes/about.js</span>
 
-<span class="hljs-keyword">const</span> router = <span class="hljs-variable language_">global</span>.<span class="hljs-property">router</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> global<span class="token punctuation">.</span>router
 
-router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/about&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
-	res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;Welcome to the about route&quot;</span>)
-})
+router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/about"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+	res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">"Welcome to the about route"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = router
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router
 </code></pre>
 <p>Hope this will help you write a DRY code.</p>
 
@@ -637,7 +639,10 @@ router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&
 </footer>
 
 		</div>
-		 
+		   
+		<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+		
+
 		<script src="/js/main.js"></script>
 	</body>
 </html>

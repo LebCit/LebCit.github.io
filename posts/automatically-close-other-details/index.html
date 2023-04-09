@@ -11,8 +11,10 @@
 
 	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon_32.png" />
 	<link rel="stylesheet" href="/css/main.min.css" />
-	<link rel="stylesheet" href="/css/code-theme.min.css" />
-	<style>
+
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs-okaidia-theme/prism-okaidia.min.css" />
+	  <style>
 	.post-title {
 		font-size: 2em;
 		color: #222;
@@ -424,62 +426,62 @@
 		<em>This post is about closing all &lt;details&gt; tag when another one is open</em>
 		.
 	</p>
-	  <p>I was writing a post about MidDay, <a href="/posts/midday-wordpress-theme/">my new WordPress Theme</a>, and wanted to include a simple FAQ section but with a little of style, this is when I remembered the <code class="hljs"><span class="hljs-section">&lt;details&gt;</span></code> tag.</p>
+	  <p>I was writing a post about MidDay, <a href="/posts/midday-wordpress-theme/">my new WordPress Theme</a>, and wanted to include a simple FAQ section but with a little of style, this is when I remembered the <code>&lt;details&gt;</code> tag.</p>
 <p>It's an awesome <strong>accessible</strong> element, similar to an accordion.</p>
 <details>
 <summary>How to create one ?</summary>
 You have just opened one 😁<br>
 Just follow the pattern in the code.
-<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">details</span>&gt;</span>
-	<span class="hljs-tag">&lt;<span class="hljs-name">summary</span>&gt;</span>Summary/Question about the content<span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>details</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>summary</span><span class="token punctuation">></span></span>Summary/Question about the content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>summary</span><span class="token punctuation">></span></span>
 	And here is the content, it could be anything, even code like this example 😉
-<span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>details</span><span class="token punctuation">></span></span>
 </code></pre>
 </details>
-<p>But when we use more than one <code class="hljs"><span class="hljs-section">&lt;details&gt;</span></code> tag on the same page, especially when they are one after another, we can see that if one is opened and we open another one, the first stays opened.<br>
+<p>But when we use more than one <code>&lt;details&gt;</code> tag on the same page, especially when they are one after another, we can see that if one is opened and we open another one, the first stays opened.<br>
 Imagine having 5 or more after each other, with a reasonable amount of content, they will take a lot of space.
 As an example, you can take a look at this informative pen : <a href="https://codepen.io/jdsteinbach/pen/GYmQjo">Teaching the Details Element with ... Details Elements!</a></p>
 <details>
 <summary>So how to close the opened one ?</summary>
 Easy !<br>
 Just include the following code in your scripts file or in a <code>script</code> tag at the bottom of your page before the closing <code>body</code> tag.
-<pre><code class="hljs language-js"><span class="hljs-comment">/** Close others &lt;details&gt; tag */</span>
-<span class="hljs-keyword">const</span> allDetails = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&quot;details&quot;</span>)
+<pre class="language-js"><code class="language-js"><span class="token comment">/** Close others &lt;details> tag */</span>
+<span class="token keyword">const</span> allDetails <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">"details"</span><span class="token punctuation">)</span>
 
-allDetails.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">details</span>) =&gt;</span> {
-	details.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;toggle&quot;</span>, <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
-		<span class="hljs-keyword">if</span> (details.<span class="hljs-property">open</span>) {
-			allDetails.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">details</span>) =&gt;</span> {
-				<span class="hljs-keyword">if</span> (details != e.<span class="hljs-property">target</span> &amp;&amp; details.<span class="hljs-property">open</span>) {
-					details.<span class="hljs-property">open</span> = <span class="hljs-literal">false</span>
-				}
-			})
-		}
-	})
-})
+allDetails<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">details</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+	details<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"toggle"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>details<span class="token punctuation">.</span>open<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			allDetails<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">details</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+				<span class="token keyword">if</span> <span class="token punctuation">(</span>details <span class="token operator">!=</span> e<span class="token punctuation">.</span>target <span class="token operator">&amp;&amp;</span> details<span class="token punctuation">.</span>open<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					details<span class="token punctuation">.</span>open <span class="token operator">=</span> <span class="token boolean">false</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
 </details>
 <p>Let's break it down !</p>
-<p>First we select all the <code class="hljs"><span class="hljs-section">&lt;details&gt;</span></code> tag :</p>
-<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> allDetails = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&quot;details&quot;</span>)
+<p>First we select all the <code>&lt;details&gt;</code> tag :</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> allDetails <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">"details"</span><span class="token punctuation">)</span>
 </code></pre>
 <p>And we iterate over them :</p>
-<pre><code class="hljs language-js">allDetails.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">details</span> =&gt;</span> {
+<pre class="language-js"><code class="language-js">allDetails<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">details</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
 </code></pre>
-<p>Then we listen to the <code class="hljs"><span class="hljs-attribute">toggle</span></code> event used by the <code class="hljs"><span class="hljs-section">&lt;details&gt;</span></code> element whenever its state changes between open and closed :</p>
-<pre><code class="hljs language-js">details.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;toggle&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
+<p>Then we listen to the <code>toggle</code> event used by the <code>&lt;details&gt;</code> element whenever its state changes between open and closed :</p>
+<pre class="language-js"><code class="language-js">details<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'toggle'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
 </code></pre>
-<p>Now, we wait for any <code class="hljs"><span class="hljs-section">&lt;details&gt;</span></code> to be <code class="hljs">open</code> :</p>
-<pre><code class="hljs language-js"><span class="hljs-keyword">if</span> (details.<span class="hljs-property">open</span>) {
+<p>Now, we wait for any <code>&lt;details&gt;</code> to be <code>open</code> :</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>details<span class="token punctuation">.</span>open<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 </code></pre>
-<p>We iterate once again over all the <code class="hljs"><span class="hljs-section">&lt;details&gt;</span></code> and check if anyone of them was not the <code class="hljs"><span class="hljs-keyword">target</span></code> of the <code class="hljs"><span class="hljs-attribute">toggle</span></code> event and was <code class="hljs">open</code>, if so, we just close it by removing it's open state :</p>
-<pre><code class="hljs language-js">allDetails.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">details</span>) =&gt;</span> {
-	<span class="hljs-keyword">if</span> (details != e.<span class="hljs-property">target</span> &amp;&amp; details.<span class="hljs-property">open</span>) {
-		details.<span class="hljs-property">open</span> = <span class="hljs-literal">false</span>
-	}
-})
+<p>We iterate once again over all the <code>&lt;details&gt;</code> and check if anyone of them was not the <code>target</code> of the <code>toggle</code> event and was <code>open</code>, if so, we just close it by removing it's open state :</p>
+<pre class="language-js"><code class="language-js">allDetails<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">details</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>details <span class="token operator">!=</span> e<span class="token punctuation">.</span>target <span class="token operator">&amp;&amp;</span> details<span class="token punctuation">.</span>open<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		details<span class="token punctuation">.</span>open <span class="token operator">=</span> <span class="token boolean">false</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
-<p>In other words, if a <code class="hljs"><span class="hljs-section">&lt;details&gt;</span></code> element was opened, it have the <code class="hljs">open</code> attribute. Now if another <code class="hljs"><span class="hljs-section">&lt;details&gt;</span></code> element is open, we remove the <code class="hljs">open</code> attribute from the previous, leaving only the actual targeted one opened.</p>
+<p>In other words, if a <code>&lt;details&gt;</code> element was opened, it have the <code>open</code> attribute. Now if another <code>&lt;details&gt;</code> element is open, we remove the <code>open</code> attribute from the previous, leaving only the actual targeted one opened.</p>
 <p>Hope that this was useful, and that you'll start using <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">The Details disclosure element</a>.</p>
 
 	<p class="author-greetings">
@@ -625,7 +627,10 @@ allDetails.<span class="hljs-title function_">forEach</span>(<span class="hljs-f
 </footer>
 
 		</div>
-		 
+		   
+		<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+		
+
 		<script src="/js/main.js"></script>
 	</body>
 </html>

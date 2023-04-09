@@ -11,8 +11,10 @@
 
 	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon_32.png" />
 	<link rel="stylesheet" href="/css/main.min.css" />
-	<link rel="stylesheet" href="/css/code-theme.min.css" />
-	<style>
+
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs-okaidia-theme/prism-okaidia.min.css" />
+	  <style>
 	.post-title {
 		font-size: 2em;
 		color: #222;
@@ -440,7 +442,7 @@ For more information about how things are related in the Customizer, please read
 </ul>
 <p>I'll explain it as if the reader is a beginner so she/he can understand and follow along.</p>
 <p>My tree looks like this:</p>
-<pre><code class="hljs language-txt">    - theme ( main folder)
+<pre class="language-txt"><code class="language-txt">    - theme ( main folder)
     -- inc (folder)
     --- customizer.php
     -- js (folder)
@@ -455,92 +457,92 @@ For more information about how things are related in the Customizer, please read
 <li>require the customizer.php file where we hook controls.js (for Customizer Pane) and customizer.js (for Customizer Preview)<br>
 We can of course hook controls.js and customizer.js from functions.php but it's better to keep things separated.</li>
 </ul>
-<pre><code class="hljs language-php"><span class="hljs-comment">// File functions.php</span>
-<span class="hljs-comment">/**
+<pre class="language-php"><code class="language-php"><span class="token comment">// File functions.php</span>
+<span class="token comment">/**
  * Load and localize main.js.
  */</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main_js</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-title function_ invoke__">wp_enqueue_script</span>( <span class="hljs-string">&#x27;main-js&#x27;</span>, <span class="hljs-title function_ invoke__">get_theme_file_uri</span>( <span class="hljs-string">&#x27;/js/main.js&#x27;</span> ), <span class="hljs-keyword">array</span>(), <span class="hljs-string">&#x27;1.0&#x27;</span>, <span class="hljs-literal">true</span> );
-    <span class="hljs-comment">// Localize the script with new data and pass php variables to JS.</span>
-    <span class="hljs-variable">$main_js_data</span> = <span class="hljs-keyword">array</span>(
-        <span class="hljs-comment">/** FOR LATER USE. */</span>
-        <span class="hljs-string">&#x27;siteTitleColor&#x27;</span> =&gt; <span class="hljs-title function_ invoke__">get_theme_mod</span>(<span class="hljs-string">&#x27;siteTitleColorSetting&#x27;</span>, <span class="hljs-string">&#x27;#fff&#x27;</span>),
-    );
-    <span class="hljs-title function_ invoke__">wp_localize_script</span>( <span class="hljs-string">&#x27;main-js&#x27;</span>, <span class="hljs-string">&#x27;main_vars&#x27;</span>, <span class="hljs-variable">$main_js_data</span> );
-}
-<span class="hljs-title function_ invoke__">add_action</span>( <span class="hljs-string">&#x27;wp_enqueue_scripts&#x27;</span>, <span class="hljs-string">&#x27;main_js&#x27;</span> );
+<span class="token keyword">function</span> <span class="token function-definition function">main_js</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">wp_enqueue_script</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'main-js'</span><span class="token punctuation">,</span> <span class="token function">get_theme_file_uri</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'/js/main.js'</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'1.0'</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// Localize the script with new data and pass php variables to JS.</span>
+    <span class="token variable">$main_js_data</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+        <span class="token comment">/** FOR LATER USE. */</span>
+        <span class="token string single-quoted-string">'siteTitleColor'</span> <span class="token operator">=></span> <span class="token function">get_theme_mod</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'siteTitleColorSetting'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'#fff'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">wp_localize_script</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'main-js'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'main_vars'</span><span class="token punctuation">,</span> <span class="token variable">$main_js_data</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'wp_enqueue_scripts'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'main_js'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">/**
+<span class="token comment">/**
  * Customizer additions.
  */</span>
-<span class="hljs-keyword">require</span> <span class="hljs-title function_ invoke__">get_template_directory</span>() . <span class="hljs-string">&#x27;/inc/customizer.php&#x27;</span>;
+<span class="token keyword">require</span> <span class="token function">get_template_directory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'/inc/customizer.php'</span><span class="token punctuation">;</span>
 </code></pre>
-<pre><code class="hljs language-php"><span class="hljs-comment">// File customizer.php</span>
-<span class="hljs-comment">/**
+<pre class="language-php"><code class="language-php"><span class="token comment">// File customizer.php</span>
+<span class="token comment">/**
  * Hooking in JS code to affect the controls in the Customizer.
  */</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">midday_customize_controls_js</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-title function_ invoke__">wp_enqueue_script</span>( <span class="hljs-string">&#x27;midday-controls&#x27;</span>, <span class="hljs-title function_ invoke__">get_template_directory_uri</span>() . <span class="hljs-string">&#x27;/js/controls.js&#x27;</span>, <span class="hljs-keyword">array</span>( <span class="hljs-string">&#x27;customize-controls&#x27;</span> ), <span class="hljs-title function_ invoke__">filemtime</span>( <span class="hljs-title function_ invoke__">get_theme_file_path</span>( <span class="hljs-string">&#x27;/js/controls.js&#x27;</span> ) ), <span class="hljs-literal">true</span> );
-}
-<span class="hljs-title function_ invoke__">add_action</span>( <span class="hljs-string">&#x27;customize_controls_enqueue_scripts&#x27;</span>, <span class="hljs-string">&#x27;midday_customize_controls_js&#x27;</span> );
+<span class="token keyword">function</span> <span class="token function-definition function">midday_customize_controls_js</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">wp_enqueue_script</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'midday-controls'</span><span class="token punctuation">,</span> <span class="token function">get_template_directory_uri</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'/js/controls.js'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'customize-controls'</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">filemtime</span><span class="token punctuation">(</span> <span class="token function">get_theme_file_path</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'/js/controls.js'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'customize_controls_enqueue_scripts'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'midday_customize_controls_js'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">/**
+<span class="token comment">/**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">midday_customize_preview_js</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-title function_ invoke__">wp_enqueue_script</span>( <span class="hljs-string">&#x27;midday-customizer&#x27;</span>, <span class="hljs-title function_ invoke__">get_template_directory_uri</span>() . <span class="hljs-string">&#x27;/js/customizer.js&#x27;</span>, <span class="hljs-keyword">array</span>( <span class="hljs-string">&#x27;customize-preview&#x27;</span> ), <span class="hljs-string">&#x27;20151215&#x27;</span>, <span class="hljs-literal">true</span> );
-}
-<span class="hljs-title function_ invoke__">add_action</span>( <span class="hljs-string">&#x27;customize_preview_init&#x27;</span>, <span class="hljs-string">&#x27;midday_customize_preview_js&#x27;</span> );
+<span class="token keyword">function</span> <span class="token function-definition function">midday_customize_preview_js</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">wp_enqueue_script</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'midday-customizer'</span><span class="token punctuation">,</span> <span class="token function">get_template_directory_uri</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'/js/customizer.js'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'customize-preview'</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'20151215'</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'customize_preview_init'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'midday_customize_preview_js'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>If you don't know what is <a href="https://developer.wordpress.org/reference/functions/wp_localize_script/">wp_localize_script()</a> , think of it as a bridge between PHP and JS where we can pass variables from PHP to JS.<br>
 Just to let you know, there is also another function <a href="https://developer.wordpress.org/reference/functions/wp_add_inline_script/">wp_add_inline_script()</a> to add JS code to a registered JS file.</p>
 <p>Now that we are all set, let's create a Panel, a Section, a Setting and a Control in controls.js to change the site title color.</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">/**
+<pre class="language-js"><code class="language-js"><span class="token comment">/**
  * File controls.js
  *
  * Access Theme Customizer Controls for a better user experience.
  */</span>
-;(<span class="hljs-keyword">function</span> (<span class="hljs-params">api</span>) {
-	api.<span class="hljs-title function_">bind</span>(<span class="hljs-string">&quot;ready&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
-		<span class="hljs-comment">// Create panel.</span>
-		api.<span class="hljs-property">panel</span>.<span class="hljs-title function_">add</span>(
-			<span class="hljs-keyword">new</span> api.<span class="hljs-title class_">Panel</span>(<span class="hljs-string">&quot;myPanel&quot;</span>, {
-				<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Theme Options&quot;</span>,
-				<span class="hljs-attr">description</span>: <span class="hljs-string">&quot;Customize Theme&quot;</span>,
-				<span class="hljs-attr">priority</span>: <span class="hljs-number">5</span>, <span class="hljs-comment">// Optional default is 160.</span>
-			})
-		)
-		<span class="hljs-comment">// Site Title Color Section.</span>
-		api.<span class="hljs-property">section</span>.<span class="hljs-title function_">add</span>(
-			<span class="hljs-keyword">new</span> api.<span class="hljs-title class_">Section</span>(<span class="hljs-string">&quot;siteTitleColorSection&quot;</span>, {
-				<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Site Title Color Section&quot;</span>,
-				<span class="hljs-attr">panel</span>: <span class="hljs-string">&quot;myPanel&quot;</span>,
-				<span class="hljs-attr">customizeAction</span>: <span class="hljs-string">&quot;Customizing ▸ Site Title Color&quot;</span>, <span class="hljs-comment">// String above title&#x27;s Section.</span>
-				<span class="hljs-attr">priority</span>: <span class="hljs-number">5</span>, <span class="hljs-comment">// The order of this section in the panel.</span>
-			})
-		)
-		<span class="hljs-comment">// Site Title Color Setting.</span>
-		api.<span class="hljs-title function_">add</span>(
-			<span class="hljs-keyword">new</span> api.<span class="hljs-title class_">Setting</span>(<span class="hljs-string">&quot;siteTitleColorSetting&quot;</span>, <span class="hljs-string">&quot;#fff&quot;</span>, {
-				<span class="hljs-attr">transport</span>: <span class="hljs-string">&quot;postMessage&quot;</span>,
-			})
-		)
-		<span class="hljs-comment">// Site Title Color Control.</span>
-		api.<span class="hljs-property">control</span>.<span class="hljs-title function_">add</span>(
-			<span class="hljs-keyword">new</span> wp.<span class="hljs-property">customize</span>.<span class="hljs-title class_">ColorControl</span>(<span class="hljs-string">&quot;siteTitleColorControl&quot;</span>, {
-				<span class="hljs-attr">section</span>: <span class="hljs-string">&quot;siteTitleColorSection&quot;</span>,
-				<span class="hljs-attr">label</span>: <span class="hljs-string">&quot;Site Title Color Control&quot;</span>,
-				<span class="hljs-attr">setting</span>: <span class="hljs-string">&quot;siteTitleColorSetting&quot;</span>,
-				<span class="hljs-attr">priority</span>: <span class="hljs-number">5</span>, <span class="hljs-comment">// The order of this control in the section.</span>
-			})
-		)
-	})
-})(wp.<span class="hljs-property">customize</span>)
+<span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">api</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">api</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token string">"ready"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// Create panel.</span>
+		api<span class="token punctuation">.</span>panel<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>
+			<span class="token keyword">new</span> <span class="token class-name">api<span class="token punctuation">.</span>Panel</span><span class="token punctuation">(</span><span class="token string">"myPanel"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+				<span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"Theme Options"</span><span class="token punctuation">,</span>
+				<span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">"Customize Theme"</span><span class="token punctuation">,</span>
+				<span class="token literal-property property">priority</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token comment">// Optional default is 160.</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span>
+		<span class="token punctuation">)</span>
+		<span class="token comment">// Site Title Color Section.</span>
+		api<span class="token punctuation">.</span>section<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>
+			<span class="token keyword">new</span> <span class="token class-name">api<span class="token punctuation">.</span>Section</span><span class="token punctuation">(</span><span class="token string">"siteTitleColorSection"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+				<span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"Site Title Color Section"</span><span class="token punctuation">,</span>
+				<span class="token literal-property property">panel</span><span class="token operator">:</span> <span class="token string">"myPanel"</span><span class="token punctuation">,</span>
+				<span class="token literal-property property">customizeAction</span><span class="token operator">:</span> <span class="token string">"Customizing ▸ Site Title Color"</span><span class="token punctuation">,</span> <span class="token comment">// String above title's Section.</span>
+				<span class="token literal-property property">priority</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token comment">// The order of this section in the panel.</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span>
+		<span class="token punctuation">)</span>
+		<span class="token comment">// Site Title Color Setting.</span>
+		api<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>
+			<span class="token keyword">new</span> <span class="token class-name">api<span class="token punctuation">.</span>Setting</span><span class="token punctuation">(</span><span class="token string">"siteTitleColorSetting"</span><span class="token punctuation">,</span> <span class="token string">"#fff"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+				<span class="token literal-property property">transport</span><span class="token operator">:</span> <span class="token string">"postMessage"</span><span class="token punctuation">,</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span>
+		<span class="token punctuation">)</span>
+		<span class="token comment">// Site Title Color Control.</span>
+		api<span class="token punctuation">.</span>control<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>
+			<span class="token keyword">new</span> <span class="token class-name">wp<span class="token punctuation">.</span>customize<span class="token punctuation">.</span>ColorControl</span><span class="token punctuation">(</span><span class="token string">"siteTitleColorControl"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+				<span class="token literal-property property">section</span><span class="token operator">:</span> <span class="token string">"siteTitleColorSection"</span><span class="token punctuation">,</span>
+				<span class="token literal-property property">label</span><span class="token operator">:</span> <span class="token string">"Site Title Color Control"</span><span class="token punctuation">,</span>
+				<span class="token literal-property property">setting</span><span class="token operator">:</span> <span class="token string">"siteTitleColorSetting"</span><span class="token punctuation">,</span>
+				<span class="token literal-property property">priority</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token comment">// The order of this control in the section.</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span>
+		<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>wp<span class="token punctuation">.</span>customize<span class="token punctuation">)</span>
 </code></pre>
 <p>Please note that the pattern for the Setting is different from the others !<br>
-For the Setting, we type <code class="hljs">api.<span class="hljs-built_in">add</span>(setting)</code> and define in the <code class="hljs"><span class="hljs-keyword">setting</span></code> an <code class="hljs"><span class="hljs-built_in">id</span></code>, a <code class="hljs"><span class="hljs-built_in">defaultValue</span></code>, then we pass the desired call type (here we are using <code class="hljs"><span class="hljs-attribute">postMessage</span></code>).</p>
+For the Setting, we type <code>api.add(setting)</code> and define in the <code>setting</code> an <code>id</code>, a <code>defaultValue</code>, then we pass the desired call type (here we are using <code>postMessage</code>).</p>
 <p>Now, let's access the Customizer Preview in customizer.js and define how the Setting joins the Control to the Partial.</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">/**
+<pre class="language-js"><code class="language-js"><span class="token comment">/**
  * File customizer.js.
  *
  * Theme Customizer enhancements for a better user experience.
@@ -548,32 +550,32 @@ For the Setting, we type <code class="hljs">api.<span class="hljs-built_in">add<
  * Contains handlers to make Theme Customizer preview reload changes asynchronously.
  */</span>
 
-;(<span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) {
-	<span class="hljs-comment">// Site Title Color.</span>
-	wp.<span class="hljs-title function_">customize</span>(<span class="hljs-string">&quot;siteTitleColorSetting&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) {
-		value.<span class="hljs-title function_">bind</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">new_value</span>) {
-			$(<span class="hljs-string">&quot;.site-title a&quot;</span>).<span class="hljs-title function_">css</span>(<span class="hljs-string">&quot;color&quot;</span>, new_value)
-		})
-	})
-})(jQuery)
+<span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">$</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// Site Title Color.</span>
+	wp<span class="token punctuation">.</span><span class="token function">customize</span><span class="token punctuation">(</span><span class="token string">"siteTitleColorSetting"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">value</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">new_value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".site-title a"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">"color"</span><span class="token punctuation">,</span> new_value<span class="token punctuation">)</span>
+		<span class="token punctuation">}</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>jQuery<span class="token punctuation">)</span>
 </code></pre>
 <p>Now, let's add in customizer.php the filter to validate and sanitize our Setting, preferably (for logic) after the code that hooks controls.js</p>
-<pre><code class="hljs language-php"><span class="hljs-comment">// File customizer.php</span>
-<span class="hljs-title function_ invoke__">add_filter</span>(
-    <span class="hljs-string">&#x27;customize_dynamic_setting_args&#x27;</span>,
-    function( <span class="hljs-variable">$setting_args</span>, <span class="hljs-variable">$setting_id</span> ) {
-        <span class="hljs-keyword">if</span> ( <span class="hljs-string">&#x27;siteTitleColorSetting&#x27;</span> === <span class="hljs-variable">$setting_id</span> ) {
-            <span class="hljs-variable">$setting_args</span> = <span class="hljs-keyword">array</span>(
-                <span class="hljs-string">&#x27;sanitize_callback&#x27;</span> =&gt; <span class="hljs-string">&#x27;sanitize_hex_color&#x27;</span>,
-            );
-        }
-        <span class="hljs-keyword">return</span> <span class="hljs-variable">$setting_args</span>;
-    },
-    <span class="hljs-number">10</span>,
-    <span class="hljs-number">2</span>
-);
+<pre class="language-php"><code class="language-php"><span class="token comment">// File customizer.php</span>
+<span class="token function">add_filter</span><span class="token punctuation">(</span>
+    <span class="token string single-quoted-string">'customize_dynamic_setting_args'</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span><span class="token punctuation">(</span> <span class="token variable">$setting_args</span><span class="token punctuation">,</span> <span class="token variable">$setting_id</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token string single-quoted-string">'siteTitleColorSetting'</span> <span class="token operator">===</span> <span class="token variable">$setting_id</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$setting_args</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+                <span class="token string single-quoted-string">'sanitize_callback'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'sanitize_hex_color'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token variable">$setting_args</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token number">10</span><span class="token punctuation">,</span>
+    <span class="token number">2</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>As you can see, the above function uses the <code class="hljs">customize<span class="hljs-number">_</span><span class="hljs-keyword">dynamic</span><span class="hljs-number">_</span>setting<span class="hljs-number">_</span>args</code> filter to tell the server to validate/recognize the Setting and to sanitize it.<br>
+<p>As you can see, the above function uses the <code>customize_dynamic_setting_args</code> filter to tell the server to validate/recognize the Setting and to sanitize it.<br>
 The number 10 is the priority of execution of the function, and the number 2 is the number of arguments the function accepts.<br>
 More info about <a href="https://developer.wordpress.org/reference/functions/add_filter/">add_filter()</a> in the Code Reference.</p>
 <p>Now, if you go to the Customizer, you'll find the created panel, section, setting and control.<br>
@@ -583,23 +585,23 @@ So, our final step is to render/reflect our choice in the Customizer on the fron
 Remember the beginning of this post ?<br>
 We have loaded and localized main.js for this purpose 😉<br>
 Open main.js and add the following code</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">/**
+<pre class="language-js"><code class="language-js"><span class="token comment">/**
  * File main.js.
  *
- * Handles theme&#x27;s JS functions.
+ * Handles theme's JS functions.
  */</span>
-<span class="hljs-meta">&quot;use strict&quot;</span>
+<span class="token string">"use strict"</span>
 
-<span class="hljs-keyword">const</span> siteTitleColor = midday_vars.<span class="hljs-property">siteTitleColor</span> <span class="hljs-comment">// Retriving the passed variable from PHP to JS.</span>
-<span class="hljs-keyword">const</span> siteTitleAnchor = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;.site-title a&quot;</span>) <span class="hljs-comment">// Select the site title anchor.</span>
-<span class="hljs-keyword">if</span> (siteTitleColor) {
-	<span class="hljs-comment">// If their is any value.</span>
-	siteTitleAnchor.<span class="hljs-property">style</span>.<span class="hljs-property">color</span> = siteTitleColor <span class="hljs-comment">// Add this value as a color to the site title anchor.</span>
-}
+<span class="token keyword">const</span> siteTitleColor <span class="token operator">=</span> midday_vars<span class="token punctuation">.</span>siteTitleColor <span class="token comment">// Retriving the passed variable from PHP to JS.</span>
+<span class="token keyword">const</span> siteTitleAnchor <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">".site-title a"</span><span class="token punctuation">)</span> <span class="token comment">// Select the site title anchor.</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>siteTitleColor<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// If their is any value.</span>
+	siteTitleAnchor<span class="token punctuation">.</span>style<span class="token punctuation">.</span>color <span class="token operator">=</span> siteTitleColor <span class="token comment">// Add this value as a color to the site title anchor.</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>The code is explained and easy to understand, if you have any question don't hesitate !</p>
 <p>As a final note, I would like to let you know that I've created the same control with PHP along with the JS one.<br>
-When we change the site title color with the PHP control (let's say <code class="hljs"><span class="hljs-meta">#000</span></code>) and the JS control (let's say <code class="hljs"><span class="hljs-meta">#fff</span></code>) and publish our changes, it's the JS control that takes over 💪</p>
+When we change the site title color with the PHP control (let's say <code>#000</code>) and the JS control (let's say <code>#fff</code>) and publish our changes, it's the JS control that takes over 💪</p>
 <p>Hope this post will help you begin using the Customizer's JS API instead of it's PHP API 😊</p>
 
 	<p class="author-greetings">
@@ -745,7 +747,10 @@ When we change the site title color with the PHP control (let's say <code class=
 </footer>
 
 		</div>
-		 
+		   
+		<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+		
+
 		<script src="/js/main.js"></script>
 	</body>
 </html>

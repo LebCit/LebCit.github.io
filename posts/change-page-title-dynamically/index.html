@@ -11,8 +11,10 @@
 
 	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon_32.png" />
 	<link rel="stylesheet" href="/css/main.min.css" />
-	<link rel="stylesheet" href="/css/code-theme.min.css" />
-	<style>
+
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs-okaidia-theme/prism-okaidia.min.css" />
+	  <style>
 	.post-title {
 		font-size: 2em;
 		color: #222;
@@ -427,20 +429,20 @@
 Being funny is also a very good strategy to keep users coming back to your blog.<br>
 A little bit of originality won't harm at all !</p>
 <p>We are going to use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API">Page Visibility API</a> to detect if the user is on your site's tab or on another tab, and change your site's tab title using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/title">Document.title</a> property and an awesome french song title 😉</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// Grab the document title of your site&#x27;s current tab.</span>
-<span class="hljs-keyword">let</span> currentTabTitle = <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span>
-<span class="hljs-comment">// Listen to visibility change events</span>
-<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;visibilitychange&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
-	<span class="hljs-comment">// Fires when user leaves your site&#x27;s tab.</span>
-	<span class="hljs-variable language_">document</span>.<span class="hljs-property">visibilityState</span> === <span class="hljs-string">&quot;hidden&quot;</span>
-		? <span class="hljs-comment">// Document title when user leaves your site&#x27;s tab.</span>
-		  (<span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = <span class="hljs-string">`Ne Me Quitte Pas 😭`</span>)
-		: <span class="hljs-comment">// Document title when user comes back to your site&#x27;s tab.</span>
-		  (<span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = currentTabTitle)
-})
+<pre class="language-js"><code class="language-js"><span class="token comment">// Grab the document title of your site's current tab.</span>
+<span class="token keyword">let</span> currentTabTitle <span class="token operator">=</span> document<span class="token punctuation">.</span>title
+<span class="token comment">// Listen to visibility change events</span>
+document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"visibilitychange"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// Fires when user leaves your site's tab.</span>
+	document<span class="token punctuation">.</span>visibilityState <span class="token operator">===</span> <span class="token string">"hidden"</span>
+		<span class="token operator">?</span> <span class="token comment">// Document title when user leaves your site's tab.</span>
+		  <span class="token punctuation">(</span>document<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Ne Me Quitte Pas 😭</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+		<span class="token operator">:</span> <span class="token comment">// Document title when user comes back to your site's tab.</span>
+		  <span class="token punctuation">(</span>document<span class="token punctuation">.</span>title <span class="token operator">=</span> currentTabTitle<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
 <p>This <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator">Conditional (ternary) operator</a> is like an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else">if...else statement</a></p>
-<p><strong>Important note</strong>: since the first change will occur when the user leaves your site's tab, we begin by listening to the <code class="hljs"><span class="hljs-attribute">hidden</span></code> state (when the page's content is not visible to the user) and we change your tab title to whatever... Once the user gets back to your site's tab, the original tab title will be reassigned since we've grab it earlier.</p>
+<p><strong>Important note</strong>: since the first change will occur when the user leaves your site's tab, we begin by listening to the <code>hidden</code> state (when the page's content is not visible to the user) and we change your tab title to whatever... Once the user gets back to your site's tab, the original tab title will be reassigned since we've grab it earlier.</p>
 <p>You can see it wright here, change to another tab or open a new one 😉</p>
 <p>Don't forget to check out <a href="https://youtu.be/Vz6r0TP4FBI">the song</a> 🎶</p>
 
@@ -587,7 +589,10 @@ A little bit of originality won't harm at all !</p>
 </footer>
 
 		</div>
-		 
+		   
+		<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+		
+
 		<script src="/js/main.js"></script>
 	</body>
 </html>

@@ -11,8 +11,10 @@
 
 	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon_32.png" />
 	<link rel="stylesheet" href="/css/main.min.css" />
-	<link rel="stylesheet" href="/css/code-theme.min.css" />
-	<style>
+
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs-okaidia-theme/prism-okaidia.min.css" />
+	  <style>
 	.post-title {
 		font-size: 2em;
 		color: #222;
@@ -433,35 +435,35 @@ If you are a new developer, you should know that it's not allowed to hide it dir
 But even if you are a junior or senior WordPress user, you should consider this requirement for best practice, also you'll maybe learn something new 😉</p>
 <p><a href="https://wordpress.org/support/article/toolbar/">The WordPress Toolbar</a> is the little black bar on top of the site that only the logged in user(s) can see, depending on their <a href="https://wordpress.org/support/article/roles-and-capabilities/">role(s)</a> and how the Super Admin or the Administrator has configured the visibility of this bar for each one…</p>
 <p>We can set the display status of this bar for the front side of our website by using the <a href="https://developer.wordpress.org/reference/functions/show_admin_bar/">show_admin_bar()</a> function.</p>
-<p>Also, we can directly target it by it’s CSS <em><code class="hljs"><span class="hljs-built_in">id</span> <span class="hljs-comment">#wpadminbar</span></code></em> and hide it like so :</p>
-<pre><code class="hljs language-css"><span class="hljs-selector-id">#wpadminbar</span> {
-	<span class="hljs-attribute">display</span>: none;
-}
+<p>Also, we can directly target it by it’s CSS <em><code>id #wpadminbar</code></em> and hide it like so :</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">#wpadminbar</span> <span class="token punctuation">{</span>
+	<span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>but this way is not allowed for themes/plugins developers !</p>
-<p>You can say, <em>“just use <code class="hljs"><span class="hljs-attribute">show_admin_bar</span></code> !”</em>, and I would ask the following :<br>
+<p>You can say, <em>“just use <code>show_admin_bar</code> !”</em>, and I would ask the following :<br>
 <em>“what if I want to hide it with CSS without using a stylesheet so I can control it with JS for later use ?!”</em> 😉<br>
 It’s not the main reason, you can have any other reason to hide it with CSS without using a stylesheet, scenarios are limitless.</p>
 <p>This is where <a href="https://developer.wordpress.org/reference/functions/wp_add_inline_style/">wp_add_inline_style()</a> function steps in 🙂<br>
 In your <a href="https://codex.wordpress.org/Functions_File_Explained">functions.php</a> file, add the following :</p>
-<pre><code class="hljs language-php"><span class="hljs-comment">/**
- * Hide the Toolbar using inline style since we can&#x27;t use #wpadminbar in CSS.
+<pre class="language-php"><code class="language-php"><span class="token comment">/**
+ * Hide the Toolbar using inline style since we can't use #wpadminbar in CSS.
  */</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myfunction_hide_adminbar</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-variable">$hide_adminbar</span> = <span class="hljs-string">&quot;
+<span class="token keyword">function</span> <span class="token function-definition function">myfunction_hide_adminbar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$hide_adminbar</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"
         #wpadminbar{
             display: none;
-        }&quot;</span>;
-    <span class="hljs-title function_ invoke__">wp_add_inline_style</span>( <span class="hljs-string">&#x27;my-stylesheet-handle&#x27;</span>, <span class="hljs-variable">$hide_adminbar</span> );
-}
-<span class="hljs-title function_ invoke__">add_action</span>( <span class="hljs-string">&#x27;wp_enqueue_scripts&#x27;</span>, <span class="hljs-string">&#x27;myfunction_hide_adminbar&#x27;</span> );
+        }"</span><span class="token punctuation">;</span>
+    <span class="token function">wp_add_inline_style</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'my-stylesheet-handle'</span><span class="token punctuation">,</span> <span class="token variable">$hide_adminbar</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'wp_enqueue_scripts'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'myfunction_hide_adminbar'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>Please, pay attention to the <code class="hljs"><span class="hljs-meta"><span class="hljs-keyword">$handle</span></span></code> <strong>my-stylesheet-handle</strong> !<br>
-You should replace it with the <code class="hljs"><span class="hljs-meta"><span class="hljs-keyword">$handle</span></span></code> of your stylesheet !<br>
+<p>Please, pay attention to the <code>$handle</code> <strong>my-stylesheet-handle</strong> !<br>
+You should replace it with the <code>$handle</code> of your stylesheet !<br>
 In your <strong>functions.php</strong> file, you’ll find something like :</p>
-<pre><code class="hljs language-php"><span class="hljs-title function_ invoke__">wp_enqueue_style</span>( <span class="hljs-string">&#x27;your-stylesheet-handle&#x27;</span>, <span class="hljs-title function_ invoke__">get_stylesheet_uri</span>() );
+<pre class="language-php"><code class="language-php"><span class="token function">wp_enqueue_style</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'your-stylesheet-handle'</span><span class="token punctuation">,</span> <span class="token function">get_stylesheet_uri</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><strong>your-stylesheet-handle</strong> is the <code class="hljs"><span class="hljs-meta"><span class="hljs-keyword">$handle</span></span></code> of your stylesheet 😉</p>
+<p><strong>your-stylesheet-handle</strong> is the <code>$handle</code> of your stylesheet 😉</p>
 <p>Hope this will be useful 🙂<br>
 Please don’t hesitate to share your opinion, suggestions or other methods.</p>
 
@@ -608,7 +610,10 @@ Please don’t hesitate to share your opinion, suggestions or other methods.</p>
 </footer>
 
 		</div>
-		 
+		   
+		<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+		
+
 		<script src="/js/main.js"></script>
 	</body>
 </html>

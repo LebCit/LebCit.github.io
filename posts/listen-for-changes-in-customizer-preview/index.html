@@ -11,8 +11,10 @@
 
 	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon_32.png" />
 	<link rel="stylesheet" href="/css/main.min.css" />
-	<link rel="stylesheet" href="/css/code-theme.min.css" />
-	<style>
+
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs-okaidia-theme/prism-okaidia.min.css" />
+	  <style>
 	.post-title {
 		font-size: 2em;
 		color: #222;
@@ -436,17 +438,17 @@ Let's scratch it a little bit to find out how to listen for changes in the Custo
 Now you’re all set and we can begin.</p>
 <h2>Understanding how it’s related</h2>
 <p>In the <a href="https://codex.wordpress.org/Functions_File_Explained">functions.php</a> file, search for <em>customizer.php</em>, you’ll find a line like this one :</p>
-<pre><code class="hljs language-php"><span class="hljs-keyword">require</span> <span class="hljs-title function_ invoke__">get_template_directory</span>() . <span class="hljs-string">&#x27;/inc/customizer.php&#x27;</span>;
+<pre class="language-php"><code class="language-php"><span class="token keyword">require</span> <span class="token function">get_template_directory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'/inc/customizer.php'</span><span class="token punctuation">;</span>
 </code></pre>
 <p>So the file <a href="https://codex.wordpress.org/Theme_Customization_API">customizer.php</a> is located in a folder named <strong><em>inc</em></strong> at the root of the theme.
 If you look inside this file, at the very bottom, you’ll find a little block of code like this one :</p>
-<pre><code class="hljs language-php"><span class="hljs-comment">/**
+<pre class="language-php"><code class="language-php"><span class="token comment">/**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">customizer_preview_customize_preview_js</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-title function_ invoke__">wp_enqueue_script</span>( <span class="hljs-string">&#x27;customizer-preview-customizer&#x27;</span>, <span class="hljs-title function_ invoke__">get_template_directory_uri</span>() . <span class="hljs-string">&#x27;/js/customizer.js&#x27;</span>, <span class="hljs-keyword">array</span>( <span class="hljs-string">&#x27;customize-preview&#x27;</span> ), <span class="hljs-string">&#x27;20151215&#x27;</span>, <span class="hljs-literal">true</span> );
-}
-<span class="hljs-title function_ invoke__">add_action</span>( <span class="hljs-string">&#x27;customize_preview_init&#x27;</span>, <span class="hljs-string">&#x27;customizer_preview_customize_preview_js&#x27;</span> );
+<span class="token keyword">function</span> <span class="token function-definition function">customizer_preview_customize_preview_js</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">wp_enqueue_script</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'customizer-preview-customizer'</span><span class="token punctuation">,</span> <span class="token function">get_template_directory_uri</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'/js/customizer.js'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'customize-preview'</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'20151215'</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'customize_preview_init'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'customizer_preview_customize_preview_js'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>So here, we have a call for another file <strong>customizer.js</strong>, located in a folder named <strong><em>js</em></strong> at the root of the theme.<br>
 If you take a look inside it, you’ll find a bunch of code allowing us to view the changes we make from the Customizer.</p>
@@ -464,33 +466,33 @@ But what if you need to listen for changes in the Preview ?<br>
 This will be mostly a need if you are a developer or in the process of becoming one 💪👍</p>
 <p>Quick quizz. Where do you think the following code will go ?<br>
 Don’t look under the code before giving an answer 😁</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// Listen for any changes in the Customizer Preview.</span>
-wp.<span class="hljs-property">customize</span>.<span class="hljs-title function_">bind</span>(<span class="hljs-string">&quot;change&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">setting</span>) {
-	<span class="hljs-comment">// Target the Setting, let&#x27;s take background_image as an example.</span>
-	<span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> === setting.<span class="hljs-property">id</span>.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;background_image&quot;</span>)) {
-		<span class="hljs-comment">// The background is empty by default.</span>
-		<span class="hljs-comment">// So, we begin by listening to a non empty value,</span>
-		<span class="hljs-comment">// to catch the first change when it happens !</span>
-		<span class="hljs-keyword">if</span> (setting.<span class="hljs-property">_value</span> != <span class="hljs-string">&quot;&quot;</span>) {
-			<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;I Now Have A Background 🙂&quot;</span>)
-		} <span class="hljs-keyword">else</span> {
-			<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;I Do Not Have A Background 🙁&quot;</span>)
-		}
-	}
-})
+<pre class="language-js"><code class="language-js"><span class="token comment">// Listen for any changes in the Customizer Preview.</span>
+wp<span class="token punctuation">.</span><span class="token function">customize</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token string">"change"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">setting</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// Target the Setting, let's take background_image as an example.</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">===</span> setting<span class="token punctuation">.</span>id<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"background_image"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// The background is empty by default.</span>
+		<span class="token comment">// So, we begin by listening to a non empty value,</span>
+		<span class="token comment">// to catch the first change when it happens !</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>setting<span class="token punctuation">.</span>_value <span class="token operator">!=</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"I Now Have A Background 🙂"</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+			console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"I Do Not Have A Background 🙁"</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
 <p>What does this code do ?<br>
-It listen to any <code class="hljs"><span class="hljs-symbol">&#x27;change</span>&#x27;</code> of a defined <code class="hljs">( <span class="hljs-keyword">setting</span> )</code>.<br>
+It listen to any <code>'change'</code> of a defined <code>( setting )</code>.<br>
 Remember, a Setting is a bridge allowing communication between a Control and it’s related Partial.<br>
 So when a communication occurs, a change is ongoing and then done !<br>
-In the example above, we are listening to any change on the <code class="hljs"><span class="hljs-attribute">background_image</span></code>.</p>
-<p>Did you try to look for <code class="hljs"><span class="hljs-attribute">background_image</span></code> in the generated theme from underscores ?!<br>
+In the example above, we are listening to any change on the <code>background_image</code>.</p>
+<p>Did you try to look for <code>background_image</code> in the generated theme from underscores ?!<br>
 If you did, you know by now that it’s not here 🤔 and if you didn’t, don’t, you will not find it !<br>
 Well, I’ve used it as an example to grab your attention on Core Controls/Settings !<br>
 Some Controls/Settings comes with WordPress by default, they can be modified or removed, but this will be for another article.</p>
 <p>I didn’t forget, I just delayed it 😈
 The code above should go inside <strong>customizer.js</strong> between a :</p>
-<pre><code class="hljs language-js">(<span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) { ... <span class="hljs-variable constant_">YES</span> <span class="hljs-variable constant_">HERE</span> ... } (jQuery));
+<pre class="language-js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">$</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token constant">YES</span> <span class="token constant">HERE</span> <span class="token operator">...</span> <span class="token punctuation">}</span> <span class="token punctuation">(</span>jQuery<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>I really hope that this will be useful.</p>
 
@@ -637,7 +639,10 @@ The code above should go inside <strong>customizer.js</strong> between a :</p>
 </footer>
 
 		</div>
-		 
+		   
+		<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+		
+
 		<script src="/js/main.js"></script>
 	</body>
 </html>

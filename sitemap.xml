@@ -3,17 +3,17 @@
 	
 	<url>
 		<loc>https://lebcit.github.io/</loc>
-		<lastmod>2023-04-10</lastmod>
+		<lastmod>2023-04-14</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://lebcit.github.io/posts</loc>
-		<lastmod>2023-04-13</lastmod>
+		<lastmod>2023-04-14</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://lebcit.github.io/tags</loc>
-		<lastmod>2023-04-13</lastmod>
+		<lastmod>2023-04-14</lastmod>
 	</url>
 	
 	<url>
@@ -48,7 +48,7 @@
 	
 	<url>
 		<loc>https://lebcit.github.io/page/7</loc>
-		<lastmod>2023-03-21</lastmod>
+		<lastmod>2023-03-24</lastmod>
 	</url>
 	
 	<url>
@@ -69,6 +69,11 @@
 	<url>
 		<loc>https://lebcit.github.io/posts/blog-doc-a-tiny-and-dead-simple-ssg</loc>
 		<lastmod>2023-03-21</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://lebcit.github.io/posts/blog-doc-the-front-end-administration</loc>
+		<lastmod>2023-04-14</lastmod>
 	</url>
 	
 	<url>
@@ -164,6 +169,11 @@
 	<url>
 		<loc>https://lebcit.github.io/posts/turn-a-markdown-blog-to-a-simple-ssg</loc>
 		<lastmod>2023-03-21</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://lebcit.github.io/tags/Administration</loc>
+		<lastmod>2023-04-14</lastmod>
 	</url>
 	
 	<url>

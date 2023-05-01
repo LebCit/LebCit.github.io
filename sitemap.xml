@@ -3,17 +3,17 @@
 	
 	<url>
 		<loc>https://lebcit.github.io/</loc>
-		<lastmod>2023-04-14</lastmod>
+		<lastmod>2023-04-26</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://lebcit.github.io/posts</loc>
-		<lastmod>2023-04-14</lastmod>
+		<lastmod>2023-04-26</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://lebcit.github.io/tags</loc>
-		<lastmod>2023-04-14</lastmod>
+		<lastmod>2023-04-26</lastmod>
 	</url>
 	
 	<url>
@@ -73,12 +73,17 @@
 	
 	<url>
 		<loc>https://lebcit.github.io/posts/blog-doc-the-front-end-administration</loc>
-		<lastmod>2023-04-14</lastmod>
+		<lastmod>2023-04-21</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://lebcit.github.io/posts/blog-doc-the-simplest-nodejs-cms-ssg</loc>
 		<lastmod>2023-04-10</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://lebcit.github.io/posts/blog-doc-updating-the-administration-design</loc>
+		<lastmod>2023-04-26</lastmod>
 	</url>
 	
 	<url>
@@ -173,7 +178,7 @@
 	
 	<url>
 		<loc>https://lebcit.github.io/tags/Administration</loc>
-		<lastmod>2023-04-14</lastmod>
+		<lastmod>2023-04-21</lastmod>
 	</url>
 	
 	<url>

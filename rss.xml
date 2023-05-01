@@ -6,9 +6,29 @@
 		<description>Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !</description>
 		<language>en-US</language>
 		<copyright>Copyright (c) 2022 - Present, LebCit under the MIT License</copyright>
-		<pubDate>Wed, 12 Apr 2023 21:00:00 GMT</pubDate>
-		<lastBuildDate>Wed, 12 Apr 2023 21:00:00 GMT</lastBuildDate>
+		<pubDate>Fri, 21 Apr 2023 21:00:00 GMT</pubDate>
+		<lastBuildDate>Fri, 21 Apr 2023 21:00:00 GMT</lastBuildDate>
 		<docs>https://www.rssboard.org/rss-specification</docs>
+		
+			<item>
+				<title>Blog-Doc, updating the administration design !</title>
+				<link>https://lebcit.github.io/posts/blog-doc-updating-the-administration-design</link>
+				
+				<description>updating the design of Blog-Doc administration</description>
+				
+				
+				
+				<category domain="https://lebcit.github.io/tags/Blog-Doc">Blog-Doc</category>
+				
+				<category domain="https://lebcit.github.io/tags/CMS">CMS</category>
+				
+				<category domain="https://lebcit.github.io/tags/SSG">SSG</category>
+				
+				<category domain="https://lebcit.github.io/tags/Administration">Administration</category>
+				
+				
+				<pubDate>Fri, 21 Apr 2023 21:00:00 GMT</pubDate>
+			</item>
 		
 			<item>
 				<title>Blog-Doc, the front-end administration !</title>

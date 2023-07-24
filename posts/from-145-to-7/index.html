@@ -439,14 +439,14 @@
 		<em>This post is about How Blog-Doc Lost 138 Dependencies.</em>
 	</p>
 	  <p>Once in a while, a crazy idea installs itself in your mind, like Blog-Doc.<br>
-Blog-Doc is not only <em>The Simplest Node.js CMS &amp; SSG</em>, it's also <strong>The Best</strong> !<br>
-I know that my word is not enough to prove the above statement, but numbers and purpose are !</p>
+Blog-Doc is not only <em>The Simplest Node.js CMS &amp; SSG</em>, but it's also <strong>The Best</strong>!<br>
+I know that my word is not enough to prove the above statement, but numbers and purpose are!</p>
 <h2>Blog-Doc's beginning</h2>
 <p>It all started with my tutorials about templating a Node.js app with EJS and turning it to a simple SSG with the ability to write content in Markdown.<br>
 Then, I decided to combine those tutorials just as a proof of concept, and this is how Blog-Doc was created.<br>
-I created over the years some websites, themes, plugins, web apps... but nothing like Blog-Doc !<br>
+I created over the years some websites, themes, plugins, web apps... but nothing like Blog-Doc!<br>
 Each time I work on it I learn something new and find an aspect that can be improved.<br>
-You can call me crazy, but it's like the code is asking to be better because it can !</p>
+You can call me crazy, but it's like the code is asking to be better because it can!</p>
 <h2>A proof of concept</h2>
 <p>Since Blog-Doc was here, as an SSG, I had to prove that it can be used and modified in any way a developer wants to.<br>
 I was using 11ty with Nunjucks to generate the static version of my personal blog <a href="https://lebcit.github.io/">https://lebcit.github.io/</a>.<br>
@@ -457,27 +457,27 @@ It's not everyday that a developer's idea sees the light...</p>
 <p>To build a static site with a Static Site Generator you should read a lot of documentation to understand how everything is related and dive for days in your IDE to structure the back-end just to output some HTML, CSS and JS.<br>
 Moreover, if you don't have some back-end knowledge, you will not be able to use it or spend hours over hours searching, reading and trying to get the job done...<br>
 Coming from a long journey as a WordPress developer to Node.js, I wanted any user without any coding knowledge to be able to use Blog-Doc.<br>
-Not only I created an integrated Content Management System for Blog-Doc, but I've also made it user friendly.<br>
+Not only I created an integrated Content Management System for Blog-Doc, but I've also made it user-friendly.<br>
 Blog-Doc's administration is a front-end application, yes a front-end one, that can be protected like any other app so don't freak out.<br>
-With the CMS in place, I've wrote some articles about it by effectively using it for the task and it worked like a charm.<br>
-Again I've felt more proud, without tears this time, especially that I'm not aware of any SSG having an integrated CMS.</p>
+With the CMS in place, I've written some articles about it by effectively using it for the task and it worked like a charm.<br>
+Again I felt more proud, without tears this time, especially since I'm not aware of any SSG having an integrated CMS.</p>
 <h2>Perfectionist by default</h2>
-<p>I'm the kind of person that don't sit and relax when the code works even if it's good, I'm always in the quest of improving.<br>
-One of my <strong>strict coding rules</strong> is that the console of the browser must not output a single warning or error, otherwise the code isn't usable.<br>
+<p>I'm the kind of person that doesn't sit and relax when the code works even if it's good, I'm always in the quest of improving.<br>
+One of my <strong>strict coding rules</strong> is that the console of the browser must not output a single warning or error, otherwise, the code isn't usable.<br>
 I was not satisfied by the design of Blog-Doc's administration so I've modified it completely to a more modern one using Tabler.<br>
 Then the tiny unhappy developer sitting in the back of my head said:<br>
-- &quot;Really! Are you serious! Go find something else to be passionate about it, you're using a canon to kill a fly!&quot;<br>
-That time, he just remembered a meme about Node.js developers using tremendous amount of modules to achieve simple tasks...<br>
+- &quot;Really! Are you serious? Go find something else to be passionate about it, you're using a cannon to kill a fly!&quot;<br>
+That time, he just remembered a meme about Node.js developers using a tremendous amount of modules to achieve simple tasks...<br>
 So the challenge took place! I had to reduce significantly the number of dependencies that Blog-Doc relies on and keep all of it's functionalities!</p>
 <h2>Gasworks</h2>
-<p>With all due respect to the time and hard work of each and every developer who made a Static Site Generator with Node.js, <strong>including the previous versions of Blog-Doc</strong>, those are gasworks!<br>
+<p>With all due respect to the time and hard work of every developer who made a Static Site Generator with Node.js, <strong>including the previous versions of Blog-Doc</strong>, those are gasworks!<br>
 I offer my sincerest apologies in advance to each one of these developers, but an app is not supposed to be a gasworks...<br>
 To better understand what I'm talking about, I'll briefly share with you the research that I've made starting with the last previous version of Blog-Doc.</p>
 <p>N.B.: The last previous version of Blog-Doc can be found under the following GitHub repository <a href="https://github.com/LebCit/blog-doc-space">https://github.com/LebCit/blog-doc-space</a>.</p>
-<p>To get the size of a npm package, you can visite <a href="https://bundlephobia.com/">BUNDLEPHOBIA</a><br>
-To visualize the dependencies of a npm package, you can visit <a href="http://npm.anvaka.com/#/">Visualization of npm dependencies</a></p>
+<p>To get the size of a node module, you can visite <a href="https://bundlephobia.com/">BUNDLEPHOBIA</a><br>
+To visualize the dependencies of a node module, you can visit <a href="http://npm.anvaka.com/#/">Visualization of npm dependencies</a></p>
 <h3>Blog-Doc</h3>
-<p>The dependencies of Blog-Doc were as follow:</p>
+<p>The dependencies of Blog-Doc were as follows:</p>
 <ul>
 <li><a href="https://www.npmjs.com/package/archiver">archiver</a></li>
 <li><a href="https://www.npmjs.com/package/ejs">ejs</a></li>
@@ -490,7 +490,7 @@ To visualize the dependencies of a npm package, you can visit <a href="http://np
 <p>Looking at the <code>package.json</code> file of Blog-Doc, a Node.js novice would say that it has 7 dependencies, an amateur would say that it has 52 dependencies after looking to the direct dependencies shown on each dependency page on <a href="https://www.npmjs.com/">NPM</a>, but an advised user would click on each direct dependency to see if it also relies on other dependencies.<br>
 This is of course a time killer and this is why tools like visualization of npm dependencies exist.<br>
 To spare you the time, after looking at each dependency, Blog-Doc had 145 dependencies and this is not acceptable!<br>
-Some of them may stop being maintained or incompatible with other packages and I'll find myself debugging, loosing time and energy over a gasworks that was never intended to be one...</p>
+Some of them may stop being maintained or incompatible with other packages and I'll find myself debugging, losing time and energy over a gasworks that was never intended to be one...</p>
 <h3>Other SSG</h3>
 <p>Looking at the most used <a href="https://2022.stateofjs.com/en-US/libraries/rendering-frameworks/">rendering frameworks</a>, I've searched the number of dependencies of each one and was completely shocked:</p>
 <ul>
@@ -504,17 +504,17 @@ Some of them may stop being maintained or incompatible with other packages and I
 <li>Gatsby ---&gt; 1246</li>
 </ul>
 <p>Do you think that this is normal?!<br>
-I think that <strong>this is totally insane</strong>!<br>
-JavaScript is not about accumulating gigantic number of lines on top of each other to produce a working application!<br>
+I think that <strong>this is insane</strong>!<br>
+JavaScript is not about accumulating a gigantic number of lines on top of each other to produce a working application!<br>
 Starting from ES6 and going forward, the essence of JavaScript is to <strong>write less and do more</strong>!</p>
-<p>From my point of vue, Remix is the only one in the list that is usable but I'm not a fan at all of JSX or JS front-end frameworks.</p>
+<p>From my point of view, Remix is the only one in the list that is usable but I'm not a fan at all of JSX or JS front-end frameworks.</p>
 <h2>Long story short</h2>
-<p>After a long week of research, I've come to the conclusion that Blog-Doc dependencies could be reduced to 7 and 7 only!<br>
-That's great news, but now I had to rebuild Blog-Doc from ground-up.<br>
-Once done,with a much better code organization, I was surprised to see that I've written much less code compared to the last previous version.<br>
+<p>After a long week of research, I've concluded that Blog-Doc dependencies could be reduced to 7 and 7 only!<br>
+That's great news, but now I had to rebuild Blog-Doc from the ground up.<br>
+Once done,with a much better code organization, I was surprised to see that I'd written much less code compared to the last previous version.<br>
 At this point, the little man in the back of my head said:<br>
 - &quot;Knowing that I'm still unsatisfied, May The Code Be With You!&quot;</p>
-<p>The actual dependencies of Blog-Doc are as follow:</p>
+<p>The actual dependencies of Blog-Doc are as follows:</p>
 <ul>
 <li><a href="https://www.npmjs.com/package/@hono/node-server">@hono/node-server</a></li>
 <li><a href="https://www.npmjs.com/package/adm-zip">adm-zip</a></li>
@@ -527,7 +527,7 @@ At this point, the little man in the back of my head said:<br>
 <p>As you can check it out by yourself with ease, Blog-Doc is now relying on only 7 dependencies to output your static site.</p>
 <h2>Upcoming</h2>
 <p>You can find the newest version of Blog-Doc under it's GitHub repository <a href="https://github.com/LebCit/blog-doc">https://github.com/LebCit/blog-doc</a>.<br>
-The little unsatisfied man in the back of my head intend to:</p>
+The little unsatisfied man in the back of my head intends to:</p>
 <ol>
 <li>Reduce the number of dependencies Blog-Doc relies on.</li>
 <li>Enhance Blog-Doc's administration and functionalities.</li>

@@ -3,468 +3,239 @@
 	<channel>
 		<title>{ LebCit }</title>
 		<link>https://lebcit.github.io/</link>
-		<description>Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !</description>
+		<description>Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</description>
 		<language>en-US</language>
 		<copyright>Copyright (c) 2022 - Present, LebCit under the MIT License</copyright>
 		<pubDate>Thu, 20 Jul 2023 21:00:00 GMT</pubDate>
 		<lastBuildDate>Thu, 20 Jul 2023 21:00:00 GMT</lastBuildDate>
 		<docs>https://www.rssboard.org/rss-specification</docs>
-		
-			<item>
+					<item>
 				<title>From 145 to 7 💪</title>
 				<link>https://lebcit.github.io/posts/from-145-to-7</link>
-				
-				<description>How Blog-Doc Lost 138 Dependencies</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Blog-Doc">Blog-Doc</category>
-				
-				<category domain="https://lebcit.github.io/tags/Development">Development</category>
-				
-				<category domain="https://lebcit.github.io/tags/Hono">Hono</category>
-				
-				<category domain="https://lebcit.github.io/tags/Eta">Eta</category>
-				
-				<category domain="https://lebcit.github.io/tags/Marked">Marked</category>
-				
-				
-				<pubDate>Thu, 20 Jul 2023 21:00:00 GMT</pubDate>
+								<description>How Blog-Doc Lost 138 Dependencies</description>
+																<category domain="https://lebcit.github.io/tags/Blog-Doc">Blog-Doc</category>
+								<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/Hono">Hono</category>
+								<category domain="https://lebcit.github.io/tags/Eta">Eta</category>
+								<category domain="https://lebcit.github.io/tags/Marked">Marked</category>
+												<pubDate>Thu, 20 Jul 2023 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Blog-Doc, updating the administration design !</title>
 				<link>https://lebcit.github.io/posts/blog-doc-updating-the-administration-design</link>
-				
-				<description>updating the design of Blog-Doc administration</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Blog-Doc">Blog-Doc</category>
-				
-				<category domain="https://lebcit.github.io/tags/CMS">CMS</category>
-				
-				<category domain="https://lebcit.github.io/tags/SSG">SSG</category>
-				
-				<category domain="https://lebcit.github.io/tags/Administration">Administration</category>
-				
-				
-				<pubDate>Fri, 21 Apr 2023 21:00:00 GMT</pubDate>
+								<description>updating the design of Blog-Doc administration</description>
+																<category domain="https://lebcit.github.io/tags/Blog-Doc">Blog-Doc</category>
+								<category domain="https://lebcit.github.io/tags/CMS">CMS</category>
+								<category domain="https://lebcit.github.io/tags/SSG">SSG</category>
+								<category domain="https://lebcit.github.io/tags/Administration">Administration</category>
+												<pubDate>Fri, 21 Apr 2023 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Blog-Doc, the front-end administration !</title>
 				<link>https://lebcit.github.io/posts/blog-doc-the-front-end-administration</link>
-				
-				<description>the administration page of Blog-Doc</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Blog-Doc">Blog-Doc</category>
-				
-				<category domain="https://lebcit.github.io/tags/CMS">CMS</category>
-				
-				<category domain="https://lebcit.github.io/tags/SSG">SSG</category>
-				
-				<category domain="https://lebcit.github.io/tags/Administration">Administration</category>
-				
-				
-				<pubDate>Wed, 12 Apr 2023 21:00:00 GMT</pubDate>
+								<description>the administration page of Blog-Doc</description>
+																<category domain="https://lebcit.github.io/tags/Blog-Doc">Blog-Doc</category>
+								<category domain="https://lebcit.github.io/tags/CMS">CMS</category>
+								<category domain="https://lebcit.github.io/tags/SSG">SSG</category>
+								<category domain="https://lebcit.github.io/tags/Administration">Administration</category>
+												<pubDate>Wed, 12 Apr 2023 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Blog-Doc, The Simplest Node.js CMS &amp; SSG !</title>
 				<link>https://lebcit.github.io/posts/blog-doc-the-simplest-nodejs-cms-ssg</link>
-				
-				<description>turning Blog-Doc into a CMS and SSG</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Blog-Doc">Blog-Doc</category>
-				
-				<category domain="https://lebcit.github.io/tags/CMS">CMS</category>
-				
-				<category domain="https://lebcit.github.io/tags/SSG">SSG</category>
-				
-				
-				<pubDate>Sat, 08 Apr 2023 21:00:00 GMT</pubDate>
+								<description>turning Blog-Doc into a CMS and SSG</description>
+																<category domain="https://lebcit.github.io/tags/Blog-Doc">Blog-Doc</category>
+								<category domain="https://lebcit.github.io/tags/CMS">CMS</category>
+								<category domain="https://lebcit.github.io/tags/SSG">SSG</category>
+												<pubDate>Sat, 08 Apr 2023 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Blog-Doc, a tiny and dead simple SSG !</title>
 				<link>https://lebcit.github.io/posts/blog-doc-a-tiny-and-dead-simple-ssg</link>
-				
-				<description>Blog-Doc, a tiny and dead simple static site generator written in JavaScript</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Development">Development</category>
-				
-				<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
-				
-				<category domain="https://lebcit.github.io/tags/Express">Express</category>
-				
-				<category domain="https://lebcit.github.io/tags/EJS">EJS</category>
-				
-				<category domain="https://lebcit.github.io/tags/Markdown">Markdown</category>
-				
-				
-				<pubDate>Sat, 12 Nov 2022 22:00:00 GMT</pubDate>
+								<description>Blog-Doc, a tiny and dead simple static site generator written in JavaScript</description>
+																<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
+								<category domain="https://lebcit.github.io/tags/Express">Express</category>
+								<category domain="https://lebcit.github.io/tags/EJS">EJS</category>
+								<category domain="https://lebcit.github.io/tags/Markdown">Markdown</category>
+												<pubDate>Sat, 12 Nov 2022 22:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Click without JavaScript !</title>
 				<link>https://lebcit.github.io/posts/click-without-javascript</link>
-				
-				<description>clicking on an element without JavaScript</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
-				
-				<category domain="https://lebcit.github.io/tags/CSS">CSS</category>
-				
-				
-				<pubDate>Sun, 31 Jul 2022 21:00:00 GMT</pubDate>
+								<description>clicking on an element without JavaScript</description>
+																<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
+								<category domain="https://lebcit.github.io/tags/CSS">CSS</category>
+												<pubDate>Sun, 31 Jul 2022 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Turn a Markdown blog to a simple SSG</title>
 				<link>https://lebcit.github.io/posts/turn-a-markdown-blog-to-a-simple-ssg</link>
-				
-				<description>improving a Markdown blog and turn it into a simple SSG</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Development">Development</category>
-				
-				<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
-				
-				<category domain="https://lebcit.github.io/tags/Express">Express</category>
-				
-				<category domain="https://lebcit.github.io/tags/EJS">EJS</category>
-				
-				
-				<pubDate>Sat, 30 Jul 2022 21:00:00 GMT</pubDate>
+								<description>improving a Markdown blog and turn it into a simple SSG</description>
+																<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
+								<category domain="https://lebcit.github.io/tags/Express">Express</category>
+								<category domain="https://lebcit.github.io/tags/EJS">EJS</category>
+												<pubDate>Sat, 30 Jul 2022 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Markdown blog with EJS</title>
 				<link>https://lebcit.github.io/posts/markdown-blog-with-ejs</link>
-				
-				<description>creating a Markdown blog with EJS</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Development">Development</category>
-				
-				<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
-				
-				<category domain="https://lebcit.github.io/tags/Express">Express</category>
-				
-				<category domain="https://lebcit.github.io/tags/EJS">EJS</category>
-				
-				
-				<pubDate>Sun, 24 Jul 2022 21:00:00 GMT</pubDate>
+								<description>creating a Markdown blog with EJS</description>
+																<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
+								<category domain="https://lebcit.github.io/tags/Express">Express</category>
+								<category domain="https://lebcit.github.io/tags/EJS">EJS</category>
+												<pubDate>Sun, 24 Jul 2022 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Express global router for a DRY code</title>
 				<link>https://lebcit.github.io/posts/express-global-router-for-a-dry-code</link>
-				
-				<description>using a global router in Express for a DRY code</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
-				
-				<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
-				
-				<category domain="https://lebcit.github.io/tags/Express">Express</category>
-				
-				
-				<pubDate>Sun, 17 Jul 2022 21:00:00 GMT</pubDate>
+								<description>using a global router in Express for a DRY code</description>
+																<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
+								<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
+								<category domain="https://lebcit.github.io/tags/Express">Express</category>
+												<pubDate>Sun, 17 Jul 2022 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Improving a Node.js app built with Express and EJS</title>
 				<link>https://lebcit.github.io/posts/improving-a-nodejs-app-built-with-express-and-ejs</link>
-				
-				<description>improving a Node.js application built with Express and EJS</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Development">Development</category>
-				
-				<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
-				
-				<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
-				
-				<category domain="https://lebcit.github.io/tags/EJS">EJS</category>
-				
-				
-				<pubDate>Sat, 16 Jul 2022 21:00:00 GMT</pubDate>
+								<description>improving a Node.js application built with Express and EJS</description>
+																<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
+								<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
+								<category domain="https://lebcit.github.io/tags/EJS">EJS</category>
+												<pubDate>Sat, 16 Jul 2022 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Templating a Node.js app with EJS</title>
 				<link>https://lebcit.github.io/posts/templating-a-nodejs-app-with-ejs</link>
-				
-				<description>templating a Node.js application with EJS</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Development">Development</category>
-				
-				<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
-				
-				<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
-				
-				<category domain="https://lebcit.github.io/tags/EJS">EJS</category>
-				
-				
-				<pubDate>Fri, 08 Jul 2022 21:00:00 GMT</pubDate>
+								<description>templating a Node.js application with EJS</description>
+																<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
+								<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
+								<category domain="https://lebcit.github.io/tags/EJS">EJS</category>
+												<pubDate>Fri, 08 Jul 2022 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>CSP nonce with Node.js and EJS</title>
 				<link>https://lebcit.github.io/posts/csp-nonce-with-nodejs-and-ejs</link>
-				
-				<description>using a nonce for CSP with Node.js and EJS</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Development">Development</category>
-				
-				<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
-				
-				<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
-				
-				<category domain="https://lebcit.github.io/tags/EJS">EJS</category>
-				
-				<category domain="https://lebcit.github.io/tags/CSP">CSP</category>
-				
-				<category domain="https://lebcit.github.io/tags/Nonce">Nonce</category>
-				
-				
-				<pubDate>Sat, 02 Jul 2022 21:00:00 GMT</pubDate>
+								<description>using a nonce for CSP with Node.js and EJS</description>
+																<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
+								<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
+								<category domain="https://lebcit.github.io/tags/EJS">EJS</category>
+								<category domain="https://lebcit.github.io/tags/CSP">CSP</category>
+								<category domain="https://lebcit.github.io/tags/Nonce">Nonce</category>
+												<pubDate>Sat, 02 Jul 2022 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>To Node or not ? Deta is the answer !</title>
 				<link>https://lebcit.github.io/posts/to-node-or-not-deta-is-the-answer</link>
-				
-				<description>exploring Node.js with Deta Cloud</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Development">Development</category>
-				
-				<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
-				
-				<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
-				
-				
-				<pubDate>Sat, 25 Jun 2022 21:00:00 GMT</pubDate>
+								<description>exploring Node.js with Deta Cloud</description>
+																<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
+								<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
+												<pubDate>Sat, 25 Jun 2022 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Automatically close other &lt;details&gt;</title>
 				<link>https://lebcit.github.io/posts/automatically-close-other-details</link>
-				
-				<description>closing all &lt;details&gt; tag when another one is open</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
-				
-				<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
-				
-				
-				<pubDate>Tue, 09 Feb 2021 22:00:00 GMT</pubDate>
+								<description>closing all &lt;details&gt; tag when another one is open</description>
+																<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
+								<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
+												<pubDate>Tue, 09 Feb 2021 22:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>MidDay WordPress theme</title>
 				<link>https://lebcit.github.io/posts/midday-wordpress-theme</link>
-				
-				<description>the development and usage of MidDay WordPress theme</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Development">Development</category>
-				
-				<category domain="https://lebcit.github.io/tags/Theme">Theme</category>
-				
-				
-				<pubDate>Mon, 01 Feb 2021 22:00:00 GMT</pubDate>
+								<description>the development and usage of MidDay WordPress theme</description>
+																<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/Theme">Theme</category>
+												<pubDate>Mon, 01 Feb 2021 22:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Creating a Customizer control with JavaScript</title>
 				<link>https://lebcit.github.io/posts/creating-a-customizer-control-with-javascript</link>
-				
-				<description>creating a control, from A to Z, in WordPress Customizer with JavaScript</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
-				
-				<category domain="https://lebcit.github.io/tags/Customizer">Customizer</category>
-				
-				<category domain="https://lebcit.github.io/tags/Development">Development</category>
-				
-				
-				<pubDate>Sun, 31 May 2020 21:00:00 GMT</pubDate>
+								<description>creating a control, from A to Z, in WordPress Customizer with JavaScript</description>
+																<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
+								<category domain="https://lebcit.github.io/tags/Customizer">Customizer</category>
+								<category domain="https://lebcit.github.io/tags/Development">Development</category>
+												<pubDate>Sun, 31 May 2020 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Clear your local development cache with JS</title>
 				<link>https://lebcit.github.io/posts/clear-your-local-development-cache-with-js</link>
-				
-				<description>clearing your local development cache with JavaScript without a server side language</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
-				
-				<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
-				
-				
-				<pubDate>Tue, 26 May 2020 21:00:00 GMT</pubDate>
+								<description>clearing your local development cache with JavaScript without a server side language</description>
+																<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
+								<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
+												<pubDate>Tue, 26 May 2020 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Change page title dynamically</title>
 				<link>https://lebcit.github.io/posts/change-page-title-dynamically</link>
-				
-				<description>changing the document title when the user leaves your site&#39;s tab</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
-				
-				<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
-				
-				
-				<pubDate>Mon, 25 May 2020 21:00:00 GMT</pubDate>
+								<description>changing the document title when the user leaves your site&#39;s tab</description>
+																<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
+								<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
+												<pubDate>Mon, 25 May 2020 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Listen for changes in Customizer Preview !</title>
 				<link>https://lebcit.github.io/posts/listen-for-changes-in-customizer-preview</link>
-				
-				<description>how to listen for any changes in WordPress Customizer Preview</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Development">Development</category>
-				
-				<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
-				
-				<category domain="https://lebcit.github.io/tags/Customizer">Customizer</category>
-				
-				
-				<pubDate>Sat, 23 May 2020 21:00:00 GMT</pubDate>
+								<description>how to listen for any changes in WordPress Customizer Preview</description>
+																<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
+								<category domain="https://lebcit.github.io/tags/Customizer">Customizer</category>
+												<pubDate>Sat, 23 May 2020 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Hide WordPress Toolbar with wp_add_inline_style</title>
 				<link>https://lebcit.github.io/posts/hide-wordpress-toolbar-with-wp_add_inline_style</link>
-				
-				<description>using wp_add_inline_style() function to hide the WordPress Toolbar or Admin Bar</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Development">Development</category>
-				
-				<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
-				
-				<category domain="https://lebcit.github.io/tags/Toolbar">Toolbar</category>
-				
-				
-				<pubDate>Thu, 21 May 2020 21:00:00 GMT</pubDate>
+								<description>using wp_add_inline_style() function to hide the WordPress Toolbar or Admin Bar</description>
+																<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
+								<category domain="https://lebcit.github.io/tags/Toolbar">Toolbar</category>
+												<pubDate>Thu, 21 May 2020 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Modifying WordPress theme&#39;s copyright from the Customizer</title>
 				<link>https://lebcit.github.io/posts/modifying-wordpress-theme-copyright-from-the-customizer</link>
-				
-				<description>modifying WordPress theme&#39;s copyright from the Customizer</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Copyright">Copyright</category>
-				
-				<category domain="https://lebcit.github.io/tags/Customizer">Customizer</category>
-				
-				<category domain="https://lebcit.github.io/tags/Development">Development</category>
-				
-				<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
-				
-				
-				<pubDate>Wed, 20 May 2020 21:00:00 GMT</pubDate>
+								<description>modifying WordPress theme&#39;s copyright from the Customizer</description>
+																<category domain="https://lebcit.github.io/tags/Copyright">Copyright</category>
+								<category domain="https://lebcit.github.io/tags/Customizer">Customizer</category>
+								<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
+												<pubDate>Wed, 20 May 2020 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Get Google products on desktop with Thunderbird</title>
 				<link>https://lebcit.github.io/posts/get-google-products-on-desktop-with-thunderbird</link>
-				
-				<description>using Google products on a desktop with Thunderbird</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
-				
-				
-				<pubDate>Wed, 13 May 2020 21:00:00 GMT</pubDate>
+								<description>using Google products on a desktop with Thunderbird</description>
+																<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
+												<pubDate>Wed, 13 May 2020 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>The Clean Blog WordPress theme</title>
 				<link>https://lebcit.github.io/posts/the-clean-blog-wordpress-theme</link>
-				
-				<description>the development and usage of The Clean Blog WordPress theme</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Development">Development</category>
-				
-				<category domain="https://lebcit.github.io/tags/Theme">Theme</category>
-				
-				
-				<pubDate>Fri, 08 May 2020 21:00:00 GMT</pubDate>
+								<description>the development and usage of The Clean Blog WordPress theme</description>
+																<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/Theme">Theme</category>
+												<pubDate>Fri, 08 May 2020 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Back to the roots with a static site</title>
 				<link>https://lebcit.github.io/posts/back-to-the-roots-with-a-static-site</link>
-				
-				<description>This is a post about my own experience with development and static site</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Development">Development</category>
-				
-				
-				<pubDate>Sun, 03 May 2020 21:00:00 GMT</pubDate>
+								<description>This is a post about my own experience with development and static site</description>
+																<category domain="https://lebcit.github.io/tags/Development">Development</category>
+												<pubDate>Sun, 03 May 2020 21:00:00 GMT</pubDate>
 			</item>
-		
-			<item>
+					<item>
 				<title>Full Screen Morphing Search Plugin</title>
 				<link>https://lebcit.github.io/posts/full-screen-morphing-search-plugin</link>
-				
-				<description>my first WordPress plugin, full screen morphing search</description>
-				
-				
-				
-				<category domain="https://lebcit.github.io/tags/Development">Development</category>
-				
-				<category domain="https://lebcit.github.io/tags/Plugin">Plugin</category>
-				
-				
-				<pubDate>Mon, 27 Apr 2020 21:00:00 GMT</pubDate>
+								<description>my first WordPress plugin, full screen morphing search</description>
+																<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/Plugin">Plugin</category>
+												<pubDate>Mon, 27 Apr 2020 21:00:00 GMT</pubDate>
 			</item>
-		
-	</channel>
+			</channel>
 </rss>

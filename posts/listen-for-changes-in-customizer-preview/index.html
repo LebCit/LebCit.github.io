@@ -4,16 +4,14 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-	<meta name="description" content="This post is about how to listen for any changes in WordPress Customizer Preview" />
+		<meta name="description" content="This post is about how to listen for any changes in WordPress Customizer Preview" />
 	
-
 	<title>Listen for changes in Customizer Preview ! | { LebCit }</title>
 
-	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon_32.png" />
-	<link rel="stylesheet" href="/css/main.min.css" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
+	<link rel="stylesheet" href="/static/css/main.min.css" />
 
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs-okaidia-theme/prism-okaidia.min.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
 	  <style>
 	.post-title {
 		font-size: 2em;
@@ -47,7 +45,6 @@
 	}
 </style>
 
-
 <style>
 	.single-post :not(pre) code {
 		background-color: #272822;
@@ -56,8 +53,7 @@
 		padding: 4px 5px 5px;
 	}
 </style>
-  
-<style>
+  <style>
 	@media screen and (min-width: 48em) and (max-width: 63.938em) {
 		.post-title {
 			font-size: 3em;
@@ -73,8 +69,7 @@
 		}
 	}
 </style>
-    
-<style>
+    <style>
 	.post-meta {
 		color: #16663d;
 		font-size: 90%;
@@ -96,16 +91,15 @@
 		color: #fff;
 	}
 </style>
-  
-
-	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 </head>
 
-
 	<body>
+		<!--Start page-->
 		<div id="page" class="site grid">
 			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
+			<!--Start menu-->
 			<style>
 	.invisible {
 		visibility: hidden;
@@ -168,30 +162,26 @@
 	
 	<div class="overlay-content">
 		<a href="/">Home</a>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/posts">Archive</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/tags">Tags</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/search">Search</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/pages/about">About Me</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/rss.xml">RSS</a>
 		</li>
-		
-	</div>
+			</div>
 </div>
-  <style>
+			<!--End menu-->
+			<!--Start masthead-->
+			<style>
 	/* SITE HEADER */
 	.site-header {
 		background: rgb(61, 79, 93);
@@ -344,20 +334,18 @@
 		}
 	}
 </style>
-<header id="masthead"  class="site-header unit-1 unit-lg-2-5 bio" style="background-image:
-	url('/img/ears-of-chiatto-bunny.webp')"  >
+
+<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/ears-of-chiatto-bunny.webp')"  >
 	<div class="site-header-overlay"></div>
-	
-	<div class="sidebar">
+		<div class="sidebar">
 		<div class="site-branding">
 			<h1 class="site-title">
 				<a href="/">{ LebCit }</a>
 			</h1>
-			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !</p>
+			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</p>
 		</div>
 
-		
-		<nav id="nav" class="nav" aria-label="MENU">
+				<nav id="nav" class="nav" aria-label="MENU">
 			<ul class="nav-list">
 				<li class="nav-item">
 					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
@@ -381,15 +369,15 @@
 				</li>
 			</ul>
 		</nav>
-		
-	</div>
-	
-</header>
+			</div>
+	</header>
+			<!--End masthead-->
 
-
+			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				  
-				<main class="single-post"><style>
+				  				<main class="single-post">
+					<!-- Start Markdown file content -->
+					<style>
 	.author-greetings {
 		color: #000;
 		line-height: normal;
@@ -398,104 +386,78 @@
 
 <header class="post-header">
 	<h1 class="post-title">Listen for changes in Customizer Preview !</h1>
-	
-	<p class="post-meta">
+		<p class="post-meta">
 		<span>Posted on</span>
 		<span class="posted-on">
 			<time class="postList-date" datetime='2020-05/24'>
-				Sun May 24 2020
-			</time>
+				Sun May 24 2020			</time>
 		</span>
 
-		<br />
-		Tagged  
-		<span class="post-tag">
+				<br />
+		<span>Tagged</span>
+		<!--Start tag(s)-->
+				<span class="post-tag">
 			<a href="/tags/Development">Development</a>
 		</span>
-		
-		<span class="post-tag">
+				<span class="post-tag">
 			<a href="/tags/Tips and Tricks">Tips and Tricks</a>
 		</span>
-		
-		<span class="post-tag">
+				<span class="post-tag">
 			<a href="/tags/Customizer">Customizer</a>
 		</span>
-		  
-	</p>
-	  
-</header>
+				<!--End tag(s)-->
+			</p>
+	  </header>
 
 <div class="post-content">
-	
-	<p>
+		<p>
 		<em>This post is about how to listen for any changes in WordPress Customizer Preview.</em>
 	</p>
-	  <p>One of the most beautiful functionalities of WordPress is the Customizer, because it allows developers to give a simple way for users to modify themes/plugins appearance and behavior.<br>
-However, this beauty has it's own code of conduct.<br>
-Let's scratch it a little bit to find out how to listen for changes in the Customizer Preview.</p>
+	  <p>One of the most beautiful functionalities of WordPress is the Customizer, because it allows developers to give a simple way for users to modify themes/plugins appearance and behavior.<br>However, this beauty has it&#39;s own code of conduct.<br>Let&#39;s scratch it a little bit to find out how to listen for changes in the Customizer Preview.</p>
 <p>I always like to assume that the reader maybe a beginner, like I was a long time ago, and explain everything from A to Z, so she/he can follow the tutorial or jump to any part according to her/his experience.</p>
-<p>For simplicity and practice, as usual 😊, I’ll be using an <a href="https://underscores.me/">_s</a> (underscores) generated theme, and call it <em>Customizer Preview</em> 😉. It’s a 1 minute process, so don’t be afraid, type in the <em>Theme Name,</em> download it, and upload it like any other theme under <em>Appearance &gt; Themes &gt; Add New &gt; Upload Theme</em>.<br>
-Now you’re all set and we can begin.</p>
+<p>For simplicity and practice, as usual 😊, I’ll be using an <a href="https://underscores.me/">_s</a> (underscores) generated theme, and call it <em>Customizer Preview</em> 😉. It’s a 1 minute process, so don’t be afraid, type in the <em>Theme Name,</em> download it, and upload it like any other theme under <em>Appearance &gt; Themes &gt; Add New &gt; Upload Theme</em>.<br> Now you’re all set and we can begin.</p>
 <h2>Understanding how it’s related</h2>
 <p>In the <a href="https://codex.wordpress.org/Functions_File_Explained">functions.php</a> file, search for <em>customizer.php</em>, you’ll find a line like this one :</p>
-<pre class="language-php"><code class="language-php"><span class="token keyword">require</span> <span class="token function">get_template_directory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'/inc/customizer.php'</span><span class="token punctuation">;</span>
-</code></pre>
-<p>So the file <a href="https://codex.wordpress.org/Theme_Customization_API">customizer.php</a> is located in a folder named <strong><em>inc</em></strong> at the root of the theme.
+<pre><code class="hljs language-php"><span class="hljs-keyword">require</span> <span class="hljs-title function_ invoke__">get_template_directory</span>() . <span class="hljs-string">&#x27;/inc/customizer.php&#x27;</span>;
+</code></pre><p>So the file <a href="https://codex.wordpress.org/Theme_Customization_API">customizer.php</a> is located in a folder named <strong><em>inc</em></strong> at the root of the theme.
 If you look inside this file, at the very bottom, you’ll find a little block of code like this one :</p>
-<pre class="language-php"><code class="language-php"><span class="token comment">/**
+<pre><code class="hljs language-php"><span class="hljs-comment">/**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */</span>
-<span class="token keyword">function</span> <span class="token function-definition function">customizer_preview_customize_preview_js</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">wp_enqueue_script</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'customizer-preview-customizer'</span><span class="token punctuation">,</span> <span class="token function">get_template_directory_uri</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'/js/customizer.js'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'customize-preview'</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'20151215'</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'customize_preview_init'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'customizer_preview_customize_preview_js'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>So here, we have a call for another file <strong>customizer.js</strong>, located in a folder named <strong><em>js</em></strong> at the root of the theme.<br>
-If you take a look inside it, you’ll find a bunch of code allowing us to view the changes we make from the Customizer.</p>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">customizer_preview_customize_preview_js</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-title function_ invoke__">wp_enqueue_script</span>( <span class="hljs-string">&#x27;customizer-preview-customizer&#x27;</span>, <span class="hljs-title function_ invoke__">get_template_directory_uri</span>() . <span class="hljs-string">&#x27;/js/customizer.js&#x27;</span>, <span class="hljs-keyword">array</span>( <span class="hljs-string">&#x27;customize-preview&#x27;</span> ), <span class="hljs-string">&#x27;20151215&#x27;</span>, <span class="hljs-literal">true</span> );
+}
+<span class="hljs-title function_ invoke__">add_action</span>( <span class="hljs-string">&#x27;customize_preview_init&#x27;</span>, <span class="hljs-string">&#x27;customizer_preview_customize_preview_js&#x27;</span> );
+</code></pre><p>So here, we have a call for another file <strong>customizer.js</strong>, located in a folder named <strong><em>js</em></strong> at the root of the theme.<br> If you take a look inside it, you’ll find a bunch of code allowing us to view the changes we make from the Customizer.</p>
 <h2>The Customizer’s Parts</h2>
 <p>When you open the Customizer, you’ll find yourself in front of a screen with two parts :
-a- the <strong>Customizer Pane</strong> where the <strong>Controls</strong> (like Background Image) of a theme are defined in <strong>customizer.php</strong><br>
-b- the <strong>Customizer Preview</strong> where the <strong>Settings</strong> defined in <strong>customizer.js</strong> act like a bridge between the Controls and their related Partials.</p>
+a- the <strong>Customizer Pane</strong> where the <strong>Controls</strong> (like Background Image) of a theme are defined in <strong>customizer.php</strong><br>b- the <strong>Customizer Preview</strong> where the <strong>Settings</strong> defined in <strong>customizer.js</strong> act like a bridge between the Controls and their related Partials.</p>
 <p>A <strong>Partial</strong> is simply a particular part of a theme like the header, the body, the footer, the logo, the site title, the tagline… and so on.</p>
-<p>As an example, you could have a Control to control the site title color by a Setting linking that color Control to the desired Partial (here the site title).<br>
-Now, when you change the color Control in the Pane, the defined Setting for this color Control calls the related Partial in the Preview and tells him to change according to the modifications of his Control.</p>
+<p>As an example, you could have a Control to control the site title color by a Setting linking that color Control to the desired Partial (here the site title).<br>Now, when you change the color Control in the Pane, the defined Setting for this color Control calls the related Partial in the Preview and tells him to change according to the modifications of his Control.</p>
 <p>If you want to dive more into that, you can read about the <a href="https://developer.wordpress.org/themes/customize-api/customizer-objects/">Customizer Objects</a> in the Theme Handbook.</p>
 <h2>Listening to changes</h2>
-<p>At this point, you understand how the Customizer’s parts communicate.<br>
-But what if you need to listen for changes in the Preview ?<br>
-This will be mostly a need if you are a developer or in the process of becoming one 💪👍</p>
-<p>Quick quizz. Where do you think the following code will go ?<br>
-Don’t look under the code before giving an answer 😁</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// Listen for any changes in the Customizer Preview.</span>
-wp<span class="token punctuation">.</span><span class="token function">customize</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token string">"change"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">setting</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-	<span class="token comment">// Target the Setting, let's take background_image as an example.</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">===</span> setting<span class="token punctuation">.</span>id<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"background_image"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		<span class="token comment">// The background is empty by default.</span>
-		<span class="token comment">// So, we begin by listening to a non empty value,</span>
-		<span class="token comment">// to catch the first change when it happens !</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span>setting<span class="token punctuation">.</span>_value <span class="token operator">!=</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-			console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"I Now Have A Background 🙂"</span><span class="token punctuation">)</span>
-		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-			console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"I Do Not Have A Background 🙁"</span><span class="token punctuation">)</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<p>What does this code do ?<br>
-It listen to any <code>'change'</code> of a defined <code>( setting )</code>.<br>
-Remember, a Setting is a bridge allowing communication between a Control and it’s related Partial.<br>
-So when a communication occurs, a change is ongoing and then done !<br>
-In the example above, we are listening to any change on the <code>background_image</code>.</p>
-<p>Did you try to look for <code>background_image</code> in the generated theme from underscores ?!<br>
-If you did, you know by now that it’s not here 🤔 and if you didn’t, don’t, you will not find it !<br>
-Well, I’ve used it as an example to grab your attention on Core Controls/Settings !<br>
-Some Controls/Settings comes with WordPress by default, they can be modified or removed, but this will be for another article.</p>
+<p>At this point, you understand how the Customizer’s parts communicate.<br>But what if you need to listen for changes in the Preview ?<br>This will be mostly a need if you are a developer or in the process of becoming one 💪👍</p>
+<p>Quick quizz. Where do you think the following code will go ?<br>Don’t look under the code before giving an answer 😁</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// Listen for any changes in the Customizer Preview.</span>
+wp.<span class="hljs-property">customize</span>.<span class="hljs-title function_">bind</span>(<span class="hljs-string">&quot;change&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">setting</span>) {
+    <span class="hljs-comment">// Target the Setting, let&#x27;s take background_image as an example.</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> === setting.<span class="hljs-property">id</span>.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;background_image&quot;</span>)) {
+        <span class="hljs-comment">// The background is empty by default.</span>
+        <span class="hljs-comment">// So, we begin by listening to a non empty value,</span>
+        <span class="hljs-comment">// to catch the first change when it happens !</span>
+        <span class="hljs-keyword">if</span> (setting.<span class="hljs-property">_value</span> != <span class="hljs-string">&quot;&quot;</span>) {
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;I Now Have A Background 🙂&quot;</span>)
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;I Do Not Have A Background 🙁&quot;</span>)
+        }
+    }
+})
+</code></pre><p>What does this code do ?<br>It listen to any <code>&#39;change&#39;</code> of a defined <code>( setting )</code>.<br>Remember, a Setting is a bridge allowing communication between a Control and it’s related Partial.<br>So when a communication occurs, a change is ongoing and then done !<br>In the example above, we are listening to any change on the <code>background_image</code>.</p>
+<p>Did you try to look for <code>background_image</code> in the generated theme from underscores ?!<br>If you did, you know by now that it’s not here 🤔 and if you didn’t, don’t, you will not find it !<br>Well, I’ve used it as an example to grab your attention on Core Controls/Settings !<br>Some Controls/Settings comes with WordPress by default, they can be modified or removed, but this will be for another article.</p>
 <p>I didn’t forget, I just delayed it 😈
 The code above should go inside <strong>customizer.js</strong> between a :</p>
-<pre class="language-js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">$</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token constant">YES</span> <span class="token constant">HERE</span> <span class="token operator">...</span> <span class="token punctuation">}</span> <span class="token punctuation">(</span>jQuery<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>I really hope that this will be useful.</p>
-
+<pre><code class="hljs language-js">(<span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) { ... <span class="hljs-variable constant_">YES</span> <span class="hljs-variable constant_">HERE</span> ... } (jQuery));
+</code></pre><p>I really hope that this will be useful.</p>
 	<p class="author-greetings">
 		SYA,
 		<br />
@@ -556,14 +518,11 @@ The code above should go inside <strong>customizer.js</strong> between a :</p>
 </style>
 
 <nav class="post-navigation" aria-label="Post navigation">
-	
-	<a href="/posts/hide-wordpress-toolbar-with-wp_add_inline_style" class="prev-post" rel="prev" aria-label="Go to the previous post">
-		Previous: Hide WordPress Toolbar with wp_add_inline_style
-	</a>
-	  
-	<a href="/posts/change-page-title-dynamically" class="next-post" rel="next" aria-label="Go to the next post">Next: Change page title dynamically</a>
-	
-</nav>
+		<a href="/posts/hide-wordpress-toolbar-with-wp_add_inline_style" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: Hide WordPress Toolbar with wp_add_inline_style	</a>
+	  	<a href="/posts/change-page-title-dynamically" class="next-post" rel="next" aria-label="Go to the next post">
+		Next: Change page title dynamically	</a>
+	</nav>
    <style>
 	.related-posts div {
 		display: grid;
@@ -576,44 +535,38 @@ The code above should go inside <strong>customizer.js</strong> between a :</p>
 <div class="related-posts">
 	<h3>SOME RELATED POSTS</h3>
 	<div>
-		      
-		<section>
+		      		<section>
 			<a href="/posts/creating-a-customizer-control-with-javascript">
-				    
-				<img
+				    				<img
 					class="img-responsive"
-					src="/img/screenshot-creating-a-customizer-control-with-javascript.webp"
+					src="/static/img/screenshot-creating-a-customizer-control-with-javascript.webp"
 					alt="Screenshot creating a customizer control with javascript"
 				/>
-				
-			</a>
+							</a>
 			<h4>
 				<a href="/posts/creating-a-customizer-control-with-javascript">Creating a Customizer control with JavaScript</a>
 			</h4>
 		</section>
-		      
-		<section>
+		      		<section>
 			<a href="/posts/modifying-wordpress-theme-copyright-from-the-customizer">
-				    
-				<img
+				    				<img
 					class="img-responsive"
-					src="/img/copyright-word-under-magnifying-glass.webp"
+					src="/static/img/copyright-word-under-magnifying-glass.webp"
 					alt="Copyright word under magnifying glass"
 				/>
-				
-			</a>
+							</a>
 			<h4>
 				<a href="/posts/modifying-wordpress-theme-copyright-from-the-customizer">Modifying WordPress theme&#39;s copyright from the Customizer</a>
 			</h4>
 		</section>
-		
-	</div>
-</div>
-  
-</main>
-				       
 			</div>
-			 <style>
+</div>
+  					<!-- End Markdown file content -->
+				</main>
+				     			</div>
+			<!--End content-->
+			<!--Start footer-->
+			<style>
 	.site-footer {
 		text-align: center;
 		padding-top: 2em;
@@ -627,22 +580,18 @@ The code above should go inside <strong>customizer.js</strong> between a :</p>
 </style>
 
 <footer id="colophon" class="site-footer unit-1">
-	        
-
-	<div id="site-info" class="site-info">
+	        	<div id="site-info" class="site-info">
 		<p>
 			<strong>2016 - 2023 | { LebCit }</strong>
 			<br />
-			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc-space'>Blog-Doc</a>
-		</p>
+			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
 	</div>
 </footer>
-
+			<!--End footer-->
 		</div>
-		   
-		<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+		<!--End page-->
+		  		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 		
-
-		<script src="/js/main.js"></script>
+		<script src="/static/js/main.js"></script>
 	</body>
 </html>

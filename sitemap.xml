@@ -1,299 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	
-	<url>
+		<url>
 		<loc>https://lebcit.github.io/</loc>
-		<lastmod>2023-07-24</lastmod>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts</loc>
-		<lastmod>2023-07-24</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/archive</loc>
+		<lastmod>2023-07-29</lastmod>
 	</url>
-	
-	<url>
+		<url>
 		<loc>https://lebcit.github.io/tags</loc>
-		<lastmod>2023-07-24</lastmod>
+		<lastmod>2023-07-29</lastmod>
 	</url>
-	
-	<url>
+		<url>
 		<loc>https://lebcit.github.io/page/1</loc>
-		<lastmod>2023-04-10</lastmod>
+		<lastmod>2023-07-29</lastmod>
 	</url>
-	
-	<url>
+		<url>
 		<loc>https://lebcit.github.io/page/2</loc>
-		<lastmod>2023-03-21</lastmod>
+		<lastmod>2023-07-29</lastmod>
 	</url>
-	
-	<url>
+		<url>
 		<loc>https://lebcit.github.io/page/3</loc>
-		<lastmod>2023-03-21</lastmod>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
+		<url>
 		<loc>https://lebcit.github.io/page/4</loc>
-		<lastmod>2023-03-21</lastmod>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/page/5</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/about</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/page/6</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/automatically-close-other-details</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/page/7</loc>
-		<lastmod>2023-04-13</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/back-to-the-roots-with-a-static-site</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/page/8</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/blog-doc-a-tiny-and-dead-simple-ssg</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/pages/about</loc>
-		<lastmod>2023-04-13</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/blog-doc-the-front-end-administration</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/automatically-close-other-details</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/blog-doc-the-simplest-nodejs-cms-ssg</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/back-to-the-roots-with-a-static-site</loc>
-		<lastmod>2023-03-24</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/blog-doc-updating-the-administration-design</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/blog-doc-a-tiny-and-dead-simple-ssg</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/change-page-title-dynamically</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/blog-doc-the-front-end-administration</loc>
-		<lastmod>2023-04-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/clear-your-local-development-cache-with-js</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/blog-doc-the-simplest-nodejs-cms-ssg</loc>
-		<lastmod>2023-04-10</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/click-without-javascript</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/blog-doc-updating-the-administration-design</loc>
-		<lastmod>2023-05-01</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/creating-a-customizer-control-with-javascript</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/change-page-title-dynamically</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/csp-nonce-with-nodejs-and-ejs</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/clear-your-local-development-cache-with-js</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/express-global-router-for-a-dry-code</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/click-without-javascript</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/from-145-to-7</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/creating-a-customizer-control-with-javascript</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/full-screen-morphing-search-plugin</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/csp-nonce-with-nodejs-and-ejs</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/get-google-products-on-desktop-with-thunderbird</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/express-global-router-for-a-dry-code</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/hide-wordpress-toolbar-with-wp_add_inline_style</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/from-145-to-7</loc>
-		<lastmod>2023-07-24</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/improving-a-nodejs-app-built-with-express-and-ejs</loc>
+		<lastmod>2023-07-29</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/full-screen-morphing-search-plugin</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/listen-for-changes-in-customizer-preview</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/get-google-products-on-desktop-with-thunderbird</loc>
-		<lastmod>2023-04-13</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/markdown-blog-with-ejs</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/hide-wordpress-toolbar-with-wp_add_inline_style</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/midday-wordpress-theme</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/improving-a-nodejs-app-built-with-express-and-ejs</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/modifying-wordpress-theme-copyright-from-the-customizer</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/listen-for-changes-in-customizer-preview</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/templating-a-nodejs-app-with-ejs</loc>
+		<lastmod>2023-07-29</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/markdown-blog-with-ejs</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/the-clean-blog-wordpress-theme</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/midday-wordpress-theme</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/to-node-or-not-deta-is-the-answer</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/modifying-wordpress-theme-copyright-from-the-customizer</loc>
-		<lastmod>2023-03-21</lastmod>
+		<url>
+		<loc>https://lebcit.github.io/turn-a-markdown-blog-to-a-simple-ssg</loc>
+		<lastmod>2023-07-28</lastmod>
 	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/templating-a-nodejs-app-with-ejs</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/the-clean-blog-wordpress-theme</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/to-node-or-not-deta-is-the-answer</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/posts/turn-a-markdown-blog-to-a-simple-ssg</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/Administration</loc>
-		<lastmod>2023-04-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/Blog-Doc</loc>
-		<lastmod>2023-04-10</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/CMS</loc>
-		<lastmod>2023-04-10</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/CSP</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/CSS</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/Copyright</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/Customizer</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/Development</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/EJS</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/Eta</loc>
-		<lastmod>2023-07-24</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/Express</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/Hono</loc>
-		<lastmod>2023-07-24</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/JavaScript</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/Markdown</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/Marked</loc>
-		<lastmod>2023-07-24</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/Node.js</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/Nonce</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/Plugin</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/SSG</loc>
-		<lastmod>2023-04-10</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/Theme</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/Tips and Tricks</loc>
-		<lastmod>2023-04-13</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://lebcit.github.io/tags/Toolbar</loc>
-		<lastmod>2023-03-21</lastmod>
-	</url>
-	
-</urlset>
+	</urlset>

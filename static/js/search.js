@@ -2,8 +2,12 @@
 const searchInput = document.getElementById("searchInput")
 searchInput.focus()
 
+const postPreviewFallbackImageSpan = document.getElementById("post-preview-fallback-image")
+const postPreviewFallbackImage = JSON.parse(postPreviewFallbackImageSpan.textContent)
+postPreviewFallbackImageSpan.remove()
+
 // Fetch the posts from posts.json
-fetch("/js/posts.json")
+fetch("/static/js/posts.json")
 	.then((response) => response.json())
 	.then((posts) => {
 		// Get the searched string and assign it to a query constant
@@ -14,7 +18,7 @@ fetch("/js/posts.json")
 		const reg = new RegExp(query, "gi")
 
 		// Filter the posts by title and content depending on the regex
-		const titleSearch = posts.filter((post) => post[1].data.title.match(reg))
+		const titleSearch = posts.filter((post) => post[1].frontmatter.title.match(reg))
 		const contentSearch = posts.filter((post) => post[1].content.match(reg))
 
 		// Concatenate the results of titleSearch and contentSearch
@@ -23,10 +27,10 @@ fetch("/js/posts.json")
 		// Get the unique result(s) by removing duplicates from concat array
 		const uniqueProps = []
 		const result = concat.filter((post) => {
-			const isDuplicate = uniqueProps.includes(post[1].data.title)
+			const isDuplicate = uniqueProps.includes(post[1].frontmatter.title)
 
 			if (!isDuplicate) {
-				uniqueProps.push(post[1].data.title)
+				uniqueProps.push(post[1].frontmatter.title)
 
 				return true
 			}
@@ -36,33 +40,25 @@ fetch("/js/posts.json")
 
 		// If a search is made and the result array is not empty
 		if (query && result.length > 0) {
-			// Insert the single-post-preview.css at the end of the head tag
-			/* document.head.insertAdjacentHTML(
-				"beforeend",
-				'<link rel="stylesheet" href="css/single-post-preview.css" />'
-			) */
-
 			// Define an empty string that will hold the search result(s)
 			let searchResultString = ""
 			// Define the markup for each post of the result array
 			result.forEach((post, index) => {
 				const postFilename = post[0].replace(/\.[^/.]+$/, "")
-				const postTitle = post[1].data.title
-				const postFeaturedImage = post[1].data.featuredImage
-				const postDate = post[1].data.date
-				const postDescription = post[1].data.description
-				const postTags = post[1].data.tags
+				const postTitle = post[1].frontmatter.title
+				const postFeaturedImage = post[1].frontmatter.featuredImage
+				const postDate = post[1].frontmatter.date
+				const postDescription = post[1].frontmatter.description
+				const postTags = post[1].frontmatter.tags
 				const postContent = post[1].content
 				const postExcerpt = postContent.substring(0, 180) + "..."
 
 				// Define the image path depending on the postFeaturedImage
 				let imagePath
 				if (!postFeaturedImage) {
-					imagePath = "./images/graphic-of-white-camera-on-black-background-no-image-available.webp"
-				} else if (postFeaturedImage && postFeaturedImage.startsWith("/")) {
-					imagePath = `.${postFeaturedImage}`
+					imagePath = postPreviewFallbackImage
 				} else {
-					imagePath = `${postFeaturedImage}`
+					imagePath = postFeaturedImage
 				}
 
 				// Define an empty string that will hold the tag(s) if any

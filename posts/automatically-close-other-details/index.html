@@ -4,16 +4,14 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-	<meta name="description" content="This post is about closing all &lt;details&gt; tag when another one is open" />
+		<meta name="description" content="This post is about closing all &lt;details&gt; tag when another one is open" />
 	
-
 	<title>Automatically close other &lt;details&gt; | { LebCit }</title>
 
-	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon_32.png" />
-	<link rel="stylesheet" href="/css/main.min.css" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
+	<link rel="stylesheet" href="/static/css/main.min.css" />
 
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs-okaidia-theme/prism-okaidia.min.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
 	  <style>
 	.post-title {
 		font-size: 2em;
@@ -47,7 +45,6 @@
 	}
 </style>
 
-
 <style>
 	.single-post :not(pre) code {
 		background-color: #272822;
@@ -56,8 +53,7 @@
 		padding: 4px 5px 5px;
 	}
 </style>
-  
-<style>
+  <style>
 	@media screen and (min-width: 48em) and (max-width: 63.938em) {
 		.post-title {
 			font-size: 3em;
@@ -73,8 +69,7 @@
 		}
 	}
 </style>
-    
-<style>
+    <style>
 	.post-meta {
 		color: #16663d;
 		font-size: 90%;
@@ -96,16 +91,15 @@
 		color: #fff;
 	}
 </style>
-  
-
-	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 </head>
 
-
 	<body>
+		<!--Start page-->
 		<div id="page" class="site grid">
 			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
+			<!--Start menu-->
 			<style>
 	.invisible {
 		visibility: hidden;
@@ -168,30 +162,26 @@
 	
 	<div class="overlay-content">
 		<a href="/">Home</a>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/posts">Archive</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/tags">Tags</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/search">Search</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/pages/about">About Me</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/rss.xml">RSS</a>
 		</li>
-		
-	</div>
+			</div>
 </div>
-  <style>
+			<!--End menu-->
+			<!--Start masthead-->
+			<style>
 	/* SITE HEADER */
 	.site-header {
 		background: rgb(61, 79, 93);
@@ -344,20 +334,18 @@
 		}
 	}
 </style>
-<header id="masthead"  class="site-header unit-1 unit-lg-2-5 bio" style="background-image:
-	url('/img/matrix-background.webp')"  >
+
+<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/matrix-background.webp')"  >
 	<div class="site-header-overlay"></div>
-	
-	<div class="sidebar">
+		<div class="sidebar">
 		<div class="site-branding">
 			<h1 class="site-title">
 				<a href="/">{ LebCit }</a>
 			</h1>
-			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !</p>
+			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</p>
 		</div>
 
-		
-		<nav id="nav" class="nav" aria-label="MENU">
+				<nav id="nav" class="nav" aria-label="MENU">
 			<ul class="nav-list">
 				<li class="nav-item">
 					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
@@ -381,15 +369,15 @@
 				</li>
 			</ul>
 		</nav>
-		
-	</div>
-	
-</header>
+			</div>
+	</header>
+			<!--End masthead-->
 
-
+			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				  
-				<main class="single-post"><style>
+				  				<main class="single-post">
+					<!-- Start Markdown file content -->
+					<style>
 	.author-greetings {
 		color: #000;
 		line-height: normal;
@@ -398,92 +386,83 @@
 
 <header class="post-header">
 	<h1 class="post-title">Automatically close other &lt;details&gt;</h1>
-	
-	<p class="post-meta">
+		<p class="post-meta">
 		<span>Posted on</span>
 		<span class="posted-on">
 			<time class="postList-date" datetime='2021-02/10'>
-				Wed Feb 10 2021
-			</time>
+				Wed Feb 10 2021			</time>
 		</span>
 
-		<br />
-		Tagged  
-		<span class="post-tag">
+				<br />
+		<span>Tagged</span>
+		<!--Start tag(s)-->
+				<span class="post-tag">
 			<a href="/tags/Tips and Tricks">Tips and Tricks</a>
 		</span>
-		
-		<span class="post-tag">
+				<span class="post-tag">
 			<a href="/tags/JavaScript">JavaScript</a>
 		</span>
-		  
-	</p>
-	  
-</header>
+				<!--End tag(s)-->
+			</p>
+	  </header>
 
 <div class="post-content">
-	
-	<p>
+		<p>
 		<em>This post is about closing all &lt;details&gt; tag when another one is open.</em>
 	</p>
-	  <p>I was writing a post about MidDay, <a href="/posts/midday-wordpress-theme/">my new WordPress Theme</a>, and wanted to include a simple FAQ section but with a little of style, this is when I remembered the <code>&lt;details&gt;</code> tag.</p>
-<p>It's an awesome <strong>accessible</strong> element, similar to an accordion.</p>
+	  <p>I was writing a post about MidDay, <a href="/posts/midday-wordpress-theme">my new WordPress Theme</a>, and wanted to include a simple FAQ section but with a little of style, this is when I remembered the <code>&lt;details&gt;</code> tag.</p>
+<p>It&#39;s an awesome <strong>accessible</strong> element, similar to an accordion.</p>
 <details>
 <summary>How to create one ?</summary>
 You have just opened one 😁<br>
 Just follow the pattern in the code.
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>details</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>summary</span><span class="token punctuation">></span></span>Summary/Question about the content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>summary</span><span class="token punctuation">></span></span>
-	And here is the content, it could be anything, even code like this example 😉
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>details</span><span class="token punctuation">></span></span>
-</code></pre>
-</details>
-<p>But when we use more than one <code>&lt;details&gt;</code> tag on the same page, especially when they are one after another, we can see that if one is opened and we open another one, the first stays opened.<br>
-Imagine having 5 or more after each other, with a reasonable amount of content, they will take a lot of space.
+
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">details</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">summary</span>&gt;</span>Summary/Question about the content<span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span>
+    And here is the content, it could be anything, even code like this example 😉
+<span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span>
+</code></pre></details>
+
+<p>But when we use more than one <code>&lt;details&gt;</code> tag on the same page, especially when they are one after another, we can see that if one is opened and we open another one, the first stays opened.<br>Imagine having 5 or more after each other, with a reasonable amount of content, they will take a lot of space.
 As an example, you can take a look at this informative pen : <a href="https://codepen.io/jdsteinbach/pen/GYmQjo">Teaching the Details Element with ... Details Elements!</a></p>
 <details>
 <summary>So how to close the opened one ?</summary>
 Easy !<br>
 Just include the following code in your scripts file or in a <code>script</code> tag at the bottom of your page before the closing <code>body</code> tag.
-<pre class="language-js"><code class="language-js"><span class="token comment">/** Close others &lt;details> tag */</span>
-<span class="token keyword">const</span> allDetails <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">"details"</span><span class="token punctuation">)</span>
 
-allDetails<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">details</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-	details<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"toggle"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span>details<span class="token punctuation">.</span>open<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-			allDetails<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">details</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-				<span class="token keyword">if</span> <span class="token punctuation">(</span>details <span class="token operator">!=</span> e<span class="token punctuation">.</span>target <span class="token operator">&amp;&amp;</span> details<span class="token punctuation">.</span>open<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-					details<span class="token punctuation">.</span>open <span class="token operator">=</span> <span class="token boolean">false</span>
-				<span class="token punctuation">}</span>
-			<span class="token punctuation">}</span><span class="token punctuation">)</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-</details>
-<p>Let's break it down !</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">/** Close others &lt;details&gt; tag */</span>
+<span class="hljs-keyword">const</span> allDetails = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&quot;details&quot;</span>)
+
+allDetails.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">details</span>) =&gt;</span> {
+    details.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;toggle&quot;</span>, <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
+        <span class="hljs-keyword">if</span> (details.<span class="hljs-property">open</span>) {
+            allDetails.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">details</span>) =&gt;</span> {
+                <span class="hljs-keyword">if</span> (details != e.<span class="hljs-property">target</span> &amp;&amp; details.<span class="hljs-property">open</span>) {
+                    details.<span class="hljs-property">open</span> = <span class="hljs-literal">false</span>
+                }
+            })
+        }
+    })
+})
+</code></pre></details>
+
+<p>Let&#39;s break it down !</p>
 <p>First we select all the <code>&lt;details&gt;</code> tag :</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> allDetails <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">"details"</span><span class="token punctuation">)</span>
-</code></pre>
-<p>And we iterate over them :</p>
-<pre class="language-js"><code class="language-js">allDetails<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">details</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-</code></pre>
-<p>Then we listen to the <code>toggle</code> event used by the <code>&lt;details&gt;</code> element whenever its state changes between open and closed :</p>
-<pre class="language-js"><code class="language-js">details<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'toggle'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-</code></pre>
-<p>Now, we wait for any <code>&lt;details&gt;</code> to be <code>open</code> :</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>details<span class="token punctuation">.</span>open<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-</code></pre>
-<p>We iterate once again over all the <code>&lt;details&gt;</code> and check if anyone of them was not the <code>target</code> of the <code>toggle</code> event and was <code>open</code>, if so, we just close it by removing it's open state :</p>
-<pre class="language-js"><code class="language-js">allDetails<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">details</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span>details <span class="token operator">!=</span> e<span class="token punctuation">.</span>target <span class="token operator">&amp;&amp;</span> details<span class="token punctuation">.</span>open<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		details<span class="token punctuation">.</span>open <span class="token operator">=</span> <span class="token boolean">false</span>
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<p>In other words, if a <code>&lt;details&gt;</code> element was opened, it have the <code>open</code> attribute. Now if another <code>&lt;details&gt;</code> element is open, we remove the <code>open</code> attribute from the previous, leaving only the actual targeted one opened.</p>
-<p>Hope that this was useful, and that you'll start using <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">The Details disclosure element</a>.</p>
-
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> allDetails = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&quot;details&quot;</span>)
+</code></pre><p>And we iterate over them :</p>
+<pre><code class="hljs language-js">allDetails.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">details</span> =&gt;</span> {
+</code></pre><p>Then we listen to the <code>toggle</code> event used by the <code>&lt;details&gt;</code> element whenever its state changes between open and closed :</p>
+<pre><code class="hljs language-js">details.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;toggle&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
+</code></pre><p>Now, we wait for any <code>&lt;details&gt;</code> to be <code>open</code> :</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">if</span> (details.<span class="hljs-property">open</span>) {
+</code></pre><p>We iterate once again over all the <code>&lt;details&gt;</code> and check if anyone of them was not the <code>target</code> of the <code>toggle</code> event and was <code>open</code>, if so, we just close it by removing it&#39;s open state :</p>
+<pre><code class="hljs language-js">allDetails.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">details</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (details != e.<span class="hljs-property">target</span> &amp;&amp; details.<span class="hljs-property">open</span>) {
+        details.<span class="hljs-property">open</span> = <span class="hljs-literal">false</span>
+    }
+})
+</code></pre><p>In other words, if a <code>&lt;details&gt;</code> element was opened, it have the <code>open</code> attribute. Now if another <code>&lt;details&gt;</code> element is open, we remove the <code>open</code> attribute from the previous, leaving only the actual targeted one opened.</p>
+<p>Hope that this was useful, and that you&#39;ll start using <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">The Details disclosure element</a>.</p>
 	<p class="author-greetings">
 		SYA,
 		<br />
@@ -544,14 +523,11 @@ allDetails<span class="token punctuation">.</span><span class="token function">f
 </style>
 
 <nav class="post-navigation" aria-label="Post navigation">
-	
-	<a href="/posts/midday-wordpress-theme" class="prev-post" rel="prev" aria-label="Go to the previous post">
-		Previous: MidDay WordPress theme
-	</a>
-	  
-	<a href="/posts/to-node-or-not-deta-is-the-answer" class="next-post" rel="next" aria-label="Go to the next post">Next: To Node or not ? Deta is the answer !</a>
-	
-</nav>
+		<a href="/posts/midday-wordpress-theme" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: MidDay WordPress theme	</a>
+	  	<a href="/posts/to-node-or-not-deta-is-the-answer" class="next-post" rel="next" aria-label="Go to the next post">
+		Next: To Node or not ? Deta is the answer !	</a>
+	</nav>
    <style>
 	.related-posts div {
 		display: grid;
@@ -564,44 +540,38 @@ allDetails<span class="token punctuation">.</span><span class="token function">f
 <div class="related-posts">
 	<h3>SOME RELATED POSTS</h3>
 	<div>
-		      
-		<section>
+		      		<section>
 			<a href="/posts/change-page-title-dynamically">
-				
-				<img
+								<img
 					class="img-responsive"
-					src="/img/graphic-of-white-camera-on-black-background-no-image-available.webp"
+					src="/static/img/graphic-of-white-camera-on-black-background-no-image-available.webp"
 					alt="Graphic of white camera on black background. No image available for this post."
 				/>
-				
-			</a>
+							</a>
 			<h4>
 				<a href="/posts/change-page-title-dynamically">Change page title dynamically</a>
 			</h4>
 		</section>
-		      
-		<section>
+		      		<section>
 			<a href="/posts/clear-your-local-development-cache-with-js">
-				    
-				<img
+				    				<img
 					class="img-responsive"
-					src="/img/stacked-memory-photos.webp"
+					src="/static/img/stacked-memory-photos.webp"
 					alt="Stacked memory photos"
 				/>
-				
-			</a>
+							</a>
 			<h4>
 				<a href="/posts/clear-your-local-development-cache-with-js">Clear your local development cache with JS</a>
 			</h4>
 		</section>
-		
-	</div>
-</div>
-  
-</main>
-				       
 			</div>
-			 <style>
+</div>
+  					<!-- End Markdown file content -->
+				</main>
+				     			</div>
+			<!--End content-->
+			<!--Start footer-->
+			<style>
 	.site-footer {
 		text-align: center;
 		padding-top: 2em;
@@ -615,22 +585,18 @@ allDetails<span class="token punctuation">.</span><span class="token function">f
 </style>
 
 <footer id="colophon" class="site-footer unit-1">
-	        
-
-	<div id="site-info" class="site-info">
+	        	<div id="site-info" class="site-info">
 		<p>
 			<strong>2016 - 2023 | { LebCit }</strong>
 			<br />
-			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc-space'>Blog-Doc</a>
-		</p>
+			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
 	</div>
 </footer>
-
+			<!--End footer-->
 		</div>
-		   
-		<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+		<!--End page-->
+		  		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 		
-
-		<script src="/js/main.js"></script>
+		<script src="/static/js/main.js"></script>
 	</body>
 </html>

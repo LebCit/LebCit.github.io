@@ -4,16 +4,14 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-	<meta name="description" content="This post is about using a nonce for CSP with Node.js and EJS" />
+		<meta name="description" content="This post is about using a nonce for CSP with Node.js and EJS" />
 	
-
 	<title>CSP nonce with Node.js and EJS | { LebCit }</title>
 
-	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon_32.png" />
-	<link rel="stylesheet" href="/css/main.min.css" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
+	<link rel="stylesheet" href="/static/css/main.min.css" />
 
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs-okaidia-theme/prism-okaidia.min.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
 	  <style>
 	.post-title {
 		font-size: 2em;
@@ -47,7 +45,6 @@
 	}
 </style>
 
-
 <style>
 	.single-post :not(pre) code {
 		background-color: #272822;
@@ -56,8 +53,7 @@
 		padding: 4px 5px 5px;
 	}
 </style>
-  
-<style>
+  <style>
 	@media screen and (min-width: 48em) and (max-width: 63.938em) {
 		.post-title {
 			font-size: 3em;
@@ -73,8 +69,7 @@
 		}
 	}
 </style>
-    
-<style>
+    <style>
 	.post-meta {
 		color: #16663d;
 		font-size: 90%;
@@ -96,16 +91,15 @@
 		color: #fff;
 	}
 </style>
-  
-
-	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 </head>
 
-
 	<body>
+		<!--Start page-->
 		<div id="page" class="site grid">
 			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
+			<!--Start menu-->
 			<style>
 	.invisible {
 		visibility: hidden;
@@ -168,30 +162,26 @@
 	
 	<div class="overlay-content">
 		<a href="/">Home</a>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/posts">Archive</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/tags">Tags</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/search">Search</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/pages/about">About Me</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/rss.xml">RSS</a>
 		</li>
-		
-	</div>
+			</div>
 </div>
-  <style>
+			<!--End menu-->
+			<!--Start masthead-->
+			<style>
 	/* SITE HEADER */
 	.site-header {
 		background: rgb(61, 79, 93);
@@ -344,20 +334,18 @@
 		}
 	}
 </style>
-<header id="masthead"  class="site-header unit-1 unit-lg-2-5 bio" style="background-image:
-	url('/img/key-attached-to-another-in-the-lock-of-a-door.webp')"  >
+
+<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/key-attached-to-another-in-the-lock-of-a-door.webp')"  >
 	<div class="site-header-overlay"></div>
-	
-	<div class="sidebar">
+		<div class="sidebar">
 		<div class="site-branding">
 			<h1 class="site-title">
 				<a href="/">{ LebCit }</a>
 			</h1>
-			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !</p>
+			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</p>
 		</div>
 
-		
-		<nav id="nav" class="nav" aria-label="MENU">
+				<nav id="nav" class="nav" aria-label="MENU">
 			<ul class="nav-list">
 				<li class="nav-item">
 					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
@@ -381,15 +369,15 @@
 				</li>
 			</ul>
 		</nav>
-		
-	</div>
-	
-</header>
+			</div>
+	</header>
+			<!--End masthead-->
 
-
+			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				  
-				<main class="single-post"><style>
+				  				<main class="single-post">
+					<!-- Start Markdown file content -->
+					<style>
 	.author-greetings {
 		color: #000;
 		line-height: normal;
@@ -398,92 +386,74 @@
 
 <header class="post-header">
 	<h1 class="post-title">CSP nonce with Node.js and EJS</h1>
-	
-	<p class="post-meta">
+		<p class="post-meta">
 		<span>Posted on</span>
 		<span class="posted-on">
 			<time class="postList-date" datetime='2022-07/03'>
-				Sun Jul 03 2022
-			</time>
+				Sun Jul 03 2022			</time>
 		</span>
 
-		<br />
-		Tagged  
-		<span class="post-tag">
+				<br />
+		<span>Tagged</span>
+		<!--Start tag(s)-->
+				<span class="post-tag">
 			<a href="/tags/Development">Development</a>
 		</span>
-		
-		<span class="post-tag">
+				<span class="post-tag">
 			<a href="/tags/JavaScript">JavaScript</a>
 		</span>
-		
-		<span class="post-tag">
+				<span class="post-tag">
 			<a href="/tags/Node.js">Node.js</a>
 		</span>
-		
-		<span class="post-tag">
+				<span class="post-tag">
 			<a href="/tags/EJS">EJS</a>
 		</span>
-		
-		<span class="post-tag">
+				<span class="post-tag">
 			<a href="/tags/CSP">CSP</a>
 		</span>
-		
-		<span class="post-tag">
+				<span class="post-tag">
 			<a href="/tags/Nonce">Nonce</a>
 		</span>
-		  
-	</p>
-	  
-</header>
+				<!--End tag(s)-->
+			</p>
+	  </header>
 
 <div class="post-content">
-	
-	<p>
+		<p>
 		<em>This post is about using a nonce for CSP with Node.js and EJS.</em>
 	</p>
 	  <h2>Intro</h2>
-<p>In this post, I will not dive into CSP's details.
-The link in the description, above, is enough for a simple introduction to the subject, but if you wish to go deeper I'll suggest to take a look at :</p>
+<p>In this post, I will not dive into CSP&#39;s details.
+The link in the description, above, is enough for a simple introduction to the subject, but if you wish to go deeper I&#39;ll suggest to take a look at :</p>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">Content Security Policy (CSP) on MDN</a></li>
 <li><a href="https://www.w3.org/TR/CSP3/">Content Security Policy Level 3 on W3C</a></li>
 </ul>
 <h2>CSP: script-src</h2>
-<p>CSP is manly a way to declare allowed resources to load on a domain or a particular route, to reduce the risk of <a href="https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting">Cross-site scripting (XSS)</a> attacks.<br>
-When a script loads into a webpage, the browser blocks the script if it's not defined in the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src">script-src</a> directive of the CSP as an allowed resource.<br>
-When used, CSP will also block inline script tags like :</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-	<span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre>
-<p>as well as inline event handlers like :</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>btn<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-</code></pre>
-<h2>CSP: style-src</h2>
+<p>CSP is manly a way to declare allowed resources to load on a domain or a particular route, to reduce the risk of <a href="https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting">Cross-site scripting (XSS)</a> attacks.<br>When a script loads into a webpage, the browser blocks the script if it&#39;s not defined in the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src">script-src</a> directive of the CSP as an allowed resource.<br>When used, CSP will also block inline script tags like :</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+    doSomething()
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre><p>as well as inline event handlers like :</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;btn&quot;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;doSomething()&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre><h2>CSP: style-src</h2>
 <p>Like <code>script-src</code>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src">style-src</a> is used to declare the valid sources of styles.</p>
-<p>CSP <code>style-src</code> directive will block inline style tags and inline style attributes.<br>
-So, the following will not load :</p>
-<pre class="language-html"><code class="language-html">// Inline style tag gets ignored
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-	<span class="token selector">#my-div</span> <span class="token punctuation">{</span>
-		<span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<p>CSP <code>style-src</code> directive will block inline style tags and inline style attributes.<br>So, the following will not load :</p>
+<pre><code class="hljs language-html">// Inline style tag gets ignored
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
+    <span class="hljs-selector-id">#my-div</span> {
+        <span class="hljs-attribute">background-color</span>: red;
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
 
 // Inline style attribute gets also ignored
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>my-div<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">background-color</span><span class="token punctuation">:</span>red</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>I will not have a red background !<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-</code></pre>
-<p>Note that <code>style-src</code> directive will also block styles applied in JS via <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute">setAttribute</a>.<br>
-The following example will not be rendered :</p>
-<pre class="language-js"><code class="language-js">document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"my-div"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"style"</span><span class="token punctuation">,</span> <span class="token string">"background-color:red;"</span><span class="token punctuation">)</span>
-</code></pre>
-<p>However, styles set on element's style property will work.<br>
-The following example will be rendered :</p>
-<pre class="language-js"><code class="language-js">document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"my-div"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> <span class="token string">"red"</span>
-</code></pre>
-<h2>Unsafe expressions</h2>
-<p>There are <strong>unsafe</strong> ways to whitelist inline script tags, inline event handlers, inline style tags and inline styles, but I'm not going to talk about them because they are <strong>unsafe</strong> and break the whole point of a CSP !</p>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;my-div&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;background-color:red&quot;</span>&gt;</span>I will not have a red background !<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre><p>Note that <code>style-src</code> directive will also block styles applied in JS via <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute">setAttribute</a>.<br>The following example will not be rendered :</p>
+<pre><code class="hljs language-js"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;my-div&quot;</span>).<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&quot;style&quot;</span>, <span class="hljs-string">&quot;background-color:red;&quot;</span>)
+</code></pre><p>However, styles set on element&#39;s style property will work.<br>The following example will be rendered :</p>
+<pre><code class="hljs language-js"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;my-div&quot;</span>).<span class="hljs-property">style</span>.<span class="hljs-property">backgroundColor</span> = <span class="hljs-string">&quot;red&quot;</span>
+</code></pre><h2>Unsafe expressions</h2>
+<p>There are <strong>unsafe</strong> ways to whitelist inline script tags, inline event handlers, inline style tags and inline styles, but I&#39;m not going to talk about them because they are <strong>unsafe</strong> and break the whole point of a CSP !</p>
 <h2>Setting CSP in Node.js</h2>
 <p>To define allowed resources in a CSP via Node.js, we have to declare them as a response header :</p>
 <ol>
@@ -491,146 +461,140 @@ The following example will be rendered :</p>
 <li>The server sends a response</li>
 <li>The browser loads the page along with allowed resources</li>
 </ol>
-<p>It's in the response header that a CSP lives and where the browser will look to know what he can render.</p>
+<p>It&#39;s in the response header that a CSP lives and where the browser will look to know what he can render.</p>
 <p>Using <a href="https://expressjs.com/">Express</a>, we can simply do the following :</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
+<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>()
 
-<span class="token comment">// Set CSP as a middleware function</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-	res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span>
-		<span class="token string">"Content-Security-Policy"</span><span class="token punctuation">,</span>
-		<span class="token string">"default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; frame-src 'self'"</span>
-	<span class="token punctuation">)</span>
+<span class="hljs-comment">// Set CSP as a middleware function</span>
+app.<span class="hljs-title function_">use</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">req, res, next</span>) {
+    res.<span class="hljs-title function_">setHeader</span>(
+        <span class="hljs-string">&quot;Content-Security-Policy&quot;</span>,
+        <span class="hljs-string">&quot;default-src &#x27;self&#x27;; script-src &#x27;self&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; img-src &#x27;self&#x27;; frame-src &#x27;self&#x27;&quot;</span>
+    )
 
-	<span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="hljs-title function_">next</span>()
+})
 
-app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-	res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+    res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;Hello World!&quot;</span>)
+})
 
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">App 🚀 @ http://localhost:3000</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<p>As you can see, we have defined the most used directives to <code>'self'</code>, meaning that we are only allowing resources from the current host (<em>including URL scheme and port number</em>) only.<br>
-If you run this app (<code>node index</code>), and follow the link, you'll get a nice <strong>Hello World!</strong><br>
-If you open the Console (F12), you'll see nothing since we didn't do much for now.</p>
+app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`App 🚀 @ http://localhost:3000`</span>)
+})
+</code></pre><p>As you can see, we have defined the most used directives to <code>&#39;self&#39;</code>, meaning that we are only allowing resources from the current host (<em>including URL scheme and port number</em>) only.<br>If you run this app (<code>node index</code>), and follow the link, you&#39;ll get a nice <strong>Hello World!</strong><br>If you open the Console (F12), you&#39;ll see nothing since we didn&#39;t do much for now.</p>
 <h2>EJS</h2>
-<p>To render an <code>HTML</code> page, load external scripts and styles to test our CSP, I'll be using <a href="https://ejs.co/">EJS</a>.<br>
-Fell free to use any other template engine that suits your needs.<br>
-I highly recommend EJS for the following reason :</p>
+<p>To render an <code>HTML</code> page, load external scripts and styles to test our CSP, I&#39;ll be using <a href="https://ejs.co/">EJS</a>.<br>Fell free to use any other template engine that suits your needs.<br>I highly recommend EJS for the following reason :</p>
 <blockquote>
 <p>EJS is a simple templating language that lets you generate HTML markup with plain JavaScript.</p>
 </blockquote>
-<p>After installing EJS (<code>npm i ejs</code>), we'll have to create a <code>views</code> folder, at the root of the app, to store the <code>.ejs</code> files.<br>
-EJS will look inside this folder to <code>render</code> your page(s) the way you instruct him to do.
+<p>After installing EJS (<code>npm i ejs</code>), we&#39;ll have to create a <code>views</code> folder, at the root of the app, to store the <code>.ejs</code> files.<br>EJS will look inside this folder to <code>render</code> your page(s) the way you instruct him to do.
 In this folder, create a file called <code>index.ejs</code> with the following content :</p>
 <details>
 <summary>/views/index.ejs</summary>
-<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Hello from EJS !<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
-</code></pre>
-</details>
-<p>Yes, an <code>.ejs</code> file is an <code>HTML</code> file in which we can use plain <code>JavaScript</code>, we'll see that in a moment.</p>
+
+<pre><code class="hljs language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello from EJS !<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre></details>
+
+<p>Yes, an <code>.ejs</code> file is an <code>HTML</code> file in which we can use plain <code>JavaScript</code>, we&#39;ll see that in a moment.</p>
 <p>Update our main server file to look like this :</p>
 <details>
 <summary>/index.js</summary>
-<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="token comment">// Set CSP as a middleware function</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-	res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span>
-		<span class="token string">"Content-Security-Policy"</span><span class="token punctuation">,</span>
-		<span class="token string">"default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; frame-src 'self'"</span>
-	<span class="token punctuation">)</span>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
+<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>()
 
-	<span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="hljs-comment">// Set CSP as a middleware function</span>
+app.<span class="hljs-title function_">use</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">req, res, next</span>) {
+    res.<span class="hljs-title function_">setHeader</span>(
+        <span class="hljs-string">&quot;Content-Security-Policy&quot;</span>,
+        <span class="hljs-string">&quot;default-src &#x27;self&#x27;; script-src &#x27;self&#x27;; style-src &#x27;self&#x27;; font-src &#x27;self&#x27;; img-src &#x27;self&#x27;; frame-src &#x27;self&#x27;&quot;</span>
+    )
 
-<span class="token comment">// Set EJS as a template engine</span>
-app<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"view engine"</span><span class="token punctuation">,</span> <span class="token string">"ejs"</span><span class="token punctuation">)</span>
+    <span class="hljs-title function_">next</span>()
+})
 
-<span class="token comment">// Use EJS to render our page(s)</span>
-app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"index"</span><span class="token punctuation">)</span> <span class="token comment">// renders index.ejs</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="hljs-comment">// Set EJS as a template engine</span>
+app.<span class="hljs-title function_">set</span>(<span class="hljs-string">&quot;view engine&quot;</span>, <span class="hljs-string">&quot;ejs&quot;</span>)
 
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">App 🚀 @ http://localhost:3000</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-</details>
+<span class="hljs-comment">// Use EJS to render our page(s)</span>
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+    res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;index&quot;</span>) <span class="hljs-comment">// renders index.ejs</span>
+})
+
+app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`App 🚀 @ http://localhost:3000`</span>)
+})
+</code></pre></details>
+
 <h2>External resources</h2>
-<p>Now, to test our CSP, we just have to load some external resources.<br>
-Let's bring on <a href="https://purecss.io/">Pure.css</a> and <a href="https://lodash.com/">Lodash</a>.
+<p>Now, to test our CSP, we just have to load some external resources.<br>Let&#39;s bring on <a href="https://purecss.io/">Pure.css</a> and <a href="https://lodash.com/">Lodash</a>.
 Update <code>index.ejs</code> to look like this :</p>
 <details>
 <summary>/views/index.ejs</summary>
-<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-		<span class="token comment">&lt;!-- Pure.css --></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span>
-			<span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span>
-			<span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/purecss@2.1.0/build/pure-min.css<span class="token punctuation">"</span></span>
-			<span class="token attr-name">integrity</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH<span class="token punctuation">"</span></span>
-			<span class="token attr-name">crossorigin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>anonymous<span class="token punctuation">"</span></span>
-		<span class="token punctuation">/></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Hello from EJS !<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
 
-		<span class="token comment">&lt;!-- Lodash --></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
-</code></pre>
-</details>
+<pre><code class="hljs language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- Pure.css --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">link</span>
+            <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span>
+            <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://unpkg.com/purecss@2.1.0/build/pure-min.css&quot;</span>
+            <span class="hljs-attr">integrity</span>=<span class="hljs-string">&quot;sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH&quot;</span>
+            <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">&quot;anonymous&quot;</span>
+        /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello from EJS !<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+        <span class="hljs-comment">&lt;!-- Lodash --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre></details>
+
 <p>Save <code>index.ejs</code>, reload the app in the browser, and open the Console :</p>
 <details>
 <summary>Firefox Console</summary>
-<pre class="language-js"><code class="language-js">
-⚠️ Loading failed <span class="token keyword">for</span> the <span class="token operator">&lt;</span>script<span class="token operator">></span> <span class="token keyword">with</span> source “https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>cdn<span class="token punctuation">.</span>jsdelivr<span class="token punctuation">.</span>net<span class="token operator">/</span>npm<span class="token operator">/</span>lodash@<span class="token number">4.17</span><span class="token number">.21</span><span class="token operator">/</span>lodash<span class="token punctuation">.</span>min<span class="token punctuation">.</span>js”<span class="token punctuation">.</span>
-🛑 Content Security Policy<span class="token operator">:</span> The page’s settings blocked the loading <span class="token keyword">of</span> a resource at https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>unpkg<span class="token punctuation">.</span>com<span class="token operator">/</span>purecss@<span class="token number">2.1</span><span class="token number">.0</span><span class="token operator">/</span>build<span class="token operator">/</span>pure<span class="token operator">-</span>min<span class="token punctuation">.</span><span class="token function">css</span> <span class="token punctuation">(</span>“style<span class="token operator">-</span>src”<span class="token punctuation">)</span><span class="token punctuation">.</span>
-🛑 Content Security Policy<span class="token operator">:</span> The page’s settings blocked the loading <span class="token keyword">of</span> a resource at https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>cdn<span class="token punctuation">.</span>jsdelivr<span class="token punctuation">.</span>net<span class="token operator">/</span>npm<span class="token operator">/</span>lodash@<span class="token number">4.17</span><span class="token number">.21</span><span class="token operator">/</span>lodash<span class="token punctuation">.</span>min<span class="token punctuation">.</span><span class="token function">js</span> <span class="token punctuation">(</span>“script<span class="token operator">-</span>src”<span class="token punctuation">)</span><span class="token punctuation">.</span>
-</code></pre>
-</details>
+
+<pre><code class="hljs language-js">
+⚠️ <span class="hljs-title class_">Loading</span> failed <span class="hljs-keyword">for</span> the &lt;script&gt; <span class="hljs-keyword">with</span> source “<span class="hljs-attr">https</span>:<span class="hljs-comment">//cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js”.</span>
+🛑 <span class="hljs-title class_">Content</span> <span class="hljs-title class_">Security</span> <span class="hljs-title class_">Policy</span>: <span class="hljs-title class_">The</span> page’s settings blocked the loading <span class="hljs-keyword">of</span> a resource at <span class="hljs-attr">https</span>:<span class="hljs-comment">//unpkg.com/purecss@2.1.0/build/pure-min.css (“style-src”).</span>
+🛑 <span class="hljs-title class_">Content</span> <span class="hljs-title class_">Security</span> <span class="hljs-title class_">Policy</span>: <span class="hljs-title class_">The</span> page’s settings blocked the loading <span class="hljs-keyword">of</span> a resource at <span class="hljs-attr">https</span>:<span class="hljs-comment">//cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js (“script-src”).</span>
+</code></pre></details>
+
 <details>
 <summary>Chrome Console</summary>
-<pre class="language-js"><code class="language-js">
-🛑 Refused to load the stylesheet <span class="token string">'https://unpkg.com/purecss@2.1.0/build/pure-min.css'</span> because it violates the following Content Security Policy directive<span class="token operator">:</span> <span class="token string">"style-src 'self'"</span><span class="token punctuation">.</span> Note that <span class="token string">'style-src-elem'</span> was not explicitly set<span class="token punctuation">,</span> so <span class="token string">'style-src'</span> is used <span class="token keyword">as</span> a fallback<span class="token punctuation">.</span>
-🛑 Refused to load the script <span class="token string">'https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js'</span> because it violates the following Content Security Policy directive<span class="token operator">:</span> <span class="token string">"script-src 'self'"</span><span class="token punctuation">.</span> Note that <span class="token string">'script-src-elem'</span> was not explicitly set<span class="token punctuation">,</span> so <span class="token string">'script-src'</span> is used <span class="token keyword">as</span> a fallback<span class="token punctuation">.</span>
-</code></pre>
-</details>
+
+<pre><code class="hljs language-js">
+🛑 <span class="hljs-title class_">Refused</span> to load the stylesheet <span class="hljs-string">&#x27;https://unpkg.com/purecss@2.1.0/build/pure-min.css&#x27;</span> because it violates the following <span class="hljs-title class_">Content</span> <span class="hljs-title class_">Security</span> <span class="hljs-title class_">Policy</span> <span class="hljs-attr">directive</span>: <span class="hljs-string">&quot;style-src &#x27;self&#x27;&quot;</span>. <span class="hljs-title class_">Note</span> that <span class="hljs-string">&#x27;style-src-elem&#x27;</span> was not explicitly set, so <span class="hljs-string">&#x27;style-src&#x27;</span> is used <span class="hljs-keyword">as</span> a fallback.
+🛑 <span class="hljs-title class_">Refused</span> to load the script <span class="hljs-string">&#x27;https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js&#x27;</span> because it violates the following <span class="hljs-title class_">Content</span> <span class="hljs-title class_">Security</span> <span class="hljs-title class_">Policy</span> <span class="hljs-attr">directive</span>: <span class="hljs-string">&quot;script-src &#x27;self&#x27;&quot;</span>. <span class="hljs-title class_">Note</span> that <span class="hljs-string">&#x27;script-src-elem&#x27;</span> was not explicitly set, so <span class="hljs-string">&#x27;script-src&#x27;</span> is used <span class="hljs-keyword">as</span> a fallback.
+</code></pre></details>
+
 <p>Now, you can see that our CSP have blocked Pure.css and Lodash, so everything is working as expected since they are not defined in our CSP as allowed resources to load in the browser.</p>
 <h2>Helmet</h2>
-<p>Imagine, not necessarily because it happens when you are creating an app, having a reasonable amount of scripts and styles to whitelist.<br>
-The CSP middleware function in the main server file will grow and become sort of ugly and hard to maintain.<br>
-An <strong>excellent</strong> alternative would be to use <a href="https://helmetjs.github.io/">Helmet</a> <em>if you're using Express</em>.</p>
+<p>Imagine, not necessarily because it happens when you are creating an app, having a reasonable amount of scripts and styles to whitelist.<br>The CSP middleware function in the main server file will grow and become sort of ugly and hard to maintain.<br>An <strong>excellent</strong> alternative would be to use <a href="https://helmetjs.github.io/">Helmet</a> <em>if you&#39;re using Express</em>.</p>
 <blockquote>
 <p>Helmet helps you secure your Express apps by setting various HTTP headers.</p>
 </blockquote>
-<p>Let's add Helmet to our Express app with the following command <code>npm i helmet</code>.<br>
-To easily maintain our CSP, let's move it inside a <code>middleware</code> folder, a the root of the app, in a file called <code>helmet.js</code>.<br>
-The app structure looks like the following tree :</p>
-<pre class="language-txt"><code class="language-txt">Application's root without node_modules folder
+<p>Let&#39;s add Helmet to our Express app with the following command <code>npm i helmet</code>.<br>To easily maintain our CSP, let&#39;s move it inside a <code>middleware</code> folder, a the root of the app, in a file called <code>helmet.js</code>.<br>The app structure looks like the following tree :</p>
+<pre><code class="hljs language-txt">Application&#x27;s root without node_modules folder
 ├── index.js
 ├── middleware
 │  └── helmet.js
@@ -638,66 +602,62 @@ The app structure looks like the following tree :</p>
 ├── package.json
 └── views
   └── index.ejs
-</code></pre>
-<p>Let's add a CSP with Helmet :</p>
+</code></pre><p>Let&#39;s add a CSP with Helmet :</p>
 <details>
 <summary>/middleware/helmet.js</summary>
-<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> helmet <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"helmet"</span><span class="token punctuation">)</span>
 
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token function">helmet</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-</details>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> helmet = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;helmet&quot;</span>)
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-title function_">helmet</span>()
+</code></pre></details>
+
 <p>and update <code>index.js</code> to call this middleware :</p>
 <details>
 <summary>/index.js</summary>
-<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="token comment">// Set CSP using Helmet</span>
-<span class="token keyword">const</span> helmet <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./middleware/helmet"</span><span class="token punctuation">)</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>helmet<span class="token punctuation">)</span>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
+<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>()
 
-<span class="token comment">// Set EJS as a template engine</span>
-app<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"view engine"</span><span class="token punctuation">,</span> <span class="token string">"ejs"</span><span class="token punctuation">)</span>
+<span class="hljs-comment">// Set CSP using Helmet</span>
+<span class="hljs-keyword">const</span> helmet = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./middleware/helmet&quot;</span>)
+app.<span class="hljs-title function_">use</span>(helmet)
 
-<span class="token comment">// Use EJS to render our page(s)</span>
-app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"index"</span><span class="token punctuation">)</span> <span class="token comment">// renders index.ejs</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="hljs-comment">// Set EJS as a template engine</span>
+app.<span class="hljs-title function_">set</span>(<span class="hljs-string">&quot;view engine&quot;</span>, <span class="hljs-string">&quot;ejs&quot;</span>)
 
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">App 🚀 @ http://localhost:3000</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-</details>
+<span class="hljs-comment">// Use EJS to render our page(s)</span>
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+    res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;index&quot;</span>) <span class="hljs-comment">// renders index.ejs</span>
+})
+
+app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`App 🚀 @ http://localhost:3000`</span>)
+})
+</code></pre></details>
+
 <p>Save both files, refresh your browser, and open the Console :</p>
 <details>
 <summary>Firefox Console</summary>
-<pre class="language-js"><code class="language-js">
-⚠️ Content Security Policy<span class="token operator">:</span> Couldn’t process unknown directive ‘script<span class="token operator">-</span>src<span class="token operator">-</span>attr’
-⚠️ Loading failed <span class="token keyword">for</span> the <span class="token operator">&lt;</span>script<span class="token operator">></span> <span class="token keyword">with</span> source “https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>cdn<span class="token punctuation">.</span>jsdelivr<span class="token punctuation">.</span>net<span class="token operator">/</span>npm<span class="token operator">/</span>lodash@<span class="token number">4.17</span><span class="token number">.21</span><span class="token operator">/</span>lodash<span class="token punctuation">.</span>min<span class="token punctuation">.</span>js”<span class="token punctuation">.</span>
-🛑 Content Security Policy<span class="token operator">:</span> The page’s settings blocked the loading <span class="token keyword">of</span> a resource at https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>cdn<span class="token punctuation">.</span>jsdelivr<span class="token punctuation">.</span>net<span class="token operator">/</span>npm<span class="token operator">/</span>lodash@<span class="token number">4.17</span><span class="token number">.21</span><span class="token operator">/</span>lodash<span class="token punctuation">.</span>min<span class="token punctuation">.</span><span class="token function">js</span> <span class="token punctuation">(</span>“script<span class="token operator">-</span>src”<span class="token punctuation">)</span><span class="token punctuation">.</span>
-</code></pre>
-</details>
+
+<pre><code class="hljs language-js">
+⚠️ <span class="hljs-title class_">Content</span> <span class="hljs-title class_">Security</span> <span class="hljs-title class_">Policy</span>: <span class="hljs-title class_">Couldn</span>’t process unknown directive ‘script-src-attr’
+⚠️ <span class="hljs-title class_">Loading</span> failed <span class="hljs-keyword">for</span> the &lt;script&gt; <span class="hljs-keyword">with</span> source “<span class="hljs-attr">https</span>:<span class="hljs-comment">//cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js”.</span>
+🛑 <span class="hljs-title class_">Content</span> <span class="hljs-title class_">Security</span> <span class="hljs-title class_">Policy</span>: <span class="hljs-title class_">The</span> page’s settings blocked the loading <span class="hljs-keyword">of</span> a resource at <span class="hljs-attr">https</span>:<span class="hljs-comment">//cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js (“script-src”).</span>
+</code></pre></details>
+
 <details>
 <summary>Chrome Console</summary>
-<pre class="language-js"><code class="language-js">
-🛑 Refused to load the script <span class="token string">'https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js'</span> because it violates the following Content Security Policy directive<span class="token operator">:</span> <span class="token string">"script-src 'self'"</span><span class="token punctuation">.</span> Note that <span class="token string">'script-src-elem'</span> was not explicitly set<span class="token punctuation">,</span> so <span class="token string">'script-src'</span> is used <span class="token keyword">as</span> a fallback<span class="token punctuation">.</span>
-</code></pre>
-</details>
+
+<pre><code class="hljs language-js">
+🛑 <span class="hljs-title class_">Refused</span> to load the script <span class="hljs-string">&#x27;https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js&#x27;</span> because it violates the following <span class="hljs-title class_">Content</span> <span class="hljs-title class_">Security</span> <span class="hljs-title class_">Policy</span> <span class="hljs-attr">directive</span>: <span class="hljs-string">&quot;script-src &#x27;self&#x27;&quot;</span>. <span class="hljs-title class_">Note</span> that <span class="hljs-string">&#x27;script-src-elem&#x27;</span> was not explicitly set, so <span class="hljs-string">&#x27;script-src&#x27;</span> is used <span class="hljs-keyword">as</span> a fallback.
+</code></pre></details>
+
 <p>As you can see, now only Lodash is blocked 🤔
 And Firefox is throwing a warning for an unknown directive.</p>
 <p>Under the hood, a lot is happening, and it will take a series of posts to explain in detail each header and how to configure them...</p>
-<p>But just that you know, Helmet sets a bunch of default values to protect your endpoint.<br>
-One of them is :<br>
-<code>style-src 'self' https: 'unsafe-inline';</code><br>
-This is the directive allowing Pure.css.<br>
-It means : <em>&quot;allow any styles' source from my domain, or styles' source served over https, or inline styles&quot;</em>.<br>
-But as I've said before, any <code>'unsafe-...'</code> expression is <strong>unsafe</strong> and should not be used unless their is really no other option...<br>
-I've linked at the beginning of this section to Helmet's documentation.<br>
-We'll be addressing all issues, properly, in the next and last section.</p>
+<p>But just that you know, Helmet sets a bunch of default values to protect your endpoint.<br>One of them is :<br><code>style-src &#39;self&#39; https: &#39;unsafe-inline&#39;;</code><br>This is the directive allowing Pure.css.<br>It means : <em>&quot;allow any styles&#39; source from my domain, or styles&#39; source served over https, or inline styles&quot;</em>.<br>But as I&#39;ve said before, any <code>&#39;unsafe-...&#39;</code> expression is <strong>unsafe</strong> and should not be used unless their is really no other option...<br>I&#39;ve linked at the beginning of this section to Helmet&#39;s documentation.<br>We&#39;ll be addressing all issues, properly, in the next and last section.</p>
 <h2>Hash and Nonce</h2>
-<p>To allow the execution of inline scripts, inline event handlers and inline styles, a hash or a nonce that matches the inline code can be specified, to avoid using the <code>'unsafe-inline'</code>expression.</p>
+<p>To allow the execution of inline scripts, inline event handlers and inline styles, a hash or a nonce that matches the inline code can be specified, to avoid using the <code>&#39;unsafe-inline&#39;</code>expression.</p>
 <h3>Hash</h3>
 <hr>
 <p>A <a href="https://content-security-policy.com/hash/">hash</a> is a string composed of two parts connected by a dash with each other :</p>
@@ -706,23 +666,19 @@ We'll be addressing all issues, properly, in the next and last section.</p>
 <li>The base64-encoded hash of a script or style.</li>
 </ol>
 <p>CSP supports sha256, sha384 and sha512.</p>
-<p>But when you hash a script or a style, the generated string matches only the hashed code, meaning that if the code changes in any way (dot, space, new line, comment, added/removed/formatted code), the hash will no longer match the code who gets blocked !<br>
-In this case, you'll have to regenerate a hash that matches the modified code...<br>
-It's a time consuming process if your code changes a lot, but commonly used and <strong>recommended</strong> over a nonce especially for static scripts.</p>
+<p>But when you hash a script or a style, the generated string matches only the hashed code, meaning that if the code changes in any way (dot, space, new line, comment, added/removed/formatted code), the hash will no longer match the code who gets blocked !<br>In this case, you&#39;ll have to regenerate a hash that matches the modified code...<br>It&#39;s a time consuming process if your code changes a lot, but commonly used and <strong>recommended</strong> over a nonce especially for static scripts.</p>
 <p>From MDN :</p>
 <blockquote>
-<p>Note: Only use nonce for cases where you have no way around using unsafe inline script or style contents. If you don't need nonce, don't use it. If your script is static, you could also use a CSP hash instead. (See usage notes on <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script">unsafe inline script</a>.) Always try to take full advantage of CSP protections and avoid nonces or unsafe inline scripts whenever possible.</p>
+<p>Note: Only use nonce for cases where you have no way around using unsafe inline script or style contents. If you don&#39;t need nonce, don&#39;t use it. If your script is static, you could also use a CSP hash instead. (See usage notes on <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script">unsafe inline script</a>.) Always try to take full advantage of CSP protections and avoid nonces or unsafe inline scripts whenever possible.</p>
 </blockquote>
 <h3>Nonce</h3>
 <hr>
 <p>On the other hand, a <a href="https://content-security-policy.com/nonce/">nonce</a> is a cryptographic <strong>number used once</strong>, generated using a cryptographically secure random number generator, that must be unique for each HTTP response as a random base64-encoded string of at least 128 bits of data.</p>
-<p>So, in the case of server-side rendering, a nonce is more often used, and can be used for inline and external scripts and styles.<br>
-Note that a <code>nonce-value</code> will not allow stylesheet requests originating from the <code>@import</code> rule !</p>
-<p>To use a nonce, for a script, we have to declare at the top of our <code>script-src</code> directive the <code>'strict-dynamic'</code> expression to allow the execution of that script as well as any script loaded by this root script.<br>
-When using the <code>'strict-dynamic'</code> expression, other expressions such as <code>'self'</code> or <code>'unsafe-inline'</code> will be ignored.</p>
-<p>I like to keep my code clean and maintainable because at one point or another I'll want to update it, this is why I split (as most developers) my code into pieces where each one is easily trackable in a near or far future.
-Let's add a file called <code>nonces.js</code> in the <code>middleware</code> folder, the app structure now looks like the following tree :</p>
-<pre class="language-text"><code class="language-text">Application's root without node_modules folder
+<p>So, in the case of server-side rendering, a nonce is more often used, and can be used for inline and external scripts and styles.<br>Note that a <code>nonce-value</code> will not allow stylesheet requests originating from the <code>@import</code> rule !</p>
+<p>To use a nonce, for a script, we have to declare at the top of our <code>script-src</code> directive the <code>&#39;strict-dynamic&#39;</code> expression to allow the execution of that script as well as any script loaded by this root script.<br>When using the <code>&#39;strict-dynamic&#39;</code> expression, other expressions such as <code>&#39;self&#39;</code> or <code>&#39;unsafe-inline&#39;</code> will be ignored.</p>
+<p>I like to keep my code clean and maintainable because at one point or another I&#39;ll want to update it, this is why I split (as most developers) my code into pieces where each one is easily trackable in a near or far future.
+Let&#39;s add a file called <code>nonces.js</code> in the <code>middleware</code> folder, the app structure now looks like the following tree :</p>
+<pre><code class="hljs language-text">Application&#x27;s root without node_modules folder
 ├── index.js
 ├── middleware
 │  ├── helmet.js
@@ -731,117 +687,114 @@ Let's add a file called <code>nonces.js</code> in the <code>middleware</code> fo
 ├── package.json
 └── views
   └── index.ejs
-</code></pre>
-<p>Open <code>nonces.js</code> and add the following content :</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// Determining if crypto support is unavailable</span>
-<span class="token keyword">let</span> crypto
-<span class="token keyword">try</span> <span class="token punctuation">{</span>
-	crypto <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"crypto"</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"crypto support is disabled!"</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+</code></pre><p>Open <code>nonces.js</code> and add the following content :</p>
+<pre><code class="hljs language-js"><span class="hljs-comment">// Determining if crypto support is unavailable</span>
+<span class="hljs-keyword">let</span> crypto
+<span class="hljs-keyword">try</span> {
+    crypto = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;crypto&quot;</span>)
+} <span class="hljs-keyword">catch</span> (err) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;crypto support is disabled!&quot;</span>)
+}
 
-<span class="token comment">// Generating a nonce for Lodash with crypto</span>
-<span class="token keyword">let</span> lodashNonce <span class="token operator">=</span> crypto<span class="token punctuation">.</span><span class="token function">randomBytes</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token string">"hex"</span><span class="token punctuation">)</span>
+<span class="hljs-comment">// Generating a nonce for Lodash with crypto</span>
+<span class="hljs-keyword">let</span> lodashNonce = crypto.<span class="hljs-title function_">randomBytes</span>(<span class="hljs-number">16</span>).<span class="hljs-title function_">toString</span>(<span class="hljs-string">&quot;hex&quot;</span>)
 
-<span class="token comment">// Maybe you'll have some other later</span>
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span> lodashNonce <span class="token punctuation">}</span>
-</code></pre>
-<p>The <a href="https://nodejs.org/docs/latest-v16.x/api/crypto.html">crypto</a> module is a built-in functionality of Node.js but it's better to check if it's included or not, in our installation, just like the docs.</p>
+<span class="hljs-comment">// Maybe you&#x27;ll have some other later</span>
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = { lodashNonce }
+</code></pre><p>The <a href="https://nodejs.org/docs/latest-v16.x/api/crypto.html">crypto</a> module is a built-in functionality of Node.js but it&#39;s better to check if it&#39;s included or not, in our installation, just like the docs.</p>
 <p>Now, update <code>helmet.js</code> :</p>
 <details>
 <summary>/middleware/helmet.js</summary>
-<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> helmet <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"helmet"</span><span class="token punctuation">)</span>
-<span class="token keyword">let</span> <span class="token punctuation">{</span> lodashNonce <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./nonces"</span><span class="token punctuation">)</span>
 
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token function">helmet</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-	<span class="token literal-property property">contentSecurityPolicy</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-		<span class="token literal-property property">directives</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-			<span class="token literal-property property">scriptSrc</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-				<span class="token string">"'strict-dynamic'"</span><span class="token punctuation">,</span> <span class="token comment">// For nonces to work</span>
-				<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">'nonce-</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>lodashNonce<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">'</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
-			<span class="token punctuation">]</span><span class="token punctuation">,</span>
-			<span class="token literal-property property">scriptSrcAttr</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token comment">// Remove Firefox warning</span>
-			<span class="token literal-property property">styleSrc</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"'self'"</span><span class="token punctuation">,</span> <span class="token string">"https:"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// Remove 'unsafe-inline'</span>
-		<span class="token punctuation">}</span><span class="token punctuation">,</span>
-	<span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-</details>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> helmet = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;helmet&quot;</span>)
+<span class="hljs-keyword">let</span> { lodashNonce } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./nonces&quot;</span>)
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-title function_">helmet</span>({
+    <span class="hljs-attr">contentSecurityPolicy</span>: {
+        <span class="hljs-attr">directives</span>: {
+            <span class="hljs-attr">scriptSrc</span>: [
+                <span class="hljs-string">&quot;&#x27;strict-dynamic&#x27;&quot;</span>, <span class="hljs-comment">// For nonces to work</span>
+                <span class="hljs-string">`&#x27;nonce-<span class="hljs-subst">${lodashNonce}</span>&#x27;`</span>,
+            ],
+            <span class="hljs-attr">scriptSrcAttr</span>: <span class="hljs-literal">null</span>, <span class="hljs-comment">// Remove Firefox warning</span>
+            <span class="hljs-attr">styleSrc</span>: [<span class="hljs-string">&quot;&#x27;self&#x27;&quot;</span>, <span class="hljs-string">&quot;https:&quot;</span>], <span class="hljs-comment">// Remove &#x27;unsafe-inline&#x27;</span>
+        },
+    },
+})
+</code></pre></details>
+
 <p>This way is much elegant, clean and maintainable than a middleware function in the main server file.</p>
-<p>Finally, we'll have to pass the generated nonce from the route were we need to load the script as a variable and grab this variable in the route's template where the script tag is.<br>
-I'll be commenting the code to explain the steps :</p>
+<p>Finally, we&#39;ll have to pass the generated nonce from the route were we need to load the script as a variable and grab this variable in the route&#39;s template where the script tag is.<br>I&#39;ll be commenting the code to explain the steps :</p>
 <details>
 <summary>/index.js</summary>
-<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"express"</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<span class="token comment">// Set CSP with helmet</span>
-<span class="token keyword">const</span> helmet <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./middleware/helmet"</span><span class="token punctuation">)</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>helmet<span class="token punctuation">)</span>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
+<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>()
 
-app<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"view engine"</span><span class="token punctuation">,</span> <span class="token string">"ejs"</span><span class="token punctuation">)</span>
+<span class="hljs-comment">// Set CSP with helmet</span>
+<span class="hljs-keyword">const</span> helmet = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./middleware/helmet&quot;</span>)
+app.<span class="hljs-title function_">use</span>(helmet)
 
-<span class="token comment">/**
+app.<span class="hljs-title function_">set</span>(<span class="hljs-string">&quot;view engine&quot;</span>, <span class="hljs-string">&quot;ejs&quot;</span>)
+
+<span class="hljs-comment">/**
  * 1- We require lodashNonce
- * 2- This is our route "/"
- * 3- We are rendering "index.ejs"
+ * 2- This is our route &quot;/&quot;
+ * 3- We are rendering &quot;index.ejs&quot;
  * 4- We pass lodashNonce into the route,
  * with the second argument of res.render
  * which is an object, as a variable
  * 5- This object is now accessible
  * in the EJS template file
- * 6- We'll get lodashNonce value
+ * 6- We&#x27;ll get lodashNonce value
  * by the ourGenerateNonce key
  * in the EJS template file
- * 7- That's it here, open index.ejs below
+ * 7- That&#x27;s it here, open index.ejs below
  */</span>
-<span class="token keyword">let</span> <span class="token punctuation">{</span> lodashNonce <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./middleware/nonces"</span><span class="token punctuation">)</span>
-app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-	res<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">"index"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">ourGenerateNonce</span><span class="token operator">:</span> lodashNonce <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="hljs-keyword">let</span> { lodashNonce } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./middleware/nonces&quot;</span>)
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+    res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;index&quot;</span>, { <span class="hljs-attr">ourGenerateNonce</span>: lodashNonce })
+})
 
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">App 🚀 @ http://localhost:3000</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-</details>
+app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`App 🚀 @ http://localhost:3000`</span>)
+})
+</code></pre></details>
+
 <details>
 <summary>/views/index.ejs</summary>
-<pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-		<span class="token comment">&lt;!-- Pure.css --></span>
-		<span class="token comment">&lt;!-- 
-			Use JSDELIVR to load Pure.css instead of UNPKG
-		--></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.min.css<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Hello from EJS !<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
 
-		<span class="token comment">&lt;!-- Lodash --></span>
-		<span class="token comment">&lt;!-- 
-			Set the nonce attribute to ourGenerateNonce
-			using EJS output value tag &lt;%= %>
-		--></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span>
-			<span class="token attr-name">nonce</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>&lt;%= ourGenerateNonce %><span class="token punctuation">"</span></span>
-			<span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js<span class="token punctuation">"</span></span>
-		<span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
-</code></pre>
-</details>
-<p>Save those files,reload your browser and open the browser's console 🥳🎉🎊<br>
-Congrats, you've just loaded an external script using a nonce !</p>
-<p>Hope that this post was helpful.<br>
-Next one will be about EJS.</p>
+<pre><code class="hljs language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- Pure.css --&gt;</span>
+        <span class="hljs-comment">&lt;!-- 
+            Use JSDELIVR to load Pure.css instead of UNPKG
+        --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.min.css&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello from EJS !<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 
+        <span class="hljs-comment">&lt;!-- Lodash --&gt;</span>
+        <span class="hljs-comment">&lt;!-- 
+            Set the nonce attribute to ourGenerateNonce
+            using EJS output value tag &lt;%= %&gt;
+        --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span>
+            <span class="hljs-attr">nonce</span>=<span class="hljs-string">&quot;&lt;%= ourGenerateNonce %&gt;&quot;</span>
+            <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js&quot;</span>
+        &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre></details>
+
+<p>Save those files,reload your browser and open the browser&#39;s console 🥳🎉🎊<br>Congrats, you&#39;ve just loaded an external script using a nonce !</p>
+<p>Hope that this post was helpful.<br>Next one will be about EJS.</p>
 	<p class="author-greetings">
 		SYA,
 		<br />
@@ -902,14 +855,11 @@ Next one will be about EJS.</p>
 </style>
 
 <nav class="post-navigation" aria-label="Post navigation">
-	
-	<a href="/posts/to-node-or-not-deta-is-the-answer" class="prev-post" rel="prev" aria-label="Go to the previous post">
-		Previous: To Node or not ? Deta is the answer !
-	</a>
-	  
-	<a href="/posts/templating-a-nodejs-app-with-ejs" class="next-post" rel="next" aria-label="Go to the next post">Next: Templating a Node.js app with EJS</a>
-	
-</nav>
+		<a href="/posts/to-node-or-not-deta-is-the-answer" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: To Node or not ? Deta is the answer !	</a>
+	  	<a href="/posts/templating-a-nodejs-app-with-ejs" class="next-post" rel="next" aria-label="Go to the next post">
+		Next: Templating a Node.js app with EJS	</a>
+	</nav>
    <style>
 	.related-posts div {
 		display: grid;
@@ -922,44 +872,38 @@ Next one will be about EJS.</p>
 <div class="related-posts">
 	<h3>SOME RELATED POSTS</h3>
 	<div>
-		      
-		<section>
+		      		<section>
 			<a href="/posts/to-node-or-not-deta-is-the-answer">
-				    
-				<img
+				    				<img
 					class="img-responsive"
-					src="/img/computer-screen-displaying-node-js-modules.webp"
+					src="/static/img/computer-screen-displaying-node-js-modules.webp"
 					alt="Computer screen displaying node js modules"
 				/>
-				
-			</a>
+							</a>
 			<h4>
 				<a href="/posts/to-node-or-not-deta-is-the-answer">To Node or not ? Deta is the answer !</a>
 			</h4>
 		</section>
-		      
-		<section>
+		      		<section>
 			<a href="/posts/automatically-close-other-details">
-				    
-				<img
+				    				<img
 					class="img-responsive"
-					src="/img/matrix-background.webp"
+					src="/static/img/matrix-background.webp"
 					alt="Matrix background"
 				/>
-				
-			</a>
+							</a>
 			<h4>
 				<a href="/posts/automatically-close-other-details">Automatically close other &lt;details&gt;</a>
 			</h4>
 		</section>
-		
-	</div>
-</div>
-  
-</main>
-				       
 			</div>
-			 <style>
+</div>
+  					<!-- End Markdown file content -->
+				</main>
+				     			</div>
+			<!--End content-->
+			<!--Start footer-->
+			<style>
 	.site-footer {
 		text-align: center;
 		padding-top: 2em;
@@ -973,22 +917,18 @@ Next one will be about EJS.</p>
 </style>
 
 <footer id="colophon" class="site-footer unit-1">
-	        
-
-	<div id="site-info" class="site-info">
+	        	<div id="site-info" class="site-info">
 		<p>
 			<strong>2016 - 2023 | { LebCit }</strong>
 			<br />
-			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc-space'>Blog-Doc</a>
-		</p>
+			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
 	</div>
 </footer>
-
+			<!--End footer-->
 		</div>
-		   
-		<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+		<!--End page-->
+		  		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 		
-
-		<script src="/js/main.js"></script>
+		<script src="/static/js/main.js"></script>
 	</body>
 </html>

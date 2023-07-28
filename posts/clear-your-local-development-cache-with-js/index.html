@@ -4,16 +4,14 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-	<meta name="description" content="This post is about clearing your local development cache with JavaScript without a server side language" />
+		<meta name="description" content="This post is about clearing your local development cache with JavaScript without a server side language" />
 	
-
 	<title>Clear your local development cache with JS | { LebCit }</title>
 
-	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon_32.png" />
-	<link rel="stylesheet" href="/css/main.min.css" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
+	<link rel="stylesheet" href="/static/css/main.min.css" />
 
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs-okaidia-theme/prism-okaidia.min.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
 	  <style>
 	.post-title {
 		font-size: 2em;
@@ -47,7 +45,6 @@
 	}
 </style>
 
-
 <style>
 	.single-post :not(pre) code {
 		background-color: #272822;
@@ -56,8 +53,7 @@
 		padding: 4px 5px 5px;
 	}
 </style>
-  
-<style>
+  <style>
 	@media screen and (min-width: 48em) and (max-width: 63.938em) {
 		.post-title {
 			font-size: 3em;
@@ -73,8 +69,7 @@
 		}
 	}
 </style>
-    
-<style>
+    <style>
 	.post-meta {
 		color: #16663d;
 		font-size: 90%;
@@ -96,16 +91,15 @@
 		color: #fff;
 	}
 </style>
-  
-
-	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 </head>
 
-
 	<body>
+		<!--Start page-->
 		<div id="page" class="site grid">
 			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
+			<!--Start menu-->
 			<style>
 	.invisible {
 		visibility: hidden;
@@ -168,30 +162,26 @@
 	
 	<div class="overlay-content">
 		<a href="/">Home</a>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/posts">Archive</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/tags">Tags</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/search">Search</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/pages/about">About Me</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/rss.xml">RSS</a>
 		</li>
-		
-	</div>
+			</div>
 </div>
-  <style>
+			<!--End menu-->
+			<!--Start masthead-->
+			<style>
 	/* SITE HEADER */
 	.site-header {
 		background: rgb(61, 79, 93);
@@ -344,20 +334,18 @@
 		}
 	}
 </style>
-<header id="masthead"  class="site-header unit-1 unit-lg-2-5 bio" style="background-image:
-	url('/img/stacked-memory-photos.webp')"  >
+
+<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/stacked-memory-photos.webp')"  >
 	<div class="site-header-overlay"></div>
-	
-	<div class="sidebar">
+		<div class="sidebar">
 		<div class="site-branding">
 			<h1 class="site-title">
 				<a href="/">{ LebCit }</a>
 			</h1>
-			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !</p>
+			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</p>
 		</div>
 
-		
-		<nav id="nav" class="nav" aria-label="MENU">
+				<nav id="nav" class="nav" aria-label="MENU">
 			<ul class="nav-list">
 				<li class="nav-item">
 					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
@@ -381,15 +369,15 @@
 				</li>
 			</ul>
 		</nav>
-		
-	</div>
-	
-</header>
+			</div>
+	</header>
+			<!--End masthead-->
 
-
+			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				  
-				<main class="single-post"><style>
+				  				<main class="single-post">
+					<!-- Start Markdown file content -->
+					<style>
 	.author-greetings {
 		color: #000;
 		line-height: normal;
@@ -398,68 +386,52 @@
 
 <header class="post-header">
 	<h1 class="post-title">Clear your local development cache with JS</h1>
-	
-	<p class="post-meta">
+		<p class="post-meta">
 		<span>Posted on</span>
 		<span class="posted-on">
 			<time class="postList-date" datetime='2020-05/27'>
-				Wed May 27 2020
-			</time>
+				Wed May 27 2020			</time>
 		</span>
 
-		<br />
-		Tagged  
-		<span class="post-tag">
+				<br />
+		<span>Tagged</span>
+		<!--Start tag(s)-->
+				<span class="post-tag">
 			<a href="/tags/Tips and Tricks">Tips and Tricks</a>
 		</span>
-		
-		<span class="post-tag">
+				<span class="post-tag">
 			<a href="/tags/JavaScript">JavaScript</a>
 		</span>
-		  
-	</p>
-	  
-</header>
+				<!--End tag(s)-->
+			</p>
+	  </header>
 
 <div class="post-content">
-	
-	<p>
+		<p>
 		<em>This post is about clearing your local development cache with JavaScript without a server side language.</em>
 	</p>
-	  <p>When we use a server side language to get our changes this is what happens :<br>
-1- the Request is made by the browser to the server<br>
-2- the Response is sent from the server to the browser<br>
-In this case, if any changes are made within the files, the server will serve the browser with those changes.<br>
-But, what if you're not using a server side language for your local development ?!</p>
-<p>If you're locally developing a website on the Classic Road (HTML + CSS + JS) without a plugin in your IDE to synchronize your changes, <strong>and have some generated cache</strong>, you'll have to refresh your page twice and sometimes more to see the changes you've just made even if you're using a local server as Laragon, WAMP, MAMP, XAMPP...<br>
-Did you ever asked yourself how much time you're spending on refreshing twice ?!<br>
-This is a time killer, it's very annoying, and you're productivity will be affected !</p>
+	  <p>When we use a server side language to get our changes this is what happens :<br>1- the Request is made by the browser to the server<br>2- the Response is sent from the server to the browser<br>In this case, if any changes are made within the files, the server will serve the browser with those changes.<br>But, what if you&#39;re not using a server side language for your local development ?!</p>
+<p>If you&#39;re locally developing a website on the Classic Road (HTML + CSS + JS) without a plugin in your IDE to synchronize your changes, <strong>and have some generated cache</strong>, you&#39;ll have to refresh your page twice and sometimes more to see the changes you&#39;ve just made even if you&#39;re using a local server as Laragon, WAMP, MAMP, XAMPP...<br>Did you ever asked yourself how much time you&#39;re spending on refreshing twice ?!<br>This is a time killer, it&#39;s very annoying, and you&#39;re productivity will be affected !</p>
 <p>The solution would be to <strong>clear the cache</strong> when we refresh the page, you would say &quot;use Ctrl + F5 !&quot; and I would respond &quot;go try it with your generated cache !&quot;.</p>
-<p>To clear the cache when we hit the refresh button :<br>
-1- we'll have to access the <code>loading state</code> of the document <em>without waiting</em> for stylesheets, images...<br>
-2- we'll have to <code>open</code> the cache and access the particular cache causing headaches<br>
-3- we'll have to <code>delete</code> this particular cache !</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>document<span class="token punctuation">.</span>readyState <span class="token operator">===</span> <span class="token string">"loading"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-	<span class="token comment">// Loading hasn't finished yet</span>
-	document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"DOMContentLoaded"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"loading..."</span><span class="token punctuation">)</span>
-		caches<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"cacheNameCausingHeadaches"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">cache</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-			cache<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token constant">URL</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-				console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"deleted"</span><span class="token punctuation">)</span>
-			<span class="token punctuation">}</span><span class="token punctuation">)</span>
-		<span class="token punctuation">}</span><span class="token punctuation">)</span>
-	<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>Paste this code at the end of your scripts before the closing body tag and refresh your page twice for the last time !</p>
+<p>To clear the cache when we hit the refresh button :<br>1- we&#39;ll have to access the <code>loading state</code> of the document <em>without waiting</em> for stylesheets, images...<br>2- we&#39;ll have to <code>open</code> the cache and access the particular cache causing headaches<br>3- we&#39;ll have to <code>delete</code> this particular cache !</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">if</span> (<span class="hljs-variable language_">document</span>.<span class="hljs-property">readyState</span> === <span class="hljs-string">&quot;loading&quot;</span>) {
+    <span class="hljs-comment">// Loading hasn&#x27;t finished yet</span>
+    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;DOMContentLoaded&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;loading...&quot;</span>)
+        caches.<span class="hljs-title function_">open</span>(<span class="hljs-string">&quot;cacheNameCausingHeadaches&quot;</span>).<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">cache</span>) {
+            cache.<span class="hljs-title function_">delete</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-property">URL</span>).<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+                <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;deleted&quot;</span>)
+            })
+        })
+    })
+}
+</code></pre><p>Paste this code at the end of your scripts before the closing body tag and refresh your page twice for the last time !</p>
 <p>To get the <code>cacheNameCausingHeadeaches</code> :</p>
-<pre class="language-js"><code class="language-js">caches<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">keyList</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"keyList"</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<p>I'm here to share and learn 😊 so if you have a better way without an IDE plugin for a static site with some cache please let me know because I like to refresh and see the difference 😉</p>
+<pre><code class="hljs language-js">caches.<span class="hljs-title function_">keys</span>().<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">keyList</span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;keyList&quot;</span>)
+})
+</code></pre><p>I&#39;m here to share and learn 😊 so if you have a better way without an IDE plugin for a static site with some cache please let me know because I like to refresh and see the difference 😉</p>
 <p>Hope this will be useful.</p>
-
 	<p class="author-greetings">
 		SYA,
 		<br />
@@ -520,14 +492,11 @@ This is a time killer, it's very annoying, and you're productivity will be affec
 </style>
 
 <nav class="post-navigation" aria-label="Post navigation">
-	
-	<a href="/posts/change-page-title-dynamically" class="prev-post" rel="prev" aria-label="Go to the previous post">
-		Previous: Change page title dynamically
-	</a>
-	  
-	<a href="/posts/creating-a-customizer-control-with-javascript" class="next-post" rel="next" aria-label="Go to the next post">Next: Creating a Customizer control with JavaScript</a>
-	
-</nav>
+		<a href="/posts/change-page-title-dynamically" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: Change page title dynamically	</a>
+	  	<a href="/posts/creating-a-customizer-control-with-javascript" class="next-post" rel="next" aria-label="Go to the next post">
+		Next: Creating a Customizer control with JavaScript	</a>
+	</nav>
    <style>
 	.related-posts div {
 		display: grid;
@@ -540,44 +509,38 @@ This is a time killer, it's very annoying, and you're productivity will be affec
 <div class="related-posts">
 	<h3>SOME RELATED POSTS</h3>
 	<div>
-		      
-		<section>
+		      		<section>
 			<a href="/posts/automatically-close-other-details">
-				    
-				<img
+				    				<img
 					class="img-responsive"
-					src="/img/matrix-background.webp"
+					src="/static/img/matrix-background.webp"
 					alt="Matrix background"
 				/>
-				
-			</a>
+							</a>
 			<h4>
 				<a href="/posts/automatically-close-other-details">Automatically close other &lt;details&gt;</a>
 			</h4>
 		</section>
-		      
-		<section>
+		      		<section>
 			<a href="/posts/change-page-title-dynamically">
-				
-				<img
+								<img
 					class="img-responsive"
-					src="/img/graphic-of-white-camera-on-black-background-no-image-available.webp"
+					src="/static/img/graphic-of-white-camera-on-black-background-no-image-available.webp"
 					alt="Graphic of white camera on black background. No image available for this post."
 				/>
-				
-			</a>
+							</a>
 			<h4>
 				<a href="/posts/change-page-title-dynamically">Change page title dynamically</a>
 			</h4>
 		</section>
-		
-	</div>
-</div>
-  
-</main>
-				       
 			</div>
-			 <style>
+</div>
+  					<!-- End Markdown file content -->
+				</main>
+				     			</div>
+			<!--End content-->
+			<!--Start footer-->
+			<style>
 	.site-footer {
 		text-align: center;
 		padding-top: 2em;
@@ -591,22 +554,18 @@ This is a time killer, it's very annoying, and you're productivity will be affec
 </style>
 
 <footer id="colophon" class="site-footer unit-1">
-	        
-
-	<div id="site-info" class="site-info">
+	        	<div id="site-info" class="site-info">
 		<p>
 			<strong>2016 - 2023 | { LebCit }</strong>
 			<br />
-			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc-space'>Blog-Doc</a>
-		</p>
+			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
 	</div>
 </footer>
-
+			<!--End footer-->
 		</div>
-		   
-		<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+		<!--End page-->
+		  		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 		
-
-		<script src="/js/main.js"></script>
+		<script src="/static/js/main.js"></script>
 	</body>
 </html>

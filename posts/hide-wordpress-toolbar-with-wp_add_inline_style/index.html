@@ -4,16 +4,14 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-	<meta name="description" content="This post is about using wp_add_inline_style() function to hide the WordPress Toolbar or Admin Bar" />
+		<meta name="description" content="This post is about using wp_add_inline_style() function to hide the WordPress Toolbar or Admin Bar" />
 	
-
 	<title>Hide WordPress Toolbar with wp_add_inline_style | { LebCit }</title>
 
-	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon_32.png" />
-	<link rel="stylesheet" href="/css/main.min.css" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
+	<link rel="stylesheet" href="/static/css/main.min.css" />
 
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs-okaidia-theme/prism-okaidia.min.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
 	  <style>
 	.post-title {
 		font-size: 2em;
@@ -47,7 +45,6 @@
 	}
 </style>
 
-
 <style>
 	.single-post :not(pre) code {
 		background-color: #272822;
@@ -56,8 +53,7 @@
 		padding: 4px 5px 5px;
 	}
 </style>
-  
-<style>
+  <style>
 	@media screen and (min-width: 48em) and (max-width: 63.938em) {
 		.post-title {
 			font-size: 3em;
@@ -73,8 +69,7 @@
 		}
 	}
 </style>
-    
-<style>
+    <style>
 	.post-meta {
 		color: #16663d;
 		font-size: 90%;
@@ -96,16 +91,15 @@
 		color: #fff;
 	}
 </style>
-  
-
-	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 </head>
 
-
 	<body>
+		<!--Start page-->
 		<div id="page" class="site grid">
 			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
+			<!--Start menu-->
 			<style>
 	.invisible {
 		visibility: hidden;
@@ -168,30 +162,26 @@
 	
 	<div class="overlay-content">
 		<a href="/">Home</a>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/posts">Archive</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/tags">Tags</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/search">Search</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/pages/about">About Me</a>
 		</li>
-		
-		<li class="pure-menu-item">
+				<li class="pure-menu-item">
 			<a href="/rss.xml">RSS</a>
 		</li>
-		
-	</div>
+			</div>
 </div>
-  <style>
+			<!--End menu-->
+			<!--Start masthead-->
+			<style>
 	/* SITE HEADER */
 	.site-header {
 		background: rgb(61, 79, 93);
@@ -344,20 +334,18 @@
 		}
 	}
 </style>
-<header id="masthead"  class="site-header unit-1 unit-lg-2-5 bio" style="background-image:
-	url('/img/little-girl-covering-her-face-with-her-hands.webp')"  >
+
+<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/little-girl-covering-her-face-with-her-hands.webp')"  >
 	<div class="site-header-overlay"></div>
-	
-	<div class="sidebar">
+		<div class="sidebar">
 		<div class="site-branding">
 			<h1 class="site-title">
 				<a href="/">{ LebCit }</a>
 			</h1>
-			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf !</p>
+			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</p>
 		</div>
 
-		
-		<nav id="nav" class="nav" aria-label="MENU">
+				<nav id="nav" class="nav" aria-label="MENU">
 			<ul class="nav-list">
 				<li class="nav-item">
 					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
@@ -381,15 +369,15 @@
 				</li>
 			</ul>
 		</nav>
-		
-	</div>
-	
-</header>
+			</div>
+	</header>
+			<!--End masthead-->
 
-
+			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				  
-				<main class="single-post"><style>
+				  				<main class="single-post">
+					<!-- Start Markdown file content -->
+					<style>
 	.author-greetings {
 		color: #000;
 		line-height: normal;
@@ -398,75 +386,58 @@
 
 <header class="post-header">
 	<h1 class="post-title">Hide WordPress Toolbar with wp_add_inline_style</h1>
-	
-	<p class="post-meta">
+		<p class="post-meta">
 		<span>Posted on</span>
 		<span class="posted-on">
 			<time class="postList-date" datetime='2020-05/22'>
-				Fri May 22 2020
-			</time>
+				Fri May 22 2020			</time>
 		</span>
 
-		<br />
-		Tagged  
-		<span class="post-tag">
+				<br />
+		<span>Tagged</span>
+		<!--Start tag(s)-->
+				<span class="post-tag">
 			<a href="/tags/Development">Development</a>
 		</span>
-		
-		<span class="post-tag">
+				<span class="post-tag">
 			<a href="/tags/Tips and Tricks">Tips and Tricks</a>
 		</span>
-		
-		<span class="post-tag">
+				<span class="post-tag">
 			<a href="/tags/Toolbar">Toolbar</a>
 		</span>
-		  
-	</p>
-	  
-</header>
+				<!--End tag(s)-->
+			</p>
+	  </header>
 
 <div class="post-content">
-	
-	<p>
+		<p>
 		<em>This post is about using wp_add_inline_style() function to hide the WordPress Toolbar or Admin Bar.</em>
 	</p>
-	  <p>Ever wanted to hide the WordPress Toolbar ?<br>
-If you are a new developer, you should know that it's not allowed to hide it directly wit CSS.<br>
-But even if you are a junior or senior WordPress user, you should consider this requirement for best practice, also you'll maybe learn something new 😉</p>
+	  <p>Ever wanted to hide the WordPress Toolbar ?<br>If you are a new developer, you should know that it&#39;s not allowed to hide it directly wit CSS.<br>But even if you are a junior or senior WordPress user, you should consider this requirement for best practice, also you&#39;ll maybe learn something new 😉</p>
 <p><a href="https://wordpress.org/support/article/toolbar/">The WordPress Toolbar</a> is the little black bar on top of the site that only the logged in user(s) can see, depending on their <a href="https://wordpress.org/support/article/roles-and-capabilities/">role(s)</a> and how the Super Admin or the Administrator has configured the visibility of this bar for each one…</p>
 <p>We can set the display status of this bar for the front side of our website by using the <a href="https://developer.wordpress.org/reference/functions/show_admin_bar/">show_admin_bar()</a> function.</p>
 <p>Also, we can directly target it by it’s CSS <em><code>id #wpadminbar</code></em> and hide it like so :</p>
-<pre class="language-css"><code class="language-css"><span class="token selector">#wpadminbar</span> <span class="token punctuation">{</span>
-	<span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>but this way is not allowed for themes/plugins developers !</p>
-<p>You can say, <em>“just use <code>show_admin_bar</code> !”</em>, and I would ask the following :<br>
-<em>“what if I want to hide it with CSS without using a stylesheet so I can control it with JS for later use ?!”</em> 😉<br>
-It’s not the main reason, you can have any other reason to hide it with CSS without using a stylesheet, scenarios are limitless.</p>
-<p>This is where <a href="https://developer.wordpress.org/reference/functions/wp_add_inline_style/">wp_add_inline_style()</a> function steps in 🙂<br>
-In your <a href="https://codex.wordpress.org/Functions_File_Explained">functions.php</a> file, add the following :</p>
-<pre class="language-php"><code class="language-php"><span class="token comment">/**
- * Hide the Toolbar using inline style since we can't use #wpadminbar in CSS.
+<pre><code class="hljs language-css"><span class="hljs-selector-id">#wpadminbar</span> {
+    <span class="hljs-attribute">display</span>: none;
+}
+</code></pre><p>but this way is not allowed for themes/plugins developers !</p>
+<p>You can say, <em>“just use <code>show_admin_bar</code> !”</em>, and I would ask the following :<br> <em>“what if I want to hide it with CSS without using a stylesheet so I can control it with JS for later use ?!”</em> 😉<br>It’s not the main reason, you can have any other reason to hide it with CSS without using a stylesheet, scenarios are limitless.</p>
+<p>This is where <a href="https://developer.wordpress.org/reference/functions/wp_add_inline_style/">wp_add_inline_style()</a> function steps in 🙂<br> In your <a href="https://codex.wordpress.org/Functions_File_Explained">functions.php</a> file, add the following :</p>
+<pre><code class="hljs language-php"><span class="hljs-comment">/**
+ * Hide the Toolbar using inline style since we can&#x27;t use #wpadminbar in CSS.
  */</span>
-<span class="token keyword">function</span> <span class="token function-definition function">myfunction_hide_adminbar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token variable">$hide_adminbar</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myfunction_hide_adminbar</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-variable">$hide_adminbar</span> = <span class="hljs-string">&quot;
         #wpadminbar{
             display: none;
-        }"</span><span class="token punctuation">;</span>
-    <span class="token function">wp_add_inline_style</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'my-stylesheet-handle'</span><span class="token punctuation">,</span> <span class="token variable">$hide_adminbar</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'wp_enqueue_scripts'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'myfunction_hide_adminbar'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>Please, pay attention to the <code>$handle</code> <strong>my-stylesheet-handle</strong> !<br>
-You should replace it with the <code>$handle</code> of your stylesheet !<br>
-In your <strong>functions.php</strong> file, you’ll find something like :</p>
-<pre class="language-php"><code class="language-php"><span class="token function">wp_enqueue_style</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'your-stylesheet-handle'</span><span class="token punctuation">,</span> <span class="token function">get_stylesheet_uri</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p><strong>your-stylesheet-handle</strong> is the <code>$handle</code> of your stylesheet 😉</p>
-<p>Hope this will be useful 🙂<br>
-Please don’t hesitate to share your opinion, suggestions or other methods.</p>
-
+        }&quot;</span>;
+    <span class="hljs-title function_ invoke__">wp_add_inline_style</span>( <span class="hljs-string">&#x27;my-stylesheet-handle&#x27;</span>, <span class="hljs-variable">$hide_adminbar</span> );
+}
+<span class="hljs-title function_ invoke__">add_action</span>( <span class="hljs-string">&#x27;wp_enqueue_scripts&#x27;</span>, <span class="hljs-string">&#x27;myfunction_hide_adminbar&#x27;</span> );
+</code></pre><p>Please, pay attention to the <code>$handle</code> <strong>my-stylesheet-handle</strong> !<br>You should replace it with the <code>$handle</code> of your stylesheet !<br>In your <strong>functions.php</strong> file, you’ll find something like :</p>
+<pre><code class="hljs language-php"><span class="hljs-title function_ invoke__">wp_enqueue_style</span>( <span class="hljs-string">&#x27;your-stylesheet-handle&#x27;</span>, <span class="hljs-title function_ invoke__">get_stylesheet_uri</span>() );
+</code></pre><p><strong>your-stylesheet-handle</strong> is the <code>$handle</code> of your stylesheet 😉</p>
+<p>Hope this will be useful 🙂<br>Please don’t hesitate to share your opinion, suggestions or other methods.</p>
 	<p class="author-greetings">
 		SYA,
 		<br />
@@ -527,14 +498,11 @@ Please don’t hesitate to share your opinion, suggestions or other methods.</p>
 </style>
 
 <nav class="post-navigation" aria-label="Post navigation">
-	
-	<a href="/posts/modifying-wordpress-theme-copyright-from-the-customizer" class="prev-post" rel="prev" aria-label="Go to the previous post">
-		Previous: Modifying WordPress theme&#39;s copyright from the Customizer
-	</a>
-	  
-	<a href="/posts/listen-for-changes-in-customizer-preview" class="next-post" rel="next" aria-label="Go to the next post">Next: Listen for changes in Customizer Preview !</a>
-	
-</nav>
+		<a href="/posts/modifying-wordpress-theme-copyright-from-the-customizer" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: Modifying WordPress theme&#39;s copyright from the Customizer	</a>
+	  	<a href="/posts/listen-for-changes-in-customizer-preview" class="next-post" rel="next" aria-label="Go to the next post">
+		Next: Listen for changes in Customizer Preview !	</a>
+	</nav>
    <style>
 	.related-posts div {
 		display: grid;
@@ -547,44 +515,38 @@ Please don’t hesitate to share your opinion, suggestions or other methods.</p>
 <div class="related-posts">
 	<h3>SOME RELATED POSTS</h3>
 	<div>
-		      
-		<section>
+		      		<section>
 			<a href="/posts/the-clean-blog-wordpress-theme">
-				    
-				<img
+				    				<img
 					class="img-responsive"
-					src="/img/man-hands-typing-on-keyboard-of-laptop-with-screen-showing-wordpress-backend.webp"
+					src="/static/img/man-hands-typing-on-keyboard-of-laptop-with-screen-showing-wordpress-backend.webp"
 					alt="Man hands typing on keyboard of laptop with screen showing wordpress backend"
 				/>
-				
-			</a>
+							</a>
 			<h4>
 				<a href="/posts/the-clean-blog-wordpress-theme">The Clean Blog WordPress theme</a>
 			</h4>
 		</section>
-		      
-		<section>
+		      		<section>
 			<a href="/posts/full-screen-morphing-search-plugin">
-				    
-				<img
+				    				<img
 					class="img-responsive"
-					src="/img/man-hand-holding-lens.webp"
+					src="/static/img/man-hand-holding-lens.webp"
 					alt="Man hand holding lens"
 				/>
-				
-			</a>
+							</a>
 			<h4>
 				<a href="/posts/full-screen-morphing-search-plugin">Full Screen Morphing Search Plugin</a>
 			</h4>
 		</section>
-		
-	</div>
-</div>
-  
-</main>
-				       
 			</div>
-			 <style>
+</div>
+  					<!-- End Markdown file content -->
+				</main>
+				     			</div>
+			<!--End content-->
+			<!--Start footer-->
+			<style>
 	.site-footer {
 		text-align: center;
 		padding-top: 2em;
@@ -598,22 +560,18 @@ Please don’t hesitate to share your opinion, suggestions or other methods.</p>
 </style>
 
 <footer id="colophon" class="site-footer unit-1">
-	        
-
-	<div id="site-info" class="site-info">
+	        	<div id="site-info" class="site-info">
 		<p>
 			<strong>2016 - 2023 | { LebCit }</strong>
 			<br />
-			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc-space'>Blog-Doc</a>
-		</p>
+			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
 	</div>
 </footer>
-
+			<!--End footer-->
 		</div>
-		   
-		<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+		<!--End page-->
+		  		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 		
-
-		<script src="/js/main.js"></script>
+		<script src="/static/js/main.js"></script>
 	</body>
 </html>

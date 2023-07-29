@@ -6,9 +6,19 @@
 		<description>Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</description>
 		<language>en-US</language>
 		<copyright>Copyright (c) 2022 - Present, LebCit under the MIT License</copyright>
-		<pubDate>Thu, 20 Jul 2023 21:00:00 GMT</pubDate>
-		<lastBuildDate>Thu, 20 Jul 2023 21:00:00 GMT</lastBuildDate>
+		<pubDate>Fri, 28 Jul 2023 21:00:00 GMT</pubDate>
+		<lastBuildDate>Fri, 28 Jul 2023 21:00:00 GMT</lastBuildDate>
 		<docs>https://www.rssboard.org/rss-specification</docs>
+					<item>
+				<title>node_modules is not heavy, developers are lazy!</title>
+				<link>https://lebcit.github.io/posts/node-modules-is-not-heavy-developers-are-lazy</link>
+								<description>using modern Node.js modules</description>
+																<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
+								<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
+								<category domain="https://lebcit.github.io/tags/Modules">Modules</category>
+												<pubDate>Fri, 28 Jul 2023 21:00:00 GMT</pubDate>
+			</item>
 					<item>
 				<title>From 145 to 7 💪</title>
 				<link>https://lebcit.github.io/posts/from-145-to-7</link>

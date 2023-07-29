@@ -14,7 +14,7 @@
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/1</loc>
-		<lastmod>2023-07-29</lastmod>
+		<lastmod>2023-07-28</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/2</loc>
@@ -26,6 +26,10 @@
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/4</loc>
+		<lastmod>2023-07-28</lastmod>
+	</url>
+		<url>
+		<loc>https://lebcit.github.io/page/5</loc>
 		<lastmod>2023-07-28</lastmod>
 	</url>
 		<url>
@@ -50,7 +54,7 @@
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/blog-doc-the-simplest-nodejs-cms-ssg</loc>
-		<lastmod>2023-07-28</lastmod>
+		<lastmod>2023-07-29</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/blog-doc-updating-the-administration-design</loc>
@@ -115,6 +119,10 @@
 		<url>
 		<loc>https://lebcit.github.io/modifying-wordpress-theme-copyright-from-the-customizer</loc>
 		<lastmod>2023-07-28</lastmod>
+	</url>
+		<url>
+		<loc>https://lebcit.github.io/node-modules-is-not-heavy-developers-are-lazy</loc>
+		<lastmod>2023-07-29</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/templating-a-nodejs-app-with-ejs</loc>

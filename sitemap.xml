@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 		<url>
 		<loc>https://lebcit.github.io/</loc>
-		<lastmod>2023-07-29</lastmod>
+		<lastmod>2023-07-30</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/archive</loc>
-		<lastmod>2023-07-29</lastmod>
+		<lastmod>2023-07-30</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/tags</loc>
-		<lastmod>2023-07-29</lastmod>
+		<lastmod>2023-07-30</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/1</loc>
@@ -122,7 +122,7 @@
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/node-modules-is-not-heavy-developers-are-lazy</loc>
-		<lastmod>2023-07-29</lastmod>
+		<lastmod>2023-07-30</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/templating-a-nodejs-app-with-ejs</loc>

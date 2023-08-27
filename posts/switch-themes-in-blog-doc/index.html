@@ -4,13 +4,14 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-		<meta name="description" content="Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!" />
+		<meta name="description" content="This post is about the theming feature in Blog-Doc" />
 	
-	<title>Home | { LebCit }</title>
+	<title>Switch themes in Blog-Doc! | { LebCit }</title>
 
 	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
 	<link rel="stylesheet" href="/static/css/main.min.css" />
 
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
 	  <style>
 	.post-title {
 		font-size: 2em;
@@ -44,22 +45,31 @@
 	}
 </style>
 
-    <style>
+<style>
+	.single-post :not(pre) code {
+		background-color: #272822;
+		color: #f8f8f2;
+		border-radius: 0.3rem;
+		padding: 4px 5px 5px;
+	}
+</style>
+  <style>
 	@media screen and (min-width: 48em) and (max-width: 63.938em) {
 		.post-title {
-			font-size: 2.5em;
-			margin-bottom: 0.1em;
+			font-size: 3em;
+			margin-top: 0;
 		}
 	}
 
 	@media (min-width: 64em) {
 		.post-title {
-			font-size: 3em;
-			margin-bottom: 0.1em;
+			/* will affect single-post*/
+			font-size: 4em;
+			margin-top: 0;
 		}
 	}
 </style>
-  <style>
+    <style>
 	.post-meta {
 		color: #16663d;
 		font-size: 90%;
@@ -81,37 +91,7 @@
 		color: #fff;
 	}
 </style>
-  <style>
-	.read-more-link {
-		display: inline-block;
-		border: 2px solid rgb(61, 79, 93);
-		background: rgb(61, 79, 93);
-		padding: 0.7rem 0.9rem;
-		font-size: 1rem;
-		line-height: 1;
-		border-radius: 3px;
-		color: #fff;
-		font-weight: 600;
-		cursor: pointer;
-	}
-
-	.read-more-link:hover {
-		color: #fff;
-		box-shadow: 0 0.25em rgb(61, 79, 93);
-	}
-
-	.read-more-link:active,
-	.read-more-link:focus {
-		color: #fff;
-		box-shadow: 0.25em 0.25em rgb(61, 79, 93);
-		outline: 0.1em solid;
-	}
-
-	.read-more-link:visited {
-		color: #fff;
-	}
-</style>
-	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 </head>
 
 	<body>
@@ -355,7 +335,7 @@
 	}
 </style>
 
-<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/vendetta-surrounded-by-star-wars-stormtroopers-graffiti.webp')"  >
+<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/colorful-lanterns-hanging-on-a-string.avif')"  >
 	<div class="site-header-overlay"></div>
 		<div class="sidebar">
 		<div class="site-branding">
@@ -395,173 +375,97 @@
 
 			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-								<main class="site-main">
-					<!-- Start Post(s) Listing -->
+				  				<main class="single-post">
+					<!-- Start Markdown file content -->
 					<style>
-	.postList-article {
-		padding-bottom: 0.5em;
-		margin-top: 2rem;
-	}
-	.postList-article > p {
-		margin-bottom: 0;
-	}
-	/* .postList-article:first-child {
-		margin-top: 0;
-	} */
-	.postList-description {
-		color: #444;
-		line-height: 1.8em;
-	}
-	.postList-description a {
-		color: #000036;
-		text-decoration-line: underline;
-		text-decoration-color: #ea215a;
-		text-decoration-style: double;
-		text-decoration-thickness: 0.125em;
-		text-underline-offset: 1.5px;
-		text-decoration-skip-ink: none;
-		transition: 0.5s;
-	}
-	.postList-description a:hover,
-	.postList-description a:focus,
-	.postList-description a:active {
-		text-decoration: none;
-		color: white;
-		box-shadow: inset 0 -1.3em 0 0 #000;
-		outline: thin dotted #ea215a;
+	.author-greetings {
+		color: #000;
+		line-height: normal;
 	}
 </style>
 
-                <article class="postList-article">
-	<header class="post-header">
-		<h2 class="post-title">
-			<a href="/posts/hide-wordpress-toolbar-with-wp_add_inline_style" class="postList-link" rel="bookmark">Hide WordPress Toolbar with wp_add_inline_style</a>
-		</h2>
+<header class="post-header">
+	<h1 class="post-title">Switch themes in Blog-Doc!</h1>
 		<p class="post-meta">
-			<span>Posted on</span>
-			<span class="posted-on">
-				<time class="postList-date" datetime='2020-05/22'>
-					Fri May 22 2020				</time>
-			</span>
+		<span>Posted on</span>
+		<span class="posted-on">
+			<time class="postList-date" datetime='2023-08/27'>
+				Sun Aug 27 2023			</time>
+		</span>
 
-						<br />
-			Tagged 			<span class="post-tag">
-				<a href="/tags/Development">Development</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/Tips and Tricks">Tips and Tricks</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/Toolbar">Toolbar</a>
-			</span>
-			  		</p>
-	</header>
+				<br />
+		<span>Tagged</span>
+		<!--Start tag(s)-->
+				<span class="post-tag">
+			<a href="/tags/Blog-Doc">Blog-Doc</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/CMS">CMS</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/SSG">SSG</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Theme">Theme</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Node.js">Node.js</a>
+		</span>
+				<!--End tag(s)-->
+			</p>
+	  </header>
 
-	<div class="postList-description">
-		<p>This post is about using wp_add_inline_style() function to hide the WordPress Toolbar or Admin Bar.</p>
-	</div>
-	<p>
-		<a
-			href="/posts/hide-wordpress-toolbar-with-wp_add_inline_style"
-			class="read-more-link"
-			aria-label="Read More about Hide WordPress Toolbar with wp_add_inline_style"
-			tabindex="0"
-			role="button"
-			target="_self"
-		>
-			Read The Post
-		</a>
+<div class="post-content">
+		<p>
+		<em>This post is about the theming feature in Blog-Doc.</em>
 	</p>
-</article>
-             <article class="postList-article">
-	<header class="post-header">
-		<h2 class="post-title">
-			<a href="/posts/modifying-wordpress-theme-copyright-from-the-customizer" class="postList-link" rel="bookmark">Modifying WordPress theme&#39;s copyright from the Customizer</a>
-		</h2>
-		<p class="post-meta">
-			<span>Posted on</span>
-			<span class="posted-on">
-				<time class="postList-date" datetime='2020-05/21'>
-					Thu May 21 2020				</time>
-			</span>
+	  <p>I&#39;ve released the <a href="https://github.com/LebCit/blog-doc/releases/tag/v2.0.0">new version of Blog-Doc</a> about a month ago.
+Since then, I&#39;ve decided that Blog-Doc must have a feature that allows the user to change the look and feel of the generated static site with ease.</p>
+<p>This decision forced me to <a href="https://github.com/LebCit/blog-doc/releases/tag/v2.2.0">modify the architecture of Blog-Doc</a> in a way that will preserve the data while switching from one theme to another and keep all the functionalities working regardless of the chosen design.</p>
+<p>Blog-Doc ships with a default theme based on the <a href="https://purecss.io/layouts/side-menu/">Responsive Side Menu Layout of Pure.css</a>.<br />
+In the past, I&#39;ve developed a WordPress theme based on the <a href="https://startbootstrap.com/theme/clean-blog">Clean Blog</a> from Start Bootstrap. Now, it&#39;s the first available theme in Blog-Doc.</p>
+<p>The following 30-second video shows how easy it is to switch between themes in <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>.</p>
+<style>
+  .container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+<div class="container">
+<iframe class="responsive-iframe" src="https://www.youtube.com/embed/qaulkcZ-yu8?si=Ptq9mGrwU0hj9Uo1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+</div>
 
-						<br />
-			Tagged 			<span class="post-tag">
-				<a href="/tags/Copyright">Copyright</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/Customizer">Customizer</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/Development">Development</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/Tips and Tricks">Tips and Tricks</a>
-			</span>
-			  		</p>
-	</header>
-
-	<div class="postList-description">
-		<p>This post is about modifying WordPress theme&#39;s copyright from the Customizer.</p>
-	</div>
-	<p>
-		<a
-			href="/posts/modifying-wordpress-theme-copyright-from-the-customizer"
-			class="read-more-link"
-			aria-label="Read More about Modifying WordPress theme&#39;s copyright from the Customizer"
-			tabindex="0"
-			role="button"
-			target="_self"
-		>
-			Read The Post
-		</a>
+<p>If you ever code a theme for Blog-Doc and wish to list it among <a href="https://github.com/LebCit/blog-doc#themes">the available themes</a>, you can let me know in the Discussions of Blog-Doc&#39;s repository under the <a href="https://github.com/LebCit/blog-doc/discussions/categories/ideas">Ideas</a> category.<br />
+Please keep in mind that Blog-Doc themes MUST only use plain JavaScript and cannot contain any code or image(s) that have publishing and/or distribution restrictions!</p>
+	<p class="author-greetings">
+		SYA,
+		<br />
+		LebCit.
 	</p>
-</article>
-             <article class="postList-article">
-	<header class="post-header">
-		<h2 class="post-title">
-			<a href="/posts/get-google-products-on-desktop-with-thunderbird" class="postList-link" rel="bookmark">Get Google products on desktop with Thunderbird</a>
-		</h2>
-		<p class="post-meta">
-			<span>Posted on</span>
-			<span class="posted-on">
-				<time class="postList-date" datetime='2020-05/14'>
-					Thu May 14 2020				</time>
-			</span>
+</div>
 
-						<br />
-			Tagged 			<span class="post-tag">
-				<a href="/tags/Tips and Tricks">Tips and Tricks</a>
-			</span>
-			  		</p>
-	</header>
-
-	<div class="postList-description">
-		<p>This post is about using Google products on a desktop with Thunderbird.</p>
-	</div>
-	<p>
-		<a
-			href="/posts/get-google-products-on-desktop-with-thunderbird"
-			class="read-more-link"
-			aria-label="Read More about Get Google products on desktop with Thunderbird"
-			tabindex="0"
-			role="button"
-			target="_self"
-		>
-			Read The Post
-		</a>
-	</p>
-</article>
-   <style>
-	.pagination {
+  <style>
+	.post-navigation {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: 1fr;
 		grid-column-gap: 16px;
 	}
 
-	.pagination a {
-		font-size: 1.5rem !important;
+	.post-navigation a {
 		margin: 1.5em 0;
 		border: 2px solid #000;
 		background: #000;
@@ -575,62 +479,69 @@
 		cursor: pointer;
 	}
 
-	.pagination .next-page {
+	.post-navigation .next-post {
 		grid-column-end: -1;
 	}
 
-	.pagination a:hover {
+	.post-navigation a:hover {
 		color: #fff;
 		box-shadow: 0 0.25em #000;
 	}
 
-	.pagination a:active,
-	.pagination a:focus {
+	.post-navigation a:active,
+	.post-navigation a:focus {
 		color: #fff;
 		box-shadow: 0.25em 0.25em #000;
 		outline: 0.1em solid;
 	}
 
 	@media screen and (max-width: 48em) {
-		.pagination {
+		.post-navigation {
 			display: grid;
 			grid-template-columns: 1fr;
 			grid-template-rows: repeat(2, 1fr);
 			grid-row-gap: 16px;
 		}
 
-		.pagination a {
+		.post-navigation a {
 			margin: 0;
 		}
 	}
 </style>
 
-  <nav class="pagination" aria-label="Blog pagination">
-	 	<a
-		href="/page/8"
-		class="prev-page"
-		aria-label="Go to the previous set of
-		posts"
-	>
-		Older Posts
-	</a>
-	  	<a
-		href="/page/6"
-		class="next-page"
-		aria-label="Go to the next set of
-		posts"
-	>
-		Newer Posts
-	</a>
-	</nav>
-<p>
-	All posts can be found in
-	<a href="/posts">the archive</a>
-	📦
-</p>
-  					<!-- End Post(s) Listing -->
+<nav class="post-navigation" aria-label="Post navigation">
+		<a href="/posts/node-modules-is-not-heavy-developers-are-lazy" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: node_modules is not heavy, developers are lazy!	</a>
+	  </nav>
+   <style>
+	.related-posts div {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
+</style>
+
+<div class="related-posts">
+	<h3>SOME RELATED POSTS</h3>
+	<div>
+		      		<section>
+			<a href="/posts/from-145-to-7">
+				    				<img
+					class="img-responsive"
+					src="/static/img/a-cardboard-sign-that-says-all-you-need-is-less.avif"
+					alt="A cardboard sign that says all you need is less"
+				/>
+							</a>
+			<h4>
+				<a href="/posts/from-145-to-7">From 145 to 7 💪</a>
+			</h4>
+		</section>
+			</div>
+</div>
+  					<!-- End Markdown file content -->
 				</main>
-				       			</div>
+				     			</div>
 			<!--End content-->
 			<!--Start footer-->
 			<style>
@@ -657,7 +568,8 @@
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  
+		  		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+		
 		<script src="/static/js/main.js"></script>
 	</body>
 </html>

@@ -6,9 +6,21 @@
 		<description>Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</description>
 		<language>en-US</language>
 		<copyright>Copyright (c) 2022 - Present, LebCit under the MIT License</copyright>
-		<pubDate>Sat, 26 Aug 2023 21:00:00 GMT</pubDate>
-		<lastBuildDate>Sat, 26 Aug 2023 21:00:00 GMT</lastBuildDate>
+		<pubDate>Sun, 27 Aug 2023 21:00:00 GMT</pubDate>
+		<lastBuildDate>Sun, 27 Aug 2023 21:00:00 GMT</lastBuildDate>
 		<docs>https://www.rssboard.org/rss-specification</docs>
+					<item>
+				<title>Create a simple Markdown-based blog in Node.js</title>
+				<link>https://lebcit.github.io/posts/create-a-simple-markdown-based-blog-in-nodejs</link>
+								<description>the process of creating a simple Markdown  blog in Node.js</description>
+																<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/Eta">Eta</category>
+								<category domain="https://lebcit.github.io/tags/Hono">Hono</category>
+								<category domain="https://lebcit.github.io/tags/Marked">Marked</category>
+								<category domain="https://lebcit.github.io/tags/Markdown">Markdown</category>
+								<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
+												<pubDate>Sun, 27 Aug 2023 21:00:00 GMT</pubDate>
+			</item>
 					<item>
 				<title>Switch themes in Blog-Doc!</title>
 				<link>https://lebcit.github.io/posts/switch-themes-in-blog-doc</link>

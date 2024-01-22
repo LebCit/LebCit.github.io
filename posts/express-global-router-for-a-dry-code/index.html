@@ -414,62 +414,68 @@
 		<em>This post is about using a global router in Express for a DRY code.</em>
 	</p>
 	  <p>When developing a Node.js app with Express, we&#39;ll usually have two or more routes.<br>If we use the <a href="https://expressjs.com/en/guide/routing.html#express-router">express.Router</a> class to put each route in a separate file, we&#39;ll always have to begin with the same block of code :</p>
-<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
-<span class="hljs-keyword">const</span> router = express.<span class="hljs-title class_">Router</span>()
-</code></pre><p>There is a better approach by using a global router.</p>
+<pre><code class="language-js">const express = require(&quot;express&quot;)
+const router = express.Router()
+</code></pre>
+<p>There is a better approach by using a global router.</p>
 <p>In the main server file, we&#39;ll parse an <a href="https://expressjs.com/en/guide/routing.html#express-router">express.Router</a> to a <code>global.router</code> assigned to a <code>router</code> variable, and in each route we&#39;ll only use this global router.</p>
 <p>Let&#39;s say we have only two routes : main <code>&quot;/&quot;</code> and about <code>&quot;/about&quot;</code>.<br>Following the common way, any route in it&#39;s own file will look like :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/aRoute.js</span>
-<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
-<span class="hljs-keyword">const</span> router = express.<span class="hljs-title class_">Router</span>()
+<pre><code class="language-js">// /routes/aRoute.js
+const express = require(&quot;express&quot;)
+const router = express.Router()
 
-router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
-    res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;A route content&quot;</span>)
+router.get(&quot;/&quot;, (req, res) =&gt; {
+    res.send(&quot;A route content&quot;)
 })
-</code></pre><p>Then, in the main server file we&#39;ll have :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /index.js</span>
+</code></pre>
+<p>Then, in the main server file we&#39;ll have :</p>
+<pre><code class="language-js">// /index.js
 ...
-app.<span class="hljs-title function_">use</span>(<span class="hljs-string">&quot;/a-route&quot;</span>, <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./routes/aRoute&quot;</span>))
+app.use(&quot;/a-route&quot;, require(&quot;./routes/aRoute&quot;))
 ...
-</code></pre><p>But by using a global router we can do the following :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /index.js</span>
+</code></pre>
+<p>But by using a global router we can do the following :</p>
+<pre><code class="language-js">// /index.js
 
-<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
-<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>()
+const express = require(&quot;express&quot;)
+const app = express()
 
-<span class="hljs-comment">// Parse an express router to a global router variable</span>
-<span class="hljs-keyword">const</span> router = (<span class="hljs-variable language_">global</span>.<span class="hljs-property">router</span> = express.<span class="hljs-title class_">Router</span>())
-<span class="hljs-comment">// Use the global router variable</span>
-app.<span class="hljs-title function_">use</span>(router)
+// Parse an express router to a global router variable
+const router = (global.router = express.Router())
+// Use the global router variable
+app.use(router)
 
-<span class="hljs-comment">// Routes</span>
-app.<span class="hljs-title function_">use</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./routes/main&quot;</span>))
-app.<span class="hljs-title function_">use</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./routes/about&quot;</span>))
+// Routes
+app.use(&quot;/&quot;, require(&quot;./routes/main&quot;))
+app.use(&quot;/&quot;, require(&quot;./routes/about&quot;))
 
-<span class="hljs-comment">// Launching the app on port 3000</span>
-app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> {
-    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`App 🚀 @ http://localhost:3000`</span>)
+// Launching the app on port 3000
+app.listen(3000, () =&gt; {
+    console.log(`App 🚀 @ http://localhost:3000`)
 })
-</code></pre><p>Then our two routes will look like so :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/main.js</span>
+</code></pre>
+<p>Then our two routes will look like so :</p>
+<pre><code class="language-js">// /routes/main.js
 
-<span class="hljs-keyword">const</span> router = <span class="hljs-variable language_">global</span>.<span class="hljs-property">router</span>
+const router = global.router
 
-router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
-    res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;Welcome to the main route&quot;</span>)
-})
-
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = router
-</code></pre><pre><code class="hljs language-js"><span class="hljs-comment">// /routes/about.js</span>
-
-<span class="hljs-keyword">const</span> router = <span class="hljs-variable language_">global</span>.<span class="hljs-property">router</span>
-
-router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/about&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
-    res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;Welcome to the about route&quot;</span>)
+router.get(&quot;/&quot;, (req, res) =&gt; {
+    res.send(&quot;Welcome to the main route&quot;)
 })
 
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = router
-</code></pre><p>Hope this will help you write a DRY code.</p>
+module.exports = router
+</code></pre>
+<pre><code class="language-js">// /routes/about.js
+
+const router = global.router
+
+router.get(&quot;/about&quot;, (req, res) =&gt; {
+    res.send(&quot;Welcome to the about route&quot;)
+})
+
+module.exports = router
+</code></pre>
+<p>Hope this will help you write a DRY code.</p>
 	<p class="author-greetings">
 		SYA,
 		<br />
@@ -594,7 +600,7 @@ router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&
 <footer id="colophon" class="site-footer unit-1">
 	        	<div id="site-info" class="site-info">
 		<p>
-			<strong>2016 - 2023 | { LebCit }</strong>
+			<strong>2016 - 2024 | { LebCit }</strong>
 			<br />
 			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
 	</div>
@@ -602,7 +608,11 @@ router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+		  		<script type="module">
+			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
+
+			hljs.highlightAll()
+		</script>
 		
 		<script src="/static/js/main.js"></script>
 	</body>

@@ -423,74 +423,78 @@
 <p>Till now, we had a homepage with an image and a button that displays a message when you click on it.<br>We also had an about page with a link inside a paragraph and an image under it.<br>Both pages have different document title, different page title, and the same menu.</p>
 <p>Nothing fancy in fact, but let&#39;s assume that our homepage will display a list of titles.<br>Those titles may come from each post in a blog.</p>
 <p>Update <code>index.js</code> to create a list of titles of posts that will be rendered on the homepage.</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /index.js</span>
+<pre><code class="language-js">// /index.js
 ...
-app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) {
-    <span class="hljs-keyword">let</span> posts = [
-        { <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Who invented JavaScript ?&quot;</span> },
-        { <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;My first JavaScript piece&quot;</span> },
-        { <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Logging into the console !&quot;</span> },
+app.get(&quot;/&quot;, function (req, res) {
+    let posts = [
+        { title: &quot;Who invented JavaScript ?&quot; },
+        { title: &quot;My first JavaScript piece&quot; },
+        { title: &quot;Logging into the console !&quot; },
     ]
-    res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;index&quot;</span>, {
-        <span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;Homepage | EJS App&quot;</span>,
-        <span class="hljs-attr">pageTitle</span>: <span class="hljs-string">&quot;Homepage of templating with EJS application&quot;</span>,
-        <span class="hljs-attr">posts</span>: posts,
+    res.render(&quot;index&quot;, {
+        docTitle: &quot;Homepage | EJS App&quot;,
+        pageTitle: &quot;Homepage of templating with EJS application&quot;,
+        posts: posts,
     })
 })
 ...
-</code></pre><p>We are creating an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a> of <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics">objects</a> inside the main route <code>&quot;/&quot;</code> called <code>posts</code>, where each object has a <code>key</code> and in front of each one a <code>value</code>.</p>
+</code></pre>
+<p>We are creating an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a> of <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics">objects</a> inside the main route <code>&quot;/&quot;</code> called <code>posts</code>, where each object has a <code>key</code> and in front of each one a <code>value</code>.</p>
 <p>Remember that our main route renders <code>index.ejs</code>. So to access and display those titles, we should update <code>index.ejs</code> to integrate them like so :</p>
-<pre><code class="hljs language-html"><span class="hljs-comment">&lt;!-- /views/index.ejs --&gt;</span>
+<pre><code class="language-html">&lt;!-- /views/index.ejs --&gt;
 ...
-<span class="hljs-comment">&lt;!-- Looping through the posts array --&gt;</span>
+&lt;!-- Looping through the posts array --&gt;
 &lt;% posts.forEach((post) =&gt; { %&gt;
-<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>&lt;%= post.title %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+&lt;h2&gt;&lt;%= post.title %&gt;&lt;/h2&gt;
 &lt;% }) %&gt;
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;btn&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pure-button&quot;</span>&gt;</span>A Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+&lt;button id=&quot;btn&quot; class=&quot;pure-button&quot;&gt;A Button&lt;/button&gt;
 ...
-</code></pre><p>We are looping through the <code>posts</code> array using the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">forEach()</a> method.<br><strong>Note how we are opening and closing EJS tags !</strong><br>It&#39;s very important to understand the logic of opening and closing the EJS and HTML tags when using them together.<br>The code isn&#39;t difficult at all, we are telling EJS to get the <code>posts</code>, and <code>forEach</code> one we want to display it&#39;s <code>title</code> inside an <code>&lt;h2&gt;</code> tag.<br>Save both files and take a look at the homepage.<br>Great job !</p>
+</code></pre>
+<p>We are looping through the <code>posts</code> array using the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">forEach()</a> method.<br><strong>Note how we are opening and closing EJS tags !</strong><br>It&#39;s very important to understand the logic of opening and closing the EJS and HTML tags when using them together.<br>The code isn&#39;t difficult at all, we are telling EJS to get the <code>posts</code>, and <code>forEach</code> one we want to display it&#39;s <code>title</code> inside an <code>&lt;h2&gt;</code> tag.<br>Save both files and take a look at the homepage.<br>Great job !</p>
 <p>In addition to a title, a post should have at least a description to give the reader an idea about it&#39;s content, maybe an image to make it more appealing, and a date indicating how recent and relevant it is in today&#39;s world.<br>Of course it should also have a link to the post itself, but we are not going to do it since we&#39;re not going to create them on the frontend.<br>Let&#39;s update our files to look like so :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /index.js</span>
+<pre><code class="language-js">// /index.js
 ...
-app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) {
-    <span class="hljs-keyword">let</span> posts = [
+app.get(&quot;/&quot;, function (req, res) {
+    let posts = [
         {
-            <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Who invented JavaScript ?&quot;</span>,
-            <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about the father of JavaScript&quot;</span>,
-            <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-03&quot;</span>,
+            title: &quot;Who invented JavaScript ?&quot;,
+            description: &quot;A post about the father of JavaScript&quot;,
+            date: &quot;2022-06-03&quot;,
         },
         {
-            <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;My first JavaScript piece&quot;</span>,
-            <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about my first JavaScript block&quot;</span>,
-            <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-10&quot;</span>,
+            title: &quot;My first JavaScript piece&quot;,
+            description: &quot;A post about my first JavaScript block&quot;,
+            date: &quot;2022-06-10&quot;,
         },
         {
-            <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Logging into the console !&quot;</span>,
-            <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about messages in the console&quot;</span>,
-            <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-17&quot;</span>,
+            title: &quot;Logging into the console !&quot;,
+            description: &quot;A post about messages in the console&quot;,
+            date: &quot;2022-06-17&quot;,
         },
     ]
-    res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;index&quot;</span>, {
-        <span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;Homepage | EJS App&quot;</span>,
-        <span class="hljs-attr">pageTitle</span>: <span class="hljs-string">&quot;Homepage of templating with EJS application&quot;</span>,
-        <span class="hljs-attr">posts</span>: posts,
+    res.render(&quot;index&quot;, {
+        docTitle: &quot;Homepage | EJS App&quot;,
+        pageTitle: &quot;Homepage of templating with EJS application&quot;,
+        posts: posts,
     })
 })
 ...
-</code></pre><pre><code class="hljs language-html"><span class="hljs-comment">&lt;!-- /views/index.ejs --&gt;</span>
+</code></pre>
+<pre><code class="language-html">&lt;!-- /views/index.ejs --&gt;
 ...
-<span class="hljs-comment">&lt;!-- Looping through the posts array --&gt;</span>
+&lt;!-- Looping through the posts array --&gt;
 &lt;% posts.forEach((post) =&gt; { %&gt;
-<span class="hljs-comment">&lt;!-- Adding the title inside an &lt;h2&gt; --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>&lt;%= post.title %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-<span class="hljs-comment">&lt;!-- Adding the date inside a paragraph --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>posted on &lt;%= post.date %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-comment">&lt;!-- Adding the description inside an &lt;h3&gt; --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>&lt;%= post.description %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+&lt;!-- Adding the title inside an &lt;h2&gt; --&gt;
+&lt;h2&gt;&lt;%= post.title %&gt;&lt;/h2&gt;
+&lt;!-- Adding the date inside a paragraph --&gt;
+&lt;p&gt;posted on &lt;%= post.date %&gt;&lt;/p&gt;
+&lt;!-- Adding the description inside an &lt;h3&gt; --&gt;
+&lt;h3&gt;&lt;%= post.description %&gt;&lt;/h3&gt;
 &lt;% }) %&gt;
-<span class="hljs-comment">&lt;!-- Closing the loop --&gt;</span>
+&lt;!-- Closing the loop --&gt;
 ...
-</code></pre><p>Save both files and take a look at the homepage.
+</code></pre>
+<p>Save both files and take a look at the homepage.
 All of this is great, but imagine that we have a blog of 50 posts and each post have a title, a link, a description, an image, a date of publication, a date of update, and some tags 😱<br>Yes, <code>index.js</code> would be crowded and difficult to maintain with a huge block of information just for the posts.<br>We&#39;ll be addressing this in the next section.</p>
 <h2>Organizing the backend</h2>
 <p>Since we are working on a server-side application, our code on the backend will evolve and get longer.<br>We shouldn&#39;t put everything inside our main server file because it will become almost impossible to look for a specific portion to update it or find a bug and correct it...</p>
@@ -500,87 +504,91 @@ All of this is great, but imagine that we have a blog of 50 posts and each post 
 <p>For now we only have 2 routes, main <code>&quot;/&quot;</code> and <code>&quot;/about&quot;</code>, but when our application will have some other routes where each one have it&#39;s logic and functionalities, our main server file will be huge, a little bit ugly and unmaintainable.</p>
 <p>Do you remember the <a href="/posts/templating-a-nodejs-app-with-ejs#simple-routing">Simple routing</a> section ?<br>Well now we&#39;ll do a better one by putting each route in it&#39;s own file.</p>
 <p>To do so, we&#39;ll use the <a href="https://expressjs.com/en/guide/routing.html#express-router">express.Router</a> class.<br>Create a new folder called <code>routes</code> at the root of the app.<br>Inside this folder, create a file called <code>home.js</code> with the following content :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/home.js</span>
+<pre><code class="language-js">// /routes/home.js
 
-<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
-<span class="hljs-keyword">const</span> router = express.<span class="hljs-title class_">Router</span>()
+const express = require(&quot;express&quot;)
+const router = express.Router()
 
-<span class="hljs-comment">// Defining a route</span>
-router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
-    <span class="hljs-keyword">let</span> posts = [
+// Defining a route
+router.get(&quot;/&quot;, (req, res) =&gt; {
+    let posts = [
         {
-            <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Who invented JavaScript ?&quot;</span>,
-            <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about the father of JavaScript&quot;</span>,
-            <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-03&quot;</span>,
+            title: &quot;Who invented JavaScript ?&quot;,
+            description: &quot;A post about the father of JavaScript&quot;,
+            date: &quot;2022-06-03&quot;,
         },
         {
-            <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;My first JavaScript piece&quot;</span>,
-            <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about my first JavaScript block&quot;</span>,
-            <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-10&quot;</span>,
+            title: &quot;My first JavaScript piece&quot;,
+            description: &quot;A post about my first JavaScript block&quot;,
+            date: &quot;2022-06-10&quot;,
         },
         {
-            <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Logging into the console !&quot;</span>,
-            <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about messages in the console&quot;</span>,
-            <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-17&quot;</span>,
+            title: &quot;Logging into the console !&quot;,
+            description: &quot;A post about messages in the console&quot;,
+            date: &quot;2022-06-17&quot;,
         },
     ]
-    res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;index&quot;</span>, {
-        <span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;Homepage | EJS App&quot;</span>,
-        <span class="hljs-attr">pageTitle</span>: <span class="hljs-string">&quot;Homepage of templating with EJS application&quot;</span>,
-        <span class="hljs-attr">posts</span>: posts,
+    res.render(&quot;index&quot;, {
+        docTitle: &quot;Homepage | EJS App&quot;,
+        pageTitle: &quot;Homepage of templating with EJS application&quot;,
+        posts: posts,
     })
 })
 
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = router
-</code></pre><p>Instead of <code>app.get</code> we use <code>router.get</code> and <code>export</code> it as a <code>module</code>.<br>Now, in <code>index.js</code>, replace the main route by this :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /index.js</span>
+module.exports = router
+</code></pre>
+<p>Instead of <code>app.get</code> we use <code>router.get</code> and <code>export</code> it as a <code>module</code>.<br>Now, in <code>index.js</code>, replace the main route by this :</p>
+<pre><code class="language-js">// /index.js
 ...
-<span class="hljs-comment">/**
+/**
  * Rendering index page on the main route,
  * using the express.Router class.
- */</span>
-app.<span class="hljs-title function_">use</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./routes/home&quot;</span>))
+ */
+app.use(&quot;/&quot;, require(&quot;./routes/home&quot;))
 ...
-</code></pre><p>Here we are telling Express to look for the file <code>home.js</code> that lives under the <code>routes</code> folder and to execute it&#39;s content on the main route <code>&quot;/&quot;</code>.</p>
+</code></pre>
+<p>Here we are telling Express to look for the file <code>home.js</code> that lives under the <code>routes</code> folder and to execute it&#39;s content on the main route <code>&quot;/&quot;</code>.</p>
 <p>So far, so good, but the <code>posts</code> array will grow and now this <code>home.js</code> file will not be maintainable, so let&#39;s get it out of there inside a separate file where only the posts info lives.<br>Create a file called <code>postsListInfo.js</code> inside the <code>routes</code> folder :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/postsListInfo.js</span>
+<pre><code class="language-js">// /routes/postsListInfo.js
 
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = [
+module.exports = [
     {
-        <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Who invented JavaScript ?&quot;</span>,
-        <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about the father of JavaScript&quot;</span>,
-        <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-03&quot;</span>,
+        title: &quot;Who invented JavaScript ?&quot;,
+        description: &quot;A post about the father of JavaScript&quot;,
+        date: &quot;2022-06-03&quot;,
     },
     {
-        <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;My first JavaScript piece&quot;</span>,
-        <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about my first JavaScript block&quot;</span>,
-        <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-10&quot;</span>,
+        title: &quot;My first JavaScript piece&quot;,
+        description: &quot;A post about my first JavaScript block&quot;,
+        date: &quot;2022-06-10&quot;,
     },
     {
-        <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Logging into the console !&quot;</span>,
-        <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;A post about messages in the console&quot;</span>,
-        <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-17&quot;</span>,
+        title: &quot;Logging into the console !&quot;,
+        description: &quot;A post about messages in the console&quot;,
+        date: &quot;2022-06-17&quot;,
     },
 ]
-</code></pre><p>See, we directly exported the array itself.<br>Now, all we have to do is update <code>home.js</code> like so :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/home.js</span>
+</code></pre>
+<p>See, we directly exported the array itself.<br>Now, all we have to do is update <code>home.js</code> like so :</p>
+<pre><code class="language-js">// /routes/home.js
 
-<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
-<span class="hljs-keyword">const</span> router = express.<span class="hljs-title class_">Router</span>()
+const express = require(&quot;express&quot;)
+const router = express.Router()
 
-<span class="hljs-keyword">let</span> posts = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./postsListInfo&quot;</span>)
+let posts = require(&quot;./postsListInfo&quot;)
 
-<span class="hljs-comment">// Defining a route</span>
-router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
-    res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;index&quot;</span>, {
-        <span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;Homepage | EJS App&quot;</span>,
-        <span class="hljs-attr">pageTitle</span>: <span class="hljs-string">&quot;Homepage of templating with EJS application&quot;</span>,
-        <span class="hljs-attr">posts</span>: posts,
+// Defining a route
+router.get(&quot;/&quot;, (req, res) =&gt; {
+    res.render(&quot;index&quot;, {
+        docTitle: &quot;Homepage | EJS App&quot;,
+        pageTitle: &quot;Homepage of templating with EJS application&quot;,
+        posts: posts,
     })
 })
 
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = router
-</code></pre><p>Pay attention !</p>
+module.exports = router
+</code></pre>
+<p>Pay attention !</p>
 <ol>
 <li>Since the two files are at the same level, we directly require <code>postsListInfo.js</code>. See <a href="/posts/templating-a-nodejs-app-with-ejs#paths">Paths</a>.</li>
 <li>The variable <code>posts</code> assigned to this require statement <strong>should</strong> match the <code>value</code> of the <code>data object</code> !<br>We could name the variable <code>postsListInfo</code>, but the <code>data object</code> would now be <code>posts: postsListInfo</code>. See <a href="/posts/templating-a-nodejs-app-with-ejs#data-object">Data object</a>.</li>
@@ -588,127 +596,134 @@ router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&
 <p>Save both files and take a look at the homepage.<br>Great job ! We now have the same display on the frontend, but with a clean, clear and maintainable code on the backend !</p>
 <p><em>Nota bene : we could create at the root of the app a folder just for the <code>postsListInfo.js</code> file and <code>require</code> it from there</em>.</p>
 <p>Lets&#39;s now put the <code>&quot;/about&quot;</code> route in it&#39;s own file.<br>Under <code>routes</code>, create a file called <code>about.js</code> with the following content :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/about.js</span>
+<pre><code class="language-js">// /routes/about.js
 
-<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
-<span class="hljs-keyword">const</span> router = express.<span class="hljs-title class_">Router</span>()
+const express = require(&quot;express&quot;)
+const router = express.Router()
 
-<span class="hljs-comment">// Defining a route</span>
-router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
-    res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;about&quot;</span>, { <span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;About me | EJS App&quot;</span>, <span class="hljs-attr">pageTitle</span>: <span class="hljs-string">&quot;A little bit about myself&quot;</span> })
+// Defining a route
+router.get(&quot;/&quot;, (req, res) =&gt; {
+    res.render(&quot;about&quot;, { docTitle: &quot;About me | EJS App&quot;, pageTitle: &quot;A little bit about myself&quot; })
 })
 
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = router
-</code></pre><p>We are defining a route on which we&#39;ll render <code>about.ejs</code>.<br>Now replace <code>&quot;/about&quot;</code> route in <code>index.js</code> by :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /index.js</span>
+module.exports = router
+</code></pre>
+<p>We are defining a route on which we&#39;ll render <code>about.ejs</code>.<br>Now replace <code>&quot;/about&quot;</code> route in <code>index.js</code> by :</p>
+<pre><code class="language-js">// /index.js
 ...
-<span class="hljs-comment">/**
+/**
  * Rendering about page on the /about route,
  * using the express.Router class.
- */</span>
-app.<span class="hljs-title function_">use</span>(<span class="hljs-string">&quot;/about&quot;</span>, <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./routes/about&quot;</span>))
+ */
+app.use(&quot;/about&quot;, require(&quot;./routes/about&quot;))
 ...
-</code></pre><p>Here we are telling Express to look for the file <code>about.js</code> that lives under the <code>routes</code> folder and to execute it&#39;s content on the <code>&quot;/about&quot;</code> route.</p>
+</code></pre>
+<p>Here we are telling Express to look for the file <code>about.js</code> that lives under the <code>routes</code> folder and to execute it&#39;s content on the <code>&quot;/about&quot;</code> route.</p>
 <p>Now, if you ever want to make changes on a specific route, you know where to make them, it will always be under one specific file 😉</p>
 <h3>Don&#39;t Repeat Yourself</h3>
 <hr>
 <p>Do you remember the <a href="/posts/templating-a-nodejs-app-with-ejs#do-not-repeat-yourself">DRY</a> section ?<br>Well, in the backend also, you should avoid to repeat yourself !</p>
 <p>If you take a closer look to <code>postsListInfo.js</code>, you&#39;ll notice that every description begins with <em>A post about</em>, assuming that you&#39;ll follow this pattern for each and every post&#39;s description, or maybe a much longer one such as <em>The content of the following post is about</em>, we could do the following :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/postsListInfo.js</span>
+<pre><code class="language-js">// /routes/postsListInfo.js
 
-<span class="hljs-keyword">const</span> descIntro = <span class="hljs-string">&quot;The content of the following post is about&quot;</span>
+const descIntro = &quot;The content of the following post is about&quot;
 
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = [
+module.exports = [
     {
-        <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Who invented JavaScript ?&quot;</span>,
-        <span class="hljs-attr">description</span>: <span class="hljs-string">`<span class="hljs-subst">${descIntro}</span> the father of JavaScript`</span>,
-        <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-03&quot;</span>,
+        title: &quot;Who invented JavaScript ?&quot;,
+        description: `${descIntro} the father of JavaScript`,
+        date: &quot;2022-06-03&quot;,
     },
     {
-        <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;My first JavaScript piece&quot;</span>,
-        <span class="hljs-attr">description</span>: <span class="hljs-string">`<span class="hljs-subst">${descIntro}</span> my first JavaScript block`</span>,
-        <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-10&quot;</span>,
+        title: &quot;My first JavaScript piece&quot;,
+        description: `${descIntro} my first JavaScript block`,
+        date: &quot;2022-06-10&quot;,
     },
     {
-        <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Logging into the console !&quot;</span>,
-        <span class="hljs-attr">description</span>: <span class="hljs-string">`<span class="hljs-subst">${descIntro}</span> messages in the console`</span>,
-        <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2022-06-17&quot;</span>,
+        title: &quot;Logging into the console !&quot;,
+        description: `${descIntro} messages in the console`,
+        date: &quot;2022-06-17&quot;,
     },
 ]
-</code></pre><p><strong>WHAT IS THIS ?!</strong><br>This is a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">Template string</a>.<br>You can pass a variable into a string by writing the whole string inside backtick and call your variable inside a <code>${}</code> at the desired place.<br><code>Template literals</code> are much more powerful than that, they can be used inside functions to create reusable blocks, yes just like template engines...</p>
+</code></pre>
+<p><strong>WHAT IS THIS ?!</strong><br>This is a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">Template string</a>.<br>You can pass a variable into a string by writing the whole string inside backtick and call your variable inside a <code>${}</code> at the desired place.<br><code>Template literals</code> are much more powerful than that, they can be used inside functions to create reusable blocks, yes just like template engines...</p>
 <p>On the other hand, if you look at <code>home.js</code> and <code>about.js</code>, they both begin with the same block of code :</p>
-<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
-<span class="hljs-keyword">const</span> router = express.<span class="hljs-title class_">Router</span>()
-</code></pre><p>To resolve this one, we&#39;ll use a <code>global.router</code> configuration.<br>Update the content of those files as well as <code>index.js</code> :</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// /routes/home.js</span>
+<pre><code class="language-js">const express = require(&quot;express&quot;)
+const router = express.Router()
+</code></pre>
+<p>To resolve this one, we&#39;ll use a <code>global.router</code> configuration.<br>Update the content of those files as well as <code>index.js</code> :</p>
+<pre><code class="language-js">// /routes/home.js
 
-<span class="hljs-keyword">const</span> router = <span class="hljs-variable language_">global</span>.<span class="hljs-property">router</span>
+const router = global.router
 
-<span class="hljs-keyword">let</span> posts = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./postsListInfo&quot;</span>)
+let posts = require(&quot;./postsListInfo&quot;)
 
-<span class="hljs-comment">// Rendering index.ejs on the main route.</span>
-router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
-    res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;index&quot;</span>, {
-        <span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;Homepage | EJS App&quot;</span>,
-        <span class="hljs-attr">pageTitle</span>: <span class="hljs-string">&quot;Homepage of templating with EJS application&quot;</span>,
-        <span class="hljs-attr">posts</span>: posts,
+// Rendering index.ejs on the main route.
+router.get(&quot;/&quot;, (req, res) =&gt; {
+    res.render(&quot;index&quot;, {
+        docTitle: &quot;Homepage | EJS App&quot;,
+        pageTitle: &quot;Homepage of templating with EJS application&quot;,
+        posts: posts,
     })
 })
 
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = router
-</code></pre><pre><code class="hljs language-js"><span class="hljs-comment">// /routes/about.js</span>
+module.exports = router
+</code></pre>
+<pre><code class="language-js">// /routes/about.js
 
-<span class="hljs-keyword">const</span> router = <span class="hljs-variable language_">global</span>.<span class="hljs-property">router</span>
+const router = global.router
 
-<span class="hljs-comment">// Rendering about.ejs on /about route.</span>
-router.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/about&quot;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
-    res.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;about&quot;</span>, { <span class="hljs-attr">docTitle</span>: <span class="hljs-string">&quot;About me | EJS App&quot;</span>, <span class="hljs-attr">pageTitle</span>: <span class="hljs-string">&quot;A little bit about myself&quot;</span> })
+// Rendering about.ejs on /about route.
+router.get(&quot;/about&quot;, (req, res) =&gt; {
+    res.render(&quot;about&quot;, { docTitle: &quot;About me | EJS App&quot;, pageTitle: &quot;A little bit about myself&quot; })
 })
 
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = router
-</code></pre><pre><code class="hljs language-js"><span class="hljs-comment">// /index.js complete file</span>
-<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>)
-<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>()
+module.exports = router
+</code></pre>
+<pre><code class="language-js">// /index.js complete file
+const express = require(&quot;express&quot;)
+const app = express()
 
-<span class="hljs-comment">// Set EJS as template engine</span>
-app.<span class="hljs-title function_">set</span>(<span class="hljs-string">&quot;view engine&quot;</span>, <span class="hljs-string">&quot;ejs&quot;</span>)
+// Set EJS as template engine
+app.set(&quot;view engine&quot;, &quot;ejs&quot;)
 
-<span class="hljs-comment">// Serve static files from a folder named public</span>
-app.<span class="hljs-title function_">use</span>(express.<span class="hljs-title function_">static</span>(<span class="hljs-string">&quot;public&quot;</span>))
+// Serve static files from a folder named public
+app.use(express.static(&quot;public&quot;))
 
-<span class="hljs-comment">// Require livereload and connectLiveReload</span>
-<span class="hljs-keyword">const</span> livereload = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;livereload&quot;</span>)
-<span class="hljs-keyword">const</span> connectLiveReload = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;connect-livereload&quot;</span>)
+// Require livereload and connectLiveReload
+const livereload = require(&quot;livereload&quot;)
+const connectLiveReload = require(&quot;connect-livereload&quot;)
 
-<span class="hljs-comment">// Create a server with livereload and fire it up</span>
-<span class="hljs-keyword">const</span> liveReloadServer = livereload.<span class="hljs-title function_">createServer</span>()
+// Create a server with livereload and fire it up
+const liveReloadServer = livereload.createServer()
 
-<span class="hljs-comment">// Refresh the browser after each saved change on the server with a delay of 100 ms</span>
-liveReloadServer.<span class="hljs-property">server</span>.<span class="hljs-title function_">once</span>(<span class="hljs-string">&quot;connection&quot;</span>, <span class="hljs-function">() =&gt;</span> {
-    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
-        liveReloadServer.<span class="hljs-title function_">refresh</span>(<span class="hljs-string">&quot;/&quot;</span>)
-    }, <span class="hljs-number">100</span>)
+// Refresh the browser after each saved change on the server with a delay of 100 ms
+liveReloadServer.server.once(&quot;connection&quot;, () =&gt; {
+    setTimeout(() =&gt; {
+        liveReloadServer.refresh(&quot;/&quot;)
+    }, 100)
 })
 
-<span class="hljs-comment">// Add livereload script to the response</span>
-app.<span class="hljs-title function_">use</span>(<span class="hljs-title function_">connectLiveReload</span>())
+// Add livereload script to the response
+app.use(connectLiveReload())
 
-<span class="hljs-comment">/** Start Routing */</span>
-<span class="hljs-comment">// Parse an express router to a global router variable</span>
-<span class="hljs-keyword">const</span> router = (<span class="hljs-variable language_">global</span>.<span class="hljs-property">router</span> = express.<span class="hljs-title class_">Router</span>())
-<span class="hljs-comment">// Use the global router variable</span>
-app.<span class="hljs-title function_">use</span>(router)
-<span class="hljs-comment">// Execute home.js content on the entry route of the app.</span>
-app.<span class="hljs-title function_">use</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./routes/home&quot;</span>))
-<span class="hljs-comment">// Execute about.js content on the entry route of the app.</span>
-app.<span class="hljs-title function_">use</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./routes/about&quot;</span>))
-<span class="hljs-comment">/** End Routing */</span>
+/** Start Routing */
+// Parse an express router to a global router variable
+const router = (global.router = express.Router())
+// Use the global router variable
+app.use(router)
+// Execute home.js content on the entry route of the app.
+app.use(&quot;/&quot;, require(&quot;./routes/home&quot;))
+// Execute about.js content on the entry route of the app.
+app.use(&quot;/&quot;, require(&quot;./routes/about&quot;))
+/** End Routing */
 
-<span class="hljs-comment">// Launching the app on port 3000</span>
-app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>, <span class="hljs-function">() =&gt;</span> {
-    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`App 🚀 @ http://localhost:3000`</span>)
+// Launching the app on port 3000
+app.listen(3000, () =&gt; {
+    console.log(`App 🚀 @ http://localhost:3000`)
 })
-</code></pre><p>Now you know the basics to organize your backend and make it maintainable.</p>
+</code></pre>
+<p>Now you know the basics to organize your backend and make it maintainable.</p>
 <p>To test your new skills, I suggest that you replicate the <strong>Blog</strong> of Pure.css <a href="https://purecss.io/layouts/">Layouts</a> as a Node.js app.</p>
 <p>I hope that this was helpful.</p>
 	<p class="author-greetings">
@@ -835,7 +850,7 @@ app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3
 <footer id="colophon" class="site-footer unit-1">
 	        	<div id="site-info" class="site-info">
 		<p>
-			<strong>2016 - 2023 | { LebCit }</strong>
+			<strong>2016 - 2024 | { LebCit }</strong>
 			<br />
 			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
 	</div>
@@ -843,7 +858,11 @@ app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+		  		<script type="module">
+			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
+
+			hljs.highlightAll()
+		</script>
 		
 		<script src="/static/js/main.js"></script>
 	</body>

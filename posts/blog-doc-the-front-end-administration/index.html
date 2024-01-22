@@ -558,7 +558,7 @@
 <footer id="colophon" class="site-footer unit-1">
 	        	<div id="site-info" class="site-info">
 		<p>
-			<strong>2016 - 2023 | { LebCit }</strong>
+			<strong>2016 - 2024 | { LebCit }</strong>
 			<br />
 			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
 	</div>
@@ -566,7 +566,11 @@
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+		  		<script type="module">
+			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
+
+			hljs.highlightAll()
+		</script>
 		
 		<script src="/static/js/main.js"></script>
 	</body>

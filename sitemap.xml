@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 		<url>
 		<loc>https://lebcit.github.io/</loc>
-		<lastmod>2023-09-12</lastmod>
+		<lastmod>2024-01-22</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/archive</loc>
-		<lastmod>2023-09-12</lastmod>
+		<lastmod>2024-01-22</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/tags</loc>
-		<lastmod>2023-09-12</lastmod>
+		<lastmod>2024-01-22</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/1</loc>
-		<lastmod>2023-07-29</lastmod>
+		<lastmod>2023-07-30</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/2</loc>
@@ -51,6 +51,10 @@
 		<url>
 		<loc>https://lebcit.github.io/pages/about</loc>
 		<lastmod>2023-07-28</lastmod>
+	</url>
+		<url>
+		<loc>https://lebcit.github.io/posts/a-dedicated-site-for-blog-docs-documentation</loc>
+		<lastmod>2024-01-22</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/posts/automatically-close-other-details</loc>
@@ -170,7 +174,7 @@
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/tags/Blog-Doc</loc>
-		<lastmod>2023-08-27</lastmod>
+		<lastmod>2024-01-22</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/tags/CMS</loc>
@@ -195,6 +199,10 @@
 		<url>
 		<loc>https://lebcit.github.io/tags/Development</loc>
 		<lastmod>2023-09-12</lastmod>
+	</url>
+		<url>
+		<loc>https://lebcit.github.io/tags/Documentation</loc>
+		<lastmod>2024-01-22</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/tags/EJS</loc>

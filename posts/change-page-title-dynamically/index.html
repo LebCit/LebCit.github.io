@@ -412,18 +412,19 @@
 	</p>
 	  <p>A good way to grab the the user&#39;s attention is of course to write useful content 😁<br>Being funny is also a very good strategy to keep users coming back to your blog.<br>A little bit of originality won&#39;t harm at all !</p>
 <p>We are going to use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API">Page Visibility API</a> to detect if the user is on your site&#39;s tab or on another tab, and change your site&#39;s tab title using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/title">Document.title</a> property and an awesome french song title 😉</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// Grab the document title of your site&#x27;s current tab.</span>
-<span class="hljs-keyword">let</span> currentTabTitle = <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span>
-<span class="hljs-comment">// Listen to visibility change events</span>
-<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;visibilitychange&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
-    <span class="hljs-comment">// Fires when user leaves your site&#x27;s tab.</span>
-    <span class="hljs-variable language_">document</span>.<span class="hljs-property">visibilityState</span> === <span class="hljs-string">&quot;hidden&quot;</span>
-        ? <span class="hljs-comment">// Document title when user leaves your site&#x27;s tab.</span>
-          (<span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = <span class="hljs-string">`Ne Me Quitte Pas 😭`</span>)
-        : <span class="hljs-comment">// Document title when user comes back to your site&#x27;s tab.</span>
-          (<span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = currentTabTitle)
+<pre><code class="language-js">// Grab the document title of your site&#39;s current tab.
+let currentTabTitle = document.title
+// Listen to visibility change events
+document.addEventListener(&quot;visibilitychange&quot;, function () {
+    // Fires when user leaves your site&#39;s tab.
+    document.visibilityState === &quot;hidden&quot;
+        ? // Document title when user leaves your site&#39;s tab.
+          (document.title = `Ne Me Quitte Pas 😭`)
+        : // Document title when user comes back to your site&#39;s tab.
+          (document.title = currentTabTitle)
 })
-</code></pre><p>This <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator">Conditional (ternary) operator</a> is like an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else">if...else statement</a></p>
+</code></pre>
+<p>This <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator">Conditional (ternary) operator</a> is like an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else">if...else statement</a></p>
 <p><strong>Important note</strong>: since the first change will occur when the user leaves your site&#39;s tab, we begin by listening to the <code>hidden</code> state (when the page&#39;s content is not visible to the user) and we change your tab title to whatever... Once the user gets back to your site&#39;s tab, the original tab title will be reassigned since we&#39;ve grab it earlier.</p>
 <p>You can see it wright here, change to another tab or open a new one 😉</p>
 <p>Don&#39;t forget to check out <a href="https://youtu.be/Vz6r0TP4FBI">the song</a> 🎶</p>
@@ -551,7 +552,7 @@
 <footer id="colophon" class="site-footer unit-1">
 	        	<div id="site-info" class="site-info">
 		<p>
-			<strong>2016 - 2023 | { LebCit }</strong>
+			<strong>2016 - 2024 | { LebCit }</strong>
 			<br />
 			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
 	</div>
@@ -559,7 +560,11 @@
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+		  		<script type="module">
+			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
+
+			hljs.highlightAll()
+		</script>
 		
 		<script src="/static/js/main.js"></script>
 	</body>

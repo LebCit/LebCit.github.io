@@ -417,11 +417,12 @@
 You have just opened one 😁<br>
 Just follow the pattern in the code.
 
-<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">details</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">summary</span>&gt;</span>Summary/Question about the content<span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span>
+<pre><code class="language-html">&lt;details&gt;
+    &lt;summary&gt;Summary/Question about the content&lt;/summary&gt;
     And here is the content, it could be anything, even code like this example 😉
-<span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span>
-</code></pre></details>
+&lt;/details&gt;
+</code></pre>
+</details>
 
 <p>But when we use more than one <code>&lt;details&gt;</code> tag on the same page, especially when they are one after another, we can see that if one is opened and we open another one, the first stays opened.<br>Imagine having 5 or more after each other, with a reasonable amount of content, they will take a lot of space.
 As an example, you can take a look at this informative pen : <a href="https://codepen.io/jdsteinbach/pen/GYmQjo">Teaching the Details Element with ... Details Elements!</a></p>
@@ -430,38 +431,44 @@ As an example, you can take a look at this informative pen : <a href="https://co
 Easy !<br>
 Just include the following code in your scripts file or in a <code>script</code> tag at the bottom of your page before the closing <code>body</code> tag.
 
-<pre><code class="hljs language-js"><span class="hljs-comment">/** Close others &lt;details&gt; tag */</span>
-<span class="hljs-keyword">const</span> allDetails = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&quot;details&quot;</span>)
+<pre><code class="language-js">/** Close others &lt;details&gt; tag */
+const allDetails = document.querySelectorAll(&quot;details&quot;)
 
-allDetails.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">details</span>) =&gt;</span> {
-    details.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;toggle&quot;</span>, <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
-        <span class="hljs-keyword">if</span> (details.<span class="hljs-property">open</span>) {
-            allDetails.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">details</span>) =&gt;</span> {
-                <span class="hljs-keyword">if</span> (details != e.<span class="hljs-property">target</span> &amp;&amp; details.<span class="hljs-property">open</span>) {
-                    details.<span class="hljs-property">open</span> = <span class="hljs-literal">false</span>
+allDetails.forEach((details) =&gt; {
+    details.addEventListener(&quot;toggle&quot;, (e) =&gt; {
+        if (details.open) {
+            allDetails.forEach((details) =&gt; {
+                if (details != e.target &amp;&amp; details.open) {
+                    details.open = false
                 }
             })
         }
     })
 })
-</code></pre></details>
+</code></pre>
+</details>
 
 <p>Let&#39;s break it down !</p>
 <p>First we select all the <code>&lt;details&gt;</code> tag :</p>
-<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> allDetails = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&quot;details&quot;</span>)
-</code></pre><p>And we iterate over them :</p>
-<pre><code class="hljs language-js">allDetails.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">details</span> =&gt;</span> {
-</code></pre><p>Then we listen to the <code>toggle</code> event used by the <code>&lt;details&gt;</code> element whenever its state changes between open and closed :</p>
-<pre><code class="hljs language-js">details.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;toggle&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
-</code></pre><p>Now, we wait for any <code>&lt;details&gt;</code> to be <code>open</code> :</p>
-<pre><code class="hljs language-js"><span class="hljs-keyword">if</span> (details.<span class="hljs-property">open</span>) {
-</code></pre><p>We iterate once again over all the <code>&lt;details&gt;</code> and check if anyone of them was not the <code>target</code> of the <code>toggle</code> event and was <code>open</code>, if so, we just close it by removing it&#39;s open state :</p>
-<pre><code class="hljs language-js">allDetails.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">details</span>) =&gt;</span> {
-    <span class="hljs-keyword">if</span> (details != e.<span class="hljs-property">target</span> &amp;&amp; details.<span class="hljs-property">open</span>) {
-        details.<span class="hljs-property">open</span> = <span class="hljs-literal">false</span>
+<pre><code class="language-js">const allDetails = document.querySelectorAll(&quot;details&quot;)
+</code></pre>
+<p>And we iterate over them :</p>
+<pre><code class="language-js">allDetails.forEach(details =&gt; {
+</code></pre>
+<p>Then we listen to the <code>toggle</code> event used by the <code>&lt;details&gt;</code> element whenever its state changes between open and closed :</p>
+<pre><code class="language-js">details.addEventListener(&#39;toggle&#39;, (e) =&gt; {
+</code></pre>
+<p>Now, we wait for any <code>&lt;details&gt;</code> to be <code>open</code> :</p>
+<pre><code class="language-js">if (details.open) {
+</code></pre>
+<p>We iterate once again over all the <code>&lt;details&gt;</code> and check if anyone of them was not the <code>target</code> of the <code>toggle</code> event and was <code>open</code>, if so, we just close it by removing it&#39;s open state :</p>
+<pre><code class="language-js">allDetails.forEach((details) =&gt; {
+    if (details != e.target &amp;&amp; details.open) {
+        details.open = false
     }
 })
-</code></pre><p>In other words, if a <code>&lt;details&gt;</code> element was opened, it have the <code>open</code> attribute. Now if another <code>&lt;details&gt;</code> element is open, we remove the <code>open</code> attribute from the previous, leaving only the actual targeted one opened.</p>
+</code></pre>
+<p>In other words, if a <code>&lt;details&gt;</code> element was opened, it have the <code>open</code> attribute. Now if another <code>&lt;details&gt;</code> element is open, we remove the <code>open</code> attribute from the previous, leaving only the actual targeted one opened.</p>
 <p>Hope that this was useful, and that you&#39;ll start using <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">The Details disclosure element</a>.</p>
 	<p class="author-greetings">
 		SYA,
@@ -587,7 +594,7 @@ allDetails.<span class="hljs-title function_">forEach</span>(<span class="hljs-f
 <footer id="colophon" class="site-footer unit-1">
 	        	<div id="site-info" class="site-info">
 		<p>
-			<strong>2016 - 2023 | { LebCit }</strong>
+			<strong>2016 - 2024 | { LebCit }</strong>
 			<br />
 			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
 	</div>
@@ -595,7 +602,11 @@ allDetails.<span class="hljs-title function_">forEach</span>(<span class="hljs-f
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+		  		<script type="module">
+			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
+
+			hljs.highlightAll()
+		</script>
 		
 		<script src="/static/js/main.js"></script>
 	</body>

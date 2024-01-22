@@ -414,23 +414,25 @@
 <p>If you&#39;re locally developing a website on the Classic Road (HTML + CSS + JS) without a plugin in your IDE to synchronize your changes, <strong>and have some generated cache</strong>, you&#39;ll have to refresh your page twice and sometimes more to see the changes you&#39;ve just made even if you&#39;re using a local server as Laragon, WAMP, MAMP, XAMPP...<br>Did you ever asked yourself how much time you&#39;re spending on refreshing twice ?!<br>This is a time killer, it&#39;s very annoying, and you&#39;re productivity will be affected !</p>
 <p>The solution would be to <strong>clear the cache</strong> when we refresh the page, you would say &quot;use Ctrl + F5 !&quot; and I would respond &quot;go try it with your generated cache !&quot;.</p>
 <p>To clear the cache when we hit the refresh button :<br>1- we&#39;ll have to access the <code>loading state</code> of the document <em>without waiting</em> for stylesheets, images...<br>2- we&#39;ll have to <code>open</code> the cache and access the particular cache causing headaches<br>3- we&#39;ll have to <code>delete</code> this particular cache !</p>
-<pre><code class="hljs language-js"><span class="hljs-keyword">if</span> (<span class="hljs-variable language_">document</span>.<span class="hljs-property">readyState</span> === <span class="hljs-string">&quot;loading&quot;</span>) {
-    <span class="hljs-comment">// Loading hasn&#x27;t finished yet</span>
-    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;DOMContentLoaded&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
-        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;loading...&quot;</span>)
-        caches.<span class="hljs-title function_">open</span>(<span class="hljs-string">&quot;cacheNameCausingHeadaches&quot;</span>).<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">cache</span>) {
-            cache.<span class="hljs-title function_">delete</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-property">URL</span>).<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
-                <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;deleted&quot;</span>)
+<pre><code class="language-js">if (document.readyState === &quot;loading&quot;) {
+    // Loading hasn&#39;t finished yet
+    document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
+        console.log(&quot;loading...&quot;)
+        caches.open(&quot;cacheNameCausingHeadaches&quot;).then(function (cache) {
+            cache.delete(document.URL).then(function () {
+                console.log(&quot;deleted&quot;)
             })
         })
     })
 }
-</code></pre><p>Paste this code at the end of your scripts before the closing body tag and refresh your page twice for the last time !</p>
+</code></pre>
+<p>Paste this code at the end of your scripts before the closing body tag and refresh your page twice for the last time !</p>
 <p>To get the <code>cacheNameCausingHeadeaches</code> :</p>
-<pre><code class="hljs language-js">caches.<span class="hljs-title function_">keys</span>().<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">keyList</span>) {
-    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;keyList&quot;</span>)
+<pre><code class="language-js">caches.keys().then(function (keyList) {
+    console.log(&quot;keyList&quot;)
 })
-</code></pre><p>I&#39;m here to share and learn 😊 so if you have a better way without an IDE plugin for a static site with some cache please let me know because I like to refresh and see the difference 😉</p>
+</code></pre>
+<p>I&#39;m here to share and learn 😊 so if you have a better way without an IDE plugin for a static site with some cache please let me know because I like to refresh and see the difference 😉</p>
 <p>Hope this will be useful.</p>
 	<p class="author-greetings">
 		SYA,
@@ -556,7 +558,7 @@
 <footer id="colophon" class="site-footer unit-1">
 	        	<div id="site-info" class="site-info">
 		<p>
-			<strong>2016 - 2023 | { LebCit }</strong>
+			<strong>2016 - 2024 | { LebCit }</strong>
 			<br />
 			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
 	</div>
@@ -564,7 +566,11 @@
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+		  		<script type="module">
+			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
+
+			hljs.highlightAll()
+		</script>
 		
 		<script src="/static/js/main.js"></script>
 	</body>

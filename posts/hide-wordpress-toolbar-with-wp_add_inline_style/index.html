@@ -417,26 +417,29 @@
 <p><a href="https://wordpress.org/support/article/toolbar/">The WordPress Toolbar</a> is the little black bar on top of the site that only the logged in user(s) can see, depending on their <a href="https://wordpress.org/support/article/roles-and-capabilities/">role(s)</a> and how the Super Admin or the Administrator has configured the visibility of this bar for each one…</p>
 <p>We can set the display status of this bar for the front side of our website by using the <a href="https://developer.wordpress.org/reference/functions/show_admin_bar/">show_admin_bar()</a> function.</p>
 <p>Also, we can directly target it by it’s CSS <em><code>id #wpadminbar</code></em> and hide it like so :</p>
-<pre><code class="hljs language-css"><span class="hljs-selector-id">#wpadminbar</span> {
-    <span class="hljs-attribute">display</span>: none;
+<pre><code class="language-css">#wpadminbar {
+    display: none;
 }
-</code></pre><p>but this way is not allowed for themes/plugins developers !</p>
+</code></pre>
+<p>but this way is not allowed for themes/plugins developers !</p>
 <p>You can say, <em>“just use <code>show_admin_bar</code> !”</em>, and I would ask the following :<br> <em>“what if I want to hide it with CSS without using a stylesheet so I can control it with JS for later use ?!”</em> 😉<br>It’s not the main reason, you can have any other reason to hide it with CSS without using a stylesheet, scenarios are limitless.</p>
 <p>This is where <a href="https://developer.wordpress.org/reference/functions/wp_add_inline_style/">wp_add_inline_style()</a> function steps in 🙂<br> In your <a href="https://codex.wordpress.org/Functions_File_Explained">functions.php</a> file, add the following :</p>
-<pre><code class="hljs language-php"><span class="hljs-comment">/**
- * Hide the Toolbar using inline style since we can&#x27;t use #wpadminbar in CSS.
- */</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myfunction_hide_adminbar</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-variable">$hide_adminbar</span> = <span class="hljs-string">&quot;
+<pre><code class="language-php">/**
+ * Hide the Toolbar using inline style since we can&#39;t use #wpadminbar in CSS.
+ */
+function myfunction_hide_adminbar() {
+    $hide_adminbar = &quot;
         #wpadminbar{
             display: none;
-        }&quot;</span>;
-    <span class="hljs-title function_ invoke__">wp_add_inline_style</span>( <span class="hljs-string">&#x27;my-stylesheet-handle&#x27;</span>, <span class="hljs-variable">$hide_adminbar</span> );
+        }&quot;;
+    wp_add_inline_style( &#39;my-stylesheet-handle&#39;, $hide_adminbar );
 }
-<span class="hljs-title function_ invoke__">add_action</span>( <span class="hljs-string">&#x27;wp_enqueue_scripts&#x27;</span>, <span class="hljs-string">&#x27;myfunction_hide_adminbar&#x27;</span> );
-</code></pre><p>Please, pay attention to the <code>$handle</code> <strong>my-stylesheet-handle</strong> !<br>You should replace it with the <code>$handle</code> of your stylesheet !<br>In your <strong>functions.php</strong> file, you’ll find something like :</p>
-<pre><code class="hljs language-php"><span class="hljs-title function_ invoke__">wp_enqueue_style</span>( <span class="hljs-string">&#x27;your-stylesheet-handle&#x27;</span>, <span class="hljs-title function_ invoke__">get_stylesheet_uri</span>() );
-</code></pre><p><strong>your-stylesheet-handle</strong> is the <code>$handle</code> of your stylesheet 😉</p>
+add_action( &#39;wp_enqueue_scripts&#39;, &#39;myfunction_hide_adminbar&#39; );
+</code></pre>
+<p>Please, pay attention to the <code>$handle</code> <strong>my-stylesheet-handle</strong> !<br>You should replace it with the <code>$handle</code> of your stylesheet !<br>In your <strong>functions.php</strong> file, you’ll find something like :</p>
+<pre><code class="language-php">wp_enqueue_style( &#39;your-stylesheet-handle&#39;, get_stylesheet_uri() );
+</code></pre>
+<p><strong>your-stylesheet-handle</strong> is the <code>$handle</code> of your stylesheet 😉</p>
 <p>Hope this will be useful 🙂<br>Please don’t hesitate to share your opinion, suggestions or other methods.</p>
 	<p class="author-greetings">
 		SYA,
@@ -562,7 +565,7 @@
 <footer id="colophon" class="site-footer unit-1">
 	        	<div id="site-info" class="site-info">
 		<p>
-			<strong>2016 - 2023 | { LebCit }</strong>
+			<strong>2016 - 2024 | { LebCit }</strong>
 			<br />
 			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
 	</div>
@@ -570,7 +573,11 @@
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+		  		<script type="module">
+			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
+
+			hljs.highlightAll()
+		</script>
 		
 		<script src="/static/js/main.js"></script>
 	</body>

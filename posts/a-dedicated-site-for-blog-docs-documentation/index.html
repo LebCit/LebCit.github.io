@@ -4,13 +4,14 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-		<meta name="description" content="A list of all the tags" />
+		<meta name="description" content="This post is about the newly created site for Blog-Doc&#39;s documentation" />
 	
-	<title>Tags | { LebCit }</title>
+	<title>A dedicated site for Blog-Doc&#39;s documentation! | { LebCit }</title>
 
 	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
 	<link rel="stylesheet" href="/static/css/main.min.css" />
 
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
 	  <style>
 	.post-title {
 		font-size: 2em;
@@ -44,7 +45,53 @@
 	}
 </style>
 
-        	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+<style>
+	.single-post :not(pre) code {
+		background-color: #272822;
+		color: #f8f8f2;
+		border-radius: 0.3rem;
+		padding: 4px 5px 5px;
+	}
+</style>
+  <style>
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.post-title {
+			font-size: 3em;
+			margin-top: 0;
+		}
+	}
+
+	@media (min-width: 64em) {
+		.post-title {
+			/* will affect single-post*/
+			font-size: 4em;
+			margin-top: 0;
+		}
+	}
+</style>
+    <style>
+	.post-meta {
+		color: #16663d;
+		font-size: 90%;
+		margin: 0;
+	}
+
+	.posted-on {
+		color: #ad1a36;
+	}
+
+	.post-tag {
+		margin: 0 0.1em;
+		padding: 0.2em 0.8em;
+		background: #ad1a36;
+		font-size: 80%;
+	}
+
+	.post-tag a {
+		color: #fff;
+	}
+</style>
+  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 </head>
 
 	<body>
@@ -288,7 +335,7 @@
 	}
 </style>
 
-<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/white-graffiti-on-chalkboard.jpg')"  >
+<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/pile-of-books.webp')"  >
 	<div class="site-header-overlay"></div>
 		<div class="sidebar">
 		<div class="site-branding">
@@ -328,229 +375,155 @@
 
 			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				   				<main class="single-post">
-					<!-- Start Tag(s) Listing -->
+				  				<main class="single-post">
+					<!-- Start Markdown file content -->
 					<style>
-	.tags {
-		list-style: none;
+	.author-greetings {
+		color: #000;
+		line-height: normal;
+	}
+</style>
+
+<header class="post-header">
+	<h1 class="post-title">A dedicated site for Blog-Doc&#39;s documentation!</h1>
+		<p class="post-meta">
+		<span>Posted on</span>
+		<span class="posted-on">
+			<time class="postList-date" datetime='2024-01/21'>
+				Sun Jan 21 2024			</time>
+		</span>
+
+				<br />
+		<span>Tagged</span>
+		<!--Start tag(s)-->
+				<span class="post-tag">
+			<a href="/tags/Blog-Doc">Blog-Doc</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Documentation">Documentation</a>
+		</span>
+				<!--End tag(s)-->
+			</p>
+	  </header>
+
+<div class="post-content">
+		<p>
+		<em>This post is about the newly created site for Blog-Doc&#39;s documentation.</em>
+	</p>
+	  <p>It&#39;s been a while since my last post - almost four and a half months to be precise!<br><a href="/posts/create-a-simple-markdown-based-blog-in-nodejs">The previous post</a>, a detailed tutorial on creating a simple Markdown-based blog in Node.js, was quite an undertaking that consumed a significant amount of time and energy.<br>I doubt I&#39;ll be penning such lengthy posts anytime soon, and perhaps never again!</p>
+<p>So, where have I been during this hiatus?<br>Primarily, juggling between family, work, and my trusty keyboard.</p>
+<p>During this time, <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a> has undergone substantial evolution, prompting the need for a dedicated website for its documentation.<br>The first order of business was finding a suitable template that aligned with my envisioned design - a layout commonly used for documentation:</p>
+<ul>
+<li>Three columns on desktop: Main menu, Content, Table of contents</li>
+<li>Two columns on tablet: Main menu, Table of contents at the top of Content</li>
+<li>One column on mobile: Mobile menu with Table of contents at the top of Content</li>
+</ul>
+<p>Surprisingly, I couldn&#39;t locate a template that fit the bill. However, I stumbled upon the fantastic <a href="https://matthewjamestaylor.com/responsive-attributes">Responsive Attributes</a> and used its guidance to craft the desired layout with minimal CSS footprint!</p>
+<p>With the design in place, I seamlessly integrated it into Blog-Doc and generated the static site for Blog-Doc&#39;s documentation.<br>You can check out the result by visiting <a href="https://blog-doc.pages.dev/">Blog-Doc&#39;s documentation site</a> and see for yourself!</p>
+	<p class="author-greetings">
+		SYA,
+		<br />
+		LebCit.
+	</p>
+</div>
+
+  <style>
+	.post-navigation {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
 	}
 
-	.tag__link {
-		padding: 5px 5px 0;
-		transition: 0.3s;
-		text-decoration: none;
-		color: #ee4266;
+	.post-navigation a {
+		margin: 1.5em 0;
+		border: 2px solid #000;
+		background: #000;
+		display: inline-block;
+		padding: 0.7rem 0.9rem;
+		font-size: 1rem;
+		line-height: 1;
+		border-radius: 3px;
+		color: #fff;
+		font-weight: 600;
+		cursor: pointer;
 	}
 
-	.tag__link:focus,
-	.tag__link:hover {
-		color: black;
-		box-shadow: inset 0 -1.3em 0 0 #ee4266;
+	.post-navigation .next-post {
+		grid-column-end: -1;
 	}
-	@media screen and (min-width: 64em) {
-		.tag__link {
-			font-size: 2em;
+
+	.post-navigation a:hover {
+		color: #fff;
+		box-shadow: 0 0.25em #000;
+	}
+
+	.post-navigation a:active,
+	.post-navigation a:focus {
+		color: #fff;
+		box-shadow: 0.25em 0.25em #000;
+		outline: 0.1em solid;
+	}
+
+	@media screen and (max-width: 48em) {
+		.post-navigation {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, 1fr);
+			grid-row-gap: 16px;
+		}
+
+		.post-navigation a {
+			margin: 0;
 		}
 	}
 </style>
 
-<h1>A list of all the tags 🏷️</h1>
+<nav class="post-navigation" aria-label="Post navigation">
+		<a href="/posts/create-a-simple-markdown-based-blog-in-nodejs" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: Create a simple Markdown-based blog in Node.js	</a>
+	  </nav>
+   <style>
+	.related-posts div {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
+</style>
 
-  
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Administration">
-			Administration			<span>(2 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Blog-Doc">
-			Blog-Doc			<span>(6 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/CMS">
-			CMS			<span>(4 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/CSP">
-			CSP			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/CSS">
-			CSS			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Copyright">
-			Copyright			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Customizer">
-			Customizer			<span>(3 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Development">
-			Development			<span>(18 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Documentation">
-			Documentation			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/EJS">
-			EJS			<span>(6 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Eta">
-			Eta			<span>(2 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Express">
-			Express			<span>(4 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Hono">
-			Hono			<span>(2 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/JavaScript">
-			JavaScript			<span>(9 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Markdown">
-			Markdown			<span>(2 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Marked">
-			Marked			<span>(2 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Modules">
-			Modules			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Node.js">
-			Node.js			<span>(11 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Nonce">
-			Nonce			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Plugin">
-			Plugin			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/SSG">
-			SSG			<span>(4 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Theme">
-			Theme			<span>(3 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Tips and Tricks">
-			Tips and Tricks			<span>(9 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Toolbar">
-			Toolbar			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
- 					<!-- End Tag(s) Listing -->
+<div class="related-posts">
+	<h3>SOME RELATED POSTS</h3>
+	<div>
+		      		<section>
+			<a href="/posts/blog-doc-the-simplest-nodejs-cms-ssg">
+				    				<img
+					class="img-responsive"
+					src="/static/img/computer-programming-codes-displayed-on-monitor.avif"
+					alt="Computer programming codes displayed on monitor"
+				/>
+							</a>
+			<h4>
+				<a href="/posts/blog-doc-the-simplest-nodejs-cms-ssg">Blog-Doc, The Simplest Node.js CMS &amp; SSG !</a>
+			</h4>
+		</section>
+		      		<section>
+			<a href="/posts/switch-themes-in-blog-doc">
+				    				<img
+					class="img-responsive"
+					src="/static/img/colorful-lanterns-hanging-on-a-string.avif"
+					alt="Colorful lanterns hanging on a string"
+				/>
+							</a>
+			<h4>
+				<a href="/posts/switch-themes-in-blog-doc">Switch themes in Blog-Doc!</a>
+			</h4>
+		</section>
+			</div>
+</div>
+  					<!-- End Markdown file content -->
 				</main>
-				    			</div>
+				     			</div>
 			<!--End content-->
 			<!--Start footer-->
 			<style>
@@ -567,23 +540,7 @@
 </style>
 
 <footer id="colophon" class="site-footer unit-1">
-	<style>
-	/* more then 1023px an less then 1024px */
-	@media (max-width: 63.969em) {
-		.hide {
-			display: none;
-		}
-	}
-</style>
-        <p class="post-content hide">
-	<em>
-		Note:
-		<a href="https://unsplash.com/photos/u4hdPI0lVGE">background photo</a>
-		used, by
-		<a href="https://unsplash.com/@jontyson">Jon Tyson</a>
-	</em>
-</p>
-	<div id="site-info" class="site-info">
+	        	<div id="site-info" class="site-info">
 		<p>
 			<strong>2016 - 2024 | { LebCit }</strong>
 			<br />
@@ -593,7 +550,12 @@
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  
+		  		<script type="module">
+			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
+
+			hljs.highlightAll()
+		</script>
+		
 		<script src="/static/js/main.js"></script>
 	</body>
 </html>

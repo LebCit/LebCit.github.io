@@ -6,9 +6,17 @@
 		<description>Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</description>
 		<language>en-US</language>
 		<copyright>Copyright (c) 2022 - Present, LebCit under the MIT License</copyright>
-		<pubDate>Mon, 11 Sep 2023 21:00:00 GMT</pubDate>
-		<lastBuildDate>Mon, 11 Sep 2023 21:00:00 GMT</lastBuildDate>
+		<pubDate>Sat, 20 Jan 2024 22:00:00 GMT</pubDate>
+		<lastBuildDate>Sat, 20 Jan 2024 22:00:00 GMT</lastBuildDate>
 		<docs>https://www.rssboard.org/rss-specification</docs>
+					<item>
+				<title>A dedicated site for Blog-Doc&#39;s documentation!</title>
+				<link>https://lebcit.github.io/posts/a-dedicated-site-for-blog-docs-documentation</link>
+								<description>the newly created site for Blog-Doc&#39;s documentation</description>
+																<category domain="https://lebcit.github.io/tags/Blog-Doc">Blog-Doc</category>
+								<category domain="https://lebcit.github.io/tags/Documentation">Documentation</category>
+												<pubDate>Sat, 20 Jan 2024 22:00:00 GMT</pubDate>
+			</item>
 					<item>
 				<title>Create a simple Markdown-based blog in Node.js</title>
 				<link>https://lebcit.github.io/posts/create-a-simple-markdown-based-blog-in-nodejs</link>

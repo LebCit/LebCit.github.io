@@ -448,26 +448,27 @@ Developers use <code>HTML</code> to define elements, combine them and produce a 
 A document begins with <code>&lt;!DOCTYPE html&gt;</code> followed by the <code>&lt;html&gt;</code> element which includes a <code>&lt;head&gt;</code> and a <code>&lt;body&gt;</code>.<br />
 Each one of the last two elements contains other elements working together, like a painting, so we can see the whole picture.<br />
 Let&#39;s take a look at a basic <code>HTML</code> document:</p>
-<pre><code class="hljs language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-        <span class="hljs-comment">&lt;!-- The title that appears in a browser&#x27;s tab --&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My webpage title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-        <span class="hljs-comment">&lt;!-- An H1 heading --&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>My webpage title<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-        <span class="hljs-comment">&lt;!-- A paragraph --&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;!-- The title that appears in a browser&#39;s tab --&gt;
+        &lt;title&gt;My webpage title&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- An H1 heading --&gt;
+        &lt;h1&gt;My webpage title&lt;/h1&gt;
+        &lt;!-- A paragraph --&gt;
+        &lt;p&gt;
             This is a paragraph with a link to a
-            <span class="hljs-comment">&lt;!-- A link --&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;contact.html&quot;</span>&gt;</span>contact<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            &lt;!-- A link --&gt;
+            &lt;a href=&quot;contact.html&quot;&gt;contact&lt;/a&gt;
             form page.
-        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-        <span class="hljs-comment">&lt;!-- this is a comment --&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
-</code></pre><p>As you can see, the content of a webpage lives in the <code>&lt;body&gt;</code> and each <code>HTML</code> element begins with an opening tag <code>&lt;tag&gt;</code> and ends with a closing one <code>&lt;/tag&gt;</code>.<br />
+        &lt;/p&gt;
+        &lt;!-- this is a comment --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>As you can see, the content of a webpage lives in the <code>&lt;body&gt;</code> and each <code>HTML</code> element begins with an opening tag <code>&lt;tag&gt;</code> and ends with a closing one <code>&lt;/tag&gt;</code>.<br />
 <em>Nota bene: Some elements, <a href="https://html.spec.whatwg.org/dev/syntax.html#void-elements">Void elements</a>, don&#39;t have a closing tag.</em></p>
 <p>Now, imagine a webpage with a lot of content.<br />
 Imagine how the structure would be huge, crowded and difficult to write...<br />
@@ -489,57 +490,58 @@ In our case, a Node.js application that converts a Markdown file contents into d
 Let&#39;s create on the computer&#39;s desktop a folder named <strong>node-markdown-blog</strong>.<br />
 Open this folder in your code editor and create a file named <strong>from-markdown-to-html.md</strong>.<br />
 Copy and paste the following code into this file and save:</p>
-<pre><code class="hljs language-markdown">---
+<pre><code class="language-markdown">---
 title: From Markdown to HTML in Node.js
 description: A post about converting the contents of a Markdown file to HTML in a Node.js application
 date: 2023-08-31
-<span class="hljs-section">tags: [Node.js, Markdown, HTML]
----</span>
+tags: [Node.js, Markdown, HTML]
+---
 
-<span class="hljs-section">## Intro</span>
+## Intro
 
-To read the content of a Markdown file in Node.js,<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span></span>
-we need an interpreter that understands Markdown,<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span></span>
-and can convert what he understood to HTML.<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span></span>
-So what we need is just like a translator,<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span></span>
+To read the content of a Markdown file in Node.js,&lt;br /&gt;
+we need an interpreter that understands Markdown,&lt;br /&gt;
+and can convert what he understood to HTML.&lt;br /&gt;
+So what we need is just like a translator,&lt;br /&gt;
 who can translate a context from one language to another.
 
-<span class="hljs-section">## The translator</span>
+## The translator
 
-There are many [<span class="hljs-string">Markdown to HTML translators</span>](<span class="hljs-link">https://github.com/markdown/markdown.github.com/wiki/Implementations</span>) out there.<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span></span>
-Since we&#x27;re building a Node.js app, we need a translator that works in this environnement.<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span></span>  
-We&#x27;ll be using, the best one in my humble opinion for this task,<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span></span>
-[<span class="hljs-string">Marked</span>](<span class="hljs-link">https://github.com/markedjs/marked</span>), a markdown parser and compiler.
+There are many [Markdown to HTML translators](https://github.com/markdown/markdown.github.com/wiki/Implementations) out there.&lt;br /&gt;
+Since we&#39;re building a Node.js app, we need a translator that works in this environnement.&lt;br /&gt;  
+We&#39;ll be using, the best one in my humble opinion for this task,&lt;br /&gt;
+[Marked](https://github.com/markedjs/marked), a markdown parser and compiler.
 
-<span class="hljs-section">## Installation</span>
+## Installation
 
-To install Marked in a Node.js application,<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span></span>
+To install Marked in a Node.js application,&lt;br /&gt;
 type the following command in the terminal of your code editor:
 
-<span class="hljs-code">```bash
+```bash
 npm install marked
-```</span>
+```
 
 You now have a powerful Markdown converter at your service 😉
 
-<span class="hljs-section">## Usage</span>
+## Usage
 
-To start using Marked, all we have to do is to fill its <span class="hljs-code">`parse()`</span> method with some Markdown.<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span></span>
-It&#x27;s as simple as the following block of code:
+To start using Marked, all we have to do is to fill its `parse()` method with some Markdown.&lt;br /&gt;
+It&#39;s as simple as the following block of code:
 
-<span class="hljs-code">```js
-import { marked } from &#x27;marked&#x27;
-const html = marked.parse(&#x27;# An H1 heading converted from Markdown to HTML with Marked!&#x27;)
-```</span>
+```js
+import { marked } from &#39;marked&#39;
+const html = marked.parse(&#39;# An H1 heading converted from Markdown to HTML with Marked!&#39;)
+```
 
 The output of the code above would be:
 
-<span class="hljs-code">```html
+```html
 &lt;h1&gt;An H1 heading converted from Markdown to HTML with Marked!&lt;/h1&gt;
-```</span>
+```
 
-That&#x27;s all folks, CU!
-</code></pre><p>If you&#39;re using VS Code, like me, press <code>Ctrl + K</code> then press <code>V</code>, abracadabra!<br />
+That&#39;s all folks, CU!
+</code></pre>
+<p>If you&#39;re using VS Code, like me, press <code>Ctrl + K</code> then press <code>V</code>, abracadabra!<br />
 You can now see a preview of the Markdown file.<br />
 If you look closer, the block that is delimited by a pair of 3 hyphens <code>---</code> is not being rendered.<br />
 That&#39;s because it&#39;s a <a href="https://yaml.org/">YAML</a> front matter and doesn&#39;t get parsed by a Markdown parser.<br />
@@ -549,24 +551,27 @@ We will see later how they will be used.</p>
 <p>We have seen how to display a preview of a Markdown file, Let&#39;s now use Marked to get the <code>HTML</code> out of it.<br />
 First things first, we have to initialize our Node.js project.<br />
 Type the following command in the terminal:</p>
-<pre><code class="hljs language-bash">npm init -y
-</code></pre><p>This will create a <strong>package.json</strong> file in the project:</p>
-<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
-  <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;markdown-blog&quot;</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1.0.0&quot;</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-attr">&quot;main&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;index.js&quot;</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">&quot;test&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>
-  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-attr">&quot;keywords&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-attr">&quot;author&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-attr">&quot;license&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ISC&quot;</span>
-<span class="hljs-punctuation">}</span>
-</code></pre><p>This file will hold all the information about our application, its scripts and dependencies.<br />
+<pre><code class="language-bash">npm init -y
+</code></pre>
+<p>This will create a <strong>package.json</strong> file in the project:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;markdown-blog&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;keywords&quot;: [],
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;
+}
+</code></pre>
+<p>This file will hold all the information about our application, its scripts and dependencies.<br />
 Now install Marked with the following command:</p>
-<pre><code class="hljs language-bash">npm install marked
-</code></pre><p>If you have read the content of our Markdown file, you now know that we need to use the <code>parse()</code> method of Marked to get its corresponding <code>HTML</code>.<br />
+<pre><code class="language-bash">npm install marked
+</code></pre>
+<p>If you have read the content of our Markdown file, you now know that we need to use the <code>parse()</code> method of Marked to get its corresponding <code>HTML</code>.<br />
 To get there, we first have to instruct our application to read the content of the file and then to convert it to <code>HTML</code> with Marked.</p>
 <p>The <a href="https://nodejs.org/api/fs.html#file-system">file system</a> in Node.js allows us to interact with files.<br />
 The only synchronous line that we will use in our code is the <a href="https://nodejs.org/api/fs.html#fsreadfilesyncpath-options">readFileSync()</a> method of the <code>fs</code> module.<br />
@@ -575,32 +580,32 @@ The <code>readFileSync()</code> method returns the contents of a defined path, a
 If you look at <strong>package.json</strong> above, you&#39;ll see that there is a <code>main</code> property with a value of <code>index.js</code>.<br />
 Now you should remember that a Markdown parser doesn&#39;t parse a front matter, like we mentioned previously, so we must write a function that will do this job and make its data accessible.<br />
 In <strong>index.js</strong> paste the following function:</p>
-<pre><code class="hljs language-js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">parseFrontMatter</span>(<span class="hljs-params">text, delimiter = <span class="hljs-string">&quot;---&quot;</span></span>) {
-    <span class="hljs-keyword">const</span> lines = text.<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;\n&quot;</span>)
-    <span class="hljs-keyword">const</span> frontmatter = {}
+<pre><code class="language-js">function parseFrontMatter(text, delimiter = &quot;---&quot;) {
+    const lines = text.split(&quot;\n&quot;)
+    const frontmatter = {}
 
-    <span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>
-    <span class="hljs-keyword">if</span> (!lines[i].<span class="hljs-title function_">startsWith</span>(delimiter)) {
-        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Front matter delimiter not found.&quot;</span>)
+    let i = 0
+    if (!lines[i].startsWith(delimiter)) {
+        throw new Error(&quot;Front matter delimiter not found.&quot;)
     }
 
     i++
-    <span class="hljs-keyword">while</span> (i &lt; lines.<span class="hljs-property">length</span> &amp;&amp; !lines[i].<span class="hljs-title function_">startsWith</span>(delimiter)) {
-        <span class="hljs-keyword">const</span> line = lines[i].<span class="hljs-title function_">trim</span>()
-        <span class="hljs-keyword">const</span> separatorIndex = line.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;:&quot;</span>)
-        <span class="hljs-keyword">if</span> (separatorIndex === -<span class="hljs-number">1</span>) {
-            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">`Invalid front matter syntax: <span class="hljs-subst">${line}</span>`</span>)
+    while (i &lt; lines.length &amp;&amp; !lines[i].startsWith(delimiter)) {
+        const line = lines[i].trim()
+        const separatorIndex = line.indexOf(&quot;:&quot;)
+        if (separatorIndex === -1) {
+            throw new Error(`Invalid front matter syntax: ${line}`)
         }
-        <span class="hljs-keyword">const</span> key = line.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>, separatorIndex).<span class="hljs-title function_">trim</span>()
-        <span class="hljs-keyword">let</span> value = line.<span class="hljs-title function_">slice</span>(separatorIndex + <span class="hljs-number">1</span>).<span class="hljs-title function_">trim</span>()
+        const key = line.slice(0, separatorIndex).trim()
+        let value = line.slice(separatorIndex + 1).trim()
 
-        <span class="hljs-comment">// Check if value is wrapped in brackets</span>
-        <span class="hljs-keyword">if</span> (value.<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">&quot;[&quot;</span>) &amp;&amp; value.<span class="hljs-title function_">endsWith</span>(<span class="hljs-string">&quot;]&quot;</span>)) {
-            <span class="hljs-comment">// Remove brackets and split into array elements</span>
-            <span class="hljs-keyword">const</span> trimmedValue = value.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>).<span class="hljs-title function_">trim</span>()
-            <span class="hljs-keyword">if</span> (trimmedValue.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>) {
-                value = trimmedValue.<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;,&quot;</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> item.<span class="hljs-title function_">trim</span>())
-            } <span class="hljs-keyword">else</span> {
+        // Check if value is wrapped in brackets
+        if (value.startsWith(&quot;[&quot;) &amp;&amp; value.endsWith(&quot;]&quot;)) {
+            // Remove brackets and split into array elements
+            const trimmedValue = value.slice(1, -1).trim()
+            if (trimmedValue.length &gt; 0) {
+                value = trimmedValue.split(&quot;,&quot;).map((item) =&gt; item.trim())
+            } else {
                 value = []
             }
         }
@@ -609,18 +614,19 @@ In <strong>index.js</strong> paste the following function:</p>
         i++
     }
 
-    <span class="hljs-keyword">if</span> (i === lines.<span class="hljs-property">length</span>) {
-        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;End of front matter not found.&quot;</span>)
+    if (i === lines.length) {
+        throw new Error(&quot;End of front matter not found.&quot;)
     }
 
-    <span class="hljs-keyword">const</span> content = lines.<span class="hljs-title function_">slice</span>(i + <span class="hljs-number">1</span>).<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot;\n&quot;</span>)
+    const content = lines.slice(i + 1).join(&quot;\n&quot;)
 
-    <span class="hljs-keyword">return</span> {
+    return {
         frontmatter,
         content,
     }
 }
-</code></pre><p>This function extracts front matter from a text and returns it as an <a href="https://javascript.info/object">object</a> named <code>frontmatter</code>, along with the remaining <code>content</code> after the front matter.<br />
+</code></pre>
+<p>This function extracts front matter from a text and returns it as an <a href="https://javascript.info/object">object</a> named <code>frontmatter</code>, along with the remaining <code>content</code> after the front matter.<br />
 It verifies that the text begins with a front matter delimited by a pair of 3 hyphens <code>---</code> and that each property and value in the front matter are separated by a colon <code>:</code>.<br />
 It also checks for any value in the front matter wrapped in square brackets <code>[ ]</code>. If so, it removes the brackets and splits the value by commas, creating an array of values, like the <code>tags</code> property in <strong>from-markdown-to-html.md</strong>.<br />
 Finally, the function returns a JavaScript object with two properties:</p>
@@ -633,15 +639,16 @@ This line will allow us to use <a href="https://nodejs.org/docs/latest-v18.x/api
 Open <strong>package.json</strong> and add the following line <code>&quot;type&quot;: &quot;module&quot;</code> just under <code>&quot;main&quot;: &quot;index.js&quot;</code>, don&#39;t forget to add a coma at the end of each line and save <code>Ctrl + S</code>.</p>
 <p>Now that everything is in place, let&#39;s begin!<br />
 In <strong>index.js</strong>, under the <code>parseFrontMatter()</code> function, <code>import</code> the <code>readFileSync()</code> method from the <code>fs</code> module to read the contents of our Markdown file then use the newly created function on the contents:</p>
-<pre><code class="hljs language-js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">parseFrontMatter</span>(<span class="hljs-params">text, delimiter = <span class="hljs-string">&quot;---&quot;</span></span>) {
-... <span class="hljs-comment">// Code inside the function</span>
+<pre><code class="language-js">function parseFrontMatter(text, delimiter = &quot;---&quot;) {
+... // Code inside the function
 }
 
-<span class="hljs-keyword">import</span> { readFileSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;node:fs&quot;</span>
+import { readFileSync } from &quot;node:fs&quot;
 
-<span class="hljs-keyword">const</span> contents = <span class="hljs-title function_">readFileSync</span>(<span class="hljs-string">&quot;from-markdown-to-html.md&quot;</span>, <span class="hljs-string">&quot;utf-8&quot;</span>)
-<span class="hljs-keyword">const</span> data = <span class="hljs-title function_">parseFrontMatter</span>(contents)
-</code></pre><p>If we <a href="https://code.visualstudio.com/Docs/editor/debugging">debug</a> the code by setting a <a href="https://code.visualstudio.com/Docs/editor/debugging#_breakpoints">breakpoint</a> in front of the <code>data</code> constant then <a href="https://code.visualstudio.com/Docs/editor/debugging#_debug-actions">Step Over</a> it, we&#39;ll get the following output in the debug panel:</p>
+const contents = readFileSync(&quot;from-markdown-to-html.md&quot;, &quot;utf-8&quot;)
+const data = parseFrontMatter(contents)
+</code></pre>
+<p>If we <a href="https://code.visualstudio.com/Docs/editor/debugging">debug</a> the code by setting a <a href="https://code.visualstudio.com/Docs/editor/debugging#_breakpoints">breakpoint</a> in front of the <code>data</code> constant then <a href="https://code.visualstudio.com/Docs/editor/debugging#_debug-actions">Step Over</a> it, we&#39;ll get the following output in the debug panel:</p>
 <img src="/static/img/parse-front-matter-function-output.png" class="img-responsive" alt="Output of a function in the debug panel of VS Code" />
 
 <p>As you can see, the returned variable, <code>data</code>, is an accessible object in which we have:</p>
@@ -659,17 +666,18 @@ Concerning the debugging part,  VS Code has also a <a href="https://code.visuals
 <p>Back to the code, we are one step away from turning the <code>content</code> of the Markdown file to <code>HTML</code>.<br />
 Always in <strong>index.js</strong>, we&#39;ll now <code>import</code> Marked to use its <code>parse()</code> method to finally get the <code>HTML</code> out of our Markdown file.<br />
 Update the code like so:</p>
-<pre><code class="hljs language-js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">parseFrontMatter</span>(<span class="hljs-params">text, delimiter = <span class="hljs-string">&quot;---&quot;</span></span>) {
-... <span class="hljs-comment">// Code inside the function</span>
+<pre><code class="language-js">function parseFrontMatter(text, delimiter = &quot;---&quot;) {
+... // Code inside the function
 }
 
-<span class="hljs-keyword">import</span> { readFileSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;node:fs&quot;</span>
-<span class="hljs-keyword">import</span> { marked } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;marked&quot;</span>
+import { readFileSync } from &quot;node:fs&quot;
+import { marked } from &quot;marked&quot;
 
-<span class="hljs-keyword">const</span> contents = <span class="hljs-title function_">readFileSync</span>(<span class="hljs-string">&quot;from-markdown-to-html.md&quot;</span>, <span class="hljs-string">&quot;utf-8&quot;</span>)
-<span class="hljs-keyword">const</span> data = <span class="hljs-title function_">parseFrontMatter</span>(contents)
-<span class="hljs-keyword">const</span> html = marked.<span class="hljs-title function_">parse</span>(data.<span class="hljs-property">content</span>) <span class="hljs-comment">// Accessing data content with dot notation.</span>
-</code></pre><p>Since <code>data</code> is an object, we can <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors">access its properties</a> with the dot notation or bracket notation.<br />
+const contents = readFileSync(&quot;from-markdown-to-html.md&quot;, &quot;utf-8&quot;)
+const data = parseFrontMatter(contents)
+const html = marked.parse(data.content) // Accessing data content with dot notation.
+</code></pre>
+<p>Since <code>data</code> is an object, we can <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors">access its properties</a> with the dot notation or bracket notation.<br />
 Now, if you add a breakpoint in front of the <code>html</code> constant and run the debugger by hitting on <code>F5</code> then step over it, You&#39;ll notice that the <code>html</code> variable in the debug panel displays the returned <code>HTML</code> from the <code>content</code> of the Markdown file 🥳</p>
 <h2>Using Hono and Eta</h2>
 <p>Having all the ingredients at our disposal, it&#39;s  now time to cook and serve!<br />
@@ -695,20 +703,22 @@ You&#39;ll notice that they share almost the same <code>&lt;head&gt;</code>, <st
 <p>Our backend will use Hono as a <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Web_frameworks">web framework</a> and Eta as a <a href="/posts/templating-a-nodejs-app-with-ejs#template-engines">template engine</a>.<br />
 Back then I used to prefer EJS, nowadays I recommend Eta because it&#39;s a faster, more lightweight, and more configurable EJS alternative, without any dependency!</p>
 <p>To install Hono and Eta, type the following command in your terminal:</p>
-<pre><code class="hljs language-bash">npm install eta hono @hono/node-server
-</code></pre><p>To test our web framework, let&#39;s add the following code in <strong>index.js</strong> under everything else:</p>
-<pre><code class="hljs language-js">... <span class="hljs-comment">// All previous code</span>
+<pre><code class="language-bash">npm install eta hono @hono/node-server
+</code></pre>
+<p>To test our web framework, let&#39;s add the following code in <strong>index.js</strong> under everything else:</p>
+<pre><code class="language-js">... // All previous code
 
-<span class="hljs-keyword">import</span> { serve } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@hono/node-server&quot;</span>
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Hono</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;hono&quot;</span>
+import { serve } from &quot;@hono/node-server&quot;
+import { Hono } from &quot;hono&quot;
 
-<span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Hono</span>()
-app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">c</span>) =&gt;</span> c.<span class="hljs-title function_">text</span>(<span class="hljs-string">&quot;Hono meets Node.js&quot;</span>))
+const app = new Hono()
+app.get(&quot;/&quot;, (c) =&gt; c.text(&quot;Hono meets Node.js&quot;))
 
-<span class="hljs-title function_">serve</span>(app, <span class="hljs-function">(<span class="hljs-params">{port}</span>) =&gt;</span> {
-    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Listening on http://localhost:<span class="hljs-subst">${port}</span>`</span>)
+serve(app, ({port}) =&gt; {
+    console.log(`Listening on http://localhost:${port}`)
 })
-</code></pre><p>The code is simple, We have done the following:</p>
+</code></pre>
+<p>The code is simple, We have done the following:</p>
 <ol>
 <li>Imported Hono and its Node.js adapter</li>
 <li>Assigned the framework to a constant named <code>app</code></li>
@@ -716,8 +726,9 @@ app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quo
 <li>Served the <code>app</code> on a <code>port</code> that is <code>3000</code> by default</li>
 </ol>
 <p>Type in the terminal <code>node index</code> and you&#39;ll get:</p>
-<pre><code class="hljs language-bash">Listening on http://localhost:3000
-</code></pre><p>Visit the link in your browser and you&#39;ll see the defined text on the entry route.<br />
+<pre><code class="language-bash">Listening on http://localhost:3000
+</code></pre>
+<p>Visit the link in your browser and you&#39;ll see the defined text on the entry route.<br />
 To stop the server press <code>Ctrl + C</code> to clear the terminal type <code>clear</code>.<br />
 Great! Before going further, we should begin to organize our code because we can&#39;t put everything in <strong>index.js</strong>.<br />
 To do so create the following:</p>
@@ -735,7 +746,7 @@ To do so create the following:</p>
 </li>
 </ol>
 <p>Move <strong>from-markdown-to-html.md</strong> inside the <strong>posts</strong> folder and you should have the following structure in alphabetical order under the main folder <strong>node-markdown-blog</strong>:</p>
-<pre><code class="hljs language-text">📁 node-markdown-blog
+<pre><code class="language-text">📁 node-markdown-blog
 ├── 📁 functions
 ├── 📄 index.js
 ├── 📁 node_modules
@@ -749,7 +760,8 @@ To do so create the following:</p>
   ├── 📁 pages
   ├── 📂 posts
   │  └── 📄 from-markdown-to-html.md
-</code></pre><h3 id="render-blog">The blog</h3>
+</code></pre>
+<h3 id="render-blog">The blog</h3>
 <p>As we have seen previously, the main route <code>/</code>, also known as the entry route or the home route, displays the most recent posts.<br />
 Let&#39;s begin by creating the shared components, then we&#39;ll move on to the layout of the main route or the blog.<br />
 We know that we have a common <code>&lt;head&gt;</code>, <code>&lt;header&gt;</code> and <code>&lt;footer&gt;</code>.<br />
@@ -760,119 +772,123 @@ Create in the <strong>components</strong> folder 3 files:</p>
 <li><strong>footer.html</strong></li>
 </ol>
 <p>Copy inside each file the corresponding code:</p>
-<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Home | Markdown-based blog<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<pre><code class="language-html">&lt;head&gt;
+    &lt;title&gt;Home | Markdown-based blog&lt;/title&gt;
 
-    <span class="hljs-comment">&lt;!-- Meta --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;description&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;List of the most recent posts&quot;</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;shortcut icon&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/static/img/favicon.ico&quot;</span> /&gt;</span>
+    &lt;!-- Meta --&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;List of the most recent posts&quot; /&gt;
+    &lt;link rel=&quot;shortcut icon&quot; href=&quot;/static/img/favicon.ico&quot; /&gt;
 
-    <span class="hljs-comment">&lt;!-- FontAwesome JS--&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">defer</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/js/all.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    &lt;!-- FontAwesome JS--&gt;
+    &lt;script defer src=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/js/all.min.js&quot;&gt;&lt;/script&gt;
 
-    <span class="hljs-comment">&lt;!-- Theme CSS --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;theme-style&quot;</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/static/css/theme-1.css&quot;</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-</code></pre><pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;header text-center&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;blog-name pt-lg-4 mb-0&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;no-text-decoration&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/&quot;</span>&gt;</span>My Markdown Blog<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    &lt;!-- Theme CSS --&gt;
+    &lt;link id=&quot;theme-style&quot; rel=&quot;stylesheet&quot; href=&quot;/static/css/theme-1.css&quot; /&gt;
+&lt;/head&gt;
+</code></pre>
+<pre><code class="language-html">&lt;header class=&quot;header text-center&quot;&gt;
+    &lt;h1 class=&quot;blog-name pt-lg-4 mb-0&quot;&gt;&lt;a class=&quot;no-text-decoration&quot; href=&quot;/&quot;&gt;My Markdown Blog&lt;/a&gt;&lt;/h1&gt;
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;navbar navbar-expand-lg navbar-dark&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
-            <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;navbar-toggler&quot;</span>
-            <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span>
-            <span class="hljs-attr">data-bs-toggle</span>=<span class="hljs-string">&quot;collapse&quot;</span>
-            <span class="hljs-attr">data-bs-target</span>=<span class="hljs-string">&quot;#navigation&quot;</span>
-            <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">&quot;navigation&quot;</span>
-            <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span>
-            <span class="hljs-attr">aria-label</span>=<span class="hljs-string">&quot;Toggle navigation&quot;</span>
-        &gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;navbar-toggler-icon&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    &lt;nav class=&quot;navbar navbar-expand-lg navbar-dark&quot;&gt;
+        &lt;button
+            class=&quot;navbar-toggler&quot;
+            type=&quot;button&quot;
+            data-bs-toggle=&quot;collapse&quot;
+            data-bs-target=&quot;#navigation&quot;
+            aria-controls=&quot;navigation&quot;
+            aria-expanded=&quot;false&quot;
+            aria-label=&quot;Toggle navigation&quot;
+        &gt;
+            &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;navigation&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;collapse navbar-collapse flex-column&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;profile-section pt-3 pt-lg-0&quot;</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;profile-image mb-3 rounded-circle mx-auto&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/static/images/profile.png&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;image&quot;</span> /&gt;</span>
+        &lt;div id=&quot;navigation&quot; class=&quot;collapse navbar-collapse flex-column&quot;&gt;
+            &lt;div class=&quot;profile-section pt-3 pt-lg-0&quot;&gt;
+                &lt;img class=&quot;profile-image mb-3 rounded-circle mx-auto&quot; src=&quot;/static/images/profile.png&quot; alt=&quot;image&quot; /&gt;
 
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bio mb-3&quot;</span>&gt;</span>
-                    Hi, this is my Markdown blog. It&#x27;s a Node.js app that I have created using Eta, Hono and Marked. You
+                &lt;div class=&quot;bio mb-3&quot;&gt;
+                    Hi, this is my Markdown blog. It&#39;s a Node.js app that I have created using Eta, Hono and Marked. You
                     can read more about the original application in the following link.
-                    <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://github.com/LebCit/blog-doc&quot;</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;_blank&quot;</span>&gt;</span>Find out more about Blog-Doc<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-comment">&lt;!--//bio--&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;social-list list-inline py-3 mx-auto&quot;</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;list-inline-item&quot;</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fab fa-twitter fa-fw&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;list-inline-item&quot;</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fab fa-linkedin-in fa-fw&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;list-inline-item&quot;</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fab fa-github-alt fa-fw&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;list-inline-item&quot;</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fab fa-stack-overflow fa-fw&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;list-inline-item&quot;</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fab fa-codepen fa-fw&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-                <span class="hljs-comment">&lt;!--//social-list--&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">hr</span> /&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-comment">&lt;!--//profile-section--&gt;</span>
+                    &lt;br /&gt;
+                    &lt;a href=&quot;https://github.com/LebCit/blog-doc&quot; target=&quot;_blank&quot;&gt;Find out more about Blog-Doc&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;!--//bio--&gt;
+                &lt;ul class=&quot;social-list list-inline py-3 mx-auto&quot;&gt;
+                    &lt;li class=&quot;list-inline-item&quot;&gt;
+                        &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fab fa-twitter fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;list-inline-item&quot;&gt;
+                        &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fab fa-linkedin-in fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;list-inline-item&quot;&gt;
+                        &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fab fa-github-alt fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;list-inline-item&quot;&gt;
+                        &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fab fa-stack-overflow fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;list-inline-item&quot;&gt;
+                        &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fab fa-codepen fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;!--//social-list--&gt;
+                &lt;hr /&gt;
+            &lt;/div&gt;
+            &lt;!--//profile-section--&gt;
 
-            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;navbar-nav flex-column text-start&quot;</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nav-item&quot;</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nav-link active&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/&quot;</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fas fa-home fa-fw me-2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+            &lt;ul class=&quot;navbar-nav flex-column text-start&quot;&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                    &lt;a class=&quot;nav-link active&quot; href=&quot;/&quot;&gt;
+                        &lt;i class=&quot;fas fa-home fa-fw me-2&quot;&gt;&lt;/i&gt;
                         Blog Home
-                        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sr-only&quot;</span>&gt;</span>(current)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nav-item&quot;</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nav-link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;blog-post.html&quot;</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fas fa-bookmark fa-fw me-2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+                        &lt;span class=&quot;sr-only&quot;&gt;(current)&lt;/span&gt;
+                    &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                    &lt;a class=&quot;nav-link&quot; href=&quot;blog-post.html&quot;&gt;
+                        &lt;i class=&quot;fas fa-bookmark fa-fw me-2&quot;&gt;&lt;/i&gt;
                         Blog Post
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nav-item&quot;</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nav-link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;about.html&quot;</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fas fa-user fa-fw me-2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+                    &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                    &lt;a class=&quot;nav-link&quot; href=&quot;about.html&quot;&gt;
+                        &lt;i class=&quot;fas fa-user fa-fw me-2&quot;&gt;&lt;/i&gt;
                         About Me
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                    &lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
 
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;my-2 my-md-3&quot;</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://themes.3rdwavemedia.com/&quot;</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;_blank&quot;</span>&gt;</span>Get in Touch<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
-</code></pre><pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">footer</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;footer text-center py-2 theme-bg-dark&quot;</span>&gt;</span>
-    <span class="hljs-comment">&lt;!--/* This template is free as long as you keep the footer attribution link. If you&#x27;d like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */--&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">small</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;copyright&quot;</span>&gt;</span>
+            &lt;div class=&quot;my-2 my-md-3&quot;&gt;
+                &lt;a class=&quot;btn btn-primary&quot; href=&quot;https://themes.3rdwavemedia.com/&quot; target=&quot;_blank&quot;&gt;Get in Touch&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+</code></pre>
+<pre><code class="language-html">&lt;footer class=&quot;footer text-center py-2 theme-bg-dark&quot;&gt;
+    &lt;!--/* This template is free as long as you keep the footer attribution link. If you&#39;d like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */--&gt;
+    &lt;small class=&quot;copyright&quot;&gt;
         Designed with
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sr-only&quot;</span>&gt;</span>love<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fas fa-heart&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color: #fb866a&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+        &lt;span class=&quot;sr-only&quot;&gt;love&lt;/span&gt;
+        &lt;i class=&quot;fas fa-heart&quot; style=&quot;color: #fb866a&quot;&gt;&lt;/i&gt;
         by
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://themes.3rdwavemedia.com&quot;</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;_blank&quot;</span>&gt;</span>Xiaoying Riley<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        &lt;a href=&quot;https://themes.3rdwavemedia.com&quot; target=&quot;_blank&quot;&gt;Xiaoying Riley&lt;/a&gt;
         for developers
-        <span class="hljs-comment">&lt;!-- You can remove or modify the following line, including this comment, but everything before must stay in place. --&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+        &lt;!-- You can remove or modify the following line, including this comment, but everything before must stay in place. --&gt;
+        &lt;br /&gt;
         Node.js App developed by
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://lebcit.github.io/&quot;</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;_blank&quot;</span>&gt;</span>LebCit<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
-</code></pre><p>We have slightly modified the original code of the three components. The important part to notice is that we have replaced <code>assets/</code> by <code>/static/</code> since this folder will serve the frontend&#39;s static assets.<br />
+        &lt;a href=&quot;https://lebcit.github.io/&quot; target=&quot;_blank&quot;&gt;LebCit&lt;/a&gt;
+    &lt;/small&gt;
+&lt;/footer&gt;
+</code></pre>
+<p>We have slightly modified the original code of the three components. The important part to notice is that we have replaced <code>assets/</code> by <code>/static/</code> since this folder will serve the frontend&#39;s static assets.<br />
 Please note that in <strong>head.html</strong>, I&#39;ve kept the default theme:</p>
-<pre><code class="hljs language-html"><span class="hljs-comment">&lt;!-- Theme CSS --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;theme-style&quot;</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/static/css/theme-1.css&quot;</span> /&gt;</span>
-</code></pre><p>Create inside the <strong>static</strong> folder a <strong>css</strong> folder, then copy inside it the <strong>theme-1.css</strong> file from <strong>devblog-bs5-v3.0/assets/css/</strong>.<br />
+<pre><code class="language-html">&lt;!-- Theme CSS --&gt;
+&lt;link id=&quot;theme-style&quot; rel=&quot;stylesheet&quot; href=&quot;/static/css/theme-1.css&quot; /&gt;
+</code></pre>
+<p>Create inside the <strong>static</strong> folder a <strong>css</strong> folder, then copy inside it the <strong>theme-1.css</strong> file from <strong>devblog-bs5-v3.0/assets/css/</strong>.<br />
 <em>Nota bene: You can of course choose anyone of the eight available color schemes that you like, but keep in mind that you&#39;ll have to replace the theme number according to your choice and import the corresponding file!</em></p>
 <p>Our principal components are ready, we can attack the layout of the blog.<br />
 The blog is made of 2 blocks each one inside a <code>&lt;section&gt;</code> tag.<br />
@@ -880,74 +896,76 @@ The first section is a call to action displaying the blog title, its description
 The second section displays the latest posts with a navigation at their bottom to visit previous posts.<br />
 To keep this tutorial as simple as possible, and since our goal is to create a simple Markdown-based blog with Node.js, I won&#39;t implement the subscription form or the posts&#39; navigation.<br />
 Inside the <strong>layouts</strong> folder, create a <strong>base.html</strong> file and paste the following code inside it:</p>
-<pre><code class="hljs language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- Include the content of head.html file here --&gt;</span>
-    &lt;%~ include(&#x27;../components/head.html&#x27;, it) %&gt;
-    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-        <span class="hljs-comment">&lt;!-- Include the content of header.html file here --&gt;</span>
-        &lt;%~ include(&#x27;../components/header.html&#x27;) %&gt;
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;main-wrapper&quot;</span>&gt;</span>
-            <span class="hljs-comment">&lt;!-- Here we open the if...else statement @see https://javascript.info/ifelse --&gt;</span>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;!-- Include the content of head.html file here --&gt;
+    &lt;%~ include(&#39;../components/head.html&#39;, it) %&gt;
+    &lt;body&gt;
+        &lt;!-- Include the content of header.html file here --&gt;
+        &lt;%~ include(&#39;../components/header.html&#39;) %&gt;
+        &lt;div class=&quot;main-wrapper&quot;&gt;
+            &lt;!-- Here we open the if...else statement @see https://javascript.info/ifelse --&gt;
             &lt;% if (it.mainRoute) { %&gt;
-            <span class="hljs-comment">&lt;!-- If we are on the main route, the route that displays the list of posts --&gt;</span>
+            &lt;!-- If we are on the main route, the route that displays the list of posts --&gt;
 
-            <span class="hljs-comment">&lt;!-- BEGINNING OF THE BLOG&#x27;S STRUCTURE --&gt;</span>
+            &lt;!-- BEGINNING OF THE BLOG&#39;S STRUCTURE --&gt;
 
-            <span class="hljs-comment">&lt;!-- Start blog&#x27;s intro --&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;cta-section theme-bg-light py-5&quot;</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container text-center single-col-max-width&quot;</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;heading&quot;</span>&gt;</span>Markdown-based blog - A Markdown Blog Made With Node.js<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;intro&quot;</span>&gt;</span>Welcome to my blog. Hope that you&#x27;ll find useful information in my posts.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-            <span class="hljs-comment">&lt;!-- End blog&#x27;s intro --&gt;</span>
+            &lt;!-- Start blog&#39;s intro --&gt;
+            &lt;section class=&quot;cta-section theme-bg-light py-5&quot;&gt;
+                &lt;div class=&quot;container text-center single-col-max-width&quot;&gt;
+                    &lt;h2 class=&quot;heading&quot;&gt;Markdown-based blog - A Markdown Blog Made With Node.js&lt;/h2&gt;
+                    &lt;div class=&quot;intro&quot;&gt;Welcome to my blog. Hope that you&#39;ll find useful information in my posts.&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+            &lt;!-- End blog&#39;s intro --&gt;
 
-            <span class="hljs-comment">&lt;!-- Start blog&#x27;s posts&#x27; list --&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;blog-list px-3 py-5 p-md-5&quot;</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container single-col-max-width&quot;</span>&gt;</span>
-                    <span class="hljs-comment">&lt;!-- Include the content of index.html file here --&gt;</span>
-                    &lt;%~ include(&#x27;./index.html&#x27;, it) %&gt;
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-            <span class="hljs-comment">&lt;!-- End blog&#x27;s posts&#x27; list --&gt;</span>
+            &lt;!-- Start blog&#39;s posts&#39; list --&gt;
+            &lt;section class=&quot;blog-list px-3 py-5 p-md-5&quot;&gt;
+                &lt;div class=&quot;container single-col-max-width&quot;&gt;
+                    &lt;!-- Include the content of index.html file here --&gt;
+                    &lt;%~ include(&#39;./index.html&#39;, it) %&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+            &lt;!-- End blog&#39;s posts&#39; list --&gt;
 
-            <span class="hljs-comment">&lt;!-- ENDING OF THE BLOG&#x27;S STRUCTURE --&gt;</span>
+            &lt;!-- ENDING OF THE BLOG&#39;S STRUCTURE --&gt;
 
             &lt;% } else { %&gt;
-            <span class="hljs-comment">&lt;!-- Else we are not on the main route, we are on a route that displays a Markdown file --&gt;</span>
+            &lt;!-- Else we are not on the main route, we are on a route that displays a Markdown file --&gt;
 
-            <span class="hljs-comment">&lt;!-- Start Markdown file content --&gt;</span>
+            &lt;!-- Start Markdown file content --&gt;
 
-            <span class="hljs-comment">&lt;!-- Include the content of markdown.html file here --&gt;</span>
-            &lt;%~ include(&#x27;./markdown.html&#x27;, it) %&gt;
+            &lt;!-- Include the content of markdown.html file here --&gt;
+            &lt;%~ include(&#39;./markdown.html&#39;, it) %&gt;
 
-            <span class="hljs-comment">&lt;!-- End Markdown file content --&gt;</span>
+            &lt;!-- End Markdown file content --&gt;
 
             &lt;% } %&gt;
-            <span class="hljs-comment">&lt;!-- Here we close the if...else statement @see https://javascript.info/ifelse --&gt;</span>
+            &lt;!-- Here we close the if...else statement @see https://javascript.info/ifelse --&gt;
 
-            <span class="hljs-comment">&lt;!-- Start footer --&gt;</span>
+            &lt;!-- Start footer --&gt;
 
-            <span class="hljs-comment">&lt;!-- Include the content of footer.html file here --&gt;</span>
-            &lt;%~ include(&#x27;../components/footer.html&#x27;) %&gt;
+            &lt;!-- Include the content of footer.html file here --&gt;
+            &lt;%~ include(&#39;../components/footer.html&#39;) %&gt;
 
-            <span class="hljs-comment">&lt;!-- End footer --&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            &lt;!-- End footer --&gt;
+        &lt;/div&gt;
 
-        <span class="hljs-comment">&lt;!-- Bootstrap&#x27;s JavaScript --&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
-</code></pre><p>Don&#39;t be scared by Eta markup, every single step is commented on, It&#39;s pretty straightforward if you read it carefully!<br />
+        &lt;!-- Bootstrap&#39;s JavaScript --&gt;
+        &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Don&#39;t be scared by Eta markup, every single step is commented on, It&#39;s pretty straightforward if you read it carefully!<br />
 If you look closely, we have used plain <code>JavaScript</code>, like the <a href="https://javascript.info/ifelse"><code>if...else</code> statement</a>, inside an <code>HTML</code> file without a <code>&lt;script&gt;</code> tag. This is one of Eta&#39;s powers.<br />
 We also have used the <code>include()</code> function of Eta to include a <a href="https://eta.js.org/docs/intro/template-syntax#partials-and-layouts">partial</a> in a desired location by indicating its <a href="https://www.w3schools.com/Html/html_filepaths.asp">relative path</a>.<br />
 Concerning the <code>it</code> variable, it&#39;s an object containing the data that we pass on a route to a template, we will see <code>it</code> in action shortly.<br />
 Did you notice that we have included 2 templates, <code>index.html</code> and <code>markdown.html</code>, that do not exist?<br />
 Go ahead and create them in the <strong>layouts</strong> folder, the same folder where <strong>base.html</strong> is located.</p>
 <p>For now, the main route <code>/</code> displays a text message as we can read in <strong>index.js</strong>:</p>
-<pre><code class="hljs language-js">app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function">(<span class="hljs-params">c</span>) =&gt;</span> c.<span class="hljs-title function_">text</span>(<span class="hljs-string">&quot;Hono meets Node.js&quot;</span>))
-</code></pre><p>Let&#39;s dive into the blog transformation.<br />
+<pre><code class="language-js">app.get(&quot;/&quot;, (c) =&gt; c.text(&quot;Hono meets Node.js&quot;))
+</code></pre>
+<p>Let&#39;s dive into the blog transformation.<br />
 For that we will need the following:</p>
 <ol>
 <li>A function to get the Markdown files from their respective directory. The directory could be the <strong>pages</strong> folder or the <strong>posts</strong> folder.</li>
@@ -958,37 +976,37 @@ For that we will need the following:</p>
 </ol>
 <p>For simplicity and elegance, I&#39;ll wrap those functions with the previous one <code>parseFrontMatter()</code> under a <a href="https://javascript.info/class">class</a>.<br />
 In the <strong>functions</strong> folder, create a file named <strong>node-markdown-blog.js</strong> and paste the following code inside it :</p>
-<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> { readFileSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;node:fs&quot;</span>
-<span class="hljs-keyword">import</span> { readdir } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;node:fs/promises&quot;</span>
+<pre><code class="language-js">import { readFileSync } from &quot;node:fs&quot;
+import { readdir } from &quot;node:fs/promises&quot;
 
-<span class="hljs-keyword">class</span> <span class="hljs-title class_">NodeMarkdownBlog</span> {
-    <span class="hljs-comment">// Method to parse front-matter from Markdown files.</span>
-    <span class="hljs-title function_">parseFrontMatter</span>(<span class="hljs-params">text, delimiter = <span class="hljs-string">&quot;---&quot;</span></span>) {
-        <span class="hljs-keyword">const</span> lines = text.<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;\n&quot;</span>)
-        <span class="hljs-keyword">const</span> frontmatter = {}
+class NodeMarkdownBlog {
+    // Method to parse front-matter from Markdown files.
+    parseFrontMatter(text, delimiter = &quot;---&quot;) {
+        const lines = text.split(&quot;\n&quot;)
+        const frontmatter = {}
 
-        <span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>
-        <span class="hljs-keyword">if</span> (!lines[i].<span class="hljs-title function_">startsWith</span>(delimiter)) {
-            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Front matter delimiter not found.&quot;</span>)
+        let i = 0
+        if (!lines[i].startsWith(delimiter)) {
+            throw new Error(&quot;Front matter delimiter not found.&quot;)
         }
 
         i++
-        <span class="hljs-keyword">while</span> (i &lt; lines.<span class="hljs-property">length</span> &amp;&amp; !lines[i].<span class="hljs-title function_">startsWith</span>(delimiter)) {
-            <span class="hljs-keyword">const</span> line = lines[i].<span class="hljs-title function_">trim</span>()
-            <span class="hljs-keyword">const</span> separatorIndex = line.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;:&quot;</span>)
-            <span class="hljs-keyword">if</span> (separatorIndex === -<span class="hljs-number">1</span>) {
-                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">`Invalid front matter syntax: <span class="hljs-subst">${line}</span>`</span>)
+        while (i &lt; lines.length &amp;&amp; !lines[i].startsWith(delimiter)) {
+            const line = lines[i].trim()
+            const separatorIndex = line.indexOf(&quot;:&quot;)
+            if (separatorIndex === -1) {
+                throw new Error(`Invalid front matter syntax: ${line}`)
             }
-            <span class="hljs-keyword">const</span> key = line.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>, separatorIndex).<span class="hljs-title function_">trim</span>()
-            <span class="hljs-keyword">let</span> value = line.<span class="hljs-title function_">slice</span>(separatorIndex + <span class="hljs-number">1</span>).<span class="hljs-title function_">trim</span>()
+            const key = line.slice(0, separatorIndex).trim()
+            let value = line.slice(separatorIndex + 1).trim()
 
-            <span class="hljs-comment">// Check if value is wrapped in brackets</span>
-            <span class="hljs-keyword">if</span> (value.<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">&quot;[&quot;</span>) &amp;&amp; value.<span class="hljs-title function_">endsWith</span>(<span class="hljs-string">&quot;]&quot;</span>)) {
-                <span class="hljs-comment">// Remove brackets and split into array elements</span>
-                <span class="hljs-keyword">const</span> trimmedValue = value.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>).<span class="hljs-title function_">trim</span>()
-                <span class="hljs-keyword">if</span> (trimmedValue.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>) {
-                    value = trimmedValue.<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;,&quot;</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> item.<span class="hljs-title function_">trim</span>())
-                } <span class="hljs-keyword">else</span> {
+            // Check if value is wrapped in brackets
+            if (value.startsWith(&quot;[&quot;) &amp;&amp; value.endsWith(&quot;]&quot;)) {
+                // Remove brackets and split into array elements
+                const trimmedValue = value.slice(1, -1).trim()
+                if (trimmedValue.length &gt; 0) {
+                    value = trimmedValue.split(&quot;,&quot;).map((item) =&gt; item.trim())
+                } else {
                     value = []
                 }
             }
@@ -997,80 +1015,81 @@ In the <strong>functions</strong> folder, create a file named <strong>node-markd
             i++
         }
 
-        <span class="hljs-keyword">if</span> (i === lines.<span class="hljs-property">length</span>) {
-            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;End of front matter not found.&quot;</span>)
+        if (i === lines.length) {
+            throw new Error(&quot;End of front matter not found.&quot;)
         }
 
-        <span class="hljs-keyword">const</span> content = lines.<span class="hljs-title function_">slice</span>(i + <span class="hljs-number">1</span>).<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot;\n&quot;</span>)
+        const content = lines.slice(i + 1).join(&quot;\n&quot;)
 
-        <span class="hljs-keyword">return</span> {
+        return {
             frontmatter,
             content,
         }
     }
 
-    <span class="hljs-comment">// Method to get files from their directory recursively.</span>
-    <span class="hljs-keyword">async</span> <span class="hljs-title function_">getFiles</span>(<span class="hljs-params">dirName</span>) {
-        <span class="hljs-keyword">let</span> files = []
-        <span class="hljs-keyword">const</span> items = <span class="hljs-keyword">await</span> <span class="hljs-title function_">readdir</span>(dirName, { <span class="hljs-attr">withFileTypes</span>: <span class="hljs-literal">true</span> })
+    // Method to get files from their directory recursively.
+    async getFiles(dirName) {
+        let files = []
+        const items = await readdir(dirName, { withFileTypes: true })
 
-        <span class="hljs-keyword">try</span> {
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> item <span class="hljs-keyword">of</span> items) {
-                <span class="hljs-keyword">if</span> (item.<span class="hljs-title function_">isDirectory</span>()) {
-                    files = [...files, ...(<span class="hljs-keyword">await</span> <span class="hljs-title function_">getFiles</span>(<span class="hljs-string">`<span class="hljs-subst">${dirName}</span>/<span class="hljs-subst">${item.name}</span>`</span>))]
-                } <span class="hljs-keyword">else</span> {
-                    files.<span class="hljs-title function_">push</span>(<span class="hljs-string">`<span class="hljs-subst">${dirName}</span>/<span class="hljs-subst">${item.name}</span>`</span>)
+        try {
+            for (const item of items) {
+                if (item.isDirectory()) {
+                    files = [...files, ...(await getFiles(`${dirName}/${item.name}`))]
+                } else {
+                    files.push(`${dirName}/${item.name}`)
                 }
             }
-        } <span class="hljs-keyword">catch</span> (error) {
-            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error)
+        } catch (error) {
+            console.error(error)
         }
 
-        <span class="hljs-keyword">return</span> files
+        return files
     }
 
-    <span class="hljs-comment">// Method to get the pages and posts data.</span>
-    <span class="hljs-keyword">async</span> <span class="hljs-title function_">getMarkdownData</span>(<span class="hljs-params">dirname</span>) {
-        <span class="hljs-keyword">const</span> files = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getFiles</span>(dirname)
-        <span class="hljs-keyword">const</span> mdFiles = files.<span class="hljs-title function_">filter</span>(<span class="hljs-function">(<span class="hljs-params">file</span>) =&gt;</span> file.<span class="hljs-title function_">endsWith</span>(<span class="hljs-string">&quot;.md&quot;</span>))
-        <span class="hljs-keyword">const</span> data = []
+    // Method to get the pages and posts data.
+    async getMarkdownData(dirname) {
+        const files = await getFiles(dirname)
+        const mdFiles = files.filter((file) =&gt; file.endsWith(&quot;.md&quot;))
+        const data = []
 
-        mdFiles.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">file</span>) =&gt;</span> {
-            <span class="hljs-keyword">const</span> fileName = file.<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;/&quot;</span>).<span class="hljs-title function_">pop</span>()
-            <span class="hljs-keyword">const</span> contents = <span class="hljs-title function_">readFileSync</span>(file, <span class="hljs-string">&quot;utf-8&quot;</span>)
-            <span class="hljs-keyword">const</span> fileData = <span class="hljs-title function_">parseFrontMatter</span>(contents)
-            <span class="hljs-keyword">const</span> filePath = <span class="hljs-string">`<span class="hljs-subst">${dirname}</span>/<span class="hljs-subst">${fileName}</span>`</span>
-            <span class="hljs-keyword">const</span> fileDir = filePath.<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;/&quot;</span>)[<span class="hljs-number">1</span>]
-            <span class="hljs-keyword">const</span> obj = { <span class="hljs-number">0</span>: fileName, <span class="hljs-number">1</span>: fileData }
-            obj.<span class="hljs-property">path</span> = filePath
-            obj.<span class="hljs-property">dir</span> = fileDir
-            data.<span class="hljs-title function_">push</span>(obj)
+        mdFiles.forEach((file) =&gt; {
+            const fileName = file.split(&quot;/&quot;).pop()
+            const contents = readFileSync(file, &quot;utf-8&quot;)
+            const fileData = parseFrontMatter(contents)
+            const filePath = `${dirname}/${fileName}`
+            const fileDir = filePath.split(&quot;/&quot;)[1]
+            const obj = { 0: fileName, 1: fileData }
+            obj.path = filePath
+            obj.dir = fileDir
+            data.push(obj)
         })
 
-        <span class="hljs-keyword">return</span> data
+        return data
     }
 
-    <span class="hljs-comment">// Method to get the pages data.</span>
-    <span class="hljs-title function_">getPages</span>(<span class="hljs-params"></span>) {
-        <span class="hljs-keyword">const</span> pagesData = <span class="hljs-title function_">getMarkdownData</span>(<span class="hljs-string">&quot;views/pages&quot;</span>)
-        <span class="hljs-keyword">return</span> pagesData
+    // Method to get the pages data.
+    getPages() {
+        const pagesData = getMarkdownData(&quot;views/pages&quot;)
+        return pagesData
     }
 
-    <span class="hljs-comment">// Method to get the posts data.</span>
-    <span class="hljs-keyword">async</span> <span class="hljs-title function_">getPosts</span>(<span class="hljs-params"></span>) {
-        <span class="hljs-keyword">const</span> postsData = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getMarkdownData</span>(<span class="hljs-string">&quot;views/posts&quot;</span>)
-        <span class="hljs-keyword">const</span> newPostsData = postsData
-            .<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">obj</span>) =&gt;</span> {
-                <span class="hljs-keyword">return</span> { ...obj, <span class="hljs-attr">date</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(obj[<span class="hljs-number">1</span>].<span class="hljs-property">frontmatter</span>.<span class="hljs-property">date</span>) }
+    // Method to get the posts data.
+    async getPosts() {
+        const postsData = await getMarkdownData(&quot;views/posts&quot;)
+        const newPostsData = postsData
+            .map((obj) =&gt; {
+                return { ...obj, date: new Date(obj[1].frontmatter.date) }
             })
-            .<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">objA, objB</span>) =&gt;</span> <span class="hljs-title class_">Number</span>(objB.<span class="hljs-property">date</span>) - <span class="hljs-title class_">Number</span>(objA.<span class="hljs-property">date</span>))
+            .sort((objA, objB) =&gt; Number(objB.date) - Number(objA.date))
 
-        <span class="hljs-keyword">return</span> newPostsData
+        return newPostsData
     }
 }
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> { parseFrontMatter, getFiles, getMarkdownData, getPages, getPosts } = <span class="hljs-keyword">new</span> <span class="hljs-title class_">NodeMarkdownBlog</span>()
-</code></pre><p>We have created a class <code>NodeMarkdownBlog()</code> containing the desired functions then <a href="https://javascript.info/import-export">export</a> and <a href="https://javascript.info/destructuring-assignment">destructurize</a> it to make its methods directly available outside the file.<br >
+export const { parseFrontMatter, getFiles, getMarkdownData, getPages, getPosts } = new NodeMarkdownBlog()
+</code></pre>
+<p>We have created a class <code>NodeMarkdownBlog()</code> containing the desired functions then <a href="https://javascript.info/import-export">export</a> and <a href="https://javascript.info/destructuring-assignment">destructurize</a> it to make its methods directly available outside the file.<br >
 You already know how <code>parseFrontMatter()</code> works.<br />
 The <code>getFiles()</code> function returns all the files inside a particular folder as an array, we just have to provide the folder&#39;s path.<br />
 Why having a <code>getMarkdownData()</code> method since we already have <code>parseFrontMatter()</code>?<br />
@@ -1079,115 +1098,121 @@ The <code>getMarkdownData()</code> method uses the <code>getFiles()</code> and <
 Finally, the <code>getPages()</code> and <code>getPosts()</code> methods use <code>getMarkdownData()</code> and return as their names indicate the data of the Markdown files respectively in the <strong>pages</strong> and <strong>posts</strong> folders.<br />
 Now let&#39;s create the logic that will display the available Markdown files inside the <strong>posts</strong> folder, we only have one for now, and render them on the main route or entry route <code>/</code>.<br>
 Create in the <strong>routes</strong> folder a file named <strong>mainRoute.js</strong> and add to it the following code:</p>
-<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> { join } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;path&quot;</span>
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Hono</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;hono&quot;</span>
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Eta</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;eta&quot;</span>
-<span class="hljs-keyword">import</span> { getPosts } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../functions/node-markdown-blog.js&quot;</span>
+<pre><code class="language-js">import { join } from &quot;path&quot;
+import { Hono } from &quot;hono&quot;
+import { Eta } from &quot;eta&quot;
+import { getPosts } from &quot;../functions/node-markdown-blog.js&quot;
 
-<span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Hono</span>()
-<span class="hljs-keyword">const</span> eta = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Eta</span>({ <span class="hljs-attr">views</span>: <span class="hljs-title function_">join</span>(process.<span class="hljs-title function_">cwd</span>(), <span class="hljs-string">&quot;views&quot;</span>) })
+const app = new Hono()
+const eta = new Eta({ views: join(process.cwd(), &quot;views&quot;) })
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> mainRoute = app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-keyword">async</span> (c) =&gt; {
-    <span class="hljs-comment">// Main Route data</span>
-    <span class="hljs-keyword">const</span> data = {
-        <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Home&quot;</span>,
-        <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;List of the most recent posts&quot;</span>,
+export const mainRoute = app.get(&quot;/&quot;, async (c) =&gt; {
+    // Main Route data
+    const data = {
+        title: &quot;Home&quot;,
+        description: &quot;List of the most recent posts&quot;,
     }
 
-    <span class="hljs-keyword">const</span> res = eta.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;layouts/base.html&quot;</span>, {
-        <span class="hljs-comment">// Passing Route data</span>
-        <span class="hljs-attr">mainRoute</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-comment">// Passing document data</span>
-        <span class="hljs-attr">data</span>: data,
-        <span class="hljs-attr">posts</span>: <span class="hljs-keyword">await</span> <span class="hljs-title function_">getPosts</span>(),
-        <span class="hljs-comment">// Passing needed settings for the template</span>
-        <span class="hljs-attr">siteTitle</span>: <span class="hljs-string">&quot;Markdown-based blog&quot;</span>,
+    const res = eta.render(&quot;layouts/base.html&quot;, {
+        // Passing Route data
+        mainRoute: true,
+        // Passing document data
+        data: data,
+        posts: await getPosts(),
+        // Passing needed settings for the template
+        siteTitle: &quot;Markdown-based blog&quot;,
     })
-    <span class="hljs-keyword">return</span> c.<span class="hljs-title function_">html</span>(res)
+    return c.html(res)
 })
-</code></pre><p>This block of code begins by importing the necessary modules and initializing an instance of <code>Hono()</code> and another one of <code>Eta()</code>.<br />
+</code></pre>
+<p>This block of code begins by importing the necessary modules and initializing an instance of <code>Hono()</code> and another one of <code>Eta()</code>.<br />
 The <code>eta</code> constant defines the <code>views</code> folder as the one where the templates are located.<br />
 The <code>mainRoute</code> constant is exported to be used outside this file. Inside it, a response constant <code>res</code> renders the template located in <code>views/layouts/base.html</code> where some data are passed and can be accessed with the <code>it</code> variable.<br />
 Finally, the response constant <code>res</code> is returned as <code>HTML</code> on the defined route <code>/</code>.</p>
 <p>Now change the line 2 of <strong>head.html</strong>, the <code>&lt;title&gt;</code> tag, to:</p>
-<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&lt;%= it.data.title %&gt; | &lt;%= it.siteTitle %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-</code></pre><p>Also change the line 8 of <strong>head.html</strong>, the <code>&lt;meta&gt;</code> description tag, to:</p>
-<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;description&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;&lt;%= it.data.description %&gt;&quot;</span> /&gt;</span>
-</code></pre><p>Those changes will allow us to use the defined <code>title</code>, <code>description</code> and <code>siteTitle</code> for each route. This way, we use only one head that will dynamically assign the correct variables for each document.</p>
+<pre><code class="language-html">&lt;title&gt;&lt;%= it.data.title %&gt; | &lt;%= it.siteTitle %&gt;&lt;/title&gt;
+</code></pre>
+<p>Also change the line 8 of <strong>head.html</strong>, the <code>&lt;meta&gt;</code> description tag, to:</p>
+<pre><code class="language-html">&lt;meta name=&quot;description&quot; content=&quot;&lt;%= it.data.description %&gt;&quot; /&gt;
+</code></pre>
+<p>Those changes will allow us to use the defined <code>title</code>, <code>description</code> and <code>siteTitle</code> for each route. This way, we use only one head that will dynamically assign the correct variables for each document.</p>
 <p>Back to <strong>base.html</strong> where we&#39;ve defined a template named <strong>index.html</strong> for the main route and created it in the same folder as <strong>base.html</strong>, open this <strong>index.html</strong> file and add the following code:</p>
-<pre><code class="hljs language-html">&lt;% it.posts.forEach(post =&gt; { %&gt;
+<pre><code class="language-html">&lt;% it.posts.forEach(post =&gt; { %&gt;
 
-<span class="hljs-comment">&lt;!-- GETTING THE DATA OF EACH POST --&gt;</span>
+&lt;!-- GETTING THE DATA OF EACH POST --&gt;
 
-<span class="hljs-comment">&lt;!-- Get the Markdown filename without its extension --&gt;</span>
+&lt;!-- Get the Markdown filename without its extension --&gt;
 &lt;% const postFilename = post[0].replace(&quot;.md&quot;, &quot;&quot;) %&gt;
 
-<span class="hljs-comment">&lt;!-- Get the Markdown post title from its front matter --&gt;</span>
+&lt;!-- Get the Markdown post title from its front matter --&gt;
 &lt;% const postTitle = post[1].frontmatter.title %&gt;
 
-<span class="hljs-comment">&lt;!-- Get the post date from its front matter --&gt;</span>
+&lt;!-- Get the post date from its front matter --&gt;
 &lt;% const postDate = post[1].frontmatter.date %&gt;
 
-<span class="hljs-comment">&lt;!-- Get the post description from its front matter --&gt;</span>
+&lt;!-- Get the post description from its front matter --&gt;
 &lt;% const postDescription = post[1].frontmatter.description %&gt;
 
-<span class="hljs-comment">&lt;!-- Get the post tags from its front matter --&gt;</span>
+&lt;!-- Get the post tags from its front matter --&gt;
 &lt;% const postTags = post[1].frontmatter.tags %&gt;
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item mb-5&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row g-3 g-xl-0&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-2 col-xl-3&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;img-fluid post-thumb&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;assets/images/blog/blog-post-thumb-1.jpg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;image&quot;</span> /&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;title mb-1&quot;</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text-link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/posts/&lt;%= postFilename %&gt;&quot;</span>&gt;</span>&lt;%= postTitle %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;meta mb-1&quot;</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;date&quot;</span>&gt;</span>&lt;%= postDate %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
-                    <span class="hljs-comment">&lt;!-- Start post tag(s) --&gt;</span>
+&lt;div class=&quot;item mb-5&quot;&gt;
+    &lt;div class=&quot;row g-3 g-xl-0&quot;&gt;
+        &lt;div class=&quot;col-2 col-xl-3&quot;&gt;
+            &lt;img class=&quot;img-fluid post-thumb&quot; src=&quot;assets/images/blog/blog-post-thumb-1.jpg&quot; alt=&quot;image&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;h3 class=&quot;title mb-1&quot;&gt;
+                &lt;a class=&quot;text-link&quot; href=&quot;/posts/&lt;%= postFilename %&gt;&quot;&gt;&lt;%= postTitle %&gt;&lt;/a&gt;
+            &lt;/h3&gt;
+            &lt;div class=&quot;meta mb-1&quot;&gt;
+                &lt;span class=&quot;date&quot;&gt;&lt;%= postDate %&gt;&lt;/span&gt;
+                &lt;span&gt;
+                    &lt;!-- Start post tag(s) --&gt;
                     &lt;% postTags.forEach(tag =&gt; { %&gt;
-                    <span class="hljs-comment">&lt;!-- Start each tag markup --&gt;</span>
+                    &lt;!-- Start each tag markup --&gt;
                     &lt;%= tag %&gt;
-                    <span class="hljs-comment">&lt;!-- End each tag markup --&gt;</span>
+                    &lt;!-- End each tag markup --&gt;
                     &lt;% }) %&gt;
-                    <span class="hljs-comment">&lt;!-- End post tag(s) --&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;intro&quot;</span>&gt;</span>&lt;%= postDescription %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text-link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/posts/&lt;%= postFilename %&gt;&quot;</span>&gt;</span>Read more <span class="hljs-symbol">&amp;rarr;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    &lt;!-- End post tag(s) --&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;intro&quot;&gt;&lt;%= postDescription %&gt;&lt;/div&gt;
+            &lt;a class=&quot;text-link&quot; href=&quot;/posts/&lt;%= postFilename %&gt;&quot;&gt;Read more &amp;rarr;&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
 &lt;% }) %&gt;
-</code></pre><p>Using a <a href="https://javascript.info/array-methods#iterate-foreach">forEach()</a> loop, thanks to Eta, we define the markup for each post preview on the homepage.<br>
+</code></pre>
+<p>Using a <a href="https://javascript.info/array-methods#iterate-foreach">forEach()</a> loop, thanks to Eta, we define the markup for each post preview on the homepage.<br>
 Now, to see what our homepage looks like, remove everything from <strong>index.js</strong> and paste the following code:</p>
-<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">Hono</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;hono&quot;</span>
-<span class="hljs-keyword">import</span> { serveStatic } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@hono/node-server/serve-static&quot;</span>
-<span class="hljs-keyword">import</span> { serve } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@hono/node-server&quot;</span>
+<pre><code class="language-js">import { Hono } from &quot;hono&quot;
+import { serveStatic } from &quot;@hono/node-server/serve-static&quot;
+import { serve } from &quot;@hono/node-server&quot;
 
-<span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Hono</span>()
+const app = new Hono()
 
-<span class="hljs-comment">// Serve Static files</span>
-app.<span class="hljs-title function_">use</span>(<span class="hljs-string">&quot;/static/*&quot;</span>, <span class="hljs-title function_">serveStatic</span>({ <span class="hljs-attr">root</span>: <span class="hljs-string">&quot;./&quot;</span> }))
+// Serve Static files
+app.use(&quot;/static/*&quot;, serveStatic({ root: &quot;./&quot; }))
 
-<span class="hljs-comment">// Routes</span>
-<span class="hljs-keyword">import</span> { mainRoute } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./routes/mainRoute.js&quot;</span>
+// Routes
+import { mainRoute } from &quot;./routes/mainRoute.js&quot;
 
-app.<span class="hljs-title function_">route</span>(<span class="hljs-string">&quot;/&quot;</span>, mainRoute)
+app.route(&quot;/&quot;, mainRoute)
 
-<span class="hljs-title function_">serve</span>(app, <span class="hljs-function">(<span class="hljs-params">{ port }</span>) =&gt;</span> {
-    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Listening on http://localhost:<span class="hljs-subst">${port}</span>`</span>)
+serve(app, ({ port }) =&gt; {
+    console.log(`Listening on http://localhost:${port}`)
 })
-</code></pre><p>Type <code>node index</code> in the terminal and visit the link, abracadabra!<br />
+</code></pre>
+<p>Type <code>node index</code> in the terminal and visit the link, abracadabra!<br />
 I know that some elements are missing and that the footer is not at the bottom. It&#39;s okay, don&#39;t worry, we&#39;ll fix that later on.</p>
 <p>Okay, but you must be asking yourself where those variables defined in <strong>index.html</strong> came from?!<br />
 Do you remember that in <strong>mainRoute.js</strong> we have passed to the template, in the data object, a <code>posts</code> property with a value of <code>await getPosts()</code> and that in the template we have used a <code>forEach()</code> loop on those <code>posts</code>?<br />
 Let&#39;s test it. Add to <strong>mainRoute.js</strong> under the last <code>import</code> the following line:</p>
-<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> test = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getPosts</span>()
-</code></pre><p>Add a breakpoint in front of this line and launch the debugger then step over it. Look at the <code>test</code> variable in the debug panel and you&#39;ll see how every post is returned inside an array as an accessible object like this image:</p>
+<pre><code class="language-js">const test = await getPosts()
+</code></pre>
+<p>Add a breakpoint in front of this line and launch the debugger then step over it. Look at the <code>test</code> variable in the debug panel and you&#39;ll see how every post is returned inside an array as an accessible object like this image:</p>
 <img src="/static/img/get-posts-function-output.png" class="img-responsive" alt="Output of a function in the debug panel of VS Code" />
 
 <p>So each post is returned as an object containing:</p>
@@ -1216,46 +1241,47 @@ It&#39;s just to let you know ahead that you&#39;ll be able to render posts as w
 With this decision, the <strong>about.html</strong> file representing a page has now a very close design to the post. I will use the post structure for both of them to keep this tutorial as simple as possible.<br />
 For the blog, I started with the template, Usually, we start with the route to pass the variables then we construct the template.<br />
 Create a <strong>markdownRoute.js</strong> in the <strong>routes</strong> folder and add to it the following code:</p>
-<pre><code class="hljs language-js"><span class="hljs-keyword">import</span> { join } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;path&quot;</span>
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Hono</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;hono&quot;</span>
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Eta</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;eta&quot;</span>
-<span class="hljs-keyword">import</span> { marked } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;marked&quot;</span>
-<span class="hljs-keyword">import</span> { getPages, getPosts } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../functions/node-markdown-blog.js&quot;</span>
+<pre><code class="language-js">import { join } from &quot;path&quot;
+import { Hono } from &quot;hono&quot;
+import { Eta } from &quot;eta&quot;
+import { marked } from &quot;marked&quot;
+import { getPages, getPosts } from &quot;../functions/node-markdown-blog.js&quot;
 
-<span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Hono</span>()
-<span class="hljs-keyword">const</span> eta = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Eta</span>({ <span class="hljs-attr">views</span>: <span class="hljs-title function_">join</span>(process.<span class="hljs-title function_">cwd</span>(), <span class="hljs-string">&quot;views&quot;</span>) })
+const app = new Hono()
+const eta = new Eta({ views: join(process.cwd(), &quot;views&quot;) })
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> markdownRoute = app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/:folder/:filename&quot;</span>, <span class="hljs-keyword">async</span> (c, next) =&gt; {
-    <span class="hljs-comment">// Merge the pages and the posts arrays into a single array named mdFiles</span>
-    <span class="hljs-keyword">const</span> pages = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getPages</span>()
-    <span class="hljs-keyword">const</span> posts = <span class="hljs-keyword">await</span> <span class="hljs-title function_">getPosts</span>()
-    <span class="hljs-keyword">const</span> mdFiles = pages.<span class="hljs-title function_">concat</span>(posts)
+export const markdownRoute = app.get(&quot;/:folder/:filename&quot;, async (c, next) =&gt; {
+    // Merge the pages and the posts arrays into a single array named mdFiles
+    const pages = await getPages()
+    const posts = await getPosts()
+    const mdFiles = pages.concat(posts)
 
-    <span class="hljs-keyword">const</span> currentFile = mdFiles.<span class="hljs-title function_">find</span>(
-        <span class="hljs-function">(<span class="hljs-params">file</span>) =&gt;</span> file.<span class="hljs-property">path</span> === <span class="hljs-string">`views/<span class="hljs-subst">${c.req.param(<span class="hljs-string">&quot;folder&quot;</span>)}</span>/<span class="hljs-subst">${c.req.param(<span class="hljs-string">&quot;filename&quot;</span>)}</span>.md`</span>
+    const currentFile = mdFiles.find(
+        (file) =&gt; file.path === `views/${c.req.param(&quot;folder&quot;)}/${c.req.param(&quot;filename&quot;)}.md`
     )
 
-    <span class="hljs-keyword">if</span> (currentFile) {
-        <span class="hljs-keyword">const</span> fileData = currentFile[<span class="hljs-number">1</span>].<span class="hljs-property">frontmatter</span>
-        <span class="hljs-keyword">const</span> fileContent = marked.<span class="hljs-title function_">parse</span>(currentFile[<span class="hljs-number">1</span>].<span class="hljs-property">content</span>)
-        <span class="hljs-keyword">const</span> fileDirectory = currentFile.<span class="hljs-property">dir</span>
-        <span class="hljs-keyword">const</span> res = eta.<span class="hljs-title function_">render</span>(<span class="hljs-string">&quot;layouts/base.html&quot;</span>, {
-            <span class="hljs-comment">// Passing Route data</span>
-            <span class="hljs-attr">mdRoute</span>: <span class="hljs-literal">true</span>,
-            <span class="hljs-comment">// Passing Markdown file data</span>
-            <span class="hljs-attr">data</span>: fileData,
-            <span class="hljs-attr">content</span>: fileContent,
-            <span class="hljs-attr">dirname</span>: fileDirectory,
-            <span class="hljs-comment">// Passing needed settings for the template</span>
-            <span class="hljs-attr">siteTitle</span>: <span class="hljs-string">&quot;Markdown-based blog&quot;</span>,
+    if (currentFile) {
+        const fileData = currentFile[1].frontmatter
+        const fileContent = marked.parse(currentFile[1].content)
+        const fileDirectory = currentFile.dir
+        const res = eta.render(&quot;layouts/base.html&quot;, {
+            // Passing Route data
+            mdRoute: true,
+            // Passing Markdown file data
+            data: fileData,
+            content: fileContent,
+            dirname: fileDirectory,
+            // Passing needed settings for the template
+            siteTitle: &quot;Markdown-based blog&quot;,
         })
-        <span class="hljs-keyword">return</span> c.<span class="hljs-title function_">html</span>(res)
-    } <span class="hljs-keyword">else</span> {
-        <span class="hljs-comment">// Proceed to the 404 route if no file is found</span>
-        <span class="hljs-keyword">await</span> <span class="hljs-title function_">next</span>()
+        return c.html(res)
+    } else {
+        // Proceed to the 404 route if no file is found
+        await next()
     }
 })
-</code></pre><p>Here we did the following:</p>
+</code></pre>
+<p>Here we did the following:</p>
 <ol>
 <li>Initialize Hono and Eta like previously. Import Marked, the pages and the posts</li>
 <li>Export a <code>markdownRoute</code> constant to be used outside this file</li>
@@ -1266,98 +1292,105 @@ Create a <strong>markdownRoute.js</strong> in the <strong>routes</strong> folder
 <li>Otherwise, the <code>404 Not Found</code> message will be displayed</li>
 </ol>
 <p>For this route to work on the frontend, we must call it inside the server file <strong>index.js</strong> like so:</p>
-<pre><code class="hljs language-js"><span class="hljs-comment">// Add this line under: import { mainRoute }...</span>
-<span class="hljs-keyword">import</span> { markdownRoute } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./routes/markdownRoute.js&quot;</span>
+<pre><code class="language-js">// Add this line under: import { mainRoute }...
+import { markdownRoute } from &quot;./routes/markdownRoute.js&quot;
 
-<span class="hljs-comment">// Add this line under: app.route(&quot;/&quot;, mainRoute)</span>
-app.<span class="hljs-title function_">route</span>(<span class="hljs-string">&quot;/&quot;</span>, markdownRoute)
-</code></pre><p>To attach an image to a Markdown file, just add an <code>image</code> property to the file&#39;s front matter.<br />
+// Add this line under: app.route(&quot;/&quot;, mainRoute)
+app.route(&quot;/&quot;, markdownRoute)
+</code></pre>
+<p>To attach an image to a Markdown file, just add an <code>image</code> property to the file&#39;s front matter.<br />
 We can also add an <code>imageAlt</code> (alternative text) and <code>imageCredit</code> properties.<br />
 It&#39;s always good to give credit where credit is due!<br >
 Download the medium size of the following <a href="https://unsplash.com/photos/Fi-GJaLRGKc">image from Unsplash</a> and save it inside the <strong>/static/img/</strong> folder of our application.<br />
 Let&#39;s add those properties to the front matter of our Markdown file like so:</p>
-<pre><code class="hljs language-yaml"><span class="hljs-meta">---</span>
-<span class="hljs-attr">title:</span> <span class="hljs-string">From</span> <span class="hljs-string">Markdown</span> <span class="hljs-string">to</span> <span class="hljs-string">HTML</span> <span class="hljs-string">in</span> <span class="hljs-string">Node.js</span>
-<span class="hljs-attr">description:</span> <span class="hljs-string">A</span> <span class="hljs-string">post</span> <span class="hljs-string">about</span> <span class="hljs-string">converting</span> <span class="hljs-string">the</span> <span class="hljs-string">contents</span> <span class="hljs-string">of</span> <span class="hljs-string">a</span> <span class="hljs-string">Markdown</span> <span class="hljs-string">file</span> <span class="hljs-string">to</span> <span class="hljs-string">HTML</span> <span class="hljs-string">in</span> <span class="hljs-string">a</span> <span class="hljs-string">Node.js</span> <span class="hljs-string">application</span>
-<span class="hljs-attr">date:</span> <span class="hljs-number">2023-08-31</span>
-<span class="hljs-attr">tags:</span> [<span class="hljs-string">Node.js</span>, <span class="hljs-string">Markdown</span>, <span class="hljs-string">HTML</span>]
-<span class="hljs-attr">image:</span> <span class="hljs-string">/static/img/pankaj-patel-Fi-GJaLRGKc-unsplash.jpg</span>
-<span class="hljs-attr">imageAlt:</span> <span class="hljs-string">JavaScript</span> <span class="hljs-string">code</span> <span class="hljs-string">inside</span> <span class="hljs-string">ES6</span> <span class="hljs-string">templates</span> <span class="hljs-string">by</span> <span class="hljs-string">Pankaj</span> <span class="hljs-string">Patel</span>
-<span class="hljs-attr">imageCredit:</span> <span class="hljs-string">https://unsplash.com/@pankajpatel</span>
-<span class="hljs-meta">---</span>
-</code></pre><p>You can, of course, put the direct link to an image instead of downloading it and saving it in the <strong>img</strong> folder.<br />
+<pre><code class="language-yaml">---
+title: From Markdown to HTML in Node.js
+description: A post about converting the contents of a Markdown file to HTML in a Node.js application
+date: 2023-08-31
+tags: [Node.js, Markdown, HTML]
+image: /static/img/pankaj-patel-Fi-GJaLRGKc-unsplash.jpg
+imageAlt: JavaScript code inside ES6 templates by Pankaj Patel
+imageCredit: https://unsplash.com/@pankajpatel
+---
+</code></pre>
+<p>You can, of course, put the direct link to an image instead of downloading it and saving it in the <strong>img</strong> folder.<br />
 As an example, we could have put in front of the <code>image</code> property the following link:</p>
-<pre><code class="hljs language-yaml"><span class="hljs-attr">image:</span> <span class="hljs-string">https://source.unsplash.com/Fi-GJaLRGKc</span>
-</code></pre><p>The template that renders Markdown files in our application is <strong>markdown.html</strong>, Open it and paste the following code:</p>
-<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">article</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;blog-post px-3 py-5 p-md-5&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container single-col-max-width&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;blog-post-header&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;title mb-2&quot;</span>&gt;</span>&lt;%= it.data.title %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>&lt;%= it.data.description %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+<pre><code class="language-yaml">image: https://source.unsplash.com/Fi-GJaLRGKc
+</code></pre>
+<p>The template that renders Markdown files in our application is <strong>markdown.html</strong>, Open it and paste the following code:</p>
+<pre><code class="language-html">&lt;article class=&quot;blog-post px-3 py-5 p-md-5&quot;&gt;
+    &lt;div class=&quot;container single-col-max-width&quot;&gt;
+        &lt;header class=&quot;blog-post-header&quot;&gt;
+            &lt;h2 class=&quot;title mb-2&quot;&gt;&lt;%= it.data.title %&gt;&lt;/h2&gt;
+            &lt;h3&gt;&lt;%= it.data.description %&gt;&lt;/h3&gt;
             &lt;% if (it.dirname === &quot;posts&quot;) { %&gt;
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;meta mb-3&quot;</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;date&quot;</span>&gt;</span>&lt;%= it.data.date %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
-                    <span class="hljs-comment">&lt;!-- Start post tag(s) --&gt;</span>
+            &lt;div class=&quot;meta mb-3&quot;&gt;
+                &lt;span class=&quot;date&quot;&gt;&lt;%= it.data.date %&gt;&lt;/span&gt;
+                &lt;span&gt;
+                    &lt;!-- Start post tag(s) --&gt;
                     &lt;% it.data.tags.forEach(tag =&gt; { %&gt;
-                    <span class="hljs-comment">&lt;!-- Start each tag markup --&gt;</span>
+                    &lt;!-- Start each tag markup --&gt;
                     &lt;%= tag %&gt;
-                    <span class="hljs-comment">&lt;!-- End each tag markup --&gt;</span>
+                    &lt;!-- End each tag markup --&gt;
                     &lt;% }) %&gt;
-                    <span class="hljs-comment">&lt;!-- End post tag(s) --&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    &lt;!-- End post tag(s) --&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
             &lt;% } %&gt;
-        <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+        &lt;/header&gt;
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;blog-post-body&quot;</span>&gt;</span>
-            <span class="hljs-comment">&lt;!-- Markdown file image --&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">figure</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;blog-banner&quot;</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&lt;%= it.data.imageCredit %&gt;&quot;</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;_blank&quot;</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;img-fluid&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&lt;%= it.data.image %&gt;&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&lt;%= it.data.imageAlt %&gt;&quot;</span> /&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">figcaption</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mt-2 text-center image-caption&quot;</span>&gt;</span>
+        &lt;div class=&quot;blog-post-body&quot;&gt;
+            &lt;!-- Markdown file image --&gt;
+            &lt;figure class=&quot;blog-banner&quot;&gt;
+                &lt;a href=&quot;&lt;%= it.data.imageCredit %&gt;&quot; target=&quot;_blank&quot;&gt;
+                    &lt;img class=&quot;img-fluid&quot; src=&quot;&lt;%= it.data.image %&gt;&quot; alt=&quot;&lt;%= it.data.imageAlt %&gt;&quot; /&gt;
+                &lt;/a&gt;
+                &lt;figcaption class=&quot;mt-2 text-center image-caption&quot;&gt;
                     Image Credit:
-                    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;theme-link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&lt;%= it.data.imageCredit %&gt;&quot;</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;_blank&quot;</span>&gt;</span>&lt;%= it.data.imageAlt %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">figcaption</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
+                    &lt;a class=&quot;theme-link&quot; href=&quot;&lt;%= it.data.imageCredit %&gt;&quot; target=&quot;_blank&quot;&gt;&lt;%= it.data.imageAlt %&gt;&lt;/a&gt;
+                &lt;/figcaption&gt;
+            &lt;/figure&gt;
 
-            <span class="hljs-comment">&lt;!-- Markdown file content --&gt;</span>
+            &lt;!-- Markdown file content --&gt;
             &lt;%~ it.content %&gt;
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
-</code></pre><p>Look closely at the <code>&lt;header&gt;</code>, the <code>date</code> and <code>tags</code> will only be displayed if the file&#39;s directory is <code>posts</code>.<br />
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/article&gt;
+</code></pre>
+<p>Look closely at the <code>&lt;header&gt;</code>, the <code>date</code> and <code>tags</code> will only be displayed if the file&#39;s directory is <code>posts</code>.<br />
 In other words, if the file is a post display the date and tags otherwise don&#39;t, and that&#39;s because a page doesn&#39;t usually have those properties in its front matter.<br />
 Type <code>node index</code> in the terminal, follow the link and click on the link of our only article or its <strong>Read more &rarr;</strong> button, abracadara!</p>
 <p>Now, let&#39;s fix the image of the post preview on the blog.<br />
 For this, add the following variables under the existing ones in <strong>index.html</strong>:</p>
-<pre><code class="hljs language-html"><span class="hljs-comment">&lt;!-- Get the post image from its front matter --&gt;</span>
+<pre><code class="language-html">&lt;!-- Get the post image from its front matter --&gt;
 &lt;% const postImage = post[1].frontmatter.image %&gt;
 
-<span class="hljs-comment">&lt;!-- Get the post image alternative text from its front matter --&gt;</span>
+&lt;!-- Get the post image alternative text from its front matter --&gt;
 &lt;% const postImageAlt = post[1].frontmatter.imageAlt %&gt;
-</code></pre><p>One more adjustment and our blog will render the image of a post.<br />
+</code></pre>
+<p>One more adjustment and our blog will render the image of a post.<br />
 Always in <strong>index.html</strong> make the following modification:</p>
-<pre><code class="hljs language-html"><span class="hljs-comment">&lt;!-- Replace this line --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;img-fluid post-thumb&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;assets/images/blog/blog-post-thumb-1.jpg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;image&quot;</span> /&gt;</span>
-<span class="hljs-comment">&lt;!-- By the following line --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;img-fluid post-thumb&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&lt;%= postImage %&gt;&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&lt;%= postImageAlt %&gt;&quot;</span> /&gt;</span>
-</code></pre><p>If the server is still running, restart it by pressing <code>Ctrl + C</code> then type <code>node index</code> in the terminal.<br />
+<pre><code class="language-html">&lt;!-- Replace this line --&gt;
+&lt;img class=&quot;img-fluid post-thumb&quot; src=&quot;assets/images/blog/blog-post-thumb-1.jpg&quot; alt=&quot;image&quot; /&gt;
+&lt;!-- By the following line --&gt;
+&lt;img class=&quot;img-fluid post-thumb&quot; src=&quot;&lt;%= postImage %&gt;&quot; alt=&quot;&lt;%= postImageAlt %&gt;&quot; /&gt;
+</code></pre>
+<p>If the server is still running, restart it by pressing <code>Ctrl + C</code> then type <code>node index</code> in the terminal.<br />
 The defined image of a post is now correctly displayed in the post&#39;s preview on the blog.</p>
 <p>To fix the footer&#39;s position on the blog, you must add at least two more posts to the blog, I&#39;ll leave this exercise to you so you can familiarize yourself with the process of creating a blog post.<br />
 Concerning the profile image in <strong>header.html</strong>, you can download any image that suits your needs into the <strong>img</strong> folder and replace <strong>profile.png</strong> with the filename of the downloaded one.<br />
 Don&#39;t forget to modify in <strong>header.html</strong> the social media icons and links to yours. Also, change the menu titles and links in <strong>header.html</strong> according to your needs.</p>
 <p>Finally, the process of creating a page is the same as creating a post. The only difference is that the page&#39;s front matter doesn&#39;t have a <code>date</code> or <code>tags</code> properties.<br />
 As an example, the following front matter for a page:</p>
-<pre><code class="hljs language-yaml"><span class="hljs-meta">---</span>
-<span class="hljs-attr">title:</span> <span class="hljs-string">The</span> <span class="hljs-string">title</span> <span class="hljs-string">of</span> <span class="hljs-string">the</span> <span class="hljs-string">page</span>
-<span class="hljs-attr">description:</span> <span class="hljs-string">The</span> <span class="hljs-string">description</span> <span class="hljs-string">of</span> <span class="hljs-string">the</span> <span class="hljs-string">page&#x27;s</span> <span class="hljs-string">contents</span>
-<span class="hljs-attr">image:</span> <span class="hljs-string">The</span> <span class="hljs-string">path</span> <span class="hljs-string">or</span> <span class="hljs-string">URL</span> <span class="hljs-string">to</span> <span class="hljs-string">the</span> <span class="hljs-string">page&#x27;s</span> <span class="hljs-string">image</span>
-<span class="hljs-attr">imageAlt:</span> <span class="hljs-string">The</span> <span class="hljs-string">alternative</span> <span class="hljs-string">text</span> <span class="hljs-string">of</span> <span class="hljs-string">the</span> <span class="hljs-string">image</span>
-<span class="hljs-attr">imageCredit:</span> <span class="hljs-string">The</span> <span class="hljs-string">link</span> <span class="hljs-string">to</span> <span class="hljs-string">the</span> <span class="hljs-string">image</span> <span class="hljs-string">or</span> <span class="hljs-string">its</span> <span class="hljs-string">author</span>
-<span class="hljs-meta">---</span>
-</code></pre><h2 id="blog-doc">Blog-Doc</h2>
+<pre><code class="language-yaml">---
+title: The title of the page
+description: The description of the page&#39;s contents
+image: The path or URL to the page&#39;s image
+imageAlt: The alternative text of the image
+imageCredit: The link to the image or its author
+---
+</code></pre>
+<h2 id="blog-doc">Blog-Doc</h2>
 <p>This tutorial is a simplified approach to how the blog, the pages and the posts are rendered on the frontend in <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>: The simplest Node.js CMS and SSG!<br />
 Blog-Doc allows you to create a working site without touching a line of code and to choose the look of your site from <a href="https://github.com/LebCit/blog-doc#themes">the available themes</a>.<br />
 Soon, the template used for this tutorial will be fully integrated into Blog-Doc as its third theme!<br />
@@ -1427,7 +1460,9 @@ Anyway, thank you for your time and patience, I hope that this tutorial will be 
 <nav class="post-navigation" aria-label="Post navigation">
 		<a href="/posts/switch-themes-in-blog-doc" class="prev-post" rel="prev" aria-label="Go to the previous post">
 		Previous: Switch themes in Blog-Doc!	</a>
-	  </nav>
+	  	<a href="/posts/a-dedicated-site-for-blog-docs-documentation" class="next-post" rel="next" aria-label="Go to the next post">
+		Next: A dedicated site for Blog-Doc&#39;s documentation!	</a>
+	</nav>
    <style>
 	.related-posts div {
 		display: grid;
@@ -1487,7 +1522,7 @@ Anyway, thank you for your time and patience, I hope that this tutorial will be 
 <footer id="colophon" class="site-footer unit-1">
 	        	<div id="site-info" class="site-info">
 		<p>
-			<strong>2016 - 2023 | { LebCit }</strong>
+			<strong>2016 - 2024 | { LebCit }</strong>
 			<br />
 			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
 	</div>
@@ -1495,7 +1530,11 @@ Anyway, thank you for your time and patience, I hope that this tutorial will be 
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+		  		<script type="module">
+			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
+
+			hljs.highlightAll()
+		</script>
 		
 		<script src="/static/js/main.js"></script>
 	</body>

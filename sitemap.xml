@@ -2,35 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 		<url>
 		<loc>https://lebcit.github.io/</loc>
-		<lastmod>2024-01-22</lastmod>
+		<lastmod>2024-02-03</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/archive</loc>
-		<lastmod>2024-01-22</lastmod>
+		<lastmod>2024-02-03</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/tags</loc>
-		<lastmod>2024-01-22</lastmod>
+		<lastmod>2024-02-03</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/1</loc>
-		<lastmod>2023-07-30</lastmod>
+		<lastmod>2023-08-27</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/2</loc>
-		<lastmod>2023-08-28</lastmod>
+		<lastmod>2023-07-29</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/3</loc>
-		<lastmod>2023-07-28</lastmod>
+		<lastmod>2023-08-28</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/4</loc>
-		<lastmod>2023-09-05</lastmod>
+		<lastmod>2023-07-29</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/5</loc>
-		<lastmod>2023-07-28</lastmod>
+		<lastmod>2023-09-05</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/6</loc>
@@ -149,6 +149,10 @@
 		<lastmod>2023-07-30</lastmod>
 	</url>
 		<url>
+		<loc>https://lebcit.github.io/posts/sme-do-you-mark-down</loc>
+		<lastmod>2024-02-03</lastmod>
+	</url>
+		<url>
 		<loc>https://lebcit.github.io/posts/switch-themes-in-blog-doc</loc>
 		<lastmod>2023-08-27</lastmod>
 	</url>
@@ -226,7 +230,15 @@
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/tags/Markdown</loc>
-		<lastmod>2023-09-12</lastmod>
+		<lastmod>2024-02-03</lastmod>
+	</url>
+		<url>
+		<loc>https://lebcit.github.io/tags/Markdown Editor</loc>
+		<lastmod>2024-02-03</lastmod>
+	</url>
+		<url>
+		<loc>https://lebcit.github.io/tags/Markdown Previewer</loc>
+		<lastmod>2024-02-03</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/tags/Marked</loc>

@@ -6,9 +6,18 @@
 		<description>Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</description>
 		<language>en-US</language>
 		<copyright>Copyright (c) 2022 - Present, LebCit under the MIT License</copyright>
-		<pubDate>Sat, 20 Jan 2024 22:00:00 GMT</pubDate>
-		<lastBuildDate>Sat, 20 Jan 2024 22:00:00 GMT</lastBuildDate>
+		<pubDate>Thu, 01 Feb 2024 22:00:00 GMT</pubDate>
+		<lastBuildDate>Thu, 01 Feb 2024 22:00:00 GMT</lastBuildDate>
 		<docs>https://www.rssboard.org/rss-specification</docs>
+					<item>
+				<title>SME! Do you Mark Down?!</title>
+				<link>https://lebcit.github.io/posts/sme-do-you-mark-down</link>
+								<description>SME a Simple Markdown Editor. Markdown to HTML. Markdown Previewer</description>
+																<category domain="https://lebcit.github.io/tags/Markdown">Markdown</category>
+								<category domain="https://lebcit.github.io/tags/Markdown Editor">Markdown Editor</category>
+								<category domain="https://lebcit.github.io/tags/Markdown Previewer">Markdown Previewer</category>
+												<pubDate>Thu, 01 Feb 2024 22:00:00 GMT</pubDate>
+			</item>
 					<item>
 				<title>A dedicated site for Blog-Doc&#39;s documentation!</title>
 				<link>https://lebcit.github.io/posts/a-dedicated-site-for-blog-docs-documentation</link>

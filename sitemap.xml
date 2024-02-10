@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 		<url>
 		<loc>https://lebcit.github.io/</loc>
-		<lastmod>2024-02-03</lastmod>
+		<lastmod>2024-02-10</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/archive</loc>
-		<lastmod>2024-02-03</lastmod>
+		<lastmod>2024-02-10</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/tags</loc>
-		<lastmod>2024-02-03</lastmod>
+		<lastmod>2024-02-10</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/1</loc>
-		<lastmod>2023-08-27</lastmod>
+		<lastmod>2023-09-12</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/2</loc>
@@ -26,7 +26,7 @@
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/4</loc>
-		<lastmod>2023-07-29</lastmod>
+		<lastmod>2023-07-28</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/5</loc>
@@ -46,6 +46,10 @@
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/page/9</loc>
+		<lastmod>2023-07-28</lastmod>
+	</url>
+		<url>
+		<loc>https://lebcit.github.io/page/10</loc>
 		<lastmod>2023-07-28</lastmod>
 	</url>
 		<url>
@@ -149,6 +153,10 @@
 		<lastmod>2023-07-30</lastmod>
 	</url>
 		<url>
+		<loc>https://lebcit.github.io/posts/responsive-attributes-generator</loc>
+		<lastmod>2024-02-10</lastmod>
+	</url>
+		<url>
 		<loc>https://lebcit.github.io/posts/sme-do-you-mark-down</loc>
 		<lastmod>2024-02-03</lastmod>
 	</url>
@@ -190,7 +198,7 @@
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/tags/CSS</loc>
-		<lastmod>2023-07-28</lastmod>
+		<lastmod>2024-02-10</lastmod>
 	</url>
 		<url>
 		<loc>https://lebcit.github.io/tags/Copyright</loc>

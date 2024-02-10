@@ -6,9 +6,16 @@
 		<description>Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</description>
 		<language>en-US</language>
 		<copyright>Copyright (c) 2022 - Present, LebCit under the MIT License</copyright>
-		<pubDate>Thu, 01 Feb 2024 22:00:00 GMT</pubDate>
-		<lastBuildDate>Thu, 01 Feb 2024 22:00:00 GMT</lastBuildDate>
+		<pubDate>Fri, 09 Feb 2024 22:00:00 GMT</pubDate>
+		<lastBuildDate>Fri, 09 Feb 2024 22:00:00 GMT</lastBuildDate>
 		<docs>https://www.rssboard.org/rss-specification</docs>
+					<item>
+				<title>Responsive Attributes Generator</title>
+				<link>https://lebcit.github.io/posts/responsive-attributes-generator</link>
+								<description>generating a framework-agnostic stylesheet for responsive design</description>
+																<category domain="https://lebcit.github.io/tags/CSS">CSS</category>
+												<pubDate>Fri, 09 Feb 2024 22:00:00 GMT</pubDate>
+			</item>
 					<item>
 				<title>SME! Do you Mark Down?!</title>
 				<link>https://lebcit.github.io/posts/sme-do-you-mark-down</link>

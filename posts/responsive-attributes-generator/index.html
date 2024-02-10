@@ -4,13 +4,14 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-		<meta name="description" content="Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!" />
+		<meta name="description" content="This post is about generating a framework-agnostic stylesheet for responsive design" />
 	
-	<title>Home | { LebCit }</title>
+	<title>Responsive Attributes Generator | { LebCit }</title>
 
 	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
 	<link rel="stylesheet" href="/static/css/main.min.css" />
 
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
 	  <style>
 	.post-title {
 		font-size: 2em;
@@ -44,22 +45,31 @@
 	}
 </style>
 
-    <style>
+<style>
+	.single-post :not(pre) code {
+		background-color: #272822;
+		color: #f8f8f2;
+		border-radius: 0.3rem;
+		padding: 4px 5px 5px;
+	}
+</style>
+  <style>
 	@media screen and (min-width: 48em) and (max-width: 63.938em) {
 		.post-title {
-			font-size: 2.5em;
-			margin-bottom: 0.1em;
+			font-size: 3em;
+			margin-top: 0;
 		}
 	}
 
 	@media (min-width: 64em) {
 		.post-title {
-			font-size: 3em;
-			margin-bottom: 0.1em;
+			/* will affect single-post*/
+			font-size: 4em;
+			margin-top: 0;
 		}
 	}
 </style>
-  <style>
+    <style>
 	.post-meta {
 		color: #16663d;
 		font-size: 90%;
@@ -81,37 +91,7 @@
 		color: #fff;
 	}
 </style>
-  <style>
-	.read-more-link {
-		display: inline-block;
-		border: 2px solid rgb(61, 79, 93);
-		background: rgb(61, 79, 93);
-		padding: 0.7rem 0.9rem;
-		font-size: 1rem;
-		line-height: 1;
-		border-radius: 3px;
-		color: #fff;
-		font-weight: 600;
-		cursor: pointer;
-	}
-
-	.read-more-link:hover {
-		color: #fff;
-		box-shadow: 0 0.25em rgb(61, 79, 93);
-	}
-
-	.read-more-link:active,
-	.read-more-link:focus {
-		color: #fff;
-		box-shadow: 0.25em 0.25em rgb(61, 79, 93);
-		outline: 0.1em solid;
-	}
-
-	.read-more-link:visited {
-		color: #fff;
-	}
-</style>
-	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 </head>
 
 	<body>
@@ -355,7 +335,7 @@
 	}
 </style>
 
-<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/vendetta-surrounded-by-star-wars-stormtroopers-graffiti.webp')"  >
+<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/responsive-design-on-desktop-laptop-and-mobile.avif')"  >
 	<div class="site-header-overlay"></div>
 		<div class="sidebar">
 		<div class="site-branding">
@@ -395,182 +375,58 @@
 
 			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-								<main class="site-main">
-					<!-- Start Post(s) Listing -->
+				  				<main class="single-post">
+					<!-- Start Markdown file content -->
 					<style>
-	.postList-article {
-		padding-bottom: 0.5em;
-		margin-top: 2rem;
-	}
-	.postList-article > p {
-		margin-bottom: 0;
-	}
-	/* .postList-article:first-child {
-		margin-top: 0;
-	} */
-	.postList-description {
-		color: #444;
-		line-height: 1.8em;
-	}
-	.postList-description a {
-		color: #000036;
-		text-decoration-line: underline;
-		text-decoration-color: #ea215a;
-		text-decoration-style: double;
-		text-decoration-thickness: 0.125em;
-		text-underline-offset: 1.5px;
-		text-decoration-skip-ink: none;
-		transition: 0.5s;
-	}
-	.postList-description a:hover,
-	.postList-description a:focus,
-	.postList-description a:active {
-		text-decoration: none;
-		color: white;
-		box-shadow: inset 0 -1.3em 0 0 #000;
-		outline: thin dotted #ea215a;
+	.author-greetings {
+		color: #000;
+		line-height: normal;
 	}
 </style>
 
-                <article class="postList-article">
-	<header class="post-header">
-		<h2 class="post-title">
-			<a href="/posts/turn-a-markdown-blog-to-a-simple-ssg" class="postList-link" rel="bookmark">Turn a Markdown blog to a simple SSG</a>
-		</h2>
+<header class="post-header">
+	<h1 class="post-title">Responsive Attributes Generator</h1>
 		<p class="post-meta">
-			<span>Posted on</span>
-			<span class="posted-on">
-				<time class="postList-date" datetime='2022-07/31'>
-					Sun Jul 31 2022				</time>
-			</span>
+		<span>Posted on</span>
+		<span class="posted-on">
+			<time class="postList-date" datetime='2024-02/10'>
+				Sat Feb 10 2024			</time>
+		</span>
 
-						<br />
-			Tagged 			<span class="post-tag">
-				<a href="/tags/Development">Development</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/Node.js">Node.js</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/Express">Express</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/EJS">EJS</a>
-			</span>
-			  		</p>
-	</header>
+				<br />
+		<span>Tagged</span>
+		<!--Start tag(s)-->
+				<span class="post-tag">
+			<a href="/tags/CSS">CSS</a>
+		</span>
+				<!--End tag(s)-->
+			</p>
+	  </header>
 
-	<div class="postList-description">
-		<p>This post is about improving a Markdown blog and turn it into a simple SSG.</p>
-	</div>
-	<p>
-		<a
-			href="/posts/turn-a-markdown-blog-to-a-simple-ssg"
-			class="read-more-link"
-			aria-label="Read More about Turn a Markdown blog to a simple SSG"
-			tabindex="0"
-			role="button"
-			target="_self"
-		>
-			Read The Post
-		</a>
+<div class="post-content">
+		<p>
+		<em>This post is about generating a framework-agnostic stylesheet for responsive design.</em>
 	</p>
-</article>
-             <article class="postList-article">
-	<header class="post-header">
-		<h2 class="post-title">
-			<a href="/posts/markdown-blog-with-ejs" class="postList-link" rel="bookmark">Markdown blog with EJS</a>
-		</h2>
-		<p class="post-meta">
-			<span>Posted on</span>
-			<span class="posted-on">
-				<time class="postList-date" datetime='2022-07/25'>
-					Mon Jul 25 2022				</time>
-			</span>
-
-						<br />
-			Tagged 			<span class="post-tag">
-				<a href="/tags/Development">Development</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/Node.js">Node.js</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/Express">Express</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/EJS">EJS</a>
-			</span>
-			  		</p>
-	</header>
-
-	<div class="postList-description">
-		<p>This post is about creating a Markdown blog with EJS.</p>
-	</div>
-	<p>
-		<a
-			href="/posts/markdown-blog-with-ejs"
-			class="read-more-link"
-			aria-label="Read More about Markdown blog with EJS"
-			tabindex="0"
-			role="button"
-			target="_self"
-		>
-			Read The Post
-		</a>
+	  <p>Building a responsive application can be a chore, especially when ready-made templates lack the specific design you envision. Even if you find a decent one, chances are you&#39;ll need to strip unnecessary features, leaving you with unused code and bloat. And forget about truly minimal stylesheets - most templates rely on frameworks like Bootstrap, adding weight you might not need.</p>
+<p>Fortunately, there are alternatives!<br>In a previous post <a href="/posts/a-dedicated-site-for-blog-docs-documentation">A dedicated site for Blog-Doc&#39;s documentation!</a>, I shared my experience using the amazing <a href="https://matthewjamestaylor.com/responsive-attributes">Responsive Attributes</a> to create the <a href="https://blog-doc.pages.dev/">Blog-Doc documentation site</a> with a remarkably lightweight CSS footprint.</p>
+<p>While I love <a href="https://matthewjamestaylor.com/responsive-attributes#breakpoints">Responsive Attributes breakpoints</a>, I recognized they might not suit every project, especially for developers comfortable with specific framework breakpoints. That&#39;s why I designed the <a href="https://responsive-attributes-generator.pages.dev/">Responsive Attributes Generator</a>!</p>
+<p>If you want to build responsive layouts without the framework overhead, but still leverage familiar breakpoints, head over to the <a href="https://responsive-attributes-generator.pages.dev/">Responsive Attributes Generator</a>.<br>This tool generates a framework-agnostic stylesheet, empowering you to create responsive designs with ease and minimal styles.</p>
+	<p class="author-greetings">
+		SYA,
+		<br />
+		LebCit.
 	</p>
-</article>
-             <article class="postList-article">
-	<header class="post-header">
-		<h2 class="post-title">
-			<a href="/posts/express-global-router-for-a-dry-code" class="postList-link" rel="bookmark">Express global router for a DRY code</a>
-		</h2>
-		<p class="post-meta">
-			<span>Posted on</span>
-			<span class="posted-on">
-				<time class="postList-date" datetime='2022-07/18'>
-					Mon Jul 18 2022				</time>
-			</span>
+</div>
 
-						<br />
-			Tagged 			<span class="post-tag">
-				<a href="/tags/Tips and Tricks">Tips and Tricks</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/Node.js">Node.js</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/Express">Express</a>
-			</span>
-			  		</p>
-	</header>
-
-	<div class="postList-description">
-		<p>This post is about using a global router in Express for a DRY code.</p>
-	</div>
-	<p>
-		<a
-			href="/posts/express-global-router-for-a-dry-code"
-			class="read-more-link"
-			aria-label="Read More about Express global router for a DRY code"
-			tabindex="0"
-			role="button"
-			target="_self"
-		>
-			Read The Post
-		</a>
-	</p>
-</article>
-   <style>
-	.pagination {
+  <style>
+	.post-navigation {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: 1fr;
 		grid-column-gap: 16px;
 	}
 
-	.pagination a {
-		font-size: 1.5rem !important;
+	.post-navigation a {
 		margin: 1.5em 0;
 		border: 2px solid #000;
 		background: #000;
@@ -584,62 +440,81 @@
 		cursor: pointer;
 	}
 
-	.pagination .next-page {
+	.post-navigation .next-post {
 		grid-column-end: -1;
 	}
 
-	.pagination a:hover {
+	.post-navigation a:hover {
 		color: #fff;
 		box-shadow: 0 0.25em #000;
 	}
 
-	.pagination a:active,
-	.pagination a:focus {
+	.post-navigation a:active,
+	.post-navigation a:focus {
 		color: #fff;
 		box-shadow: 0.25em 0.25em #000;
 		outline: 0.1em solid;
 	}
 
 	@media screen and (max-width: 48em) {
-		.pagination {
+		.post-navigation {
 			display: grid;
 			grid-template-columns: 1fr;
 			grid-template-rows: repeat(2, 1fr);
 			grid-row-gap: 16px;
 		}
 
-		.pagination a {
+		.post-navigation a {
 			margin: 0;
 		}
 	}
 </style>
 
-  <nav class="pagination" aria-label="Blog pagination">
-	 	<a
-		href="/page/5"
-		class="prev-page"
-		aria-label="Go to the previous set of
-		posts"
-	>
-		Older Posts
-	</a>
-	  	<a
-		href="/page/3"
-		class="next-page"
-		aria-label="Go to the next set of
-		posts"
-	>
-		Newer Posts
-	</a>
-	</nav>
-<p>
-	All posts can be found in
-	<a href="/posts">the archive</a>
-	📦
-</p>
-  					<!-- End Post(s) Listing -->
+<nav class="post-navigation" aria-label="Post navigation">
+		<a href="/posts/sme-do-you-mark-down" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: SME! Do you Mark Down?!	</a>
+	  </nav>
+   <style>
+	.related-posts div {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
+</style>
+
+<div class="related-posts">
+	<h3>SOME RELATED POSTS</h3>
+	<div>
+		      		<section>
+			<a href="/posts/sme-do-you-mark-down">
+				    				<img
+					class="img-responsive"
+					src="/static/img/markdown-logo-generated-with-ai.webp"
+					alt="Markdown logo generated with ai"
+				/>
+							</a>
+			<h4>
+				<a href="/posts/sme-do-you-mark-down">SME! Do you Mark Down?!</a>
+			</h4>
+		</section>
+		      		<section>
+			<a href="/posts/a-dedicated-site-for-blog-docs-documentation">
+				    				<img
+					class="img-responsive"
+					src="/static/img/pile-of-books.webp"
+					alt="Pile of books"
+				/>
+							</a>
+			<h4>
+				<a href="/posts/a-dedicated-site-for-blog-docs-documentation">A dedicated site for Blog-Doc&#39;s documentation!</a>
+			</h4>
+		</section>
+			</div>
+</div>
+  					<!-- End Markdown file content -->
 				</main>
-				       			</div>
+				     			</div>
 			<!--End content-->
 			<!--Start footer-->
 			<style>
@@ -666,7 +541,12 @@
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  
+		  		<script type="module">
+			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
+
+			hljs.highlightAll()
+		</script>
+		
 		<script src="/static/js/main.js"></script>
 	</body>
 </html>

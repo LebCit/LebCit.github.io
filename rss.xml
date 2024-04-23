@@ -6,9 +6,20 @@
 		<description>Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</description>
 		<language>en-US</language>
 		<copyright>Copyright (c) 2022 - Present, LebCit under the MIT License</copyright>
-		<pubDate>Fri, 09 Feb 2024 22:00:00 GMT</pubDate>
-		<lastBuildDate>Fri, 09 Feb 2024 22:00:00 GMT</lastBuildDate>
+		<pubDate>Sun, 21 Apr 2024 21:00:00 GMT</pubDate>
+		<lastBuildDate>Sun, 21 Apr 2024 21:00:00 GMT</lastBuildDate>
 		<docs>https://www.rssboard.org/rss-specification</docs>
+					<item>
+				<title>Google&#39;s Query Language Wrapper</title>
+				<link>https://lebcit.github.io/posts/google-ql-wrapper</link>
+								<description>a JS wrapper that simplifies Google&#39;s Visualization API Query Language</description>
+																<category domain="https://lebcit.github.io/tags/Google Sheets">Google Sheets</category>
+								<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
+								<category domain="https://lebcit.github.io/tags/Query Language">Query Language</category>
+								<category domain="https://lebcit.github.io/tags/Wrapper">Wrapper</category>
+								<category domain="https://lebcit.github.io/tags/Tips and Tricks">Tips and Tricks</category>
+												<pubDate>Sun, 21 Apr 2024 21:00:00 GMT</pubDate>
+			</item>
 					<item>
 				<title>Responsive Attributes Generator</title>
 				<link>https://lebcit.github.io/posts/responsive-attributes-generator</link>

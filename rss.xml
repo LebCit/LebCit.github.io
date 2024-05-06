@@ -6,9 +6,20 @@
 		<description>Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</description>
 		<language>en-US</language>
 		<copyright>Copyright (c) 2022 - Present, LebCit under the MIT License</copyright>
-		<pubDate>Sun, 21 Apr 2024 21:00:00 GMT</pubDate>
-		<lastBuildDate>Sun, 21 Apr 2024 21:00:00 GMT</lastBuildDate>
+		<pubDate>Fri, 03 May 2024 21:00:00 GMT</pubDate>
+		<lastBuildDate>Fri, 03 May 2024 21:00:00 GMT</lastBuildDate>
 		<docs>https://www.rssboard.org/rss-specification</docs>
+					<item>
+				<title>Creating Conditional Selections in Google Forms using Apps Script</title>
+				<link>https://lebcit.github.io/posts/creating-conditional-selections-in-google-forms-using-apps-script</link>
+								<description>the dynamic process of creating related dropdowns in Google Forms with Apps Script</description>
+																<category domain="https://lebcit.github.io/tags/Apps Script">Apps Script</category>
+								<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/Google Forms">Google Forms</category>
+								<category domain="https://lebcit.github.io/tags/Google Sheets">Google Sheets</category>
+								<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
+												<pubDate>Fri, 03 May 2024 21:00:00 GMT</pubDate>
+			</item>
 					<item>
 				<title>Google&#39;s Query Language Wrapper</title>
 				<link>https://lebcit.github.io/posts/google-ql-wrapper</link>

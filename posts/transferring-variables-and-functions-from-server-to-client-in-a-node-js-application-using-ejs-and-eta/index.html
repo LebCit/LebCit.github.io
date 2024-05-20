@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+		<meta name="description" content="This post is about the process of seamlessly transfer variables and functions from server-side to client-side in your Node.js applications using EJS and Eta templating engines" />
+	
+	<title>Transferring Variables and Functions from Server to Client in a Node.js Application Using EJS and Eta | { LebCit }</title>
+
+	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
+	<link rel="stylesheet" href="/static/css/main.min.css" />
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
+	  <style>
+	.post-title {
+		font-size: 2em;
+		color: #222;
+		margin-bottom: 0.2em;
+	}
+
+	.post-content {
+		color: #444;
+		line-height: 1.8em;
+	}
+
+	.post-content a {
+		color: #000036;
+		text-decoration-line: underline;
+		text-decoration-color: #ea215a;
+		text-decoration-style: double;
+		text-decoration-thickness: 0.125em;
+		text-underline-offset: 1.5px;
+		text-decoration-skip-ink: none;
+		transition: 0.5s;
+	}
+
+	.post-content a:hover,
+	.post-content a:focus,
+	.post-content a:active {
+		text-decoration: none;
+		color: white;
+		box-shadow: inset 0 -1.3em 0 0 #000;
+		outline: thin dotted #ea215a;
+	}
+</style>
+
+<style>
+	.single-post :not(pre) code {
+		background-color: #272822;
+		color: #f8f8f2;
+		border-radius: 0.3rem;
+		padding: 4px 5px 5px;
+	}
+</style>
+  <style>
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.post-title {
+			font-size: 3em;
+			margin-top: 0;
+		}
+	}
+
+	@media (min-width: 64em) {
+		.post-title {
+			/* will affect single-post*/
+			font-size: 4em;
+			margin-top: 0;
+		}
+	}
+</style>
+    <style>
+	.post-meta {
+		color: #16663d;
+		font-size: 90%;
+		margin: 0;
+	}
+
+	.posted-on {
+		color: #ad1a36;
+	}
+
+	.post-tag {
+		margin: 0 0.1em;
+		padding: 0.2em 0.8em;
+		background: #ad1a36;
+		font-size: 80%;
+	}
+
+	.post-tag a {
+		color: #fff;
+	}
+</style>
+  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+</head>
+
+	<body>
+		<!--Start page-->
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+			<!--Start menu-->
+			<style>
+	.invisible {
+		visibility: hidden;
+	}
+
+	.overlay {
+		position: fixed;
+		width: 0;
+		height: 100%;
+		top: 0;
+		right: 0;
+		background-color: rgba(0, 0, 0, 0.9);
+		z-index: 2;
+		letter-spacing: normal;
+		overflow-x: hidden;
+		transition: 0.5s;
+	}
+
+	.overlay-content {
+		position: relative;
+		top: 25%;
+		width: 100%;
+		text-align: center;
+		margin-top: 30px;
+	}
+
+	.overlay li {
+		list-style: none;
+	}
+
+	.overlay a {
+		padding: 8px;
+		text-decoration: none;
+		font-size: 36px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+	}
+
+	.overlay a:hover,
+	.overlay a:focus {
+		color: #f1f1f1;
+		background-color: #222;
+		border: 1px solid red;
+		border-style: dashed;
+	}
+
+	.overlay .close-button {
+		position: absolute;
+		top: 20px;
+		right: 45px;
+		font-size: 60px;
+	}
+</style>
+
+<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+	<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">
+		&times;
+	</a>
+	
+	<div class="overlay-content">
+		<a href="/">Home</a>
+				<li class="pure-menu-item">
+			<a href="/posts">Archive</a>
+		</li>
+				<li class="pure-menu-item">
+			<a href="/tags">Tags</a>
+		</li>
+				<li class="pure-menu-item">
+			<a href="/search">Search</a>
+		</li>
+				<li class="pure-menu-item">
+			<a href="/pages/my-public-projects">Projects</a>
+		</li>
+				<li class="pure-menu-item">
+			<a href="/pages/about">About Me</a>
+		</li>
+				<li class="pure-menu-item">
+			<a href="/rss.xml">RSS</a>
+		</li>
+			</div>
+</div>
+			<!--End menu-->
+			<!--Start masthead-->
+			<style>
+	/* SITE HEADER */
+	.site-header {
+		background: rgb(61, 79, 93);
+		color: #fff;
+	}
+
+	.sidebar {
+		margin: 1em;
+	}
+
+	.site-title,
+	.site-description {
+		margin: 0;
+		line-height: 1.2;
+	}
+
+	.site-title a {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.site-title a:hover,
+	.site-title a:focus {
+		text-decoration: underline;
+	}
+
+	.site-description {
+		font-weight: 300;
+		color: rgb(176, 202, 219);
+		margin: 0.5em 0 2em 0;
+	}
+
+	/* MENU BUTTON */
+	.nav-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.nav-item {
+		display: inline-block;
+	}
+
+	.nav-item a {
+		background: black;
+		border: 2px solid rgb(176, 202, 219);
+		border-radius: 2px;
+		color: #fff;
+		padding: 0.5em 1em;
+		margin-top: 1em;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		font-size: 85%;
+	}
+
+	.nav-item a:hover,
+	.nav-item a:focus {
+		border: 2px solid rgb(61, 146, 201);
+		text-decoration: none;
+	}
+
+	.nav-item a svg {
+		fill: aliceblue;
+		vertical-align: bottom;
+		padding: 4px 0 2px;
+	}
+
+	@media screen and (max-width: 35.5em) {
+		.nav-item a svg {
+			padding-top: 14px;
+		}
+	}
+
+	@media screen and (min-width: 35.5em) and (max-width: 48em) {
+		.nav-item a svg {
+			padding-top: 12px;
+		}
+	}
+
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.nav-item a svg {
+			padding-top: 10px;
+		}
+	}
+
+	/* more then 1023px an less then 1024px */
+	@media (max-width: 63.969em) {
+		.site-header.bio {
+			background-image: none !important;
+		}
+		.nav {
+			position: fixed;
+			top: 15px;
+			right: 10px;
+			z-index: 1;
+		}
+	}
+
+	@media (min-width: 64em) {
+		.site-header {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			overflow-y: auto;
+		}
+
+		.site-header.bio {
+			background-repeat: no-repeat;
+			background-position: top;
+			background-size: cover;
+		}
+
+		.site-header.bio .site-header-overlay {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.6);
+		}
+
+		/* The emerging W3C standard
+ that is currently Firefox-only */
+		.site-header {
+			scrollbar-width: thin;
+		}
+
+		/* Works on Chrome/Edge/Safari */
+		.site-header::-webkit-scrollbar {
+			width: 7px;
+		}
+
+		.site-header::-webkit-scrollbar-track {
+			background: #313d48;
+		}
+
+		.site-header::-webkit-scrollbar-thumb {
+			background-color: #81898f;
+		}
+
+		.sidebar {
+			margin: 10% 2em;
+			text-align: left;
+		}
+
+		.site-header.bio .sidebar {
+			position: sticky;
+		}
+	}
+</style>
+
+<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/transferring-data-generated-with-ai.avif')"  >
+	<div class="site-header-overlay"></div>
+		<div class="sidebar">
+		<div class="site-branding">
+			<h1 class="site-title">
+				<a href="/">{ LebCit }</a>
+			</h1>
+			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</p>
+		</div>
+
+				<nav id="nav" class="nav" aria-label="MENU">
+			<ul class="nav-list">
+				<li class="nav-item">
+					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+						<span>MENU</span>
+						<span class="menu-icon" aria-hidden="true">
+							<svg
+								version="1.1"
+								x="0px"
+								y="0px"
+								width="30px"
+								height="30px"
+								viewbox="0 0 30 30"
+								enable-background="new 0 0 30 30"
+							>
+								<rect width="30" height="5" />
+								<rect y="24" width="30" height="5" />
+								<rect y="12" width="30" height="5" />
+							</svg>
+						</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+			</div>
+	</header>
+			<!--End masthead-->
+
+			<!--Start content-->
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				  				<main class="single-post">
+					<!-- Start Markdown file content -->
+					<style>
+	.author-greetings {
+		color: #000;
+		line-height: normal;
+	}
+</style>
+
+<header class="post-header">
+	<h1 class="post-title">Transferring Variables and Functions from Server to Client in a Node.js Application Using EJS and Eta</h1>
+		<p class="post-meta">
+		<span>Posted on</span>
+		<span class="posted-on">
+			<time class="postList-date" datetime='2024-05/20'>
+				Mon May 20 2024			</time>
+		</span>
+
+				<br />
+		<span>Tagged</span>
+		<!--Start tag(s)-->
+				<span class="post-tag">
+			<a href="/tags/Development">Development</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/EJS">EJS</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Eta">Eta</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Node.js">Node.js</a>
+		</span>
+				<!--End tag(s)-->
+			</p>
+	  </header>
+
+<div class="post-content">
+		<p>
+		<em>This post is about the process of seamlessly transfer variables and functions from server-side to client-side in your Node.js applications using EJS and Eta templating engines.</em>
+	</p>
+	  <h2>Intro</h2>
+<p>While developing a Node.js application, passing data from the server to the client is an inevitable checkpoint that you&#39;ll encounter.<br/>
+To simplify this task (dynamic content generation), developers use templating engines such as EJS, Eta, Handlebars, Marko, Mustache, Nunjucks or Pug among many other.<br/>
+I recommended EJS in the past but <a href="https://eta.js.org/">Eta</a> has become my preferred template engine since I&#39;ve discovered it two years ago.<br/>
+Since Eta is a lightweight EJS alternative, faster and more configurable, this article covers the process for both of them.</p>
+<p><em>Nota Bene: You&#39;ll find at the end of this article, in the <a href="#resources">Resources section</a>, a link to a GitHub repository for the provided example.</em></p>
+<h2>Transfer process</h2>
+<p>The best way to pass data from the server to the client in a Node.js app using EJS or Eta goes like so:</p>
+<ol>
+<li>Server<ul>
+<li>Render a template with a data object on a route</li>
+</ul>
+</li>
+<li>Server to Client<ul>
+<li>Stringify the data object in the template file inside a hidden element with an Id</li>
+</ul>
+</li>
+<li>Client<ol>
+<li>Get the hidden element by its Id in a JavaScript file (or <code>&lt;script&gt;</code> tag)</li>
+<li>Get the text content of the hidden element</li>
+<li>Parse the text content to retrieve the data object</li>
+<li>Remove the hidden element from the DOM</li>
+</ol>
+</li>
+</ol>
+<p>Let&#39;s illustrate this process with a simple example.<br/>
+We need a web framework and EJS or Eta for our Node.js app.<br/>
+I&#39;ll be using an <a href="https://github.com/LebCit/node-transferring-variables-and-functions/blob/main/router.js">enhanced version</a> of <a href="https://github.com/ishtms/velocy">Velocy</a> and Eta.<br/>
+So the only needed dependency here is Eta:</p>
+<pre><code class="language-bash">npm install eta # Or: npm i eta
+</code></pre>
+<p>In the entry file of our app <strong>index.js</strong>:</p>
+<pre><code class="language-js">import { Eta } from &quot;eta&quot;
+import { join } from &quot;path&quot;
+import { createServer, Router } from &quot;./router.js&quot;
+
+const app = new Router()
+// Define the views folder as the root of Eta&#39;s templates
+const eta = new Eta({ views: join(process.cwd(), &quot;views&quot;) })
+
+// Define an array to be transferred
+const continentsArray = [&quot;Africa&quot;, &quot;Antarctica&quot;, &quot;Asia&quot;, &quot;Australia&quot;, &quot;Europe&quot;, &quot;North America&quot;, &quot;South America&quot;]
+
+// Define a function to be transferred
+const greetingFunction = () =&gt; {
+    const greetingString = &quot;Server says hello to Client!&quot;
+    return greetingString
+}
+
+// 1. Render a template with a data object on a route
+app.get(&quot;/&quot;, (req, res) =&gt; {
+    const response = eta.render(&quot;index.html&quot;, {
+        continents: continentsArray,
+        greeting: greetingFunction,
+    })
+    res.writeHead(200, { &quot;Content-Type&quot;: &quot;text/html&quot; })
+    res.end(response)
+})
+
+createServer(app).listen(5000, () =&gt; {
+    console.log(`App @ http://localhost:${5000}`)
+})
+</code></pre>
+<p>If you&#39;re wondering why I&#39;m not using the gasworks called Express, read <a href="/posts/node-modules-is-not-heavy-developers-are-lazy">node_modules is not heavy, developers are lazy!</a> and you&#39;ll have a different perspective while building a Node.js application.<br/>
+<em>Nota Bene: The number of Express dependencies have increased since then and Blog-Doc&#39;s dependencies have been reduced to 5!</em></p>
+<p>At the root of our app, create a <strong>views</strong> folder, then inside it an <strong>index.html</strong> file and add the following:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+        &lt;title&gt;Data Transfer&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 id=&quot;greeting-heading&quot;&gt;&lt;/h1&gt;
+
+        &lt;div&gt;
+            &lt;p&gt;Those are the world&#39;s continents:&lt;/p&gt;
+            &lt;ul id=&quot;continents-list&quot;&gt;&lt;/ul&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 2. Stringify the data object in the template file inside a hidden element with an Id --&gt;
+        &lt;span id=&quot;greeting&quot; hidden&gt;&lt;%= JSON.stringify(it.greeting()) %&gt;&lt;/span&gt;
+        &lt;span id=&quot;continents&quot; hidden&gt;&lt;%= JSON.stringify(it.continents) %&gt;&lt;/span&gt;
+
+        &lt;script&gt;
+            // 3.1 Get the hidden elements
+            const greetingEl = document.getElementById(&quot;greeting&quot;)
+            const continentsEl = document.getElementById(&quot;continents&quot;)
+
+            // 3.2 Get hidden elements&#39; text content
+            const greetingText = greetingEl.textContent
+            const continentsText = continentsEl.textContent
+
+            // 3.3 Parse the text content
+            const greeting = JSON.parse(greetingText)
+            const continents = JSON.parse(continentsText)
+
+            // 3.4 Remove hidden elements from the DOM
+            greetingEl.remove()
+            continentsEl.remove()
+
+            // NOW WE CAN USE GREETING AND CONTINENTS!
+
+            // Get greeting heading element
+            const greetingHeading = document.getElementById(&quot;greeting-heading&quot;)
+
+            // Use the greeting function as the inner text of the greeting heading
+            greetingHeading.innerText = greeting
+
+            // Get the continents&#39; list element
+            const continentsList = document.getElementById(&quot;continents-list&quot;)
+
+            // Display each continent as a list item in the continents&#39; list
+            continents.forEach((continent) =&gt; {
+                // Create a list item element for each continent
+                let listItem = document.createElement(&quot;li&quot;)
+
+                // Set the continent&#39;s name as the inner text of the created list item
+                listItem.innerText = continent
+
+                // Append the list item to the continents&#39; list element
+                continentsList.append(listItem)
+            })
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Hey! What is <code>it</code>?<br/>
+Eta uses a global variable called <code>it</code> to store all the data that will be transferred to the templates.<br/>
+It&#39;s a safer way to avoid naming collisions and improve performance.<br/>
+<a href="https://eta.js.org/docs/api#getting-rid-of-it"><code>it</code></a> can also be modified, suppressed or used as a reference in the options.</p>
+<p>Those of you who used EJS with Express know that you can&#39;t simply use a &quot;.html&quot; file to be rendered, it should be a &quot;.ejs&quot; file otherwise you&#39;ll have to map the EJS template engine to &quot;.html&quot; files:</p>
+<pre><code class="language-js">app.engine(&quot;html&quot;, require(&quot;ejs&quot;).renderFile)
+</code></pre>
+<p>With Eta it&#39;s an out of the box functionality!</p>
+<p>Now launch the server from your terminal, visit the link and see the magic!</p>
+<pre><code class="language-bash">node index
+# You&#39;ll see after running this command
+# App @ http://localhost:5000
+</code></pre>
+<h2>Enhancing the process</h2>
+<p>This is good but not great for many reasons.<br/>
+If we have multiple variables and/or functions to transfer, the third step of the process on the client-side will be gigantic and repetitive as seen in our simple example.<br/>
+Also, in a real application, we would not use a <code>&lt;script&gt;</code> tag but a JavaScript file to load our scripting logic.<br/>
+To optimize the procedure, we&#39;ll utilize a JavaScript file where the third step must be dynamic to prevent redundancy.</p>
+<p>Using a minimal backend framework, such as Velocy, offers minimal functionalities as its description implies.<br/>
+This doesn&#39;t mean that we can&#39;t extend it, as I did in its enhanced version, but loading static assets is another kind of challenge.<br/>
+I&#39;m not going to explain this other process, just copy the following code in a file called <strong>staticAssetLoader.js</strong> at the root of our app:</p>
+<pre><code class="language-js">// Import necessary functions from the &#39;fs&#39; module
+import { readFileSync, readdirSync, statSync } from &quot;fs&quot;
+
+// Import the &#39;path&#39; module for path manipulation
+import path from &quot;path&quot;
+
+/**
+ * StaticAssetLoader class for serving static assets from a directory.
+ */
+class StaticAssetLoader {
+    /**
+     * Constructor for StaticAssetLoader class.
+     */
+    constructor() {
+        this.directory = &quot;static&quot; // Default directory
+        this.staticAssets = this.getFiles(this.directory)
+    }
+
+    /**
+     * Method to get files from their directory recursively.
+     * @param {string} dirName - The directory path.
+     * @returns {string[]} - Array of file paths.
+     */
+    getFiles(dirName) {
+        let files = []
+        const items = readdirSync(dirName, { withFileTypes: true })
+
+        for (const item of items) {
+            if (item.isDirectory()) {
+                files = [...files, ...this.getFiles(`${dirName}/${item.name}`)]
+            } else {
+                files.push(`${dirName}/${item.name}`)
+            }
+        }
+
+        return files
+    }
+
+    /**
+     * Method to determine content type based on file extension.
+     * @param {string} file - The file path.
+     * @returns {string} - The content type.
+     */
+    getContentType(file) {
+        const extname = path.extname(file)
+        switch (extname) {
+            case &quot;.css&quot;:
+                return &quot;text/css&quot;
+            case &quot;.js&quot;:
+            case &quot;.mjs&quot;:
+                return &quot;application/javascript&quot;
+            case &quot;.png&quot;:
+                return &quot;image/png&quot;
+            case &quot;.jpg&quot;:
+            case &quot;.jpeg&quot;:
+                return &quot;image/jpeg&quot;
+            case &quot;.gif&quot;:
+                return &quot;image/gif&quot;
+            case &quot;.avif&quot;:
+                return &quot;image/avif&quot;
+            case &quot;.svg&quot;:
+                return &quot;image/svg+xml&quot;
+            case &quot;.ico&quot;:
+                return &quot;image/x-icon&quot;
+            case &quot;.webp&quot;:
+                return &quot;image/webp&quot;
+            default:
+                return &quot;application/octet-stream&quot; // Default to binary data if the content type is not recognized
+        }
+    }
+
+    /**
+     * Method to serve static assets using Router app.
+     * @param {object} app - The Router app instance.
+     * @param {string} [directory=&quot;static&quot;] - The directory containing static assets.
+     */
+    serveStaticAssets(app, directory = &quot;static&quot;) {
+        const staticAssets = this.getFiles(directory)
+
+        staticAssets.forEach((el) =&gt; {
+            app.get(`/${el}`, (req, res) =&gt; {
+                const filePath = path.join(process.cwd(), `/${el}`)
+
+                try {
+                    const stats = statSync(filePath)
+                    if (stats.isFile()) {
+                        const contentType = this.getContentType(filePath)
+                        res.setHeader(&quot;Content-Type&quot;, contentType)
+
+                        const fileContents = readFileSync(filePath)
+                        res.end(fileContents)
+                    } else {
+                        // If it&#39;s not a file, send a 404 Not Found response.
+                        res.end(&quot;Not Found&quot;)
+                    }
+                } catch (err) {
+                    console.error(`Error while serving file: ${err.message}`)
+
+                    res.writeHead(302, { Location: &quot;/500&quot; })
+                    res.end()
+                    return
+                }
+            })
+        })
+    }
+}
+
+export const staticAssetLoader = new StaticAssetLoader()
+</code></pre>
+<p>Update the beginning of <strong>index.js</strong>:</p>
+<pre><code class="language-js">import { Eta } from &quot;eta&quot;
+import { join } from &quot;path&quot;
+import { createServer, Router } from &quot;./router.js&quot;
+import { staticAssetLoader } from &quot;./staticAssetLoader.js&quot;
+
+const app = new Router()
+// Define the views folder as the root of Eta&#39;s templates
+const eta = new Eta({ views: join(process.cwd(), &quot;views&quot;) })
+
+// Serve static assets from default folder &quot;static&quot;
+staticAssetLoader.serveStaticAssets(app)
+
+// Rest of &quot;index.js&quot; remains the same
+</code></pre>
+<p>Replace the <code>&lt;script&gt;</code> tag and everything inside it in <strong>index.html</strong> with:</p>
+<pre><code class="language-html">&lt;script type=&quot;module&quot; src=&quot;/static/main.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Create a static folder at the root of our app, then create inside it 2 files:</p>
+<ol>
+<li><strong>main.js</strong></li>
+<li><strong>parseHiddenJSON.js</strong></li>
+</ol>
+<p>Add the following to <strong>parseHiddenJSON.js</strong>:</p>
+<pre><code class="language-js">/*
+ * Retrieves hidden JSON data from a DOM element, parses it, and removes the element from the DOM.
+ * @param {string} elementId - The ID of the DOM element containing the hidden JSON data.
+ * @returns {Object|null} - The parsed JSON data, or null if the element is not found.
+ */
+export const parseHiddenJSON = (elementId) =&gt; {
+    // Retrieve the DOM element with the given ID
+    const element = document.getElementById(elementId)
+
+    // If the element is found
+    if (element) {
+        // Extract the JSON data from the text content of the element
+        const dataText = element.textContent
+        // Parse the JSON data
+        const data = JSON.parse(dataText)
+        // Remove the element from the DOM
+        element.remove()
+        // Return the parsed JSON data
+        return data
+    } else {
+        // Log an error if the element is not found
+        console.error(`Element with ID &#39;${elementId}&#39; not found.`)
+        // Return null
+        return null
+    }
+}
+</code></pre>
+<p>Add the following to <strong>main.js</strong>:</p>
+<pre><code class="language-js">import { parseHiddenJSON } from &quot;./parseHiddenJSON.js&quot;
+
+// 3. Retrieve hidden JSON data from a DOM element, parse it, and remove the element from the DOM
+const greeting = parseHiddenJSON(&quot;greeting&quot;)
+const continents = parseHiddenJSON(&quot;continents&quot;)
+
+// Get greeting heading element
+const greetingHeading = document.getElementById(&quot;greeting-heading&quot;)
+
+// Use the greeting function as the inner text of the greeting heading
+greetingHeading.innerText = greeting
+
+// Get the continents&#39; list element
+const continentsList = document.getElementById(&quot;continents-list&quot;)
+
+// Display each continent as a list item in the continents&#39; list
+continents.forEach((continent) =&gt; {
+    // Create a list item element for each continent
+    let listItem = document.createElement(&quot;li&quot;)
+
+    // Set the continent&#39;s name as the inner text of the created list item
+    listItem.innerText = continent
+
+    // Append the list item to the continents&#39; list element
+    continentsList.append(listItem)
+})
+</code></pre>
+<p>The code is easy to understand, we created a function to dynamically do the redundant tasks in step 3 from the previous code, then we used it directly on the Id of the hidden element where the data object is stringified.<br/>
+Cleaner code, and straightforward logic!</p>
+<p>Please note that if we want to use a folder called &quot;public&quot; for our static assets instead of the default &quot;static&quot; folder, we would:</p>
+<ol>
+<li>Replace</li>
+</ol>
+<pre><code class="language-js">// Serve static assets from default folder &quot;static&quot;
+staticAssetLoader.serveStaticAssets(app)
+</code></pre>
+<p>by</p>
+<pre><code class="language-js">// Serve static assets from custom folder name
+staticAssetLoader.serveStaticAssets(app, &quot;public&quot;)
+</code></pre>
+<ol start="2">
+<li>Replace</li>
+</ol>
+<pre><code class="language-html">&lt;script type=&quot;module&quot; src=&quot;/static/main.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>by</p>
+<pre><code class="language-html">&lt;script type=&quot;module&quot; src=&quot;/public/main.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ol start="3">
+<li>Create a &quot;public&quot; folder at the root of the application and the needed files inside it.</li>
+</ol>
+<p><em><strong>Nota bene: The same logic applies to EJS, the only difference is that there is no <code>it.</code> in EJS!</strong></em></p>
+<h2>Conclusion</h2>
+<p>This article demonstrates that we don&#39;t need heavy modules with unnecessary bells and whistles to achieve simple or complex tasks in a Node.js application.<br/>
+We now master without any doubt the art of transferring variables and functions from the server to the client using EJS or Eta!</p>
+<p>I hope that you&#39;ll find this article useful.</p>
+<h2 id="resources">Resources</h2>
+<p>Link:</p>
+<ul>
+<li><a href="https://github.com/LebCit/node-transferring-variables-and-functions">GitHub repository</a></li>
+</ul>
+	<p class="author-greetings">
+		SYA,
+		<br />
+		LebCit.
+	</p>
+</div>
+
+  <style>
+	.post-navigation {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
+
+	.post-navigation a {
+		margin: 1.5em 0;
+		border: 2px solid #000;
+		background: #000;
+		display: inline-block;
+		padding: 0.7rem 0.9rem;
+		font-size: 1rem;
+		line-height: 1;
+		border-radius: 3px;
+		color: #fff;
+		font-weight: 600;
+		cursor: pointer;
+	}
+
+	.post-navigation .next-post {
+		grid-column-end: -1;
+	}
+
+	.post-navigation a:hover {
+		color: #fff;
+		box-shadow: 0 0.25em #000;
+	}
+
+	.post-navigation a:active,
+	.post-navigation a:focus {
+		color: #fff;
+		box-shadow: 0.25em 0.25em #000;
+		outline: 0.1em solid;
+	}
+
+	@media screen and (max-width: 48em) {
+		.post-navigation {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, 1fr);
+			grid-row-gap: 16px;
+		}
+
+		.post-navigation a {
+			margin: 0;
+		}
+	}
+</style>
+
+<nav class="post-navigation" aria-label="Post navigation">
+		<a href="/posts/creating-conditional-selections-in-google-forms-using-apps-script" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: Creating Conditional Selections in Google Forms using Apps Script	</a>
+	  </nav>
+   <style>
+	.related-posts div {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
+</style>
+
+<div class="related-posts">
+	<h3>SOME RELATED POSTS</h3>
+	<div>
+		      		<section>
+			<a href="/posts/node-modules-is-not-heavy-developers-are-lazy">
+				    				<img
+					class="img-responsive"
+					src="/static/img/black-words-graffitti-on-yellow-wall-saying-if-you-are-reading-this-it-is-time-to-change.avif"
+					alt="Black words graffitti on yellow wall saying if you are reading this it is time to change"
+				/>
+							</a>
+			<h4>
+				<a href="/posts/node-modules-is-not-heavy-developers-are-lazy">node_modules is not heavy, developers are lazy!</a>
+			</h4>
+		</section>
+			</div>
+</div>
+  					<!-- End Markdown file content -->
+				</main>
+				     			</div>
+			<!--End content-->
+			<!--Start footer-->
+			<style>
+	.site-footer {
+		text-align: center;
+		padding-top: 2em;
+	}
+	@media (min-width: 64em) {
+		.site-footer {
+			padding: 2em 3em;
+			margin-left: 40%;
+		}
+	}
+</style>
+
+<footer id="colophon" class="site-footer unit-1">
+	        	<div id="site-info" class="site-info">
+		<p>
+			<strong>2016 - 2024 | { LebCit }</strong>
+			<br />
+			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
+	</div>
+</footer>
+			<!--End footer-->
+		</div>
+		<!--End page-->
+		  		<script type="module">
+			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
+
+			hljs.highlightAll()
+		</script>
+		
+		<script src="/static/js/main.js"></script>
+	</body>
+</html>

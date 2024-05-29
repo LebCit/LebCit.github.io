@@ -4,13 +4,14 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-		<meta name="description" content="Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!" />
+		<meta name="description" content="This post is about a fast, lightweight, and independent Node.js web framework called LiteNode" />
 	
-	<title>Home | { LebCit }</title>
+	<title>LiteNode, Node.js Web Framework | { LebCit }</title>
 
 	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
 	<link rel="stylesheet" href="/static/css/main.min.css" />
 
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
 	  <style>
 	.post-title {
 		font-size: 2em;
@@ -44,22 +45,31 @@
 	}
 </style>
 
-    <style>
+<style>
+	.single-post :not(pre) code {
+		background-color: #272822;
+		color: #f8f8f2;
+		border-radius: 0.3rem;
+		padding: 4px 5px 5px;
+	}
+</style>
+  <style>
 	@media screen and (min-width: 48em) and (max-width: 63.938em) {
 		.post-title {
-			font-size: 2.5em;
-			margin-bottom: 0.1em;
+			font-size: 3em;
+			margin-top: 0;
 		}
 	}
 
 	@media (min-width: 64em) {
 		.post-title {
-			font-size: 3em;
-			margin-bottom: 0.1em;
+			/* will affect single-post*/
+			font-size: 4em;
+			margin-top: 0;
 		}
 	}
 </style>
-  <style>
+    <style>
 	.post-meta {
 		color: #16663d;
 		font-size: 90%;
@@ -81,37 +91,7 @@
 		color: #fff;
 	}
 </style>
-  <style>
-	.read-more-link {
-		display: inline-block;
-		border: 2px solid rgb(61, 79, 93);
-		background: rgb(61, 79, 93);
-		padding: 0.7rem 0.9rem;
-		font-size: 1rem;
-		line-height: 1;
-		border-radius: 3px;
-		color: #fff;
-		font-weight: 600;
-		cursor: pointer;
-	}
-
-	.read-more-link:hover {
-		color: #fff;
-		box-shadow: 0 0.25em rgb(61, 79, 93);
-	}
-
-	.read-more-link:active,
-	.read-more-link:focus {
-		color: #fff;
-		box-shadow: 0.25em 0.25em rgb(61, 79, 93);
-		outline: 0.1em solid;
-	}
-
-	.read-more-link:visited {
-		color: #fff;
-	}
-</style>
-	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 </head>
 
 	<body>
@@ -358,7 +338,7 @@
 	}
 </style>
 
-<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/vendetta-surrounded-by-star-wars-stormtroopers-graffiti.webp')"  >
+<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/litenode-logo.avif')"  >
 	<div class="site-header-overlay"></div>
 		<div class="sidebar">
 		<div class="site-branding">
@@ -398,126 +378,95 @@
 
 			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-								<main class="site-main">
-					<!-- Start Post(s) Listing -->
+				  				<main class="single-post">
+					<!-- Start Markdown file content -->
 					<style>
-	.postList-article {
-		padding-bottom: 0.5em;
-		margin-top: 2rem;
-	}
-	.postList-article > p {
-		margin-bottom: 0;
-	}
-	/* .postList-article:first-child {
-		margin-top: 0;
-	} */
-	.postList-description {
-		color: #444;
-		line-height: 1.8em;
-	}
-	.postList-description a {
-		color: #000036;
-		text-decoration-line: underline;
-		text-decoration-color: #ea215a;
-		text-decoration-style: double;
-		text-decoration-thickness: 0.125em;
-		text-underline-offset: 1.5px;
-		text-decoration-skip-ink: none;
-		transition: 0.5s;
-	}
-	.postList-description a:hover,
-	.postList-description a:focus,
-	.postList-description a:active {
-		text-decoration: none;
-		color: white;
-		box-shadow: inset 0 -1.3em 0 0 #000;
-		outline: thin dotted #ea215a;
+	.author-greetings {
+		color: #000;
+		line-height: normal;
 	}
 </style>
 
-                <article class="postList-article">
-	<header class="post-header">
-		<h2 class="post-title">
-			<a href="/posts/back-to-the-roots-with-a-static-site" class="postList-link" rel="bookmark">Back to the roots with a static site</a>
-		</h2>
+<header class="post-header">
+	<h1 class="post-title">LiteNode, Node.js Web Framework</h1>
 		<p class="post-meta">
-			<span>Posted on</span>
-			<span class="posted-on">
-				<time class="postList-date" datetime='2020-05/04'>
-					Mon May 04 2020				</time>
-			</span>
+		<span>Posted on</span>
+		<span class="posted-on">
+			<time class="postList-date" datetime='2024-05/29'>
+				Wed May 29 2024			</time>
+		</span>
 
-						<br />
-			Tagged 			<span class="post-tag">
-				<a href="/tags/Development">Development</a>
-			</span>
-			  		</p>
-	</header>
+				<br />
+		<span>Tagged</span>
+		<!--Start tag(s)-->
+				<span class="post-tag">
+			<a href="/tags/Development">Development</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Framework">Framework</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/JavaScript">JavaScript</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Node.js">Node.js</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Router">Router</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Web-Server">Web-Server</a>
+		</span>
+				<!--End tag(s)-->
+			</p>
+	  </header>
 
-	<div class="postList-description">
-		<p>This post is about my own experience with development and static site.</p>
-	</div>
-	<p>
-		<a
-			href="/posts/back-to-the-roots-with-a-static-site"
-			class="read-more-link"
-			aria-label="Read More about Back to the roots with a static site"
-			tabindex="0"
-			role="button"
-			target="_self"
-		>
-			Read The Post
-		</a>
+<div class="post-content">
+		<p>
+		<em>This post is about a fast, lightweight, and independent Node.js web framework called LiteNode.</em>
 	</p>
-</article>
-             <article class="postList-article">
-	<header class="post-header">
-		<h2 class="post-title">
-			<a href="/posts/full-screen-morphing-search-plugin" class="postList-link" rel="bookmark">Full Screen Morphing Search Plugin</a>
-		</h2>
-		<p class="post-meta">
-			<span>Posted on</span>
-			<span class="posted-on">
-				<time class="postList-date" datetime='2020-04/28'>
-					Tue Apr 28 2020				</time>
-			</span>
+	  <h2>Intro</h2>
+<p>I&#39;ve highlighted in some of my previous articles that Node.js shouldn&#39;t be solely blamed for misuse, as any tool can fall victim to lazy implementation, including the rush to adopt the most popular solutions for integrating desired functionalities into applications.</p>
+<p>As I&#39;ve reiterated before, JavaScript isn&#39;t about piling up excessive code to accomplish simple tasks! You don&#39;t need a cannon to kill a fly, yet regrettably, that&#39;s the path many developers tend to take.</p>
+<p>Believing firmly in the mantra of simplicity coupled with efficiency, and the philosophy of writing less to achieve more, I advocate for embracing the JavaScript approach, particularly starting with ES6. Hence, my ongoing search for lightweight and effective solutions led me to discover <a href="https://github.com/ishtms/velocy">Velocy</a>: a blazing fast, minimal backend framework tailored for Node.js. It was invigorating to find like-minded individuals within the expansive Node.js ecosystem.</p>
+<p>Given Velocy&#39;s status as an ongoing open-source Node.js tutorial project, I felt inspired to contribute and further refine it. This led to the inception of my inaugural npm package, <a href="https://www.npmjs.com/package/litenode">LiteNode</a>.</p>
+<h2>Improvements from Velocy</h2>
+<p>As outlined in the <a href="https://www.npmjs.com/package/litenode#origins">Origins</a> section of LiteNode&#39;s documentation, the primary distinctions from Velocy, at present, include:</p>
+<ol>
+<li>JSON body parsing</li>
+<li>Integrated startServer Functionality</li>
+<li>Static Asset Loader</li>
+<li>Custom Error Handling</li>
+<li>Middleware Support</li>
+</ol>
+<p>Additionally, LiteNode can be utilized either through the <code>import</code> method for ES6 module apps or the <code>require</code> method for CommonJS modules.</p>
+<pre><code class="language-js">// ES6 import syntax
+import { LiteNode } from &quot;litenode&quot;
 
-						<br />
-			Tagged 			<span class="post-tag">
-				<a href="/tags/Development">Development</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/Plugin">Plugin</a>
-			</span>
-			  		</p>
-	</header>
-
-	<div class="postList-description">
-		<p>This post is about my first WordPress plugin, full screen morphing search.</p>
-	</div>
-	<p>
-		<a
-			href="/posts/full-screen-morphing-search-plugin"
-			class="read-more-link"
-			aria-label="Read More about Full Screen Morphing Search Plugin"
-			tabindex="0"
-			role="button"
-			target="_self"
-		>
-			Read The Post
-		</a>
+// CommonJS modules
+const { LiteNode } = require(&quot;litenode&quot;)
+</code></pre>
+<h2>Documentation</h2>
+<p>LiteNode&#39;s documentation is available on the <a href="https://www.npmjs.com/package/litenode">package&#39;s homepage</a> and its <a href="https://github.com/LebCit/litenode">GitHub repository</a>.</p>
+<h2>Ongoing Journey</h2>
+<p>As my quest for featherlight and effective solutions continues, LiteNode will similarly improve, as will <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>, achieving greater functionality with streamlined code.</p>
+<p>I hope users and developers in the Node.js ecosystem will find LiteNode a useful, simpler yet powerful alternative, especially with its approach of &quot;write less, do more!&quot;.</p>
+	<p class="author-greetings">
+		SYA,
+		<br />
+		LebCit.
 	</p>
-</article>
-   <style>
-	.pagination {
+</div>
+
+  <style>
+	.post-navigation {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: 1fr;
 		grid-column-gap: 16px;
 	}
 
-	.pagination a {
-		font-size: 1.5rem !important;
+	.post-navigation a {
 		margin: 1.5em 0;
 		border: 2px solid #000;
 		background: #000;
@@ -531,54 +480,81 @@
 		cursor: pointer;
 	}
 
-	.pagination .next-page {
+	.post-navigation .next-post {
 		grid-column-end: -1;
 	}
 
-	.pagination a:hover {
+	.post-navigation a:hover {
 		color: #fff;
 		box-shadow: 0 0.25em #000;
 	}
 
-	.pagination a:active,
-	.pagination a:focus {
+	.post-navigation a:active,
+	.post-navigation a:focus {
 		color: #fff;
 		box-shadow: 0.25em 0.25em #000;
 		outline: 0.1em solid;
 	}
 
 	@media screen and (max-width: 48em) {
-		.pagination {
+		.post-navigation {
 			display: grid;
 			grid-template-columns: 1fr;
 			grid-template-rows: repeat(2, 1fr);
 			grid-row-gap: 16px;
 		}
 
-		.pagination a {
+		.post-navigation a {
 			margin: 0;
 		}
 	}
 </style>
 
-  <nav class="pagination" aria-label="Blog pagination">
-	   	<a
-		href="/page/10"
-		class="next-page"
-		aria-label="Go to the next set of
-		posts"
-	>
-		Newer Posts
-	</a>
-	</nav>
-<p>
-	All posts can be found in
-	<a href="/posts">the archive</a>
-	📦
-</p>
-  					<!-- End Post(s) Listing -->
+<nav class="post-navigation" aria-label="Post navigation">
+		<a href="/posts/transferring-variables-and-functions-from-server-to-client-in-a-node-js-application-using-ejs-and-eta" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: Transferring Variables and Functions from Server to Client in a Node.js Application Using EJS and Eta	</a>
+	  </nav>
+   <style>
+	.related-posts div {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
+</style>
+
+<div class="related-posts">
+	<h3>SOME RELATED POSTS</h3>
+	<div>
+		      		<section>
+			<a href="/posts/node-modules-is-not-heavy-developers-are-lazy">
+				    				<img
+					class="img-responsive"
+					src="/static/img/black-words-graffitti-on-yellow-wall-saying-if-you-are-reading-this-it-is-time-to-change.avif"
+					alt="Black words graffitti on yellow wall saying if you are reading this it is time to change"
+				/>
+							</a>
+			<h4>
+				<a href="/posts/node-modules-is-not-heavy-developers-are-lazy">node_modules is not heavy, developers are lazy!</a>
+			</h4>
+		</section>
+		      		<section>
+			<a href="/posts/blog-doc-the-simplest-nodejs-cms-ssg">
+				    				<img
+					class="img-responsive"
+					src="/static/img/computer-programming-codes-displayed-on-monitor.avif"
+					alt="Computer programming codes displayed on monitor"
+				/>
+							</a>
+			<h4>
+				<a href="/posts/blog-doc-the-simplest-nodejs-cms-ssg">Blog-Doc, The Simplest Node.js CMS &amp; SSG !</a>
+			</h4>
+		</section>
+			</div>
+</div>
+  					<!-- End Markdown file content -->
 				</main>
-				       			</div>
+				     			</div>
 			<!--End content-->
 			<!--Start footer-->
 			<style>
@@ -605,7 +581,12 @@
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  
+		  		<script type="module">
+			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
+
+			hljs.highlightAll()
+		</script>
+		
 		<script src="/static/js/main.js"></script>
 	</body>
 </html>

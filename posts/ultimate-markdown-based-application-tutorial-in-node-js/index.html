@@ -4,13 +4,14 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-		<meta name="description" content="Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!" />
+		<meta name="description" content="This post is about learning to create a Markdown-based application in Node.js with LiteNode. From setup to deployment, dive into Markdown parsing, frontmatter handling, and dynamic content rendering" />
 	
-	<title>Home | { LebCit }</title>
+	<title>Ultimate Markdown-based Application Tutorial in Node.js! | { LebCit }</title>
 
 	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
 	<link rel="stylesheet" href="/static/css/main.min.css" />
 
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
 	  <style>
 	.post-title {
 		font-size: 2em;
@@ -44,22 +45,31 @@
 	}
 </style>
 
-    <style>
+<style>
+	.single-post :not(pre) code {
+		background-color: #272822;
+		color: #f8f8f2;
+		border-radius: 0.3rem;
+		padding: 4px 5px 5px;
+	}
+</style>
+  <style>
 	@media screen and (min-width: 48em) and (max-width: 63.938em) {
 		.post-title {
-			font-size: 2.5em;
-			margin-bottom: 0.1em;
+			font-size: 3em;
+			margin-top: 0;
 		}
 	}
 
 	@media (min-width: 64em) {
 		.post-title {
-			font-size: 3em;
-			margin-bottom: 0.1em;
+			/* will affect single-post*/
+			font-size: 4em;
+			margin-top: 0;
 		}
 	}
 </style>
-  <style>
+    <style>
 	.post-meta {
 		color: #16663d;
 		font-size: 90%;
@@ -81,37 +91,7 @@
 		color: #fff;
 	}
 </style>
-  <style>
-	.read-more-link {
-		display: inline-block;
-		border: 2px solid rgb(61, 79, 93);
-		background: rgb(61, 79, 93);
-		padding: 0.7rem 0.9rem;
-		font-size: 1rem;
-		line-height: 1;
-		border-radius: 3px;
-		color: #fff;
-		font-weight: 600;
-		cursor: pointer;
-	}
-
-	.read-more-link:hover {
-		color: #fff;
-		box-shadow: 0 0.25em rgb(61, 79, 93);
-	}
-
-	.read-more-link:active,
-	.read-more-link:focus {
-		color: #fff;
-		box-shadow: 0.25em 0.25em rgb(61, 79, 93);
-		outline: 0.1em solid;
-	}
-
-	.read-more-link:visited {
-		color: #fff;
-	}
-</style>
-	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 </head>
 
 	<body>
@@ -358,7 +338,7 @@
 	}
 </style>
 
-<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/vendetta-surrounded-by-star-wars-stormtroopers-graffiti.webp')"  >
+<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/modern-markdown-logo.avif')"  >
 	<div class="site-header-overlay"></div>
 		<div class="sidebar">
 		<div class="site-branding">
@@ -398,182 +378,112 @@
 
 			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-								<main class="site-main">
-					<!-- Start Post(s) Listing -->
+				  				<main class="single-post">
+					<!-- Start Markdown file content -->
 					<style>
-	.postList-article {
-		padding-bottom: 0.5em;
-		margin-top: 2rem;
-	}
-	.postList-article > p {
-		margin-bottom: 0;
-	}
-	/* .postList-article:first-child {
-		margin-top: 0;
-	} */
-	.postList-description {
-		color: #444;
-		line-height: 1.8em;
-	}
-	.postList-description a {
-		color: #000036;
-		text-decoration-line: underline;
-		text-decoration-color: #ea215a;
-		text-decoration-style: double;
-		text-decoration-thickness: 0.125em;
-		text-underline-offset: 1.5px;
-		text-decoration-skip-ink: none;
-		transition: 0.5s;
-	}
-	.postList-description a:hover,
-	.postList-description a:focus,
-	.postList-description a:active {
-		text-decoration: none;
-		color: white;
-		box-shadow: inset 0 -1.3em 0 0 #000;
-		outline: thin dotted #ea215a;
+	.author-greetings {
+		color: #000;
+		line-height: normal;
 	}
 </style>
 
-                <article class="postList-article">
-	<header class="post-header">
-		<h2 class="post-title">
-			<a href="/posts/blog-doc-updating-the-administration-design" class="postList-link" rel="bookmark">Blog-Doc, updating the administration design !</a>
-		</h2>
+<header class="post-header">
+	<h1 class="post-title">Ultimate Markdown-based Application Tutorial in Node.js!</h1>
 		<p class="post-meta">
-			<span>Posted on</span>
-			<span class="posted-on">
-				<time class="postList-date" datetime='2023-04/22'>
-					Sat Apr 22 2023				</time>
-			</span>
+		<span>Posted on</span>
+		<span class="posted-on">
+			<time class="postList-date" datetime='2024-07/01'>
+				Mon Jul 01 2024			</time>
+		</span>
 
-						<br />
-			Tagged 			<span class="post-tag">
-				<a href="/tags/Blog-Doc">Blog-Doc</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/CMS">CMS</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/SSG">SSG</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/Administration">Administration</a>
-			</span>
-			  		</p>
-	</header>
+				<br />
+		<span>Tagged</span>
+		<!--Start tag(s)-->
+				<span class="post-tag">
+			<a href="/tags/Developer Guide">Developer Guide</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Development">Development</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Dynamic Content">Dynamic Content</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Frontmatter">Frontmatter</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/JavaScript">JavaScript</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/LiteNode">LiteNode</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Markdown">Markdown</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Node.js">Node.js</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Programming">Programming</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Tutorial">Tutorial</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Web Application">Web Application</a>
+		</span>
+				<span class="post-tag">
+			<a href="/tags/Web Development">Web Development</a>
+		</span>
+				<!--End tag(s)-->
+			</p>
+	  </header>
 
-	<div class="postList-description">
-		<p>This post is about updating the design of Blog-Doc administration.</p>
-	</div>
-	<p>
-		<a
-			href="/posts/blog-doc-updating-the-administration-design"
-			class="read-more-link"
-			aria-label="Read More about Blog-Doc, updating the administration design !"
-			tabindex="0"
-			role="button"
-			target="_self"
-		>
-			Read The Post
-		</a>
+<div class="post-content">
+		<p>
+		<em>This post is about learning to create a Markdown-based application in Node.js with LiteNode. From setup to deployment, dive into Markdown parsing, frontmatter handling, and dynamic content rendering.</em>
 	</p>
-</article>
-             <article class="postList-article">
-	<header class="post-header">
-		<h2 class="post-title">
-			<a href="/posts/blog-doc-the-front-end-administration" class="postList-link" rel="bookmark">Blog-Doc, the front-end administration !</a>
-		</h2>
-		<p class="post-meta">
-			<span>Posted on</span>
-			<span class="posted-on">
-				<time class="postList-date" datetime='2023-04/13'>
-					Thu Apr 13 2023				</time>
-			</span>
-
-						<br />
-			Tagged 			<span class="post-tag">
-				<a href="/tags/Blog-Doc">Blog-Doc</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/CMS">CMS</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/SSG">SSG</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/Administration">Administration</a>
-			</span>
-			  		</p>
-	</header>
-
-	<div class="postList-description">
-		<p>This post is about the administration page of Blog-Doc.</p>
-	</div>
-	<p>
-		<a
-			href="/posts/blog-doc-the-front-end-administration"
-			class="read-more-link"
-			aria-label="Read More about Blog-Doc, the front-end administration !"
-			tabindex="0"
-			role="button"
-			target="_self"
-		>
-			Read The Post
-		</a>
+	  <h2>Dive into My Ultimate Markdown-based Application Tutorial in Node.js!</h2>
+<p>Hey everyone!</p>
+<p>I&#39;m thrilled to announce my latest and most comprehensive tutorial yet: <strong>&quot;Creating a Markdown-based Application in Node.js with LiteNode&quot;</strong>. But this isn&#39;t just any tutorial—it&#39;s presented as a web application, designed to be the definitive guide on this subject.</p>
+<h2>What&#39;s Inside?</h2>
+<ul>
+<li><strong>Comprehensive Guides</strong>: From setting up your environment to deploying your finished app, I cover it all.</li>
+<li><strong>Detailed Code Samples</strong>: Follow along with my carefully crafted code examples and understand each step.</li>
+<li><strong>Real-world Scenarios</strong>: Understand how to tackle common challenges and implement best practices in your projects.</li>
+<li><strong>Community Insights</strong>: Share your <a href="https://github.com/LebCit/litenode-markdown-app/discussions/categories/ideas">thoughts</a>, ask <a href="https://github.com/LebCit/litenode-markdown-app/discussions/categories/q-a">questions</a>, and <a href="https://github.com/LebCit/litenode-markdown-app/discussions/categories/general">collaborate</a> with fellow learners.</li>
+</ul>
+<h2>Why You Should Explore This Tutorial</h2>
+<ol>
+<li><strong>In-depth Knowledge</strong>: I dive deep into the concepts of Markdown parsing, frontmatter handling, and dynamic content rendering.</li>
+<li><strong>Practical Applications</strong>: Learn to build a robust Node.js application that you can adapt and expand for your projects.</li>
+<li><strong>Expert Tips</strong>: Benefit from my insights and experience in honing these techniques in real-world applications.</li>
+<li><strong>Engaging Learning</strong>: Enjoy a well-structured tutorial that makes complex concepts accessible and easy to follow.</li>
+</ol>
+<h2>How to Get Started</h2>
+<p>Head over to my <a href="https://litenode-markdown-app.pages.dev/">web application</a> and start your journey. Whether you&#39;re a seasoned developer or just starting, my tutorial is crafted to cater to all levels. You&#39;ll find learning these concepts more intuitive and enjoyable than ever.</p>
+<p>So, what are you waiting for? Dive in and let&#39;s build something amazing together!</p>
+<p>Happy coding!</p>
+<p><a href="https://litenode-markdown-app.pages.dev/tutorial/installation/">Explore the Tutorial</a></p>
+<hr>
+<p>I can&#39;t wait to see what you create. Feel free to <a href="https://github.com/LebCit/litenode-markdown-app/discussions/categories/show-and-tell">share your projects</a> and experiences with me.</p>
+<p>Sharing is caring, knowledge is for everyone!</p>
+	<p class="author-greetings">
+		SYA,
+		<br />
+		LebCit.
 	</p>
-</article>
-             <article class="postList-article">
-	<header class="post-header">
-		<h2 class="post-title">
-			<a href="/posts/blog-doc-the-simplest-nodejs-cms-ssg" class="postList-link" rel="bookmark">Blog-Doc, The Simplest Node.js CMS &amp; SSG !</a>
-		</h2>
-		<p class="post-meta">
-			<span>Posted on</span>
-			<span class="posted-on">
-				<time class="postList-date" datetime='2023-04/09'>
-					Sun Apr 09 2023				</time>
-			</span>
+</div>
 
-						<br />
-			Tagged 			<span class="post-tag">
-				<a href="/tags/Blog-Doc">Blog-Doc</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/CMS">CMS</a>
-			</span>
-						<span class="post-tag">
-				<a href="/tags/SSG">SSG</a>
-			</span>
-			  		</p>
-	</header>
-
-	<div class="postList-description">
-		<p>This post is about turning Blog-Doc into a CMS and SSG.</p>
-	</div>
-	<p>
-		<a
-			href="/posts/blog-doc-the-simplest-nodejs-cms-ssg"
-			class="read-more-link"
-			aria-label="Read More about Blog-Doc, The Simplest Node.js CMS &amp; SSG !"
-			tabindex="0"
-			role="button"
-			target="_self"
-		>
-			Read The Post
-		</a>
-	</p>
-</article>
-   <style>
-	.pagination {
+  <style>
+	.post-navigation {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: 1fr;
 		grid-column-gap: 16px;
 	}
 
-	.pagination a {
-		font-size: 1.5rem !important;
+	.post-navigation a {
 		margin: 1.5em 0;
 		border: 2px solid #000;
 		background: #000;
@@ -587,62 +497,81 @@
 		cursor: pointer;
 	}
 
-	.pagination .next-page {
+	.post-navigation .next-post {
 		grid-column-end: -1;
 	}
 
-	.pagination a:hover {
+	.post-navigation a:hover {
 		color: #fff;
 		box-shadow: 0 0.25em #000;
 	}
 
-	.pagination a:active,
-	.pagination a:focus {
+	.post-navigation a:active,
+	.post-navigation a:focus {
 		color: #fff;
 		box-shadow: 0.25em 0.25em #000;
 		outline: 0.1em solid;
 	}
 
 	@media screen and (max-width: 48em) {
-		.pagination {
+		.post-navigation {
 			display: grid;
 			grid-template-columns: 1fr;
 			grid-template-rows: repeat(2, 1fr);
 			grid-row-gap: 16px;
 		}
 
-		.pagination a {
+		.post-navigation a {
 			margin: 0;
 		}
 	}
 </style>
 
-  <nav class="pagination" aria-label="Blog pagination">
-	 	<a
-		href="/page/5"
-		class="prev-page"
-		aria-label="Go to the previous set of
-		posts"
-	>
-		Older Posts
-	</a>
-	  	<a
-		href="/page/3"
-		class="next-page"
-		aria-label="Go to the next set of
-		posts"
-	>
-		Newer Posts
-	</a>
-	</nav>
-<p>
-	All posts can be found in
-	<a href="/posts">the archive</a>
-	📦
-</p>
-  					<!-- End Post(s) Listing -->
+<nav class="post-navigation" aria-label="Post navigation">
+		<a href="/posts/litenode-nodejs-web-framework" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: LiteNode, Node.js Web Framework	</a>
+	  </nav>
+   <style>
+	.related-posts div {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
+</style>
+
+<div class="related-posts">
+	<h3>SOME RELATED POSTS</h3>
+	<div>
+		      		<section>
+			<a href="/posts/create-a-simple-markdown-based-blog-in-nodejs">
+								<img
+					class="img-responsive"
+					src="/static/img/graphic-of-white-camera-on-black-background-no-image-available.webp"
+					alt="Graphic of white camera on black background. No image available for this post."
+				/>
+							</a>
+			<h4>
+				<a href="/posts/create-a-simple-markdown-based-blog-in-nodejs">Create a simple Markdown-based blog in Node.js</a>
+			</h4>
+		</section>
+		      		<section>
+			<a href="/posts/litenode-nodejs-web-framework">
+				    				<img
+					class="img-responsive"
+					src="/static/img/litenode-logo.avif"
+					alt="Litenode logo"
+				/>
+							</a>
+			<h4>
+				<a href="/posts/litenode-nodejs-web-framework">LiteNode, Node.js Web Framework</a>
+			</h4>
+		</section>
+			</div>
+</div>
+  					<!-- End Markdown file content -->
 				</main>
-				       			</div>
+				     			</div>
 			<!--End content-->
 			<!--Start footer-->
 			<style>
@@ -669,7 +598,12 @@
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  
+		  		<script type="module">
+			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
+
+			hljs.highlightAll()
+		</script>
+		
 		<script src="/static/js/main.js"></script>
 	</body>
 </html>

@@ -6,9 +6,27 @@
 		<description>Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</description>
 		<language>en-US</language>
 		<copyright>Copyright (c) 2022 - Present, LebCit under the MIT License</copyright>
-		<pubDate>Tue, 28 May 2024 21:00:00 GMT</pubDate>
-		<lastBuildDate>Tue, 28 May 2024 21:00:00 GMT</lastBuildDate>
+		<pubDate>Sun, 30 Jun 2024 21:00:00 GMT</pubDate>
+		<lastBuildDate>Sun, 30 Jun 2024 21:00:00 GMT</lastBuildDate>
 		<docs>https://www.rssboard.org/rss-specification</docs>
+					<item>
+				<title>Ultimate Markdown-based Application Tutorial in Node.js!</title>
+				<link>https://lebcit.github.io/posts/ultimate-markdown-based-application-tutorial-in-node-js</link>
+								<description>learning to create a Markdown-based application in Node.js with LiteNode. From setup to deployment, dive into Markdown parsing, frontmatter handling, and dynamic content rendering</description>
+																<category domain="https://lebcit.github.io/tags/Developer Guide">Developer Guide</category>
+								<category domain="https://lebcit.github.io/tags/Development">Development</category>
+								<category domain="https://lebcit.github.io/tags/Dynamic Content">Dynamic Content</category>
+								<category domain="https://lebcit.github.io/tags/Frontmatter">Frontmatter</category>
+								<category domain="https://lebcit.github.io/tags/JavaScript">JavaScript</category>
+								<category domain="https://lebcit.github.io/tags/LiteNode">LiteNode</category>
+								<category domain="https://lebcit.github.io/tags/Markdown">Markdown</category>
+								<category domain="https://lebcit.github.io/tags/Node.js">Node.js</category>
+								<category domain="https://lebcit.github.io/tags/Programming">Programming</category>
+								<category domain="https://lebcit.github.io/tags/Tutorial">Tutorial</category>
+								<category domain="https://lebcit.github.io/tags/Web Application">Web Application</category>
+								<category domain="https://lebcit.github.io/tags/Web Development">Web Development</category>
+												<pubDate>Sun, 30 Jun 2024 21:00:00 GMT</pubDate>
+			</item>
 					<item>
 				<title>LiteNode, Node.js Web Framework</title>
 				<link>https://lebcit.github.io/posts/litenode-nodejs-web-framework</link>

@@ -1,51 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="A list of all the tags" />
-	
-	<title>Tags | { LebCit }</title>
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
-	<link rel="stylesheet" href="/static/css/main.min.css" />
+		<title>Tags | { LebCit }</title>
 
-	  <style>
-	.post-title {
-		font-size: 2em;
-		color: #222;
-		margin-bottom: 0.2em;
-	}
+		<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
+		<link rel="stylesheet" href="/static/styles/themes/midday/midday-styles-min.css" />
 
-	.post-content {
-		color: #444;
-		line-height: 1.8em;
-	}
+		<!-- COMMON STYLES -->
+		<style>
+			.post-title {
+				font-size: 2em;
+				color: #222;
+				margin-bottom: 0.2em;
+			}
 
-	.post-content a {
-		color: #000036;
-		text-decoration-line: underline;
-		text-decoration-color: #ea215a;
-		text-decoration-style: double;
-		text-decoration-thickness: 0.125em;
-		text-underline-offset: 1.5px;
-		text-decoration-skip-ink: none;
-		transition: 0.5s;
-	}
+			.post-content {
+				color: #444;
+				line-height: 1.8em;
+			}
 
-	.post-content a:hover,
-	.post-content a:focus,
-	.post-content a:active {
-		text-decoration: none;
-		color: white;
-		box-shadow: inset 0 -1.3em 0 0 #000;
-		outline: thin dotted #ea215a;
-	}
-</style>
+			.post-content a {
+				color: #000036;
+				text-decoration-line: underline;
+				text-decoration-color: #ea215a;
+				text-decoration-style: double;
+				text-decoration-thickness: 0.125em;
+				text-underline-offset: 1.5px;
+				text-decoration-skip-ink: none;
+				transition: 0.5s;
+			}
 
-        	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
-</head>
+			.post-content a:hover,
+			.post-content a:focus,
+			.post-content a:active {
+				text-decoration: none;
+				color: white;
+				box-shadow: inset 0 -1.3em 0 0 #000;
+				outline: thin dotted #ea215a;
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+
+		<!-- Dynamic Markup Separator -->
+
+		<!-- Dynamic Markup Separator -->
+
+		<!-- Dynamic Markup Separator -->
+	</head>
 
 	<body>
 		<!--Start page-->
@@ -54,693 +61,654 @@
 
 			<!--Start menu-->
 			<style>
-	.invisible {
-		visibility: hidden;
-	}
+				.invisible {
+					visibility: hidden;
+				}
 
-	.overlay {
-		position: fixed;
-		width: 0;
-		height: 100%;
-		top: 0;
-		right: 0;
-		background-color: rgba(0, 0, 0, 0.9);
-		z-index: 2;
-		letter-spacing: normal;
-		overflow-x: hidden;
-		transition: 0.5s;
-	}
+				.overlay {
+					position: fixed;
+					width: 0;
+					height: 100%;
+					top: 0;
+					right: 0;
+					background-color: rgba(0, 0, 0, 0.9);
+					z-index: 2;
+					letter-spacing: normal;
+					overflow-x: hidden;
+					transition: 0.5s;
+				}
 
-	.overlay-content {
-		position: relative;
-		top: 25%;
-		width: 100%;
-		text-align: center;
-		margin-top: 30px;
-	}
+				.overlay-content {
+					position: relative;
+					top: 25%;
+					width: 100%;
+					text-align: center;
+					margin-top: 30px;
+				}
 
-	.overlay li {
-		list-style: none;
-	}
+				.overlay li {
+					list-style: none;
+				}
 
-	.overlay a {
-		padding: 8px;
-		text-decoration: none;
-		font-size: 36px;
-		color: #818181;
-		display: block;
-		transition: 0.3s;
-	}
+				.overlay a {
+					padding: 8px;
+					text-decoration: none;
+					font-size: 36px;
+					color: #818181;
+					display: block;
+					transition: 0.3s;
+				}
 
-	.overlay a:hover,
-	.overlay a:focus {
-		color: #f1f1f1;
-		background-color: #222;
-		border: 1px solid red;
-		border-style: dashed;
-	}
+				.overlay a:hover,
+				.overlay a:focus {
+					color: #f1f1f1;
+					background-color: #222;
+					border: 1px solid red;
+					border-style: dashed;
+				}
 
-	.overlay .close-button {
-		position: absolute;
-		top: 20px;
-		right: 45px;
-		font-size: 60px;
-	}
-</style>
+				.overlay .close-button {
+					position: absolute;
+					top: 20px;
+					right: 45px;
+					font-size: 60px;
+				}
+			</style>
 
-<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
-	<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">
-		&times;
-	</a>
-	
-	<div class="overlay-content">
-		<a href="/">Home</a>
-				<li class="pure-menu-item">
-			<a href="/posts">Archive</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/tags">Tags</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/search">Search</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/pages/my-public-projects">Projects</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/pages/about">About Me</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/rss.xml">RSS</a>
-		</li>
+			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+				<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
+
+				<div class="overlay-content">
+					<a href="/">Home</a>
+
+					<li class="pure-menu-item">
+						<a href="/posts">Archive</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/tags">Tags</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/search">Search</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/pages/my-public-projects">Projects</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/pages/about">About Me</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/rss.xml">RSS</a>
+					</li>
+				</div>
 			</div>
-</div>
+
 			<!--End menu-->
+
 			<!--Start masthead-->
 			<style>
-	/* SITE HEADER */
-	.site-header {
-		background: rgb(61, 79, 93);
-		color: #fff;
-	}
+				/* SITE HEADER */
+				.site-header {
+					background: rgb(61, 79, 93);
+					color: #fff;
+				}
 
-	.sidebar {
-		margin: 1em;
-	}
+				.sidebar {
+					margin: 1em;
+				}
 
-	.site-title,
-	.site-description {
-		margin: 0;
-		line-height: 1.2;
-	}
+				.site-title,
+				.site-description {
+					margin: 0;
+					line-height: 1.2;
+				}
 
-	.site-title a {
-		color: #fff;
-		text-decoration: none;
-	}
+				.site-title a {
+					color: #fff;
+					text-decoration: none;
+				}
 
-	.site-title a:hover,
-	.site-title a:focus {
-		text-decoration: underline;
-	}
+				.site-title a:hover,
+				.site-title a:focus {
+					text-decoration: underline;
+				}
 
-	.site-description {
-		font-weight: 300;
-		color: rgb(176, 202, 219);
-		margin: 0.5em 0 2em 0;
-	}
+				.site-description {
+					font-weight: 300;
+					color: rgb(176, 202, 219);
+					margin: 0.5em 0 2em 0;
+				}
 
-	/* MENU BUTTON */
-	.nav-list {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
+				/* MENU BUTTON */
+				.nav-list {
+					margin: 0;
+					padding: 0;
+					list-style: none;
+				}
 
-	.nav-item {
-		display: inline-block;
-	}
+				.nav-item {
+					display: inline-block;
+				}
 
-	.nav-item a {
-		background: black;
-		border: 2px solid rgb(176, 202, 219);
-		border-radius: 2px;
-		color: #fff;
-		padding: 0.5em 1em;
-		margin-top: 1em;
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
-		font-size: 85%;
-	}
+				.nav-item a {
+					background: black;
+					border: 2px solid rgb(176, 202, 219);
+					border-radius: 2px;
+					color: #fff;
+					padding: 0.5em 1em;
+					margin-top: 1em;
+					letter-spacing: 0.05em;
+					text-transform: uppercase;
+					font-size: 85%;
+				}
 
-	.nav-item a:hover,
-	.nav-item a:focus {
-		border: 2px solid rgb(61, 146, 201);
-		text-decoration: none;
-	}
+				.nav-item a:hover,
+				.nav-item a:focus {
+					border: 2px solid rgb(61, 146, 201);
+					text-decoration: none;
+				}
 
-	.nav-item a svg {
-		fill: aliceblue;
-		vertical-align: bottom;
-		padding: 4px 0 2px;
-	}
+				.nav-item a svg {
+					fill: aliceblue;
+					vertical-align: bottom;
+					padding: 4px 0 2px;
+				}
 
-	@media screen and (max-width: 35.5em) {
-		.nav-item a svg {
-			padding-top: 14px;
-		}
-	}
+				@media screen and (max-width: 35.5em) {
+					.nav-item a svg {
+						padding-top: 14px;
+					}
+				}
 
-	@media screen and (min-width: 35.5em) and (max-width: 48em) {
-		.nav-item a svg {
-			padding-top: 12px;
-		}
-	}
+				@media screen and (min-width: 35.5em) and (max-width: 48em) {
+					.nav-item a svg {
+						padding-top: 12px;
+					}
+				}
 
-	@media screen and (min-width: 48em) and (max-width: 63.938em) {
-		.nav-item a svg {
-			padding-top: 10px;
-		}
-	}
+				@media screen and (min-width: 48em) and (max-width: 63.938em) {
+					.nav-item a svg {
+						padding-top: 10px;
+					}
+				}
 
-	/* more then 1023px an less then 1024px */
-	@media (max-width: 63.969em) {
-		.site-header.bio {
-			background-image: none !important;
-		}
-		.nav {
-			position: fixed;
-			top: 15px;
-			right: 10px;
-			z-index: 1;
-		}
-	}
+				/* more then 1023px an less then 1024px */
+				@media (max-width: 63.969em) {
+					.site-header.bio {
+						background-image: none !important;
+					}
+					.nav {
+						position: fixed;
+						top: 15px;
+						right: 10px;
+						z-index: 1;
+					}
+				}
 
-	@media (min-width: 64em) {
-		.site-header {
-			position: fixed;
-			top: 0;
-			bottom: 0;
-			overflow-y: auto;
-		}
+				@media (min-width: 64em) {
+					.site-header {
+						position: fixed;
+						top: 0;
+						bottom: 0;
+						overflow-y: auto;
+					}
 
-		.site-header.bio {
-			background-repeat: no-repeat;
-			background-position: top;
-			background-size: cover;
-		}
+					.site-header.bio {
+						background-repeat: no-repeat;
+						background-position: top;
+						background-size: cover;
+					}
 
-		.site-header.bio .site-header-overlay {
-			position: fixed;
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: rgba(0, 0, 0, 0.6);
-		}
+					.site-header.bio .site-header-overlay {
+						position: fixed;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						background-color: rgba(0, 0, 0, 0.6);
+					}
 
-		/* The emerging W3C standard
+					/* The emerging W3C standard
  that is currently Firefox-only */
-		.site-header {
-			scrollbar-width: thin;
-		}
+					.site-header {
+						scrollbar-width: thin;
+					}
 
-		/* Works on Chrome/Edge/Safari */
-		.site-header::-webkit-scrollbar {
-			width: 7px;
-		}
+					/* Works on Chrome/Edge/Safari */
+					.site-header::-webkit-scrollbar {
+						width: 7px;
+					}
 
-		.site-header::-webkit-scrollbar-track {
-			background: #313d48;
-		}
+					.site-header::-webkit-scrollbar-track {
+						background: #313d48;
+					}
 
-		.site-header::-webkit-scrollbar-thumb {
-			background-color: #81898f;
-		}
+					.site-header::-webkit-scrollbar-thumb {
+						background-color: #81898f;
+					}
 
-		.sidebar {
-			margin: 10% 2em;
-			text-align: left;
-		}
+					.sidebar {
+						margin: 10% 2em;
+						text-align: left;
+					}
 
-		.site-header.bio .sidebar {
-			position: sticky;
-		}
-	}
-</style>
+					.site-header.bio .sidebar {
+						position: sticky;
+					}
+				}
+			</style>
 
-<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/white-graffiti-on-chalkboard.jpg')"  >
-	<div class="site-header-overlay"></div>
-		<div class="sidebar">
-		<div class="site-branding">
-			<h1 class="site-title">
-				<a href="/">{ LebCit }</a>
-			</h1>
-			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</p>
-		</div>
+			<!-- Start #masthead -->
 
-				<nav id="nav" class="nav" aria-label="MENU">
-			<ul class="nav-list">
-				<li class="nav-item">
-					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
-						<span>MENU</span>
-						<span class="menu-icon" aria-hidden="true">
-							<svg
-								version="1.1"
-								x="0px"
-								y="0px"
-								width="30px"
-								height="30px"
-								viewbox="0 0 30 30"
-								enable-background="new 0 0 30 30"
-							>
-								<rect width="30" height="5" />
-								<rect y="24" width="30" height="5" />
-								<rect y="12" width="30" height="5" />
-							</svg>
-						</span>
-					</a>
-				</li>
-			</ul>
-		</nav>
-			</div>
-	</header>
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="background-image: url(/static/images/white-graffiti-on-chalkboard.jpg)"
+			>
+				<div class="site-header-overlay"></div>
+				<!-- Start .sidebar-->
+				<div class="sidebar">
+					<div class="site-branding">
+						<h1 class="site-title">
+							<a href="/">{ LebCit } </a>
+						</h1>
+						<p class="site-description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
+
+					<!-- Menu button start -->
+					<nav id="nav" class="nav" aria-label="MENU">
+						<ul class="nav-list">
+							<li class="nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewbox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<!-- Menu button end -->
+				</div>
+				<!-- End .sidebar-->
+			</header>
+			<!-- End #masthead-->
+
 			<!--End masthead-->
 
 			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				   				<main class="single-post">
+				<!-- TAGS ROUTE -->
+				<main class="single-post">
 					<!-- Start Tag(s) Listing -->
 					<style>
-	.tags {
-		list-style: none;
-	}
+						.tags {
+							list-style: none;
+						}
 
-	.tag__link {
-		padding: 5px 5px 0;
-		transition: 0.3s;
-		text-decoration: none;
-		color: #ee4266;
-	}
+						.tag__link {
+							padding: 5px 5px 0;
+							transition: 0.3s;
+							text-decoration: none;
+							color: #ee4266;
+						}
 
-	.tag__link:focus,
-	.tag__link:hover {
-		color: black;
-		box-shadow: inset 0 -1.3em 0 0 #ee4266;
-	}
-	@media screen and (min-width: 64em) {
-		.tag__link {
-			font-size: 2em;
-		}
-	}
-</style>
+						.tag__link:focus,
+						.tag__link:hover {
+							color: black;
+							box-shadow: inset 0 -1.3em 0 0 #ee4266;
+						}
+						@media screen and (min-width: 64em) {
+							.tag__link {
+								font-size: 2em;
+							}
+						}
+					</style>
 
-<h1>A list of all the tags 🏷️</h1>
+					<h1>A list of all the tags 🏷️</h1>
 
-  
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Administration">
-			Administration			<span>(2 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Apps Script">
-			Apps Script			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Blog-Doc">
-			Blog-Doc			<span>(6 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/CMS">
-			CMS			<span>(4 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/CSP">
-			CSP			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/CSS">
-			CSS			<span>(2 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Copyright">
-			Copyright			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Customizer">
-			Customizer			<span>(3 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Developer Guide">
-			Developer Guide			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Development">
-			Development			<span>(22 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Documentation">
-			Documentation			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Dynamic Content">
-			Dynamic Content			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/EJS">
-			EJS			<span>(7 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Eta">
-			Eta			<span>(3 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Express">
-			Express			<span>(4 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Framework">
-			Framework			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Frontmatter">
-			Frontmatter			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Google Forms">
-			Google Forms			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Google Sheets">
-			Google Sheets			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Hono">
-			Hono			<span>(2 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/JavaScript">
-			JavaScript			<span>(13 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/LiteNode">
-			LiteNode			<span>(2 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Markdown">
-			Markdown			<span>(4 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Markdown Editor">
-			Markdown Editor			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Markdown Previewer">
-			Markdown Previewer			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Marked">
-			Marked			<span>(2 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Modules">
-			Modules			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Node.js">
-			Node.js			<span>(14 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Nonce">
-			Nonce			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Plugin">
-			Plugin			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Programming">
-			Programming			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Query Language">
-			Query Language			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Router">
-			Router			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/SSG">
-			SSG			<span>(4 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Theme">
-			Theme			<span>(3 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Tips and Tricks">
-			Tips and Tricks			<span>(10 posts)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Toolbar">
-			Toolbar			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Tutorial">
-			Tutorial			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Web Application">
-			Web Application			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Web Development">
-			Web Development			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Web-Server">
-			Web-Server			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
-   
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Wrapper">
-			Wrapper			<span>(1 post)</span>
-					</a>
-	</li>
-</ul>
- 					<!-- End Tag(s) Listing -->
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Administration">Administration (2 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Apps-Script">Apps-Script (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Blog-Doc">Blog-Doc (7 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/CMS">CMS (5 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/CSP">CSP (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/CSS">CSS (2 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Copyright">Copyright (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Customizer">Customizer (3 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Developer-Guide">Developer-Guide (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Development">Development (23 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Documentation">Documentation (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Dynamic-Content">Dynamic-Content (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/EJS">EJS (7 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Eta">Eta (3 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Express">Express (4 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Framework">Framework (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Frontmatter">Frontmatter (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Google-Forms">Google-Forms (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Google-Sheets">Google-Sheets (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Hono">Hono (2 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/JavaScript">JavaScript (13 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/LiteNode">LiteNode (3 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Markdown">Markdown (4 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Markdown-Editor">Markdown-Editor (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Markdown-Previewer">Markdown-Previewer (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Marked">Marked (3 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Modules">Modules (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Node.js">Node.js (15 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Nonce">Nonce (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Plugin">Plugin (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Programming">Programming (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Query-Language">Query-Language (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Router">Router (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/SSG">SSG (5 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Theme">Theme (3 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Tips-and-Tricks">Tips-and-Tricks (10 posts)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Toolbar">Toolbar (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Tutorial">Tutorial (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Web-Application">Web-Application (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Web-Development">Web-Development (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Web-Server">Web-Server (1 post)</a>
+						</li>
+					</ul>
+
+					<ul class="tags">
+						<li class="tag">
+							<a class="tag__link" href="/tags/Wrapper">Wrapper (1 post)</a>
+						</li>
+					</ul>
+
+					<!-- End Tag(s) Listing -->
 				</main>
-				    			</div>
+			</div>
 			<!--End content-->
+
 			<!--Start footer-->
 			<style>
-	.site-footer {
-		text-align: center;
-		padding-top: 2em;
-	}
-	@media (min-width: 64em) {
-		.site-footer {
-			padding: 2em 3em;
-			margin-left: 40%;
-		}
-	}
-</style>
+				.site-footer {
+					text-align: center;
+					padding-top: 2em;
+				}
+				@media (min-width: 64em) {
+					.site-footer {
+						padding: 2em 3em;
+						margin-left: 40%;
+					}
+				}
+			</style>
 
-<footer id="colophon" class="site-footer unit-1">
-	<style>
-	/* more then 1023px an less then 1024px */
-	@media (max-width: 63.969em) {
-		.hide {
-			display: none;
-		}
-	}
-</style>
-        <p class="post-content hide">
-	<em>
-		Note:
-		<a href="https://unsplash.com/photos/u4hdPI0lVGE">background photo</a>
-		used, by
-		<a href="https://unsplash.com/@jontyson">Jon Tyson</a>
-	</em>
-</p>
-	<div id="site-info" class="site-info">
-		<p>
-			<strong>2016 - 2024 | { LebCit }</strong>
-			<br />
-			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
-	</div>
-</footer>
+			<footer id="colophon" class="site-footer unit-1">
+				<style>
+					/* more then 1023px an less then 1024px */
+					@media (max-width: 63.969em) {
+						.hide {
+							display: none;
+						}
+					}
+				</style>
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<p class="post-content hide">
+					<em>
+						Note: The
+						<a href="https://unsplash.com/photos/u4hdPI0lVGE">background photo</a>
+						is by
+						<a href="https://unsplash.com/@jontyson">Jon Tyson</a>
+					</em>
+				</p>
+
+				<!--Dynamic Markup Separator-->
+
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2024 | { LebCit } </strong>
+						<br />
+						Proudly created with <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>
+					</p>
+				</div>
+			</footer>
+
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  
-		<script src="/static/js/main.js"></script>
+
+		<script type="module" src="/static/scripts/themes/midday/midday-scripts.js"></script>
 	</body>
 </html>

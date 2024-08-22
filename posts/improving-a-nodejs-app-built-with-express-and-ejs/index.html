@@ -1,98 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-		<meta name="description" content="This post is about improving a Node.js application built with Express and EJS" />
-	
-	<title>Improving a Node.js app built with Express and EJS | { LebCit }</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
-	<link rel="stylesheet" href="/static/css/main.min.css" />
+		<meta
+			name="description"
+			content="This post is about improving a Node.js application built with Express and EJS."
+		/>
 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
-	  <style>
-	.post-title {
-		font-size: 2em;
-		color: #222;
-		margin-bottom: 0.2em;
-	}
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-	.post-content {
-		color: #444;
-		line-height: 1.8em;
-	}
+		<title>Improving a Node.js app built with Express and EJS | { LebCit }</title>
 
-	.post-content a {
-		color: #000036;
-		text-decoration-line: underline;
-		text-decoration-color: #ea215a;
-		text-decoration-style: double;
-		text-decoration-thickness: 0.125em;
-		text-underline-offset: 1.5px;
-		text-decoration-skip-ink: none;
-		transition: 0.5s;
-	}
+		<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
+		<link rel="stylesheet" href="/static/styles/themes/midday/midday-styles-min.css" />
 
-	.post-content a:hover,
-	.post-content a:focus,
-	.post-content a:active {
-		text-decoration: none;
-		color: white;
-		box-shadow: inset 0 -1.3em 0 0 #000;
-		outline: thin dotted #ea215a;
-	}
-</style>
+		<link rel="stylesheet" href="/static/vendors/highlight/atom-one-dark.min.css" />
 
-<style>
-	.single-post :not(pre) code {
-		background-color: #272822;
-		color: #f8f8f2;
-		border-radius: 0.3rem;
-		padding: 4px 5px 5px;
-	}
-</style>
-  <style>
-	@media screen and (min-width: 48em) and (max-width: 63.938em) {
-		.post-title {
-			font-size: 3em;
-			margin-top: 0;
-		}
-	}
+		<!-- COMMON STYLES -->
+		<style>
+			.post-title {
+				font-size: 2em;
+				color: #222;
+				margin-bottom: 0.2em;
+			}
 
-	@media (min-width: 64em) {
-		.post-title {
-			/* will affect single-post*/
-			font-size: 4em;
-			margin-top: 0;
-		}
-	}
-</style>
-    <style>
-	.post-meta {
-		color: #16663d;
-		font-size: 90%;
-		margin: 0;
-	}
+			.post-content {
+				color: #444;
+				line-height: 1.8em;
+			}
 
-	.posted-on {
-		color: #ad1a36;
-	}
+			.post-content a {
+				color: #000036;
+				text-decoration-line: underline;
+				text-decoration-color: #ea215a;
+				text-decoration-style: double;
+				text-decoration-thickness: 0.125em;
+				text-underline-offset: 1.5px;
+				text-decoration-skip-ink: none;
+				transition: 0.5s;
+			}
 
-	.post-tag {
-		margin: 0 0.1em;
-		padding: 0.2em 0.8em;
-		background: #ad1a36;
-		font-size: 80%;
-	}
+			.post-content a:hover,
+			.post-content a:focus,
+			.post-content a:active {
+				text-decoration: none;
+				color: white;
+				box-shadow: inset 0 -1.3em 0 0 #000;
+				outline: thin dotted #ea215a;
+			}
+		</style>
 
-	.post-tag a {
-		color: #fff;
-	}
-</style>
-  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
-</head>
+		<style>
+			.single-post :not(pre) code {
+				background-color: #272822;
+				color: #f8f8f2;
+				border-radius: 0.3rem;
+				padding: 4px 5px 5px;
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+
+		<style>
+			@media screen and (min-width: 48em) and (max-width: 63.938em) {
+				.post-title {
+					font-size: 3em;
+					margin-top: 0;
+				}
+			}
+
+			@media (min-width: 64em) {
+				.post-title {
+					/* will affect single-post*/
+					font-size: 4em;
+					margin-top: 0;
+				}
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+
+		<!-- Dynamic Markup Separator -->
+
+		<style>
+			.post-meta {
+				color: #16663d;
+				font-size: 90%;
+				margin: 0;
+			}
+
+			.posted-on {
+				color: #ad1a36;
+			}
+
+			.post-tag {
+				margin: 0 0.1em;
+				padding: 0.2em 0.8em;
+				background: #ad1a36;
+				font-size: 80%;
+			}
+
+			.post-tag a {
+				color: #fff;
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+	</head>
 
 	<body>
 		<!--Start page-->
@@ -101,338 +117,398 @@
 
 			<!--Start menu-->
 			<style>
-	.invisible {
-		visibility: hidden;
-	}
+				.invisible {
+					visibility: hidden;
+				}
 
-	.overlay {
-		position: fixed;
-		width: 0;
-		height: 100%;
-		top: 0;
-		right: 0;
-		background-color: rgba(0, 0, 0, 0.9);
-		z-index: 2;
-		letter-spacing: normal;
-		overflow-x: hidden;
-		transition: 0.5s;
-	}
+				.overlay {
+					position: fixed;
+					width: 0;
+					height: 100%;
+					top: 0;
+					right: 0;
+					background-color: rgba(0, 0, 0, 0.9);
+					z-index: 2;
+					letter-spacing: normal;
+					overflow-x: hidden;
+					transition: 0.5s;
+				}
 
-	.overlay-content {
-		position: relative;
-		top: 25%;
-		width: 100%;
-		text-align: center;
-		margin-top: 30px;
-	}
+				.overlay-content {
+					position: relative;
+					top: 25%;
+					width: 100%;
+					text-align: center;
+					margin-top: 30px;
+				}
 
-	.overlay li {
-		list-style: none;
-	}
+				.overlay li {
+					list-style: none;
+				}
 
-	.overlay a {
-		padding: 8px;
-		text-decoration: none;
-		font-size: 36px;
-		color: #818181;
-		display: block;
-		transition: 0.3s;
-	}
+				.overlay a {
+					padding: 8px;
+					text-decoration: none;
+					font-size: 36px;
+					color: #818181;
+					display: block;
+					transition: 0.3s;
+				}
 
-	.overlay a:hover,
-	.overlay a:focus {
-		color: #f1f1f1;
-		background-color: #222;
-		border: 1px solid red;
-		border-style: dashed;
-	}
+				.overlay a:hover,
+				.overlay a:focus {
+					color: #f1f1f1;
+					background-color: #222;
+					border: 1px solid red;
+					border-style: dashed;
+				}
 
-	.overlay .close-button {
-		position: absolute;
-		top: 20px;
-		right: 45px;
-		font-size: 60px;
-	}
-</style>
+				.overlay .close-button {
+					position: absolute;
+					top: 20px;
+					right: 45px;
+					font-size: 60px;
+				}
+			</style>
 
-<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
-	<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">
-		&times;
-	</a>
-	
-	<div class="overlay-content">
-		<a href="/">Home</a>
-				<li class="pure-menu-item">
-			<a href="/posts">Archive</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/tags">Tags</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/search">Search</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/pages/my-public-projects">Projects</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/pages/about">About Me</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/rss.xml">RSS</a>
-		</li>
+			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+				<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
+
+				<div class="overlay-content">
+					<a href="/">Home</a>
+
+					<li class="pure-menu-item">
+						<a href="/posts">Archive</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/tags">Tags</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/search">Search</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/pages/my-public-projects">Projects</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/pages/about">About Me</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/rss.xml">RSS</a>
+					</li>
+				</div>
 			</div>
-</div>
+
 			<!--End menu-->
+
 			<!--Start masthead-->
 			<style>
-	/* SITE HEADER */
-	.site-header {
-		background: rgb(61, 79, 93);
-		color: #fff;
-	}
+				/* SITE HEADER */
+				.site-header {
+					background: rgb(61, 79, 93);
+					color: #fff;
+				}
 
-	.sidebar {
-		margin: 1em;
-	}
+				.sidebar {
+					margin: 1em;
+				}
 
-	.site-title,
-	.site-description {
-		margin: 0;
-		line-height: 1.2;
-	}
+				.site-title,
+				.site-description {
+					margin: 0;
+					line-height: 1.2;
+				}
 
-	.site-title a {
-		color: #fff;
-		text-decoration: none;
-	}
+				.site-title a {
+					color: #fff;
+					text-decoration: none;
+				}
 
-	.site-title a:hover,
-	.site-title a:focus {
-		text-decoration: underline;
-	}
+				.site-title a:hover,
+				.site-title a:focus {
+					text-decoration: underline;
+				}
 
-	.site-description {
-		font-weight: 300;
-		color: rgb(176, 202, 219);
-		margin: 0.5em 0 2em 0;
-	}
+				.site-description {
+					font-weight: 300;
+					color: rgb(176, 202, 219);
+					margin: 0.5em 0 2em 0;
+				}
 
-	/* MENU BUTTON */
-	.nav-list {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
+				/* MENU BUTTON */
+				.nav-list {
+					margin: 0;
+					padding: 0;
+					list-style: none;
+				}
 
-	.nav-item {
-		display: inline-block;
-	}
+				.nav-item {
+					display: inline-block;
+				}
 
-	.nav-item a {
-		background: black;
-		border: 2px solid rgb(176, 202, 219);
-		border-radius: 2px;
-		color: #fff;
-		padding: 0.5em 1em;
-		margin-top: 1em;
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
-		font-size: 85%;
-	}
+				.nav-item a {
+					background: black;
+					border: 2px solid rgb(176, 202, 219);
+					border-radius: 2px;
+					color: #fff;
+					padding: 0.5em 1em;
+					margin-top: 1em;
+					letter-spacing: 0.05em;
+					text-transform: uppercase;
+					font-size: 85%;
+				}
 
-	.nav-item a:hover,
-	.nav-item a:focus {
-		border: 2px solid rgb(61, 146, 201);
-		text-decoration: none;
-	}
+				.nav-item a:hover,
+				.nav-item a:focus {
+					border: 2px solid rgb(61, 146, 201);
+					text-decoration: none;
+				}
 
-	.nav-item a svg {
-		fill: aliceblue;
-		vertical-align: bottom;
-		padding: 4px 0 2px;
-	}
+				.nav-item a svg {
+					fill: aliceblue;
+					vertical-align: bottom;
+					padding: 4px 0 2px;
+				}
 
-	@media screen and (max-width: 35.5em) {
-		.nav-item a svg {
-			padding-top: 14px;
-		}
-	}
+				@media screen and (max-width: 35.5em) {
+					.nav-item a svg {
+						padding-top: 14px;
+					}
+				}
 
-	@media screen and (min-width: 35.5em) and (max-width: 48em) {
-		.nav-item a svg {
-			padding-top: 12px;
-		}
-	}
+				@media screen and (min-width: 35.5em) and (max-width: 48em) {
+					.nav-item a svg {
+						padding-top: 12px;
+					}
+				}
 
-	@media screen and (min-width: 48em) and (max-width: 63.938em) {
-		.nav-item a svg {
-			padding-top: 10px;
-		}
-	}
+				@media screen and (min-width: 48em) and (max-width: 63.938em) {
+					.nav-item a svg {
+						padding-top: 10px;
+					}
+				}
 
-	/* more then 1023px an less then 1024px */
-	@media (max-width: 63.969em) {
-		.site-header.bio {
-			background-image: none !important;
-		}
-		.nav {
-			position: fixed;
-			top: 15px;
-			right: 10px;
-			z-index: 1;
-		}
-	}
+				/* more then 1023px an less then 1024px */
+				@media (max-width: 63.969em) {
+					.site-header.bio {
+						background-image: none !important;
+					}
+					.nav {
+						position: fixed;
+						top: 15px;
+						right: 10px;
+						z-index: 1;
+					}
+				}
 
-	@media (min-width: 64em) {
-		.site-header {
-			position: fixed;
-			top: 0;
-			bottom: 0;
-			overflow-y: auto;
-		}
+				@media (min-width: 64em) {
+					.site-header {
+						position: fixed;
+						top: 0;
+						bottom: 0;
+						overflow-y: auto;
+					}
 
-		.site-header.bio {
-			background-repeat: no-repeat;
-			background-position: top;
-			background-size: cover;
-		}
+					.site-header.bio {
+						background-repeat: no-repeat;
+						background-position: top;
+						background-size: cover;
+					}
 
-		.site-header.bio .site-header-overlay {
-			position: fixed;
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: rgba(0, 0, 0, 0.6);
-		}
+					.site-header.bio .site-header-overlay {
+						position: fixed;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						background-color: rgba(0, 0, 0, 0.6);
+					}
 
-		/* The emerging W3C standard
+					/* The emerging W3C standard
  that is currently Firefox-only */
-		.site-header {
-			scrollbar-width: thin;
-		}
+					.site-header {
+						scrollbar-width: thin;
+					}
 
-		/* Works on Chrome/Edge/Safari */
-		.site-header::-webkit-scrollbar {
-			width: 7px;
-		}
+					/* Works on Chrome/Edge/Safari */
+					.site-header::-webkit-scrollbar {
+						width: 7px;
+					}
 
-		.site-header::-webkit-scrollbar-track {
-			background: #313d48;
-		}
+					.site-header::-webkit-scrollbar-track {
+						background: #313d48;
+					}
 
-		.site-header::-webkit-scrollbar-thumb {
-			background-color: #81898f;
-		}
+					.site-header::-webkit-scrollbar-thumb {
+						background-color: #81898f;
+					}
 
-		.sidebar {
-			margin: 10% 2em;
-			text-align: left;
-		}
+					.sidebar {
+						margin: 10% 2em;
+						text-align: left;
+					}
 
-		.site-header.bio .sidebar {
-			position: sticky;
-		}
-	}
-</style>
+					.site-header.bio .sidebar {
+						position: sticky;
+					}
+				}
+			</style>
 
-<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/a-lego-wall.webp')"  >
-	<div class="site-header-overlay"></div>
-		<div class="sidebar">
-		<div class="site-branding">
-			<h1 class="site-title">
-				<a href="/">{ LebCit }</a>
-			</h1>
-			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</p>
-		</div>
+			<!-- Start #masthead -->
 
-				<nav id="nav" class="nav" aria-label="MENU">
-			<ul class="nav-list">
-				<li class="nav-item">
-					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
-						<span>MENU</span>
-						<span class="menu-icon" aria-hidden="true">
-							<svg
-								version="1.1"
-								x="0px"
-								y="0px"
-								width="30px"
-								height="30px"
-								viewbox="0 0 30 30"
-								enable-background="new 0 0 30 30"
-							>
-								<rect width="30" height="5" />
-								<rect y="24" width="30" height="5" />
-								<rect y="12" width="30" height="5" />
-							</svg>
-						</span>
-					</a>
-				</li>
-			</ul>
-		</nav>
-			</div>
-	</header>
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="background-image: url(/static/images/a-lego-wall.webp)"
+			>
+				<div class="site-header-overlay"></div>
+				<!-- Start .sidebar-->
+				<div class="sidebar">
+					<div class="site-branding">
+						<h1 class="site-title">
+							<a href="/">{ LebCit } </a>
+						</h1>
+						<p class="site-description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
+
+					<!-- Menu button start -->
+					<nav id="nav" class="nav" aria-label="MENU">
+						<ul class="nav-list">
+							<li class="nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewbox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<!-- Menu button end -->
+				</div>
+				<!-- End .sidebar-->
+			</header>
+			<!-- End #masthead-->
+
 			<!--End masthead-->
 
 			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				  				<main class="single-post">
+				<!-- MARKDOWN ROUTE -->
+				<main class="single-post">
 					<!-- Start Markdown file content -->
 					<style>
-	.author-greetings {
-		color: #000;
-		line-height: normal;
-	}
-</style>
+						.author-greetings {
+							color: #000;
+							line-height: normal;
+						}
+					</style>
 
-<header class="post-header">
-	<h1 class="post-title">Improving a Node.js app built with Express and EJS</h1>
-		<p class="post-meta">
-		<span>Posted on</span>
-		<span class="posted-on">
-			<time class="postList-date" datetime='2022-07/17'>
-				Sun Jul 17 2022			</time>
-		</span>
+					<header class="post-header">
+						<h1 class="post-title">Improving a Node.js app built with Express and EJS</h1>
 
-				<br />
-		<span>Tagged</span>
-		<!--Start tag(s)-->
-				<span class="post-tag">
-			<a href="/tags/Development">Development</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/JavaScript">JavaScript</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/Node.js">Node.js</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/EJS">EJS</a>
-		</span>
-				<!--End tag(s)-->
-			</p>
-	  </header>
+						<p class="post-meta">
+							<span>Posted on</span>
+							<span class="posted-on">
+								<time class="postList-date" datetime="2022-07-17">2022-07-17</time>
+							</span>
 
-<div class="post-content">
-		<p>
-		<em>This post is about improving a Node.js application built with Express and EJS.</em>
-	</p>
-	  <h2>Intro</h2>
-<p>In the <a href="/posts/templating-a-nodejs-app-with-ejs">last tutorial</a>, we&#39;ve built a basic Node.js web application using EJS and Express. So, to understand this one, you should have followed the previous.</p>
-<p>In this post, we are going to improve this application to make it look nicer on the server.<br>As usual, I&#39;ll be explaining every step so you get the most out of this tutorial if you follow.</p>
-<h2>Dynamic content</h2>
-<p>Till now, we had a homepage with an image and a button that displays a message when you click on it.<br>We also had an about page with a link inside a paragraph and an image under it.<br>Both pages have different document title, different page title, and the same menu.</p>
-<p>Nothing fancy in fact, but let&#39;s assume that our homepage will display a list of titles.<br>Those titles may come from each post in a blog.</p>
-<p>Update <code>index.js</code> to create a list of titles of posts that will be rendered on the homepage.</p>
-<pre><code class="language-js">// /index.js
+							<br />
+							<span>Tagged</span>
+							<!--Start tag(s)-->
+
+							<span class="post-tag">
+								<a href="/tags/Development">Development</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/JavaScript">JavaScript</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/Node.js">Node.js</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/EJS">EJS</a>
+							</span>
+
+							<!--End tag(s)-->
+						</p>
+
+						<!--Dynamic Markup Separator-->
+					</header>
+
+					<div class="post-content">
+						<p>
+							<em>This post is about improving a Node.js application built with Express and EJS.</em>
+						</p>
+
+						<!--Content-->
+						<h2>Intro</h2>
+
+						<p>
+							In the <a href="/posts/templating-a-nodejs-app-with-ejs">last tutorial</a>, we&#39;ve built
+							a basic Node.js web application using EJS and Express. So, to understand this one, you
+							should have followed the previous.
+						</p>
+						<p>
+							In this post, we are going to improve this application to make it look nicer on the
+							server.<br />As usual, I&#39;ll be explaining every step so you get the most out of this
+							tutorial if you follow.
+						</p>
+						<h2>Dynamic content</h2>
+
+						<p>
+							Till now, we had a homepage with an image and a button that displays a message when you
+							click on it.<br />We also had an about page with a link inside a paragraph and an image
+							under it.<br />Both pages have different document title, different page title, and the same
+							menu.
+						</p>
+						<p>
+							Nothing fancy in fact, but let&#39;s assume that our homepage will display a list of
+							titles.<br />Those titles may come from each post in a blog.
+						</p>
+						<p>
+							Update <code>index.js</code> to create a list of titles of posts that will be rendered on
+							the homepage.
+						</p>
+						<pre><code class="language-js">// /index.js
 ...
 app.get(&quot;/&quot;, function (req, res) {
     let posts = [
-        { title: &quot;Who invented JavaScript ?&quot; },
+        { title: &quot;Who invented JavaScript?&quot; },
         { title: &quot;My first JavaScript piece&quot; },
-        { title: &quot;Logging into the console !&quot; },
+        { title: &quot;Logging into the console!&quot; },
     ]
     res.render(&quot;index&quot;, {
         docTitle: &quot;Homepage | EJS App&quot;,
@@ -442,9 +518,24 @@ app.get(&quot;/&quot;, function (req, res) {
 })
 ...
 </code></pre>
-<p>We are creating an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a> of <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics">objects</a> inside the main route <code>&quot;/&quot;</code> called <code>posts</code>, where each object has a <code>key</code> and in front of each one a <code>value</code>.</p>
-<p>Remember that our main route renders <code>index.ejs</code>. So to access and display those titles, we should update <code>index.ejs</code> to integrate them like so :</p>
-<pre><code class="language-html">&lt;!-- /views/index.ejs --&gt;
+						<p>
+							We are creating an
+							<a
+								href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+								>array</a
+							>
+							of
+							<a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics"
+								>objects</a
+							>
+							inside the main route <code>&quot;/&quot;</code> called <code>posts</code>, where each
+							object has a <code>key</code> and in front of each one a <code>value</code>.
+						</p>
+						<p>
+							Remember that our main route renders <code>index.ejs</code>. So to access and display those
+							titles, we should update <code>index.ejs</code> to integrate them like so:
+						</p>
+						<pre><code class="language-html">&lt;!-- /views/index.ejs --&gt;
 ...
 &lt;!-- Looping through the posts array --&gt;
 &lt;% posts.forEach((post) =&gt; { %&gt;
@@ -453,14 +544,32 @@ app.get(&quot;/&quot;, function (req, res) {
 &lt;button id=&quot;btn&quot; class=&quot;pure-button&quot;&gt;A Button&lt;/button&gt;
 ...
 </code></pre>
-<p>We are looping through the <code>posts</code> array using the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">forEach()</a> method.<br><strong>Note how we are opening and closing EJS tags !</strong><br>It&#39;s very important to understand the logic of opening and closing the EJS and HTML tags when using them together.<br>The code isn&#39;t difficult at all, we are telling EJS to get the <code>posts</code>, and <code>forEach</code> one we want to display it&#39;s <code>title</code> inside an <code>&lt;h2&gt;</code> tag.<br>Save both files and take a look at the homepage.<br>Great job !</p>
-<p>In addition to a title, a post should have at least a description to give the reader an idea about it&#39;s content, maybe an image to make it more appealing, and a date indicating how recent and relevant it is in today&#39;s world.<br>Of course it should also have a link to the post itself, but we are not going to do it since we&#39;re not going to create them on the frontend.<br>Let&#39;s update our files to look like so :</p>
-<pre><code class="language-js">// /index.js
+						<p>
+							We are looping through the <code>posts</code> array using the
+							<a
+								href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach"
+								>forEach()</a
+							>
+							method.<br /><strong>Note how we are opening and closing EJS tags!</strong><br />It&#39;s
+							very important to understand the logic of opening and closing the EJS and HTML tags when
+							using them together.<br />The code isn&#39;t difficult at all, we are telling EJS to get the
+							<code>posts</code>, and <code>forEach</code> one we want to display it&#39;s
+							<code>title</code> inside an <code>&lt;h2&gt;</code> tag.<br />Save both files and take a
+							look at the homepage.<br />Great job!
+						</p>
+						<p>
+							In addition to a title, a post should have at least a description to give the reader an idea
+							about it&#39;s content, maybe an image to make it more appealing, and a date indicating how
+							recent and relevant it is in today&#39;s world.<br />Of course it should also have a link to
+							the post itself, but we are not going to do it since we&#39;re not going to create them on
+							the frontend.<br />Let&#39;s update our files to look like so:
+						</p>
+						<pre><code class="language-js">// /index.js
 ...
 app.get(&quot;/&quot;, function (req, res) {
     let posts = [
         {
-            title: &quot;Who invented JavaScript ?&quot;,
+            title: &quot;Who invented JavaScript?&quot;,
             description: &quot;A post about the father of JavaScript&quot;,
             date: &quot;2022-06-03&quot;,
         },
@@ -470,7 +579,7 @@ app.get(&quot;/&quot;, function (req, res) {
             date: &quot;2022-06-10&quot;,
         },
         {
-            title: &quot;Logging into the console !&quot;,
+            title: &quot;Logging into the console!&quot;,
             description: &quot;A post about messages in the console&quot;,
             date: &quot;2022-06-17&quot;,
         },
@@ -483,7 +592,7 @@ app.get(&quot;/&quot;, function (req, res) {
 })
 ...
 </code></pre>
-<pre><code class="language-html">&lt;!-- /views/index.ejs --&gt;
+						<pre><code class="language-html">&lt;!-- /views/index.ejs --&gt;
 ...
 &lt;!-- Looping through the posts array --&gt;
 &lt;% posts.forEach((post) =&gt; { %&gt;
@@ -497,17 +606,47 @@ app.get(&quot;/&quot;, function (req, res) {
 &lt;!-- Closing the loop --&gt;
 ...
 </code></pre>
-<p>Save both files and take a look at the homepage.
-All of this is great, but imagine that we have a blog of 50 posts and each post have a title, a link, a description, an image, a date of publication, a date of update, and some tags 😱<br>Yes, <code>index.js</code> would be crowded and difficult to maintain with a huge block of information just for the posts.<br>We&#39;ll be addressing this in the next section.</p>
-<h2>Organizing the backend</h2>
-<p>Since we are working on a server-side application, our code on the backend will evolve and get longer.<br>We shouldn&#39;t put everything inside our main server file because it will become almost impossible to look for a specific portion to update it or find a bug and correct it...</p>
-<p>I don&#39;t think that their is a developer who doesn&#39;t split his code.<br>We split our code into pieces where each one is easily trackable in a near or far future to keep it clean and maintainable.</p>
-<h3>Routing</h3>
-<hr>
-<p>For now we only have 2 routes, main <code>&quot;/&quot;</code> and <code>&quot;/about&quot;</code>, but when our application will have some other routes where each one have it&#39;s logic and functionalities, our main server file will be huge, a little bit ugly and unmaintainable.</p>
-<p>Do you remember the <a href="/posts/templating-a-nodejs-app-with-ejs#simple-routing">Simple routing</a> section ?<br>Well now we&#39;ll do a better one by putting each route in it&#39;s own file.</p>
-<p>To do so, we&#39;ll use the <a href="https://expressjs.com/en/guide/routing.html#express-router">express.Router</a> class.<br>Create a new folder called <code>routes</code> at the root of the app.<br>Inside this folder, create a file called <code>home.js</code> with the following content :</p>
-<pre><code class="language-js">// /routes/home.js
+						<p>
+							Save both files and take a look at the homepage. All of this is great, but imagine that we
+							have a blog of 50 posts and each post have a title, a link, a description, an image, a date
+							of publication, a date of update, and some tags 😱<br />Yes, <code>index.js</code> would be
+							crowded and difficult to maintain with a huge block of information just for the posts.<br />We&#39;ll
+							be addressing this in the next section.
+						</p>
+						<h2>Organizing the backend</h2>
+
+						<p>
+							Since we are working on a server-side application, our code on the backend will evolve and
+							get longer.<br />We shouldn&#39;t put everything inside our main server file because it will
+							become almost impossible to look for a specific portion to update it or find a bug and
+							correct it...
+						</p>
+						<p>
+							I don&#39;t think that their is a developer who doesn&#39;t split his code.<br />We split
+							our code into pieces where each one is easily trackable in a near or far future to keep it
+							clean and maintainable.
+						</p>
+						<h3>Routing</h3>
+
+						<hr />
+						<p>
+							For now we only have 2 routes, main <code>&quot;/&quot;</code> and
+							<code>&quot;/about&quot;</code>, but when our application will have some other routes where
+							each one have it&#39;s logic and functionalities, our main server file will be huge, a
+							little bit ugly and unmaintainable.
+						</p>
+						<p>
+							Do you remember the
+							<a href="/posts/templating-a-nodejs-app-with-ejs#simple-routing">Simple routing</a>
+							section?<br />Well now we&#39;ll do a better one by putting each route in it&#39;s own file.
+						</p>
+						<p>
+							To do so, we&#39;ll use the
+							<a href="https://expressjs.com/en/guide/routing.html#express-router">express.Router</a>
+							class.<br />Create a new folder called <code>routes</code> at the root of the app.<br />Inside
+							this folder, create a file called <code>home.js</code> with the following content:
+						</p>
+						<pre><code class="language-js">// /routes/home.js
 
 const express = require(&quot;express&quot;)
 const router = express.Router()
@@ -516,7 +655,7 @@ const router = express.Router()
 router.get(&quot;/&quot;, (req, res) =&gt; {
     let posts = [
         {
-            title: &quot;Who invented JavaScript ?&quot;,
+            title: &quot;Who invented JavaScript?&quot;,
             description: &quot;A post about the father of JavaScript&quot;,
             date: &quot;2022-06-03&quot;,
         },
@@ -526,7 +665,7 @@ router.get(&quot;/&quot;, (req, res) =&gt; {
             date: &quot;2022-06-10&quot;,
         },
         {
-            title: &quot;Logging into the console !&quot;,
+            title: &quot;Logging into the console!&quot;,
             description: &quot;A post about messages in the console&quot;,
             date: &quot;2022-06-17&quot;,
         },
@@ -540,8 +679,11 @@ router.get(&quot;/&quot;, (req, res) =&gt; {
 
 module.exports = router
 </code></pre>
-<p>Instead of <code>app.get</code> we use <code>router.get</code> and <code>export</code> it as a <code>module</code>.<br>Now, in <code>index.js</code>, replace the main route by this :</p>
-<pre><code class="language-js">// /index.js
+						<p>
+							Instead of <code>app.get</code> we use <code>router.get</code> and <code>export</code> it as
+							a <code>module</code>.<br />Now, in <code>index.js</code>, replace the main route by this:
+						</p>
+						<pre><code class="language-js">// /index.js
 ...
 /**
  * Rendering index page on the main route,
@@ -550,13 +692,22 @@ module.exports = router
 app.use(&quot;/&quot;, require(&quot;./routes/home&quot;))
 ...
 </code></pre>
-<p>Here we are telling Express to look for the file <code>home.js</code> that lives under the <code>routes</code> folder and to execute it&#39;s content on the main route <code>&quot;/&quot;</code>.</p>
-<p>So far, so good, but the <code>posts</code> array will grow and now this <code>home.js</code> file will not be maintainable, so let&#39;s get it out of there inside a separate file where only the posts info lives.<br>Create a file called <code>postsListInfo.js</code> inside the <code>routes</code> folder :</p>
-<pre><code class="language-js">// /routes/postsListInfo.js
+						<p>
+							Here we are telling Express to look for the file <code>home.js</code> that lives under the
+							<code>routes</code> folder and to execute it&#39;s content on the main route
+							<code>&quot;/&quot;</code>.
+						</p>
+						<p>
+							So far, so good, but the <code>posts</code> array will grow and now this
+							<code>home.js</code> file will not be maintainable, so let&#39;s get it out of there inside
+							a separate file where only the posts info lives.<br />Create a file called
+							<code>postsListInfo.js</code> inside the <code>routes</code> folder:
+						</p>
+						<pre><code class="language-js">// /routes/postsListInfo.js
 
 module.exports = [
     {
-        title: &quot;Who invented JavaScript ?&quot;,
+        title: &quot;Who invented JavaScript?&quot;,
         description: &quot;A post about the father of JavaScript&quot;,
         date: &quot;2022-06-03&quot;,
     },
@@ -566,14 +717,17 @@ module.exports = [
         date: &quot;2022-06-10&quot;,
     },
     {
-        title: &quot;Logging into the console !&quot;,
+        title: &quot;Logging into the console!&quot;,
         description: &quot;A post about messages in the console&quot;,
         date: &quot;2022-06-17&quot;,
     },
 ]
 </code></pre>
-<p>See, we directly exported the array itself.<br>Now, all we have to do is update <code>home.js</code> like so :</p>
-<pre><code class="language-js">// /routes/home.js
+						<p>
+							See, we directly exported the array itself.<br />Now, all we have to do is update
+							<code>home.js</code> like so:
+						</p>
+						<pre><code class="language-js">// /routes/home.js
 
 const express = require(&quot;express&quot;)
 const router = express.Router()
@@ -591,15 +745,36 @@ router.get(&quot;/&quot;, (req, res) =&gt; {
 
 module.exports = router
 </code></pre>
-<p>Pay attention !</p>
-<ol>
-<li>Since the two files are at the same level, we directly require <code>postsListInfo.js</code>. See <a href="/posts/templating-a-nodejs-app-with-ejs#paths">Paths</a>.</li>
-<li>The variable <code>posts</code> assigned to this require statement <strong>should</strong> match the <code>value</code> of the <code>data object</code> !<br>We could name the variable <code>postsListInfo</code>, but the <code>data object</code> would now be <code>posts: postsListInfo</code>. See <a href="/posts/templating-a-nodejs-app-with-ejs#data-object">Data object</a>.</li>
-</ol>
-<p>Save both files and take a look at the homepage.<br>Great job ! We now have the same display on the frontend, but with a clean, clear and maintainable code on the backend !</p>
-<p><em>Nota bene : we could create at the root of the app a folder just for the <code>postsListInfo.js</code> file and <code>require</code> it from there</em>.</p>
-<p>Lets&#39;s now put the <code>&quot;/about&quot;</code> route in it&#39;s own file.<br>Under <code>routes</code>, create a file called <code>about.js</code> with the following content :</p>
-<pre><code class="language-js">// /routes/about.js
+						<p>Pay attention!</p>
+						<ol>
+							<li>
+								Since the two files are at the same level, we directly require
+								<code>postsListInfo.js</code>. See
+								<a href="/posts/templating-a-nodejs-app-with-ejs#paths">Paths</a>.
+							</li>
+							<li>
+								The variable <code>posts</code> assigned to this require statement
+								<strong>should</strong> match the <code>value</code> of the
+								<code>data object</code>!<br />We could name the variable <code>postsListInfo</code>,
+								but the <code>data object</code> would now be <code>posts: postsListInfo</code>. See
+								<a href="/posts/templating-a-nodejs-app-with-ejs#data-object">Data object</a>.
+							</li>
+						</ol>
+						<p>
+							Save both files and take a look at the homepage.<br />Great job! We now have the same
+							display on the frontend, but with a clean, clear and maintainable code on the backend!
+						</p>
+						<p>
+							<em
+								>Nota bene: we could create at the root of the app a folder just for the
+								<code>postsListInfo.js</code> file and <code>require</code> it from there</em
+							>.
+						</p>
+						<p>
+							Lets&#39;s now put the <code>&quot;/about&quot;</code> route in it&#39;s own file.<br />Under
+							<code>routes</code>, create a file called <code>about.js</code> with the following content:
+						</p>
+						<pre><code class="language-js">// /routes/about.js
 
 const express = require(&quot;express&quot;)
 const router = express.Router()
@@ -611,8 +786,11 @@ router.get(&quot;/&quot;, (req, res) =&gt; {
 
 module.exports = router
 </code></pre>
-<p>We are defining a route on which we&#39;ll render <code>about.ejs</code>.<br>Now replace <code>&quot;/about&quot;</code> route in <code>index.js</code> by :</p>
-<pre><code class="language-js">// /index.js
+						<p>
+							We are defining a route on which we&#39;ll render <code>about.ejs</code>.<br />Now replace
+							<code>&quot;/about&quot;</code> route in <code>index.js</code> by:
+						</p>
+						<pre><code class="language-js">// /index.js
 ...
 /**
  * Rendering about page on the /about route,
@@ -621,19 +799,36 @@ module.exports = router
 app.use(&quot;/about&quot;, require(&quot;./routes/about&quot;))
 ...
 </code></pre>
-<p>Here we are telling Express to look for the file <code>about.js</code> that lives under the <code>routes</code> folder and to execute it&#39;s content on the <code>&quot;/about&quot;</code> route.</p>
-<p>Now, if you ever want to make changes on a specific route, you know where to make them, it will always be under one specific file 😉</p>
-<h3>Don&#39;t Repeat Yourself</h3>
-<hr>
-<p>Do you remember the <a href="/posts/templating-a-nodejs-app-with-ejs#do-not-repeat-yourself">DRY</a> section ?<br>Well, in the backend also, you should avoid to repeat yourself !</p>
-<p>If you take a closer look to <code>postsListInfo.js</code>, you&#39;ll notice that every description begins with <em>A post about</em>, assuming that you&#39;ll follow this pattern for each and every post&#39;s description, or maybe a much longer one such as <em>The content of the following post is about</em>, we could do the following :</p>
-<pre><code class="language-js">// /routes/postsListInfo.js
+						<p>
+							Here we are telling Express to look for the file <code>about.js</code> that lives under the
+							<code>routes</code> folder and to execute it&#39;s content on the
+							<code>&quot;/about&quot;</code> route.
+						</p>
+						<p>
+							Now, if you ever want to make changes on a specific route, you know where to make them, it
+							will always be under one specific file 😉
+						</p>
+						<h3>Don't Repeat Yourself</h3>
+
+						<hr />
+						<p>
+							Do you remember the
+							<a href="/posts/templating-a-nodejs-app-with-ejs#do-not-repeat-yourself">DRY</a>
+							section?<br />Well, in the backend also, you should avoid to repeat yourself!
+						</p>
+						<p>
+							If you take a closer look to <code>postsListInfo.js</code>, you&#39;ll notice that every
+							description begins with <em>A post about</em>, assuming that you&#39;ll follow this pattern
+							for each and every post&#39;s description, or maybe a much longer one such as
+							<em>The content of the following post is about</em>, we could do the following:
+						</p>
+						<pre><code class="language-js">// /routes/postsListInfo.js
 
 const descIntro = &quot;The content of the following post is about&quot;
 
 module.exports = [
     {
-        title: &quot;Who invented JavaScript ?&quot;,
+        title: &quot;Who invented JavaScript?&quot;,
         description: `${descIntro} the father of JavaScript`,
         date: &quot;2022-06-03&quot;,
     },
@@ -643,19 +838,36 @@ module.exports = [
         date: &quot;2022-06-10&quot;,
     },
     {
-        title: &quot;Logging into the console !&quot;,
+        title: &quot;Logging into the console!&quot;,
         description: `${descIntro} messages in the console`,
         date: &quot;2022-06-17&quot;,
     },
 ]
 </code></pre>
-<p><strong>WHAT IS THIS ?!</strong><br>This is a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">Template string</a>.<br>You can pass a variable into a string by writing the whole string inside backtick and call your variable inside a <code>${}</code> at the desired place.<br><code>Template literals</code> are much more powerful than that, they can be used inside functions to create reusable blocks, yes just like template engines...</p>
-<p>On the other hand, if you look at <code>home.js</code> and <code>about.js</code>, they both begin with the same block of code :</p>
-<pre><code class="language-js">const express = require(&quot;express&quot;)
+						<p>
+							<strong>WHAT IS THIS?!</strong><br />This is a
+							<a
+								href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals"
+								>Template string</a
+							>.<br />You can pass a variable into a string by writing the whole string inside backtick
+							and call your variable inside a <code>${}</code> at the desired place.<br /><code
+								>Template literals</code
+							>
+							are much more powerful than that, they can be used inside functions to create reusable
+							blocks, yes just like template engines...
+						</p>
+						<p>
+							On the other hand, if you look at <code>home.js</code> and <code>about.js</code>, they both
+							begin with the same block of code:
+						</p>
+						<pre><code class="language-js">const express = require(&quot;express&quot;)
 const router = express.Router()
 </code></pre>
-<p>To resolve this one, we&#39;ll use a <code>global.router</code> configuration.<br>Update the content of those files as well as <code>index.js</code> :</p>
-<pre><code class="language-js">// /routes/home.js
+						<p>
+							To resolve this one, we&#39;ll use a <code>global.router</code> configuration.<br />Update
+							the content of those files as well as <code>index.js</code>:
+						</p>
+						<pre><code class="language-js">// /routes/home.js
 
 const router = global.router
 
@@ -672,7 +884,7 @@ router.get(&quot;/&quot;, (req, res) =&gt; {
 
 module.exports = router
 </code></pre>
-<pre><code class="language-js">// /routes/about.js
+						<pre><code class="language-js">// /routes/about.js
 
 const router = global.router
 
@@ -683,7 +895,7 @@ router.get(&quot;/about&quot;, (req, res) =&gt; {
 
 module.exports = router
 </code></pre>
-<pre><code class="language-js">// /index.js complete file
+						<pre><code class="language-js">// /index.js complete file
 const express = require(&quot;express&quot;)
 const app = express()
 
@@ -726,147 +938,206 @@ app.listen(3000, () =&gt; {
     console.log(`App 🚀 @ http://localhost:3000`)
 })
 </code></pre>
-<p>Now you know the basics to organize your backend and make it maintainable.</p>
-<p>To test your new skills, I suggest that you replicate the <strong>Blog</strong> of Pure.css <a href="https://purecss.io/layouts/">Layouts</a> as a Node.js app.</p>
-<p>I hope that this was helpful.</p>
-	<p class="author-greetings">
-		SYA,
-		<br />
-		LebCit.
-	</p>
-</div>
+						<p>Now you know the basics to organize your backend and make it maintainable.</p>
+						<p>
+							To test your new skills, I suggest that you replicate the <strong>Blog</strong> of Pure.css
+							<a href="https://purecss.io/layouts/">Layouts</a> as a Node.js app.
+						</p>
+						<p>I hope that this was helpful.</p>
+						<p class="post-content hide">
+							<em
+								>Note: The background image is a photo by
+								<a href="https://unsplash.com/photos/blue-red-and-white-artwork-lQT_bOWtysE"
+									>Omar Flores</a
+								>.</em
+							>
+						</p>
 
-  <style>
-	.post-navigation {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 16px;
-	}
+						<p class="author-greetings">
+							SYA,
+							<br />
+							LebCit.
+						</p>
+					</div>
 
-	.post-navigation a {
-		margin: 1.5em 0;
-		border: 2px solid #000;
-		background: #000;
-		display: inline-block;
-		padding: 0.7rem 0.9rem;
-		font-size: 1rem;
-		line-height: 1;
-		border-radius: 3px;
-		color: #fff;
-		font-weight: 600;
-		cursor: pointer;
-	}
+					<!-- Start posts pagination -->
+					<style>
+						.post-navigation {
+							display: grid;
+							grid-template-columns: repeat(2, 1fr);
+							grid-template-rows: 1fr;
+							grid-column-gap: 16px;
+						}
 
-	.post-navigation .next-post {
-		grid-column-end: -1;
-	}
+						.post-navigation a {
+							margin: 1.5em 0;
+							border: 2px solid #000;
+							background: #000;
+							display: inline-block;
+							padding: 0.7rem 0.9rem;
+							font-size: 1rem;
+							line-height: 1;
+							border-radius: 3px;
+							color: #fff;
+							font-weight: 600;
+							cursor: pointer;
+						}
 
-	.post-navigation a:hover {
-		color: #fff;
-		box-shadow: 0 0.25em #000;
-	}
+						.post-navigation .next-post {
+							grid-column-end: -1;
+						}
 
-	.post-navigation a:active,
-	.post-navigation a:focus {
-		color: #fff;
-		box-shadow: 0.25em 0.25em #000;
-		outline: 0.1em solid;
-	}
+						.post-navigation a:hover {
+							color: #fff;
+							box-shadow: 0 0.25em #000;
+						}
 
-	@media screen and (max-width: 48em) {
-		.post-navigation {
-			display: grid;
-			grid-template-columns: 1fr;
-			grid-template-rows: repeat(2, 1fr);
-			grid-row-gap: 16px;
-		}
+						.post-navigation a:active,
+						.post-navigation a:focus {
+							color: #fff;
+							box-shadow: 0.25em 0.25em #000;
+							outline: 0.1em solid;
+						}
 
-		.post-navigation a {
-			margin: 0;
-		}
-	}
-</style>
+						@media screen and (max-width: 48em) {
+							.post-navigation {
+								display: grid;
+								grid-template-columns: 1fr;
+								grid-template-rows: repeat(2, 1fr);
+								grid-row-gap: 16px;
+							}
 
-<nav class="post-navigation" aria-label="Post navigation">
-		<a href="/posts/templating-a-nodejs-app-with-ejs" class="prev-post" rel="prev" aria-label="Go to the previous post">
-		Previous: Templating a Node.js app with EJS	</a>
-	  	<a href="/posts/express-global-router-for-a-dry-code" class="next-post" rel="next" aria-label="Go to the next post">
-		Next: Express global router for a DRY code	</a>
-	</nav>
-   <style>
-	.related-posts div {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 16px;
-	}
-</style>
+							.post-navigation a {
+								margin: 0;
+							}
+						}
+					</style>
 
-<div class="related-posts">
-	<h3>SOME RELATED POSTS</h3>
-	<div>
-		      		<section>
-			<a href="/posts/csp-nonce-with-nodejs-and-ejs">
-				    				<img
-					class="img-responsive"
-					src="/static/img/key-attached-to-another-in-the-lock-of-a-door.webp"
-					alt="Key attached to another in the lock of a door"
-				/>
-							</a>
-			<h4>
-				<a href="/posts/csp-nonce-with-nodejs-and-ejs">CSP nonce with Node.js and EJS</a>
-			</h4>
-		</section>
-		      		<section>
-			<a href="/posts/templating-a-nodejs-app-with-ejs">
-				    				<img
-					class="img-responsive"
-					src="/static/img/block-of-red-orange-yellow-and-green-lego.webp"
-					alt="Block of red orange yellow and green lego"
-				/>
-							</a>
-			<h4>
-				<a href="/posts/templating-a-nodejs-app-with-ejs">Templating a Node.js app with EJS</a>
-			</h4>
-		</section>
-			</div>
-</div>
-  					<!-- End Markdown file content -->
+					<nav class="post-navigation" aria-label="Post navigation">
+						<a
+							href="/posts/templating-a-nodejs-app-with-ejs"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Previous: Templating a Node.js app with EJS
+						</a>
+
+						<!--Dynamic Markup Separator-->
+
+						<a
+							href="/posts/express-global-router-for-a-dry-code"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Next: Express global router for a DRY code
+						</a>
+					</nav>
+
+					<!-- End posts pagination -->
+
+					<!-- Dynamic Markup Separator -->
+
+					<!-- Start related posts -->
+					<style>
+						.related-posts div {
+							display: grid;
+							grid-template-columns: repeat(2, 1fr);
+							grid-template-rows: 1fr;
+							grid-column-gap: 16px;
+						}
+					</style>
+
+					<div class="related-posts">
+						<h3>SOME RELATED POSTS</h3>
+						<div>
+							<section>
+								<a href="/posts/csp-nonce-with-nodejs-and-ejs">
+									<img
+										class="img-responsive"
+										src="/static/images/key-attached-to-another-in-the-lock-of-a-door.webp"
+										alt="Featured image for the post: CSP nonce with Node.js and EJS"
+									/>
+								</a>
+								<h4>
+									<a href="/posts/csp-nonce-with-nodejs-and-ejs">CSP nonce with Node.js and EJS</a>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/posts/templating-a-nodejs-app-with-ejs">
+									<img
+										class="img-responsive"
+										src="/static/images/block-of-red-orange-yellow-and-green-lego.webp"
+										alt="Featured image for the post: Templating a Node.js app with EJS"
+									/>
+								</a>
+								<h4>
+									<a href="/posts/templating-a-nodejs-app-with-ejs"
+										>Templating a Node.js app with EJS</a
+									>
+								</h4>
+							</section>
+						</div>
+					</div>
+
+					<!-- End related posts -->
+
+					<!-- End Markdown file content -->
 				</main>
-				     			</div>
+			</div>
 			<!--End content-->
+
 			<!--Start footer-->
 			<style>
-	.site-footer {
-		text-align: center;
-		padding-top: 2em;
-	}
-	@media (min-width: 64em) {
-		.site-footer {
-			padding: 2em 3em;
-			margin-left: 40%;
-		}
-	}
-</style>
+				.site-footer {
+					text-align: center;
+					padding-top: 2em;
+				}
+				@media (min-width: 64em) {
+					.site-footer {
+						padding: 2em 3em;
+						margin-left: 40%;
+					}
+				}
+			</style>
 
-<footer id="colophon" class="site-footer unit-1">
-	        	<div id="site-info" class="site-info">
-		<p>
-			<strong>2016 - 2024 | { LebCit }</strong>
-			<br />
-			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
-	</div>
-</footer>
+			<footer id="colophon" class="site-footer unit-1">
+				<style>
+					/* more then 1023px an less then 1024px */
+					@media (max-width: 63.969em) {
+						.hide {
+							display: none;
+						}
+					}
+				</style>
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2024 | { LebCit } </strong>
+						<br />
+						Proudly created with <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>
+					</p>
+				</div>
+			</footer>
+
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  		<script type="module">
-			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
 
-			hljs.highlightAll()
-		</script>
-		
-		<script src="/static/js/main.js"></script>
+		<script src="/static/vendors/highlight/highlight.min.js" onload="hljs.highlightAll()"></script>
+
+		<script type="module" src="/static/scripts/themes/midday/midday-scripts.js"></script>
 	</body>
 </html>

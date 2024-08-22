@@ -1,98 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-		<meta name="description" content="This post is about creating a control, from A to Z, in WordPress Customizer with JavaScript" />
-	
-	<title>Creating a Customizer control with JavaScript | { LebCit }</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
-	<link rel="stylesheet" href="/static/css/main.min.css" />
+		<meta
+			name="description"
+			content="This post is about creating a control, from A to Z, in WordPress Customizer with JavaScript."
+		/>
 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
-	  <style>
-	.post-title {
-		font-size: 2em;
-		color: #222;
-		margin-bottom: 0.2em;
-	}
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-	.post-content {
-		color: #444;
-		line-height: 1.8em;
-	}
+		<title>Creating a Customizer control with JavaScript | { LebCit }</title>
 
-	.post-content a {
-		color: #000036;
-		text-decoration-line: underline;
-		text-decoration-color: #ea215a;
-		text-decoration-style: double;
-		text-decoration-thickness: 0.125em;
-		text-underline-offset: 1.5px;
-		text-decoration-skip-ink: none;
-		transition: 0.5s;
-	}
+		<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
+		<link rel="stylesheet" href="/static/styles/themes/midday/midday-styles-min.css" />
 
-	.post-content a:hover,
-	.post-content a:focus,
-	.post-content a:active {
-		text-decoration: none;
-		color: white;
-		box-shadow: inset 0 -1.3em 0 0 #000;
-		outline: thin dotted #ea215a;
-	}
-</style>
+		<link rel="stylesheet" href="/static/vendors/highlight/atom-one-dark.min.css" />
 
-<style>
-	.single-post :not(pre) code {
-		background-color: #272822;
-		color: #f8f8f2;
-		border-radius: 0.3rem;
-		padding: 4px 5px 5px;
-	}
-</style>
-  <style>
-	@media screen and (min-width: 48em) and (max-width: 63.938em) {
-		.post-title {
-			font-size: 3em;
-			margin-top: 0;
-		}
-	}
+		<!-- COMMON STYLES -->
+		<style>
+			.post-title {
+				font-size: 2em;
+				color: #222;
+				margin-bottom: 0.2em;
+			}
 
-	@media (min-width: 64em) {
-		.post-title {
-			/* will affect single-post*/
-			font-size: 4em;
-			margin-top: 0;
-		}
-	}
-</style>
-    <style>
-	.post-meta {
-		color: #16663d;
-		font-size: 90%;
-		margin: 0;
-	}
+			.post-content {
+				color: #444;
+				line-height: 1.8em;
+			}
 
-	.posted-on {
-		color: #ad1a36;
-	}
+			.post-content a {
+				color: #000036;
+				text-decoration-line: underline;
+				text-decoration-color: #ea215a;
+				text-decoration-style: double;
+				text-decoration-thickness: 0.125em;
+				text-underline-offset: 1.5px;
+				text-decoration-skip-ink: none;
+				transition: 0.5s;
+			}
 
-	.post-tag {
-		margin: 0 0.1em;
-		padding: 0.2em 0.8em;
-		background: #ad1a36;
-		font-size: 80%;
-	}
+			.post-content a:hover,
+			.post-content a:focus,
+			.post-content a:active {
+				text-decoration: none;
+				color: white;
+				box-shadow: inset 0 -1.3em 0 0 #000;
+				outline: thin dotted #ea215a;
+			}
+		</style>
 
-	.post-tag a {
-		color: #fff;
-	}
-</style>
-  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
-</head>
+		<style>
+			.single-post :not(pre) code {
+				background-color: #272822;
+				color: #f8f8f2;
+				border-radius: 0.3rem;
+				padding: 4px 5px 5px;
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+
+		<style>
+			@media screen and (min-width: 48em) and (max-width: 63.938em) {
+				.post-title {
+					font-size: 3em;
+					margin-top: 0;
+				}
+			}
+
+			@media (min-width: 64em) {
+				.post-title {
+					/* will affect single-post*/
+					font-size: 4em;
+					margin-top: 0;
+				}
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+
+		<!-- Dynamic Markup Separator -->
+
+		<style>
+			.post-meta {
+				color: #16663d;
+				font-size: 90%;
+				margin: 0;
+			}
+
+			.posted-on {
+				color: #ad1a36;
+			}
+
+			.post-tag {
+				margin: 0 0.1em;
+				padding: 0.2em 0.8em;
+				background: #ad1a36;
+				font-size: 80%;
+			}
+
+			.post-tag a {
+				color: #fff;
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+	</head>
 
 	<body>
 		<!--Start page-->
@@ -101,332 +117,397 @@
 
 			<!--Start menu-->
 			<style>
-	.invisible {
-		visibility: hidden;
-	}
+				.invisible {
+					visibility: hidden;
+				}
 
-	.overlay {
-		position: fixed;
-		width: 0;
-		height: 100%;
-		top: 0;
-		right: 0;
-		background-color: rgba(0, 0, 0, 0.9);
-		z-index: 2;
-		letter-spacing: normal;
-		overflow-x: hidden;
-		transition: 0.5s;
-	}
+				.overlay {
+					position: fixed;
+					width: 0;
+					height: 100%;
+					top: 0;
+					right: 0;
+					background-color: rgba(0, 0, 0, 0.9);
+					z-index: 2;
+					letter-spacing: normal;
+					overflow-x: hidden;
+					transition: 0.5s;
+				}
 
-	.overlay-content {
-		position: relative;
-		top: 25%;
-		width: 100%;
-		text-align: center;
-		margin-top: 30px;
-	}
+				.overlay-content {
+					position: relative;
+					top: 25%;
+					width: 100%;
+					text-align: center;
+					margin-top: 30px;
+				}
 
-	.overlay li {
-		list-style: none;
-	}
+				.overlay li {
+					list-style: none;
+				}
 
-	.overlay a {
-		padding: 8px;
-		text-decoration: none;
-		font-size: 36px;
-		color: #818181;
-		display: block;
-		transition: 0.3s;
-	}
+				.overlay a {
+					padding: 8px;
+					text-decoration: none;
+					font-size: 36px;
+					color: #818181;
+					display: block;
+					transition: 0.3s;
+				}
 
-	.overlay a:hover,
-	.overlay a:focus {
-		color: #f1f1f1;
-		background-color: #222;
-		border: 1px solid red;
-		border-style: dashed;
-	}
+				.overlay a:hover,
+				.overlay a:focus {
+					color: #f1f1f1;
+					background-color: #222;
+					border: 1px solid red;
+					border-style: dashed;
+				}
 
-	.overlay .close-button {
-		position: absolute;
-		top: 20px;
-		right: 45px;
-		font-size: 60px;
-	}
-</style>
+				.overlay .close-button {
+					position: absolute;
+					top: 20px;
+					right: 45px;
+					font-size: 60px;
+				}
+			</style>
 
-<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
-	<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">
-		&times;
-	</a>
-	
-	<div class="overlay-content">
-		<a href="/">Home</a>
-				<li class="pure-menu-item">
-			<a href="/posts">Archive</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/tags">Tags</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/search">Search</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/pages/my-public-projects">Projects</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/pages/about">About Me</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/rss.xml">RSS</a>
-		</li>
+			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+				<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
+
+				<div class="overlay-content">
+					<a href="/">Home</a>
+
+					<li class="pure-menu-item">
+						<a href="/posts">Archive</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/tags">Tags</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/search">Search</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/pages/my-public-projects">Projects</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/pages/about">About Me</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/rss.xml">RSS</a>
+					</li>
+				</div>
 			</div>
-</div>
+
 			<!--End menu-->
+
 			<!--Start masthead-->
 			<style>
-	/* SITE HEADER */
-	.site-header {
-		background: rgb(61, 79, 93);
-		color: #fff;
-	}
+				/* SITE HEADER */
+				.site-header {
+					background: rgb(61, 79, 93);
+					color: #fff;
+				}
 
-	.sidebar {
-		margin: 1em;
-	}
+				.sidebar {
+					margin: 1em;
+				}
 
-	.site-title,
-	.site-description {
-		margin: 0;
-		line-height: 1.2;
-	}
+				.site-title,
+				.site-description {
+					margin: 0;
+					line-height: 1.2;
+				}
 
-	.site-title a {
-		color: #fff;
-		text-decoration: none;
-	}
+				.site-title a {
+					color: #fff;
+					text-decoration: none;
+				}
 
-	.site-title a:hover,
-	.site-title a:focus {
-		text-decoration: underline;
-	}
+				.site-title a:hover,
+				.site-title a:focus {
+					text-decoration: underline;
+				}
 
-	.site-description {
-		font-weight: 300;
-		color: rgb(176, 202, 219);
-		margin: 0.5em 0 2em 0;
-	}
+				.site-description {
+					font-weight: 300;
+					color: rgb(176, 202, 219);
+					margin: 0.5em 0 2em 0;
+				}
 
-	/* MENU BUTTON */
-	.nav-list {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
+				/* MENU BUTTON */
+				.nav-list {
+					margin: 0;
+					padding: 0;
+					list-style: none;
+				}
 
-	.nav-item {
-		display: inline-block;
-	}
+				.nav-item {
+					display: inline-block;
+				}
 
-	.nav-item a {
-		background: black;
-		border: 2px solid rgb(176, 202, 219);
-		border-radius: 2px;
-		color: #fff;
-		padding: 0.5em 1em;
-		margin-top: 1em;
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
-		font-size: 85%;
-	}
+				.nav-item a {
+					background: black;
+					border: 2px solid rgb(176, 202, 219);
+					border-radius: 2px;
+					color: #fff;
+					padding: 0.5em 1em;
+					margin-top: 1em;
+					letter-spacing: 0.05em;
+					text-transform: uppercase;
+					font-size: 85%;
+				}
 
-	.nav-item a:hover,
-	.nav-item a:focus {
-		border: 2px solid rgb(61, 146, 201);
-		text-decoration: none;
-	}
+				.nav-item a:hover,
+				.nav-item a:focus {
+					border: 2px solid rgb(61, 146, 201);
+					text-decoration: none;
+				}
 
-	.nav-item a svg {
-		fill: aliceblue;
-		vertical-align: bottom;
-		padding: 4px 0 2px;
-	}
+				.nav-item a svg {
+					fill: aliceblue;
+					vertical-align: bottom;
+					padding: 4px 0 2px;
+				}
 
-	@media screen and (max-width: 35.5em) {
-		.nav-item a svg {
-			padding-top: 14px;
-		}
-	}
+				@media screen and (max-width: 35.5em) {
+					.nav-item a svg {
+						padding-top: 14px;
+					}
+				}
 
-	@media screen and (min-width: 35.5em) and (max-width: 48em) {
-		.nav-item a svg {
-			padding-top: 12px;
-		}
-	}
+				@media screen and (min-width: 35.5em) and (max-width: 48em) {
+					.nav-item a svg {
+						padding-top: 12px;
+					}
+				}
 
-	@media screen and (min-width: 48em) and (max-width: 63.938em) {
-		.nav-item a svg {
-			padding-top: 10px;
-		}
-	}
+				@media screen and (min-width: 48em) and (max-width: 63.938em) {
+					.nav-item a svg {
+						padding-top: 10px;
+					}
+				}
 
-	/* more then 1023px an less then 1024px */
-	@media (max-width: 63.969em) {
-		.site-header.bio {
-			background-image: none !important;
-		}
-		.nav {
-			position: fixed;
-			top: 15px;
-			right: 10px;
-			z-index: 1;
-		}
-	}
+				/* more then 1023px an less then 1024px */
+				@media (max-width: 63.969em) {
+					.site-header.bio {
+						background-image: none !important;
+					}
+					.nav {
+						position: fixed;
+						top: 15px;
+						right: 10px;
+						z-index: 1;
+					}
+				}
 
-	@media (min-width: 64em) {
-		.site-header {
-			position: fixed;
-			top: 0;
-			bottom: 0;
-			overflow-y: auto;
-		}
+				@media (min-width: 64em) {
+					.site-header {
+						position: fixed;
+						top: 0;
+						bottom: 0;
+						overflow-y: auto;
+					}
 
-		.site-header.bio {
-			background-repeat: no-repeat;
-			background-position: top;
-			background-size: cover;
-		}
+					.site-header.bio {
+						background-repeat: no-repeat;
+						background-position: top;
+						background-size: cover;
+					}
 
-		.site-header.bio .site-header-overlay {
-			position: fixed;
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: rgba(0, 0, 0, 0.6);
-		}
+					.site-header.bio .site-header-overlay {
+						position: fixed;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						background-color: rgba(0, 0, 0, 0.6);
+					}
 
-		/* The emerging W3C standard
+					/* The emerging W3C standard
  that is currently Firefox-only */
-		.site-header {
-			scrollbar-width: thin;
-		}
+					.site-header {
+						scrollbar-width: thin;
+					}
 
-		/* Works on Chrome/Edge/Safari */
-		.site-header::-webkit-scrollbar {
-			width: 7px;
-		}
+					/* Works on Chrome/Edge/Safari */
+					.site-header::-webkit-scrollbar {
+						width: 7px;
+					}
 
-		.site-header::-webkit-scrollbar-track {
-			background: #313d48;
-		}
+					.site-header::-webkit-scrollbar-track {
+						background: #313d48;
+					}
 
-		.site-header::-webkit-scrollbar-thumb {
-			background-color: #81898f;
-		}
+					.site-header::-webkit-scrollbar-thumb {
+						background-color: #81898f;
+					}
 
-		.sidebar {
-			margin: 10% 2em;
-			text-align: left;
-		}
+					.sidebar {
+						margin: 10% 2em;
+						text-align: left;
+					}
 
-		.site-header.bio .sidebar {
-			position: sticky;
-		}
-	}
-</style>
+					.site-header.bio .sidebar {
+						position: sticky;
+					}
+				}
+			</style>
 
-<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/screenshot-creating-a-customizer-control-with-javascript.webp')"  >
-	<div class="site-header-overlay"></div>
-		<div class="sidebar">
-		<div class="site-branding">
-			<h1 class="site-title">
-				<a href="/">{ LebCit }</a>
-			</h1>
-			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</p>
-		</div>
+			<!-- Start #masthead -->
 
-				<nav id="nav" class="nav" aria-label="MENU">
-			<ul class="nav-list">
-				<li class="nav-item">
-					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
-						<span>MENU</span>
-						<span class="menu-icon" aria-hidden="true">
-							<svg
-								version="1.1"
-								x="0px"
-								y="0px"
-								width="30px"
-								height="30px"
-								viewbox="0 0 30 30"
-								enable-background="new 0 0 30 30"
-							>
-								<rect width="30" height="5" />
-								<rect y="24" width="30" height="5" />
-								<rect y="12" width="30" height="5" />
-							</svg>
-						</span>
-					</a>
-				</li>
-			</ul>
-		</nav>
-			</div>
-	</header>
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="
+					background-image: url(/static/images/screenshot-creating-a-customizer-control-with-javascript.webp);
+				"
+			>
+				<div class="site-header-overlay"></div>
+				<!-- Start .sidebar-->
+				<div class="sidebar">
+					<div class="site-branding">
+						<h1 class="site-title">
+							<a href="/">{ LebCit } </a>
+						</h1>
+						<p class="site-description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
+
+					<!-- Menu button start -->
+					<nav id="nav" class="nav" aria-label="MENU">
+						<ul class="nav-list">
+							<li class="nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewbox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<!-- Menu button end -->
+				</div>
+				<!-- End .sidebar-->
+			</header>
+			<!-- End #masthead-->
+
 			<!--End masthead-->
 
 			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				  				<main class="single-post">
+				<!-- MARKDOWN ROUTE -->
+				<main class="single-post">
 					<!-- Start Markdown file content -->
 					<style>
-	.author-greetings {
-		color: #000;
-		line-height: normal;
-	}
-</style>
+						.author-greetings {
+							color: #000;
+							line-height: normal;
+						}
+					</style>
 
-<header class="post-header">
-	<h1 class="post-title">Creating a Customizer control with JavaScript</h1>
-		<p class="post-meta">
-		<span>Posted on</span>
-		<span class="posted-on">
-			<time class="postList-date" datetime='2020-06/01'>
-				Mon Jun 01 2020			</time>
-		</span>
+					<header class="post-header">
+						<h1 class="post-title">Creating a Customizer control with JavaScript</h1>
 
-				<br />
-		<span>Tagged</span>
-		<!--Start tag(s)-->
-				<span class="post-tag">
-			<a href="/tags/JavaScript">JavaScript</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/Customizer">Customizer</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/Development">Development</a>
-		</span>
-				<!--End tag(s)-->
-			</p>
-	  </header>
+						<p class="post-meta">
+							<span>Posted on</span>
+							<span class="posted-on">
+								<time class="postList-date" datetime="2020-06-01">2020-06-01</time>
+							</span>
 
-<div class="post-content">
-		<p>
-		<em>This post is about creating a control, from A to Z, in WordPress Customizer with JavaScript.</em>
-	</p>
-	  <p>Did you know that you can create panels, sections and controls in the Customizer with JavaScript ?<br>&quot;The PHP API for their registration is essentially a wrapper for the underlying JS API&quot; as mentioned by Weston Ruter in <a href="https://wp.me/p2AvED-6c4">Improvements to the Customize JS API in 4.9</a></p>
-<p>He also says &quot;you can also avoid statically registering settings and partials in PHP by instead adding filters to dynamically recognize settings and partials, allowing them to be registered on demand&quot;, meaning that you can create settings and partials in JS but will have to register them in PHP via a filter because they must be sanitized and validated by the server for security reasons !</p>
-<p>For this task, we need to :</p>
-<ul>
-<li>access the Customizer Pane to create a Panel, a Section, a Setting and a Control with JS</li>
-<li>access the Customizer Preview to define the related Partial of the Control with JS</li>
-<li>add a filter to validate and sanitize the Setting with PHP<br>For more information about how things are related in the Customizer, please read my post <a href="/posts/listen-for-changes-in-customizer-preview">Listen for changes in Customizer Preview !</a></li>
-</ul>
-<p>I&#39;ll explain it as if the reader is a beginner so she/he can understand and follow along.</p>
-<p>My tree looks like this:</p>
-<pre><code class="language-txt">    - theme ( main folder)
+							<br />
+							<span>Tagged</span>
+							<!--Start tag(s)-->
+
+							<span class="post-tag">
+								<a href="/tags/JavaScript">JavaScript</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/Customizer">Customizer</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/Development">Development</a>
+							</span>
+
+							<!--End tag(s)-->
+						</p>
+
+						<!--Dynamic Markup Separator-->
+					</header>
+
+					<div class="post-content">
+						<p>
+							<em
+								>This post is about creating a control, from A to Z, in WordPress Customizer with
+								JavaScript.</em
+							>
+						</p>
+
+						<!--Content-->
+						<p>
+							Did you know that you can create panels, sections and controls in the Customizer with
+							JavaScript?<br />&quot;The PHP API for their registration is essentially a wrapper for the
+							underlying JS API&quot; as mentioned by Weston Ruter in
+							<a href="https://wp.me/p2AvED-6c4">Improvements to the Customize JS API in 4.9</a>
+						</p>
+						<p>
+							He also says &quot;you can also avoid statically registering settings and partials in PHP by
+							instead adding filters to dynamically recognize settings and partials, allowing them to be
+							registered on demand&quot;, meaning that you can create settings and partials in JS but will
+							have to register them in PHP via a filter because they must be sanitized and validated by
+							the server for security reasons!
+						</p>
+						<p>For this task, we need to:</p>
+						<ul>
+							<li>
+								access the Customizer Pane to create a Panel, a Section, a Setting and a Control with JS
+							</li>
+							<li>access the Customizer Preview to define the related Partial of the Control with JS</li>
+							<li>
+								add a filter to validate and sanitize the Setting with PHP<br />For more information
+								about how things are related in the Customizer, please read my post
+								<a href="/posts/listen-for-changes-in-customizer-preview"
+									>Listen for changes in Customizer Preview!</a
+								>
+							</li>
+						</ul>
+						<p>
+							I&#39;ll explain it as if the reader is a beginner so she/he can understand and follow
+							along.
+						</p>
+						<p>My tree looks like this:</p>
+						<pre><code class="language-txt">    - theme ( main folder)
     -- inc (folder)
     --- customizer.php
     -- js (folder)
@@ -435,12 +516,19 @@
     --- main.js
     -- functions.php
 </code></pre>
-<p>The functions.php file is used to :</p>
-<ul>
-<li>enqueue and localize main.js where we will render on the front end our choice(s) from the Customizer</li>
-<li>require the customizer.php file where we hook controls.js (for Customizer Pane) and customizer.js (for Customizer Preview)<br>We can of course hook controls.js and customizer.js from functions.php but it&#39;s better to keep things separated.</li>
-</ul>
-<pre><code class="language-php">// File functions.php
+						<p>The functions.php file is used to:</p>
+						<ul>
+							<li>
+								enqueue and localize main.js where we will render on the front end our choice(s) from
+								the Customizer
+							</li>
+							<li>
+								require the customizer.php file where we hook controls.js (for Customizer Pane) and
+								customizer.js (for Customizer Preview)<br />We can of course hook controls.js and
+								customizer.js from functions.php but it&#39;s better to keep things separated.
+							</li>
+						</ul>
+						<pre><code class="language-php">// File functions.php
 /**
  * Load and localize main.js.
  */
@@ -460,7 +548,7 @@ add_action( &#39;wp_enqueue_scripts&#39;, &#39;main_js&#39; );
  */
 require get_template_directory() . &#39;/inc/customizer.php&#39;;
 </code></pre>
-<pre><code class="language-php">// File customizer.php
+						<pre><code class="language-php">// File customizer.php
 /**
  * Hooking in JS code to affect the controls in the Customizer.
  */
@@ -477,9 +565,23 @@ function midday_customize_preview_js() {
 }
 add_action( &#39;customize_preview_init&#39;, &#39;midday_customize_preview_js&#39; );
 </code></pre>
-<p>If you don&#39;t know what is <a href="https://developer.wordpress.org/reference/functions/wp_localize_script/">wp_localize_script()</a> , think of it as a bridge between PHP and JS where we can pass variables from PHP to JS.<br>Just to let you know, there is also another function <a href="https://developer.wordpress.org/reference/functions/wp_add_inline_script/">wp_add_inline_script()</a> to add JS code to a registered JS file.</p>
-<p>Now that we are all set, let&#39;s create a Panel, a Section, a Setting and a Control in controls.js to change the site title color.</p>
-<pre><code class="language-js">/**
+						<p>
+							If you don&#39;t know what is
+							<a href="https://developer.wordpress.org/reference/functions/wp_localize_script/"
+								>wp_localize_script()</a
+							>
+							, think of it as a bridge between PHP and JS where we can pass variables from PHP to JS.<br />Just
+							to let you know, there is also another function
+							<a href="https://developer.wordpress.org/reference/functions/wp_add_inline_script/"
+								>wp_add_inline_script()</a
+							>
+							to add JS code to a registered JS file.
+						</p>
+						<p>
+							Now that we are all set, let&#39;s create a Panel, a Section, a Setting and a Control in
+							controls.js to change the site title color.
+						</p>
+						<pre><code class="language-js">/**
  * File controls.js
  *
  * Access Theme Customizer Controls for a better user experience.
@@ -521,9 +623,17 @@ add_action( &#39;customize_preview_init&#39;, &#39;midday_customize_preview_js&#
     })
 })(wp.customize)
 </code></pre>
-<p>Please note that the pattern for the Setting is different from the others !<br>For the Setting, we type <code>api.add(setting)</code> and define in the <code>setting</code> an <code>id</code>, a <code>defaultValue</code>, then we pass the desired call type (here we are using <code>postMessage</code>).</p>
-<p>Now, let&#39;s access the Customizer Preview in customizer.js and define how the Setting joins the Control to the Partial.</p>
-<pre><code class="language-js">/**
+						<p>
+							Please note that the pattern for the Setting is different from the others!<br />For the
+							Setting, we type <code>api.add(setting)</code> and define in the <code>setting</code> an
+							<code>id</code>, a <code>defaultValue</code>, then we pass the desired call type (here we
+							are using <code>postMessage</code>).
+						</p>
+						<p>
+							Now, let&#39;s access the Customizer Preview in customizer.js and define how the Setting
+							joins the Control to the Partial.
+						</p>
+						<pre><code class="language-js">/**
  * File customizer.js.
  *
  * Theme Customizer enhancements for a better user experience.
@@ -540,8 +650,11 @@ add_action( &#39;customize_preview_init&#39;, &#39;midday_customize_preview_js&#
     })
 })(jQuery)
 </code></pre>
-<p>Now, let&#39;s add in customizer.php the filter to validate and sanitize our Setting, preferably (for logic) after the code that hooks controls.js</p>
-<pre><code class="language-php">// File customizer.php
+						<p>
+							Now, let&#39;s add in customizer.php the filter to validate and sanitize our Setting,
+							preferably (for logic) after the code that hooks controls.js
+						</p>
+						<pre><code class="language-php">// File customizer.php
 add_filter(
     &#39;customize_dynamic_setting_args&#39;,
     function( $setting_args, $setting_id ) {
@@ -556,10 +669,24 @@ add_filter(
     2
 );
 </code></pre>
-<p>As you can see, the above function uses the <code>customize_dynamic_setting_args</code> filter to tell the server to validate/recognize the Setting and to sanitize it.<br>The number 10 is the priority of execution of the function, and the number 2 is the number of arguments the function accepts.<br>More info about <a href="https://developer.wordpress.org/reference/functions/add_filter/">add_filter()</a> in the Code Reference.</p>
-<p>Now, if you go to the Customizer, you&#39;ll find the created panel, section, setting and control.<br>If you try to change the site title it will change according to your choice.<br>But if you publish it, nothing will happen on the front end 🤔<br>So, our final step is to render/reflect our choice in the Customizer on the front end.
-Remember the beginning of this post ?<br>We have loaded and localized main.js for this purpose 😉<br>Open main.js and add the following code</p>
-<pre><code class="language-js">/**
+						<p>
+							As you can see, the above function uses the
+							<code>customize_dynamic_setting_args</code> filter to tell the server to validate/recognize
+							the Setting and to sanitize it.<br />The number 10 is the priority of execution of the
+							function, and the number 2 is the number of arguments the function accepts.<br />More info
+							about
+							<a href="https://developer.wordpress.org/reference/functions/add_filter/">add_filter()</a>
+							in the Code Reference.
+						</p>
+						<p>
+							Now, if you go to the Customizer, you&#39;ll find the created panel, section, setting and
+							control.<br />If you try to change the site title it will change according to your
+							choice.<br />But if you publish it, nothing will happen on the front end 🤔<br />So, our
+							final step is to render/reflect our choice in the Customizer on the front end. Remember the
+							beginning of this post?<br />We have loaded and localized main.js for this purpose 😉<br />Open
+							main.js and add the following code
+						</p>
+						<pre><code class="language-js">/**
  * File main.js.
  *
  * Handles theme&#39;s JS functions.
@@ -573,147 +700,207 @@ if (siteTitleColor) {
     siteTitleAnchor.style.color = siteTitleColor // Add this value as a color to the site title anchor.
 }
 </code></pre>
-<p>The code is explained and easy to understand, if you have any question don&#39;t hesitate !</p>
-<p>As a final note, I would like to let you know that I&#39;ve created the same control with PHP along with the JS one.<br>When we change the site title color with the PHP control (let&#39;s say <code>#000</code>) and the JS control (let&#39;s say <code>#fff</code>) and publish our changes, it&#39;s the JS control that takes over 💪</p>
-<p>Hope this post will help you begin using the Customizer&#39;s JS API instead of it&#39;s PHP API 😊</p>
-	<p class="author-greetings">
-		SYA,
-		<br />
-		LebCit.
-	</p>
-</div>
+						<p>
+							The code is explained and easy to understand, if you have any question don&#39;t hesitate!
+						</p>
+						<p>
+							As a final note, I would like to let you know that I&#39;ve created the same control with
+							PHP along with the JS one.<br />When we change the site title color with the PHP control
+							(let&#39;s say <code>#000</code>) and the JS control (let&#39;s say <code>#fff</code>) and
+							publish our changes, it&#39;s the JS control that takes over 💪
+						</p>
+						<p>
+							Hope this post will help you begin using the Customizer&#39;s JS API instead of it&#39;s PHP
+							API 😊
+						</p>
 
-  <style>
-	.post-navigation {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 16px;
-	}
+						<p class="author-greetings">
+							SYA,
+							<br />
+							LebCit.
+						</p>
+					</div>
 
-	.post-navigation a {
-		margin: 1.5em 0;
-		border: 2px solid #000;
-		background: #000;
-		display: inline-block;
-		padding: 0.7rem 0.9rem;
-		font-size: 1rem;
-		line-height: 1;
-		border-radius: 3px;
-		color: #fff;
-		font-weight: 600;
-		cursor: pointer;
-	}
+					<!-- Start posts pagination -->
+					<style>
+						.post-navigation {
+							display: grid;
+							grid-template-columns: repeat(2, 1fr);
+							grid-template-rows: 1fr;
+							grid-column-gap: 16px;
+						}
 
-	.post-navigation .next-post {
-		grid-column-end: -1;
-	}
+						.post-navigation a {
+							margin: 1.5em 0;
+							border: 2px solid #000;
+							background: #000;
+							display: inline-block;
+							padding: 0.7rem 0.9rem;
+							font-size: 1rem;
+							line-height: 1;
+							border-radius: 3px;
+							color: #fff;
+							font-weight: 600;
+							cursor: pointer;
+						}
 
-	.post-navigation a:hover {
-		color: #fff;
-		box-shadow: 0 0.25em #000;
-	}
+						.post-navigation .next-post {
+							grid-column-end: -1;
+						}
 
-	.post-navigation a:active,
-	.post-navigation a:focus {
-		color: #fff;
-		box-shadow: 0.25em 0.25em #000;
-		outline: 0.1em solid;
-	}
+						.post-navigation a:hover {
+							color: #fff;
+							box-shadow: 0 0.25em #000;
+						}
 
-	@media screen and (max-width: 48em) {
-		.post-navigation {
-			display: grid;
-			grid-template-columns: 1fr;
-			grid-template-rows: repeat(2, 1fr);
-			grid-row-gap: 16px;
-		}
+						.post-navigation a:active,
+						.post-navigation a:focus {
+							color: #fff;
+							box-shadow: 0.25em 0.25em #000;
+							outline: 0.1em solid;
+						}
 
-		.post-navigation a {
-			margin: 0;
-		}
-	}
-</style>
+						@media screen and (max-width: 48em) {
+							.post-navigation {
+								display: grid;
+								grid-template-columns: 1fr;
+								grid-template-rows: repeat(2, 1fr);
+								grid-row-gap: 16px;
+							}
 
-<nav class="post-navigation" aria-label="Post navigation">
-		<a href="/posts/clear-your-local-development-cache-with-js" class="prev-post" rel="prev" aria-label="Go to the previous post">
-		Previous: Clear your local development cache with JS	</a>
-	  	<a href="/posts/midday-wordpress-theme" class="next-post" rel="next" aria-label="Go to the next post">
-		Next: MidDay WordPress theme	</a>
-	</nav>
-   <style>
-	.related-posts div {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 16px;
-	}
-</style>
+							.post-navigation a {
+								margin: 0;
+							}
+						}
+					</style>
 
-<div class="related-posts">
-	<h3>SOME RELATED POSTS</h3>
-	<div>
-		      		<section>
-			<a href="/posts/listen-for-changes-in-customizer-preview">
-				    				<img
-					class="img-responsive"
-					src="/static/img/ears-of-chiatto-bunny.webp"
-					alt="Ears of chiatto bunny"
-				/>
-							</a>
-			<h4>
-				<a href="/posts/listen-for-changes-in-customizer-preview">Listen for changes in Customizer Preview !</a>
-			</h4>
-		</section>
-		      		<section>
-			<a href="/posts/modifying-wordpress-theme-copyright-from-the-customizer">
-				    				<img
-					class="img-responsive"
-					src="/static/img/copyright-word-under-magnifying-glass.webp"
-					alt="Copyright word under magnifying glass"
-				/>
-							</a>
-			<h4>
-				<a href="/posts/modifying-wordpress-theme-copyright-from-the-customizer">Modifying WordPress theme&#39;s copyright from the Customizer</a>
-			</h4>
-		</section>
-			</div>
-</div>
-  					<!-- End Markdown file content -->
+					<nav class="post-navigation" aria-label="Post navigation">
+						<a
+							href="/posts/clear-your-local-development-cache-with-js"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Previous: Clear your local development cache with JS
+						</a>
+
+						<!--Dynamic Markup Separator-->
+
+						<a
+							href="/posts/midday-wordpress-theme"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Next: MidDay WordPress theme
+						</a>
+					</nav>
+
+					<!-- End posts pagination -->
+
+					<!-- Dynamic Markup Separator -->
+
+					<!-- Start related posts -->
+					<style>
+						.related-posts div {
+							display: grid;
+							grid-template-columns: repeat(2, 1fr);
+							grid-template-rows: 1fr;
+							grid-column-gap: 16px;
+						}
+					</style>
+
+					<div class="related-posts">
+						<h3>SOME RELATED POSTS</h3>
+						<div>
+							<section>
+								<a href="/posts/listen-for-changes-in-customizer-preview">
+									<img
+										class="img-responsive"
+										src="/static/images/ears-of-chiatto-bunny.webp"
+										alt="Featured image for the post: Listen for changes in Customizer Preview!"
+									/>
+								</a>
+								<h4>
+									<a href="/posts/listen-for-changes-in-customizer-preview"
+										>Listen for changes in Customizer Preview!</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/posts/modifying-wordpress-theme-copyright-from-the-customizer">
+									<img
+										class="img-responsive"
+										src="/static/images/copyright-word-under-magnifying-glass.webp"
+										alt="Featured image for the post: Modifying WordPress theme's copyright from the Customizer"
+									/>
+								</a>
+								<h4>
+									<a href="/posts/modifying-wordpress-theme-copyright-from-the-customizer"
+										>Modifying WordPress theme's copyright from the Customizer</a
+									>
+								</h4>
+							</section>
+						</div>
+					</div>
+
+					<!-- End related posts -->
+
+					<!-- End Markdown file content -->
 				</main>
-				     			</div>
+			</div>
 			<!--End content-->
+
 			<!--Start footer-->
 			<style>
-	.site-footer {
-		text-align: center;
-		padding-top: 2em;
-	}
-	@media (min-width: 64em) {
-		.site-footer {
-			padding: 2em 3em;
-			margin-left: 40%;
-		}
-	}
-</style>
+				.site-footer {
+					text-align: center;
+					padding-top: 2em;
+				}
+				@media (min-width: 64em) {
+					.site-footer {
+						padding: 2em 3em;
+						margin-left: 40%;
+					}
+				}
+			</style>
 
-<footer id="colophon" class="site-footer unit-1">
-	        	<div id="site-info" class="site-info">
-		<p>
-			<strong>2016 - 2024 | { LebCit }</strong>
-			<br />
-			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
-	</div>
-</footer>
+			<footer id="colophon" class="site-footer unit-1">
+				<style>
+					/* more then 1023px an less then 1024px */
+					@media (max-width: 63.969em) {
+						.hide {
+							display: none;
+						}
+					}
+				</style>
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2024 | { LebCit } </strong>
+						<br />
+						Proudly created with <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>
+					</p>
+				</div>
+			</footer>
+
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  		<script type="module">
-			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
 
-			hljs.highlightAll()
-		</script>
-		
-		<script src="/static/js/main.js"></script>
+		<script src="/static/vendors/highlight/highlight.min.js" onload="hljs.highlightAll()"></script>
+
+		<script type="module" src="/static/scripts/themes/midday/midday-scripts.js"></script>
 	</body>
 </html>

@@ -1,98 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-		<meta name="description" content="This post is about modifying WordPress theme&#39;s copyright from the Customizer" />
-	
-	<title>Modifying WordPress theme&#39;s copyright from the Customizer | { LebCit }</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
-	<link rel="stylesheet" href="/static/css/main.min.css" />
+		<meta
+			name="description"
+			content="This post is about modifying WordPress theme&#39;s copyright from the Customizer."
+		/>
 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
-	  <style>
-	.post-title {
-		font-size: 2em;
-		color: #222;
-		margin-bottom: 0.2em;
-	}
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-	.post-content {
-		color: #444;
-		line-height: 1.8em;
-	}
+		<title>Modifying WordPress theme&#39;s copyright from the Customizer | { LebCit }</title>
 
-	.post-content a {
-		color: #000036;
-		text-decoration-line: underline;
-		text-decoration-color: #ea215a;
-		text-decoration-style: double;
-		text-decoration-thickness: 0.125em;
-		text-underline-offset: 1.5px;
-		text-decoration-skip-ink: none;
-		transition: 0.5s;
-	}
+		<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
+		<link rel="stylesheet" href="/static/styles/themes/midday/midday-styles-min.css" />
 
-	.post-content a:hover,
-	.post-content a:focus,
-	.post-content a:active {
-		text-decoration: none;
-		color: white;
-		box-shadow: inset 0 -1.3em 0 0 #000;
-		outline: thin dotted #ea215a;
-	}
-</style>
+		<link rel="stylesheet" href="/static/vendors/highlight/atom-one-dark.min.css" />
 
-<style>
-	.single-post :not(pre) code {
-		background-color: #272822;
-		color: #f8f8f2;
-		border-radius: 0.3rem;
-		padding: 4px 5px 5px;
-	}
-</style>
-  <style>
-	@media screen and (min-width: 48em) and (max-width: 63.938em) {
-		.post-title {
-			font-size: 3em;
-			margin-top: 0;
-		}
-	}
+		<!-- COMMON STYLES -->
+		<style>
+			.post-title {
+				font-size: 2em;
+				color: #222;
+				margin-bottom: 0.2em;
+			}
 
-	@media (min-width: 64em) {
-		.post-title {
-			/* will affect single-post*/
-			font-size: 4em;
-			margin-top: 0;
-		}
-	}
-</style>
-    <style>
-	.post-meta {
-		color: #16663d;
-		font-size: 90%;
-		margin: 0;
-	}
+			.post-content {
+				color: #444;
+				line-height: 1.8em;
+			}
 
-	.posted-on {
-		color: #ad1a36;
-	}
+			.post-content a {
+				color: #000036;
+				text-decoration-line: underline;
+				text-decoration-color: #ea215a;
+				text-decoration-style: double;
+				text-decoration-thickness: 0.125em;
+				text-underline-offset: 1.5px;
+				text-decoration-skip-ink: none;
+				transition: 0.5s;
+			}
 
-	.post-tag {
-		margin: 0 0.1em;
-		padding: 0.2em 0.8em;
-		background: #ad1a36;
-		font-size: 80%;
-	}
+			.post-content a:hover,
+			.post-content a:focus,
+			.post-content a:active {
+				text-decoration: none;
+				color: white;
+				box-shadow: inset 0 -1.3em 0 0 #000;
+				outline: thin dotted #ea215a;
+			}
+		</style>
 
-	.post-tag a {
-		color: #fff;
-	}
-</style>
-  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
-</head>
+		<style>
+			.single-post :not(pre) code {
+				background-color: #272822;
+				color: #f8f8f2;
+				border-radius: 0.3rem;
+				padding: 4px 5px 5px;
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+
+		<style>
+			@media screen and (min-width: 48em) and (max-width: 63.938em) {
+				.post-title {
+					font-size: 3em;
+					margin-top: 0;
+				}
+			}
+
+			@media (min-width: 64em) {
+				.post-title {
+					/* will affect single-post*/
+					font-size: 4em;
+					margin-top: 0;
+				}
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+
+		<!-- Dynamic Markup Separator -->
+
+		<style>
+			.post-meta {
+				color: #16663d;
+				font-size: 90%;
+				margin: 0;
+			}
+
+			.posted-on {
+				color: #ad1a36;
+			}
+
+			.post-tag {
+				margin: 0 0.1em;
+				padding: 0.2em 0.8em;
+				background: #ad1a36;
+				font-size: 80%;
+			}
+
+			.post-tag a {
+				color: #fff;
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+	</head>
 
 	<body>
 		<!--Start page-->
@@ -101,332 +117,387 @@
 
 			<!--Start menu-->
 			<style>
-	.invisible {
-		visibility: hidden;
-	}
+				.invisible {
+					visibility: hidden;
+				}
 
-	.overlay {
-		position: fixed;
-		width: 0;
-		height: 100%;
-		top: 0;
-		right: 0;
-		background-color: rgba(0, 0, 0, 0.9);
-		z-index: 2;
-		letter-spacing: normal;
-		overflow-x: hidden;
-		transition: 0.5s;
-	}
+				.overlay {
+					position: fixed;
+					width: 0;
+					height: 100%;
+					top: 0;
+					right: 0;
+					background-color: rgba(0, 0, 0, 0.9);
+					z-index: 2;
+					letter-spacing: normal;
+					overflow-x: hidden;
+					transition: 0.5s;
+				}
 
-	.overlay-content {
-		position: relative;
-		top: 25%;
-		width: 100%;
-		text-align: center;
-		margin-top: 30px;
-	}
+				.overlay-content {
+					position: relative;
+					top: 25%;
+					width: 100%;
+					text-align: center;
+					margin-top: 30px;
+				}
 
-	.overlay li {
-		list-style: none;
-	}
+				.overlay li {
+					list-style: none;
+				}
 
-	.overlay a {
-		padding: 8px;
-		text-decoration: none;
-		font-size: 36px;
-		color: #818181;
-		display: block;
-		transition: 0.3s;
-	}
+				.overlay a {
+					padding: 8px;
+					text-decoration: none;
+					font-size: 36px;
+					color: #818181;
+					display: block;
+					transition: 0.3s;
+				}
 
-	.overlay a:hover,
-	.overlay a:focus {
-		color: #f1f1f1;
-		background-color: #222;
-		border: 1px solid red;
-		border-style: dashed;
-	}
+				.overlay a:hover,
+				.overlay a:focus {
+					color: #f1f1f1;
+					background-color: #222;
+					border: 1px solid red;
+					border-style: dashed;
+				}
 
-	.overlay .close-button {
-		position: absolute;
-		top: 20px;
-		right: 45px;
-		font-size: 60px;
-	}
-</style>
+				.overlay .close-button {
+					position: absolute;
+					top: 20px;
+					right: 45px;
+					font-size: 60px;
+				}
+			</style>
 
-<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
-	<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">
-		&times;
-	</a>
-	
-	<div class="overlay-content">
-		<a href="/">Home</a>
-				<li class="pure-menu-item">
-			<a href="/posts">Archive</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/tags">Tags</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/search">Search</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/pages/my-public-projects">Projects</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/pages/about">About Me</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/rss.xml">RSS</a>
-		</li>
+			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+				<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
+
+				<div class="overlay-content">
+					<a href="/">Home</a>
+
+					<li class="pure-menu-item">
+						<a href="/posts">Archive</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/tags">Tags</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/search">Search</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/pages/my-public-projects">Projects</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/pages/about">About Me</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/rss.xml">RSS</a>
+					</li>
+				</div>
 			</div>
-</div>
+
 			<!--End menu-->
+
 			<!--Start masthead-->
 			<style>
-	/* SITE HEADER */
-	.site-header {
-		background: rgb(61, 79, 93);
-		color: #fff;
-	}
+				/* SITE HEADER */
+				.site-header {
+					background: rgb(61, 79, 93);
+					color: #fff;
+				}
 
-	.sidebar {
-		margin: 1em;
-	}
+				.sidebar {
+					margin: 1em;
+				}
 
-	.site-title,
-	.site-description {
-		margin: 0;
-		line-height: 1.2;
-	}
+				.site-title,
+				.site-description {
+					margin: 0;
+					line-height: 1.2;
+				}
 
-	.site-title a {
-		color: #fff;
-		text-decoration: none;
-	}
+				.site-title a {
+					color: #fff;
+					text-decoration: none;
+				}
 
-	.site-title a:hover,
-	.site-title a:focus {
-		text-decoration: underline;
-	}
+				.site-title a:hover,
+				.site-title a:focus {
+					text-decoration: underline;
+				}
 
-	.site-description {
-		font-weight: 300;
-		color: rgb(176, 202, 219);
-		margin: 0.5em 0 2em 0;
-	}
+				.site-description {
+					font-weight: 300;
+					color: rgb(176, 202, 219);
+					margin: 0.5em 0 2em 0;
+				}
 
-	/* MENU BUTTON */
-	.nav-list {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
+				/* MENU BUTTON */
+				.nav-list {
+					margin: 0;
+					padding: 0;
+					list-style: none;
+				}
 
-	.nav-item {
-		display: inline-block;
-	}
+				.nav-item {
+					display: inline-block;
+				}
 
-	.nav-item a {
-		background: black;
-		border: 2px solid rgb(176, 202, 219);
-		border-radius: 2px;
-		color: #fff;
-		padding: 0.5em 1em;
-		margin-top: 1em;
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
-		font-size: 85%;
-	}
+				.nav-item a {
+					background: black;
+					border: 2px solid rgb(176, 202, 219);
+					border-radius: 2px;
+					color: #fff;
+					padding: 0.5em 1em;
+					margin-top: 1em;
+					letter-spacing: 0.05em;
+					text-transform: uppercase;
+					font-size: 85%;
+				}
 
-	.nav-item a:hover,
-	.nav-item a:focus {
-		border: 2px solid rgb(61, 146, 201);
-		text-decoration: none;
-	}
+				.nav-item a:hover,
+				.nav-item a:focus {
+					border: 2px solid rgb(61, 146, 201);
+					text-decoration: none;
+				}
 
-	.nav-item a svg {
-		fill: aliceblue;
-		vertical-align: bottom;
-		padding: 4px 0 2px;
-	}
+				.nav-item a svg {
+					fill: aliceblue;
+					vertical-align: bottom;
+					padding: 4px 0 2px;
+				}
 
-	@media screen and (max-width: 35.5em) {
-		.nav-item a svg {
-			padding-top: 14px;
-		}
-	}
+				@media screen and (max-width: 35.5em) {
+					.nav-item a svg {
+						padding-top: 14px;
+					}
+				}
 
-	@media screen and (min-width: 35.5em) and (max-width: 48em) {
-		.nav-item a svg {
-			padding-top: 12px;
-		}
-	}
+				@media screen and (min-width: 35.5em) and (max-width: 48em) {
+					.nav-item a svg {
+						padding-top: 12px;
+					}
+				}
 
-	@media screen and (min-width: 48em) and (max-width: 63.938em) {
-		.nav-item a svg {
-			padding-top: 10px;
-		}
-	}
+				@media screen and (min-width: 48em) and (max-width: 63.938em) {
+					.nav-item a svg {
+						padding-top: 10px;
+					}
+				}
 
-	/* more then 1023px an less then 1024px */
-	@media (max-width: 63.969em) {
-		.site-header.bio {
-			background-image: none !important;
-		}
-		.nav {
-			position: fixed;
-			top: 15px;
-			right: 10px;
-			z-index: 1;
-		}
-	}
+				/* more then 1023px an less then 1024px */
+				@media (max-width: 63.969em) {
+					.site-header.bio {
+						background-image: none !important;
+					}
+					.nav {
+						position: fixed;
+						top: 15px;
+						right: 10px;
+						z-index: 1;
+					}
+				}
 
-	@media (min-width: 64em) {
-		.site-header {
-			position: fixed;
-			top: 0;
-			bottom: 0;
-			overflow-y: auto;
-		}
+				@media (min-width: 64em) {
+					.site-header {
+						position: fixed;
+						top: 0;
+						bottom: 0;
+						overflow-y: auto;
+					}
 
-		.site-header.bio {
-			background-repeat: no-repeat;
-			background-position: top;
-			background-size: cover;
-		}
+					.site-header.bio {
+						background-repeat: no-repeat;
+						background-position: top;
+						background-size: cover;
+					}
 
-		.site-header.bio .site-header-overlay {
-			position: fixed;
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: rgba(0, 0, 0, 0.6);
-		}
+					.site-header.bio .site-header-overlay {
+						position: fixed;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						background-color: rgba(0, 0, 0, 0.6);
+					}
 
-		/* The emerging W3C standard
+					/* The emerging W3C standard
  that is currently Firefox-only */
-		.site-header {
-			scrollbar-width: thin;
-		}
+					.site-header {
+						scrollbar-width: thin;
+					}
 
-		/* Works on Chrome/Edge/Safari */
-		.site-header::-webkit-scrollbar {
-			width: 7px;
-		}
+					/* Works on Chrome/Edge/Safari */
+					.site-header::-webkit-scrollbar {
+						width: 7px;
+					}
 
-		.site-header::-webkit-scrollbar-track {
-			background: #313d48;
-		}
+					.site-header::-webkit-scrollbar-track {
+						background: #313d48;
+					}
 
-		.site-header::-webkit-scrollbar-thumb {
-			background-color: #81898f;
-		}
+					.site-header::-webkit-scrollbar-thumb {
+						background-color: #81898f;
+					}
 
-		.sidebar {
-			margin: 10% 2em;
-			text-align: left;
-		}
+					.sidebar {
+						margin: 10% 2em;
+						text-align: left;
+					}
 
-		.site-header.bio .sidebar {
-			position: sticky;
-		}
-	}
-</style>
+					.site-header.bio .sidebar {
+						position: sticky;
+					}
+				}
+			</style>
 
-<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/copyright-word-under-magnifying-glass.webp')"  >
-	<div class="site-header-overlay"></div>
-		<div class="sidebar">
-		<div class="site-branding">
-			<h1 class="site-title">
-				<a href="/">{ LebCit }</a>
-			</h1>
-			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</p>
-		</div>
+			<!-- Start #masthead -->
 
-				<nav id="nav" class="nav" aria-label="MENU">
-			<ul class="nav-list">
-				<li class="nav-item">
-					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
-						<span>MENU</span>
-						<span class="menu-icon" aria-hidden="true">
-							<svg
-								version="1.1"
-								x="0px"
-								y="0px"
-								width="30px"
-								height="30px"
-								viewbox="0 0 30 30"
-								enable-background="new 0 0 30 30"
-							>
-								<rect width="30" height="5" />
-								<rect y="24" width="30" height="5" />
-								<rect y="12" width="30" height="5" />
-							</svg>
-						</span>
-					</a>
-				</li>
-			</ul>
-		</nav>
-			</div>
-	</header>
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="background-image: url(/static/images/copyright-word-under-magnifying-glass.webp)"
+			>
+				<div class="site-header-overlay"></div>
+				<!-- Start .sidebar-->
+				<div class="sidebar">
+					<div class="site-branding">
+						<h1 class="site-title">
+							<a href="/">{ LebCit } </a>
+						</h1>
+						<p class="site-description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
+
+					<!-- Menu button start -->
+					<nav id="nav" class="nav" aria-label="MENU">
+						<ul class="nav-list">
+							<li class="nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewbox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<!-- Menu button end -->
+				</div>
+				<!-- End .sidebar-->
+			</header>
+			<!-- End #masthead-->
+
 			<!--End masthead-->
 
 			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				  				<main class="single-post">
+				<!-- MARKDOWN ROUTE -->
+				<main class="single-post">
 					<!-- Start Markdown file content -->
 					<style>
-	.author-greetings {
-		color: #000;
-		line-height: normal;
-	}
-</style>
+						.author-greetings {
+							color: #000;
+							line-height: normal;
+						}
+					</style>
 
-<header class="post-header">
-	<h1 class="post-title">Modifying WordPress theme&#39;s copyright from the Customizer</h1>
-		<p class="post-meta">
-		<span>Posted on</span>
-		<span class="posted-on">
-			<time class="postList-date" datetime='2020-05/21'>
-				Thu May 21 2020			</time>
-		</span>
+					<header class="post-header">
+						<h1 class="post-title">Modifying WordPress theme&#39;s copyright from the Customizer</h1>
 
-				<br />
-		<span>Tagged</span>
-		<!--Start tag(s)-->
-				<span class="post-tag">
-			<a href="/tags/Copyright">Copyright</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/Customizer">Customizer</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/Development">Development</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/Tips and Tricks">Tips and Tricks</a>
-		</span>
-				<!--End tag(s)-->
-			</p>
-	  </header>
+						<p class="post-meta">
+							<span>Posted on</span>
+							<span class="posted-on">
+								<time class="postList-date" datetime="2020-05-21">2020-05-21</time>
+							</span>
 
-<div class="post-content">
-		<p>
-		<em>This post is about modifying WordPress theme&#39;s copyright from the Customizer.</em>
-	</p>
-	  <p>One of the most asked question by new WordPress users is:
-<strong>&quot;how to change the copyright ?&quot;</strong>.<br>They don&#39;t want a label of any kind on their site and that&#39;s totally comprehensible.<br>In this post, I&#39;ll be talking of my own sauce to give users the ability to remove or modify the copyright without touching one line of code !</p>
-<p>If you are new to the Customizer, don&#39;t be afraid, I was too a long time ago...<br>So in this post I&#39;ll show you a technique to control the copyright of WordPress, generally displayed in the footer of a theme, from the Customizer.<br>You can use it in your own theme to give your users a clean and easy way to modify the footer copyright, or use it in a child theme to modify the footer copyright of the parent theme that you are using.</p>
-<h2>1- Replace the footer copyright by a function</h2>
-<p>First of all select the part that should be modified. Generally speaking, it&#39;s a sentence like: &quot;<em>Proudly powered by WordPress, Theme: theme-name by theme-author</em>&quot;.
-I&#39;m going to take the generated footer by <a href="https://underscores.me/">_s</a> (underscores) as an example for this task.
-Looking inside the <strong>footer.php</strong>, we can see a code like this:</p>
-<pre><code class="language-php">&lt;footer id=&quot;colophon&quot; class=&quot;site-footer&quot;&gt;
+							<br />
+							<span>Tagged</span>
+							<!--Start tag(s)-->
+
+							<span class="post-tag">
+								<a href="/tags/Copyright">Copyright</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/Customizer">Customizer</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/Development">Development</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/Tips-and-Tricks">Tips-and-Tricks</a>
+							</span>
+
+							<!--End tag(s)-->
+						</p>
+
+						<!--Dynamic Markup Separator-->
+					</header>
+
+					<div class="post-content">
+						<p>
+							<em>This post is about modifying WordPress theme&#39;s copyright from the Customizer.</em>
+						</p>
+
+						<!--Content-->
+						<p>
+							One of the most asked question by new WordPress users is:
+							<strong>&quot;how to change the copyright?&quot;</strong>.<br />They don&#39;t want a label
+							of any kind on their site and that&#39;s totally comprehensible.<br />In this post, I&#39;ll
+							be talking of my own sauce to give users the ability to remove or modify the copyright
+							without touching one line of code!
+						</p>
+						<p>
+							If you are new to the Customizer, don&#39;t be afraid, I was too a long time ago...<br />So
+							in this post I&#39;ll show you a technique to control the copyright of WordPress, generally
+							displayed in the footer of a theme, from the Customizer.<br />You can use it in your own
+							theme to give your users a clean and easy way to modify the footer copyright, or use it in a
+							child theme to modify the footer copyright of the parent theme that you are using.
+						</p>
+						<h2>1- Replace the footer copyright by a function</h2>
+
+						<p>
+							First of all select the part that should be modified. Generally speaking, it&#39;s a
+							sentence like: &quot;<em>Proudly powered by WordPress, Theme: theme-name by theme-author</em
+							>&quot;. I&#39;m going to take the generated footer by
+							<a href="https://underscores.me/">_s</a> (underscores) as an example for this task. Looking
+							inside the <strong>footer.php</strong>, we can see a code like this:
+						</p>
+						<pre><code class="language-php">&lt;footer id=&quot;colophon&quot; class=&quot;site-footer&quot;&gt;
     &lt;div class=&quot;site-info&quot;&gt;
         &lt;a href=&quot;&lt;?php echo esc_url( __( &#39;https://wordpress.org/&#39;, &#39;midday&#39; ) ); ?&gt;&quot;&gt;
             &lt;?php
@@ -442,17 +513,34 @@ Looking inside the <strong>footer.php</strong>, we can see a code like this:</p>
     &lt;/div&gt;&lt;!-- .site-info --&gt;
 &lt;/footer&gt;&lt;!-- #colophon --&gt;
 </code></pre>
-<p>Here, we are interested with the code inside <code>&lt;div class=&quot;site-info&quot;&gt;</code>, so let&#39;s cut it, paste it somewhere else (like notepad), and replace it by a php function.<br>The code should now be like the following:</p>
-<pre><code class="language-php">&lt;footer id=&quot;colophon&quot; class=&quot;site-footer&quot;&gt;
+						<p>Here, we are interested with the code inside</p>
+						<pre><code class="language-html">&lt;div class=&quot;site-info&quot;&gt;
+</code></pre>
+						<p>
+							so let&#39;s cut it, paste it somewhere else (like notepad), and replace it by a
+							<code>php</code> function.<br />The code should now be like the following:
+						</p>
+						<pre><code class="language-php">&lt;footer id=&quot;colophon&quot; class=&quot;site-footer&quot;&gt;
     &lt;div id=&quot;site-info&quot; class=&quot;site-info&quot;&gt;
         &lt;?php midday_site_info(); ?&gt;
     &lt;/div&gt;&lt;!-- .site-info --&gt;
 &lt;/footer&gt;&lt;!-- #colophon --&gt;
 </code></pre>
-<p>You can name the function whatever you like, but be sure to replace any name modification according to the changes you have made in the wright place in the code.<br>Please note that I&#39;ve added an <code>&lt;id=&quot;site-info&quot;&gt;</code> this will be used in the Customizer.</p>
-<h2>2- Put the footer copyright in functions.php</h2>
-<p>Now we have to connect this <code>midday_site_info()</code> function with the block of code previously pasted elsewhere.<br>In the <a href="https://codex.wordpress.org/Functions_File_Explained">functions.php</a> file of your theme or your child theme, put this code, I&#39;ll explain it just after :</p>
-<pre><code class="language-php">/**
+						<p>
+							You can name the function whatever you like, but be sure to replace any name modification
+							according to the changes you have made in the wright place in the code.<br />Please note
+							that I&#39;ve added an <code>&lt;id=&quot;site-info&quot;&gt;</code> this will be used in
+							the Customizer.
+						</p>
+						<h2>2- Put the footer copyright in functions.php</h2>
+
+						<p>
+							Now we have to connect this <code>midday_site_info()</code> function with the block of code
+							previously pasted elsewhere.<br />In the
+							<a href="https://codex.wordpress.org/Functions_File_Explained">functions.php</a> file of
+							your theme or your child theme, put this code, I&#39;ll explain it just after:
+						</p>
+						<pre><code class="language-php">/**
  * Output the theme&#39;s copyright depending on user&#39;s choice.
  */
 function midday_site_info() {
@@ -478,19 +566,69 @@ function midday_site_info() {
     endif;
 }
 </code></pre>
-<p>What in the hell is this ?<br>It&#39;s nothing 😂 it&#39;s just the same pasted elsewhere code in PHP with some variables and an <code>if/elseif</code> statement to take care of the user&#39;s choice.</p>
-<p>Inside the function, I&#39;ve defined 2 variables. Each one is related to a <code>theme_mod</code> (theme modification) that we will create and explain in a moment.</p>
-<p>I&#39;ve opened an <code>if</code> statement saying:<br><em>if the first variable (remember it&#39;s related to a <code>theme_mod</code>, yes it&#39;s a checkbox)</em> 😉 <em>is not empty (so it have a check tick, it&#39;s checked) please populate the copyright with the following code</em>.
-The code here is pretty easy to understand.
-I&#39;ve defined an <code>$html</code> variable replicating the pasted elsewhere code, then I&#39;ve asked PHP to echo this code using <a href="https://developer.wordpress.org/reference/functions/wp_kses/">wp_kses</a> filtering the text content and striping out disallowed HTML.</p>
-<p>In other words:<br><em>hey <code>wp_kses</code>, please echo the defined <code>$html</code> variable, and please allow it to only have <code>a</code> tag with <code>href</code> attribute and <code>span</code> tag with <code>class</code> attribute, thank you very much</em> 😊</p>
-<p>After that, I&#39;ve opened an <code>elseif</code> statement saying:<br><em>okay, if the first variable is empty (the checkbox is not checked) and the second variable (a text area) is not empty, please populate the copyright with the content of the text area allowing the user to use HTML inside it with</em> <a href="https://developer.wordpress.org/reference/functions/wp_kses_post/">wp_kses_post</a> <em>that will keep an eye and make sure the user type allowed HTML only, that&#39;s it I&#39;ve nothing more to ask so please close the if statement with this <code>endif;</code></em></p>
-<h2>3- Create settings and controls in the Customizer</h2>
-<p>Do you remember the 2 previous variables ?<br>They where related to theme&#39;s modifications.<br>It&#39;s time to create those <code>theme_mod</code> and test our code.<br>To keep the functions.php file clean, we will put the following in a customizer.php file if you don&#39;t have one already. Yous just have to require it from functions.php like so :</p>
-<pre><code class="language-php">require get_template_directory() . &#39;/inc/customizer.php&#39;;
+						<p>
+							What in the hell is this?<br />It&#39;s nothing 😂 it&#39;s just the same pasted elsewhere
+							code in PHP with some variables and an <code>if/elseif</code> statement to take care of the
+							user&#39;s choice.
+						</p>
+						<p>
+							Inside the function, I&#39;ve defined 2 variables. Each one is related to a
+							<code>theme_mod</code> (theme modification) that we will create and explain in a moment.
+						</p>
+						<p>
+							I&#39;ve opened an <code>if</code> statement saying:<br /><em
+								>if the first variable (remember it&#39;s related to a <code>theme_mod</code>, yes
+								it&#39;s a checkbox)</em
+							>
+							😉
+							<em
+								>is not empty (so it have a check tick, it&#39;s checked) please populate the copyright
+								with the following code</em
+							>. The code here is pretty easy to understand. I&#39;ve defined an
+							<code>$html</code> variable replicating the pasted elsewhere code, then I&#39;ve asked PHP
+							to echo this code using
+							<a href="https://developer.wordpress.org/reference/functions/wp_kses/">wp_kses</a> filtering
+							the text content and striping out disallowed HTML.
+						</p>
+						<p>
+							In other words:<br /><em
+								>hey <code>wp_kses</code>, please echo the defined <code>$html</code> variable, and
+								please allow it to only have <code>a</code> tag with <code>href</code> attribute and
+								<code>span</code> tag with <code>class</code> attribute, thank you very much</em
+							>
+							😊
+						</p>
+						<p>
+							After that, I&#39;ve opened an <code>elseif</code> statement saying:<br /><em
+								>okay, if the first variable is empty (the checkbox is not checked) and the second
+								variable (a text area) is not empty, please populate the copyright with the content of
+								the text area allowing the user to use HTML inside it with</em
+							>
+							<a href="https://developer.wordpress.org/reference/functions/wp_kses_post/">wp_kses_post</a>
+							<em
+								>that will keep an eye and make sure the user type allowed HTML only, that&#39;s it
+								I&#39;ve nothing more to ask so please close the if statement with this
+								<code>endif;</code></em
+							>
+						</p>
+						<h2>3- Create settings and controls in the Customizer</h2>
+
+						<p>
+							Do you remember the 2 previous variables?<br />They where related to theme&#39;s
+							modifications.<br />It&#39;s time to create those <code>theme_mod</code> and test our
+							code.<br />To keep the functions.php file clean, we will put the following in a
+							customizer.php file if you don&#39;t have one already. Yous just have to require it from
+							functions.php like so:
+						</p>
+						<pre><code class="language-php">require get_template_directory() . &#39;/inc/customizer.php&#39;;
 </code></pre>
-<p>Please note that in this example the file is in a folder named inc (for includes) at the root of the theme or the child theme, you can change this but be sure to indicate the correct path.<br>Now, put the following in customizer.php, let&#39;s see the code and explain it later:</p>
-<pre><code class="language-php">function midday_customize_register( $wp_customize ) {
+						<p>
+							Please note that in this example the file is in a folder named inc (for includes) at the
+							root of the theme or the child theme, you can change this but be sure to indicate the
+							correct path.<br />Now, put the following in customizer.php, let&#39;s see the code and
+							explain it later:
+						</p>
+						<pre><code class="language-php">function midday_customize_register( $wp_customize ) {
     /**
      * MidDay Theme Panel
      */
@@ -559,7 +697,7 @@ I&#39;ve defined an <code>$html</code> variable replicating the pasted elsewhere
         &#39;midday_custom_copyright_textarea&#39;,
         array(
             &#39;label&#39;       =&gt; esc_html__( &#39;Custom Copyright Textarea&#39;, &#39;midday&#39; ),
-            &#39;description&#39; =&gt; __( &#39;To display a &lt;b&gt;Custom Copyright&lt;/b&gt;,&lt;br&gt;&lt;b&gt;uncheck&lt;/b&gt; the &lt;b&gt;Default Copyright&lt;/b&gt; checkbox,&lt;br&gt;then type a custom copyright in the textarea.&lt;br&gt;&lt;b&gt;HTML&lt;/b&gt; is allowed !&#39;, &#39;midday&#39; ),
+            &#39;description&#39; =&gt; __( &#39;To display a &lt;b&gt;Custom Copyright&lt;/b&gt;,&lt;br&gt;&lt;b&gt;uncheck&lt;/b&gt; the &lt;b&gt;Default Copyright&lt;/b&gt; checkbox,&lt;br&gt;then type a custom copyright in the textarea.&lt;br&gt;&lt;b&gt;HTML&lt;/b&gt; is allowed!&#39;, &#39;midday&#39; ),
             &#39;section&#39;     =&gt; &#39;midday_footer_copyright_area_section&#39;,
             &#39;type&#39;        =&gt; &#39;textarea&#39;,
             &#39;input_attrs&#39; =&gt; array(
@@ -581,18 +719,41 @@ I&#39;ve defined an <code>$html</code> variable replicating the pasted elsewhere
 }
 add_action( &#39;customize_register&#39;, &#39;midday_customize_register&#39; );
 </code></pre>
-<p>Don&#39;t panic, it&#39;s pretty straightforward !<br>Let&#39;s break it down and you&#39;ll see.</p>
-<pre><code class="language-php">function mytheme_customize_register( $wp_customize )
+						<p>
+							Don&#39;t panic, it&#39;s pretty straightforward!<br />Let&#39;s break it down and
+							you&#39;ll see.
+						</p>
+						<pre><code class="language-php">function mytheme_customize_register( $wp_customize )
 {
     //All our sections, settings, and controls will be added here
 }
 add_action( &#39;customize_register&#39;, &#39;mytheme_customize_register&#39; );
 </code></pre>
-<p>This is how we hook a function to the <a href="https://codex.wordpress.org/Plugin_API/Action_Reference/customize_register">&#39;customize_register&#39;</a> action and put inside it our panels, sections, settings and controls.<br>Looking at our code, you can now understand that I&#39;ve created a panel, a section, 2 settings and their 2 related controls.<br>I&#39;m not going to dive into the Customizer, but if you&#39;re not familiar with it, a good start would be this <a href="https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1/">excellent guide</a> by Anthony Hortin.<br>Instead, I&#39;m going to explain a more important aspect here. If you take a good look at the code, you&#39;ll see something else under each control :</p>
-<pre><code class="language-php">$wp_customize-&gt;selective_refresh-&gt;add_partial
+						<p>
+							This is how we hook a function to the
+							<a href="https://codex.wordpress.org/Plugin_API/Action_Reference/customize_register"
+								>&#39;customize_register&#39;</a
+							>
+							action and put inside it our panels, sections, settings and controls.<br />Looking at our
+							code, you can now understand that I&#39;ve created a panel, a section, 2 settings and their
+							2 related controls.<br />I&#39;m not going to dive into the Customizer, but if you&#39;re
+							not familiar with it, a good start would be this
+							<a
+								href="https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1/"
+								>excellent guide</a
+							>
+							by Anthony Hortin.<br />Instead, I&#39;m going to explain a more important aspect here. If
+							you take a good look at the code, you&#39;ll see something else under each control:
+						</p>
+						<pre><code class="language-php">$wp_customize-&gt;selective_refresh-&gt;add_partial
 </code></pre>
-<p>What is this and what does it do ?<br>Well, look closer and you&#39;ll figure it out yourself 😂<br> Just kidding, but in fact it&#39;s really clear.<br>Let&#39;s take one setting it&#39;s control and the related selective_refresh:</p>
-<pre><code class="language-php">// Default copyright.
+						<p>
+							What is this and what does it do?<br />Well, look closer and you&#39;ll figure it out
+							yourself 😂<br />
+							Just kidding, but in fact it&#39;s really clear.<br />Let&#39;s take one setting it&#39;s
+							control and the related selective_refresh:
+						</p>
+						<pre><code class="language-php">// Default copyright.
 $wp_customize-&gt;add_setting(
     &#39;midday_footer_copyright_area_checkbox&#39;,
     array(
@@ -621,8 +782,18 @@ $wp_customize-&gt;selective_refresh-&gt;add_partial(
     )
 );
 </code></pre>
-<p>Remember the first variable ?<br>Well here is it&#39;s <code>theme_mod</code> !<br>Take a look at the <strong>setting</strong> name <code>midday_footer_copyright_area_checkbox</code> 😉<br>The important part here is <code>&#39;transport&#39; =&gt; &#39;postMessage&#39;</code>, because it tells the browser not to reload, but to make the change(s) in place !<br>Another important aspect in the <strong>setting</strong> is <code>&#39;sanitize_callback&#39; =&gt; &#39;midday_sanitize_checkbox&#39;</code>, this is a function to sanitize the checkbox, you should put it <strong>after</strong> the <code>&#39;customize_register&#39;</code> action hook:</p>
-<pre><code class="language-php">if ( ! function_exists( &#39;midday_sanitize_checkbox&#39; ) ) {
+						<p>
+							Remember the first variable?<br />Well here is it&#39;s <code>theme_mod</code>!<br />Take a
+							look at the <strong>setting</strong> name
+							<code>midday_footer_copyright_area_checkbox</code> 😉<br />The important part here is
+							<code>&#39;transport&#39; =&gt; &#39;postMessage&#39;</code>, because it tells the browser
+							not to reload, but to make the change(s) in place!<br />Another important aspect in the
+							<strong>setting</strong> is
+							<code>&#39;sanitize_callback&#39; =&gt; &#39;midday_sanitize_checkbox&#39;</code>, this is a
+							function to sanitize the checkbox, you should put it <strong>after</strong> the
+							<code>&#39;customize_register&#39;</code> action hook:
+						</p>
+						<pre><code class="language-php">if ( ! function_exists( &#39;midday_sanitize_checkbox&#39; ) ) {
     /**
      * Switch sanitization
      *
@@ -638,147 +809,214 @@ $wp_customize-&gt;selective_refresh-&gt;add_partial(
     }
 }
 </code></pre>
-<p>In the <strong>control</strong>, the important part is the type of the control, as you can see it&#39;s defined as checkbox, no surprise, WYaskIWYG 😂<br>For the <strong>partial</strong>, the important part is the selector, it must be an <code>id</code>, now you know why I&#39;ve added an <code>id</code> previously 👍<br>If you look at the <code>settings</code> and the <code>render_callback</code> of the <strong>partial</strong>, you&#39;ll understand that everything is related 🔗 and that we are just putting the wright piece in the wright place 🧩</p>
-<p>You maybe guessed it out or not, but yes I&#39;m developing a new theme called MidDay (in fact I&#39;ve finished it, just some clean up remaining) and I&#39;ll submit it very soon 😁</p>
-<p>I really hope that this was helpful.</p>
-	<p class="author-greetings">
-		SYA,
-		<br />
-		LebCit.
-	</p>
-</div>
+						<p>
+							In the <strong>control</strong>, the important part is the type of the control, as you can
+							see it&#39;s defined as checkbox, no surprise, WYaskIWYG 😂<br />For the
+							<strong>partial</strong>, the important part is the selector, it must be an <code>id</code>,
+							now you know why I&#39;ve added an <code>id</code> previously 👍<br />If you look at the
+							<code>settings</code> and the <code>render_callback</code> of the <strong>partial</strong>,
+							you&#39;ll understand that everything is related 🔗 and that we are just putting the wright
+							piece in the wright place 🧩
+						</p>
+						<p>
+							You maybe guessed it out or not, but yes I&#39;m developing a new theme called MidDay (in
+							fact I&#39;ve finished it, just some clean up remaining) and I&#39;ll submit it very soon 😁
+						</p>
+						<p>I really hope that this was helpful.</p>
+						<p class="post-content hide">
+							<em
+								>Note: The background image is a photo from
+								<a href="https://pxhere.com/en/photo/952720">PxHere</a>.</em
+							>
+						</p>
 
-  <style>
-	.post-navigation {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 16px;
-	}
+						<p class="author-greetings">
+							SYA,
+							<br />
+							LebCit.
+						</p>
+					</div>
 
-	.post-navigation a {
-		margin: 1.5em 0;
-		border: 2px solid #000;
-		background: #000;
-		display: inline-block;
-		padding: 0.7rem 0.9rem;
-		font-size: 1rem;
-		line-height: 1;
-		border-radius: 3px;
-		color: #fff;
-		font-weight: 600;
-		cursor: pointer;
-	}
+					<!-- Start posts pagination -->
+					<style>
+						.post-navigation {
+							display: grid;
+							grid-template-columns: repeat(2, 1fr);
+							grid-template-rows: 1fr;
+							grid-column-gap: 16px;
+						}
 
-	.post-navigation .next-post {
-		grid-column-end: -1;
-	}
+						.post-navigation a {
+							margin: 1.5em 0;
+							border: 2px solid #000;
+							background: #000;
+							display: inline-block;
+							padding: 0.7rem 0.9rem;
+							font-size: 1rem;
+							line-height: 1;
+							border-radius: 3px;
+							color: #fff;
+							font-weight: 600;
+							cursor: pointer;
+						}
 
-	.post-navigation a:hover {
-		color: #fff;
-		box-shadow: 0 0.25em #000;
-	}
+						.post-navigation .next-post {
+							grid-column-end: -1;
+						}
 
-	.post-navigation a:active,
-	.post-navigation a:focus {
-		color: #fff;
-		box-shadow: 0.25em 0.25em #000;
-		outline: 0.1em solid;
-	}
+						.post-navigation a:hover {
+							color: #fff;
+							box-shadow: 0 0.25em #000;
+						}
 
-	@media screen and (max-width: 48em) {
-		.post-navigation {
-			display: grid;
-			grid-template-columns: 1fr;
-			grid-template-rows: repeat(2, 1fr);
-			grid-row-gap: 16px;
-		}
+						.post-navigation a:active,
+						.post-navigation a:focus {
+							color: #fff;
+							box-shadow: 0.25em 0.25em #000;
+							outline: 0.1em solid;
+						}
 
-		.post-navigation a {
-			margin: 0;
-		}
-	}
-</style>
+						@media screen and (max-width: 48em) {
+							.post-navigation {
+								display: grid;
+								grid-template-columns: 1fr;
+								grid-template-rows: repeat(2, 1fr);
+								grid-row-gap: 16px;
+							}
 
-<nav class="post-navigation" aria-label="Post navigation">
-		<a href="/posts/get-google-products-on-desktop-with-thunderbird" class="prev-post" rel="prev" aria-label="Go to the previous post">
-		Previous: Get Google products on desktop with Thunderbird	</a>
-	  	<a href="/posts/hide-wordpress-toolbar-with-wp_add_inline_style" class="next-post" rel="next" aria-label="Go to the next post">
-		Next: Hide WordPress Toolbar with wp_add_inline_style	</a>
-	</nav>
-   <style>
-	.related-posts div {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 16px;
-	}
-</style>
+							.post-navigation a {
+								margin: 0;
+							}
+						}
+					</style>
 
-<div class="related-posts">
-	<h3>SOME RELATED POSTS</h3>
-	<div>
-		      		<section>
-			<a href="/posts/creating-a-customizer-control-with-javascript">
-				    				<img
-					class="img-responsive"
-					src="/static/img/screenshot-creating-a-customizer-control-with-javascript.webp"
-					alt="Screenshot creating a customizer control with javascript"
-				/>
-							</a>
-			<h4>
-				<a href="/posts/creating-a-customizer-control-with-javascript">Creating a Customizer control with JavaScript</a>
-			</h4>
-		</section>
-		      		<section>
-			<a href="/posts/listen-for-changes-in-customizer-preview">
-				    				<img
-					class="img-responsive"
-					src="/static/img/ears-of-chiatto-bunny.webp"
-					alt="Ears of chiatto bunny"
-				/>
-							</a>
-			<h4>
-				<a href="/posts/listen-for-changes-in-customizer-preview">Listen for changes in Customizer Preview !</a>
-			</h4>
-		</section>
-			</div>
-</div>
-  					<!-- End Markdown file content -->
+					<nav class="post-navigation" aria-label="Post navigation">
+						<a
+							href="/posts/get-google-products-on-desktop-with-thunderbird"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Previous: Get Google products on desktop with Thunderbird
+						</a>
+
+						<!--Dynamic Markup Separator-->
+
+						<a
+							href="/posts/hide-wordpress-toolbar-with-wp_add_inline_style"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Next: Hide WordPress Toolbar with wp_add_inline_style
+						</a>
+					</nav>
+
+					<!-- End posts pagination -->
+
+					<!-- Dynamic Markup Separator -->
+
+					<!-- Start related posts -->
+					<style>
+						.related-posts div {
+							display: grid;
+							grid-template-columns: repeat(2, 1fr);
+							grid-template-rows: 1fr;
+							grid-column-gap: 16px;
+						}
+					</style>
+
+					<div class="related-posts">
+						<h3>SOME RELATED POSTS</h3>
+						<div>
+							<section>
+								<a href="/posts/creating-a-customizer-control-with-javascript">
+									<img
+										class="img-responsive"
+										src="/static/images/screenshot-creating-a-customizer-control-with-javascript.webp"
+										alt="Featured image for the post: Creating a Customizer control with JavaScript"
+									/>
+								</a>
+								<h4>
+									<a href="/posts/creating-a-customizer-control-with-javascript"
+										>Creating a Customizer control with JavaScript</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/posts/listen-for-changes-in-customizer-preview">
+									<img
+										class="img-responsive"
+										src="/static/images/ears-of-chiatto-bunny.webp"
+										alt="Featured image for the post: Listen for changes in Customizer Preview!"
+									/>
+								</a>
+								<h4>
+									<a href="/posts/listen-for-changes-in-customizer-preview"
+										>Listen for changes in Customizer Preview!</a
+									>
+								</h4>
+							</section>
+						</div>
+					</div>
+
+					<!-- End related posts -->
+
+					<!-- End Markdown file content -->
 				</main>
-				     			</div>
+			</div>
 			<!--End content-->
+
 			<!--Start footer-->
 			<style>
-	.site-footer {
-		text-align: center;
-		padding-top: 2em;
-	}
-	@media (min-width: 64em) {
-		.site-footer {
-			padding: 2em 3em;
-			margin-left: 40%;
-		}
-	}
-</style>
+				.site-footer {
+					text-align: center;
+					padding-top: 2em;
+				}
+				@media (min-width: 64em) {
+					.site-footer {
+						padding: 2em 3em;
+						margin-left: 40%;
+					}
+				}
+			</style>
 
-<footer id="colophon" class="site-footer unit-1">
-	        	<div id="site-info" class="site-info">
-		<p>
-			<strong>2016 - 2024 | { LebCit }</strong>
-			<br />
-			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
-	</div>
-</footer>
+			<footer id="colophon" class="site-footer unit-1">
+				<style>
+					/* more then 1023px an less then 1024px */
+					@media (max-width: 63.969em) {
+						.hide {
+							display: none;
+						}
+					}
+				</style>
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2024 | { LebCit } </strong>
+						<br />
+						Proudly created with <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>
+					</p>
+				</div>
+			</footer>
+
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  		<script type="module">
-			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
 
-			hljs.highlightAll()
-		</script>
-		
-		<script src="/static/js/main.js"></script>
+		<script src="/static/vendors/highlight/highlight.min.js" onload="hljs.highlightAll()"></script>
+
+		<script type="module" src="/static/scripts/themes/midday/midday-scripts.js"></script>
 	</body>
 </html>

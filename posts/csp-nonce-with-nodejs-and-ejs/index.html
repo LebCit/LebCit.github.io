@@ -1,98 +1,111 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-		<meta name="description" content="This post is about using a nonce for CSP with Node.js and EJS" />
-	
-	<title>CSP nonce with Node.js and EJS | { LebCit }</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
-	<link rel="stylesheet" href="/static/css/main.min.css" />
+		<meta name="description" content="This post is about using a nonce for CSP with Node.js and EJS." />
 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
-	  <style>
-	.post-title {
-		font-size: 2em;
-		color: #222;
-		margin-bottom: 0.2em;
-	}
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-	.post-content {
-		color: #444;
-		line-height: 1.8em;
-	}
+		<title>CSP nonce with Node.js and EJS | { LebCit }</title>
 
-	.post-content a {
-		color: #000036;
-		text-decoration-line: underline;
-		text-decoration-color: #ea215a;
-		text-decoration-style: double;
-		text-decoration-thickness: 0.125em;
-		text-underline-offset: 1.5px;
-		text-decoration-skip-ink: none;
-		transition: 0.5s;
-	}
+		<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
+		<link rel="stylesheet" href="/static/styles/themes/midday/midday-styles-min.css" />
 
-	.post-content a:hover,
-	.post-content a:focus,
-	.post-content a:active {
-		text-decoration: none;
-		color: white;
-		box-shadow: inset 0 -1.3em 0 0 #000;
-		outline: thin dotted #ea215a;
-	}
-</style>
+		<link rel="stylesheet" href="/static/vendors/highlight/atom-one-dark.min.css" />
 
-<style>
-	.single-post :not(pre) code {
-		background-color: #272822;
-		color: #f8f8f2;
-		border-radius: 0.3rem;
-		padding: 4px 5px 5px;
-	}
-</style>
-  <style>
-	@media screen and (min-width: 48em) and (max-width: 63.938em) {
-		.post-title {
-			font-size: 3em;
-			margin-top: 0;
-		}
-	}
+		<!-- COMMON STYLES -->
+		<style>
+			.post-title {
+				font-size: 2em;
+				color: #222;
+				margin-bottom: 0.2em;
+			}
 
-	@media (min-width: 64em) {
-		.post-title {
-			/* will affect single-post*/
-			font-size: 4em;
-			margin-top: 0;
-		}
-	}
-</style>
-    <style>
-	.post-meta {
-		color: #16663d;
-		font-size: 90%;
-		margin: 0;
-	}
+			.post-content {
+				color: #444;
+				line-height: 1.8em;
+			}
 
-	.posted-on {
-		color: #ad1a36;
-	}
+			.post-content a {
+				color: #000036;
+				text-decoration-line: underline;
+				text-decoration-color: #ea215a;
+				text-decoration-style: double;
+				text-decoration-thickness: 0.125em;
+				text-underline-offset: 1.5px;
+				text-decoration-skip-ink: none;
+				transition: 0.5s;
+			}
 
-	.post-tag {
-		margin: 0 0.1em;
-		padding: 0.2em 0.8em;
-		background: #ad1a36;
-		font-size: 80%;
-	}
+			.post-content a:hover,
+			.post-content a:focus,
+			.post-content a:active {
+				text-decoration: none;
+				color: white;
+				box-shadow: inset 0 -1.3em 0 0 #000;
+				outline: thin dotted #ea215a;
+			}
+		</style>
 
-	.post-tag a {
-		color: #fff;
-	}
-</style>
-  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
-</head>
+		<style>
+			.single-post :not(pre) code {
+				background-color: #272822;
+				color: #f8f8f2;
+				border-radius: 0.3rem;
+				padding: 4px 5px 5px;
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+
+		<style>
+			@media screen and (min-width: 48em) and (max-width: 63.938em) {
+				.post-title {
+					font-size: 3em;
+					margin-top: 0;
+				}
+			}
+
+			@media (min-width: 64em) {
+				.post-title {
+					/* will affect single-post*/
+					font-size: 4em;
+					margin-top: 0;
+				}
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+
+		<!-- Dynamic Markup Separator -->
+
+		<style>
+			.post-meta {
+				color: #16663d;
+				font-size: 90%;
+				margin: 0;
+			}
+
+			.posted-on {
+				color: #ad1a36;
+			}
+
+			.post-tag {
+				margin: 0 0.1em;
+				padding: 0.2em 0.8em;
+				background: #ad1a36;
+				font-size: 80%;
+			}
+
+			.post-tag a {
+				color: #fff;
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+	</head>
 
 	<body>
 		<!--Start page-->
@@ -101,350 +114,425 @@
 
 			<!--Start menu-->
 			<style>
-	.invisible {
-		visibility: hidden;
-	}
+				.invisible {
+					visibility: hidden;
+				}
 
-	.overlay {
-		position: fixed;
-		width: 0;
-		height: 100%;
-		top: 0;
-		right: 0;
-		background-color: rgba(0, 0, 0, 0.9);
-		z-index: 2;
-		letter-spacing: normal;
-		overflow-x: hidden;
-		transition: 0.5s;
-	}
+				.overlay {
+					position: fixed;
+					width: 0;
+					height: 100%;
+					top: 0;
+					right: 0;
+					background-color: rgba(0, 0, 0, 0.9);
+					z-index: 2;
+					letter-spacing: normal;
+					overflow-x: hidden;
+					transition: 0.5s;
+				}
 
-	.overlay-content {
-		position: relative;
-		top: 25%;
-		width: 100%;
-		text-align: center;
-		margin-top: 30px;
-	}
+				.overlay-content {
+					position: relative;
+					top: 25%;
+					width: 100%;
+					text-align: center;
+					margin-top: 30px;
+				}
 
-	.overlay li {
-		list-style: none;
-	}
+				.overlay li {
+					list-style: none;
+				}
 
-	.overlay a {
-		padding: 8px;
-		text-decoration: none;
-		font-size: 36px;
-		color: #818181;
-		display: block;
-		transition: 0.3s;
-	}
+				.overlay a {
+					padding: 8px;
+					text-decoration: none;
+					font-size: 36px;
+					color: #818181;
+					display: block;
+					transition: 0.3s;
+				}
 
-	.overlay a:hover,
-	.overlay a:focus {
-		color: #f1f1f1;
-		background-color: #222;
-		border: 1px solid red;
-		border-style: dashed;
-	}
+				.overlay a:hover,
+				.overlay a:focus {
+					color: #f1f1f1;
+					background-color: #222;
+					border: 1px solid red;
+					border-style: dashed;
+				}
 
-	.overlay .close-button {
-		position: absolute;
-		top: 20px;
-		right: 45px;
-		font-size: 60px;
-	}
-</style>
+				.overlay .close-button {
+					position: absolute;
+					top: 20px;
+					right: 45px;
+					font-size: 60px;
+				}
+			</style>
 
-<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
-	<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">
-		&times;
-	</a>
-	
-	<div class="overlay-content">
-		<a href="/">Home</a>
-				<li class="pure-menu-item">
-			<a href="/posts">Archive</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/tags">Tags</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/search">Search</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/pages/my-public-projects">Projects</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/pages/about">About Me</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/rss.xml">RSS</a>
-		</li>
+			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+				<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
+
+				<div class="overlay-content">
+					<a href="/">Home</a>
+
+					<li class="pure-menu-item">
+						<a href="/posts">Archive</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/tags">Tags</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/search">Search</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/pages/my-public-projects">Projects</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/pages/about">About Me</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/rss.xml">RSS</a>
+					</li>
+				</div>
 			</div>
-</div>
+
 			<!--End menu-->
+
 			<!--Start masthead-->
 			<style>
-	/* SITE HEADER */
-	.site-header {
-		background: rgb(61, 79, 93);
-		color: #fff;
-	}
+				/* SITE HEADER */
+				.site-header {
+					background: rgb(61, 79, 93);
+					color: #fff;
+				}
 
-	.sidebar {
-		margin: 1em;
-	}
+				.sidebar {
+					margin: 1em;
+				}
 
-	.site-title,
-	.site-description {
-		margin: 0;
-		line-height: 1.2;
-	}
+				.site-title,
+				.site-description {
+					margin: 0;
+					line-height: 1.2;
+				}
 
-	.site-title a {
-		color: #fff;
-		text-decoration: none;
-	}
+				.site-title a {
+					color: #fff;
+					text-decoration: none;
+				}
 
-	.site-title a:hover,
-	.site-title a:focus {
-		text-decoration: underline;
-	}
+				.site-title a:hover,
+				.site-title a:focus {
+					text-decoration: underline;
+				}
 
-	.site-description {
-		font-weight: 300;
-		color: rgb(176, 202, 219);
-		margin: 0.5em 0 2em 0;
-	}
+				.site-description {
+					font-weight: 300;
+					color: rgb(176, 202, 219);
+					margin: 0.5em 0 2em 0;
+				}
 
-	/* MENU BUTTON */
-	.nav-list {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
+				/* MENU BUTTON */
+				.nav-list {
+					margin: 0;
+					padding: 0;
+					list-style: none;
+				}
 
-	.nav-item {
-		display: inline-block;
-	}
+				.nav-item {
+					display: inline-block;
+				}
 
-	.nav-item a {
-		background: black;
-		border: 2px solid rgb(176, 202, 219);
-		border-radius: 2px;
-		color: #fff;
-		padding: 0.5em 1em;
-		margin-top: 1em;
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
-		font-size: 85%;
-	}
+				.nav-item a {
+					background: black;
+					border: 2px solid rgb(176, 202, 219);
+					border-radius: 2px;
+					color: #fff;
+					padding: 0.5em 1em;
+					margin-top: 1em;
+					letter-spacing: 0.05em;
+					text-transform: uppercase;
+					font-size: 85%;
+				}
 
-	.nav-item a:hover,
-	.nav-item a:focus {
-		border: 2px solid rgb(61, 146, 201);
-		text-decoration: none;
-	}
+				.nav-item a:hover,
+				.nav-item a:focus {
+					border: 2px solid rgb(61, 146, 201);
+					text-decoration: none;
+				}
 
-	.nav-item a svg {
-		fill: aliceblue;
-		vertical-align: bottom;
-		padding: 4px 0 2px;
-	}
+				.nav-item a svg {
+					fill: aliceblue;
+					vertical-align: bottom;
+					padding: 4px 0 2px;
+				}
 
-	@media screen and (max-width: 35.5em) {
-		.nav-item a svg {
-			padding-top: 14px;
-		}
-	}
+				@media screen and (max-width: 35.5em) {
+					.nav-item a svg {
+						padding-top: 14px;
+					}
+				}
 
-	@media screen and (min-width: 35.5em) and (max-width: 48em) {
-		.nav-item a svg {
-			padding-top: 12px;
-		}
-	}
+				@media screen and (min-width: 35.5em) and (max-width: 48em) {
+					.nav-item a svg {
+						padding-top: 12px;
+					}
+				}
 
-	@media screen and (min-width: 48em) and (max-width: 63.938em) {
-		.nav-item a svg {
-			padding-top: 10px;
-		}
-	}
+				@media screen and (min-width: 48em) and (max-width: 63.938em) {
+					.nav-item a svg {
+						padding-top: 10px;
+					}
+				}
 
-	/* more then 1023px an less then 1024px */
-	@media (max-width: 63.969em) {
-		.site-header.bio {
-			background-image: none !important;
-		}
-		.nav {
-			position: fixed;
-			top: 15px;
-			right: 10px;
-			z-index: 1;
-		}
-	}
+				/* more then 1023px an less then 1024px */
+				@media (max-width: 63.969em) {
+					.site-header.bio {
+						background-image: none !important;
+					}
+					.nav {
+						position: fixed;
+						top: 15px;
+						right: 10px;
+						z-index: 1;
+					}
+				}
 
-	@media (min-width: 64em) {
-		.site-header {
-			position: fixed;
-			top: 0;
-			bottom: 0;
-			overflow-y: auto;
-		}
+				@media (min-width: 64em) {
+					.site-header {
+						position: fixed;
+						top: 0;
+						bottom: 0;
+						overflow-y: auto;
+					}
 
-		.site-header.bio {
-			background-repeat: no-repeat;
-			background-position: top;
-			background-size: cover;
-		}
+					.site-header.bio {
+						background-repeat: no-repeat;
+						background-position: top;
+						background-size: cover;
+					}
 
-		.site-header.bio .site-header-overlay {
-			position: fixed;
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: rgba(0, 0, 0, 0.6);
-		}
+					.site-header.bio .site-header-overlay {
+						position: fixed;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						background-color: rgba(0, 0, 0, 0.6);
+					}
 
-		/* The emerging W3C standard
+					/* The emerging W3C standard
  that is currently Firefox-only */
-		.site-header {
-			scrollbar-width: thin;
-		}
+					.site-header {
+						scrollbar-width: thin;
+					}
 
-		/* Works on Chrome/Edge/Safari */
-		.site-header::-webkit-scrollbar {
-			width: 7px;
-		}
+					/* Works on Chrome/Edge/Safari */
+					.site-header::-webkit-scrollbar {
+						width: 7px;
+					}
 
-		.site-header::-webkit-scrollbar-track {
-			background: #313d48;
-		}
+					.site-header::-webkit-scrollbar-track {
+						background: #313d48;
+					}
 
-		.site-header::-webkit-scrollbar-thumb {
-			background-color: #81898f;
-		}
+					.site-header::-webkit-scrollbar-thumb {
+						background-color: #81898f;
+					}
 
-		.sidebar {
-			margin: 10% 2em;
-			text-align: left;
-		}
+					.sidebar {
+						margin: 10% 2em;
+						text-align: left;
+					}
 
-		.site-header.bio .sidebar {
-			position: sticky;
-		}
-	}
-</style>
+					.site-header.bio .sidebar {
+						position: sticky;
+					}
+				}
+			</style>
 
-<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/key-attached-to-another-in-the-lock-of-a-door.webp')"  >
-	<div class="site-header-overlay"></div>
-		<div class="sidebar">
-		<div class="site-branding">
-			<h1 class="site-title">
-				<a href="/">{ LebCit }</a>
-			</h1>
-			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</p>
-		</div>
+			<!-- Start #masthead -->
 
-				<nav id="nav" class="nav" aria-label="MENU">
-			<ul class="nav-list">
-				<li class="nav-item">
-					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
-						<span>MENU</span>
-						<span class="menu-icon" aria-hidden="true">
-							<svg
-								version="1.1"
-								x="0px"
-								y="0px"
-								width="30px"
-								height="30px"
-								viewbox="0 0 30 30"
-								enable-background="new 0 0 30 30"
-							>
-								<rect width="30" height="5" />
-								<rect y="24" width="30" height="5" />
-								<rect y="12" width="30" height="5" />
-							</svg>
-						</span>
-					</a>
-				</li>
-			</ul>
-		</nav>
-			</div>
-	</header>
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="background-image: url(/static/images/key-attached-to-another-in-the-lock-of-a-door.webp)"
+			>
+				<div class="site-header-overlay"></div>
+				<!-- Start .sidebar-->
+				<div class="sidebar">
+					<div class="site-branding">
+						<h1 class="site-title">
+							<a href="/">{ LebCit } </a>
+						</h1>
+						<p class="site-description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
+
+					<!-- Menu button start -->
+					<nav id="nav" class="nav" aria-label="MENU">
+						<ul class="nav-list">
+							<li class="nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewbox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<!-- Menu button end -->
+				</div>
+				<!-- End .sidebar-->
+			</header>
+			<!-- End #masthead-->
+
 			<!--End masthead-->
 
 			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				  				<main class="single-post">
+				<!-- MARKDOWN ROUTE -->
+				<main class="single-post">
 					<!-- Start Markdown file content -->
 					<style>
-	.author-greetings {
-		color: #000;
-		line-height: normal;
-	}
-</style>
+						.author-greetings {
+							color: #000;
+							line-height: normal;
+						}
+					</style>
 
-<header class="post-header">
-	<h1 class="post-title">CSP nonce with Node.js and EJS</h1>
-		<p class="post-meta">
-		<span>Posted on</span>
-		<span class="posted-on">
-			<time class="postList-date" datetime='2022-07/03'>
-				Sun Jul 03 2022			</time>
-		</span>
+					<header class="post-header">
+						<h1 class="post-title">CSP nonce with Node.js and EJS</h1>
 
-				<br />
-		<span>Tagged</span>
-		<!--Start tag(s)-->
-				<span class="post-tag">
-			<a href="/tags/Development">Development</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/JavaScript">JavaScript</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/Node.js">Node.js</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/EJS">EJS</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/CSP">CSP</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/Nonce">Nonce</a>
-		</span>
-				<!--End tag(s)-->
-			</p>
-	  </header>
+						<p class="post-meta">
+							<span>Posted on</span>
+							<span class="posted-on">
+								<time class="postList-date" datetime="2022-07-03">2022-07-03</time>
+							</span>
 
-<div class="post-content">
-		<p>
-		<em>This post is about using a nonce for CSP with Node.js and EJS.</em>
-	</p>
-	  <h2>Intro</h2>
-<p>In this post, I will not dive into CSP&#39;s details.
-The link in the description, above, is enough for a simple introduction to the subject, but if you wish to go deeper I&#39;ll suggest to take a look at :</p>
-<ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">Content Security Policy (CSP) on MDN</a></li>
-<li><a href="https://www.w3.org/TR/CSP3/">Content Security Policy Level 3 on W3C</a></li>
-</ul>
-<h2>CSP: script-src</h2>
-<p>CSP is manly a way to declare allowed resources to load on a domain or a particular route, to reduce the risk of <a href="https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting">Cross-site scripting (XSS)</a> attacks.<br>When a script loads into a webpage, the browser blocks the script if it&#39;s not defined in the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src">script-src</a> directive of the CSP as an allowed resource.<br>When used, CSP will also block inline script tags like :</p>
-<pre><code class="language-html">&lt;script&gt;
+							<br />
+							<span>Tagged</span>
+							<!--Start tag(s)-->
+
+							<span class="post-tag">
+								<a href="/tags/Development">Development</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/JavaScript">JavaScript</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/Node.js">Node.js</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/EJS">EJS</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/CSP">CSP</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/Nonce">Nonce</a>
+							</span>
+
+							<!--End tag(s)-->
+						</p>
+
+						<!--Dynamic Markup Separator-->
+					</header>
+
+					<div class="post-content">
+						<p>
+							<em>This post is about using a nonce for CSP with Node.js and EJS.</em>
+						</p>
+
+						<!--Content-->
+						<h2>Intro</h2>
+
+						<p>
+							In this post, I will not dive into CSP&#39;s details. The link in the description, above, is
+							enough for a simple introduction to the subject, but if you wish to go deeper I&#39;ll
+							suggest to take a look at:
+						</p>
+						<ul>
+							<li>
+								<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP"
+									>Content Security Policy (CSP) on MDN</a
+								>
+							</li>
+							<li><a href="https://www.w3.org/TR/CSP3/">Content Security Policy Level 3 on W3C</a></li>
+						</ul>
+						<h2>CSP: script-src</h2>
+
+						<p>
+							CSP is manly a way to declare allowed resources to load on a domain or a particular route,
+							to reduce the risk of
+							<a href="https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting"
+								>Cross-site scripting (XSS)</a
+							>
+							attacks.<br />When a script loads into a webpage, the browser blocks the script if it&#39;s
+							not defined in the
+							<a
+								href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src"
+								>script-src</a
+							>
+							directive of the CSP as an allowed resource.<br />When used, CSP will also block inline
+							script tags like:
+						</p>
+						<pre><code class="language-html">&lt;script&gt;
     doSomething()
 &lt;/script&gt;
 </code></pre>
-<p>as well as inline event handlers like :</p>
-<pre><code class="language-html">&lt;button id=&quot;btn&quot; onclick=&quot;doSomething()&quot;&gt;&lt;/button&gt;
+						<p>as well as inline event handlers like:</p>
+						<pre><code class="language-html">&lt;button id=&quot;btn&quot; onclick=&quot;doSomething()&quot;&gt;&lt;/button&gt;
 </code></pre>
-<h2>CSP: style-src</h2>
-<p>Like <code>script-src</code>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src">style-src</a> is used to declare the valid sources of styles.</p>
-<p>CSP <code>style-src</code> directive will block inline style tags and inline style attributes.<br>So, the following will not load :</p>
-<pre><code class="language-html">// Inline style tag gets ignored
+						<h2>CSP: style-src</h2>
+
+						<p>
+							Like <code>script-src</code>,
+							<a
+								href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src"
+								>style-src</a
+							>
+							is used to declare the valid sources of styles.
+						</p>
+						<p>
+							CSP <code>style-src</code> directive will block inline style tags and inline style
+							attributes.<br />So, the following will not load:
+						</p>
+						<pre><code class="language-html">// Inline style tag gets ignored
 &lt;style&gt;
     #my-div {
         background-color: red;
@@ -452,26 +540,46 @@ The link in the description, above, is enough for a simple introduction to the s
 &lt;/style&gt;
 
 // Inline style attribute gets also ignored
-&lt;div id=&quot;my-div&quot; style=&quot;background-color:red&quot;&gt;I will not have a red background !&lt;/div&gt;
+&lt;div id=&quot;my-div&quot; style=&quot;background-color:red&quot;&gt;I will not have a red background!&lt;/div&gt;
 </code></pre>
-<p>Note that <code>style-src</code> directive will also block styles applied in JS via <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute">setAttribute</a>.<br>The following example will not be rendered :</p>
-<pre><code class="language-js">document.getElementById(&quot;my-div&quot;).setAttribute(&quot;style&quot;, &quot;background-color:red;&quot;)
+						<p>
+							Note that <code>style-src</code> directive will also block styles applied in JS via
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute"
+								>setAttribute</a
+							>.<br />The following example will not be rendered:
+						</p>
+						<pre><code class="language-js">document.getElementById(&quot;my-div&quot;).setAttribute(&quot;style&quot;, &quot;background-color:red;&quot;)
 </code></pre>
-<p>However, styles set on element&#39;s style property will work.<br>The following example will be rendered :</p>
-<pre><code class="language-js">document.getElementById(&quot;my-div&quot;).style.backgroundColor = &quot;red&quot;
+						<p>
+							However, styles set on element&#39;s style property will work.<br />The following example
+							will be rendered:
+						</p>
+						<pre><code class="language-js">document.getElementById(&quot;my-div&quot;).style.backgroundColor = &quot;red&quot;
 </code></pre>
-<h2>Unsafe expressions</h2>
-<p>There are <strong>unsafe</strong> ways to whitelist inline script tags, inline event handlers, inline style tags and inline styles, but I&#39;m not going to talk about them because they are <strong>unsafe</strong> and break the whole point of a CSP !</p>
-<h2>Setting CSP in Node.js</h2>
-<p>To define allowed resources in a CSP via Node.js, we have to declare them as a response header :</p>
-<ol>
-<li>The user makes a request</li>
-<li>The server sends a response</li>
-<li>The browser loads the page along with allowed resources</li>
-</ol>
-<p>It&#39;s in the response header that a CSP lives and where the browser will look to know what he can render.</p>
-<p>Using <a href="https://expressjs.com/">Express</a>, we can simply do the following :</p>
-<pre><code class="language-js">const express = require(&quot;express&quot;)
+						<h2>Unsafe expressions</h2>
+
+						<p>
+							There are <strong>unsafe</strong> ways to whitelist inline script tags, inline event
+							handlers, inline style tags and inline styles, but I&#39;m not going to talk about them
+							because they are <strong>unsafe</strong> and break the whole point of a CSP!
+						</p>
+						<h2>Setting CSP in Node.js</h2>
+
+						<p>
+							To define allowed resources in a CSP via Node.js, we have to declare them as a response
+							header:
+						</p>
+						<ol>
+							<li>The user makes a request</li>
+							<li>The server sends a response</li>
+							<li>The browser loads the page along with allowed resources</li>
+						</ol>
+						<p>
+							It&#39;s in the response header that a CSP lives and where the browser will look to know
+							what he can render.
+						</p>
+						<p>Using <a href="https://expressjs.com/">Express</a>, we can simply do the following:</p>
+						<pre><code class="language-js">const express = require(&quot;express&quot;)
 const app = express()
 
 // Set CSP as a middleware function
@@ -492,18 +600,38 @@ app.listen(3000, () =&gt; {
     console.log(`App 🚀 @ http://localhost:3000`)
 })
 </code></pre>
-<p>As you can see, we have defined the most used directives to <code>&#39;self&#39;</code>, meaning that we are only allowing resources from the current host (<em>including URL scheme and port number</em>) only.<br>If you run this app (<code>node index</code>), and follow the link, you&#39;ll get a nice <strong>Hello World!</strong><br>If you open the Console (F12), you&#39;ll see nothing since we didn&#39;t do much for now.</p>
-<h2>EJS</h2>
-<p>To render an <code>HTML</code> page, load external scripts and styles to test our CSP, I&#39;ll be using <a href="https://ejs.co/">EJS</a>.<br>Fell free to use any other template engine that suits your needs.<br>I highly recommend EJS for the following reason :</p>
-<blockquote>
-<p>EJS is a simple templating language that lets you generate HTML markup with plain JavaScript.</p>
-</blockquote>
-<p>After installing EJS (<code>npm i ejs</code>), we&#39;ll have to create a <code>views</code> folder, at the root of the app, to store the <code>.ejs</code> files.<br>EJS will look inside this folder to <code>render</code> your page(s) the way you instruct him to do.
-In this folder, create a file called <code>index.ejs</code> with the following content :</p>
-<details>
-<summary>/views/index.ejs</summary>
+						<p>
+							As you can see, we have defined the most used directives to <code>&#39;self&#39;</code>,
+							meaning that we are only allowing resources from the current host (<em
+								>including URL scheme and port number</em
+							>) only.<br />If you run this app (<code>node index</code>), and follow the link, you&#39;ll
+							get a nice <strong>Hello World!</strong><br />If you open the Console (F12), you&#39;ll see
+							nothing since we didn&#39;t do much for now.
+						</p>
+						<h2>EJS</h2>
 
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+						<p>
+							To render an <code>HTML</code> page, load external scripts and styles to test our CSP,
+							I&#39;ll be using <a href="https://ejs.co/">EJS</a>.<br />Fell free to use any other
+							template engine that suits your needs.<br />I highly recommend EJS for the following reason:
+						</p>
+						<blockquote>
+							<p>
+								EJS is a simple templating language that lets you generate HTML markup with plain
+								JavaScript.
+							</p>
+						</blockquote>
+						<p>
+							After installing EJS (<code>npm i ejs</code>), we&#39;ll have to create a
+							<code>views</code> folder, at the root of the app, to store the
+							<code>.ejs</code> files.<br />EJS will look inside this folder to <code>render</code> your
+							page(s) the way you instruct him to do. In this folder, create a file called
+							<code>index.ejs</code> with the following content:
+						</p>
+						<details>
+							<summary>/views/index.ejs</summary>
+
+							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
         &lt;meta charset=&quot;UTF-8&quot; /&gt;
@@ -512,18 +640,21 @@ In this folder, create a file called <code>index.ejs</code> with the following c
         &lt;title&gt;Document&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
-        &lt;h1&gt;Hello from EJS !&lt;/h1&gt;
+        &lt;h1&gt;Hello from EJS!&lt;/h1&gt;
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-</details>
+						</details>
 
-<p>Yes, an <code>.ejs</code> file is an <code>HTML</code> file in which we can use plain <code>JavaScript</code>, we&#39;ll see that in a moment.</p>
-<p>Update our main server file to look like this :</p>
-<details>
-<summary>/index.js</summary>
+						<p>
+							Yes, an <code>.ejs</code> file is an <code>HTML</code> file in which we can use plain
+							<code>JavaScript</code>, we&#39;ll see that in a moment.
+						</p>
+						<p>Update our main server file to look like this:</p>
+						<details>
+							<summary>/index.js</summary>
 
-<pre><code class="language-js">const express = require(&quot;express&quot;)
+							<pre><code class="language-js">const express = require(&quot;express&quot;)
 const app = express()
 
 // Set CSP as a middleware function
@@ -548,15 +679,19 @@ app.listen(3000, () =&gt; {
     console.log(`App 🚀 @ http://localhost:3000`)
 })
 </code></pre>
-</details>
+						</details>
 
-<h2>External resources</h2>
-<p>Now, to test our CSP, we just have to load some external resources.<br>Let&#39;s bring on <a href="https://purecss.io/">Pure.css</a> and <a href="https://lodash.com/">Lodash</a>.
-Update <code>index.ejs</code> to look like this :</p>
-<details>
-<summary>/views/index.ejs</summary>
+						<h2>External resources</h2>
 
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+						<p>
+							Now, to test our CSP, we just have to load some external resources.<br />Let&#39;s bring on
+							<a href="https://purecss.io/">Pure.css</a> and <a href="https://lodash.com/">Lodash</a>.
+							Update <code>index.ejs</code> to look like this:
+						</p>
+						<details>
+							<summary>/views/index.ejs</summary>
+
+							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
         &lt;meta charset=&quot;UTF-8&quot; /&gt;
@@ -572,43 +707,58 @@ Update <code>index.ejs</code> to look like this :</p>
         /&gt;
     &lt;/head&gt;
     &lt;body&gt;
-        &lt;h1&gt;Hello from EJS !&lt;/h1&gt;
+        &lt;h1&gt;Hello from EJS!&lt;/h1&gt;
 
         &lt;!-- Lodash --&gt;
         &lt;script src=&quot;https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js&quot;&gt;&lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-</details>
+						</details>
 
-<p>Save <code>index.ejs</code>, reload the app in the browser, and open the Console :</p>
-<details>
-<summary>Firefox Console</summary>
+						<p>Save <code>index.ejs</code>, reload the app in the browser, and open the Console:</p>
+						<details>
+							<summary>Firefox Console</summary>
 
-<pre><code class="language-js">
+							<pre><code class="language-js">
 ⚠️ Loading failed for the &lt;script&gt; with source “https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js”.
 🛑 Content Security Policy: The page’s settings blocked the loading of a resource at https://unpkg.com/purecss@2.1.0/build/pure-min.css (“style-src”).
 🛑 Content Security Policy: The page’s settings blocked the loading of a resource at https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js (“script-src”).
 </code></pre>
-</details>
+						</details>
 
-<details>
-<summary>Chrome Console</summary>
+						<details>
+							<summary>Chrome Console</summary>
 
-<pre><code class="language-js">
+							<pre><code class="language-js">
 🛑 Refused to load the stylesheet &#39;https://unpkg.com/purecss@2.1.0/build/pure-min.css&#39; because it violates the following Content Security Policy directive: &quot;style-src &#39;self&#39;&quot;. Note that &#39;style-src-elem&#39; was not explicitly set, so &#39;style-src&#39; is used as a fallback.
 🛑 Refused to load the script &#39;https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js&#39; because it violates the following Content Security Policy directive: &quot;script-src &#39;self&#39;&quot;. Note that &#39;script-src-elem&#39; was not explicitly set, so &#39;script-src&#39; is used as a fallback.
 </code></pre>
-</details>
+						</details>
 
-<p>Now, you can see that our CSP have blocked Pure.css and Lodash, so everything is working as expected since they are not defined in our CSP as allowed resources to load in the browser.</p>
-<h2>Helmet</h2>
-<p>Imagine, not necessarily because it happens when you are creating an app, having a reasonable amount of scripts and styles to whitelist.<br>The CSP middleware function in the main server file will grow and become sort of ugly and hard to maintain.<br>An <strong>excellent</strong> alternative would be to use <a href="https://helmetjs.github.io/">Helmet</a> <em>if you&#39;re using Express</em>.</p>
-<blockquote>
-<p>Helmet helps you secure your Express apps by setting various HTTP headers.</p>
-</blockquote>
-<p>Let&#39;s add Helmet to our Express app with the following command <code>npm i helmet</code>.<br>To easily maintain our CSP, let&#39;s move it inside a <code>middleware</code> folder, a the root of the app, in a file called <code>helmet.js</code>.<br>The app structure looks like the following tree :</p>
-<pre><code class="language-txt">Application&#39;s root without node_modules folder
+						<p>
+							Now, you can see that our CSP have blocked Pure.css and Lodash, so everything is working as
+							expected since they are not defined in our CSP as allowed resources to load in the browser.
+						</p>
+						<h2>Helmet</h2>
+
+						<p>
+							Imagine, not necessarily because it happens when you are creating an app, having a
+							reasonable amount of scripts and styles to whitelist.<br />The CSP middleware function in
+							the main server file will grow and become sort of ugly and hard to maintain.<br />An
+							<strong>excellent</strong> alternative would be to use
+							<a href="https://helmetjs.github.io/">Helmet</a> <em>if you&#39;re using Express</em>.
+						</p>
+						<blockquote>
+							<p>Helmet helps you secure your Express apps by setting various HTTP headers.</p>
+						</blockquote>
+						<p>
+							Let&#39;s add Helmet to our Express app with the following command
+							<code>npm i helmet</code>.<br />To easily maintain our CSP, let&#39;s move it inside a
+							<code>middleware</code> folder, a the root of the app, in a file called
+							<code>helmet.js</code>.<br />The app structure looks like the following tree:
+						</p>
+						<pre><code class="language-txt">Application&#39;s root without node_modules folder
 ├── index.js
 ├── middleware
 │  └── helmet.js
@@ -617,21 +767,21 @@ Update <code>index.ejs</code> to look like this :</p>
 └── views
   └── index.ejs
 </code></pre>
-<p>Let&#39;s add a CSP with Helmet :</p>
-<details>
-<summary>/middleware/helmet.js</summary>
+						<p>Let&#39;s add a CSP with Helmet:</p>
+						<details>
+							<summary>/middleware/helmet.js</summary>
 
-<pre><code class="language-js">const helmet = require(&quot;helmet&quot;)
+							<pre><code class="language-js">const helmet = require(&quot;helmet&quot;)
 
 module.exports = helmet()
 </code></pre>
-</details>
+						</details>
 
-<p>and update <code>index.js</code> to call this middleware :</p>
-<details>
-<summary>/index.js</summary>
+						<p>and update <code>index.js</code> to call this middleware:</p>
+						<details>
+							<summary>/index.js</summary>
 
-<pre><code class="language-js">const express = require(&quot;express&quot;)
+							<pre><code class="language-js">const express = require(&quot;express&quot;)
 const app = express()
 
 // Set CSP using Helmet
@@ -650,54 +800,116 @@ app.listen(3000, () =&gt; {
     console.log(`App 🚀 @ http://localhost:3000`)
 })
 </code></pre>
-</details>
+						</details>
 
-<p>Save both files, refresh your browser, and open the Console :</p>
-<details>
-<summary>Firefox Console</summary>
+						<p>Save both files, refresh your browser, and open the Console:</p>
+						<details>
+							<summary>Firefox Console</summary>
 
-<pre><code class="language-js">
+							<pre><code class="language-js">
 ⚠️ Content Security Policy: Couldn’t process unknown directive ‘script-src-attr’
 ⚠️ Loading failed for the &lt;script&gt; with source “https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js”.
 🛑 Content Security Policy: The page’s settings blocked the loading of a resource at https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js (“script-src”).
 </code></pre>
-</details>
+						</details>
 
-<details>
-<summary>Chrome Console</summary>
+						<details>
+							<summary>Chrome Console</summary>
 
-<pre><code class="language-js">
+							<pre><code class="language-js">
 🛑 Refused to load the script &#39;https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js&#39; because it violates the following Content Security Policy directive: &quot;script-src &#39;self&#39;&quot;. Note that &#39;script-src-elem&#39; was not explicitly set, so &#39;script-src&#39; is used as a fallback.
 </code></pre>
-</details>
+						</details>
 
-<p>As you can see, now only Lodash is blocked 🤔
-And Firefox is throwing a warning for an unknown directive.</p>
-<p>Under the hood, a lot is happening, and it will take a series of posts to explain in detail each header and how to configure them...</p>
-<p>But just that you know, Helmet sets a bunch of default values to protect your endpoint.<br>One of them is :<br><code>style-src &#39;self&#39; https: &#39;unsafe-inline&#39;;</code><br>This is the directive allowing Pure.css.<br>It means : <em>&quot;allow any styles&#39; source from my domain, or styles&#39; source served over https, or inline styles&quot;</em>.<br>But as I&#39;ve said before, any <code>&#39;unsafe-...&#39;</code> expression is <strong>unsafe</strong> and should not be used unless their is really no other option...<br>I&#39;ve linked at the beginning of this section to Helmet&#39;s documentation.<br>We&#39;ll be addressing all issues, properly, in the next and last section.</p>
-<h2>Hash and Nonce</h2>
-<p>To allow the execution of inline scripts, inline event handlers and inline styles, a hash or a nonce that matches the inline code can be specified, to avoid using the <code>&#39;unsafe-inline&#39;</code>expression.</p>
-<h3>Hash</h3>
-<hr>
-<p>A <a href="https://content-security-policy.com/hash/">hash</a> is a string composed of two parts connected by a dash with each other :</p>
-<ol>
-<li>The cryptographic algorithm used to create the hash value.</li>
-<li>The base64-encoded hash of a script or style.</li>
-</ol>
-<p>CSP supports sha256, sha384 and sha512.</p>
-<p>But when you hash a script or a style, the generated string matches only the hashed code, meaning that if the code changes in any way (dot, space, new line, comment, added/removed/formatted code), the hash will no longer match the code who gets blocked !<br>In this case, you&#39;ll have to regenerate a hash that matches the modified code...<br>It&#39;s a time consuming process if your code changes a lot, but commonly used and <strong>recommended</strong> over a nonce especially for static scripts.</p>
-<p>From MDN :</p>
-<blockquote>
-<p>Note: Only use nonce for cases where you have no way around using unsafe inline script or style contents. If you don&#39;t need nonce, don&#39;t use it. If your script is static, you could also use a CSP hash instead. (See usage notes on <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script">unsafe inline script</a>.) Always try to take full advantage of CSP protections and avoid nonces or unsafe inline scripts whenever possible.</p>
-</blockquote>
-<h3>Nonce</h3>
-<hr>
-<p>On the other hand, a <a href="https://content-security-policy.com/nonce/">nonce</a> is a cryptographic <strong>number used once</strong>, generated using a cryptographically secure random number generator, that must be unique for each HTTP response as a random base64-encoded string of at least 128 bits of data.</p>
-<p>So, in the case of server-side rendering, a nonce is more often used, and can be used for inline and external scripts and styles.<br>Note that a <code>nonce-value</code> will not allow stylesheet requests originating from the <code>@import</code> rule !</p>
-<p>To use a nonce, for a script, we have to declare at the top of our <code>script-src</code> directive the <code>&#39;strict-dynamic&#39;</code> expression to allow the execution of that script as well as any script loaded by this root script.<br>When using the <code>&#39;strict-dynamic&#39;</code> expression, other expressions such as <code>&#39;self&#39;</code> or <code>&#39;unsafe-inline&#39;</code> will be ignored.</p>
-<p>I like to keep my code clean and maintainable because at one point or another I&#39;ll want to update it, this is why I split (as most developers) my code into pieces where each one is easily trackable in a near or far future.
-Let&#39;s add a file called <code>nonces.js</code> in the <code>middleware</code> folder, the app structure now looks like the following tree :</p>
-<pre><code class="language-text">Application&#39;s root without node_modules folder
+						<p>
+							As you can see, now only Lodash is blocked 🤔 And Firefox is throwing a warning for an
+							unknown directive.
+						</p>
+						<p>
+							Under the hood, a lot is happening, and it will take a series of posts to explain in detail
+							each header and how to configure them...
+						</p>
+						<p>
+							But just that you know, Helmet sets a bunch of default values to protect your endpoint.<br />One
+							of them is:<br /><code>style-src &#39;self&#39; https: &#39;unsafe-inline&#39;;</code
+							><br />This is the directive allowing Pure.css.<br />It means:
+							<em
+								>&quot;allow any styles&#39; source from my domain, or styles&#39; source served over
+								https, or inline styles&quot;</em
+							>.<br />But as I&#39;ve said before, any <code>&#39;unsafe-...&#39;</code> expression is
+							<strong>unsafe</strong> and should not be used unless their is really no other option...<br />I&#39;ve
+							linked at the beginning of this section to Helmet&#39;s documentation.<br />We&#39;ll be
+							addressing all issues, properly, in the next and last section.
+						</p>
+						<h2>Hash and Nonce</h2>
+
+						<p>
+							To allow the execution of inline scripts, inline event handlers and inline styles, a hash or
+							a nonce that matches the inline code can be specified, to avoid using the
+							<code>&#39;unsafe-inline&#39;</code>expression.
+						</p>
+						<h3>Hash</h3>
+
+						<hr />
+						<p>
+							A <a href="https://content-security-policy.com/hash/">hash</a> is a string composed of two
+							parts connected by a dash with each other:
+						</p>
+						<ol>
+							<li>The cryptographic algorithm used to create the hash value.</li>
+							<li>The base64-encoded hash of a script or style.</li>
+						</ol>
+						<p>CSP supports sha256, sha384 and sha512.</p>
+						<p>
+							But when you hash a script or a style, the generated string matches only the hashed code,
+							meaning that if the code changes in any way (dot, space, new line, comment,
+							added/removed/formatted code), the hash will no longer match the code who gets blocked!<br />In
+							this case, you&#39;ll have to regenerate a hash that matches the modified code...<br />It&#39;s
+							a time consuming process if your code changes a lot, but commonly used and
+							<strong>recommended</strong> over a nonce especially for static scripts.
+						</p>
+						<p>From MDN:</p>
+						<blockquote>
+							<p>
+								Note: Only use nonce for cases where you have no way around using unsafe inline script
+								or style contents. If you don&#39;t need nonce, don&#39;t use it. If your script is
+								static, you could also use a CSP hash instead. (See usage notes on
+								<a
+									href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script"
+									>unsafe inline script</a
+								>.) Always try to take full advantage of CSP protections and avoid nonces or unsafe
+								inline scripts whenever possible.
+							</p>
+						</blockquote>
+						<h3>Nonce</h3>
+
+						<hr />
+						<p>
+							On the other hand, a <a href="https://content-security-policy.com/nonce/">nonce</a> is a
+							cryptographic <strong>number used once</strong>, generated using a cryptographically secure
+							random number generator, that must be unique for each HTTP response as a random
+							base64-encoded string of at least 128 bits of data.
+						</p>
+						<p>
+							So, in the case of server-side rendering, a nonce is more often used, and can be used for
+							inline and external scripts and styles.<br />Note that a <code>nonce-value</code> will not
+							allow stylesheet requests originating from the <code>@import</code> rule!
+						</p>
+						<p>
+							To use a nonce, for a script, we have to declare at the top of our
+							<code>script-src</code> directive the <code>&#39;strict-dynamic&#39;</code> expression to
+							allow the execution of that script as well as any script loaded by this root script.<br />When
+							using the <code>&#39;strict-dynamic&#39;</code> expression, other expressions such as
+							<code>&#39;self&#39;</code> or <code>&#39;unsafe-inline&#39;</code> will be ignored.
+						</p>
+						<p>
+							I like to keep my code clean and maintainable because at one point or another I&#39;ll want
+							to update it, this is why I split (as most developers) my code into pieces where each one is
+							easily trackable in a near or far future. Let&#39;s add a file called
+							<code>nonces.js</code> in the <code>middleware</code> folder, the app structure now looks
+							like the following tree:
+						</p>
+						<pre><code class="language-text">Application&#39;s root without node_modules folder
 ├── index.js
 ├── middleware
 │  ├── helmet.js
@@ -707,8 +919,8 @@ Let&#39;s add a file called <code>nonces.js</code> in the <code>middleware</code
 └── views
   └── index.ejs
 </code></pre>
-<p>Open <code>nonces.js</code> and add the following content :</p>
-<pre><code class="language-js">// Determining if crypto support is unavailable
+						<p>Open <code>nonces.js</code> and add the following content:</p>
+						<pre><code class="language-js">// Determining if crypto support is unavailable
 let crypto
 try {
     crypto = require(&quot;crypto&quot;)
@@ -722,12 +934,16 @@ let lodashNonce = crypto.randomBytes(16).toString(&quot;hex&quot;)
 // Maybe you&#39;ll have some other later
 module.exports = { lodashNonce }
 </code></pre>
-<p>The <a href="https://nodejs.org/docs/latest-v16.x/api/crypto.html">crypto</a> module is a built-in functionality of Node.js but it&#39;s better to check if it&#39;s included or not, in our installation, just like the docs.</p>
-<p>Now, update <code>helmet.js</code> :</p>
-<details>
-<summary>/middleware/helmet.js</summary>
+						<p>
+							The <a href="https://nodejs.org/docs/latest-v16.x/api/crypto.html">crypto</a> module is a
+							built-in functionality of Node.js but it&#39;s better to check if it&#39;s included or not,
+							in our installation, just like the docs.
+						</p>
+						<p>Now, update <code>helmet.js</code>:</p>
+						<details>
+							<summary>/middleware/helmet.js</summary>
 
-<pre><code class="language-js">const helmet = require(&quot;helmet&quot;)
+							<pre><code class="language-js">const helmet = require(&quot;helmet&quot;)
 let { lodashNonce } = require(&quot;./nonces&quot;)
 
 module.exports = helmet({
@@ -743,14 +959,21 @@ module.exports = helmet({
     },
 })
 </code></pre>
-</details>
+						</details>
 
-<p>This way is much elegant, clean and maintainable than a middleware function in the main server file.</p>
-<p>Finally, we&#39;ll have to pass the generated nonce from the route were we need to load the script as a variable and grab this variable in the route&#39;s template where the script tag is.<br>I&#39;ll be commenting the code to explain the steps :</p>
-<details>
-<summary>/index.js</summary>
+						<p>
+							This way is much elegant, clean and maintainable than a middleware function in the main
+							server file.
+						</p>
+						<p>
+							Finally, we&#39;ll have to pass the generated nonce from the route were we need to load the
+							script as a variable and grab this variable in the route&#39;s template where the script tag
+							is.<br />I&#39;ll be commenting the code to explain the steps:
+						</p>
+						<details>
+							<summary>/index.js</summary>
 
-<pre><code class="language-js">const express = require(&quot;express&quot;)
+							<pre><code class="language-js">const express = require(&quot;express&quot;)
 const app = express()
 
 // Set CSP with helmet
@@ -782,12 +1005,12 @@ app.listen(3000, () =&gt; {
     console.log(`App 🚀 @ http://localhost:3000`)
 })
 </code></pre>
-</details>
+						</details>
 
-<details>
-<summary>/views/index.ejs</summary>
+						<details>
+							<summary>/views/index.ejs</summary>
 
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
         &lt;meta charset=&quot;UTF-8&quot; /&gt;
@@ -801,7 +1024,7 @@ app.listen(3000, () =&gt; {
         &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.min.css&quot; /&gt;
     &lt;/head&gt;
     &lt;body&gt;
-        &lt;h1&gt;Hello from EJS !&lt;/h1&gt;
+        &lt;h1&gt;Hello from EJS!&lt;/h1&gt;
 
         &lt;!-- Lodash --&gt;
         &lt;!-- 
@@ -815,148 +1038,209 @@ app.listen(3000, () =&gt; {
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-</details>
+						</details>
 
-<p>Save those files,reload your browser and open the browser&#39;s console 🥳🎉🎊<br>Congrats, you&#39;ve just loaded an external script using a nonce !</p>
-<p>Hope that this post was helpful.<br>Next one will be about EJS.</p>
-	<p class="author-greetings">
-		SYA,
-		<br />
-		LebCit.
-	</p>
-</div>
+						<p>
+							Save those files,reload your browser and open the browser&#39;s console 🥳🎉🎊<br />Congrats,
+							you&#39;ve just loaded an external script using a nonce!
+						</p>
+						<p>Hope that this post was helpful.<br />Next one will be about EJS.</p>
+						<p class="post-content hide">
+							<em
+								>Note: The background image is a photo by
+								<a href="https://unsplash.com/photos/silver-skeleton-key-on-black-surface-0juktkOTkpU"
+									>Amol Tyagi</a
+								>.</em
+							>
+						</p>
 
-  <style>
-	.post-navigation {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 16px;
-	}
+						<p class="author-greetings">
+							SYA,
+							<br />
+							LebCit.
+						</p>
+					</div>
 
-	.post-navigation a {
-		margin: 1.5em 0;
-		border: 2px solid #000;
-		background: #000;
-		display: inline-block;
-		padding: 0.7rem 0.9rem;
-		font-size: 1rem;
-		line-height: 1;
-		border-radius: 3px;
-		color: #fff;
-		font-weight: 600;
-		cursor: pointer;
-	}
+					<!-- Start posts pagination -->
+					<style>
+						.post-navigation {
+							display: grid;
+							grid-template-columns: repeat(2, 1fr);
+							grid-template-rows: 1fr;
+							grid-column-gap: 16px;
+						}
 
-	.post-navigation .next-post {
-		grid-column-end: -1;
-	}
+						.post-navigation a {
+							margin: 1.5em 0;
+							border: 2px solid #000;
+							background: #000;
+							display: inline-block;
+							padding: 0.7rem 0.9rem;
+							font-size: 1rem;
+							line-height: 1;
+							border-radius: 3px;
+							color: #fff;
+							font-weight: 600;
+							cursor: pointer;
+						}
 
-	.post-navigation a:hover {
-		color: #fff;
-		box-shadow: 0 0.25em #000;
-	}
+						.post-navigation .next-post {
+							grid-column-end: -1;
+						}
 
-	.post-navigation a:active,
-	.post-navigation a:focus {
-		color: #fff;
-		box-shadow: 0.25em 0.25em #000;
-		outline: 0.1em solid;
-	}
+						.post-navigation a:hover {
+							color: #fff;
+							box-shadow: 0 0.25em #000;
+						}
 
-	@media screen and (max-width: 48em) {
-		.post-navigation {
-			display: grid;
-			grid-template-columns: 1fr;
-			grid-template-rows: repeat(2, 1fr);
-			grid-row-gap: 16px;
-		}
+						.post-navigation a:active,
+						.post-navigation a:focus {
+							color: #fff;
+							box-shadow: 0.25em 0.25em #000;
+							outline: 0.1em solid;
+						}
 
-		.post-navigation a {
-			margin: 0;
-		}
-	}
-</style>
+						@media screen and (max-width: 48em) {
+							.post-navigation {
+								display: grid;
+								grid-template-columns: 1fr;
+								grid-template-rows: repeat(2, 1fr);
+								grid-row-gap: 16px;
+							}
 
-<nav class="post-navigation" aria-label="Post navigation">
-		<a href="/posts/to-node-or-not-deta-is-the-answer" class="prev-post" rel="prev" aria-label="Go to the previous post">
-		Previous: To Node or not ? Deta is the answer !	</a>
-	  	<a href="/posts/templating-a-nodejs-app-with-ejs" class="next-post" rel="next" aria-label="Go to the next post">
-		Next: Templating a Node.js app with EJS	</a>
-	</nav>
-   <style>
-	.related-posts div {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 16px;
-	}
-</style>
+							.post-navigation a {
+								margin: 0;
+							}
+						}
+					</style>
 
-<div class="related-posts">
-	<h3>SOME RELATED POSTS</h3>
-	<div>
-		      		<section>
-			<a href="/posts/to-node-or-not-deta-is-the-answer">
-				    				<img
-					class="img-responsive"
-					src="/static/img/computer-screen-displaying-node-js-modules.webp"
-					alt="Computer screen displaying node js modules"
-				/>
-							</a>
-			<h4>
-				<a href="/posts/to-node-or-not-deta-is-the-answer">To Node or not ? Deta is the answer !</a>
-			</h4>
-		</section>
-		      		<section>
-			<a href="/posts/automatically-close-other-details">
-				    				<img
-					class="img-responsive"
-					src="/static/img/matrix-background.webp"
-					alt="Matrix background"
-				/>
-							</a>
-			<h4>
-				<a href="/posts/automatically-close-other-details">Automatically close other &lt;details&gt;</a>
-			</h4>
-		</section>
-			</div>
-</div>
-  					<!-- End Markdown file content -->
+					<nav class="post-navigation" aria-label="Post navigation">
+						<a
+							href="/posts/to-node-or-not-deta-is-the-answer"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Previous: To Node or not? Deta is the answer!
+						</a>
+
+						<!--Dynamic Markup Separator-->
+
+						<a
+							href="/posts/templating-a-nodejs-app-with-ejs"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Next: Templating a Node.js app with EJS
+						</a>
+					</nav>
+
+					<!-- End posts pagination -->
+
+					<!-- Dynamic Markup Separator -->
+
+					<!-- Start related posts -->
+					<style>
+						.related-posts div {
+							display: grid;
+							grid-template-columns: repeat(2, 1fr);
+							grid-template-rows: 1fr;
+							grid-column-gap: 16px;
+						}
+					</style>
+
+					<div class="related-posts">
+						<h3>SOME RELATED POSTS</h3>
+						<div>
+							<section>
+								<a href="/posts/to-node-or-not-deta-is-the-answer">
+									<img
+										class="img-responsive"
+										src="/static/images/computer-screen-displaying-node-js-modules.webp"
+										alt="Featured image for the post: To Node or not? Deta is the answer!"
+									/>
+								</a>
+								<h4>
+									<a href="/posts/to-node-or-not-deta-is-the-answer"
+										>To Node or not? Deta is the answer!</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/posts/automatically-close-other-details">
+									<img
+										class="img-responsive"
+										src="/static/images/matrix-background.webp"
+										alt="Featured image for the post: Automatically close other details"
+									/>
+								</a>
+								<h4>
+									<a href="/posts/automatically-close-other-details"
+										>Automatically close other details</a
+									>
+								</h4>
+							</section>
+						</div>
+					</div>
+
+					<!-- End related posts -->
+
+					<!-- End Markdown file content -->
 				</main>
-				     			</div>
+			</div>
 			<!--End content-->
+
 			<!--Start footer-->
 			<style>
-	.site-footer {
-		text-align: center;
-		padding-top: 2em;
-	}
-	@media (min-width: 64em) {
-		.site-footer {
-			padding: 2em 3em;
-			margin-left: 40%;
-		}
-	}
-</style>
+				.site-footer {
+					text-align: center;
+					padding-top: 2em;
+				}
+				@media (min-width: 64em) {
+					.site-footer {
+						padding: 2em 3em;
+						margin-left: 40%;
+					}
+				}
+			</style>
 
-<footer id="colophon" class="site-footer unit-1">
-	        	<div id="site-info" class="site-info">
-		<p>
-			<strong>2016 - 2024 | { LebCit }</strong>
-			<br />
-			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
-	</div>
-</footer>
+			<footer id="colophon" class="site-footer unit-1">
+				<style>
+					/* more then 1023px an less then 1024px */
+					@media (max-width: 63.969em) {
+						.hide {
+							display: none;
+						}
+					}
+				</style>
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2024 | { LebCit } </strong>
+						<br />
+						Proudly created with <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>
+					</p>
+				</div>
+			</footer>
+
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  		<script type="module">
-			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
 
-			hljs.highlightAll()
-		</script>
-		
-		<script src="/static/js/main.js"></script>
+		<script src="/static/vendors/highlight/highlight.min.js" onload="hljs.highlightAll()"></script>
+
+		<script type="module" src="/static/scripts/themes/midday/midday-scripts.js"></script>
 	</body>
 </html>

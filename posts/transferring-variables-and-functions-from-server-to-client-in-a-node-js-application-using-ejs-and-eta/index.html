@@ -1,98 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-		<meta name="description" content="This post is about the process of seamlessly transfer variables and functions from server-side to client-side in your Node.js applications using EJS and Eta templating engines" />
-	
-	<title>Transferring Variables and Functions from Server to Client in a Node.js Application Using EJS and Eta | { LebCit }</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
-	<link rel="stylesheet" href="/static/css/main.min.css" />
+		<meta
+			name="description"
+			content="This post is about the process of seamlessly transfer variables and functions from server-side to client-side in your Node.js applications using EJS and Eta templating engines."
+		/>
 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
-	  <style>
-	.post-title {
-		font-size: 2em;
-		color: #222;
-		margin-bottom: 0.2em;
-	}
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-	.post-content {
-		color: #444;
-		line-height: 1.8em;
-	}
+		<title>
+			Transferring Variables and Functions from Server to Client in a Node.js Application Using EJS and Eta | {
+			LebCit }
+		</title>
 
-	.post-content a {
-		color: #000036;
-		text-decoration-line: underline;
-		text-decoration-color: #ea215a;
-		text-decoration-style: double;
-		text-decoration-thickness: 0.125em;
-		text-underline-offset: 1.5px;
-		text-decoration-skip-ink: none;
-		transition: 0.5s;
-	}
+		<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
+		<link rel="stylesheet" href="/static/styles/themes/midday/midday-styles-min.css" />
 
-	.post-content a:hover,
-	.post-content a:focus,
-	.post-content a:active {
-		text-decoration: none;
-		color: white;
-		box-shadow: inset 0 -1.3em 0 0 #000;
-		outline: thin dotted #ea215a;
-	}
-</style>
+		<link rel="stylesheet" href="/static/vendors/highlight/atom-one-dark.min.css" />
 
-<style>
-	.single-post :not(pre) code {
-		background-color: #272822;
-		color: #f8f8f2;
-		border-radius: 0.3rem;
-		padding: 4px 5px 5px;
-	}
-</style>
-  <style>
-	@media screen and (min-width: 48em) and (max-width: 63.938em) {
-		.post-title {
-			font-size: 3em;
-			margin-top: 0;
-		}
-	}
+		<!-- COMMON STYLES -->
+		<style>
+			.post-title {
+				font-size: 2em;
+				color: #222;
+				margin-bottom: 0.2em;
+			}
 
-	@media (min-width: 64em) {
-		.post-title {
-			/* will affect single-post*/
-			font-size: 4em;
-			margin-top: 0;
-		}
-	}
-</style>
-    <style>
-	.post-meta {
-		color: #16663d;
-		font-size: 90%;
-		margin: 0;
-	}
+			.post-content {
+				color: #444;
+				line-height: 1.8em;
+			}
 
-	.posted-on {
-		color: #ad1a36;
-	}
+			.post-content a {
+				color: #000036;
+				text-decoration-line: underline;
+				text-decoration-color: #ea215a;
+				text-decoration-style: double;
+				text-decoration-thickness: 0.125em;
+				text-underline-offset: 1.5px;
+				text-decoration-skip-ink: none;
+				transition: 0.5s;
+			}
 
-	.post-tag {
-		margin: 0 0.1em;
-		padding: 0.2em 0.8em;
-		background: #ad1a36;
-		font-size: 80%;
-	}
+			.post-content a:hover,
+			.post-content a:focus,
+			.post-content a:active {
+				text-decoration: none;
+				color: white;
+				box-shadow: inset 0 -1.3em 0 0 #000;
+				outline: thin dotted #ea215a;
+			}
+		</style>
 
-	.post-tag a {
-		color: #fff;
-	}
-</style>
-  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
-</head>
+		<style>
+			.single-post :not(pre) code {
+				background-color: #272822;
+				color: #f8f8f2;
+				border-radius: 0.3rem;
+				padding: 4px 5px 5px;
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+
+		<style>
+			@media screen and (min-width: 48em) and (max-width: 63.938em) {
+				.post-title {
+					font-size: 3em;
+					margin-top: 0;
+				}
+			}
+
+			@media (min-width: 64em) {
+				.post-title {
+					/* will affect single-post*/
+					font-size: 4em;
+					margin-top: 0;
+				}
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+
+		<!-- Dynamic Markup Separator -->
+
+		<style>
+			.post-meta {
+				color: #16663d;
+				font-size: 90%;
+				margin: 0;
+			}
+
+			.posted-on {
+				color: #ad1a36;
+			}
+
+			.post-tag {
+				margin: 0 0.1em;
+				padding: 0.2em 0.8em;
+				background: #ad1a36;
+				font-size: 80%;
+			}
+
+			.post-tag a {
+				color: #fff;
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+	</head>
 
 	<body>
 		<!--Start page-->
@@ -101,357 +120,439 @@
 
 			<!--Start menu-->
 			<style>
-	.invisible {
-		visibility: hidden;
-	}
+				.invisible {
+					visibility: hidden;
+				}
 
-	.overlay {
-		position: fixed;
-		width: 0;
-		height: 100%;
-		top: 0;
-		right: 0;
-		background-color: rgba(0, 0, 0, 0.9);
-		z-index: 2;
-		letter-spacing: normal;
-		overflow-x: hidden;
-		transition: 0.5s;
-	}
+				.overlay {
+					position: fixed;
+					width: 0;
+					height: 100%;
+					top: 0;
+					right: 0;
+					background-color: rgba(0, 0, 0, 0.9);
+					z-index: 2;
+					letter-spacing: normal;
+					overflow-x: hidden;
+					transition: 0.5s;
+				}
 
-	.overlay-content {
-		position: relative;
-		top: 25%;
-		width: 100%;
-		text-align: center;
-		margin-top: 30px;
-	}
+				.overlay-content {
+					position: relative;
+					top: 25%;
+					width: 100%;
+					text-align: center;
+					margin-top: 30px;
+				}
 
-	.overlay li {
-		list-style: none;
-	}
+				.overlay li {
+					list-style: none;
+				}
 
-	.overlay a {
-		padding: 8px;
-		text-decoration: none;
-		font-size: 36px;
-		color: #818181;
-		display: block;
-		transition: 0.3s;
-	}
+				.overlay a {
+					padding: 8px;
+					text-decoration: none;
+					font-size: 36px;
+					color: #818181;
+					display: block;
+					transition: 0.3s;
+				}
 
-	.overlay a:hover,
-	.overlay a:focus {
-		color: #f1f1f1;
-		background-color: #222;
-		border: 1px solid red;
-		border-style: dashed;
-	}
+				.overlay a:hover,
+				.overlay a:focus {
+					color: #f1f1f1;
+					background-color: #222;
+					border: 1px solid red;
+					border-style: dashed;
+				}
 
-	.overlay .close-button {
-		position: absolute;
-		top: 20px;
-		right: 45px;
-		font-size: 60px;
-	}
-</style>
+				.overlay .close-button {
+					position: absolute;
+					top: 20px;
+					right: 45px;
+					font-size: 60px;
+				}
+			</style>
 
-<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
-	<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">
-		&times;
-	</a>
-	
-	<div class="overlay-content">
-		<a href="/">Home</a>
-				<li class="pure-menu-item">
-			<a href="/posts">Archive</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/tags">Tags</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/search">Search</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/pages/my-public-projects">Projects</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/pages/about">About Me</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/rss.xml">RSS</a>
-		</li>
+			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+				<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
+
+				<div class="overlay-content">
+					<a href="/">Home</a>
+
+					<li class="pure-menu-item">
+						<a href="/posts">Archive</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/tags">Tags</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/search">Search</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/pages/my-public-projects">Projects</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/pages/about">About Me</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/rss.xml">RSS</a>
+					</li>
+				</div>
 			</div>
-</div>
+
 			<!--End menu-->
+
 			<!--Start masthead-->
 			<style>
-	/* SITE HEADER */
-	.site-header {
-		background: rgb(61, 79, 93);
-		color: #fff;
-	}
+				/* SITE HEADER */
+				.site-header {
+					background: rgb(61, 79, 93);
+					color: #fff;
+				}
 
-	.sidebar {
-		margin: 1em;
-	}
+				.sidebar {
+					margin: 1em;
+				}
 
-	.site-title,
-	.site-description {
-		margin: 0;
-		line-height: 1.2;
-	}
+				.site-title,
+				.site-description {
+					margin: 0;
+					line-height: 1.2;
+				}
 
-	.site-title a {
-		color: #fff;
-		text-decoration: none;
-	}
+				.site-title a {
+					color: #fff;
+					text-decoration: none;
+				}
 
-	.site-title a:hover,
-	.site-title a:focus {
-		text-decoration: underline;
-	}
+				.site-title a:hover,
+				.site-title a:focus {
+					text-decoration: underline;
+				}
 
-	.site-description {
-		font-weight: 300;
-		color: rgb(176, 202, 219);
-		margin: 0.5em 0 2em 0;
-	}
+				.site-description {
+					font-weight: 300;
+					color: rgb(176, 202, 219);
+					margin: 0.5em 0 2em 0;
+				}
 
-	/* MENU BUTTON */
-	.nav-list {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
+				/* MENU BUTTON */
+				.nav-list {
+					margin: 0;
+					padding: 0;
+					list-style: none;
+				}
 
-	.nav-item {
-		display: inline-block;
-	}
+				.nav-item {
+					display: inline-block;
+				}
 
-	.nav-item a {
-		background: black;
-		border: 2px solid rgb(176, 202, 219);
-		border-radius: 2px;
-		color: #fff;
-		padding: 0.5em 1em;
-		margin-top: 1em;
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
-		font-size: 85%;
-	}
+				.nav-item a {
+					background: black;
+					border: 2px solid rgb(176, 202, 219);
+					border-radius: 2px;
+					color: #fff;
+					padding: 0.5em 1em;
+					margin-top: 1em;
+					letter-spacing: 0.05em;
+					text-transform: uppercase;
+					font-size: 85%;
+				}
 
-	.nav-item a:hover,
-	.nav-item a:focus {
-		border: 2px solid rgb(61, 146, 201);
-		text-decoration: none;
-	}
+				.nav-item a:hover,
+				.nav-item a:focus {
+					border: 2px solid rgb(61, 146, 201);
+					text-decoration: none;
+				}
 
-	.nav-item a svg {
-		fill: aliceblue;
-		vertical-align: bottom;
-		padding: 4px 0 2px;
-	}
+				.nav-item a svg {
+					fill: aliceblue;
+					vertical-align: bottom;
+					padding: 4px 0 2px;
+				}
 
-	@media screen and (max-width: 35.5em) {
-		.nav-item a svg {
-			padding-top: 14px;
-		}
-	}
+				@media screen and (max-width: 35.5em) {
+					.nav-item a svg {
+						padding-top: 14px;
+					}
+				}
 
-	@media screen and (min-width: 35.5em) and (max-width: 48em) {
-		.nav-item a svg {
-			padding-top: 12px;
-		}
-	}
+				@media screen and (min-width: 35.5em) and (max-width: 48em) {
+					.nav-item a svg {
+						padding-top: 12px;
+					}
+				}
 
-	@media screen and (min-width: 48em) and (max-width: 63.938em) {
-		.nav-item a svg {
-			padding-top: 10px;
-		}
-	}
+				@media screen and (min-width: 48em) and (max-width: 63.938em) {
+					.nav-item a svg {
+						padding-top: 10px;
+					}
+				}
 
-	/* more then 1023px an less then 1024px */
-	@media (max-width: 63.969em) {
-		.site-header.bio {
-			background-image: none !important;
-		}
-		.nav {
-			position: fixed;
-			top: 15px;
-			right: 10px;
-			z-index: 1;
-		}
-	}
+				/* more then 1023px an less then 1024px */
+				@media (max-width: 63.969em) {
+					.site-header.bio {
+						background-image: none !important;
+					}
+					.nav {
+						position: fixed;
+						top: 15px;
+						right: 10px;
+						z-index: 1;
+					}
+				}
 
-	@media (min-width: 64em) {
-		.site-header {
-			position: fixed;
-			top: 0;
-			bottom: 0;
-			overflow-y: auto;
-		}
+				@media (min-width: 64em) {
+					.site-header {
+						position: fixed;
+						top: 0;
+						bottom: 0;
+						overflow-y: auto;
+					}
 
-		.site-header.bio {
-			background-repeat: no-repeat;
-			background-position: top;
-			background-size: cover;
-		}
+					.site-header.bio {
+						background-repeat: no-repeat;
+						background-position: top;
+						background-size: cover;
+					}
 
-		.site-header.bio .site-header-overlay {
-			position: fixed;
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: rgba(0, 0, 0, 0.6);
-		}
+					.site-header.bio .site-header-overlay {
+						position: fixed;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						background-color: rgba(0, 0, 0, 0.6);
+					}
 
-		/* The emerging W3C standard
+					/* The emerging W3C standard
  that is currently Firefox-only */
-		.site-header {
-			scrollbar-width: thin;
-		}
+					.site-header {
+						scrollbar-width: thin;
+					}
 
-		/* Works on Chrome/Edge/Safari */
-		.site-header::-webkit-scrollbar {
-			width: 7px;
-		}
+					/* Works on Chrome/Edge/Safari */
+					.site-header::-webkit-scrollbar {
+						width: 7px;
+					}
 
-		.site-header::-webkit-scrollbar-track {
-			background: #313d48;
-		}
+					.site-header::-webkit-scrollbar-track {
+						background: #313d48;
+					}
 
-		.site-header::-webkit-scrollbar-thumb {
-			background-color: #81898f;
-		}
+					.site-header::-webkit-scrollbar-thumb {
+						background-color: #81898f;
+					}
 
-		.sidebar {
-			margin: 10% 2em;
-			text-align: left;
-		}
+					.sidebar {
+						margin: 10% 2em;
+						text-align: left;
+					}
 
-		.site-header.bio .sidebar {
-			position: sticky;
-		}
-	}
-</style>
+					.site-header.bio .sidebar {
+						position: sticky;
+					}
+				}
+			</style>
 
-<header id="masthead" 	class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url('/static/img/transferring-data-generated-with-ai.avif')"  >
-	<div class="site-header-overlay"></div>
-		<div class="sidebar">
-		<div class="site-branding">
-			<h1 class="site-title">
-				<a href="/">{ LebCit }</a>
-			</h1>
-			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</p>
-		</div>
+			<!-- Start #masthead -->
 
-				<nav id="nav" class="nav" aria-label="MENU">
-			<ul class="nav-list">
-				<li class="nav-item">
-					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
-						<span>MENU</span>
-						<span class="menu-icon" aria-hidden="true">
-							<svg
-								version="1.1"
-								x="0px"
-								y="0px"
-								width="30px"
-								height="30px"
-								viewbox="0 0 30 30"
-								enable-background="new 0 0 30 30"
-							>
-								<rect width="30" height="5" />
-								<rect y="24" width="30" height="5" />
-								<rect y="12" width="30" height="5" />
-							</svg>
-						</span>
-					</a>
-				</li>
-			</ul>
-		</nav>
-			</div>
-	</header>
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="background-image: url(/static/images/transferring-data-generated-with-ai.avif)"
+			>
+				<div class="site-header-overlay"></div>
+				<!-- Start .sidebar-->
+				<div class="sidebar">
+					<div class="site-branding">
+						<h1 class="site-title">
+							<a href="/">{ LebCit } </a>
+						</h1>
+						<p class="site-description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
+
+					<!-- Menu button start -->
+					<nav id="nav" class="nav" aria-label="MENU">
+						<ul class="nav-list">
+							<li class="nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewbox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<!-- Menu button end -->
+				</div>
+				<!-- End .sidebar-->
+			</header>
+			<!-- End #masthead-->
+
 			<!--End masthead-->
 
 			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				  				<main class="single-post">
+				<!-- MARKDOWN ROUTE -->
+				<main class="single-post">
 					<!-- Start Markdown file content -->
 					<style>
-	.author-greetings {
-		color: #000;
-		line-height: normal;
-	}
-</style>
+						.author-greetings {
+							color: #000;
+							line-height: normal;
+						}
+					</style>
 
-<header class="post-header">
-	<h1 class="post-title">Transferring Variables and Functions from Server to Client in a Node.js Application Using EJS and Eta</h1>
-		<p class="post-meta">
-		<span>Posted on</span>
-		<span class="posted-on">
-			<time class="postList-date" datetime='2024-05/20'>
-				Mon May 20 2024			</time>
-		</span>
+					<header class="post-header">
+						<h1 class="post-title">
+							Transferring Variables and Functions from Server to Client in a Node.js Application Using
+							EJS and Eta
+						</h1>
 
-				<br />
-		<span>Tagged</span>
-		<!--Start tag(s)-->
-				<span class="post-tag">
-			<a href="/tags/Development">Development</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/EJS">EJS</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/Eta">Eta</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/Node.js">Node.js</a>
-		</span>
-				<!--End tag(s)-->
-			</p>
-	  </header>
+						<p class="post-meta">
+							<span>Posted on</span>
+							<span class="posted-on">
+								<time class="postList-date" datetime="2024-05-20">2024-05-20</time>
+							</span>
 
-<div class="post-content">
-		<p>
-		<em>This post is about the process of seamlessly transfer variables and functions from server-side to client-side in your Node.js applications using EJS and Eta templating engines.</em>
-	</p>
-	  <h2>Intro</h2>
-<p>While developing a Node.js application, passing data from the server to the client is an inevitable checkpoint that you&#39;ll encounter.<br/>
-To simplify this task (dynamic content generation), developers use templating engines such as EJS, Eta, Handlebars, Marko, Mustache, Nunjucks or Pug among many other.<br/>
-I recommended EJS in the past but <a href="https://eta.js.org/">Eta</a> has become my preferred template engine since I&#39;ve discovered it two years ago.<br/>
-Since Eta is a lightweight EJS alternative, faster and more configurable, this article covers the process for both of them.</p>
-<p><em>Nota Bene: You&#39;ll find at the end of this article, in the <a href="#resources">Resources section</a>, a link to a GitHub repository for the provided example.</em></p>
-<h2>Transfer process</h2>
-<p>The best way to pass data from the server to the client in a Node.js app using EJS or Eta goes like so:</p>
-<ol>
-<li>Server<ul>
-<li>Render a template with a data object on a route</li>
-</ul>
-</li>
-<li>Server to Client<ul>
-<li>Stringify the data object in the template file inside a hidden element with an Id</li>
-</ul>
-</li>
-<li>Client<ol>
-<li>Get the hidden element by its Id in a JavaScript file (or <code>&lt;script&gt;</code> tag)</li>
-<li>Get the text content of the hidden element</li>
-<li>Parse the text content to retrieve the data object</li>
-<li>Remove the hidden element from the DOM</li>
-</ol>
-</li>
-</ol>
-<p>Let&#39;s illustrate this process with a simple example.<br/>
-We need a web framework and EJS or Eta for our Node.js app.<br/>
-I&#39;ll be using an <a href="https://github.com/LebCit/node-transferring-variables-and-functions/blob/main/router.js">enhanced version</a> of <a href="https://github.com/ishtms/velocy">Velocy</a> and Eta.<br/>
-So the only needed dependency here is Eta:</p>
-<pre><code class="language-bash">npm install eta # Or: npm i eta
+							<br />
+							<span>Tagged</span>
+							<!--Start tag(s)-->
+
+							<span class="post-tag">
+								<a href="/tags/Development">Development</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/EJS">EJS</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/Eta">Eta</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/Node.js">Node.js</a>
+							</span>
+
+							<!--End tag(s)-->
+						</p>
+
+						<!--Dynamic Markup Separator-->
+					</header>
+
+					<div class="post-content">
+						<p>
+							<em
+								>This post is about the process of seamlessly transfer variables and functions from
+								server-side to client-side in your Node.js applications using EJS and Eta templating
+								engines.</em
+							>
+						</p>
+
+						<!--Content-->
+						<h2>Intro</h2>
+
+						<p>
+							While developing a Node.js application, passing data from the server to the client is an
+							inevitable checkpoint that you&#39;ll encounter.<br />
+							To simplify this task (dynamic content generation), developers use templating engines such
+							as EJS, Eta, Handlebars, Marko, Mustache, Nunjucks or Pug among many other.<br />
+							I recommended EJS in the past but <a href="https://eta.js.org/">Eta</a> has become my
+							preferred template engine since I&#39;ve discovered it two years ago.<br />
+							Since Eta is a lightweight EJS alternative, faster and more configurable, this article
+							covers the process for both of them.
+						</p>
+						<p>
+							<em
+								>Nota Bene: You&#39;ll find at the end of this article, in the
+								<a href="#resources">Resources section</a>, a link to a GitHub repository for the
+								provided example.</em
+							>
+						</p>
+						<h2>Transfer process</h2>
+
+						<p>
+							The best way to pass data from the server to the client in a Node.js app using EJS or Eta
+							goes like so:
+						</p>
+						<ol>
+							<li>
+								Server
+								<ul>
+									<li>Render a template with a data object on a route</li>
+								</ul>
+							</li>
+							<li>
+								Server to Client
+								<ul>
+									<li>
+										Stringify the data object in the template file inside a hidden element with an
+										Id
+									</li>
+								</ul>
+							</li>
+							<li>
+								Client
+								<ol>
+									<li>
+										Get the hidden element by its Id in a JavaScript file (or
+										<code>&lt;script&gt;</code> tag)
+									</li>
+									<li>Get the text content of the hidden element</li>
+									<li>Parse the text content to retrieve the data object</li>
+									<li>Remove the hidden element from the DOM</li>
+								</ol>
+							</li>
+						</ol>
+						<p>
+							Let&#39;s illustrate this process with a simple example.<br />
+							We need a web framework and EJS or Eta for our Node.js app.<br />
+							I&#39;ll be using an
+							<a
+								href="https://github.com/LebCit/node-transferring-variables-and-functions/blob/main/router.js"
+								>enhanced version</a
+							>
+							of <a href="https://github.com/ishtms/velocy">Velocy</a> and Eta.<br />
+							So the only needed dependency here is Eta:
+						</p>
+						<pre><code class="language-bash">npm install eta # Or: npm i eta
 </code></pre>
-<p>In the entry file of our app <strong>index.js</strong>:</p>
-<pre><code class="language-js">import { Eta } from &quot;eta&quot;
+						<p>In the entry file of our app <strong>index.js</strong>:</p>
+						<pre><code class="language-js">import { Eta } from &quot;eta&quot;
 import { join } from &quot;path&quot;
 import { createServer, Router } from &quot;./router.js&quot;
 
@@ -482,10 +583,22 @@ createServer(app).listen(5000, () =&gt; {
     console.log(`App @ http://localhost:${5000}`)
 })
 </code></pre>
-<p>If you&#39;re wondering why I&#39;m not using the gasworks called Express, read <a href="/posts/node-modules-is-not-heavy-developers-are-lazy">node_modules is not heavy, developers are lazy!</a> and you&#39;ll have a different perspective while building a Node.js application.<br/>
-<em>Nota Bene: The number of Express dependencies have increased since then and Blog-Doc&#39;s dependencies have been reduced to 5!</em></p>
-<p>At the root of our app, create a <strong>views</strong> folder, then inside it an <strong>index.html</strong> file and add the following:</p>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+						<p>
+							If you&#39;re wondering why I&#39;m not using the gasworks called Express, read
+							<a href="/posts/node-modules-is-not-heavy-developers-are-lazy"
+								>node_modules is not heavy, developers are lazy!</a
+							>
+							and you&#39;ll have a different perspective while building a Node.js application.<br />
+							<em
+								>Nota Bene: The number of Express dependencies have increased since then and
+								Blog-Doc&#39;s dependencies have been reduced to 5!</em
+							>
+						</p>
+						<p>
+							At the root of our app, create a <strong>views</strong> folder, then inside it an
+							<strong>index.html</strong> file and add the following:
+						</p>
+						<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
         &lt;meta charset=&quot;UTF-8&quot; /&gt;
@@ -547,28 +660,47 @@ createServer(app).listen(5000, () =&gt; {
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>Hey! What is <code>it</code>?<br/>
-Eta uses a global variable called <code>it</code> to store all the data that will be transferred to the templates.<br/>
-It&#39;s a safer way to avoid naming collisions and improve performance.<br/>
-<a href="https://eta.js.org/docs/api#getting-rid-of-it"><code>it</code></a> can also be modified, suppressed or used as a reference in the options.</p>
-<p>Those of you who used EJS with Express know that you can&#39;t simply use a &quot;.html&quot; file to be rendered, it should be a &quot;.ejs&quot; file otherwise you&#39;ll have to map the EJS template engine to &quot;.html&quot; files:</p>
-<pre><code class="language-js">app.engine(&quot;html&quot;, require(&quot;ejs&quot;).renderFile)
+						<p>
+							Hey! What is <code>it</code>?<br />
+							Eta uses a global variable called <code>it</code> to store all the data that will be
+							transferred to the templates.<br />
+							It&#39;s a safer way to avoid naming collisions and improve performance.<br />
+							<a href="https://eta.js.org/docs/api#getting-rid-of-it"><code>it</code></a> can also be
+							modified, suppressed or used as a reference in the options.
+						</p>
+						<p>
+							Those of you who used EJS with Express know that you can&#39;t simply use a
+							&quot;.html&quot; file to be rendered, it should be a &quot;.ejs&quot; file otherwise
+							you&#39;ll have to map the EJS template engine to &quot;.html&quot; files:
+						</p>
+						<pre><code class="language-js">app.engine(&quot;html&quot;, require(&quot;ejs&quot;).renderFile)
 </code></pre>
-<p>With Eta it&#39;s an out of the box functionality!</p>
-<p>Now launch the server from your terminal, visit the link and see the magic!</p>
-<pre><code class="language-bash">node index
+						<p>With Eta it&#39;s an out of the box functionality!</p>
+						<p>Now launch the server from your terminal, visit the link and see the magic!</p>
+						<pre><code class="language-bash">node index
 # You&#39;ll see after running this command
 # App @ http://localhost:5000
 </code></pre>
-<h2>Enhancing the process</h2>
-<p>This is good but not great for many reasons.<br/>
-If we have multiple variables and/or functions to transfer, the third step of the process on the client-side will be gigantic and repetitive as seen in our simple example.<br/>
-Also, in a real application, we would not use a <code>&lt;script&gt;</code> tag but a JavaScript file to load our scripting logic.<br/>
-To optimize the procedure, we&#39;ll utilize a JavaScript file where the third step must be dynamic to prevent redundancy.</p>
-<p>Using a minimal backend framework, such as Velocy, offers minimal functionalities as its description implies.<br/>
-This doesn&#39;t mean that we can&#39;t extend it, as I did in its enhanced version, but loading static assets is another kind of challenge.<br/>
-I&#39;m not going to explain this other process, just copy the following code in a file called <strong>staticAssetLoader.js</strong> at the root of our app:</p>
-<pre><code class="language-js">// Import necessary functions from the &#39;fs&#39; module
+						<h2>Enhancing the process</h2>
+
+						<p>
+							This is good but not great for many reasons.<br />
+							If we have multiple variables and/or functions to transfer, the third step of the process on
+							the client-side will be gigantic and repetitive as seen in our simple example.<br />
+							Also, in a real application, we would not use a <code>&lt;script&gt;</code> tag but a
+							JavaScript file to load our scripting logic.<br />
+							To optimize the procedure, we&#39;ll utilize a JavaScript file where the third step must be
+							dynamic to prevent redundancy.
+						</p>
+						<p>
+							Using a minimal backend framework, such as Velocy, offers minimal functionalities as its
+							description implies.<br />
+							This doesn&#39;t mean that we can&#39;t extend it, as I did in its enhanced version, but
+							loading static assets is another kind of challenge.<br />
+							I&#39;m not going to explain this other process, just copy the following code in a file
+							called <strong>staticAssetLoader.js</strong> at the root of our app:
+						</p>
+						<pre><code class="language-js">// Import necessary functions from the &#39;fs&#39; module
 import { readFileSync, readdirSync, statSync } from &quot;fs&quot;
 
 // Import the &#39;path&#39; module for path manipulation
@@ -677,8 +809,8 @@ class StaticAssetLoader {
 
 export const staticAssetLoader = new StaticAssetLoader()
 </code></pre>
-<p>Update the beginning of <strong>index.js</strong>:</p>
-<pre><code class="language-js">import { Eta } from &quot;eta&quot;
+						<p>Update the beginning of <strong>index.js</strong>:</p>
+						<pre><code class="language-js">import { Eta } from &quot;eta&quot;
 import { join } from &quot;path&quot;
 import { createServer, Router } from &quot;./router.js&quot;
 import { staticAssetLoader } from &quot;./staticAssetLoader.js&quot;
@@ -692,16 +824,19 @@ staticAssetLoader.serveStaticAssets(app)
 
 // Rest of &quot;index.js&quot; remains the same
 </code></pre>
-<p>Replace the <code>&lt;script&gt;</code> tag and everything inside it in <strong>index.html</strong> with:</p>
-<pre><code class="language-html">&lt;script type=&quot;module&quot; src=&quot;/static/main.js&quot;&gt;&lt;/script&gt;
+						<p>
+							Replace the <code>&lt;script&gt;</code> tag and everything inside it in
+							<strong>index.html</strong> with:
+						</p>
+						<pre><code class="language-html">&lt;script type=&quot;module&quot; src=&quot;/static/main.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-<p>Create a static folder at the root of our app, then create inside it 2 files:</p>
-<ol>
-<li><strong>main.js</strong></li>
-<li><strong>parseHiddenJSON.js</strong></li>
-</ol>
-<p>Add the following to <strong>parseHiddenJSON.js</strong>:</p>
-<pre><code class="language-js">/*
+						<p>Create a static folder at the root of our app, then create inside it 2 files:</p>
+						<ol>
+							<li><strong>main.js</strong></li>
+							<li><strong>parseHiddenJSON.js</strong></li>
+						</ol>
+						<p>Add the following to <strong>parseHiddenJSON.js</strong>:</p>
+						<pre><code class="language-js">/*
  * Retrieves hidden JSON data from a DOM element, parses it, and removes the element from the DOM.
  * @param {string} elementId - The ID of the DOM element containing the hidden JSON data.
  * @returns {Object|null} - The parsed JSON data, or null if the element is not found.
@@ -728,8 +863,8 @@ export const parseHiddenJSON = (elementId) =&gt; {
     }
 }
 </code></pre>
-<p>Add the following to <strong>main.js</strong>:</p>
-<pre><code class="language-js">import { parseHiddenJSON } from &quot;./parseHiddenJSON.js&quot;
+						<p>Add the following to <strong>main.js</strong>:</p>
+						<pre><code class="language-js">import { parseHiddenJSON } from &quot;./parseHiddenJSON.js&quot;
 
 // 3. Retrieve hidden JSON data from a DOM element, parse it, and remove the element from the DOM
 const greeting = parseHiddenJSON(&quot;greeting&quot;)
@@ -756,166 +891,240 @@ continents.forEach((continent) =&gt; {
     continentsList.append(listItem)
 })
 </code></pre>
-<p>The code is easy to understand, we created a function to dynamically do the redundant tasks in step 3 from the previous code, then we used it directly on the Id of the hidden element where the data object is stringified.<br/>
-Cleaner code, and straightforward logic!</p>
-<p>Please note that if we want to use a folder called &quot;public&quot; for our static assets instead of the default &quot;static&quot; folder, we would:</p>
-<ol>
-<li>Replace</li>
-</ol>
-<pre><code class="language-js">// Serve static assets from default folder &quot;static&quot;
+						<p>
+							The code is easy to understand, we created a function to dynamically do the redundant tasks
+							in step 3 from the previous code, then we used it directly on the Id of the hidden element
+							where the data object is stringified.<br />
+							Cleaner code, and straightforward logic!
+						</p>
+						<p>
+							Please note that if we want to use a folder called &quot;public&quot; for our static assets
+							instead of the default &quot;static&quot; folder, we would:
+						</p>
+						<ol>
+							<li>Replace</li>
+						</ol>
+						<pre><code class="language-js">// Serve static assets from default folder &quot;static&quot;
 staticAssetLoader.serveStaticAssets(app)
 </code></pre>
-<p>by</p>
-<pre><code class="language-js">// Serve static assets from custom folder name
+						<p>by</p>
+						<pre><code class="language-js">// Serve static assets from custom folder name
 staticAssetLoader.serveStaticAssets(app, &quot;public&quot;)
 </code></pre>
-<ol start="2">
-<li>Replace</li>
-</ol>
-<pre><code class="language-html">&lt;script type=&quot;module&quot; src=&quot;/static/main.js&quot;&gt;&lt;/script&gt;
+						<ol start="2">
+							<li>Replace</li>
+						</ol>
+						<pre><code class="language-html">&lt;script type=&quot;module&quot; src=&quot;/static/main.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-<p>by</p>
-<pre><code class="language-html">&lt;script type=&quot;module&quot; src=&quot;/public/main.js&quot;&gt;&lt;/script&gt;
+						<p>by</p>
+						<pre><code class="language-html">&lt;script type=&quot;module&quot; src=&quot;/public/main.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-<ol start="3">
-<li>Create a &quot;public&quot; folder at the root of the application and the needed files inside it.</li>
-</ol>
-<p><em><strong>Nota bene: The same logic applies to EJS, the only difference is that there is no <code>it.</code> in EJS!</strong></em></p>
-<h2>Conclusion</h2>
-<p>This article demonstrates that we don&#39;t need heavy modules with unnecessary bells and whistles to achieve simple or complex tasks in a Node.js application.<br/>
-We now master without any doubt the art of transferring variables and functions from the server to the client using EJS or Eta!</p>
-<p>I hope that you&#39;ll find this article useful.</p>
-<h2 id="resources">Resources</h2>
-<p>Link:</p>
-<ul>
-<li><a href="https://github.com/LebCit/node-transferring-variables-and-functions">GitHub repository</a></li>
-</ul>
-	<p class="author-greetings">
-		SYA,
-		<br />
-		LebCit.
-	</p>
-</div>
+						<ol start="3">
+							<li>
+								Create a &quot;public&quot; folder at the root of the application and the needed files
+								inside it.
+							</li>
+						</ol>
+						<p>
+							<em
+								><strong
+									>Nota bene: The same logic applies to EJS, the only difference is that there is no
+									<code>it.</code> in EJS!</strong
+								></em
+							>
+						</p>
+						<h2>Conclusion</h2>
 
-  <style>
-	.post-navigation {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 16px;
-	}
+						<p>
+							This article demonstrates that we don&#39;t need heavy modules with unnecessary bells and
+							whistles to achieve simple or complex tasks in a Node.js application.<br />
+							We now master without any doubt the art of transferring variables and functions from the
+							server to the client using EJS or Eta!
+						</p>
+						<p>I hope that you&#39;ll find this article useful.</p>
+						<h2 id="resources">Resources</h2>
 
-	.post-navigation a {
-		margin: 1.5em 0;
-		border: 2px solid #000;
-		background: #000;
-		display: inline-block;
-		padding: 0.7rem 0.9rem;
-		font-size: 1rem;
-		line-height: 1;
-		border-radius: 3px;
-		color: #fff;
-		font-weight: 600;
-		cursor: pointer;
-	}
+						<p>Link:</p>
+						<ul>
+							<li>
+								<a href="https://github.com/LebCit/node-transferring-variables-and-functions"
+									>GitHub repository</a
+								>
+							</li>
+						</ul>
 
-	.post-navigation .next-post {
-		grid-column-end: -1;
-	}
+						<p class="author-greetings">
+							SYA,
+							<br />
+							LebCit.
+						</p>
+					</div>
 
-	.post-navigation a:hover {
-		color: #fff;
-		box-shadow: 0 0.25em #000;
-	}
+					<!-- Start posts pagination -->
+					<style>
+						.post-navigation {
+							display: grid;
+							grid-template-columns: repeat(2, 1fr);
+							grid-template-rows: 1fr;
+							grid-column-gap: 16px;
+						}
 
-	.post-navigation a:active,
-	.post-navigation a:focus {
-		color: #fff;
-		box-shadow: 0.25em 0.25em #000;
-		outline: 0.1em solid;
-	}
+						.post-navigation a {
+							margin: 1.5em 0;
+							border: 2px solid #000;
+							background: #000;
+							display: inline-block;
+							padding: 0.7rem 0.9rem;
+							font-size: 1rem;
+							line-height: 1;
+							border-radius: 3px;
+							color: #fff;
+							font-weight: 600;
+							cursor: pointer;
+						}
 
-	@media screen and (max-width: 48em) {
-		.post-navigation {
-			display: grid;
-			grid-template-columns: 1fr;
-			grid-template-rows: repeat(2, 1fr);
-			grid-row-gap: 16px;
-		}
+						.post-navigation .next-post {
+							grid-column-end: -1;
+						}
 
-		.post-navigation a {
-			margin: 0;
-		}
-	}
-</style>
+						.post-navigation a:hover {
+							color: #fff;
+							box-shadow: 0 0.25em #000;
+						}
 
-<nav class="post-navigation" aria-label="Post navigation">
-		<a href="/posts/creating-conditional-selections-in-google-forms-using-apps-script" class="prev-post" rel="prev" aria-label="Go to the previous post">
-		Previous: Creating Conditional Selections in Google Forms using Apps Script	</a>
-	  	<a href="/posts/litenode-nodejs-web-framework" class="next-post" rel="next" aria-label="Go to the next post">
-		Next: LiteNode, Node.js Web Framework	</a>
-	</nav>
-   <style>
-	.related-posts div {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 16px;
-	}
-</style>
+						.post-navigation a:active,
+						.post-navigation a:focus {
+							color: #fff;
+							box-shadow: 0.25em 0.25em #000;
+							outline: 0.1em solid;
+						}
 
-<div class="related-posts">
-	<h3>SOME RELATED POSTS</h3>
-	<div>
-		      		<section>
-			<a href="/posts/node-modules-is-not-heavy-developers-are-lazy">
-				    				<img
-					class="img-responsive"
-					src="/static/img/black-words-graffitti-on-yellow-wall-saying-if-you-are-reading-this-it-is-time-to-change.avif"
-					alt="Black words graffitti on yellow wall saying if you are reading this it is time to change"
-				/>
-							</a>
-			<h4>
-				<a href="/posts/node-modules-is-not-heavy-developers-are-lazy">node_modules is not heavy, developers are lazy!</a>
-			</h4>
-		</section>
-			</div>
-</div>
-  					<!-- End Markdown file content -->
+						@media screen and (max-width: 48em) {
+							.post-navigation {
+								display: grid;
+								grid-template-columns: 1fr;
+								grid-template-rows: repeat(2, 1fr);
+								grid-row-gap: 16px;
+							}
+
+							.post-navigation a {
+								margin: 0;
+							}
+						}
+					</style>
+
+					<nav class="post-navigation" aria-label="Post navigation">
+						<a
+							href="/posts/creating-conditional-selections-in-google-forms-using-apps-script"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Previous: Creating Conditional Selections in Google Forms using Apps Script
+						</a>
+
+						<!--Dynamic Markup Separator-->
+
+						<a
+							href="/posts/litenode-nodejs-web-framework"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Next: LiteNode, Node.js Web Framework
+						</a>
+					</nav>
+
+					<!-- End posts pagination -->
+
+					<!-- Dynamic Markup Separator -->
+
+					<!-- Start related posts -->
+					<style>
+						.related-posts div {
+							display: grid;
+							grid-template-columns: repeat(2, 1fr);
+							grid-template-rows: 1fr;
+							grid-column-gap: 16px;
+						}
+					</style>
+
+					<div class="related-posts">
+						<h3>SOME RELATED POSTS</h3>
+						<div>
+							<section>
+								<a href="/posts/node-modules-is-not-heavy-developers-are-lazy">
+									<img
+										class="img-responsive"
+										src="/static/images/black-words-graffitti-on-yellow-wall-saying-if-you-are-reading-this-it-is-time-to-change.avif"
+										alt="Featured image for the post: node_modules is not heavy, developers are lazy!"
+									/>
+								</a>
+								<h4>
+									<a href="/posts/node-modules-is-not-heavy-developers-are-lazy"
+										>node_modules is not heavy, developers are lazy!</a
+									>
+								</h4>
+							</section>
+						</div>
+					</div>
+
+					<!-- End related posts -->
+
+					<!-- End Markdown file content -->
 				</main>
-				     			</div>
+			</div>
 			<!--End content-->
+
 			<!--Start footer-->
 			<style>
-	.site-footer {
-		text-align: center;
-		padding-top: 2em;
-	}
-	@media (min-width: 64em) {
-		.site-footer {
-			padding: 2em 3em;
-			margin-left: 40%;
-		}
-	}
-</style>
+				.site-footer {
+					text-align: center;
+					padding-top: 2em;
+				}
+				@media (min-width: 64em) {
+					.site-footer {
+						padding: 2em 3em;
+						margin-left: 40%;
+					}
+				}
+			</style>
 
-<footer id="colophon" class="site-footer unit-1">
-	        	<div id="site-info" class="site-info">
-		<p>
-			<strong>2016 - 2024 | { LebCit }</strong>
-			<br />
-			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
-	</div>
-</footer>
+			<footer id="colophon" class="site-footer unit-1">
+				<style>
+					/* more then 1023px an less then 1024px */
+					@media (max-width: 63.969em) {
+						.hide {
+							display: none;
+						}
+					}
+				</style>
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2024 | { LebCit } </strong>
+						<br />
+						Proudly created with <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>
+					</p>
+				</div>
+			</footer>
+
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  		<script type="module">
-			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
 
-			hljs.highlightAll()
-		</script>
-		
-		<script src="/static/js/main.js"></script>
+		<script src="/static/vendors/highlight/highlight.min.js" onload="hljs.highlightAll()"></script>
+
+		<script type="module" src="/static/scripts/themes/midday/midday-scripts.js"></script>
 	</body>
 </html>

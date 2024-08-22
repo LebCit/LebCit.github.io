@@ -1,98 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-		<meta name="description" content="This post is about the process of creating a simple Markdown  blog in Node.js" />
-	
-	<title>Create a simple Markdown-based blog in Node.js | { LebCit }</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon_32.png" />
-	<link rel="stylesheet" href="/static/css/main.min.css" />
+		<meta
+			name="description"
+			content="This post is about the process of creating a simple Markdown  blog in Node.js."
+		/>
 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" />
-	  <style>
-	.post-title {
-		font-size: 2em;
-		color: #222;
-		margin-bottom: 0.2em;
-	}
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-	.post-content {
-		color: #444;
-		line-height: 1.8em;
-	}
+		<title>Create a simple Markdown-based blog in Node.js | { LebCit }</title>
 
-	.post-content a {
-		color: #000036;
-		text-decoration-line: underline;
-		text-decoration-color: #ea215a;
-		text-decoration-style: double;
-		text-decoration-thickness: 0.125em;
-		text-underline-offset: 1.5px;
-		text-decoration-skip-ink: none;
-		transition: 0.5s;
-	}
+		<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
+		<link rel="stylesheet" href="/static/styles/themes/midday/midday-styles-min.css" />
 
-	.post-content a:hover,
-	.post-content a:focus,
-	.post-content a:active {
-		text-decoration: none;
-		color: white;
-		box-shadow: inset 0 -1.3em 0 0 #000;
-		outline: thin dotted #ea215a;
-	}
-</style>
+		<link rel="stylesheet" href="/static/vendors/highlight/atom-one-dark.min.css" />
 
-<style>
-	.single-post :not(pre) code {
-		background-color: #272822;
-		color: #f8f8f2;
-		border-radius: 0.3rem;
-		padding: 4px 5px 5px;
-	}
-</style>
-  <style>
-	@media screen and (min-width: 48em) and (max-width: 63.938em) {
-		.post-title {
-			font-size: 3em;
-			margin-top: 0;
-		}
-	}
+		<!-- COMMON STYLES -->
+		<style>
+			.post-title {
+				font-size: 2em;
+				color: #222;
+				margin-bottom: 0.2em;
+			}
 
-	@media (min-width: 64em) {
-		.post-title {
-			/* will affect single-post*/
-			font-size: 4em;
-			margin-top: 0;
-		}
-	}
-</style>
-    <style>
-	.post-meta {
-		color: #16663d;
-		font-size: 90%;
-		margin: 0;
-	}
+			.post-content {
+				color: #444;
+				line-height: 1.8em;
+			}
 
-	.posted-on {
-		color: #ad1a36;
-	}
+			.post-content a {
+				color: #000036;
+				text-decoration-line: underline;
+				text-decoration-color: #ea215a;
+				text-decoration-style: double;
+				text-decoration-thickness: 0.125em;
+				text-underline-offset: 1.5px;
+				text-decoration-skip-ink: none;
+				transition: 0.5s;
+			}
 
-	.post-tag {
-		margin: 0 0.1em;
-		padding: 0.2em 0.8em;
-		background: #ad1a36;
-		font-size: 80%;
-	}
+			.post-content a:hover,
+			.post-content a:focus,
+			.post-content a:active {
+				text-decoration: none;
+				color: white;
+				box-shadow: inset 0 -1.3em 0 0 #000;
+				outline: thin dotted #ea215a;
+			}
+		</style>
 
-	.post-tag a {
-		color: #fff;
-	}
-</style>
-  	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
-</head>
+		<style>
+			.single-post :not(pre) code {
+				background-color: #272822;
+				color: #f8f8f2;
+				border-radius: 0.3rem;
+				padding: 4px 5px 5px;
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+
+		<style>
+			@media screen and (min-width: 48em) and (max-width: 63.938em) {
+				.post-title {
+					font-size: 3em;
+					margin-top: 0;
+				}
+			}
+
+			@media (min-width: 64em) {
+				.post-title {
+					/* will affect single-post*/
+					font-size: 4em;
+					margin-top: 0;
+				}
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+
+		<!-- Dynamic Markup Separator -->
+
+		<style>
+			.post-meta {
+				color: #16663d;
+				font-size: 90%;
+				margin: 0;
+			}
+
+			.posted-on {
+				color: #ad1a36;
+			}
+
+			.post-tag {
+				margin: 0 0.1em;
+				padding: 0.2em 0.8em;
+				background: #ad1a36;
+				font-size: 80%;
+			}
+
+			.post-tag a {
+				color: #fff;
+			}
+		</style>
+
+		<!-- Dynamic Markup Separator -->
+	</head>
 
 	<body>
 		<!--Start page-->
@@ -101,357 +117,421 @@
 
 			<!--Start menu-->
 			<style>
-	.invisible {
-		visibility: hidden;
-	}
+				.invisible {
+					visibility: hidden;
+				}
 
-	.overlay {
-		position: fixed;
-		width: 0;
-		height: 100%;
-		top: 0;
-		right: 0;
-		background-color: rgba(0, 0, 0, 0.9);
-		z-index: 2;
-		letter-spacing: normal;
-		overflow-x: hidden;
-		transition: 0.5s;
-	}
+				.overlay {
+					position: fixed;
+					width: 0;
+					height: 100%;
+					top: 0;
+					right: 0;
+					background-color: rgba(0, 0, 0, 0.9);
+					z-index: 2;
+					letter-spacing: normal;
+					overflow-x: hidden;
+					transition: 0.5s;
+				}
 
-	.overlay-content {
-		position: relative;
-		top: 25%;
-		width: 100%;
-		text-align: center;
-		margin-top: 30px;
-	}
+				.overlay-content {
+					position: relative;
+					top: 25%;
+					width: 100%;
+					text-align: center;
+					margin-top: 30px;
+				}
 
-	.overlay li {
-		list-style: none;
-	}
+				.overlay li {
+					list-style: none;
+				}
 
-	.overlay a {
-		padding: 8px;
-		text-decoration: none;
-		font-size: 36px;
-		color: #818181;
-		display: block;
-		transition: 0.3s;
-	}
+				.overlay a {
+					padding: 8px;
+					text-decoration: none;
+					font-size: 36px;
+					color: #818181;
+					display: block;
+					transition: 0.3s;
+				}
 
-	.overlay a:hover,
-	.overlay a:focus {
-		color: #f1f1f1;
-		background-color: #222;
-		border: 1px solid red;
-		border-style: dashed;
-	}
+				.overlay a:hover,
+				.overlay a:focus {
+					color: #f1f1f1;
+					background-color: #222;
+					border: 1px solid red;
+					border-style: dashed;
+				}
 
-	.overlay .close-button {
-		position: absolute;
-		top: 20px;
-		right: 45px;
-		font-size: 60px;
-	}
-</style>
+				.overlay .close-button {
+					position: absolute;
+					top: 20px;
+					right: 45px;
+					font-size: 60px;
+				}
+			</style>
 
-<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
-	<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">
-		&times;
-	</a>
-	
-	<div class="overlay-content">
-		<a href="/">Home</a>
-				<li class="pure-menu-item">
-			<a href="/posts">Archive</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/tags">Tags</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/search">Search</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/pages/my-public-projects">Projects</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/pages/about">About Me</a>
-		</li>
-				<li class="pure-menu-item">
-			<a href="/rss.xml">RSS</a>
-		</li>
+			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+				<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
+
+				<div class="overlay-content">
+					<a href="/">Home</a>
+
+					<li class="pure-menu-item">
+						<a href="/posts">Archive</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/tags">Tags</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/search">Search</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/pages/my-public-projects">Projects</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/pages/about">About Me</a>
+					</li>
+
+					<li class="pure-menu-item">
+						<a href="/rss.xml">RSS</a>
+					</li>
+				</div>
 			</div>
-</div>
+
 			<!--End menu-->
+
 			<!--Start masthead-->
 			<style>
-	/* SITE HEADER */
-	.site-header {
-		background: rgb(61, 79, 93);
-		color: #fff;
-	}
+				/* SITE HEADER */
+				.site-header {
+					background: rgb(61, 79, 93);
+					color: #fff;
+				}
 
-	.sidebar {
-		margin: 1em;
-	}
+				.sidebar {
+					margin: 1em;
+				}
 
-	.site-title,
-	.site-description {
-		margin: 0;
-		line-height: 1.2;
-	}
+				.site-title,
+				.site-description {
+					margin: 0;
+					line-height: 1.2;
+				}
 
-	.site-title a {
-		color: #fff;
-		text-decoration: none;
-	}
+				.site-title a {
+					color: #fff;
+					text-decoration: none;
+				}
 
-	.site-title a:hover,
-	.site-title a:focus {
-		text-decoration: underline;
-	}
+				.site-title a:hover,
+				.site-title a:focus {
+					text-decoration: underline;
+				}
 
-	.site-description {
-		font-weight: 300;
-		color: rgb(176, 202, 219);
-		margin: 0.5em 0 2em 0;
-	}
+				.site-description {
+					font-weight: 300;
+					color: rgb(176, 202, 219);
+					margin: 0.5em 0 2em 0;
+				}
 
-	/* MENU BUTTON */
-	.nav-list {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
+				/* MENU BUTTON */
+				.nav-list {
+					margin: 0;
+					padding: 0;
+					list-style: none;
+				}
 
-	.nav-item {
-		display: inline-block;
-	}
+				.nav-item {
+					display: inline-block;
+				}
 
-	.nav-item a {
-		background: black;
-		border: 2px solid rgb(176, 202, 219);
-		border-radius: 2px;
-		color: #fff;
-		padding: 0.5em 1em;
-		margin-top: 1em;
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
-		font-size: 85%;
-	}
+				.nav-item a {
+					background: black;
+					border: 2px solid rgb(176, 202, 219);
+					border-radius: 2px;
+					color: #fff;
+					padding: 0.5em 1em;
+					margin-top: 1em;
+					letter-spacing: 0.05em;
+					text-transform: uppercase;
+					font-size: 85%;
+				}
 
-	.nav-item a:hover,
-	.nav-item a:focus {
-		border: 2px solid rgb(61, 146, 201);
-		text-decoration: none;
-	}
+				.nav-item a:hover,
+				.nav-item a:focus {
+					border: 2px solid rgb(61, 146, 201);
+					text-decoration: none;
+				}
 
-	.nav-item a svg {
-		fill: aliceblue;
-		vertical-align: bottom;
-		padding: 4px 0 2px;
-	}
+				.nav-item a svg {
+					fill: aliceblue;
+					vertical-align: bottom;
+					padding: 4px 0 2px;
+				}
 
-	@media screen and (max-width: 35.5em) {
-		.nav-item a svg {
-			padding-top: 14px;
-		}
-	}
+				@media screen and (max-width: 35.5em) {
+					.nav-item a svg {
+						padding-top: 14px;
+					}
+				}
 
-	@media screen and (min-width: 35.5em) and (max-width: 48em) {
-		.nav-item a svg {
-			padding-top: 12px;
-		}
-	}
+				@media screen and (min-width: 35.5em) and (max-width: 48em) {
+					.nav-item a svg {
+						padding-top: 12px;
+					}
+				}
 
-	@media screen and (min-width: 48em) and (max-width: 63.938em) {
-		.nav-item a svg {
-			padding-top: 10px;
-		}
-	}
+				@media screen and (min-width: 48em) and (max-width: 63.938em) {
+					.nav-item a svg {
+						padding-top: 10px;
+					}
+				}
 
-	/* more then 1023px an less then 1024px */
-	@media (max-width: 63.969em) {
-		.site-header.bio {
-			background-image: none !important;
-		}
-		.nav {
-			position: fixed;
-			top: 15px;
-			right: 10px;
-			z-index: 1;
-		}
-	}
+				/* more then 1023px an less then 1024px */
+				@media (max-width: 63.969em) {
+					.site-header.bio {
+						background-image: none !important;
+					}
+					.nav {
+						position: fixed;
+						top: 15px;
+						right: 10px;
+						z-index: 1;
+					}
+				}
 
-	@media (min-width: 64em) {
-		.site-header {
-			position: fixed;
-			top: 0;
-			bottom: 0;
-			overflow-y: auto;
-		}
+				@media (min-width: 64em) {
+					.site-header {
+						position: fixed;
+						top: 0;
+						bottom: 0;
+						overflow-y: auto;
+					}
 
-		.site-header.bio {
-			background-repeat: no-repeat;
-			background-position: top;
-			background-size: cover;
-		}
+					.site-header.bio {
+						background-repeat: no-repeat;
+						background-position: top;
+						background-size: cover;
+					}
 
-		.site-header.bio .site-header-overlay {
-			position: fixed;
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: rgba(0, 0, 0, 0.6);
-		}
+					.site-header.bio .site-header-overlay {
+						position: fixed;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						background-color: rgba(0, 0, 0, 0.6);
+					}
 
-		/* The emerging W3C standard
+					/* The emerging W3C standard
  that is currently Firefox-only */
-		.site-header {
-			scrollbar-width: thin;
-		}
+					.site-header {
+						scrollbar-width: thin;
+					}
 
-		/* Works on Chrome/Edge/Safari */
-		.site-header::-webkit-scrollbar {
-			width: 7px;
-		}
+					/* Works on Chrome/Edge/Safari */
+					.site-header::-webkit-scrollbar {
+						width: 7px;
+					}
 
-		.site-header::-webkit-scrollbar-track {
-			background: #313d48;
-		}
+					.site-header::-webkit-scrollbar-track {
+						background: #313d48;
+					}
 
-		.site-header::-webkit-scrollbar-thumb {
-			background-color: #81898f;
-		}
+					.site-header::-webkit-scrollbar-thumb {
+						background-color: #81898f;
+					}
 
-		.sidebar {
-			margin: 10% 2em;
-			text-align: left;
-		}
+					.sidebar {
+						margin: 10% 2em;
+						text-align: left;
+					}
 
-		.site-header.bio .sidebar {
-			position: sticky;
-		}
-	}
-</style>
+					.site-header.bio .sidebar {
+						position: sticky;
+					}
+				}
+			</style>
 
-<header id="masthead"  class="site-header unit-1 unit-lg-2-5 no-bio"  >
-	<div class="site-header-overlay"></div>
-		<div class="sidebar">
-		<div class="site-branding">
-			<h1 class="site-title">
-				<a href="/">{ LebCit }</a>
-			</h1>
-			<p class="site-description">Autodidactic Web Developer. Love to Read, Learn &amp; DIMySelf!</p>
-		</div>
+			<!-- Start #masthead -->
+			<header id="masthead" class="site-header unit-1 unit-lg-2-5 no-bio">
+				<div class="site-header-overlay"></div>
+				<!-- Start .sidebar-->
+				<div class="sidebar">
+					<div class="site-branding">
+						<h1 class="site-title">
+							<a href="/">{ LebCit } </a>
+						</h1>
+						<p class="site-description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
 
-				<nav id="nav" class="nav" aria-label="MENU">
-			<ul class="nav-list">
-				<li class="nav-item">
-					<a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
-						<span>MENU</span>
-						<span class="menu-icon" aria-hidden="true">
-							<svg
-								version="1.1"
-								x="0px"
-								y="0px"
-								width="30px"
-								height="30px"
-								viewbox="0 0 30 30"
-								enable-background="new 0 0 30 30"
-							>
-								<rect width="30" height="5" />
-								<rect y="24" width="30" height="5" />
-								<rect y="12" width="30" height="5" />
-							</svg>
-						</span>
-					</a>
-				</li>
-			</ul>
-		</nav>
-			</div>
-	</header>
+					<!-- Menu button start -->
+					<nav id="nav" class="nav" aria-label="MENU">
+						<ul class="nav-list">
+							<li class="nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewbox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<!-- Menu button end -->
+				</div>
+				<!-- End .sidebar-->
+			</header>
+			<!-- End #masthead-->
+
 			<!--End masthead-->
 
 			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				  				<main class="single-post">
+				<!-- MARKDOWN ROUTE -->
+				<main class="single-post">
 					<!-- Start Markdown file content -->
 					<style>
-	.author-greetings {
-		color: #000;
-		line-height: normal;
-	}
-</style>
+						.author-greetings {
+							color: #000;
+							line-height: normal;
+						}
+					</style>
 
-<header class="post-header">
-	<h1 class="post-title">Create a simple Markdown-based blog in Node.js</h1>
-		<p class="post-meta">
-		<span>Posted on</span>
-		<span class="posted-on">
-			<time class="postList-date" datetime='2023-09/12'>
-				Tue Sep 12 2023			</time>
-		</span>
+					<header class="post-header">
+						<h1 class="post-title">Create a simple Markdown-based blog in Node.js</h1>
 
-				<br />
-		<span>Tagged</span>
-		<!--Start tag(s)-->
-				<span class="post-tag">
-			<a href="/tags/Development">Development</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/Eta">Eta</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/Hono">Hono</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/Marked">Marked</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/Markdown">Markdown</a>
-		</span>
-				<span class="post-tag">
-			<a href="/tags/Node.js">Node.js</a>
-		</span>
-				<!--End tag(s)-->
-			</p>
-	  </header>
+						<p class="post-meta">
+							<span>Posted on</span>
+							<span class="posted-on">
+								<time class="postList-date" datetime="2023-09-12">2023-09-12</time>
+							</span>
 
-<div class="post-content">
-		<p>
-		<em>This post is about the process of creating a simple Markdown  blog in Node.js.</em>
-	</p>
-	  <h2>TOC (Table Of Contents)</h2>
-<ul>
-<li>Intro</li>
-<li><a href="#markdown">What is Markdown good for?</a></li>
-<li><a href="#markdown-to-html">Converting Markdown to HTML.</a></li>
-<li>Using <a href="https://hono.dev/">Hono</a> and <a href="https://eta.js.org/">Eta</a> to render:<ul>
-<li><a href="#render-blog">The blog</a></li>
-<li><a href="#render-single-post-page">A single blog post</a></li>
-<li><a href="#render-single-post-page">A single page</a></li>
-</ul>
-</li>
-<li><a href="#blog-doc">Blog-Doc</a></li>
-</ul>
-<h2>Intro</h2>
-<p>A year ago, I wrote a short post about the same subject: <a href="/posts/markdown-blog-with-ejs">Markdown blog with EJS</a>.<br />
-This year&#39;s post brings a lot of improvements.<br />
-First of all the stack has completely changed. We&#39;ll be using modern modules (Hono,<a href="https://github.com/honojs/node-server"> Hono Node-Server</a>, Eta and <a href="https://marked.js.org/">Marked</a>) instead of old and aging ones (Express, EJS, Gray-Matter and Markdown-It). The benefit of this stack compared to the previous one is that we&#39;re using only 4 modules instead of 90 and the bundle size gets divided 12 times, from 862KB to 71KB!<br />
-The content is organized in a better way, where each step is thoroughly explained, allowing the reader to easily understand the process.<br />
-The code is written <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous">asynchronously</a>, uses <code>import</code> statements instead of <code>require</code> and is split into reusable blocks to be maintainable.</p>
-<h2 id="markdown">What is Markdown good for?</h2>
-<p>When a browser displays some content, it&#39;s rendering the <code>HTML</code> structure of a webpage along with its styles and scripts.<br />
-<a href="https://html.spec.whatwg.org/dev/">HTML</a> is the Web&#39;s core markup language.<br />
-Developers use <code>HTML</code> to define elements, combine them and produce a document.<br />
-A document begins with <code>&lt;!DOCTYPE html&gt;</code> followed by the <code>&lt;html&gt;</code> element which includes a <code>&lt;head&gt;</code> and a <code>&lt;body&gt;</code>.<br />
-Each one of the last two elements contains other elements working together, like a painting, so we can see the whole picture.<br />
-Let&#39;s take a look at a basic <code>HTML</code> document:</p>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+							<br />
+							<span>Tagged</span>
+							<!--Start tag(s)-->
+
+							<span class="post-tag">
+								<a href="/tags/Development">Development</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/Eta">Eta</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/Hono">Hono</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/Marked">Marked</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/Markdown">Markdown</a>
+							</span>
+
+							<span class="post-tag">
+								<a href="/tags/Node.js">Node.js</a>
+							</span>
+
+							<!--End tag(s)-->
+						</p>
+
+						<!--Dynamic Markup Separator-->
+					</header>
+
+					<div class="post-content">
+						<p>
+							<em>This post is about the process of creating a simple Markdown blog in Node.js.</em>
+						</p>
+
+						<!--Content-->
+						<h2>TOC (Table Of Contents)</h2>
+
+						<ul>
+							<li>Intro</li>
+							<li><a href="#markdown">What is Markdown good for?</a></li>
+							<li><a href="#markdown-to-html">Converting Markdown to HTML.</a></li>
+							<li>
+								Using <a href="https://hono.dev/">Hono</a> and <a href="https://eta.js.org/">Eta</a> to
+								render:
+								<ul>
+									<li><a href="#render-blog">The blog</a></li>
+									<li><a href="#render-single-post-page">A single blog post</a></li>
+									<li><a href="#render-single-post-page">A single page</a></li>
+								</ul>
+							</li>
+							<li><a href="#blog-doc">Blog-Doc</a></li>
+						</ul>
+						<h2>Intro</h2>
+
+						<p>
+							A year ago, I wrote a short post about the same subject:
+							<a href="/posts/markdown-blog-with-ejs">Markdown blog with EJS</a>.<br />
+							This year&#39;s post brings a lot of improvements.<br />
+							First of all the stack has completely changed. We&#39;ll be using modern modules (Hono,<a
+								href="https://github.com/honojs/node-server"
+							>
+								Hono Node-Server</a
+							>, Eta and <a href="https://marked.js.org/">Marked</a>) instead of old and aging ones
+							(Express, EJS, Gray-Matter and Markdown-It). The benefit of this stack compared to the
+							previous one is that we&#39;re using only 4 modules instead of 90 and the bundle size gets
+							divided 12 times, from 862KB to 71KB!<br />
+							The content is organized in a better way, where each step is thoroughly explained, allowing
+							the reader to easily understand the process.<br />
+							The code is written
+							<a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous"
+								>asynchronously</a
+							>, uses <code>import</code> statements instead of <code>require</code> and is split into
+							reusable blocks to be maintainable.
+						</p>
+						<h2 id="markdown">What is Markdown good for?</h2>
+
+						<p>
+							When a browser displays some content, it&#39;s rendering the <code>HTML</code> structure of
+							a webpage along with its styles and scripts.<br />
+							<a href="https://html.spec.whatwg.org/dev/">HTML</a> is the Web&#39;s core markup
+							language.<br />
+							Developers use <code>HTML</code> to define elements, combine them and produce a document.<br />
+							A document begins with <code>&lt;!DOCTYPE html&gt;</code> followed by the
+							<code>&lt;html&gt;</code> element which includes a <code>&lt;head&gt;</code> and a
+							<code>&lt;body&gt;</code>.<br />
+							Each one of the last two elements contains other elements working together, like a painting,
+							so we can see the whole picture.<br />
+							Let&#39;s take a look at a basic <code>HTML</code> document:
+						</p>
+						<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
         &lt;!-- The title that appears in a browser&#39;s tab --&gt;
@@ -471,29 +551,58 @@ Let&#39;s take a look at a basic <code>HTML</code> document:</p>
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>As you can see, the content of a webpage lives in the <code>&lt;body&gt;</code> and each <code>HTML</code> element begins with an opening tag <code>&lt;tag&gt;</code> and ends with a closing one <code>&lt;/tag&gt;</code>.<br />
-<em>Nota bene: Some elements, <a href="https://html.spec.whatwg.org/dev/syntax.html#void-elements">Void elements</a>, don&#39;t have a closing tag.</em></p>
-<p>Now, imagine a webpage with a lot of content.<br />
-Imagine how the structure would be huge, crowded and difficult to write...<br />
-If you can&#39;t visualize it, right-click anywhere on this page then click on <code>View Page Source</code> and see for yourself...<br />
-This is where <a href="https://daringfireball.net/projects/markdown/">Markdown</a> comes in!</p>
-<blockquote>
-<p>Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML).</p>
-</blockquote>
-<p>So instead of writing a complex structure, we just use plain text!<br />
-How amazing is that?!<br />
-And this is why Markdown is gaining popularity among developers.<br /></p>
-<p>There are many editors, online and offline, to use Markdown.<br />
-In our case, a Node.js application that converts a Markdown file contents into data for a blog, we&#39;ll need the following:</p>
-<ul>
-<li>A <a href="https://nodejs.org/en/download">Node.js</a> version greater than 18.x</li>
-<li>A code editor with Markdown support like <a href="https://code.visualstudio.com/">VS Code</a>, <a href="https://vscodium.com/">VS Codium</a> or <a href="https://www.sublimetext.com/">Sublime Text</a>...</li>
-</ul>
-<p>To write in Markdown in one of those editors, simply create a file ending with the <code>.md</code> extension.<br />
-Let&#39;s create on the computer&#39;s desktop a folder named <strong>node-markdown-blog</strong>.<br />
-Open this folder in your code editor and create a file named <strong>from-markdown-to-html.md</strong>.<br />
-Copy and paste the following code into this file and save:</p>
-<pre><code class="language-markdown">---
+						<p>
+							As you can see, the content of a webpage lives in the <code>&lt;body&gt;</code> and each
+							<code>HTML</code> element begins with an opening tag <code>&lt;tag&gt;</code> and ends with
+							a closing one <code>&lt;/tag&gt;</code>.<br />
+							<em
+								>Nota bene: Some elements,
+								<a href="https://html.spec.whatwg.org/dev/syntax.html#void-elements">Void elements</a>,
+								don&#39;t have a closing tag.</em
+							>
+						</p>
+						<p>
+							Now, imagine a webpage with a lot of content.<br />
+							Imagine how the structure would be huge, crowded and difficult to write...<br />
+							If you can&#39;t visualize it, right-click anywhere on this page then click on
+							<code>View Page Source</code> and see for yourself...<br />
+							This is where <a href="https://daringfireball.net/projects/markdown/">Markdown</a> comes in!
+						</p>
+						<blockquote>
+							<p>
+								Markdown allows you to write using an easy-to-read, easy-to-write plain text format,
+								then convert it to structurally valid XHTML (or HTML).
+							</p>
+						</blockquote>
+						<p>
+							So instead of writing a complex structure, we just use plain text!<br />
+							How amazing is that?!<br />
+							And this is why Markdown is gaining popularity among developers.<br />
+						</p>
+						<p>
+							There are many editors, online and offline, to use Markdown.<br />
+							In our case, a Node.js application that converts a Markdown file contents into data for a
+							blog, we&#39;ll need the following:
+						</p>
+						<ul>
+							<li>A <a href="https://nodejs.org/en/download">Node.js</a> version greater than 18.x</li>
+							<li>
+								A code editor with Markdown support like
+								<a href="https://code.visualstudio.com/">VS Code</a>,
+								<a href="https://vscodium.com/">VS Codium</a> or
+								<a href="https://www.sublimetext.com/">Sublime Text</a>...
+							</li>
+						</ul>
+						<p>
+							To write in Markdown in one of those editors, simply create a file ending with the
+							<code>.md</code> extension.<br />
+							Let&#39;s create on the computer&#39;s desktop a folder named
+							<strong>node-markdown-blog</strong>.<br />
+							Open this folder in your code editor and create a file named
+							<strong>from-markdown-to-html.md</strong>.<br />
+							Copy and paste the following code into this file and save:
+						</p>
+						<pre><code class="language-markdown">---
 title: From Markdown to HTML in Node.js
 description: A post about converting the contents of a Markdown file to HTML in a Node.js application
 date: 2023-08-31
@@ -532,8 +641,8 @@ To start using Marked, all we have to do is to fill its `parse()` method with so
 It&#39;s as simple as the following block of code:
 
 ```js
-import { marked } from &#39;marked&#39;
-const html = marked.parse(&#39;# An H1 heading converted from Markdown to HTML with Marked!&#39;)
+import { marked } from &quot;marked&quot;
+const html = marked.parse(&quot;# An H1 heading converted from Markdown to HTML with Marked!&quot;)
 ```
 
 The output of the code above would be:
@@ -544,46 +653,74 @@ The output of the code above would be:
 
 That&#39;s all folks, CU!
 </code></pre>
-<p>If you&#39;re using VS Code, like me, press <code>Ctrl + K</code> then press <code>V</code>, abracadabra!<br />
-You can now see a preview of the Markdown file.<br />
-If you look closer, the block that is delimited by a pair of 3 hyphens <code>---</code> is not being rendered.<br />
-That&#39;s because it&#39;s a <a href="https://yaml.org/">YAML</a> front matter and doesn&#39;t get parsed by a Markdown parser.<br />
-A front matter holds data in a Markdown file.<br />
-We will see later how they will be used.</p>
-<h2 id="markdown-to-html">Converting Markdown to HTML</h2>
-<p>We have seen how to display a preview of a Markdown file, Let&#39;s now use Marked to get the <code>HTML</code> out of it.<br />
-First things first, we have to initialize our Node.js project.<br />
-Type the following command in the terminal:</p>
-<pre><code class="language-bash">npm init -y
+						<p>
+							If you&#39;re using VS Code, like me, press <code>Ctrl + K</code> then press <code>V</code>,
+							abracadabra!<br />
+							You can now see a preview of the Markdown file.<br />
+							If you look closer, the block that is delimited by a pair of 3 hyphens <code>---</code> is
+							not being rendered.<br />
+							That&#39;s because it&#39;s a <a href="https://yaml.org/">YAML</a> front matter and
+							doesn&#39;t get parsed by a Markdown parser.<br />
+							A front matter holds data in a Markdown file.<br />
+							We will see later how they will be used.
+						</p>
+						<h2 id="markdown-to-html">Converting Markdown to HTML</h2>
+
+						<p>
+							We have seen how to display a preview of a Markdown file, Let&#39;s now use Marked to get
+							the <code>HTML</code> out of it.<br />
+							First things first, we have to initialize our Node.js project.<br />
+							Type the following command in the terminal:
+						</p>
+						<pre><code class="language-bash">npm init -y
 </code></pre>
-<p>This will create a <strong>package.json</strong> file in the project:</p>
-<pre><code class="language-json">{
-  &quot;name&quot;: &quot;markdown-blog&quot;,
-  &quot;version&quot;: &quot;1.0.0&quot;,
-  &quot;description&quot;: &quot;&quot;,
-  &quot;main&quot;: &quot;index.js&quot;,
-  &quot;scripts&quot;: {
-    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
-  },
-  &quot;keywords&quot;: [],
-  &quot;author&quot;: &quot;&quot;,
-  &quot;license&quot;: &quot;ISC&quot;
+						<p>This will create a <strong>package.json</strong> file in the project:</p>
+						<pre><code class="language-json">{
+    &quot;name&quot;: &quot;markdown-blog&quot;,
+    &quot;version&quot;: &quot;1.0.0&quot;,
+    &quot;description&quot;: &quot;&quot;,
+    &quot;main&quot;: &quot;index.js&quot;,
+    &quot;scripts&quot;: {
+        &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+    },
+    &quot;keywords&quot;: [],
+    &quot;author&quot;: &quot;&quot;,
+    &quot;license&quot;: &quot;ISC&quot;
 }
 </code></pre>
-<p>This file will hold all the information about our application, its scripts and dependencies.<br />
-Now install Marked with the following command:</p>
-<pre><code class="language-bash">npm install marked
+						<p>
+							This file will hold all the information about our application, its scripts and
+							dependencies.<br />
+							Now install Marked with the following command:
+						</p>
+						<pre><code class="language-bash">npm install marked
 </code></pre>
-<p>If you have read the content of our Markdown file, you now know that we need to use the <code>parse()</code> method of Marked to get its corresponding <code>HTML</code>.<br />
-To get there, we first have to instruct our application to read the content of the file and then to convert it to <code>HTML</code> with Marked.</p>
-<p>The <a href="https://nodejs.org/api/fs.html#file-system">file system</a> in Node.js allows us to interact with files.<br />
-The only synchronous line that we will use in our code is the <a href="https://nodejs.org/api/fs.html#fsreadfilesyncpath-options">readFileSync()</a> method of the <code>fs</code> module.<br />
-The <code>readFileSync()</code> method returns the contents of a defined path, a file in our system, and this is exactly what we are looking for.</p>
-<p>Create a file named <strong>index.js</strong>, this will be the main file of our application, also called the server file.<br />
-If you look at <strong>package.json</strong> above, you&#39;ll see that there is a <code>main</code> property with a value of <code>index.js</code>.<br />
-Now you should remember that a Markdown parser doesn&#39;t parse a front matter, like we mentioned previously, so we must write a function that will do this job and make its data accessible.<br />
-In <strong>index.js</strong> paste the following function:</p>
-<pre><code class="language-js">function parseFrontMatter(text, delimiter = &quot;---&quot;) {
+						<p>
+							If you have read the content of our Markdown file, you now know that we need to use the
+							<code>parse()</code> method of Marked to get its corresponding <code>HTML</code>.<br />
+							To get there, we first have to instruct our application to read the content of the file and
+							then to convert it to <code>HTML</code> with Marked.
+						</p>
+						<p>
+							The <a href="https://nodejs.org/api/fs.html#file-system">file system</a> in Node.js allows
+							us to interact with files.<br />
+							The only synchronous line that we will use in our code is the
+							<a href="https://nodejs.org/api/fs.html#fsreadfilesyncpath-options">readFileSync()</a>
+							method of the <code>fs</code> module.<br />
+							The <code>readFileSync()</code> method returns the contents of a defined path, a file in our
+							system, and this is exactly what we are looking for.
+						</p>
+						<p>
+							Create a file named <strong>index.js</strong>, this will be the main file of our
+							application, also called the server file.<br />
+							If you look at <strong>package.json</strong> above, you&#39;ll see that there is a
+							<code>main</code> property with a value of <code>index.js</code>.<br />
+							Now you should remember that a Markdown parser doesn&#39;t parse a front matter, like we
+							mentioned previously, so we must write a function that will do this job and make its data
+							accessible.<br />
+							In <strong>index.js</strong> paste the following function:
+						</p>
+						<pre><code class="language-js">function parseFrontMatter(text, delimiter = &quot;---&quot;) {
     const lines = text.split(&quot;\n&quot;)
     const frontmatter = {}
 
@@ -629,20 +766,49 @@ In <strong>index.js</strong> paste the following function:</p>
     }
 }
 </code></pre>
-<p>This function extracts front matter from a text and returns it as an <a href="https://javascript.info/object">object</a> named <code>frontmatter</code>, along with the remaining <code>content</code> after the front matter.<br />
-It verifies that the text begins with a front matter delimited by a pair of 3 hyphens <code>---</code> and that each property and value in the front matter are separated by a colon <code>:</code>.<br />
-It also checks for any value in the front matter wrapped in square brackets <code>[ ]</code>. If so, it removes the brackets and splits the value by commas, creating an array of values, like the <code>tags</code> property in <strong>from-markdown-to-html.md</strong>.<br />
-Finally, the function returns a JavaScript object with two properties:</p>
-<ol>
-<li><code>frontmatter</code> which is a JavaScript object allowing us to access the front matter data</li>
-<li><code>content</code> which is a string that will be parsed with Marked to get the the corresponding <code>HTML</code></li>
-</ol>
-<p>Just before jumping to the code, we must add a line to <strong>package.json</strong> to use <code>import</code> statements instead of <code>require</code>.<br />
-This line will allow us to use <a href="https://nodejs.org/docs/latest-v18.x/api/esm.html">ES modules</a>. If you&#39;re new to the modules system, you should read this <a href="https://javascript.info/modules">tutorial</a>.<br />
-Open <strong>package.json</strong> and add the following line <code>&quot;type&quot;: &quot;module&quot;</code> just under <code>&quot;main&quot;: &quot;index.js&quot;</code>, don&#39;t forget to add a coma at the end of each line and save <code>Ctrl + S</code>.</p>
-<p>Now that everything is in place, let&#39;s begin!<br />
-In <strong>index.js</strong>, under the <code>parseFrontMatter()</code> function, <code>import</code> the <code>readFileSync()</code> method from the <code>fs</code> module to read the contents of our Markdown file then use the newly created function on the contents:</p>
-<pre><code class="language-js">function parseFrontMatter(text, delimiter = &quot;---&quot;) {
+						<p>
+							This function extracts front matter from a text and returns it as an
+							<a href="https://javascript.info/object">object</a> named <code>frontmatter</code>, along
+							with the remaining <code>content</code> after the front matter.<br />
+							It verifies that the text begins with a front matter delimited by a pair of 3 hyphens
+							<code>---</code> and that each property and value in the front matter are separated by a
+							colon <code>:</code>.<br />
+							It also checks for any value in the front matter wrapped in square brackets
+							<code>[ ]</code>. If so, it removes the brackets and splits the value by commas, creating an
+							array of values, like the <code>tags</code> property in
+							<strong>from-markdown-to-html.md</strong>.<br />
+							Finally, the function returns a JavaScript object with two properties:
+						</p>
+						<ol>
+							<li>
+								<code>frontmatter</code> which is a JavaScript object allowing us to access the front
+								matter data
+							</li>
+							<li>
+								<code>content</code> which is a string that will be parsed with Marked to get the the
+								corresponding <code>HTML</code>
+							</li>
+						</ol>
+						<p>
+							Just before jumping to the code, we must add a line to <strong>package.json</strong> to use
+							<code>import</code> statements instead of <code>require</code>.<br />
+							This line will allow us to use
+							<a href="https://nodejs.org/docs/latest-v18.x/api/esm.html">ES modules</a>. If you&#39;re
+							new to the modules system, you should read this
+							<a href="https://javascript.info/modules">tutorial</a>.<br />
+							Open <strong>package.json</strong> and add the following line
+							<code>&quot;type&quot;: &quot;module&quot;</code> just under
+							<code>&quot;main&quot;: &quot;index.js&quot;</code>, don&#39;t forget to add a coma at the
+							end of each line and save <code>Ctrl + S</code>.
+						</p>
+						<p>
+							Now that everything is in place, let&#39;s begin!<br />
+							In <strong>index.js</strong>, under the <code>parseFrontMatter()</code> function,
+							<code>import</code> the <code>readFileSync()</code> method from the <code>fs</code> module
+							to read the contents of our Markdown file then use the newly created function on the
+							contents:
+						</p>
+						<pre><code class="language-js">function parseFrontMatter(text, delimiter = &quot;---&quot;) {
 ... // Code inside the function
 }
 
@@ -651,25 +817,50 @@ import { readFileSync } from &quot;node:fs&quot;
 const contents = readFileSync(&quot;from-markdown-to-html.md&quot;, &quot;utf-8&quot;)
 const data = parseFrontMatter(contents)
 </code></pre>
-<p>If we <a href="https://code.visualstudio.com/Docs/editor/debugging">debug</a> the code by setting a <a href="https://code.visualstudio.com/Docs/editor/debugging#_breakpoints">breakpoint</a> in front of the <code>data</code> constant then <a href="https://code.visualstudio.com/Docs/editor/debugging#_debug-actions">Step Over</a> it, we&#39;ll get the following output in the debug panel:</p>
-<img src="/static/img/parse-front-matter-function-output.png" class="img-responsive" alt="Output of a function in the debug panel of VS Code" />
+						<p>
+							If we <a href="https://code.visualstudio.com/Docs/editor/debugging">debug</a> the code by
+							setting a
+							<a href="https://code.visualstudio.com/Docs/editor/debugging#_breakpoints">breakpoint</a> in
+							front of the <code>data</code> constant then
+							<a href="https://code.visualstudio.com/Docs/editor/debugging#_debug-actions">Step Over</a>
+							it, we&#39;ll get the following output in the debug panel:
+						</p>
+						<img
+							src="/static/images/parse-front-matter-function-output.png"
+							class="img-responsive"
+							alt="Output of a function in the debug panel of VS Code"
+						/>
 
-<p>As you can see, the returned variable, <code>data</code>, is an accessible object in which we have:</p>
-<ol>
-<li>The <code>content</code> of our Markdown file as a string</li>
-<li>Its <code>frontmatter</code> as an object with:<ol>
-<li>The <code>date</code></li>
-<li>The <code>description</code></li>
-<li>The <code>tags</code> as an array</li>
-</ol>
-</li>
-</ol>
-<p>This is just awesome! The most difficult and critical part of our application is done!<br />
-Concerning the debugging part,  VS Code has also a <a href="https://code.visualstudio.com/docs/nodejs/nodejs-debugging">Node.js debugging</a> documentation.</p>
-<p>Back to the code, we are one step away from turning the <code>content</code> of the Markdown file to <code>HTML</code>.<br />
-Always in <strong>index.js</strong>, we&#39;ll now <code>import</code> Marked to use its <code>parse()</code> method to finally get the <code>HTML</code> out of our Markdown file.<br />
-Update the code like so:</p>
-<pre><code class="language-js">function parseFrontMatter(text, delimiter = &quot;---&quot;) {
+						<p>
+							As you can see, the returned variable, <code>data</code>, is an accessible object in which
+							we have:
+						</p>
+						<ol>
+							<li>The <code>content</code> of our Markdown file as a string</li>
+							<li>
+								Its <code>frontmatter</code> as an object with:
+								<ol>
+									<li>The <code>date</code></li>
+									<li>The <code>description</code></li>
+									<li>The <code>tags</code> as an array</li>
+								</ol>
+							</li>
+						</ol>
+						<p>
+							This is just awesome! The most difficult and critical part of our application is done!<br />
+							Concerning the debugging part, VS Code has also a
+							<a href="https://code.visualstudio.com/docs/nodejs/nodejs-debugging">Node.js debugging</a>
+							documentation.
+						</p>
+						<p>
+							Back to the code, we are one step away from turning the <code>content</code> of the Markdown
+							file to <code>HTML</code>.<br />
+							Always in <strong>index.js</strong>, we&#39;ll now <code>import</code> Marked to use its
+							<code>parse()</code> method to finally get the <code>HTML</code> out of our Markdown
+							file.<br />
+							Update the code like so:
+						</p>
+						<pre><code class="language-js">function parseFrontMatter(text, delimiter = &quot;---&quot;) {
 ... // Code inside the function
 }
 
@@ -680,36 +871,91 @@ const contents = readFileSync(&quot;from-markdown-to-html.md&quot;, &quot;utf-8&
 const data = parseFrontMatter(contents)
 const html = marked.parse(data.content) // Accessing data content with dot notation.
 </code></pre>
-<p>Since <code>data</code> is an object, we can <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors">access its properties</a> with the dot notation or bracket notation.<br />
-Now, if you add a breakpoint in front of the <code>html</code> constant and run the debugger by hitting on <code>F5</code> then step over it, You&#39;ll notice that the <code>html</code> variable in the debug panel displays the returned <code>HTML</code> from the <code>content</code> of the Markdown file 🥳</p>
-<h2>Using Hono and Eta</h2>
-<p>Having all the ingredients at our disposal, it&#39;s  now time to cook and serve!<br />
-To give our blog a nice design, download the free Bootstrap blog template <a href="https://themes.3rdwavemedia.com/bootstrap-templates/personal/devblog-free-bootstrap-5-blog-template-for-developers/">DevBlog</a>.<br />
-Once downloaded and extracted, open the folder <strong>devblog-bs5-v3.0</strong> in your code editor.<br />
-Depending on your code editor, you can use an extension to launch a local server and display the template in your default browser.<br />
-If you&#39;re using VS Code, you can use  <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a> or <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server">Live Preview</a> if you prefer to display the code in the workspace.<br />
-Or, you can simply browse the template&#39;s <a href="https://themes.3rdwavemedia.com/demo/bs5/devblog/">live demo</a>.</p>
-<p>Looking at the demo, locally or on the web, you can see that it has 3 pages:</p>
-<ol>
-<li><em>Blog Home</em> to display the latest posts, corresponding to <strong>index.html</strong></li>
-<li><em>Blog Post</em> to display a single post, corresponding to <strong>blog-post.html</strong></li>
-<li><em>About Me</em> to display a single page, corresponding to <strong>about.html</strong></li>
-</ol>
-<p>Open the 3 files in your code editor and have a quick look at each page structure.<br />
-You&#39;ll notice that they share almost the same <code>&lt;head&gt;</code>, <strong>blog-post.html</strong> has an additional line, and their <code>&lt;body&gt;</code> have the same <code>&lt;header&gt;</code> and the content of each page is wrapped inside a <code>&lt;div class=&quot;main-wrapper&quot;&gt;</code> which holds the same <code>&lt;footer&gt;</code>.</p>
-<p>Now our goal is to write some files in Markdown and render:</p>
-<ol>
-<li>A list of the latest posts on the main route, or home</li>
-<li>Each post on a route matching the post&#39;s filename</li>
-<li>Each page on a route that matches the page&#39;s filename</li>
-</ol>
-<p>Our backend will use Hono as a <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Web_frameworks">web framework</a> and Eta as a <a href="/posts/templating-a-nodejs-app-with-ejs#template-engines">template engine</a>.<br />
-Back then I used to prefer EJS, nowadays I recommend Eta because it&#39;s a faster, more lightweight, and more configurable EJS alternative, without any dependency!</p>
-<p>To install Hono and Eta, type the following command in your terminal:</p>
-<pre><code class="language-bash">npm install eta hono @hono/node-server
+						<p>
+							Since <code>data</code> is an object, we can
+							<a
+								href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors"
+								>access its properties</a
+							>
+							with the dot notation or bracket notation.<br />
+							Now, if you add a breakpoint in front of the <code>html</code> constant and run the debugger
+							by hitting on <code>F5</code> then step over it, You&#39;ll notice that the
+							<code>html</code> variable in the debug panel displays the returned <code>HTML</code> from
+							the <code>content</code> of the Markdown file 🥳
+						</p>
+						<h2>Using Hono and Eta</h2>
+
+						<p>
+							Having all the ingredients at our disposal, it&#39;s now time to cook and serve!<br />
+							To give our blog a nice design, download the free Bootstrap blog template
+							<a
+								href="https://themes.3rdwavemedia.com/bootstrap-templates/personal/devblog-free-bootstrap-5-blog-template-for-developers/"
+								>DevBlog</a
+							>.<br />
+							Once downloaded and extracted, open the folder <strong>devblog-bs5-v3.0</strong> in your
+							code editor.<br />
+							Depending on your code editor, you can use an extension to launch a local server and display
+							the template in your default browser.<br />
+							If you&#39;re using VS Code, you can use
+							<a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer"
+								>Live Server</a
+							>
+							or
+							<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server"
+								>Live Preview</a
+							>
+							if you prefer to display the code in the workspace.<br />
+							Or, you can simply browse the template&#39;s
+							<a href="https://themes.3rdwavemedia.com/demo/bs5/devblog/">live demo</a>.
+						</p>
+						<p>Looking at the demo, locally or on the web, you can see that it has 3 pages:</p>
+						<ol>
+							<li>
+								<em>Blog Home</em> to display the latest posts, corresponding to
+								<strong>index.html</strong>
+							</li>
+							<li>
+								<em>Blog Post</em> to display a single post, corresponding to
+								<strong>blog-post.html</strong>
+							</li>
+							<li>
+								<em>About Me</em> to display a single page, corresponding to <strong>about.html</strong>
+							</li>
+						</ol>
+						<p>
+							Open the 3 files in your code editor and have a quick look at each page structure.<br />
+							You&#39;ll notice that they share almost the same <code>&lt;head&gt;</code>,
+							<strong>blog-post.html</strong> has an additional line, and their
+							<code>&lt;body&gt;</code> have the same <code>&lt;header&gt;</code> and the content of each
+							page is wrapped inside a <code>&lt;div class=&quot;main-wrapper&quot;&gt;</code> which holds
+							the same <code>&lt;footer&gt;</code>.
+						</p>
+						<p>Now our goal is to write some files in Markdown and render:</p>
+						<ol>
+							<li>A list of the latest posts on the main route, or home</li>
+							<li>Each post on a route matching the post&#39;s filename</li>
+							<li>Each page on a route that matches the page&#39;s filename</li>
+						</ol>
+						<p>
+							Our backend will use Hono as a
+							<a
+								href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Web_frameworks"
+								>web framework</a
+							>
+							and Eta as a
+							<a href="/posts/templating-a-nodejs-app-with-ejs#template-engines">template engine</a
+							>.<br />
+							Back then I used to prefer EJS, nowadays I recommend Eta because it&#39;s a faster, more
+							lightweight, and more configurable EJS alternative, without any dependency!
+						</p>
+						<p>To install Hono and Eta, type the following command in your terminal:</p>
+						<pre><code class="language-bash">npm install eta hono @hono/node-server
 </code></pre>
-<p>To test our web framework, let&#39;s add the following code in <strong>index.js</strong> under everything else:</p>
-<pre><code class="language-js">... // All previous code
+						<p>
+							To test our web framework, let&#39;s add the following code in
+							<strong>index.js</strong> under everything else:
+						</p>
+						<pre><code class="language-js">... // All previous code
 
 import { serve } from &quot;@hono/node-server&quot;
 import { Hono } from &quot;hono&quot;
@@ -721,35 +967,61 @@ serve(app, ({port}) =&gt; {
     console.log(`Listening on http://localhost:${port}`)
 })
 </code></pre>
-<p>The code is simple, We have done the following:</p>
-<ol>
-<li>Imported Hono and its Node.js adapter</li>
-<li>Assigned the framework to a constant named <code>app</code></li>
-<li>Defined a text to be displayed on the entry route <code>/</code></li>
-<li>Served the <code>app</code> on a <code>port</code> that is <code>3000</code> by default</li>
-</ol>
-<p>Type in the terminal <code>node index</code> and you&#39;ll get:</p>
-<pre><code class="language-bash">Listening on http://localhost:3000
+						<p>The code is simple, We have done the following:</p>
+						<ol>
+							<li>Imported Hono and its Node.js adapter</li>
+							<li>Assigned the framework to a constant named <code>app</code></li>
+							<li>Defined a text to be displayed on the entry route <code>/</code></li>
+							<li>
+								Served the <code>app</code> on a <code>port</code> that is <code>3000</code> by default
+							</li>
+						</ol>
+						<p>Type in the terminal <code>node index</code> and you&#39;ll get:</p>
+						<pre><code class="language-bash">Listening on http://localhost:3000
 </code></pre>
-<p>Visit the link in your browser and you&#39;ll see the defined text on the entry route.<br />
-To stop the server press <code>Ctrl + C</code> to clear the terminal type <code>clear</code>.<br />
-Great! Before going further, we should begin to organize our code because we can&#39;t put everything in <strong>index.js</strong>.<br />
-To do so create the following:</p>
-<ol>
-<li>A <strong>functions</strong> folder 📁 that will hold various functions</li>
-<li>A <strong>routes</strong> folder 📁 that will hold the app&#39;s routes</li>
-<li>A <strong>static</strong> folder 📁 that will hold the frontend styles, scripts and images</li>
-<li>A <strong>views</strong> folder 📁 where the templates and the Markdown files will be stored</li>
-<li>Under the <strong>views</strong> folder create:<ol>
-<li>A <strong>components</strong> folder 📁 for the shared components of the app</li>
-<li>A <strong>layouts</strong> folder 📁 for the different layouts of the app</li>
-<li>A <strong>pages</strong> folder 📁 that will hold the Markdown files of the pages</li>
-<li>A <strong>posts</strong> folder 📁 that will hold the Markdown files of the posts</li>
-</ol>
-</li>
-</ol>
-<p>Move <strong>from-markdown-to-html.md</strong> inside the <strong>posts</strong> folder and you should have the following structure in alphabetical order under the main folder <strong>node-markdown-blog</strong>:</p>
-<pre><code class="language-text">📁 node-markdown-blog
+						<p>
+							Visit the link in your browser and you&#39;ll see the defined text on the entry route.<br />
+							To stop the server press <code>Ctrl + C</code> to clear the terminal type
+							<code>clear</code>.<br />
+							Great! Before going further, we should begin to organize our code because we can&#39;t put
+							everything in <strong>index.js</strong>.<br />
+							To do so create the following:
+						</p>
+						<ol>
+							<li>A <strong>functions</strong> folder 📁 that will hold various functions</li>
+							<li>A <strong>routes</strong> folder 📁 that will hold the app&#39;s routes</li>
+							<li>
+								A <strong>static</strong> folder 📁 that will hold the frontend styles, scripts and
+								images
+							</li>
+							<li>
+								A <strong>views</strong> folder 📁 where the templates and the Markdown files will be
+								stored
+							</li>
+							<li>
+								Under the <strong>views</strong> folder create:
+								<ol>
+									<li>
+										A <strong>components</strong> folder 📁 for the shared components of the app
+									</li>
+									<li>A <strong>layouts</strong> folder 📁 for the different layouts of the app</li>
+									<li>
+										A <strong>pages</strong> folder 📁 that will hold the Markdown files of the
+										pages
+									</li>
+									<li>
+										A <strong>posts</strong> folder 📁 that will hold the Markdown files of the
+										posts
+									</li>
+								</ol>
+							</li>
+						</ol>
+						<p>
+							Move <strong>from-markdown-to-html.md</strong> inside the <strong>posts</strong> folder and
+							you should have the following structure in alphabetical order under the main folder
+							<strong>node-markdown-blog</strong>:
+						</p>
+						<pre><code class="language-text">📁 node-markdown-blog
 ├── 📁 functions
 ├── 📄 index.js
 ├── 📁 node_modules
@@ -764,18 +1036,24 @@ To do so create the following:</p>
   ├── 📂 posts
   │  └── 📄 from-markdown-to-html.md
 </code></pre>
-<h3 id="render-blog">The blog</h3>
-<p>As we have seen previously, the main route <code>/</code>, also known as the entry route or the home route, displays the most recent posts.<br />
-Let&#39;s begin by creating the shared components, then we&#39;ll move on to the layout of the main route or the blog.<br />
-We know that we have a common <code>&lt;head&gt;</code>, <code>&lt;header&gt;</code> and <code>&lt;footer&gt;</code>.<br />
-Create in the <strong>components</strong> folder 3 files:</p>
-<ol>
-<li><strong>head.html</strong></li>
-<li><strong>header.html</strong></li>
-<li><strong>footer.html</strong></li>
-</ol>
-<p>Copy inside each file the corresponding code:</p>
-<pre><code class="language-html">&lt;head&gt;
+						<h3 id="render-blog">The blog</h3>
+
+						<p>
+							As we have seen previously, the main route <code>/</code>, also known as the entry route or
+							the home route, displays the most recent posts.<br />
+							Let&#39;s begin by creating the shared components, then we&#39;ll move on to the layout of
+							the main route or the blog.<br />
+							We know that we have a common <code>&lt;head&gt;</code>, <code>&lt;header&gt;</code> and
+							<code>&lt;footer&gt;</code>.<br />
+							Create in the <strong>components</strong> folder 3 files:
+						</p>
+						<ol>
+							<li><strong>head.html</strong></li>
+							<li><strong>header.html</strong></li>
+							<li><strong>footer.html</strong></li>
+						</ol>
+						<p>Copy inside each file the corresponding code:</p>
+						<pre><code class="language-html">&lt;head&gt;
     &lt;title&gt;Home | Markdown-based blog&lt;/title&gt;
 
     &lt;!-- Meta --&gt;
@@ -783,7 +1061,7 @@ Create in the <strong>components</strong> folder 3 files:</p>
     &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
     &lt;meta name=&quot;description&quot; content=&quot;List of the most recent posts&quot; /&gt;
-    &lt;link rel=&quot;shortcut icon&quot; href=&quot;/static/img/favicon.ico&quot; /&gt;
+    &lt;link rel=&quot;shortcut icon&quot; href=&quot;/static/images/favicon.ico&quot; /&gt;
 
     &lt;!-- FontAwesome JS--&gt;
     &lt;script defer src=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/js/all.min.js&quot;&gt;&lt;/script&gt;
@@ -792,7 +1070,7 @@ Create in the <strong>components</strong> folder 3 files:</p>
     &lt;link id=&quot;theme-style&quot; rel=&quot;stylesheet&quot; href=&quot;/static/css/theme-1.css&quot; /&gt;
 &lt;/head&gt;
 </code></pre>
-<pre><code class="language-html">&lt;header class=&quot;header text-center&quot;&gt;
+						<pre><code class="language-html">&lt;header class=&quot;header text-center&quot;&gt;
     &lt;h1 class=&quot;blog-name pt-lg-4 mb-0&quot;&gt;&lt;a class=&quot;no-text-decoration&quot; href=&quot;/&quot;&gt;My Markdown Blog&lt;/a&gt;&lt;/h1&gt;
 
     &lt;nav class=&quot;navbar navbar-expand-lg navbar-dark&quot;&gt;
@@ -870,7 +1148,7 @@ Create in the <strong>components</strong> folder 3 files:</p>
     &lt;/nav&gt;
 &lt;/header&gt;
 </code></pre>
-<pre><code class="language-html">&lt;footer class=&quot;footer text-center py-2 theme-bg-dark&quot;&gt;
+						<pre><code class="language-html">&lt;footer class=&quot;footer text-center py-2 theme-bg-dark&quot;&gt;
     &lt;!--/* This template is free as long as you keep the footer attribution link. If you&#39;d like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */--&gt;
     &lt;small class=&quot;copyright&quot;&gt;
         Designed with
@@ -886,20 +1164,39 @@ Create in the <strong>components</strong> folder 3 files:</p>
     &lt;/small&gt;
 &lt;/footer&gt;
 </code></pre>
-<p>We have slightly modified the original code of the three components. The important part to notice is that we have replaced <code>assets/</code> by <code>/static/</code> since this folder will serve the frontend&#39;s static assets.<br />
-Please note that in <strong>head.html</strong>, I&#39;ve kept the default theme:</p>
-<pre><code class="language-html">&lt;!-- Theme CSS --&gt;
+						<p>
+							We have slightly modified the original code of the three components. The important part to
+							notice is that we have replaced <code>assets/</code> by <code>/static/</code> since this
+							folder will serve the frontend&#39;s static assets.<br />
+							Please note that in <strong>head.html</strong>, I&#39;ve kept the default theme:
+						</p>
+						<pre><code class="language-html">&lt;!-- Theme CSS --&gt;
 &lt;link id=&quot;theme-style&quot; rel=&quot;stylesheet&quot; href=&quot;/static/css/theme-1.css&quot; /&gt;
 </code></pre>
-<p>Create inside the <strong>static</strong> folder a <strong>css</strong> folder, then copy inside it the <strong>theme-1.css</strong> file from <strong>devblog-bs5-v3.0/assets/css/</strong>.<br />
-<em>Nota bene: You can of course choose anyone of the eight available color schemes that you like, but keep in mind that you&#39;ll have to replace the theme number according to your choice and import the corresponding file!</em></p>
-<p>Our principal components are ready, we can attack the layout of the blog.<br />
-The blog is made of 2 blocks each one inside a <code>&lt;section&gt;</code> tag.<br />
-The first section is a call to action displaying the blog title, its description, a welcome message and a subscription form.<br />
-The second section displays the latest posts with a navigation at their bottom to visit previous posts.<br />
-To keep this tutorial as simple as possible, and since our goal is to create a simple Markdown-based blog with Node.js, I won&#39;t implement the subscription form or the posts&#39; navigation.<br />
-Inside the <strong>layouts</strong> folder, create a <strong>base.html</strong> file and paste the following code inside it:</p>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+						<p>
+							Create inside the <strong>static</strong> folder a <strong>css</strong> folder, then copy
+							inside it the <strong>theme-1.css</strong> file from
+							<strong>devblog-bs5-v3.0/assets/css/</strong>.<br />
+							<em
+								>Nota bene: You can of course choose anyone of the eight available color schemes that
+								you like, but keep in mind that you&#39;ll have to replace the theme number according to
+								your choice and import the corresponding file!</em
+							>
+						</p>
+						<p>
+							Our principal components are ready, we can attack the layout of the blog.<br />
+							The blog is made of 2 blocks each one inside a <code>&lt;section&gt;</code> tag.<br />
+							The first section is a call to action displaying the blog title, its description, a welcome
+							message and a subscription form.<br />
+							The second section displays the latest posts with a navigation at their bottom to visit
+							previous posts.<br />
+							To keep this tutorial as simple as possible, and since our goal is to create a simple
+							Markdown-based blog with Node.js, I won&#39;t implement the subscription form or the
+							posts&#39; navigation.<br />
+							Inside the <strong>layouts</strong> folder, create a <strong>base.html</strong> file and
+							paste the following code inside it:
+						</p>
+						<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;!-- Include the content of head.html file here --&gt;
     &lt;%~ include(&#39;../components/head.html&#39;, it) %&gt;
@@ -959,27 +1256,58 @@ Inside the <strong>layouts</strong> folder, create a <strong>base.html</strong> 
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>Don&#39;t be scared by Eta markup, every single step is commented on, It&#39;s pretty straightforward if you read it carefully!<br />
-If you look closely, we have used plain <code>JavaScript</code>, like the <a href="https://javascript.info/ifelse"><code>if...else</code> statement</a>, inside an <code>HTML</code> file without a <code>&lt;script&gt;</code> tag. This is one of Eta&#39;s powers.<br />
-We also have used the <code>include()</code> function of Eta to include a <a href="https://eta.js.org/docs/intro/template-syntax#partials-and-layouts">partial</a> in a desired location by indicating its <a href="https://www.w3schools.com/Html/html_filepaths.asp">relative path</a>.<br />
-Concerning the <code>it</code> variable, it&#39;s an object containing the data that we pass on a route to a template, we will see <code>it</code> in action shortly.<br />
-Did you notice that we have included 2 templates, <code>index.html</code> and <code>markdown.html</code>, that do not exist?<br />
-Go ahead and create them in the <strong>layouts</strong> folder, the same folder where <strong>base.html</strong> is located.</p>
-<p>For now, the main route <code>/</code> displays a text message as we can read in <strong>index.js</strong>:</p>
-<pre><code class="language-js">app.get(&quot;/&quot;, (c) =&gt; c.text(&quot;Hono meets Node.js&quot;))
+						<p>
+							Don&#39;t be scared by Eta markup, every single step is commented on, It&#39;s pretty
+							straightforward if you read it carefully!<br />
+							If you look closely, we have used plain <code>JavaScript</code>, like the
+							<a href="https://javascript.info/ifelse"><code>if...else</code> statement</a>, inside an
+							<code>HTML</code> file without a <code>&lt;script&gt;</code> tag. This is one of Eta&#39;s
+							powers.<br />
+							We also have used the <code>include()</code> function of Eta to include a
+							<a href="https://eta.js.org/docs/intro/template-syntax#partials-and-layouts">partial</a> in
+							a desired location by indicating its
+							<a href="https://www.w3schools.com/Html/html_filepaths.asp">relative path</a>.<br />
+							Concerning the <code>it</code> variable, it&#39;s an object containing the data that we pass
+							on a route to a template, we will see <code>it</code> in action shortly.<br />
+							Did you notice that we have included 2 templates, <code>index.html</code> and
+							<code>markdown.html</code>, that do not exist?<br />
+							Go ahead and create them in the <strong>layouts</strong> folder, the same folder where
+							<strong>base.html</strong> is located.
+						</p>
+						<p>
+							For now, the main route <code>/</code> displays a text message as we can read in
+							<strong>index.js</strong>:
+						</p>
+						<pre><code class="language-js">app.get(&quot;/&quot;, (c) =&gt; c.text(&quot;Hono meets Node.js&quot;))
 </code></pre>
-<p>Let&#39;s dive into the blog transformation.<br />
-For that we will need the following:</p>
-<ol>
-<li>A function to get the Markdown files from their respective directory. The directory could be the <strong>pages</strong> folder or the <strong>posts</strong> folder.</li>
-<li>A function to get the Markdown data from the Markdown files depending on their directory.</li>
-<li>A function that returns the posts&#39; data and sorts them in chronological order, from the newest to the oldest.</li>
-<li>While at it, a function that returns the pages&#39; data.</li>
-<li>A route that renders a template to display all the posts.</li>
-</ol>
-<p>For simplicity and elegance, I&#39;ll wrap those functions with the previous one <code>parseFrontMatter()</code> under a <a href="https://javascript.info/class">class</a>.<br />
-In the <strong>functions</strong> folder, create a file named <strong>node-markdown-blog.js</strong> and paste the following code inside it :</p>
-<pre><code class="language-js">import { readFileSync } from &quot;node:fs&quot;
+						<p>
+							Let&#39;s dive into the blog transformation.<br />
+							For that we will need the following:
+						</p>
+						<ol>
+							<li>
+								A function to get the Markdown files from their respective directory. The directory
+								could be the <strong>pages</strong> folder or the <strong>posts</strong> folder.
+							</li>
+							<li>
+								A function to get the Markdown data from the Markdown files depending on their
+								directory.
+							</li>
+							<li>
+								A function that returns the posts&#39; data and sorts them in chronological order, from
+								the newest to the oldest.
+							</li>
+							<li>While at it, a function that returns the pages&#39; data.</li>
+							<li>A route that renders a template to display all the posts.</li>
+						</ol>
+						<p>
+							For simplicity and elegance, I&#39;ll wrap those functions with the previous one
+							<code>parseFrontMatter()</code> under a
+							<a href="https://javascript.info/class">class</a>.<br />
+							In the <strong>functions</strong> folder, create a file named
+							<strong>node-markdown-blog.js</strong> and paste the following code inside it:
+						</p>
+						<pre><code class="language-js">import { readFileSync } from &quot;node:fs&quot;
 import { readdir } from &quot;node:fs/promises&quot;
 
 class NodeMarkdownBlog {
@@ -1092,16 +1420,32 @@ class NodeMarkdownBlog {
 
 export const { parseFrontMatter, getFiles, getMarkdownData, getPages, getPosts } = new NodeMarkdownBlog()
 </code></pre>
-<p>We have created a class <code>NodeMarkdownBlog()</code> containing the desired functions then <a href="https://javascript.info/import-export">export</a> and <a href="https://javascript.info/destructuring-assignment">destructurize</a> it to make its methods directly available outside the file.<br >
-You already know how <code>parseFrontMatter()</code> works.<br />
-The <code>getFiles()</code> function returns all the files inside a particular folder as an array, we just have to provide the folder&#39;s path.<br />
-Why having a <code>getMarkdownData()</code> method since we already have <code>parseFrontMatter()</code>?<br />
-Simply because we need to know some more information about a Markdown file to render it on the frontend.<br />
-The <code>getMarkdownData()</code> method uses the <code>getFiles()</code> and <code>parseFrontMatter()</code> methods to read and parse Markdown files, but it also gives us the file path, its directory and its name then returns all of them as an accessible object, we&#39;ll see that in a moment.<br />
-Finally, the <code>getPages()</code> and <code>getPosts()</code> methods use <code>getMarkdownData()</code> and return as their names indicate the data of the Markdown files respectively in the <strong>pages</strong> and <strong>posts</strong> folders.<br />
-Now let&#39;s create the logic that will display the available Markdown files inside the <strong>posts</strong> folder, we only have one for now, and render them on the main route or entry route <code>/</code>.<br>
-Create in the <strong>routes</strong> folder a file named <strong>mainRoute.js</strong> and add to it the following code:</p>
-<pre><code class="language-js">import { join } from &quot;path&quot;
+						<p>
+							We have created a class <code>NodeMarkdownBlog()</code> containing the desired functions
+							then <a href="https://javascript.info/import-export">export</a> and
+							<a href="https://javascript.info/destructuring-assignment">destructurize</a> it to make its
+							methods directly available outside the file.<br />
+							You already know how <code>parseFrontMatter()</code> works.<br />
+							The <code>getFiles()</code> function returns all the files inside a particular folder as an
+							array, we just have to provide the folder&#39;s path.<br />
+							Why having a <code>getMarkdownData()</code> method since we already have
+							<code>parseFrontMatter()</code>?<br />
+							Simply because we need to know some more information about a Markdown file to render it on
+							the frontend.<br />
+							The <code>getMarkdownData()</code> method uses the <code>getFiles()</code> and
+							<code>parseFrontMatter()</code> methods to read and parse Markdown files, but it also gives
+							us the file path, its directory and its name then returns all of them as an accessible
+							object, we&#39;ll see that in a moment.<br />
+							Finally, the <code>getPages()</code> and <code>getPosts()</code> methods use
+							<code>getMarkdownData()</code> and return as their names indicate the data of the Markdown
+							files respectively in the <strong>pages</strong> and <strong>posts</strong> folders.<br />
+							Now let&#39;s create the logic that will display the available Markdown files inside the
+							<strong>posts</strong> folder, we only have one for now, and render them on the main route
+							or entry route <code>/</code>.<br />
+							Create in the <strong>routes</strong> folder a file named <strong>mainRoute.js</strong> and
+							add to it the following code:
+						</p>
+						<pre><code class="language-js">import { join } from &quot;path&quot;
 import { Hono } from &quot;hono&quot;
 import { Eta } from &quot;eta&quot;
 import { getPosts } from &quot;../functions/node-markdown-blog.js&quot;
@@ -1128,19 +1472,41 @@ export const mainRoute = app.get(&quot;/&quot;, async (c) =&gt; {
     return c.html(res)
 })
 </code></pre>
-<p>This block of code begins by importing the necessary modules and initializing an instance of <code>Hono()</code> and another one of <code>Eta()</code>.<br />
-The <code>eta</code> constant defines the <code>views</code> folder as the one where the templates are located.<br />
-The <code>mainRoute</code> constant is exported to be used outside this file. Inside it, a response constant <code>res</code> renders the template located in <code>views/layouts/base.html</code> where some data are passed and can be accessed with the <code>it</code> variable.<br />
-Finally, the response constant <code>res</code> is returned as <code>HTML</code> on the defined route <code>/</code>.</p>
-<p>Now change the line 2 of <strong>head.html</strong>, the <code>&lt;title&gt;</code> tag, to:</p>
-<pre><code class="language-html">&lt;title&gt;&lt;%= it.data.title %&gt; | &lt;%= it.siteTitle %&gt;&lt;/title&gt;
+						<p>
+							This block of code begins by importing the necessary modules and initializing an instance of
+							<code>Hono()</code> and another one of <code>Eta()</code>.<br />
+							The <code>eta</code> constant defines the <code>views</code> folder as the one where the
+							templates are located.<br />
+							The <code>mainRoute</code> constant is exported to be used outside this file. Inside it, a
+							response constant <code>res</code> renders the template located in
+							<code>views/layouts/base.html</code> where some data are passed and can be accessed with the
+							<code>it</code> variable.<br />
+							Finally, the response constant <code>res</code> is returned as <code>HTML</code> on the
+							defined route <code>/</code>.
+						</p>
+						<p>
+							Now change the line 2 of <strong>head.html</strong>, the <code>&lt;title&gt;</code> tag, to:
+						</p>
+						<pre><code class="language-html">&lt;title&gt;&lt;%= it.data.title %&gt; | &lt;%= it.siteTitle %&gt;&lt;/title&gt;
 </code></pre>
-<p>Also change the line 8 of <strong>head.html</strong>, the <code>&lt;meta&gt;</code> description tag, to:</p>
-<pre><code class="language-html">&lt;meta name=&quot;description&quot; content=&quot;&lt;%= it.data.description %&gt;&quot; /&gt;
+						<p>
+							Also change the line 8 of <strong>head.html</strong>, the
+							<code>&lt;meta&gt;</code> description tag, to:
+						</p>
+						<pre><code class="language-html">&lt;meta name=&quot;description&quot; content=&quot;&lt;%= it.data.description %&gt;&quot; /&gt;
 </code></pre>
-<p>Those changes will allow us to use the defined <code>title</code>, <code>description</code> and <code>siteTitle</code> for each route. This way, we use only one head that will dynamically assign the correct variables for each document.</p>
-<p>Back to <strong>base.html</strong> where we&#39;ve defined a template named <strong>index.html</strong> for the main route and created it in the same folder as <strong>base.html</strong>, open this <strong>index.html</strong> file and add the following code:</p>
-<pre><code class="language-html">&lt;% it.posts.forEach(post =&gt; { %&gt;
+						<p>
+							Those changes will allow us to use the defined <code>title</code>,
+							<code>description</code> and <code>siteTitle</code> for each route. This way, we use only
+							one head that will dynamically assign the correct variables for each document.
+						</p>
+						<p>
+							Back to <strong>base.html</strong> where we&#39;ve defined a template named
+							<strong>index.html</strong> for the main route and created it in the same folder as
+							<strong>base.html</strong>, open this <strong>index.html</strong> file and add the following
+							code:
+						</p>
+						<pre><code class="language-html">&lt;% it.posts.forEach(post =&gt; { %&gt;
 
 &lt;!-- GETTING THE DATA OF EACH POST --&gt;
 
@@ -1188,9 +1554,13 @@ Finally, the response constant <code>res</code> is returned as <code>HTML</code>
 
 &lt;% }) %&gt;
 </code></pre>
-<p>Using a <a href="https://javascript.info/array-methods#iterate-foreach">forEach()</a> loop, thanks to Eta, we define the markup for each post preview on the homepage.<br>
-Now, to see what our homepage looks like, remove everything from <strong>index.js</strong> and paste the following code:</p>
-<pre><code class="language-js">import { Hono } from &quot;hono&quot;
+						<p>
+							Using a <a href="https://javascript.info/array-methods#iterate-foreach">forEach()</a> loop,
+							thanks to Eta, we define the markup for each post preview on the homepage.<br />
+							Now, to see what our homepage looks like, remove everything from
+							<strong>index.js</strong> and paste the following code:
+						</p>
+						<pre><code class="language-js">import { Hono } from &quot;hono&quot;
 import { serveStatic } from &quot;@hono/node-server/serve-static&quot;
 import { serve } from &quot;@hono/node-server&quot;
 
@@ -1208,43 +1578,90 @@ serve(app, ({ port }) =&gt; {
     console.log(`Listening on http://localhost:${port}`)
 })
 </code></pre>
-<p>Type <code>node index</code> in the terminal and visit the link, abracadabra!<br />
-I know that some elements are missing and that the footer is not at the bottom. It&#39;s okay, don&#39;t worry, we&#39;ll fix that later on.</p>
-<p>Okay, but you must be asking yourself where those variables defined in <strong>index.html</strong> came from?!<br />
-Do you remember that in <strong>mainRoute.js</strong> we have passed to the template, in the data object, a <code>posts</code> property with a value of <code>await getPosts()</code> and that in the template we have used a <code>forEach()</code> loop on those <code>posts</code>?<br />
-Let&#39;s test it. Add to <strong>mainRoute.js</strong> under the last <code>import</code> the following line:</p>
-<pre><code class="language-js">const test = await getPosts()
+						<p>
+							Type <code>node index</code> in the terminal and visit the link, abracadabra!<br />
+							I know that some elements are missing and that the footer is not at the bottom. It&#39;s
+							okay, don&#39;t worry, we&#39;ll fix that later on.
+						</p>
+						<p>
+							Okay, but you must be asking yourself where those variables defined in
+							<strong>index.html</strong> came from?!<br />
+							Do you remember that in <strong>mainRoute.js</strong> we have passed to the template, in the
+							data object, a <code>posts</code> property with a value of <code>await getPosts()</code> and
+							that in the template we have used a <code>forEach()</code> loop on those
+							<code>posts</code>?<br />
+							Let&#39;s test it. Add to <strong>mainRoute.js</strong> under the last
+							<code>import</code> the following line:
+						</p>
+						<pre><code class="language-js">const test = await getPosts()
 </code></pre>
-<p>Add a breakpoint in front of this line and launch the debugger then step over it. Look at the <code>test</code> variable in the debug panel and you&#39;ll see how every post is returned inside an array as an accessible object like this image:</p>
-<img src="/static/img/get-posts-function-output.png" class="img-responsive" alt="Output of a function in the debug panel of VS Code" />
+						<p>
+							Add a breakpoint in front of this line and launch the debugger then step over it. Look at
+							the <code>test</code> variable in the debug panel and you&#39;ll see how every post is
+							returned inside an array as an accessible object like this image:
+						</p>
+						<img
+							src="/static/images/get-posts-function-output.png"
+							class="img-responsive"
+							alt="Output of a function in the debug panel of VS Code"
+						/>
 
-<p>So each post is returned as an object containing:</p>
-<ol>
-<li>The post filename with its extension at <a href="https://javascript.info/array">index</a> 0</li>
-<li>An object returned by <code>parseFrontMatter()</code> at index 1</li>
-<li>A <code>dir</code> and <code>path</code> properties, directly accessible</li>
-</ol>
-<p>Now remove or <a href="https://javascript.info/comments">comment</a> on this added line since we don&#39;t need it in the code.</p>
-<h3 id="render-single-post-page">A single blog post, a single page</h3>
-<p>In this section, we will learn how to render a post and a page on the frontend and we will fix the issues of the previous section regarding the missing elements and the footer&#39;s position.<br />
-So why do we have a separate section in the table of contents for rendering a page?<br />
-It&#39;s just to let you know ahead that you&#39;ll be able to render posts as well as pages.</p>
-<p>If you look at the structure of <strong>blog-post.html</strong> in <strong>bevblog-bs5-v3.0</strong>, you&#39;ll see that after the <code>&lt;div class=&quot;main-wrapper&quot;&gt;</code>, that we already have in <strong>base.html</strong>, each post is made of:</p>
-<ol>
-<li>An <code>&lt;article&gt;</code> tag followed by a <code>&lt;div class=&quot;container ...&quot;</code> in which we have:<ol>
-<li>A post <code>&lt;header&gt;</code></li>
-<li>A <code>&lt;div class=&quot;blog-post-body&quot;&gt;</code></li>
-<li>A posts navigation</li>
-<li>A comments section</li>
-</ol>
-</li>
-<li>A promo <code>&lt;section&gt;</code></li>
-</ol>
-<p>I will only include the post header and body, the posts&#39; navigation and comments section are outside the scope of this tutorial, feel free to include the promo section by copying its <code>HTML</code> and pasting it after the article closing tag <code>&lt;/article&gt;</code>.<br />
-With this decision, the <strong>about.html</strong> file representing a page has now a very close design to the post. I will use the post structure for both of them to keep this tutorial as simple as possible.<br />
-For the blog, I started with the template, Usually, we start with the route to pass the variables then we construct the template.<br />
-Create a <strong>markdownRoute.js</strong> in the <strong>routes</strong> folder and add to it the following code:</p>
-<pre><code class="language-js">import { join } from &quot;path&quot;
+						<p>So each post is returned as an object containing:</p>
+						<ol>
+							<li>
+								The post filename with its extension at
+								<a href="https://javascript.info/array">index</a> 0
+							</li>
+							<li>An object returned by <code>parseFrontMatter()</code> at index 1</li>
+							<li>A <code>dir</code> and <code>path</code> properties, directly accessible</li>
+						</ol>
+						<p>
+							Now remove or <a href="https://javascript.info/comments">comment</a> on this added line
+							since we don&#39;t need it in the code.
+						</p>
+						<h3 id="render-single-post-page">A single blog post, a single page</h3>
+
+						<p>
+							In this section, we will learn how to render a post and a page on the frontend and we will
+							fix the issues of the previous section regarding the missing elements and the footer&#39;s
+							position.<br />
+							So why do we have a separate section in the table of contents for rendering a page?<br />
+							It&#39;s just to let you know ahead that you&#39;ll be able to render posts as well as
+							pages.
+						</p>
+						<p>
+							If you look at the structure of <strong>blog-post.html</strong> in
+							<strong>bevblog-bs5-v3.0</strong>, you&#39;ll see that after the
+							<code>&lt;div class=&quot;main-wrapper&quot;&gt;</code>, that we already have in
+							<strong>base.html</strong>, each post is made of:
+						</p>
+						<ol>
+							<li>
+								An <code>&lt;article&gt;</code> tag followed by a
+								<code>&lt;div class=&quot;container ...&quot;</code> in which we have:
+								<ol>
+									<li>A post <code>&lt;header&gt;</code></li>
+									<li>A <code>&lt;div class=&quot;blog-post-body&quot;&gt;</code></li>
+									<li>A posts navigation</li>
+									<li>A comments section</li>
+								</ol>
+							</li>
+							<li>A promo <code>&lt;section&gt;</code></li>
+						</ol>
+						<p>
+							I will only include the post header and body, the posts&#39; navigation and comments section
+							are outside the scope of this tutorial, feel free to include the promo section by copying
+							its <code>HTML</code> and pasting it after the article closing tag
+							<code>&lt;/article&gt;</code>.<br />
+							With this decision, the <strong>about.html</strong> file representing a page has now a very
+							close design to the post. I will use the post structure for both of them to keep this
+							tutorial as simple as possible.<br />
+							For the blog, I started with the template, Usually, we start with the route to pass the
+							variables then we construct the template.<br />
+							Create a <strong>markdownRoute.js</strong> in the <strong>routes</strong> folder and add to
+							it the following code:
+						</p>
+						<pre><code class="language-js">import { join } from &quot;path&quot;
 import { Hono } from &quot;hono&quot;
 import { Eta } from &quot;eta&quot;
 import { marked } from &quot;marked&quot;
@@ -1284,29 +1701,52 @@ export const markdownRoute = app.get(&quot;/:folder/:filename&quot;, async (c, n
     }
 })
 </code></pre>
-<p>Here we did the following:</p>
-<ol>
-<li>Initialize Hono and Eta like previously. Import Marked, the pages and the posts</li>
-<li>Export a <code>markdownRoute</code> constant to be used outside this file</li>
-<li>Define a dynamic path <code>&quot;/:folder/:filename&quot;</code> that will look for a filename in a folder</li>
-<li><a href="https://javascript.info/array-methods#concat">Merge</a> the pages and posts in a <code>mdFiles</code> array</li>
-<li>The <code>currentFile</code> looks for an existing file matching the folder (<strong>pages</strong> or <strong>posts</strong>) and the filename</li>
-<li>If the file exists, we pass the desired variables inside the template and return its <code>HTML</code></li>
-<li>Otherwise, the <code>404 Not Found</code> message will be displayed</li>
-</ol>
-<p>For this route to work on the frontend, we must call it inside the server file <strong>index.js</strong> like so:</p>
-<pre><code class="language-js">// Add this line under: import { mainRoute }...
+						<p>Here we did the following:</p>
+						<ol>
+							<li>Initialize Hono and Eta like previously. Import Marked, the pages and the posts</li>
+							<li>Export a <code>markdownRoute</code> constant to be used outside this file</li>
+							<li>
+								Define a dynamic path <code>&quot;/:folder/:filename&quot;</code> that will look for a
+								filename in a folder
+							</li>
+							<li>
+								<a href="https://javascript.info/array-methods#concat">Merge</a> the pages and posts in
+								a <code>mdFiles</code> array
+							</li>
+							<li>
+								The <code>currentFile</code> looks for an existing file matching the folder (<strong
+									>pages</strong
+								>
+								or <strong>posts</strong>) and the filename
+							</li>
+							<li>
+								If the file exists, we pass the desired variables inside the template and return its
+								<code>HTML</code>
+							</li>
+							<li>Otherwise, the <code>404 Not Found</code> message will be displayed</li>
+						</ol>
+						<p>
+							For this route to work on the frontend, we must call it inside the server file
+							<strong>index.js</strong> like so:
+						</p>
+						<pre><code class="language-js">// Add this line under: import { mainRoute }...
 import { markdownRoute } from &quot;./routes/markdownRoute.js&quot;
 
 // Add this line under: app.route(&quot;/&quot;, mainRoute)
 app.route(&quot;/&quot;, markdownRoute)
 </code></pre>
-<p>To attach an image to a Markdown file, just add an <code>image</code> property to the file&#39;s front matter.<br />
-We can also add an <code>imageAlt</code> (alternative text) and <code>imageCredit</code> properties.<br />
-It&#39;s always good to give credit where credit is due!<br >
-Download the medium size of the following <a href="https://unsplash.com/photos/Fi-GJaLRGKc">image from Unsplash</a> and save it inside the <strong>/static/img/</strong> folder of our application.<br />
-Let&#39;s add those properties to the front matter of our Markdown file like so:</p>
-<pre><code class="language-yaml">---
+						<p>
+							To attach an image to a Markdown file, just add an <code>image</code> property to the
+							file&#39;s front matter.<br />
+							We can also add an <code>imageAlt</code> (alternative text) and
+							<code>imageCredit</code> properties.<br />
+							It&#39;s always good to give credit where credit is due!<br />
+							Download the medium size of the following
+							<a href="https://unsplash.com/photos/Fi-GJaLRGKc">image from Unsplash</a> and save it inside
+							the <strong>/static/img/</strong> folder of our application.<br />
+							Let&#39;s add those properties to the front matter of our Markdown file like so:
+						</p>
+						<pre><code class="language-yaml">---
 title: From Markdown to HTML in Node.js
 description: A post about converting the contents of a Markdown file to HTML in a Node.js application
 date: 2023-08-31
@@ -1316,12 +1756,19 @@ imageAlt: JavaScript code inside ES6 templates by Pankaj Patel
 imageCredit: https://unsplash.com/@pankajpatel
 ---
 </code></pre>
-<p>You can, of course, put the direct link to an image instead of downloading it and saving it in the <strong>img</strong> folder.<br />
-As an example, we could have put in front of the <code>image</code> property the following link:</p>
-<pre><code class="language-yaml">image: https://source.unsplash.com/Fi-GJaLRGKc
+						<p>
+							You can, of course, put the direct link to an image instead of downloading it and saving it
+							in the <strong>img</strong> folder.<br />
+							As an example, we could have put in front of the <code>image</code> property the following
+							link:
+						</p>
+						<pre><code class="language-yaml">image: https://source.unsplash.com/Fi-GJaLRGKc
 </code></pre>
-<p>The template that renders Markdown files in our application is <strong>markdown.html</strong>, Open it and paste the following code:</p>
-<pre><code class="language-html">&lt;article class=&quot;blog-post px-3 py-5 p-md-5&quot;&gt;
+						<p>
+							The template that renders Markdown files in our application is
+							<strong>markdown.html</strong>, Open it and paste the following code:
+						</p>
+						<pre><code class="language-html">&lt;article class=&quot;blog-post px-3 py-5 p-md-5&quot;&gt;
     &lt;div class=&quot;container single-col-max-width&quot;&gt;
         &lt;header class=&quot;blog-post-header&quot;&gt;
             &lt;h2 class=&quot;title mb-2&quot;&gt;&lt;%= it.data.title %&gt;&lt;/h2&gt;
@@ -1360,32 +1807,59 @@ As an example, we could have put in front of the <code>image</code> property the
     &lt;/div&gt;
 &lt;/article&gt;
 </code></pre>
-<p>Look closely at the <code>&lt;header&gt;</code>, the <code>date</code> and <code>tags</code> will only be displayed if the file&#39;s directory is <code>posts</code>.<br />
-In other words, if the file is a post display the date and tags otherwise don&#39;t, and that&#39;s because a page doesn&#39;t usually have those properties in its front matter.<br />
-Type <code>node index</code> in the terminal, follow the link and click on the link of our only article or its <strong>Read more &rarr;</strong> button, abracadara!</p>
-<p>Now, let&#39;s fix the image of the post preview on the blog.<br />
-For this, add the following variables under the existing ones in <strong>index.html</strong>:</p>
-<pre><code class="language-html">&lt;!-- Get the post image from its front matter --&gt;
+						<p>
+							Look closely at the <code>&lt;header&gt;</code>, the <code>date</code> and
+							<code>tags</code> will only be displayed if the file&#39;s directory is
+							<code>posts</code>.<br />
+							In other words, if the file is a post display the date and tags otherwise don&#39;t, and
+							that&#39;s because a page doesn&#39;t usually have those properties in its front matter.<br />
+							Type <code>node index</code> in the terminal, follow the link and click on the link of our
+							only article or its <strong>Read more &rarr;</strong> button, abracadara!
+						</p>
+						<p>
+							Now, let&#39;s fix the image of the post preview on the blog.<br />
+							For this, add the following variables under the existing ones in
+							<strong>index.html</strong>:
+						</p>
+						<pre><code class="language-html">&lt;!-- Get the post image from its front matter --&gt;
 &lt;% const postImage = post[1].frontmatter.image %&gt;
 
 &lt;!-- Get the post image alternative text from its front matter --&gt;
 &lt;% const postImageAlt = post[1].frontmatter.imageAlt %&gt;
 </code></pre>
-<p>One more adjustment and our blog will render the image of a post.<br />
-Always in <strong>index.html</strong> make the following modification:</p>
-<pre><code class="language-html">&lt;!-- Replace this line --&gt;
+						<p>
+							One more adjustment and our blog will render the image of a post.<br />
+							Always in <strong>index.html</strong> make the following modification:
+						</p>
+						<pre><code class="language-html">&lt;!-- Replace this line --&gt;
 &lt;img class=&quot;img-fluid post-thumb&quot; src=&quot;assets/images/blog/blog-post-thumb-1.jpg&quot; alt=&quot;image&quot; /&gt;
 &lt;!-- By the following line --&gt;
 &lt;img class=&quot;img-fluid post-thumb&quot; src=&quot;&lt;%= postImage %&gt;&quot; alt=&quot;&lt;%= postImageAlt %&gt;&quot; /&gt;
 </code></pre>
-<p>If the server is still running, restart it by pressing <code>Ctrl + C</code> then type <code>node index</code> in the terminal.<br />
-The defined image of a post is now correctly displayed in the post&#39;s preview on the blog.</p>
-<p>To fix the footer&#39;s position on the blog, you must add at least two more posts to the blog, I&#39;ll leave this exercise to you so you can familiarize yourself with the process of creating a blog post.<br />
-Concerning the profile image in <strong>header.html</strong>, you can download any image that suits your needs into the <strong>img</strong> folder and replace <strong>profile.png</strong> with the filename of the downloaded one.<br />
-Don&#39;t forget to modify in <strong>header.html</strong> the social media icons and links to yours. Also, change the menu titles and links in <strong>header.html</strong> according to your needs.</p>
-<p>Finally, the process of creating a page is the same as creating a post. The only difference is that the page&#39;s front matter doesn&#39;t have a <code>date</code> or <code>tags</code> properties.<br />
-As an example, the following front matter for a page:</p>
-<pre><code class="language-yaml">---
+						<p>
+							If the server is still running, restart it by pressing <code>Ctrl + C</code> then type
+							<code>node index</code> in the terminal.<br />
+							The defined image of a post is now correctly displayed in the post&#39;s preview on the
+							blog.
+						</p>
+						<p>
+							To fix the footer&#39;s position on the blog, you must add at least two more posts to the
+							blog, I&#39;ll leave this exercise to you so you can familiarize yourself with the process
+							of creating a blog post.<br />
+							Concerning the profile image in <strong>header.html</strong>, you can download any image
+							that suits your needs into the <strong>img</strong> folder and replace
+							<strong>profile.png</strong> with the filename of the downloaded one.<br />
+							Don&#39;t forget to modify in <strong>header.html</strong> the social media icons and links
+							to yours. Also, change the menu titles and links in <strong>header.html</strong> according
+							to your needs.
+						</p>
+						<p>
+							Finally, the process of creating a page is the same as creating a post. The only difference
+							is that the page&#39;s front matter doesn&#39;t have a <code>date</code> or
+							<code>tags</code> properties.<br />
+							As an example, the following front matter for a page:
+						</p>
+						<pre><code class="language-yaml">---
 title: The title of the page
 description: The description of the page&#39;s contents
 image: The path or URL to the page&#39;s image
@@ -1393,152 +1867,222 @@ imageAlt: The alternative text of the image
 imageCredit: The link to the image or its author
 ---
 </code></pre>
-<h2 id="blog-doc">Blog-Doc</h2>
-<p>This tutorial is a simplified approach to how the blog, the pages and the posts are rendered on the frontend in <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>: The simplest Node.js CMS and SSG!<br />
-Blog-Doc allows you to create a working site without touching a line of code and to choose the look of your site from <a href="https://github.com/LebCit/blog-doc#themes">the available themes</a>.<br />
-Soon, the template used for this tutorial will be fully integrated into Blog-Doc as its third theme!<br />
-If you have a GitHub account, please consider giving a star to Blog-Doc and also for the <a href="https://github.com/LebCit/node-markdown-blog">GitHub repository of this tutorial</a> where you can ask me anything about it in the <a href="https://github.com/LebCit/node-markdown-blog/discussions/categories/q-a">Q&amp;A section of the discussions</a>.</p>
-<p>I&#39;ve dedicated one week and a half, from 31 August to 11 September, of my free time to write this long and detailed tutorial.<br />
-If you read it on <a href="https://lebcit.hashnode.dev/">my Hashnode blog</a> and found it useful, please consider liking it and leaving a little comment.<br />
-Anyway, thank you for your time and patience, I hope that this tutorial will be useful and instructive in many ways for all its readers.</p>
-	<p class="author-greetings">
-		SYA,
-		<br />
-		LebCit.
-	</p>
-</div>
+						<h2 id="blog-doc">Blog-Doc</h2>
 
-  <style>
-	.post-navigation {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 16px;
-	}
+						<p>
+							This tutorial is a simplified approach to how the blog, the pages and the posts are rendered
+							on the frontend in <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>: The simplest
+							Node.js CMS and SSG!<br />
+							Blog-Doc allows you to create a working site without touching a line of code and to choose
+							the look of your site from
+							<a href="https://github.com/LebCit/blog-doc#themes">the available themes</a>.<br />
+							Soon, the template used for this tutorial will be fully integrated into Blog-Doc as its
+							third theme!<br />
+							If you have a GitHub account, please consider giving a star to Blog-Doc and also for the
+							<a href="https://github.com/LebCit/node-markdown-blog"
+								>GitHub repository of this tutorial</a
+							>
+							where you can ask me anything about it in the
+							<a href="https://github.com/LebCit/node-markdown-blog/discussions/categories/q-a"
+								>Q&amp;A section of the discussions</a
+							>.
+						</p>
+						<p>
+							I&#39;ve dedicated one week and a half, from 31 August to 11 September, of my free time to
+							write this long and detailed tutorial.<br />
+							If you read it on <a href="https://lebcit.hashnode.dev/">my Hashnode blog</a> and found it
+							useful, please consider liking it and leaving a little comment.<br />
+							Anyway, thank you for your time and patience, I hope that this tutorial will be useful and
+							instructive in many ways for all its readers.
+						</p>
 
-	.post-navigation a {
-		margin: 1.5em 0;
-		border: 2px solid #000;
-		background: #000;
-		display: inline-block;
-		padding: 0.7rem 0.9rem;
-		font-size: 1rem;
-		line-height: 1;
-		border-radius: 3px;
-		color: #fff;
-		font-weight: 600;
-		cursor: pointer;
-	}
+						<p class="author-greetings">
+							SYA,
+							<br />
+							LebCit.
+						</p>
+					</div>
 
-	.post-navigation .next-post {
-		grid-column-end: -1;
-	}
+					<!-- Start posts pagination -->
+					<style>
+						.post-navigation {
+							display: grid;
+							grid-template-columns: repeat(2, 1fr);
+							grid-template-rows: 1fr;
+							grid-column-gap: 16px;
+						}
 
-	.post-navigation a:hover {
-		color: #fff;
-		box-shadow: 0 0.25em #000;
-	}
+						.post-navigation a {
+							margin: 1.5em 0;
+							border: 2px solid #000;
+							background: #000;
+							display: inline-block;
+							padding: 0.7rem 0.9rem;
+							font-size: 1rem;
+							line-height: 1;
+							border-radius: 3px;
+							color: #fff;
+							font-weight: 600;
+							cursor: pointer;
+						}
 
-	.post-navigation a:active,
-	.post-navigation a:focus {
-		color: #fff;
-		box-shadow: 0.25em 0.25em #000;
-		outline: 0.1em solid;
-	}
+						.post-navigation .next-post {
+							grid-column-end: -1;
+						}
 
-	@media screen and (max-width: 48em) {
-		.post-navigation {
-			display: grid;
-			grid-template-columns: 1fr;
-			grid-template-rows: repeat(2, 1fr);
-			grid-row-gap: 16px;
-		}
+						.post-navigation a:hover {
+							color: #fff;
+							box-shadow: 0 0.25em #000;
+						}
 
-		.post-navigation a {
-			margin: 0;
-		}
-	}
-</style>
+						.post-navigation a:active,
+						.post-navigation a:focus {
+							color: #fff;
+							box-shadow: 0.25em 0.25em #000;
+							outline: 0.1em solid;
+						}
 
-<nav class="post-navigation" aria-label="Post navigation">
-		<a href="/posts/switch-themes-in-blog-doc" class="prev-post" rel="prev" aria-label="Go to the previous post">
-		Previous: Switch themes in Blog-Doc!	</a>
-	  	<a href="/posts/a-dedicated-site-for-blog-docs-documentation" class="next-post" rel="next" aria-label="Go to the next post">
-		Next: A dedicated site for Blog-Doc&#39;s documentation!	</a>
-	</nav>
-   <style>
-	.related-posts div {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		grid-column-gap: 16px;
-	}
-</style>
+						@media screen and (max-width: 48em) {
+							.post-navigation {
+								display: grid;
+								grid-template-columns: 1fr;
+								grid-template-rows: repeat(2, 1fr);
+								grid-row-gap: 16px;
+							}
 
-<div class="related-posts">
-	<h3>SOME RELATED POSTS</h3>
-	<div>
-		      		<section>
-			<a href="/posts/blog-doc-a-tiny-and-dead-simple-ssg">
-				    				<img
-					class="img-responsive"
-					src="/static/img/digital-art-painting-of-giant-clocks-mechanisms.webp"
-					alt="Digital art painting of giant clocks mechanisms"
-				/>
-							</a>
-			<h4>
-				<a href="/posts/blog-doc-a-tiny-and-dead-simple-ssg">Blog-Doc, a tiny and dead simple SSG !</a>
-			</h4>
-		</section>
-		      		<section>
-			<a href="/posts/blog-doc-the-simplest-nodejs-cms-ssg">
-				    				<img
-					class="img-responsive"
-					src="/static/img/computer-programming-codes-displayed-on-monitor.avif"
-					alt="Computer programming codes displayed on monitor"
-				/>
-							</a>
-			<h4>
-				<a href="/posts/blog-doc-the-simplest-nodejs-cms-ssg">Blog-Doc, The Simplest Node.js CMS &amp; SSG !</a>
-			</h4>
-		</section>
-			</div>
-</div>
-  					<!-- End Markdown file content -->
+							.post-navigation a {
+								margin: 0;
+							}
+						}
+					</style>
+
+					<nav class="post-navigation" aria-label="Post navigation">
+						<a
+							href="/posts/switch-themes-in-blog-doc"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Previous: Switch themes in Blog-Doc!
+						</a>
+
+						<!--Dynamic Markup Separator-->
+
+						<a
+							href="/posts/a-dedicated-site-for-blog-docs-documentation"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Next: A dedicated site for Blog-Doc&#39;s documentation!
+						</a>
+					</nav>
+
+					<!-- End posts pagination -->
+
+					<!-- Dynamic Markup Separator -->
+
+					<!-- Start related posts -->
+					<style>
+						.related-posts div {
+							display: grid;
+							grid-template-columns: repeat(2, 1fr);
+							grid-template-rows: 1fr;
+							grid-column-gap: 16px;
+						}
+					</style>
+
+					<div class="related-posts">
+						<h3>SOME RELATED POSTS</h3>
+						<div>
+							<section>
+								<a href="/posts/blog-doc-a-tiny-and-dead-simple-ssg">
+									<img
+										class="img-responsive"
+										src="/static/images/digital-art-painting-of-giant-clocks-mechanisms.webp"
+										alt="Featured image for the post: Blog-Doc, a tiny and dead simple SSG!"
+									/>
+								</a>
+								<h4>
+									<a href="/posts/blog-doc-a-tiny-and-dead-simple-ssg"
+										>Blog-Doc, a tiny and dead simple SSG!</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/posts/blog-doc-the-simplest-nodejs-cms-ssg">
+									<img
+										class="img-responsive"
+										src="/static/images/computer-programming-codes-displayed-on-monitor.avif"
+										alt="Featured image for the post: Blog-Doc, The Simplest Node.js CMS and SSG!"
+									/>
+								</a>
+								<h4>
+									<a href="/posts/blog-doc-the-simplest-nodejs-cms-ssg"
+										>Blog-Doc, The Simplest Node.js CMS and SSG!</a
+									>
+								</h4>
+							</section>
+						</div>
+					</div>
+
+					<!-- End related posts -->
+
+					<!-- End Markdown file content -->
 				</main>
-				     			</div>
+			</div>
 			<!--End content-->
+
 			<!--Start footer-->
 			<style>
-	.site-footer {
-		text-align: center;
-		padding-top: 2em;
-	}
-	@media (min-width: 64em) {
-		.site-footer {
-			padding: 2em 3em;
-			margin-left: 40%;
-		}
-	}
-</style>
+				.site-footer {
+					text-align: center;
+					padding-top: 2em;
+				}
+				@media (min-width: 64em) {
+					.site-footer {
+						padding: 2em 3em;
+						margin-left: 40%;
+					}
+				}
+			</style>
 
-<footer id="colophon" class="site-footer unit-1">
-	        	<div id="site-info" class="site-info">
-		<p>
-			<strong>2016 - 2024 | { LebCit }</strong>
-			<br />
-			<span>Proudly created with </span><a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>		</p>
-	</div>
-</footer>
+			<footer id="colophon" class="site-footer unit-1">
+				<style>
+					/* more then 1023px an less then 1024px */
+					@media (max-width: 63.969em) {
+						.hide {
+							display: none;
+						}
+					}
+				</style>
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<!--Dynamic Markup Separator-->
+
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2024 | { LebCit } </strong>
+						<br />
+						Proudly created with <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>
+					</p>
+				</div>
+			</footer>
+
 			<!--End footer-->
 		</div>
 		<!--End page-->
-		  		<script type="module">
-			import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js"
 
-			hljs.highlightAll()
-		</script>
-		
-		<script src="/static/js/main.js"></script>
+		<script src="/static/vendors/highlight/highlight.min.js" onload="hljs.highlightAll()"></script>
+
+		<script type="module" src="/static/scripts/themes/midday/midday-scripts.js"></script>
 	</body>
 </html>

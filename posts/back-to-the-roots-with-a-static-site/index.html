@@ -1,111 +1,121 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<meta name="description" content="This post is about my own experience with development and static site." />
+	
+	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-		<meta name="description" content="This post is about my own experience with development and static site." />
+	<title>Back to the roots with a static site | { LebCit } </title>
 
-		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+	<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
+	<link rel="stylesheet" href="/static/styles/themes/midday/midday-styles-min.css" />
 
-		<title>Back to the roots with a static site | { LebCit }</title>
+	
+	<link rel="stylesheet" href="/static/vendors/highlight/atom-one-dark.min.css" />
+	
 
-		<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
-		<link rel="stylesheet" href="/static/styles/themes/midday/midday-styles-min.css" />
+	<!-- COMMON STYLES -->
+	<style>
+	.post-title {
+		font-size: 2em;
+		color: #222;
+		margin-bottom: 0.2em;
+	}
 
-		<link rel="stylesheet" href="/static/vendors/highlight/atom-one-dark.min.css" />
+	.post-content {
+		color: #444;
+		line-height: 1.8em;
+	}
 
-		<!-- COMMON STYLES -->
-		<style>
-			.post-title {
-				font-size: 2em;
-				color: #222;
-				margin-bottom: 0.2em;
-			}
+	.post-content a {
+		color: #000036;
+		text-decoration-line: underline;
+		text-decoration-color: #ea215a;
+		text-decoration-style: double;
+		text-decoration-thickness: 0.125em;
+		text-underline-offset: 1.5px;
+		text-decoration-skip-ink: none;
+		transition: 0.5s;
+	}
 
-			.post-content {
-				color: #444;
-				line-height: 1.8em;
-			}
+	.post-content a:hover,
+	.post-content a:focus,
+	.post-content a:active {
+		text-decoration: none;
+		color: white;
+		box-shadow: inset 0 -1.3em 0 0 #000;
+		outline: thin dotted #ea215a;
+	}
+</style>
 
-			.post-content a {
-				color: #000036;
-				text-decoration-line: underline;
-				text-decoration-color: #ea215a;
-				text-decoration-style: double;
-				text-decoration-thickness: 0.125em;
-				text-underline-offset: 1.5px;
-				text-decoration-skip-ink: none;
-				transition: 0.5s;
-			}
 
-			.post-content a:hover,
-			.post-content a:focus,
-			.post-content a:active {
-				text-decoration: none;
-				color: white;
-				box-shadow: inset 0 -1.3em 0 0 #000;
-				outline: thin dotted #ea215a;
-			}
-		</style>
+<style>
+	.single-post :not(pre) code {
+		background-color: #272822;
+		color: #f8f8f2;
+		border-radius: 0.3rem;
+		padding: 4px 5px 5px;
+	}
+</style>
 
-		<style>
-			.single-post :not(pre) code {
-				background-color: #272822;
-				color: #f8f8f2;
-				border-radius: 0.3rem;
-				padding: 4px 5px 5px;
-			}
-		</style>
 
-		<!-- Dynamic Markup Separator -->
+<!-- Dynamic Markup Separator -->
 
-		<style>
-			@media screen and (min-width: 48em) and (max-width: 63.938em) {
-				.post-title {
-					font-size: 3em;
-					margin-top: 0;
-				}
-			}
+<style>
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.post-title {
+			font-size: 3em;
+			margin-top: 0;
+		}
+	}
 
-			@media (min-width: 64em) {
-				.post-title {
-					/* will affect single-post*/
-					font-size: 4em;
-					margin-top: 0;
-				}
-			}
-		</style>
+	@media (min-width: 64em) {
+		.post-title {
+			/* will affect single-post*/
+			font-size: 4em;
+			margin-top: 0;
+		}
+	}
+</style>
 
-		<!-- Dynamic Markup Separator -->
 
-		<!-- Dynamic Markup Separator -->
+<!-- Dynamic Markup Separator -->
 
-		<style>
-			.post-meta {
-				color: #16663d;
-				font-size: 90%;
-				margin: 0;
-			}
 
-			.posted-on {
-				color: #ad1a36;
-			}
+<!-- Dynamic Markup Separator -->
 
-			.post-tag {
-				margin: 0 0.1em;
-				padding: 0.2em 0.8em;
-				background: #ad1a36;
-				font-size: 80%;
-			}
+<style>
+	.post-meta {
+		color: #16663d;
+		font-size: 90%;
+		margin: 0;
+	}
 
-			.post-tag a {
-				color: #fff;
-			}
-		</style>
+	.posted-on {
+		color: #ad1a36;
+	}
 
-		<!-- Dynamic Markup Separator -->
-	</head>
+	.post-tag {
+		margin: 0 0.1em;
+		padding: 0.2em 0.8em;
+		background: #ad1a36;
+		font-size: 80%;
+	}
+
+	.post-tag a {
+		color: #fff;
+	}
+</style>
+
+
+<!-- Dynamic Markup Separator -->
+
+
+</head>
+
 
 	<body>
 		<!--Start page-->
@@ -114,615 +124,551 @@
 
 			<!--Start menu-->
 			<style>
-				.invisible {
-					visibility: hidden;
-				}
+	.invisible {
+		visibility: hidden;
+	}
 
-				.overlay {
-					position: fixed;
-					width: 0;
-					height: 100%;
-					top: 0;
-					right: 0;
-					background-color: rgba(0, 0, 0, 0.9);
-					z-index: 2;
-					letter-spacing: normal;
-					overflow-x: hidden;
-					transition: 0.5s;
-				}
+	.overlay {
+		position: fixed;
+		width: 0;
+		height: 100%;
+		top: 0;
+		right: 0;
+		background-color: rgba(0, 0, 0, 0.9);
+		z-index: 2;
+		letter-spacing: normal;
+		overflow-x: hidden;
+		transition: 0.5s;
+	}
 
-				.overlay-content {
-					position: relative;
-					top: 25%;
-					width: 100%;
-					text-align: center;
-					margin-top: 30px;
-				}
+	.overlay-content {
+		position: relative;
+		top: 25%;
+		width: 100%;
+		text-align: center;
+		margin-top: 30px;
+	}
 
-				.overlay li {
-					list-style: none;
-				}
+	.overlay li {
+		list-style: none;
+	}
 
-				.overlay a {
-					padding: 8px;
-					text-decoration: none;
-					font-size: 36px;
-					color: #818181;
-					display: block;
-					transition: 0.3s;
-				}
+	.overlay a {
+		padding: 8px;
+		text-decoration: none;
+		font-size: 36px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+	}
 
-				.overlay a:hover,
-				.overlay a:focus {
-					color: #f1f1f1;
-					background-color: #222;
-					border: 1px solid red;
-					border-style: dashed;
-				}
+	.overlay a:hover,
+	.overlay a:focus {
+		color: #f1f1f1;
+		background-color: #222;
+		border: 1px solid red;
+		border-style: dashed;
+	}
 
-				.overlay .close-button {
-					position: absolute;
-					top: 20px;
-					right: 45px;
-					font-size: 60px;
-				}
-			</style>
+	.overlay .close-button {
+		position: absolute;
+		top: 20px;
+		right: 45px;
+		font-size: 60px;
+	}
+</style>
 
-			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
-				<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu"
-					>&times;</a
-				>
+<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+	<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
 
-				<div class="overlay-content">
-					<a href="/">Home</a>
+	<div class="overlay-content">
+		<a href="/">Home</a>
 
-					<li class="pure-menu-item">
-						<a href="/posts">Archive</a>
-					</li>
-
-					<li class="pure-menu-item">
-						<a href="/tags">Tags</a>
-					</li>
-
-					<li class="pure-menu-item">
-						<a href="/search">Search</a>
-					</li>
-
-					<li class="pure-menu-item">
-						<a href="/pages/my-public-projects">Projects</a>
-					</li>
-
-					<li class="pure-menu-item">
-						<a href="/pages/about">About Me</a>
-					</li>
-
-					<li class="pure-menu-item">
-						<a href="/rss.xml">RSS</a>
-					</li>
-				</div>
-			</div>
+		
+		<li class="pure-menu-item">
+			<a href="/posts">Archive</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/tags">Tags</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/search">Search</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/pages/my-public-projects">Projects</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/pages/about">About Me</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/rss.xml">RSS</a>
+		</li>
+		
+	</div>
+</div>
 
 			<!--End menu-->
 
 			<!--Start masthead-->
 			<style>
-				/* SITE HEADER */
-				.site-header {
-					background: rgb(61, 79, 93);
-					color: #fff;
-				}
+	/* SITE HEADER */
+	.site-header {
+		background: rgb(61, 79, 93);
+		color: #fff;
+	}
 
-				.sidebar {
-					margin: 1em;
-				}
+	.sidebar {
+		margin: 1em;
+	}
 
-				.site-title,
-				.site-description {
-					margin: 0;
-					line-height: 1.2;
-				}
+	.site-title,
+	.site-description {
+		margin: 0;
+		line-height: 1.2;
+	}
 
-				.site-title a {
-					color: #fff;
-					text-decoration: none;
-				}
+	.site-title a {
+		color: #fff;
+		text-decoration: none;
+	}
 
-				.site-title a:hover,
-				.site-title a:focus {
-					text-decoration: underline;
-				}
+	.site-title a:hover,
+	.site-title a:focus {
+		text-decoration: underline;
+	}
 
-				.site-description {
-					font-weight: 300;
-					color: rgb(176, 202, 219);
-					margin: 0.5em 0 2em 0;
-				}
+	.site-description {
+		font-weight: 300;
+		color: rgb(176, 202, 219);
+		margin: 0.5em 0 2em 0;
+	}
 
-				/* MENU BUTTON */
-				.nav-list {
-					margin: 0;
-					padding: 0;
-					list-style: none;
-				}
+	/* MENU BUTTON */
+	.nav-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
 
-				.nav-item {
-					display: inline-block;
-				}
+	.nav-item {
+		display: inline-block;
+	}
 
-				.nav-item a {
-					background: black;
-					border: 2px solid rgb(176, 202, 219);
-					border-radius: 2px;
-					color: #fff;
-					padding: 0.5em 1em;
-					margin-top: 1em;
-					letter-spacing: 0.05em;
-					text-transform: uppercase;
-					font-size: 85%;
-				}
+	.nav-item a {
+		background: black;
+		border: 2px solid rgb(176, 202, 219);
+		border-radius: 2px;
+		color: #fff;
+		padding: 0.5em 1em;
+		margin-top: 1em;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		font-size: 85%;
+	}
 
-				.nav-item a:hover,
-				.nav-item a:focus {
-					border: 2px solid rgb(61, 146, 201);
-					text-decoration: none;
-				}
+	.nav-item a:hover,
+	.nav-item a:focus {
+		border: 2px solid rgb(61, 146, 201);
+		text-decoration: none;
+	}
 
-				.nav-item a svg {
-					fill: aliceblue;
-					vertical-align: bottom;
-					padding: 4px 0 2px;
-				}
+	.nav-item a svg {
+		fill: aliceblue;
+		vertical-align: bottom;
+		padding: 4px 0 2px;
+	}
 
-				@media screen and (max-width: 35.5em) {
-					.nav-item a svg {
-						padding-top: 14px;
-					}
-				}
+	@media screen and (max-width: 35.5em) {
+		.nav-item a svg {
+			padding-top: 14px;
+		}
+	}
 
-				@media screen and (min-width: 35.5em) and (max-width: 48em) {
-					.nav-item a svg {
-						padding-top: 12px;
-					}
-				}
+	@media screen and (min-width: 35.5em) and (max-width: 48em) {
+		.nav-item a svg {
+			padding-top: 12px;
+		}
+	}
 
-				@media screen and (min-width: 48em) and (max-width: 63.938em) {
-					.nav-item a svg {
-						padding-top: 10px;
-					}
-				}
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.nav-item a svg {
+			padding-top: 10px;
+		}
+	}
 
-				/* more then 1023px an less then 1024px */
-				@media (max-width: 63.969em) {
-					.site-header.bio {
-						background-image: none !important;
-					}
-					.nav {
-						position: fixed;
-						top: 15px;
-						right: 10px;
-						z-index: 1;
-					}
-				}
+	/* more then 1023px an less then 1024px */
+	@media (max-width: 63.969em) {
+		.site-header.bio {
+			background-image: none !important;
+		}
+		.nav {
+			position: fixed;
+			top: 15px;
+			right: 10px;
+			z-index: 1;
+		}
+	}
 
-				@media (min-width: 64em) {
-					.site-header {
-						position: fixed;
-						top: 0;
-						bottom: 0;
-						overflow-y: auto;
-					}
+	@media (min-width: 64em) {
+		.site-header {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			overflow-y: auto;
+		}
 
-					.site-header.bio {
-						background-repeat: no-repeat;
-						background-position: top;
-						background-size: cover;
-					}
+		.site-header.bio {
+			background-repeat: no-repeat;
+			background-position: top;
+			background-size: cover;
+		}
 
-					.site-header.bio .site-header-overlay {
-						position: fixed;
-						width: 100%;
-						height: 100%;
-						top: 0;
-						left: 0;
-						right: 0;
-						bottom: 0;
-						background-color: rgba(0, 0, 0, 0.6);
-					}
+		.site-header.bio .site-header-overlay {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.6);
+		}
 
-					/* The emerging W3C standard
+		/* The emerging W3C standard
  that is currently Firefox-only */
-					.site-header {
-						scrollbar-width: thin;
-					}
+		.site-header {
+			scrollbar-width: thin;
+		}
 
-					/* Works on Chrome/Edge/Safari */
-					.site-header::-webkit-scrollbar {
-						width: 7px;
-					}
+		/* Works on Chrome/Edge/Safari */
+		.site-header::-webkit-scrollbar {
+			width: 7px;
+		}
 
-					.site-header::-webkit-scrollbar-track {
-						background: #313d48;
-					}
+		.site-header::-webkit-scrollbar-track {
+			background: #313d48;
+		}
 
-					.site-header::-webkit-scrollbar-thumb {
-						background-color: #81898f;
-					}
+		.site-header::-webkit-scrollbar-thumb {
+			background-color: #81898f;
+		}
 
-					.sidebar {
-						margin: 10% 2em;
-						text-align: left;
-					}
+		.sidebar {
+			margin: 10% 2em;
+			text-align: left;
+		}
 
-					.site-header.bio .sidebar {
-						position: sticky;
-					}
-				}
-			</style>
+		.site-header.bio .sidebar {
+			position: sticky;
+		}
+	}
+</style>
 
-			<!-- Start #masthead -->
+<!-- Start #masthead -->
 
-			<header
-				id="masthead"
-				class="site-header unit-1 unit-lg-2-5 bio"
-				style="background-image: url(/static/images/code-books-with-plant.webp)"
-			>
-				<div class="site-header-overlay"></div>
-				<!-- Start .sidebar-->
-				<div class="sidebar">
-					<div class="site-branding">
-						<h1 class="site-title">
-							<a href="/">{ LebCit } </a>
-						</h1>
-						<p class="site-description">
-							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
-							projects on my own!
-						</p>
-					</div>
+<header id="masthead" class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url(/static/images/code-books-with-plant.webp)">
+	
 
-					<!-- Menu button start -->
-					<nav id="nav" class="nav" aria-label="MENU">
-						<ul class="nav-list">
-							<li class="nav-item">
-								<a
-									id="menu-button"
-									aria-controls="main-nav"
-									aria-haspopup="true"
-									tabindex="0"
-									role="button"
-								>
-									<span>MENU</span>
-									<span class="menu-icon" aria-hidden="true">
-										<svg
-											version="1.1"
-											x="0px"
-											y="0px"
-											width="30px"
-											height="30px"
-											viewbox="0 0 30 30"
-											enable-background="new 0 0 30 30"
-										>
-											<rect width="30" height="5" />
-											<rect y="24" width="30" height="5" />
-											<rect y="12" width="30" height="5" />
-										</svg>
-									</span>
-								</a>
-							</li>
-						</ul>
-					</nav>
-					<!-- Menu button end -->
+			<div class="site-header-overlay"></div>
+			<!-- Start .sidebar-->
+			<div class="sidebar">
+				<div class="site-branding">
+					<h1 class="site-title">
+						<a href="/">{ LebCit } </a>
+					</h1>
+					<p class="site-description">Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</p>
 				</div>
-				<!-- End .sidebar-->
-			</header>
-			<!-- End #masthead-->
+
+				<!-- Menu button start -->
+				<nav id="nav" class="nav" aria-label="MENU">
+					<ul class="nav-list">
+						<li class="nav-item">
+							<a
+								id="menu-button"
+								aria-controls="main-nav"
+								aria-haspopup="true"
+								tabindex="0"
+								role="button"
+							>
+								<span>MENU</span>
+								<span class="menu-icon" aria-hidden="true">
+									<svg
+										version="1.1"
+										x="0px"
+										y="0px"
+										width="30px"
+										height="30px"
+										viewbox="0 0 30 30"
+										enable-background="new 0 0 30 30"
+									>
+										<rect width="30" height="5" />
+										<rect y="24" width="30" height="5" />
+										<rect y="12" width="30" height="5" />
+									</svg>
+								</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<!-- Menu button end -->
+			</div>
+			<!-- End .sidebar-->
+		</header>
+		<!-- End #masthead-->
 
 			<!--End masthead-->
 
 			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				
 				<!-- MARKDOWN ROUTE -->
 				<main class="single-post">
 					<!-- Start Markdown file content -->
 					<style>
-						.author-greetings {
-							color: #000;
-							line-height: normal;
-						}
-					</style>
+	.author-greetings {
+		color: #000;
+		line-height: normal;
+	}
+</style>
 
-					<header class="post-header">
-						<h1 class="post-title">Back to the roots with a static site</h1>
+<header class="post-header">
+	<h1 class="post-title">Back to the roots with a static site</h1>
+	
+	<p class="post-meta">
+		<span>Posted on</span>
+		<span class="posted-on">
+			<time class="postList-date" datetime="Mon May 04 2020 03:00:00 GMT+0300 (heure d’été d’Europe de l’Est)">
+				2020-05-04
+			</time>
+		</span>
 
-						<p class="post-meta">
-							<span>Posted on</span>
-							<span class="posted-on">
-								<time class="postList-date" datetime="2020-05-04">2020-05-04</time>
-							</span>
+		
+		<br />
+		<span>Tagged</span>
+		<!--Start tag(s)-->
+		
+		<span class="post-tag">
+			<a href="/tags/Development">Development</a>
+		</span>
+		
+		<!--End tag(s)-->
+		
+	</p>
+	
 
-							<br />
-							<span>Tagged</span>
-							<!--Start tag(s)-->
+	<!--Dynamic Markup Separator-->
+	
+</header>
 
-							<span class="post-tag">
-								<a href="/tags/Development">Development</a>
-							</span>
+<div class="post-content">
+	
+	<p>
+		<em>This post is about my own experience with development and static site.</em>
+	</p>
+	
 
-							<!--End tag(s)-->
-						</p>
+	<!--Content-->
+	<p>From Zero to Hero or at least not a zero anymore!<br>From the Highway to the Classic Road.</p>
+<p>If you didn&#39;t read my <a href="/pages/about">About</a> section, you can quickly guess from the tagline that I&#39;m a self-taught developer.</p>
+<p>I didn&#39;t have a clue about the amazing world of code, or even heard about HTML, CSS or JS.
+So with a will to understand, after being played and robbed by a so-called <em>developer</em>, my first task was to learn English! Oh, yeah 🤣</p>
+<p>After acquiring a basic level of understanding, the real deal was to confront this nightmare, <code>the code</code> 👻<br>From where should I begin?!<br>What should I learn first?!<br>How to create a website?!<br>...<br>So many questions with no clear answer for me 😱</p>
+<p>Since I wanted to start quick (newbie error), I took the wrong path and started to seek for easy ways to create a website (don&#39;t want to talk about it, very bad memory). It took me a while to realise that this was not a good choice and that I&#39;m not really learning...<br>A friend talked about a tool for creating dynamic websites called Joomla, I created my first website with Joomla and coded a little bit, but Joomla was (for me) illogical (not clear/consistent), so I tried Drupal (a cannon to kill a fly), then discovered WordPress.</p>
+<p>I don&#39;t know why, but I felled at home with WordPress, especially with the Codex, the Forums and tons of tutorials everywhere on the Web, the nightmare was turning to a dream coming true...<br>Meanwhile, my English was improving with all the readings and my experience was getting pleasant and smoother.<br>So I decided to make <a href="https://wordpress.org/plugins/full-screen-morphing-search/">my first plugin</a> (2016), then <a href="https://wordpress.org/themes/the-clean-blog/">my first theme</a> (2017), and I did it with <strong>a lot of difficulties</strong>... I wanted to quit many times, but a voice in my head was telling me: &quot;<em>continue, you&#39;ve already spent a lot of time over this and you are so close, don&#39;t give up now!</em>&quot;.</p>
+<p>Since then, I&#39;ve helped as much as I can other people, the same way great developers helped me by pointing to the right direction.<br>But, yes there is always a but, I&#39;ve written again my plugin and my theme from ground up, because I was improving, and everything with bells and whistles in the code world became (for me) useless.<br>I was turning to usability over functionality, simplicity over complexity and accessibility over bling bling code!</p>
+<p>Last year (2019), I was watching a lot of great developers turning their personal sites to static and a growing interest for <a href="https://jamstack.org/generators/">Static Site Generators</a> and <a href="https://jamstack.org/headless-cms/">Headless CMS</a>.<br>I was wondering why?<br>I had a .tk domain that stopped working from one day to the next! Another lesson in this world...<br>So, it was time to turn over and try the static world. I&#39;ve found myself in a completely new playground and didn&#39;t want to waste time, again, just to output basic HTML (another newbie error)...<br>After trying to totally code my site without an SSG, I figured out that it was a time killer and surely not the best way today.<br>Coming from WordPress, I wanted a CMS to output my site, so I&#39;ve tried <a href="https://jocms.net/">jocms</a> and <a href="https://getpublii.com/">Publii</a> but I was not satisfied at all by the result nor the limitations...<br>In 2021, after trying some SSG, I found <a href="https://www.11ty.dev/">Eleventy</a>, reputed for it&#39;s freedom, power and simplicity.<br>Interesting post: <a href="https://snipcart.com/blog/choose-best-static-site-generator">Choosing the Best Static Site Generator</a>.</p>
+<p>I was working on a new WordPress theme, and decided to bake it on the Classic Road and use it for me as a beginning point to my new site.<br>Big, bold and clear 😉</p>
+<p>I really hope that you like it.</p>
+<p class="post-content hide">
+<em>Note: The background image is a photo by <a href="https://unsplash.com/photos/html-css-book-vw3Ahg4x1tY">Greg Rakozy</a>.</em>
+</p>
 
-						<!--Dynamic Markup Separator-->
-					</header>
+	<p class="author-greetings">
+		SYA,
+		<br />
+		LebCit.
+	</p>
+</div>
 
-					<div class="post-content">
-						<p>
-							<em>This post is about my own experience with development and static site.</em>
-						</p>
 
-						<!--Content-->
-						<p>
-							From Zero to Hero or at least not a zero anymore!<br />From the Highway to the Classic Road.
-						</p>
-						<p>
-							If you didn&#39;t read my <a href="/pages/about">About</a> section, you can quickly guess
-							from the tagline that I&#39;m a self-taught developer.
-						</p>
-						<p>
-							I didn&#39;t have a clue about the amazing world of code, or even heard about HTML, CSS or
-							JS. So with a will to understand, after being played and robbed by a so-called
-							<em>developer</em>, my first task was to learn English! Oh, yeah 🤣
-						</p>
-						<p>
-							After acquiring a basic level of understanding, the real deal was to confront this
-							nightmare, <code>the code</code> 👻<br />From where should I begin?!<br />What should I
-							learn first?!<br />How to create a website?!<br />...<br />So many questions with no clear
-							answer for me 😱
-						</p>
-						<p>
-							Since I wanted to start quick (newbie error), I took the wrong path and started to seek for
-							easy ways to create a website (don&#39;t want to talk about it, very bad memory). It took me
-							a while to realise that this was not a good choice and that I&#39;m not really
-							learning...<br />A friend talked about a tool for creating dynamic websites called Joomla, I
-							created my first website with Joomla and coded a little bit, but Joomla was (for me)
-							illogical (not clear/consistent), so I tried Drupal (a cannon to kill a fly), then
-							discovered WordPress.
-						</p>
-						<p>
-							I don&#39;t know why, but I felled at home with WordPress, especially with the Codex, the
-							Forums and tons of tutorials everywhere on the Web, the nightmare was turning to a dream
-							coming true...<br />Meanwhile, my English was improving with all the readings and my
-							experience was getting pleasant and smoother.<br />So I decided to make
-							<a href="https://wordpress.org/plugins/full-screen-morphing-search/">my first plugin</a>
-							(2016), then
-							<a href="https://wordpress.org/themes/the-clean-blog/">my first theme</a> (2017), and I did
-							it with <strong>a lot of difficulties</strong>... I wanted to quit many times, but a voice
-							in my head was telling me: &quot;<em
-								>continue, you&#39;ve already spent a lot of time over this and you are so close,
-								don&#39;t give up now!</em
-							>&quot;.
-						</p>
-						<p>
-							Since then, I&#39;ve helped as much as I can other people, the same way great developers
-							helped me by pointing to the right direction.<br />But, yes there is always a but, I&#39;ve
-							written again my plugin and my theme from ground up, because I was improving, and everything
-							with bells and whistles in the code world became (for me) useless.<br />I was turning to
-							usability over functionality, simplicity over complexity and accessibility over bling bling
-							code!
-						</p>
-						<p>
-							Last year (2019), I was watching a lot of great developers turning their personal sites to
-							static and a growing interest for
-							<a href="https://jamstack.org/generators/">Static Site Generators</a> and
-							<a href="https://jamstack.org/headless-cms/">Headless CMS</a>.<br />I was wondering why?<br />I
-							had a .tk domain that stopped working from one day to the next! Another lesson in this
-							world...<br />So, it was time to turn over and try the static world. I&#39;ve found myself
-							in a completely new playground and didn&#39;t want to waste time, again, just to output
-							basic HTML (another newbie error)...<br />After trying to totally code my site without an
-							SSG, I figured out that it was a time killer and surely not the best way today.<br />Coming
-							from WordPress, I wanted a CMS to output my site, so I&#39;ve tried
-							<a href="https://jocms.net/">jocms</a> and <a href="https://getpublii.com/">Publii</a> but I
-							was not satisfied at all by the result nor the limitations...<br />In 2021, after trying
-							some SSG, I found <a href="https://www.11ty.dev/">Eleventy</a>, reputed for it&#39;s
-							freedom, power and simplicity.<br />Interesting post:
-							<a href="https://snipcart.com/blog/choose-best-static-site-generator"
-								>Choosing the Best Static Site Generator</a
-							>.
-						</p>
-						<p>
-							I was working on a new WordPress theme, and decided to bake it on the Classic Road and use
-							it for me as a beginning point to my new site.<br />Big, bold and clear 😉
-						</p>
-						<p>I really hope that you like it.</p>
-						<p class="post-content hide">
-							<em
-								>Note: The background image is a photo by
-								<a href="https://unsplash.com/photos/html-css-book-vw3Ahg4x1tY">Greg Rakozy</a>.</em
-							>
-						</p>
+<!-- Start posts pagination -->
+<style>
+	.post-navigation {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
 
-						<p class="author-greetings">
-							SYA,
-							<br />
-							LebCit.
-						</p>
-					</div>
+	.post-navigation a {
+		margin: 1.5em 0;
+		border: 2px solid #000;
+		background: #000;
+		display: inline-block;
+		padding: 0.7rem 0.9rem;
+		font-size: 1rem;
+		line-height: 1;
+		border-radius: 3px;
+		color: #fff;
+		font-weight: 600;
+		cursor: pointer;
+	}
 
-					<!-- Start posts pagination -->
-					<style>
-						.post-navigation {
-							display: grid;
-							grid-template-columns: repeat(2, 1fr);
-							grid-template-rows: 1fr;
-							grid-column-gap: 16px;
-						}
+	.post-navigation .next-post {
+		grid-column-end: -1;
+	}
 
-						.post-navigation a {
-							margin: 1.5em 0;
-							border: 2px solid #000;
-							background: #000;
-							display: inline-block;
-							padding: 0.7rem 0.9rem;
-							font-size: 1rem;
-							line-height: 1;
-							border-radius: 3px;
-							color: #fff;
-							font-weight: 600;
-							cursor: pointer;
-						}
+	.post-navigation a:hover {
+		color: #fff;
+		box-shadow: 0 0.25em #000;
+	}
 
-						.post-navigation .next-post {
-							grid-column-end: -1;
-						}
+	.post-navigation a:active,
+	.post-navigation a:focus {
+		color: #fff;
+		box-shadow: 0.25em 0.25em #000;
+		outline: 0.1em solid;
+	}
 
-						.post-navigation a:hover {
-							color: #fff;
-							box-shadow: 0 0.25em #000;
-						}
+	@media screen and (max-width: 48em) {
+		.post-navigation {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, 1fr);
+			grid-row-gap: 16px;
+		}
 
-						.post-navigation a:active,
-						.post-navigation a:focus {
-							color: #fff;
-							box-shadow: 0.25em 0.25em #000;
-							outline: 0.1em solid;
-						}
+		.post-navigation a {
+			margin: 0;
+		}
+	}
+</style>
 
-						@media screen and (max-width: 48em) {
-							.post-navigation {
-								display: grid;
-								grid-template-columns: 1fr;
-								grid-template-rows: repeat(2, 1fr);
-								grid-row-gap: 16px;
-							}
+<nav class="post-navigation" aria-label="Post navigation">
+	
+	<a href="/posts/full-screen-morphing-search-plugin" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: Full Screen Morphing Search Plugin
+	</a>
+	
 
-							.post-navigation a {
-								margin: 0;
-							}
-						}
-					</style>
+	<!--Dynamic Markup Separator-->
+	
+	<a href="/posts/the-clean-blog-wordpress-theme" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Next: The Clean Blog WordPress theme
+	</a>
+	
+</nav>
 
-					<nav class="post-navigation" aria-label="Post navigation">
-						<a
-							href="/posts/full-screen-morphing-search-plugin"
-							class="prev-post"
-							rel="prev"
-							aria-label="Go to the previous post"
-						>
-							Previous: Full Screen Morphing Search Plugin
-						</a>
+<!-- End posts pagination -->
 
-						<!--Dynamic Markup Separator-->
 
-						<a
-							href="/posts/the-clean-blog-wordpress-theme"
-							class="prev-post"
-							rel="prev"
-							aria-label="Go to the previous post"
-						>
-							Next: The Clean Blog WordPress theme
-						</a>
-					</nav>
+<!-- Dynamic Markup Separator -->
 
-					<!-- End posts pagination -->
+<!-- Start related posts -->
+<style>
+	.related-posts div {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
+</style>
 
-					<!-- Dynamic Markup Separator -->
+<div class="related-posts">
+	<h3>SOME RELATED POSTS</h3>
+	<div>
+		
+		<section>
+			<a href="/posts/the-clean-blog-wordpress-theme">
+				<img class="img-responsive" src="/static/images/man-hands-typing-on-keyboard-of-laptop-with-screen-showing-wordpress-backend.webp" alt="Featured image for the post: The Clean Blog WordPress theme" />
+			</a>
+			<h4>
+				<a href="/posts/the-clean-blog-wordpress-theme">The Clean Blog WordPress theme</a>
+			</h4>
+		</section>
+		
+		<section>
+			<a href="/posts/full-screen-morphing-search-plugin">
+				<img class="img-responsive" src="/static/images/man-hand-holding-lens.webp" alt="Featured image for the post: Full Screen Morphing Search Plugin" />
+			</a>
+			<h4>
+				<a href="/posts/full-screen-morphing-search-plugin">Full Screen Morphing Search Plugin</a>
+			</h4>
+		</section>
+		
+	</div>
+</div>
 
-					<!-- Start related posts -->
-					<style>
-						.related-posts div {
-							display: grid;
-							grid-template-columns: repeat(2, 1fr);
-							grid-template-rows: 1fr;
-							grid-column-gap: 16px;
-						}
-					</style>
+<!-- End related posts -->
 
-					<div class="related-posts">
-						<h3>SOME RELATED POSTS</h3>
-						<div>
-							<section>
-								<a href="/posts/the-clean-blog-wordpress-theme">
-									<img
-										class="img-responsive"
-										src="/static/images/man-hands-typing-on-keyboard-of-laptop-with-screen-showing-wordpress-backend.webp"
-										alt="Featured image for the post: The Clean Blog WordPress theme"
-									/>
-								</a>
-								<h4>
-									<a href="/posts/the-clean-blog-wordpress-theme">The Clean Blog WordPress theme</a>
-								</h4>
-							</section>
-
-							<section>
-								<a href="/posts/full-screen-morphing-search-plugin">
-									<img
-										class="img-responsive"
-										src="/static/images/man-hand-holding-lens.webp"
-										alt="Featured image for the post: Full Screen Morphing Search Plugin"
-									/>
-								</a>
-								<h4>
-									<a href="/posts/full-screen-morphing-search-plugin"
-										>Full Screen Morphing Search Plugin</a
-									>
-								</h4>
-							</section>
-						</div>
-					</div>
-
-					<!-- End related posts -->
 
 					<!-- End Markdown file content -->
 				</main>
+				
 			</div>
 			<!--End content-->
 
 			<!--Start footer-->
 			<style>
-				.site-footer {
-					text-align: center;
-					padding-top: 2em;
-				}
-				@media (min-width: 64em) {
-					.site-footer {
-						padding: 2em 3em;
-						margin-left: 40%;
-					}
-				}
-			</style>
+	.site-footer {
+		text-align: center;
+		padding-top: 2em;
+	}
+	@media (min-width: 64em) {
+		.site-footer {
+			padding: 2em 3em;
+			margin-left: 40%;
+		}
+	}
+</style>
 
-			<footer id="colophon" class="site-footer unit-1">
-				<style>
-					/* more then 1023px an less then 1024px */
-					@media (max-width: 63.969em) {
-						.hide {
-							display: none;
-						}
-					}
-				</style>
+<footer id="colophon" class="site-footer unit-1">
+	<style>
+	/* more then 1023px an less then 1024px */
+	@media (max-width: 63.969em) {
+		.hide {
+			display: none;
+		}
+	}
+</style>
 
-				<!--Dynamic Markup Separator-->
+<!--Dynamic Markup Separator-->
 
-				<!--Dynamic Markup Separator-->
 
-				<!--Dynamic Markup Separator-->
+<!--Dynamic Markup Separator-->
 
-				<!--Dynamic Markup Separator-->
 
-				<!--Dynamic Markup Separator-->
+<!--Dynamic Markup Separator-->
 
-				<div id="site-info" class="site-info">
-					<p>
-						<strong>2016 - 2024 | { LebCit } </strong>
-						<br />
-						Proudly created with <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>
-					</p>
-				</div>
-			</footer>
+
+<!--Dynamic Markup Separator-->
+
+
+<!--Dynamic Markup Separator-->
+
+
+
+	<div id="site-info" class="site-info">
+		<p>
+			<strong>2016 - 2025 | { LebCit } </strong>
+			<br />
+			Proudly created with <a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>
+		</p>
+	</div>
+</footer>
 
 			<!--End footer-->
 		</div>
 		<!--End page-->
 
+		
 		<script src="/static/vendors/highlight/highlight.min.js" onload="hljs.highlightAll()"></script>
+		
 
 		<script type="module" src="/static/scripts/themes/midday/midday-scripts.js"></script>
 	</body>

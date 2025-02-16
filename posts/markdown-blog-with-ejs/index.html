@@ -1,111 +1,121 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<meta name="description" content="This post is about creating a Markdown blog with EJS." />
+	
+	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-		<meta name="description" content="This post is about creating a Markdown blog with EJS." />
+	<title>Markdown blog with EJS | { LebCit } </title>
 
-		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+	<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
+	<link rel="stylesheet" href="/static/styles/themes/midday/midday-styles-min.css" />
 
-		<title>Markdown blog with EJS | { LebCit }</title>
+	
+	<link rel="stylesheet" href="/static/vendors/highlight/atom-one-dark.min.css" />
+	
 
-		<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
-		<link rel="stylesheet" href="/static/styles/themes/midday/midday-styles-min.css" />
+	<!-- COMMON STYLES -->
+	<style>
+	.post-title {
+		font-size: 2em;
+		color: #222;
+		margin-bottom: 0.2em;
+	}
 
-		<link rel="stylesheet" href="/static/vendors/highlight/atom-one-dark.min.css" />
+	.post-content {
+		color: #444;
+		line-height: 1.8em;
+	}
 
-		<!-- COMMON STYLES -->
-		<style>
-			.post-title {
-				font-size: 2em;
-				color: #222;
-				margin-bottom: 0.2em;
-			}
+	.post-content a {
+		color: #000036;
+		text-decoration-line: underline;
+		text-decoration-color: #ea215a;
+		text-decoration-style: double;
+		text-decoration-thickness: 0.125em;
+		text-underline-offset: 1.5px;
+		text-decoration-skip-ink: none;
+		transition: 0.5s;
+	}
 
-			.post-content {
-				color: #444;
-				line-height: 1.8em;
-			}
+	.post-content a:hover,
+	.post-content a:focus,
+	.post-content a:active {
+		text-decoration: none;
+		color: white;
+		box-shadow: inset 0 -1.3em 0 0 #000;
+		outline: thin dotted #ea215a;
+	}
+</style>
 
-			.post-content a {
-				color: #000036;
-				text-decoration-line: underline;
-				text-decoration-color: #ea215a;
-				text-decoration-style: double;
-				text-decoration-thickness: 0.125em;
-				text-underline-offset: 1.5px;
-				text-decoration-skip-ink: none;
-				transition: 0.5s;
-			}
 
-			.post-content a:hover,
-			.post-content a:focus,
-			.post-content a:active {
-				text-decoration: none;
-				color: white;
-				box-shadow: inset 0 -1.3em 0 0 #000;
-				outline: thin dotted #ea215a;
-			}
-		</style>
+<style>
+	.single-post :not(pre) code {
+		background-color: #272822;
+		color: #f8f8f2;
+		border-radius: 0.3rem;
+		padding: 4px 5px 5px;
+	}
+</style>
 
-		<style>
-			.single-post :not(pre) code {
-				background-color: #272822;
-				color: #f8f8f2;
-				border-radius: 0.3rem;
-				padding: 4px 5px 5px;
-			}
-		</style>
 
-		<!-- Dynamic Markup Separator -->
+<!-- Dynamic Markup Separator -->
 
-		<style>
-			@media screen and (min-width: 48em) and (max-width: 63.938em) {
-				.post-title {
-					font-size: 3em;
-					margin-top: 0;
-				}
-			}
+<style>
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.post-title {
+			font-size: 3em;
+			margin-top: 0;
+		}
+	}
 
-			@media (min-width: 64em) {
-				.post-title {
-					/* will affect single-post*/
-					font-size: 4em;
-					margin-top: 0;
-				}
-			}
-		</style>
+	@media (min-width: 64em) {
+		.post-title {
+			/* will affect single-post*/
+			font-size: 4em;
+			margin-top: 0;
+		}
+	}
+</style>
 
-		<!-- Dynamic Markup Separator -->
 
-		<!-- Dynamic Markup Separator -->
+<!-- Dynamic Markup Separator -->
 
-		<style>
-			.post-meta {
-				color: #16663d;
-				font-size: 90%;
-				margin: 0;
-			}
 
-			.posted-on {
-				color: #ad1a36;
-			}
+<!-- Dynamic Markup Separator -->
 
-			.post-tag {
-				margin: 0 0.1em;
-				padding: 0.2em 0.8em;
-				background: #ad1a36;
-				font-size: 80%;
-			}
+<style>
+	.post-meta {
+		color: #16663d;
+		font-size: 90%;
+		margin: 0;
+	}
 
-			.post-tag a {
-				color: #fff;
-			}
-		</style>
+	.posted-on {
+		color: #ad1a36;
+	}
 
-		<!-- Dynamic Markup Separator -->
-	</head>
+	.post-tag {
+		margin: 0 0.1em;
+		padding: 0.2em 0.8em;
+		background: #ad1a36;
+		font-size: 80%;
+	}
+
+	.post-tag a {
+		color: #fff;
+	}
+</style>
+
+
+<!-- Dynamic Markup Separator -->
+
+
+</head>
+
 
 	<body>
 		<!--Start page-->
@@ -114,407 +124,388 @@
 
 			<!--Start menu-->
 			<style>
-				.invisible {
-					visibility: hidden;
-				}
+	.invisible {
+		visibility: hidden;
+	}
 
-				.overlay {
-					position: fixed;
-					width: 0;
-					height: 100%;
-					top: 0;
-					right: 0;
-					background-color: rgba(0, 0, 0, 0.9);
-					z-index: 2;
-					letter-spacing: normal;
-					overflow-x: hidden;
-					transition: 0.5s;
-				}
+	.overlay {
+		position: fixed;
+		width: 0;
+		height: 100%;
+		top: 0;
+		right: 0;
+		background-color: rgba(0, 0, 0, 0.9);
+		z-index: 2;
+		letter-spacing: normal;
+		overflow-x: hidden;
+		transition: 0.5s;
+	}
 
-				.overlay-content {
-					position: relative;
-					top: 25%;
-					width: 100%;
-					text-align: center;
-					margin-top: 30px;
-				}
+	.overlay-content {
+		position: relative;
+		top: 25%;
+		width: 100%;
+		text-align: center;
+		margin-top: 30px;
+	}
 
-				.overlay li {
-					list-style: none;
-				}
+	.overlay li {
+		list-style: none;
+	}
 
-				.overlay a {
-					padding: 8px;
-					text-decoration: none;
-					font-size: 36px;
-					color: #818181;
-					display: block;
-					transition: 0.3s;
-				}
+	.overlay a {
+		padding: 8px;
+		text-decoration: none;
+		font-size: 36px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+	}
 
-				.overlay a:hover,
-				.overlay a:focus {
-					color: #f1f1f1;
-					background-color: #222;
-					border: 1px solid red;
-					border-style: dashed;
-				}
+	.overlay a:hover,
+	.overlay a:focus {
+		color: #f1f1f1;
+		background-color: #222;
+		border: 1px solid red;
+		border-style: dashed;
+	}
 
-				.overlay .close-button {
-					position: absolute;
-					top: 20px;
-					right: 45px;
-					font-size: 60px;
-				}
-			</style>
+	.overlay .close-button {
+		position: absolute;
+		top: 20px;
+		right: 45px;
+		font-size: 60px;
+	}
+</style>
 
-			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
-				<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu"
-					>&times;</a
-				>
+<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+	<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
 
-				<div class="overlay-content">
-					<a href="/">Home</a>
+	<div class="overlay-content">
+		<a href="/">Home</a>
 
-					<li class="pure-menu-item">
-						<a href="/posts">Archive</a>
-					</li>
-
-					<li class="pure-menu-item">
-						<a href="/tags">Tags</a>
-					</li>
-
-					<li class="pure-menu-item">
-						<a href="/search">Search</a>
-					</li>
-
-					<li class="pure-menu-item">
-						<a href="/pages/my-public-projects">Projects</a>
-					</li>
-
-					<li class="pure-menu-item">
-						<a href="/pages/about">About Me</a>
-					</li>
-
-					<li class="pure-menu-item">
-						<a href="/rss.xml">RSS</a>
-					</li>
-				</div>
-			</div>
+		
+		<li class="pure-menu-item">
+			<a href="/posts">Archive</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/tags">Tags</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/search">Search</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/pages/my-public-projects">Projects</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/pages/about">About Me</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/rss.xml">RSS</a>
+		</li>
+		
+	</div>
+</div>
 
 			<!--End menu-->
 
 			<!--Start masthead-->
 			<style>
-				/* SITE HEADER */
-				.site-header {
-					background: rgb(61, 79, 93);
-					color: #fff;
-				}
+	/* SITE HEADER */
+	.site-header {
+		background: rgb(61, 79, 93);
+		color: #fff;
+	}
 
-				.sidebar {
-					margin: 1em;
-				}
+	.sidebar {
+		margin: 1em;
+	}
 
-				.site-title,
-				.site-description {
-					margin: 0;
-					line-height: 1.2;
-				}
+	.site-title,
+	.site-description {
+		margin: 0;
+		line-height: 1.2;
+	}
 
-				.site-title a {
-					color: #fff;
-					text-decoration: none;
-				}
+	.site-title a {
+		color: #fff;
+		text-decoration: none;
+	}
 
-				.site-title a:hover,
-				.site-title a:focus {
-					text-decoration: underline;
-				}
+	.site-title a:hover,
+	.site-title a:focus {
+		text-decoration: underline;
+	}
 
-				.site-description {
-					font-weight: 300;
-					color: rgb(176, 202, 219);
-					margin: 0.5em 0 2em 0;
-				}
+	.site-description {
+		font-weight: 300;
+		color: rgb(176, 202, 219);
+		margin: 0.5em 0 2em 0;
+	}
 
-				/* MENU BUTTON */
-				.nav-list {
-					margin: 0;
-					padding: 0;
-					list-style: none;
-				}
+	/* MENU BUTTON */
+	.nav-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
 
-				.nav-item {
-					display: inline-block;
-				}
+	.nav-item {
+		display: inline-block;
+	}
 
-				.nav-item a {
-					background: black;
-					border: 2px solid rgb(176, 202, 219);
-					border-radius: 2px;
-					color: #fff;
-					padding: 0.5em 1em;
-					margin-top: 1em;
-					letter-spacing: 0.05em;
-					text-transform: uppercase;
-					font-size: 85%;
-				}
+	.nav-item a {
+		background: black;
+		border: 2px solid rgb(176, 202, 219);
+		border-radius: 2px;
+		color: #fff;
+		padding: 0.5em 1em;
+		margin-top: 1em;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		font-size: 85%;
+	}
 
-				.nav-item a:hover,
-				.nav-item a:focus {
-					border: 2px solid rgb(61, 146, 201);
-					text-decoration: none;
-				}
+	.nav-item a:hover,
+	.nav-item a:focus {
+		border: 2px solid rgb(61, 146, 201);
+		text-decoration: none;
+	}
 
-				.nav-item a svg {
-					fill: aliceblue;
-					vertical-align: bottom;
-					padding: 4px 0 2px;
-				}
+	.nav-item a svg {
+		fill: aliceblue;
+		vertical-align: bottom;
+		padding: 4px 0 2px;
+	}
 
-				@media screen and (max-width: 35.5em) {
-					.nav-item a svg {
-						padding-top: 14px;
-					}
-				}
+	@media screen and (max-width: 35.5em) {
+		.nav-item a svg {
+			padding-top: 14px;
+		}
+	}
 
-				@media screen and (min-width: 35.5em) and (max-width: 48em) {
-					.nav-item a svg {
-						padding-top: 12px;
-					}
-				}
+	@media screen and (min-width: 35.5em) and (max-width: 48em) {
+		.nav-item a svg {
+			padding-top: 12px;
+		}
+	}
 
-				@media screen and (min-width: 48em) and (max-width: 63.938em) {
-					.nav-item a svg {
-						padding-top: 10px;
-					}
-				}
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.nav-item a svg {
+			padding-top: 10px;
+		}
+	}
 
-				/* more then 1023px an less then 1024px */
-				@media (max-width: 63.969em) {
-					.site-header.bio {
-						background-image: none !important;
-					}
-					.nav {
-						position: fixed;
-						top: 15px;
-						right: 10px;
-						z-index: 1;
-					}
-				}
+	/* more then 1023px an less then 1024px */
+	@media (max-width: 63.969em) {
+		.site-header.bio {
+			background-image: none !important;
+		}
+		.nav {
+			position: fixed;
+			top: 15px;
+			right: 10px;
+			z-index: 1;
+		}
+	}
 
-				@media (min-width: 64em) {
-					.site-header {
-						position: fixed;
-						top: 0;
-						bottom: 0;
-						overflow-y: auto;
-					}
+	@media (min-width: 64em) {
+		.site-header {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			overflow-y: auto;
+		}
 
-					.site-header.bio {
-						background-repeat: no-repeat;
-						background-position: top;
-						background-size: cover;
-					}
+		.site-header.bio {
+			background-repeat: no-repeat;
+			background-position: top;
+			background-size: cover;
+		}
 
-					.site-header.bio .site-header-overlay {
-						position: fixed;
-						width: 100%;
-						height: 100%;
-						top: 0;
-						left: 0;
-						right: 0;
-						bottom: 0;
-						background-color: rgba(0, 0, 0, 0.6);
-					}
+		.site-header.bio .site-header-overlay {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.6);
+		}
 
-					/* The emerging W3C standard
+		/* The emerging W3C standard
  that is currently Firefox-only */
-					.site-header {
-						scrollbar-width: thin;
-					}
+		.site-header {
+			scrollbar-width: thin;
+		}
 
-					/* Works on Chrome/Edge/Safari */
-					.site-header::-webkit-scrollbar {
-						width: 7px;
-					}
+		/* Works on Chrome/Edge/Safari */
+		.site-header::-webkit-scrollbar {
+			width: 7px;
+		}
 
-					.site-header::-webkit-scrollbar-track {
-						background: #313d48;
-					}
+		.site-header::-webkit-scrollbar-track {
+			background: #313d48;
+		}
 
-					.site-header::-webkit-scrollbar-thumb {
-						background-color: #81898f;
-					}
+		.site-header::-webkit-scrollbar-thumb {
+			background-color: #81898f;
+		}
 
-					.sidebar {
-						margin: 10% 2em;
-						text-align: left;
-					}
+		.sidebar {
+			margin: 10% 2em;
+			text-align: left;
+		}
 
-					.site-header.bio .sidebar {
-						position: sticky;
-					}
-				}
-			</style>
+		.site-header.bio .sidebar {
+			position: sticky;
+		}
+	}
+</style>
 
-			<!-- Start #masthead -->
+<!-- Start #masthead -->
 
-			<header
-				id="masthead"
-				class="site-header unit-1 unit-lg-2-5 bio"
-				style="background-image: url(/static/images/markdown-logo-with-white-background.webp)"
-			>
-				<div class="site-header-overlay"></div>
-				<!-- Start .sidebar-->
-				<div class="sidebar">
-					<div class="site-branding">
-						<h1 class="site-title">
-							<a href="/">{ LebCit } </a>
-						</h1>
-						<p class="site-description">
-							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
-							projects on my own!
-						</p>
-					</div>
+<header id="masthead" class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url(/static/images/markdown-logo-with-white-background.webp)">
+	
 
-					<!-- Menu button start -->
-					<nav id="nav" class="nav" aria-label="MENU">
-						<ul class="nav-list">
-							<li class="nav-item">
-								<a
-									id="menu-button"
-									aria-controls="main-nav"
-									aria-haspopup="true"
-									tabindex="0"
-									role="button"
-								>
-									<span>MENU</span>
-									<span class="menu-icon" aria-hidden="true">
-										<svg
-											version="1.1"
-											x="0px"
-											y="0px"
-											width="30px"
-											height="30px"
-											viewbox="0 0 30 30"
-											enable-background="new 0 0 30 30"
-										>
-											<rect width="30" height="5" />
-											<rect y="24" width="30" height="5" />
-											<rect y="12" width="30" height="5" />
-										</svg>
-									</span>
-								</a>
-							</li>
-						</ul>
-					</nav>
-					<!-- Menu button end -->
+			<div class="site-header-overlay"></div>
+			<!-- Start .sidebar-->
+			<div class="sidebar">
+				<div class="site-branding">
+					<h1 class="site-title">
+						<a href="/">{ LebCit } </a>
+					</h1>
+					<p class="site-description">Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</p>
 				</div>
-				<!-- End .sidebar-->
-			</header>
-			<!-- End #masthead-->
+
+				<!-- Menu button start -->
+				<nav id="nav" class="nav" aria-label="MENU">
+					<ul class="nav-list">
+						<li class="nav-item">
+							<a
+								id="menu-button"
+								aria-controls="main-nav"
+								aria-haspopup="true"
+								tabindex="0"
+								role="button"
+							>
+								<span>MENU</span>
+								<span class="menu-icon" aria-hidden="true">
+									<svg
+										version="1.1"
+										x="0px"
+										y="0px"
+										width="30px"
+										height="30px"
+										viewbox="0 0 30 30"
+										enable-background="new 0 0 30 30"
+									>
+										<rect width="30" height="5" />
+										<rect y="24" width="30" height="5" />
+										<rect y="12" width="30" height="5" />
+									</svg>
+								</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<!-- Menu button end -->
+			</div>
+			<!-- End .sidebar-->
+		</header>
+		<!-- End #masthead-->
 
 			<!--End masthead-->
 
 			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				
 				<!-- MARKDOWN ROUTE -->
 				<main class="single-post">
 					<!-- Start Markdown file content -->
 					<style>
-						.author-greetings {
-							color: #000;
-							line-height: normal;
-						}
-					</style>
+	.author-greetings {
+		color: #000;
+		line-height: normal;
+	}
+</style>
 
-					<header class="post-header">
-						<h1 class="post-title">Markdown blog with EJS</h1>
+<header class="post-header">
+	<h1 class="post-title">Markdown blog with EJS</h1>
+	
+	<p class="post-meta">
+		<span>Posted on</span>
+		<span class="posted-on">
+			<time class="postList-date" datetime="Mon Jul 25 2022 03:00:00 GMT+0300 (heure d’été d’Europe de l’Est)">
+				2022-07-25
+			</time>
+		</span>
 
-						<p class="post-meta">
-							<span>Posted on</span>
-							<span class="posted-on">
-								<time class="postList-date" datetime="2022-07-25">2022-07-25</time>
-							</span>
+		
+		<br />
+		<span>Tagged</span>
+		<!--Start tag(s)-->
+		
+		<span class="post-tag">
+			<a href="/tags/Development">Development</a>
+		</span>
+		
+		<span class="post-tag">
+			<a href="/tags/Node.js">Node.js</a>
+		</span>
+		
+		<span class="post-tag">
+			<a href="/tags/Express">Express</a>
+		</span>
+		
+		<span class="post-tag">
+			<a href="/tags/EJS">EJS</a>
+		</span>
+		
+		<!--End tag(s)-->
+		
+	</p>
+	
 
-							<br />
-							<span>Tagged</span>
-							<!--Start tag(s)-->
+	<!--Dynamic Markup Separator-->
+	
+</header>
 
-							<span class="post-tag">
-								<a href="/tags/Development">Development</a>
-							</span>
+<div class="post-content">
+	
+	<p>
+		<em>This post is about creating a Markdown blog with EJS.</em>
+	</p>
+	
 
-							<span class="post-tag">
-								<a href="/tags/Node.js">Node.js</a>
-							</span>
+	<!--Content-->
+	<h2>Intro</h2>
 
-							<span class="post-tag">
-								<a href="/tags/Express">Express</a>
-							</span>
+<p>Writing a post content with HTML is not as easy as doing it with <a href="https://daringfireball.net/projects/markdown/">Markdown</a>.<br>Since my coming <a href="/posts/back-to-the-roots-with-a-static-site">back to the roots whit a static site</a>, I write my posts content with Markdown.<br>A little time after that, I discovered <a href="/posts/to-node-or-not-deta-is-the-answer">Deta Cloud</a> and was able to try everything I&#39;ve learned about Node.js on a live server.<br>My favorite templating language is <a href="https://ejs.co/">EJS</a>, and I wanted to create a dead simple blog by combining the content of a Markdown file with an EJS template.<br>After a lot of research and tries &amp; fails, I&#39;ve understood the mechanism needed to accomplish my goal.<br>I found some tutorials about the subject and this tutorial is inspired by the last one I stumbled on, <a href="https://julianterenzio.io/blog/Building%20A%20Markdown%20Blog%20App%20with%20Express%20and%C2%A0EJS">Building A Markdown Blog App with Express and EJS</a>, with some improvements and all the details.</p>
+<h2>Requirements</h2>
 
-							<span class="post-tag">
-								<a href="/tags/EJS">EJS</a>
-							</span>
+<p>To execute our magic spell, we&#39;ll need the following packages:</p>
+<ol>
+<li>EJS, to template our application</li>
+<li><a href="https://expressjs.com/">Express</a>, the web framework for Node.js</li>
+<li><a href="https://www.npmjs.com/package/gray-matter">gray-matter</a>, to parse the front matter from the Markdown files</li>
+<li><a href="https://www.npmjs.com/package/markdown-it">markdown-it</a>, to parse the Markdown files content</li>
+</ol>
+<p>To install them with one command:</p>
+<p><code>npm i ejs express gray-matter markdown-it</code></p>
+<h2>Server setup</h2>
 
-							<!--End tag(s)-->
-						</p>
+<p>In your main server file, mine is <code>index.js</code>, put the following:</p>
+<details>
+<summary>/index.js</summary>
 
-						<!--Dynamic Markup Separator-->
-					</header>
-
-					<div class="post-content">
-						<p>
-							<em>This post is about creating a Markdown blog with EJS.</em>
-						</p>
-
-						<!--Content-->
-						<h2>Intro</h2>
-
-						<p>
-							Writing a post content with HTML is not as easy as doing it with
-							<a href="https://daringfireball.net/projects/markdown/">Markdown</a>.<br />Since my coming
-							<a href="/posts/back-to-the-roots-with-a-static-site"
-								>back to the roots whit a static site</a
-							>, I write my posts content with Markdown.<br />A little time after that, I discovered
-							<a href="/posts/to-node-or-not-deta-is-the-answer">Deta Cloud</a> and was able to try
-							everything I&#39;ve learned about Node.js on a live server.<br />My favorite templating
-							language is <a href="https://ejs.co/">EJS</a>, and I wanted to create a dead simple blog by
-							combining the content of a Markdown file with an EJS template.<br />After a lot of research
-							and tries &amp; fails, I&#39;ve understood the mechanism needed to accomplish my goal.<br />I
-							found some tutorials about the subject and this tutorial is inspired by the last one I
-							stumbled on,
-							<a
-								href="https://julianterenzio.io/blog/Building%20A%20Markdown%20Blog%20App%20with%20Express%20and%C2%A0EJS"
-								>Building A Markdown Blog App with Express and EJS</a
-							>, with some improvements and all the details.
-						</p>
-						<h2>Requirements</h2>
-
-						<p>To execute our magic spell, we&#39;ll need the following packages:</p>
-						<ol>
-							<li>EJS, to template our application</li>
-							<li><a href="https://expressjs.com/">Express</a>, the web framework for Node.js</li>
-							<li>
-								<a href="https://www.npmjs.com/package/gray-matter">gray-matter</a>, to parse the front
-								matter from the Markdown files
-							</li>
-							<li>
-								<a href="https://www.npmjs.com/package/markdown-it">markdown-it</a>, to parse the
-								Markdown files content
-							</li>
-						</ol>
-						<p>To install them with one command:</p>
-						<p><code>npm i ejs express gray-matter markdown-it</code></p>
-						<h2>Server setup</h2>
-
-						<p>In your main server file, mine is <code>index.js</code>, put the following:</p>
-						<details>
-							<summary>/index.js</summary>
-
-							<pre><code class="language-js">const express = require(&quot;express&quot;)
+<pre><code class="language-js">const express = require(&quot;express&quot;)
 const app = express()
 
 // Built-in module to access and interact with the file system
@@ -586,34 +577,14 @@ app.listen(3000, () =&gt; {
     console.log(`App 🚀 @ http://localhost:3000`)
 })
 </code></pre>
-						</details>
+</details>
 
-						<p>
-							As you can see everything is explained in detail.<br /><em
-								>Nota bene: I&#39;m directly using the views folder as the template files location, no
-								need to declare it, Express detects it by default, and the Markdown files are under the
-								views folder inside another folder called posts</em
-							>.
-						</p>
-						<p>
-							I want to bring your attention to one particular point.<br />When we render the
-							<code>postTemplate</code> and pass the Markdown front matter and content as a data object,
-							we can add and pass as many <code>key: value</code> pair as we want, but we can&#39;t call
-							an undefined <code>key</code> inside the <code>postTemplate</code>!<br />So, if you add a
-							<code>description: my post description</code> to the front matter of the Markdown file, you
-							can&#39;t call it directly inside the <code>postTemplate</code> without adding it in the
-							data object.<br /><em
-								>Nota bene: No need to declare the <code>.ejs</code> extension for a template file,
-								Express detects it by default</em
-							>.
-						</p>
-						<h2>Rendering the frontend</h2>
+<p>As you can see everything is explained in detail.<br><em>Nota bene: I&#39;m directly using the views folder as the template files location, no need to declare it, Express detects it by default, and the Markdown files are under the views folder inside another folder called posts</em>.</p>
+<p>I want to bring your attention to one particular point.<br>When we render the <code>postTemplate</code> and pass the Markdown front matter and content as a data object, we can add and pass as many <code>key: value</code> pair as we want, but we can&#39;t call an undefined <code>key</code> inside the <code>postTemplate</code>!<br>So, if you add a <code>description: my post description</code> to the front matter of the Markdown file, you can&#39;t call it directly inside the <code>postTemplate</code> without adding it in the data object.<br><em>Nota bene: No need to declare the <code>.ejs</code> extension for a template file, Express detects it by default</em>.</p>
+<h2>Rendering the frontend</h2>
 
-						<p>
-							As you have seen in <code>index.js</code>, I&#39;m rendering a list of posts on the main
-							route from a template called <code>postsList.ejs</code>. Add the following to this file:
-						</p>
-						<pre><code class="language-html">&lt;!-- /views/postsList.ejs --&gt;
+<p>As you have seen in <code>index.js</code>, I&#39;m rendering a list of posts on the main route from a template called <code>postsList.ejs</code>. Add the following to this file:</p>
+<pre><code class="language-html">&lt;!-- /views/postsList.ejs --&gt;
 &lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
@@ -639,11 +610,8 @@ app.listen(3000, () =&gt; {
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-						<p>
-							Now, each post has the same structure, one template file called
-							<code>postsTemplate.ejs</code>. Add the following to this one:
-						</p>
-						<pre><code class="language-html">&lt;!-- /views/postsTemplate.ejs --&gt;
+<p>Now, each post has the same structure, one template file called <code>postsTemplate.ejs</code>. Add the following to this one:</p>
+<pre><code class="language-html">&lt;!-- /views/postsTemplate.ejs --&gt;
 &lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
@@ -659,12 +627,9 @@ app.listen(3000, () =&gt; {
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-						<p>
-							Everything is in place, we can now write our posts with Markdown in the
-							<code>views</code> folder under the <code>posts</code> folder 🥳
-						</p>
-						<p>I&#39;ve created two files for you to see the output if you try it:</p>
-						<pre><code class="language-md">---
+<p>Everything is in place, we can now write our posts with Markdown in the <code>views</code> folder under the <code>posts</code> folder 🥳</p>
+<p>I&#39;ve created two files for you to see the output if you try it:</p>
+<pre><code class="language-md">---
 title: My first article
 date: 2022/07/23
 ---
@@ -673,7 +638,7 @@ This is the content of my first article
 
 &lt;!--- /views/posts/my-first-article.md --&gt;
 </code></pre>
-						<pre><code class="language-md">---
+<pre><code class="language-md">---
 title: A second post
 date: 2022/07/25
 ---
@@ -682,8 +647,8 @@ Here goes the content of my second post
 
 &lt;!--- /views/posts/a-second-post.md --&gt;
 </code></pre>
-						<p>The app structure looks like the following tree:</p>
-						<pre><code class="language-txt">// App&#39;s structure without the node_modules folder
+<p>The app structure looks like the following tree:</p>
+<pre><code class="language-txt">// App&#39;s structure without the node_modules folder
 ├── index.js
 ├── package-lock.json
 ├── package.json
@@ -694,197 +659,190 @@ Here goes the content of my second post
   ├── postsList.ejs
   └── postsTemplate.ejs
 </code></pre>
-						<p>
-							I hope that this tutorial will be helpful for everyone trying to create a Markdown blog with
-							EJS.
-						</p>
+<p>I hope that this tutorial will be helpful for everyone trying to create a Markdown blog with EJS.</p>
 
-						<p class="author-greetings">
-							SYA,
-							<br />
-							LebCit.
-						</p>
-					</div>
 
-					<!-- Start posts pagination -->
-					<style>
-						.post-navigation {
-							display: grid;
-							grid-template-columns: repeat(2, 1fr);
-							grid-template-rows: 1fr;
-							grid-column-gap: 16px;
-						}
+	<p class="author-greetings">
+		SYA,
+		<br />
+		LebCit.
+	</p>
+</div>
 
-						.post-navigation a {
-							margin: 1.5em 0;
-							border: 2px solid #000;
-							background: #000;
-							display: inline-block;
-							padding: 0.7rem 0.9rem;
-							font-size: 1rem;
-							line-height: 1;
-							border-radius: 3px;
-							color: #fff;
-							font-weight: 600;
-							cursor: pointer;
-						}
 
-						.post-navigation .next-post {
-							grid-column-end: -1;
-						}
+<!-- Start posts pagination -->
+<style>
+	.post-navigation {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
 
-						.post-navigation a:hover {
-							color: #fff;
-							box-shadow: 0 0.25em #000;
-						}
+	.post-navigation a {
+		margin: 1.5em 0;
+		border: 2px solid #000;
+		background: #000;
+		display: inline-block;
+		padding: 0.7rem 0.9rem;
+		font-size: 1rem;
+		line-height: 1;
+		border-radius: 3px;
+		color: #fff;
+		font-weight: 600;
+		cursor: pointer;
+	}
 
-						.post-navigation a:active,
-						.post-navigation a:focus {
-							color: #fff;
-							box-shadow: 0.25em 0.25em #000;
-							outline: 0.1em solid;
-						}
+	.post-navigation .next-post {
+		grid-column-end: -1;
+	}
 
-						@media screen and (max-width: 48em) {
-							.post-navigation {
-								display: grid;
-								grid-template-columns: 1fr;
-								grid-template-rows: repeat(2, 1fr);
-								grid-row-gap: 16px;
-							}
+	.post-navigation a:hover {
+		color: #fff;
+		box-shadow: 0 0.25em #000;
+	}
 
-							.post-navigation a {
-								margin: 0;
-							}
-						}
-					</style>
+	.post-navigation a:active,
+	.post-navigation a:focus {
+		color: #fff;
+		box-shadow: 0.25em 0.25em #000;
+		outline: 0.1em solid;
+	}
 
-					<nav class="post-navigation" aria-label="Post navigation">
-						<a
-							href="/posts/express-global-router-for-a-dry-code"
-							class="prev-post"
-							rel="prev"
-							aria-label="Go to the previous post"
-						>
-							Previous: Express global router for a DRY code
-						</a>
+	@media screen and (max-width: 48em) {
+		.post-navigation {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, 1fr);
+			grid-row-gap: 16px;
+		}
 
-						<!--Dynamic Markup Separator-->
+		.post-navigation a {
+			margin: 0;
+		}
+	}
+</style>
 
-						<a
-							href="/posts/turn-a-markdown-blog-to-a-simple-ssg"
-							class="prev-post"
-							rel="prev"
-							aria-label="Go to the previous post"
-						>
-							Next: Turn a Markdown blog to a simple SSG
-						</a>
-					</nav>
+<nav class="post-navigation" aria-label="Post navigation">
+	
+	<a href="/posts/express-global-router-for-a-dry-code" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: Express global router for a DRY code
+	</a>
+	
 
-					<!-- End posts pagination -->
+	<!--Dynamic Markup Separator-->
+	
+	<a href="/posts/turn-a-markdown-blog-to-a-simple-ssg" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Next: Turn a Markdown blog to a simple SSG
+	</a>
+	
+</nav>
 
-					<!-- Dynamic Markup Separator -->
+<!-- End posts pagination -->
 
-					<!-- Start related posts -->
-					<style>
-						.related-posts div {
-							display: grid;
-							grid-template-columns: repeat(2, 1fr);
-							grid-template-rows: 1fr;
-							grid-column-gap: 16px;
-						}
-					</style>
 
-					<div class="related-posts">
-						<h3>SOME RELATED POSTS</h3>
-						<div>
-							<section>
-								<a href="/posts/express-global-router-for-a-dry-code">
-									<img
-										class="img-responsive"
-										src="/static/images/black-strings-connected-with-each-other-like-a-network-forming-a-globe.webp"
-										alt="Featured image for the post: Express global router for a DRY code"
-									/>
-								</a>
-								<h4>
-									<a href="/posts/express-global-router-for-a-dry-code"
-										>Express global router for a DRY code</a
-									>
-								</h4>
-							</section>
+<!-- Dynamic Markup Separator -->
 
-							<section>
-								<a href="/posts/templating-a-nodejs-app-with-ejs">
-									<img
-										class="img-responsive"
-										src="/static/images/block-of-red-orange-yellow-and-green-lego.webp"
-										alt="Featured image for the post: Templating a Node.js app with EJS"
-									/>
-								</a>
-								<h4>
-									<a href="/posts/templating-a-nodejs-app-with-ejs"
-										>Templating a Node.js app with EJS</a
-									>
-								</h4>
-							</section>
-						</div>
-					</div>
+<!-- Start related posts -->
+<style>
+	.related-posts div {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
+</style>
 
-					<!-- End related posts -->
+<div class="related-posts">
+	<h3>SOME RELATED POSTS</h3>
+	<div>
+		
+		<section>
+			<a href="/posts/express-global-router-for-a-dry-code">
+				<img class="img-responsive" src="/static/images/black-strings-connected-with-each-other-like-a-network-forming-a-globe.webp" alt="Featured image for the post: Express global router for a DRY code" />
+			</a>
+			<h4>
+				<a href="/posts/express-global-router-for-a-dry-code">Express global router for a DRY code</a>
+			</h4>
+		</section>
+		
+		<section>
+			<a href="/posts/templating-a-nodejs-app-with-ejs">
+				<img class="img-responsive" src="/static/images/block-of-red-orange-yellow-and-green-lego.webp" alt="Featured image for the post: Templating a Node.js app with EJS" />
+			</a>
+			<h4>
+				<a href="/posts/templating-a-nodejs-app-with-ejs">Templating a Node.js app with EJS</a>
+			</h4>
+		</section>
+		
+	</div>
+</div>
+
+<!-- End related posts -->
+
 
 					<!-- End Markdown file content -->
 				</main>
+				
 			</div>
 			<!--End content-->
 
 			<!--Start footer-->
 			<style>
-				.site-footer {
-					text-align: center;
-					padding-top: 2em;
-				}
-				@media (min-width: 64em) {
-					.site-footer {
-						padding: 2em 3em;
-						margin-left: 40%;
-					}
-				}
-			</style>
+	.site-footer {
+		text-align: center;
+		padding-top: 2em;
+	}
+	@media (min-width: 64em) {
+		.site-footer {
+			padding: 2em 3em;
+			margin-left: 40%;
+		}
+	}
+</style>
 
-			<footer id="colophon" class="site-footer unit-1">
-				<style>
-					/* more then 1023px an less then 1024px */
-					@media (max-width: 63.969em) {
-						.hide {
-							display: none;
-						}
-					}
-				</style>
+<footer id="colophon" class="site-footer unit-1">
+	<style>
+	/* more then 1023px an less then 1024px */
+	@media (max-width: 63.969em) {
+		.hide {
+			display: none;
+		}
+	}
+</style>
 
-				<!--Dynamic Markup Separator-->
+<!--Dynamic Markup Separator-->
 
-				<!--Dynamic Markup Separator-->
 
-				<!--Dynamic Markup Separator-->
+<!--Dynamic Markup Separator-->
 
-				<!--Dynamic Markup Separator-->
 
-				<!--Dynamic Markup Separator-->
+<!--Dynamic Markup Separator-->
 
-				<div id="site-info" class="site-info">
-					<p>
-						<strong>2016 - 2024 | { LebCit } </strong>
-						<br />
-						Proudly created with <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>
-					</p>
-				</div>
-			</footer>
+
+<!--Dynamic Markup Separator-->
+
+
+<!--Dynamic Markup Separator-->
+
+
+
+	<div id="site-info" class="site-info">
+		<p>
+			<strong>2016 - 2025 | { LebCit } </strong>
+			<br />
+			Proudly created with <a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>
+		</p>
+	</div>
+</footer>
 
 			<!--End footer-->
 		</div>
 		<!--End page-->
 
+		
 		<script src="/static/vendors/highlight/highlight.min.js" onload="hljs.highlightAll()"></script>
+		
 
 		<script type="module" src="/static/scripts/themes/midday/midday-scripts.js"></script>
 	</body>

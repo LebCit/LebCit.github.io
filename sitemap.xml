@@ -3,15 +3,15 @@
   
     <url>
       <loc>https://lebcit.github.io/</loc>
-      <lastmod>2024-08-21T22:21:13.000Z</lastmod> 
+      <lastmod>2025-02-16T12:39:52.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/archive</loc>
-      <lastmod>2024-08-22T05:58:21.000Z</lastmod> 
+      <lastmod>2025-02-16T12:39:52.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags</loc>
-      <lastmod>2024-08-22T05:58:21.000Z</lastmod> 
+      <lastmod>2025-02-16T12:39:52.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/page/1</loc>
@@ -31,7 +31,7 @@
     </url>
     <url>
       <loc>https://lebcit.github.io/page/5</loc>
-      <lastmod>2024-08-20T11:06:15.000Z</lastmod> 
+      <lastmod>2024-08-20T11:10:04.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/page/6</loc>
@@ -43,7 +43,7 @@
     </url>
     <url>
       <loc>https://lebcit.github.io/pages/about</loc>
-      <lastmod>2024-08-20T08:42:36.000Z</lastmod> 
+      <lastmod>2025-02-16T12:30:47.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/pages/my-public-projects</loc>
@@ -116,6 +116,10 @@
     <url>
       <loc>https://lebcit.github.io/posts/from-145-to-7</loc>
       <lastmod>2024-08-20T11:32:59.000Z</lastmod> 
+    </url>
+    <url>
+      <loc>https://lebcit.github.io/posts/from-regexes-to-ast</loc>
+      <lastmod>2025-02-16T12:39:52.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/full-screen-morphing-search-plugin</loc>
@@ -198,20 +202,28 @@
       <lastmod>2024-08-19T16:18:14.000Z</lastmod> 
     </url>
     <url>
+      <loc>https://lebcit.github.io/tags/AST</loc>
+      <lastmod>2025-02-16T12:39:52.000Z</lastmod> 
+    </url>
+    <url>
+      <loc>https://lebcit.github.io/tags/Development</loc>
+      <lastmod>2025-02-16T12:39:52.000Z</lastmod> 
+    </url>
+    <url>
+      <loc>https://lebcit.github.io/tags/LiteNode</loc>
+      <lastmod>2025-02-16T12:39:52.000Z</lastmod> 
+    </url>
+    <url>
+      <loc>https://lebcit.github.io/tags/STE</loc>
+      <lastmod>2025-02-16T12:39:52.000Z</lastmod> 
+    </url>
+    <url>
       <loc>https://lebcit.github.io/tags/Blog-Doc</loc>
       <lastmod>2024-08-22T05:58:21.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/CMS</loc>
       <lastmod>2024-08-22T05:58:21.000Z</lastmod> 
-    </url>
-    <url>
-      <loc>https://lebcit.github.io/tags/Development</loc>
-      <lastmod>2024-08-21T22:21:13.000Z</lastmod> 
-    </url>
-    <url>
-      <loc>https://lebcit.github.io/tags/LiteNode</loc>
-      <lastmod>2024-08-21T22:09:02.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Marked</loc>

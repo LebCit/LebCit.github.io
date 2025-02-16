@@ -14,13 +14,31 @@
 
 		<copyright>Copyright (c) 2016 - Present, LebCit under the MIT License</copyright>
 
-		<pubDate>Tue, 20 Aug 2024 00:00:00 GMT</pubDate>
+		<pubDate>Sun, 16 Feb 2025 00:00:00 GMT</pubDate>
 
-		<lastBuildDate>Tue, 20 Aug 2024 00:00:00 GMT</lastBuildDate>
+		<lastBuildDate>Sun, 16 Feb 2025 00:00:00 GMT</lastBuildDate>
 
 		<docs>https://www.rssboard.org/rss-specification</docs>
 		
 		<!-- Items (Content) -->
+		
+		<item>
+			<title>From Regexes to AST: STE Journey to Adulthood</title>
+
+			<link>https://lebcit.github.io/posts/from-regexes-to-ast</link>
+
+			<description>STE being updated to an AST-based template engine</description>
+			
+			<category domain="https://lebcit.github.io/tags/AST">AST</category>
+				
+			<category domain="https://lebcit.github.io/tags/Development">Development</category>
+				
+			<category domain="https://lebcit.github.io/tags/LiteNode">LiteNode</category>
+				
+			<category domain="https://lebcit.github.io/tags/STE">STE</category>
+				
+			<pubDate>Sun, 16 Feb 2025 00:00:00 GMT</pubDate>
+		</item>
 		
 		<item>
 			<title>Blog-Doc Version 3.x</title>

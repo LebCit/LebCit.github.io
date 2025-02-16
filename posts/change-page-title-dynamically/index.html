@@ -1,114 +1,121 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<meta name="description" content="This post is about changing the document title when the user leaves your site's tab." />
+	
+	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-		<meta
-			name="description"
-			content="This post is about changing the document title when the user leaves your site&#39;s tab."
-		/>
+	<title>Change page title dynamically | { LebCit } </title>
 
-		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+	<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
+	<link rel="stylesheet" href="/static/styles/themes/midday/midday-styles-min.css" />
 
-		<title>Change page title dynamically | { LebCit }</title>
+	
+	<link rel="stylesheet" href="/static/vendors/highlight/atom-one-dark.min.css" />
+	
 
-		<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
-		<link rel="stylesheet" href="/static/styles/themes/midday/midday-styles-min.css" />
+	<!-- COMMON STYLES -->
+	<style>
+	.post-title {
+		font-size: 2em;
+		color: #222;
+		margin-bottom: 0.2em;
+	}
 
-		<link rel="stylesheet" href="/static/vendors/highlight/atom-one-dark.min.css" />
+	.post-content {
+		color: #444;
+		line-height: 1.8em;
+	}
 
-		<!-- COMMON STYLES -->
-		<style>
-			.post-title {
-				font-size: 2em;
-				color: #222;
-				margin-bottom: 0.2em;
-			}
+	.post-content a {
+		color: #000036;
+		text-decoration-line: underline;
+		text-decoration-color: #ea215a;
+		text-decoration-style: double;
+		text-decoration-thickness: 0.125em;
+		text-underline-offset: 1.5px;
+		text-decoration-skip-ink: none;
+		transition: 0.5s;
+	}
 
-			.post-content {
-				color: #444;
-				line-height: 1.8em;
-			}
+	.post-content a:hover,
+	.post-content a:focus,
+	.post-content a:active {
+		text-decoration: none;
+		color: white;
+		box-shadow: inset 0 -1.3em 0 0 #000;
+		outline: thin dotted #ea215a;
+	}
+</style>
 
-			.post-content a {
-				color: #000036;
-				text-decoration-line: underline;
-				text-decoration-color: #ea215a;
-				text-decoration-style: double;
-				text-decoration-thickness: 0.125em;
-				text-underline-offset: 1.5px;
-				text-decoration-skip-ink: none;
-				transition: 0.5s;
-			}
 
-			.post-content a:hover,
-			.post-content a:focus,
-			.post-content a:active {
-				text-decoration: none;
-				color: white;
-				box-shadow: inset 0 -1.3em 0 0 #000;
-				outline: thin dotted #ea215a;
-			}
-		</style>
+<style>
+	.single-post :not(pre) code {
+		background-color: #272822;
+		color: #f8f8f2;
+		border-radius: 0.3rem;
+		padding: 4px 5px 5px;
+	}
+</style>
 
-		<style>
-			.single-post :not(pre) code {
-				background-color: #272822;
-				color: #f8f8f2;
-				border-radius: 0.3rem;
-				padding: 4px 5px 5px;
-			}
-		</style>
 
-		<!-- Dynamic Markup Separator -->
+<!-- Dynamic Markup Separator -->
 
-		<style>
-			@media screen and (min-width: 48em) and (max-width: 63.938em) {
-				.post-title {
-					font-size: 3em;
-					margin-top: 0;
-				}
-			}
+<style>
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.post-title {
+			font-size: 3em;
+			margin-top: 0;
+		}
+	}
 
-			@media (min-width: 64em) {
-				.post-title {
-					/* will affect single-post*/
-					font-size: 4em;
-					margin-top: 0;
-				}
-			}
-		</style>
+	@media (min-width: 64em) {
+		.post-title {
+			/* will affect single-post*/
+			font-size: 4em;
+			margin-top: 0;
+		}
+	}
+</style>
 
-		<!-- Dynamic Markup Separator -->
 
-		<!-- Dynamic Markup Separator -->
+<!-- Dynamic Markup Separator -->
 
-		<style>
-			.post-meta {
-				color: #16663d;
-				font-size: 90%;
-				margin: 0;
-			}
 
-			.posted-on {
-				color: #ad1a36;
-			}
+<!-- Dynamic Markup Separator -->
 
-			.post-tag {
-				margin: 0 0.1em;
-				padding: 0.2em 0.8em;
-				background: #ad1a36;
-				font-size: 80%;
-			}
+<style>
+	.post-meta {
+		color: #16663d;
+		font-size: 90%;
+		margin: 0;
+	}
 
-			.post-tag a {
-				color: #fff;
-			}
-		</style>
+	.posted-on {
+		color: #ad1a36;
+	}
 
-		<!-- Dynamic Markup Separator -->
-	</head>
+	.post-tag {
+		margin: 0 0.1em;
+		padding: 0.2em 0.8em;
+		background: #ad1a36;
+		font-size: 80%;
+	}
+
+	.post-tag a {
+		color: #fff;
+	}
+</style>
+
+
+<!-- Dynamic Markup Separator -->
+
+
+</head>
+
 
 	<body>
 		<!--Start page-->
@@ -117,369 +124,362 @@
 
 			<!--Start menu-->
 			<style>
-				.invisible {
-					visibility: hidden;
-				}
+	.invisible {
+		visibility: hidden;
+	}
 
-				.overlay {
-					position: fixed;
-					width: 0;
-					height: 100%;
-					top: 0;
-					right: 0;
-					background-color: rgba(0, 0, 0, 0.9);
-					z-index: 2;
-					letter-spacing: normal;
-					overflow-x: hidden;
-					transition: 0.5s;
-				}
+	.overlay {
+		position: fixed;
+		width: 0;
+		height: 100%;
+		top: 0;
+		right: 0;
+		background-color: rgba(0, 0, 0, 0.9);
+		z-index: 2;
+		letter-spacing: normal;
+		overflow-x: hidden;
+		transition: 0.5s;
+	}
 
-				.overlay-content {
-					position: relative;
-					top: 25%;
-					width: 100%;
-					text-align: center;
-					margin-top: 30px;
-				}
+	.overlay-content {
+		position: relative;
+		top: 25%;
+		width: 100%;
+		text-align: center;
+		margin-top: 30px;
+	}
 
-				.overlay li {
-					list-style: none;
-				}
+	.overlay li {
+		list-style: none;
+	}
 
-				.overlay a {
-					padding: 8px;
-					text-decoration: none;
-					font-size: 36px;
-					color: #818181;
-					display: block;
-					transition: 0.3s;
-				}
+	.overlay a {
+		padding: 8px;
+		text-decoration: none;
+		font-size: 36px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+	}
 
-				.overlay a:hover,
-				.overlay a:focus {
-					color: #f1f1f1;
-					background-color: #222;
-					border: 1px solid red;
-					border-style: dashed;
-				}
+	.overlay a:hover,
+	.overlay a:focus {
+		color: #f1f1f1;
+		background-color: #222;
+		border: 1px solid red;
+		border-style: dashed;
+	}
 
-				.overlay .close-button {
-					position: absolute;
-					top: 20px;
-					right: 45px;
-					font-size: 60px;
-				}
-			</style>
+	.overlay .close-button {
+		position: absolute;
+		top: 20px;
+		right: 45px;
+		font-size: 60px;
+	}
+</style>
 
-			<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
-				<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu"
-					>&times;</a
-				>
+<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
+	<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
 
-				<div class="overlay-content">
-					<a href="/">Home</a>
+	<div class="overlay-content">
+		<a href="/">Home</a>
 
-					<li class="pure-menu-item">
-						<a href="/posts">Archive</a>
-					</li>
-
-					<li class="pure-menu-item">
-						<a href="/tags">Tags</a>
-					</li>
-
-					<li class="pure-menu-item">
-						<a href="/search">Search</a>
-					</li>
-
-					<li class="pure-menu-item">
-						<a href="/pages/my-public-projects">Projects</a>
-					</li>
-
-					<li class="pure-menu-item">
-						<a href="/pages/about">About Me</a>
-					</li>
-
-					<li class="pure-menu-item">
-						<a href="/rss.xml">RSS</a>
-					</li>
-				</div>
-			</div>
+		
+		<li class="pure-menu-item">
+			<a href="/posts">Archive</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/tags">Tags</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/search">Search</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/pages/my-public-projects">Projects</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/pages/about">About Me</a>
+		</li>
+		
+		<li class="pure-menu-item">
+			<a href="/rss.xml">RSS</a>
+		</li>
+		
+	</div>
+</div>
 
 			<!--End menu-->
 
 			<!--Start masthead-->
 			<style>
-				/* SITE HEADER */
-				.site-header {
-					background: rgb(61, 79, 93);
-					color: #fff;
-				}
+	/* SITE HEADER */
+	.site-header {
+		background: rgb(61, 79, 93);
+		color: #fff;
+	}
 
-				.sidebar {
-					margin: 1em;
-				}
+	.sidebar {
+		margin: 1em;
+	}
 
-				.site-title,
-				.site-description {
-					margin: 0;
-					line-height: 1.2;
-				}
+	.site-title,
+	.site-description {
+		margin: 0;
+		line-height: 1.2;
+	}
 
-				.site-title a {
-					color: #fff;
-					text-decoration: none;
-				}
+	.site-title a {
+		color: #fff;
+		text-decoration: none;
+	}
 
-				.site-title a:hover,
-				.site-title a:focus {
-					text-decoration: underline;
-				}
+	.site-title a:hover,
+	.site-title a:focus {
+		text-decoration: underline;
+	}
 
-				.site-description {
-					font-weight: 300;
-					color: rgb(176, 202, 219);
-					margin: 0.5em 0 2em 0;
-				}
+	.site-description {
+		font-weight: 300;
+		color: rgb(176, 202, 219);
+		margin: 0.5em 0 2em 0;
+	}
 
-				/* MENU BUTTON */
-				.nav-list {
-					margin: 0;
-					padding: 0;
-					list-style: none;
-				}
+	/* MENU BUTTON */
+	.nav-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
 
-				.nav-item {
-					display: inline-block;
-				}
+	.nav-item {
+		display: inline-block;
+	}
 
-				.nav-item a {
-					background: black;
-					border: 2px solid rgb(176, 202, 219);
-					border-radius: 2px;
-					color: #fff;
-					padding: 0.5em 1em;
-					margin-top: 1em;
-					letter-spacing: 0.05em;
-					text-transform: uppercase;
-					font-size: 85%;
-				}
+	.nav-item a {
+		background: black;
+		border: 2px solid rgb(176, 202, 219);
+		border-radius: 2px;
+		color: #fff;
+		padding: 0.5em 1em;
+		margin-top: 1em;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		font-size: 85%;
+	}
 
-				.nav-item a:hover,
-				.nav-item a:focus {
-					border: 2px solid rgb(61, 146, 201);
-					text-decoration: none;
-				}
+	.nav-item a:hover,
+	.nav-item a:focus {
+		border: 2px solid rgb(61, 146, 201);
+		text-decoration: none;
+	}
 
-				.nav-item a svg {
-					fill: aliceblue;
-					vertical-align: bottom;
-					padding: 4px 0 2px;
-				}
+	.nav-item a svg {
+		fill: aliceblue;
+		vertical-align: bottom;
+		padding: 4px 0 2px;
+	}
 
-				@media screen and (max-width: 35.5em) {
-					.nav-item a svg {
-						padding-top: 14px;
-					}
-				}
+	@media screen and (max-width: 35.5em) {
+		.nav-item a svg {
+			padding-top: 14px;
+		}
+	}
 
-				@media screen and (min-width: 35.5em) and (max-width: 48em) {
-					.nav-item a svg {
-						padding-top: 12px;
-					}
-				}
+	@media screen and (min-width: 35.5em) and (max-width: 48em) {
+		.nav-item a svg {
+			padding-top: 12px;
+		}
+	}
 
-				@media screen and (min-width: 48em) and (max-width: 63.938em) {
-					.nav-item a svg {
-						padding-top: 10px;
-					}
-				}
+	@media screen and (min-width: 48em) and (max-width: 63.938em) {
+		.nav-item a svg {
+			padding-top: 10px;
+		}
+	}
 
-				/* more then 1023px an less then 1024px */
-				@media (max-width: 63.969em) {
-					.site-header.bio {
-						background-image: none !important;
-					}
-					.nav {
-						position: fixed;
-						top: 15px;
-						right: 10px;
-						z-index: 1;
-					}
-				}
+	/* more then 1023px an less then 1024px */
+	@media (max-width: 63.969em) {
+		.site-header.bio {
+			background-image: none !important;
+		}
+		.nav {
+			position: fixed;
+			top: 15px;
+			right: 10px;
+			z-index: 1;
+		}
+	}
 
-				@media (min-width: 64em) {
-					.site-header {
-						position: fixed;
-						top: 0;
-						bottom: 0;
-						overflow-y: auto;
-					}
+	@media (min-width: 64em) {
+		.site-header {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			overflow-y: auto;
+		}
 
-					.site-header.bio {
-						background-repeat: no-repeat;
-						background-position: top;
-						background-size: cover;
-					}
+		.site-header.bio {
+			background-repeat: no-repeat;
+			background-position: top;
+			background-size: cover;
+		}
 
-					.site-header.bio .site-header-overlay {
-						position: fixed;
-						width: 100%;
-						height: 100%;
-						top: 0;
-						left: 0;
-						right: 0;
-						bottom: 0;
-						background-color: rgba(0, 0, 0, 0.6);
-					}
+		.site-header.bio .site-header-overlay {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.6);
+		}
 
-					/* The emerging W3C standard
+		/* The emerging W3C standard
  that is currently Firefox-only */
-					.site-header {
-						scrollbar-width: thin;
-					}
+		.site-header {
+			scrollbar-width: thin;
+		}
 
-					/* Works on Chrome/Edge/Safari */
-					.site-header::-webkit-scrollbar {
-						width: 7px;
-					}
+		/* Works on Chrome/Edge/Safari */
+		.site-header::-webkit-scrollbar {
+			width: 7px;
+		}
 
-					.site-header::-webkit-scrollbar-track {
-						background: #313d48;
-					}
+		.site-header::-webkit-scrollbar-track {
+			background: #313d48;
+		}
 
-					.site-header::-webkit-scrollbar-thumb {
-						background-color: #81898f;
-					}
+		.site-header::-webkit-scrollbar-thumb {
+			background-color: #81898f;
+		}
 
-					.sidebar {
-						margin: 10% 2em;
-						text-align: left;
-					}
+		.sidebar {
+			margin: 10% 2em;
+			text-align: left;
+		}
 
-					.site-header.bio .sidebar {
-						position: sticky;
-					}
-				}
-			</style>
+		.site-header.bio .sidebar {
+			position: sticky;
+		}
+	}
+</style>
 
-			<!-- Start #masthead -->
-			<header id="masthead" class="site-header unit-1 unit-lg-2-5 no-bio">
-				<div class="site-header-overlay"></div>
-				<!-- Start .sidebar-->
-				<div class="sidebar">
-					<div class="site-branding">
-						<h1 class="site-title">
-							<a href="/">{ LebCit } </a>
-						</h1>
-						<p class="site-description">
-							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
-							projects on my own!
-						</p>
-					</div>
+<!-- Start #masthead -->
 
-					<!-- Menu button start -->
-					<nav id="nav" class="nav" aria-label="MENU">
-						<ul class="nav-list">
-							<li class="nav-item">
-								<a
-									id="menu-button"
-									aria-controls="main-nav"
-									aria-haspopup="true"
-									tabindex="0"
-									role="button"
-								>
-									<span>MENU</span>
-									<span class="menu-icon" aria-hidden="true">
-										<svg
-											version="1.1"
-											x="0px"
-											y="0px"
-											width="30px"
-											height="30px"
-											viewbox="0 0 30 30"
-											enable-background="new 0 0 30 30"
-										>
-											<rect width="30" height="5" />
-											<rect y="24" width="30" height="5" />
-											<rect y="12" width="30" height="5" />
-										</svg>
-									</span>
-								</a>
-							</li>
-						</ul>
-					</nav>
-					<!-- Menu button end -->
+		<header id="masthead" class="site-header unit-1 unit-lg-2-5 no-bio">
+			
+
+			<div class="site-header-overlay"></div>
+			<!-- Start .sidebar-->
+			<div class="sidebar">
+				<div class="site-branding">
+					<h1 class="site-title">
+						<a href="/">{ LebCit } </a>
+					</h1>
+					<p class="site-description">Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</p>
 				</div>
-				<!-- End .sidebar-->
-			</header>
-			<!-- End #masthead-->
+
+				<!-- Menu button start -->
+				<nav id="nav" class="nav" aria-label="MENU">
+					<ul class="nav-list">
+						<li class="nav-item">
+							<a
+								id="menu-button"
+								aria-controls="main-nav"
+								aria-haspopup="true"
+								tabindex="0"
+								role="button"
+							>
+								<span>MENU</span>
+								<span class="menu-icon" aria-hidden="true">
+									<svg
+										version="1.1"
+										x="0px"
+										y="0px"
+										width="30px"
+										height="30px"
+										viewbox="0 0 30 30"
+										enable-background="new 0 0 30 30"
+									>
+										<rect width="30" height="5" />
+										<rect y="24" width="30" height="5" />
+										<rect y="12" width="30" height="5" />
+									</svg>
+								</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<!-- Menu button end -->
+			</div>
+			<!-- End .sidebar-->
+		</header>
+		<!-- End #masthead-->
 
 			<!--End masthead-->
 
 			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				
 				<!-- MARKDOWN ROUTE -->
 				<main class="single-post">
 					<!-- Start Markdown file content -->
 					<style>
-						.author-greetings {
-							color: #000;
-							line-height: normal;
-						}
-					</style>
+	.author-greetings {
+		color: #000;
+		line-height: normal;
+	}
+</style>
 
-					<header class="post-header">
-						<h1 class="post-title">Change page title dynamically</h1>
+<header class="post-header">
+	<h1 class="post-title">Change page title dynamically</h1>
+	
+	<p class="post-meta">
+		<span>Posted on</span>
+		<span class="posted-on">
+			<time class="postList-date" datetime="Tue May 26 2020 03:00:00 GMT+0300 (heure d’été d’Europe de l’Est)">
+				2020-05-26
+			</time>
+		</span>
 
-						<p class="post-meta">
-							<span>Posted on</span>
-							<span class="posted-on">
-								<time class="postList-date" datetime="2020-05-26">2020-05-26</time>
-							</span>
+		
+		<br />
+		<span>Tagged</span>
+		<!--Start tag(s)-->
+		
+		<span class="post-tag">
+			<a href="/tags/Tips-and-Tricks">Tips-and-Tricks</a>
+		</span>
+		
+		<span class="post-tag">
+			<a href="/tags/JavaScript">JavaScript</a>
+		</span>
+		
+		<!--End tag(s)-->
+		
+	</p>
+	
 
-							<br />
-							<span>Tagged</span>
-							<!--Start tag(s)-->
+	<!--Dynamic Markup Separator-->
+	
+</header>
 
-							<span class="post-tag">
-								<a href="/tags/Tips-and-Tricks">Tips-and-Tricks</a>
-							</span>
+<div class="post-content">
+	
+	<p>
+		<em>This post is about changing the document title when the user leaves your site's tab.</em>
+	</p>
+	
 
-							<span class="post-tag">
-								<a href="/tags/JavaScript">JavaScript</a>
-							</span>
-
-							<!--End tag(s)-->
-						</p>
-
-						<!--Dynamic Markup Separator-->
-					</header>
-
-					<div class="post-content">
-						<p>
-							<em
-								>This post is about changing the document title when the user leaves your site&#39;s
-								tab.</em
-							>
-						</p>
-
-						<!--Content-->
-						<p>
-							A good way to grab the the user&#39;s attention is of course to write useful content 😁<br />Being
-							funny is also a very good strategy to keep users coming back to your blog.<br />A little bit
-							of originality won&#39;t harm at all!
-						</p>
-						<p>
-							We are going to use the
-							<a href="https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API"
-								>Page Visibility API</a
-							>
-							to detect if the user is on your site&#39;s tab or on another tab, and change your
-							site&#39;s tab title using the
-							<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/title">Document.title</a>
-							property and an awesome french song title 😉
-						</p>
-						<pre><code class="language-js">// Grab the document title of your site&#39;s current tab.
+	<!--Content-->
+	<p>A good way to grab the the user&#39;s attention is of course to write useful content 😁<br>Being funny is also a very good strategy to keep users coming back to your blog.<br>A little bit of originality won&#39;t harm at all!</p>
+<p>We are going to use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API">Page Visibility API</a> to detect if the user is on your site&#39;s tab or on another tab, and change your site&#39;s tab title using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/title">Document.title</a> property and an awesome french song title 😉</p>
+<pre><code class="language-js">// Grab the document title of your site&#39;s current tab.
 let currentTabTitle = document.title
 // Listen to visibility change events
 document.addEventListener(&quot;visibilitychange&quot;, function () {
@@ -491,214 +491,193 @@ document.addEventListener(&quot;visibilitychange&quot;, function () {
           (document.title = currentTabTitle)
 })
 </code></pre>
-						<p>
-							This
-							<a
-								href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator"
-								>Conditional (ternary) operator</a
-							>
-							is like an
-							<a
-								href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else"
-								>if...else statement</a
-							>
-						</p>
-						<p>
-							<strong>Important note</strong>: since the first change will occur when the user leaves your
-							site&#39;s tab, we begin by listening to the <code>hidden</code> state (when the page&#39;s
-							content is not visible to the user) and we change your tab title to whatever... Once the
-							user gets back to your site&#39;s tab, the original tab title will be reassigned since
-							we&#39;ve grab it earlier.
-						</p>
-						<p>You can see it wright here, change to another tab or open a new one 😉</p>
-						<p>Don&#39;t forget to check out <a href="https://youtu.be/Vz6r0TP4FBI">the song</a> 🎶</p>
+<p>This <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator">Conditional (ternary) operator</a> is like an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else">if...else statement</a></p>
+<p><strong>Important note</strong>: since the first change will occur when the user leaves your site&#39;s tab, we begin by listening to the <code>hidden</code> state (when the page&#39;s content is not visible to the user) and we change your tab title to whatever... Once the user gets back to your site&#39;s tab, the original tab title will be reassigned since we&#39;ve grab it earlier.</p>
+<p>You can see it wright here, change to another tab or open a new one 😉</p>
+<p>Don&#39;t forget to check out <a href="https://youtu.be/Vz6r0TP4FBI">the song</a> 🎶</p>
 
-						<p class="author-greetings">
-							SYA,
-							<br />
-							LebCit.
-						</p>
-					</div>
 
-					<!-- Start posts pagination -->
-					<style>
-						.post-navigation {
-							display: grid;
-							grid-template-columns: repeat(2, 1fr);
-							grid-template-rows: 1fr;
-							grid-column-gap: 16px;
-						}
+	<p class="author-greetings">
+		SYA,
+		<br />
+		LebCit.
+	</p>
+</div>
 
-						.post-navigation a {
-							margin: 1.5em 0;
-							border: 2px solid #000;
-							background: #000;
-							display: inline-block;
-							padding: 0.7rem 0.9rem;
-							font-size: 1rem;
-							line-height: 1;
-							border-radius: 3px;
-							color: #fff;
-							font-weight: 600;
-							cursor: pointer;
-						}
 
-						.post-navigation .next-post {
-							grid-column-end: -1;
-						}
+<!-- Start posts pagination -->
+<style>
+	.post-navigation {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
 
-						.post-navigation a:hover {
-							color: #fff;
-							box-shadow: 0 0.25em #000;
-						}
+	.post-navigation a {
+		margin: 1.5em 0;
+		border: 2px solid #000;
+		background: #000;
+		display: inline-block;
+		padding: 0.7rem 0.9rem;
+		font-size: 1rem;
+		line-height: 1;
+		border-radius: 3px;
+		color: #fff;
+		font-weight: 600;
+		cursor: pointer;
+	}
 
-						.post-navigation a:active,
-						.post-navigation a:focus {
-							color: #fff;
-							box-shadow: 0.25em 0.25em #000;
-							outline: 0.1em solid;
-						}
+	.post-navigation .next-post {
+		grid-column-end: -1;
+	}
 
-						@media screen and (max-width: 48em) {
-							.post-navigation {
-								display: grid;
-								grid-template-columns: 1fr;
-								grid-template-rows: repeat(2, 1fr);
-								grid-row-gap: 16px;
-							}
+	.post-navigation a:hover {
+		color: #fff;
+		box-shadow: 0 0.25em #000;
+	}
 
-							.post-navigation a {
-								margin: 0;
-							}
-						}
-					</style>
+	.post-navigation a:active,
+	.post-navigation a:focus {
+		color: #fff;
+		box-shadow: 0.25em 0.25em #000;
+		outline: 0.1em solid;
+	}
 
-					<nav class="post-navigation" aria-label="Post navigation">
-						<a
-							href="/posts/listen-for-changes-in-customizer-preview"
-							class="prev-post"
-							rel="prev"
-							aria-label="Go to the previous post"
-						>
-							Previous: Listen for changes in Customizer Preview!
-						</a>
+	@media screen and (max-width: 48em) {
+		.post-navigation {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, 1fr);
+			grid-row-gap: 16px;
+		}
 
-						<!--Dynamic Markup Separator-->
+		.post-navigation a {
+			margin: 0;
+		}
+	}
+</style>
 
-						<a
-							href="/posts/clear-your-local-development-cache-with-js"
-							class="prev-post"
-							rel="prev"
-							aria-label="Go to the previous post"
-						>
-							Next: Clear your local development cache with JS
-						</a>
-					</nav>
+<nav class="post-navigation" aria-label="Post navigation">
+	
+	<a href="/posts/listen-for-changes-in-customizer-preview" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Previous: Listen for changes in Customizer Preview!
+	</a>
+	
 
-					<!-- End posts pagination -->
+	<!--Dynamic Markup Separator-->
+	
+	<a href="/posts/clear-your-local-development-cache-with-js" class="prev-post" rel="prev" aria-label="Go to the previous post">
+		Next: Clear your local development cache with JS
+	</a>
+	
+</nav>
 
-					<!-- Dynamic Markup Separator -->
+<!-- End posts pagination -->
 
-					<!-- Start related posts -->
-					<style>
-						.related-posts div {
-							display: grid;
-							grid-template-columns: repeat(2, 1fr);
-							grid-template-rows: 1fr;
-							grid-column-gap: 16px;
-						}
-					</style>
 
-					<div class="related-posts">
-						<h3>SOME RELATED POSTS</h3>
-						<div>
-							<section>
-								<a href="/posts/automatically-close-other-details">
-									<img
-										class="img-responsive"
-										src="/static/images/matrix-background.webp"
-										alt="Featured image for the post: Automatically close other details"
-									/>
-								</a>
-								<h4>
-									<a href="/posts/automatically-close-other-details"
-										>Automatically close other details</a
-									>
-								</h4>
-							</section>
+<!-- Dynamic Markup Separator -->
 
-							<section>
-								<a href="/posts/clear-your-local-development-cache-with-js">
-									<img
-										class="img-responsive"
-										src="/static/images/stacked-memory-photos.webp"
-										alt="Featured image for the post: Clear your local development cache with JS"
-									/>
-								</a>
-								<h4>
-									<a href="/posts/clear-your-local-development-cache-with-js"
-										>Clear your local development cache with JS</a
-									>
-								</h4>
-							</section>
-						</div>
-					</div>
+<!-- Start related posts -->
+<style>
+	.related-posts div {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 16px;
+	}
+</style>
 
-					<!-- End related posts -->
+<div class="related-posts">
+	<h3>SOME RELATED POSTS</h3>
+	<div>
+		
+		<section>
+			<a href="/posts/automatically-close-other-details">
+				<img class="img-responsive" src="/static/images/matrix-background.webp" alt="Featured image for the post: Automatically close other details" />
+			</a>
+			<h4>
+				<a href="/posts/automatically-close-other-details">Automatically close other details</a>
+			</h4>
+		</section>
+		
+		<section>
+			<a href="/posts/clear-your-local-development-cache-with-js">
+				<img class="img-responsive" src="/static/images/stacked-memory-photos.webp" alt="Featured image for the post: Clear your local development cache with JS" />
+			</a>
+			<h4>
+				<a href="/posts/clear-your-local-development-cache-with-js">Clear your local development cache with JS</a>
+			</h4>
+		</section>
+		
+	</div>
+</div>
+
+<!-- End related posts -->
+
 
 					<!-- End Markdown file content -->
 				</main>
+				
 			</div>
 			<!--End content-->
 
 			<!--Start footer-->
 			<style>
-				.site-footer {
-					text-align: center;
-					padding-top: 2em;
-				}
-				@media (min-width: 64em) {
-					.site-footer {
-						padding: 2em 3em;
-						margin-left: 40%;
-					}
-				}
-			</style>
+	.site-footer {
+		text-align: center;
+		padding-top: 2em;
+	}
+	@media (min-width: 64em) {
+		.site-footer {
+			padding: 2em 3em;
+			margin-left: 40%;
+		}
+	}
+</style>
 
-			<footer id="colophon" class="site-footer unit-1">
-				<style>
-					/* more then 1023px an less then 1024px */
-					@media (max-width: 63.969em) {
-						.hide {
-							display: none;
-						}
-					}
-				</style>
+<footer id="colophon" class="site-footer unit-1">
+	<style>
+	/* more then 1023px an less then 1024px */
+	@media (max-width: 63.969em) {
+		.hide {
+			display: none;
+		}
+	}
+</style>
 
-				<!--Dynamic Markup Separator-->
+<!--Dynamic Markup Separator-->
 
-				<!--Dynamic Markup Separator-->
 
-				<!--Dynamic Markup Separator-->
+<!--Dynamic Markup Separator-->
 
-				<!--Dynamic Markup Separator-->
 
-				<!--Dynamic Markup Separator-->
+<!--Dynamic Markup Separator-->
 
-				<div id="site-info" class="site-info">
-					<p>
-						<strong>2016 - 2024 | { LebCit } </strong>
-						<br />
-						Proudly created with <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>
-					</p>
-				</div>
-			</footer>
+
+<!--Dynamic Markup Separator-->
+
+
+<!--Dynamic Markup Separator-->
+
+
+
+	<div id="site-info" class="site-info">
+		<p>
+			<strong>2016 - 2025 | { LebCit } </strong>
+			<br />
+			Proudly created with <a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>
+		</p>
+	</div>
+</footer>
 
 			<!--End footer-->
 		</div>
 		<!--End page-->
 
+		
 		<script src="/static/vendors/highlight/highlight.min.js" onload="hljs.highlightAll()"></script>
+		
 
 		<script type="module" src="/static/scripts/themes/midday/midday-scripts.js"></script>
 	</body>

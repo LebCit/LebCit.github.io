@@ -520,9 +520,9 @@ module.exports = () =&gt; {
     const liveReloadServer = livereload.createServer()
     // Refresh the browser after each saved change on the server with a delay of 100 ms
     liveReloadServer.server.once(&quot;connection&quot;, () =&gt; {
-        setTimeout(() =&gt; {
-            liveReloadServer.refresh(&quot;/&quot;)
-        }, 100)
+    	setTimeout(() =&gt; {
+    		liveReloadServer.refresh(&quot;/&quot;)
+    	}, 100)
     })
     // Add livereload script to the response
     app.use(connectLiveReload())

@@ -596,7 +596,7 @@ const dropdown = form.addListItem()
 const pages = choices.map(choice =&gt; form.addPageBreakItem().setTitle(choice))
 // Create choices dynamically with their related pages
 const dropdownChoices = choices.map((choice, index) =&gt; {
-    return dropdown.createChoice(choice, pages[index])
+	return dropdown.createChoice(choice, pages[index])
 })
 // Insert the created choices into the dropdown
 dropdown.setChoices(dropdownChoices)

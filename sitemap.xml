@@ -3,39 +3,39 @@
   
     <url>
       <loc>https://lebcit.github.io/</loc>
-      <lastmod>2025-02-16T12:39:52.000Z</lastmod> 
+      <lastmod>2025-02-24T12:34:32.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/archive</loc>
-      <lastmod>2025-02-16T12:39:52.000Z</lastmod> 
+      <lastmod>2025-02-24T12:34:32.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags</loc>
-      <lastmod>2025-02-16T12:39:52.000Z</lastmod> 
+      <lastmod>2025-02-24T12:34:32.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/page/1</loc>
-      <lastmod>2024-08-21T22:21:13.000Z</lastmod> 
+      <lastmod>2025-02-24T11:51:59.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/page/2</loc>
-      <lastmod>2024-08-22T05:58:21.000Z</lastmod> 
+      <lastmod>2025-02-24T11:52:46.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/page/3</loc>
-      <lastmod>2024-08-20T11:39:13.000Z</lastmod> 
+      <lastmod>2025-02-24T11:53:47.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/page/4</loc>
-      <lastmod>2024-08-20T11:17:26.000Z</lastmod> 
+      <lastmod>2025-02-24T11:59:50.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/page/5</loc>
-      <lastmod>2024-08-20T11:10:04.000Z</lastmod> 
+      <lastmod>2025-02-24T12:02:42.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/page/6</loc>
-      <lastmod>2024-08-20T10:57:20.000Z</lastmod> 
+      <lastmod>2025-02-24T12:04:30.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/page/7</loc>
@@ -55,7 +55,7 @@
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/automatically-close-other-details</loc>
-      <lastmod>2024-08-20T11:06:15.000Z</lastmod> 
+      <lastmod>2025-02-24T12:02:11.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/back-to-the-roots-with-a-static-site</loc>
@@ -82,36 +82,40 @@
       <lastmod>2024-08-21T22:09:02.000Z</lastmod> 
     </url>
     <url>
+      <loc>https://lebcit.github.io/posts/breaking-up-with-express</loc>
+      <lastmod>2025-02-24T12:34:32.000Z</lastmod> 
+    </url>
+    <url>
       <loc>https://lebcit.github.io/posts/change-page-title-dynamically</loc>
-      <lastmod>2024-08-19T06:35:30.000Z</lastmod> 
+      <lastmod>2025-02-24T12:03:21.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/clear-your-local-development-cache-with-js</loc>
-      <lastmod>2024-08-20T10:59:45.000Z</lastmod> 
+      <lastmod>2025-02-24T12:03:00.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/click-without-javascript</loc>
-      <lastmod>2024-08-20T11:20:13.000Z</lastmod> 
+      <lastmod>2025-02-24T11:53:47.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/create-a-simple-markdown-based-blog-in-nodejs</loc>
-      <lastmod>2024-08-19T06:53:56.000Z</lastmod> 
+      <lastmod>2025-02-24T11:52:46.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/creating-a-customizer-control-with-javascript</loc>
-      <lastmod>2024-08-19T06:36:37.000Z</lastmod> 
+      <lastmod>2025-02-24T12:02:42.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/creating-conditional-selections-in-google-forms-using-apps-script</loc>
-      <lastmod>2024-08-21T22:21:13.000Z</lastmod> 
+      <lastmod>2025-02-24T11:51:37.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/csp-nonce-with-nodejs-and-ejs</loc>
-      <lastmod>2024-08-20T11:12:56.000Z</lastmod> 
+      <lastmod>2025-02-24T12:01:31.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/express-global-router-for-a-dry-code</loc>
-      <lastmod>2024-08-20T11:17:26.000Z</lastmod> 
+      <lastmod>2025-02-24T11:57:57.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/from-145-to-7</loc>
@@ -131,27 +135,27 @@
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/google-ql-wrapper</loc>
-      <lastmod>2024-08-21T22:21:13.000Z</lastmod> 
+      <lastmod>2025-02-24T11:51:59.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/hide-wordpress-toolbar-with-wp_add_inline_style</loc>
-      <lastmod>2024-08-20T10:51:25.000Z</lastmod> 
+      <lastmod>2025-02-24T12:03:56.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/improving-a-nodejs-app-built-with-express-and-ejs</loc>
-      <lastmod>2024-08-20T11:15:48.000Z</lastmod> 
+      <lastmod>2025-02-24T11:58:49.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/listen-for-changes-in-customizer-preview</loc>
-      <lastmod>2024-08-20T10:57:20.000Z</lastmod> 
+      <lastmod>2025-02-24T12:03:41.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/litenode-nodejs-web-framework</loc>
-      <lastmod>2024-08-20T06:34:36.000Z</lastmod> 
+      <lastmod>2025-02-24T09:39:11.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/markdown-blog-with-ejs</loc>
-      <lastmod>2024-08-19T06:41:39.000Z</lastmod> 
+      <lastmod>2025-02-24T11:57:35.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/midday-wordpress-theme</loc>
@@ -159,11 +163,11 @@
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/modifying-wordpress-theme-copyright-from-the-customizer</loc>
-      <lastmod>2024-08-20T10:44:46.000Z</lastmod> 
+      <lastmod>2025-02-24T12:04:30.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/node-modules-is-not-heavy-developers-are-lazy</loc>
-      <lastmod>2024-08-20T11:34:17.000Z</lastmod> 
+      <lastmod>2025-02-24T11:44:21.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/responsive-attributes-generator</loc>
@@ -179,7 +183,7 @@
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/templating-a-nodejs-app-with-ejs</loc>
-      <lastmod>2024-08-20T11:14:18.000Z</lastmod> 
+      <lastmod>2025-02-24T11:59:50.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/the-clean-blog-wordpress-theme</loc>
@@ -191,15 +195,27 @@
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/transferring-variables-and-functions-from-server-to-client-in-a-node-js-application-using-ejs-and-eta</loc>
-      <lastmod>2024-08-19T06:45:41.000Z</lastmod> 
+      <lastmod>2025-02-24T11:51:05.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/turn-a-markdown-blog-to-a-simple-ssg</loc>
-      <lastmod>2024-08-20T11:18:55.000Z</lastmod> 
+      <lastmod>2025-02-24T11:57:00.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/posts/ultimate-markdown-based-application-tutorial-in-node-js</loc>
       <lastmod>2024-08-19T16:18:14.000Z</lastmod> 
+    </url>
+    <url>
+      <loc>https://lebcit.github.io/tags/Express</loc>
+      <lastmod>2025-02-24T12:34:32.000Z</lastmod> 
+    </url>
+    <url>
+      <loc>https://lebcit.github.io/tags/LiteNode</loc>
+      <lastmod>2025-02-24T12:34:32.000Z</lastmod> 
+    </url>
+    <url>
+      <loc>https://lebcit.github.io/tags/Node.js</loc>
+      <lastmod>2025-02-24T12:34:32.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/AST</loc>
@@ -207,11 +223,7 @@
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Development</loc>
-      <lastmod>2025-02-16T12:39:52.000Z</lastmod> 
-    </url>
-    <url>
-      <loc>https://lebcit.github.io/tags/LiteNode</loc>
-      <lastmod>2025-02-16T12:39:52.000Z</lastmod> 
+      <lastmod>2025-02-24T12:04:30.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/STE</loc>
@@ -227,11 +239,7 @@
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Marked</loc>
-      <lastmod>2024-08-21T22:09:02.000Z</lastmod> 
-    </url>
-    <url>
-      <loc>https://lebcit.github.io/tags/Node.js</loc>
-      <lastmod>2024-08-21T22:09:02.000Z</lastmod> 
+      <lastmod>2025-02-24T11:52:46.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/SSG</loc>
@@ -251,11 +259,11 @@
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/JavaScript</loc>
-      <lastmod>2024-08-21T22:21:13.000Z</lastmod> 
+      <lastmod>2025-02-24T12:03:21.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Markdown</loc>
-      <lastmod>2024-08-19T16:18:14.000Z</lastmod> 
+      <lastmod>2025-02-24T11:52:46.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Programming</loc>
@@ -275,51 +283,51 @@
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Framework</loc>
-      <lastmod>2024-08-20T06:34:36.000Z</lastmod> 
+      <lastmod>2025-02-24T09:39:11.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Router</loc>
-      <lastmod>2024-08-20T06:34:36.000Z</lastmod> 
+      <lastmod>2025-02-24T09:39:11.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Web-Server</loc>
-      <lastmod>2024-08-20T06:34:36.000Z</lastmod> 
+      <lastmod>2025-02-24T09:39:11.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/EJS</loc>
-      <lastmod>2024-08-20T11:18:55.000Z</lastmod> 
+      <lastmod>2025-02-24T12:01:31.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Eta</loc>
-      <lastmod>2024-08-20T11:32:59.000Z</lastmod> 
+      <lastmod>2025-02-24T11:52:46.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Apps-Script</loc>
-      <lastmod>2024-08-21T22:21:13.000Z</lastmod> 
+      <lastmod>2025-02-24T11:51:37.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Google-Forms</loc>
-      <lastmod>2024-08-21T22:21:13.000Z</lastmod> 
+      <lastmod>2025-02-24T11:51:37.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Google-Sheets</loc>
-      <lastmod>2024-08-21T22:21:13.000Z</lastmod> 
+      <lastmod>2025-02-24T11:51:59.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Query-Language</loc>
-      <lastmod>2024-08-21T22:21:13.000Z</lastmod> 
+      <lastmod>2025-02-24T11:51:59.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Wrapper</loc>
-      <lastmod>2024-08-21T22:21:13.000Z</lastmod> 
+      <lastmod>2025-02-24T11:51:59.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Tips-and-Tricks</loc>
-      <lastmod>2024-08-21T22:21:13.000Z</lastmod> 
+      <lastmod>2025-02-24T12:04:30.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/CSS</loc>
-      <lastmod>2024-08-20T11:20:13.000Z</lastmod> 
+      <lastmod>2025-02-24T11:53:47.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Markdown-Editor</loc>
@@ -335,7 +343,7 @@
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Hono</loc>
-      <lastmod>2024-08-20T11:32:59.000Z</lastmod> 
+      <lastmod>2025-02-24T11:52:46.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Theme</loc>
@@ -343,35 +351,31 @@
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Modules</loc>
-      <lastmod>2024-08-20T11:34:17.000Z</lastmod> 
+      <lastmod>2025-02-24T11:44:21.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Administration</loc>
       <lastmod>2024-08-22T05:58:21.000Z</lastmod> 
     </url>
     <url>
-      <loc>https://lebcit.github.io/tags/Express</loc>
-      <lastmod>2024-08-20T11:18:55.000Z</lastmod> 
-    </url>
-    <url>
       <loc>https://lebcit.github.io/tags/CSP</loc>
-      <lastmod>2024-08-20T11:12:56.000Z</lastmod> 
+      <lastmod>2025-02-24T12:01:31.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Nonce</loc>
-      <lastmod>2024-08-20T11:12:56.000Z</lastmod> 
+      <lastmod>2025-02-24T12:01:31.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Customizer</loc>
-      <lastmod>2024-08-20T10:57:20.000Z</lastmod> 
+      <lastmod>2025-02-24T12:04:30.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Toolbar</loc>
-      <lastmod>2024-08-20T10:51:25.000Z</lastmod> 
+      <lastmod>2025-02-24T12:03:56.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Copyright</loc>
-      <lastmod>2024-08-20T10:44:46.000Z</lastmod> 
+      <lastmod>2025-02-24T12:04:30.000Z</lastmod> 
     </url>
     <url>
       <loc>https://lebcit.github.io/tags/Plugin</loc>

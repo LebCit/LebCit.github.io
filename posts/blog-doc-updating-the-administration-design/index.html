@@ -496,102 +496,102 @@
 <p>A picture is worth a thousand words...<br>Click on each image to display it.</p>
 <style>
 .gallery-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .image-container {	
-    width: calc(33.33% - 10px);
-    margin: 5px;
+	width: calc(33.33% - 10px);
+	margin: 5px;
 }
 
 .image-container img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
 }
 
 .image-container img:hover {
-    border: 2px solid black;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+	border: 2px solid black;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
 .lightbox {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    text-align: center;
+	display: none;
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	text-align: center;
 }
 
 .lightbox-img {
-    max-width: 90%;
-    max-height: 90%;
-    margin-top: 20px;
+	max-width: 90%;
+	max-height: 90%;
+	margin-top: 20px;
 }
 
 .close {
-    color: #fff;
-    font-size: 60px;
-    font-weight: bold;
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    cursor: pointer;
+	color: #fff;
+	font-size: 60px;
+	font-weight: bold;
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 @media screen and (max-width: 480px) {
-    .image-container {
-        width: calc(50% - 10px);
-    }
+	.image-container {
+		width: calc(50% - 10px);
+	}
 
-    .close {
-        color: #000;
-        font-size: 30px;
-    }
+	.close {
+		color: #000;
+		font-size: 30px;
+	}
 
-    .close:hover,
-    .close:focus {
-        color: #fff;
-    }
+	.close:hover,
+	.close:focus {
+		color: #fff;
+	}
 }
 </style>
 
 <div class="gallery-container">
-    <div class="image-container">
-        <img src="/static/images/bd-adm.avif" alt="Blog-Doc Administration">
-    </div>
-    <div class="image-container">
-        <img src="/static/images/bd-adm-pages.avif" alt="Blog-Doc Pages Administration">
-    </div>
-    <div class="image-container">
-        <img src="/static/images/bd-adm-posts.avif" alt="Blog-Doc Posts Administration">
-    </div>
-    <div class="image-container">
-        <img src="/static/images/bd-adm-create.avif" alt="Blog-Doc Creation Page">
-    </div>
-    <div class="image-container">
-        <img src="/static/images/bd-config-site.avif" alt="Blog-Doc Site Settings">
-    </div>
-    <div class="image-container">
-        <img src="/static/images/bd-config-menu.avif" alt="Blog-Doc Menu Settings">
-    </div>
-    <div class="image-container">
-        <img src="/static/images/bd-adm-gallery.avif" alt="Blog-Doc Gallery">
-    </div>
+	<div class="image-container">
+		<img src="/static/images/bd-adm.avif" alt="Blog-Doc Administration">
+	</div>
+	<div class="image-container">
+		<img src="/static/images/bd-adm-pages.avif" alt="Blog-Doc Pages Administration">
+	</div>
+	<div class="image-container">
+		<img src="/static/images/bd-adm-posts.avif" alt="Blog-Doc Posts Administration">
+	</div>
+	<div class="image-container">
+		<img src="/static/images/bd-adm-create.avif" alt="Blog-Doc Creation Page">
+	</div>
+	<div class="image-container">
+		<img src="/static/images/bd-config-site.avif" alt="Blog-Doc Site Settings">
+	</div>
+	<div class="image-container">
+		<img src="/static/images/bd-config-menu.avif" alt="Blog-Doc Menu Settings">
+	</div>
+	<div class="image-container">
+		<img src="/static/images/bd-adm-gallery.avif" alt="Blog-Doc Gallery">
+	</div>
 </div>
 
 <div id="lightbox" class="lightbox">
@@ -600,26 +600,26 @@
 </div>
 
 <script>
-    const page = document.querySelector("#page")
-    const gallery = document.querySelector(".gallery-container");
-    const lightbox = document.querySelector("#lightbox");
-    const lightboxImg = document.querySelector("#lightbox-img");
-    const close = document.querySelector(".close");
+	const page = document.querySelector("#page")
+	const gallery = document.querySelector(".gallery-container");
+	const lightbox = document.querySelector("#lightbox");
+	const lightboxImg = document.querySelector("#lightbox-img");
+	const close = document.querySelector(".close");
 
-    page.append(lightbox)
+	page.append(lightbox)
 
-    gallery.addEventListener("click", function(event) {
-        if (event.target.tagName === "IMG") {
-            lightbox.style.display = "block";
-            lightboxImg.src = event.target.src;
-        }
-    });
+	gallery.addEventListener("click", function(event) {
+		if (event.target.tagName === "IMG") {
+			lightbox.style.display = "block";
+			lightboxImg.src = event.target.src;
+		}
+	});
 
-    close.addEventListener("click", function() {
-        lightbox.style.display = "none";
-    });
+	close.addEventListener("click", function() {
+		lightbox.style.display = "none";
+	});
 
-    
+	
 </script>
 
 	<p class="author-greetings">

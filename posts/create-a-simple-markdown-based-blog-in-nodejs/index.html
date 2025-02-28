@@ -493,7 +493,10 @@
 	
 
 	<!--Content-->
-	<h2>TOC (Table Of Contents)</h2>
+	<h2>A Simpler Way!</h2>
+
+<p>This tutorial was published in 2023 and is now outdated. A simpler, faster approach using <a href="https://litenode.pages.dev/">LiteNode</a> is now available. Check out the updated guide: <a href="/posts/create-your-markdown-blog-in-nodejs">Create your Markdown blog in Node.js</a> for more efficient implementation steps.</p>
+<h2>TOC (Table Of Contents)</h2>
 
 <ul>
 <li>Intro</li>
@@ -1255,7 +1258,7 @@ Finally, the response constant <code>res</code> is returned as <code>HTML</code>
                 &lt;/span&gt;
             &lt;/div&gt;
             &lt;div class=&quot;intro&quot;&gt;&lt;%= postDescription %&gt;&lt;/div&gt;
-            &lt;a class=&quot;text-link&quot; href=&quot;/posts/&lt;%= postFilename %&gt;&quot;&gt;Read more &amp;rarr;&lt;/a&gt;
+            &lt;a class=&quot;text-link&quot; href=&quot;/posts/&lt;%= postFilename %&gt;&quot;&gt;Read more →&lt;/a&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
@@ -1437,7 +1440,7 @@ As an example, we could have put in front of the <code>image</code> property the
 </code></pre>
 <p>Look closely at the <code>&lt;header&gt;</code>, the <code>date</code> and <code>tags</code> will only be displayed if the file&#39;s directory is <code>posts</code>.<br />
 In other words, if the file is a post display the date and tags otherwise don&#39;t, and that&#39;s because a page doesn&#39;t usually have those properties in its front matter.<br />
-Type <code>node index</code> in the terminal, follow the link and click on the link of our only article or its <strong>Read more &rarr;</strong> button, abracadara!</p>
+Type <code>node index</code> in the terminal, follow the link and click on the link of our only article or its <strong>Read more →</strong> button, abracadara!</p>
 <p>Now, let&#39;s fix the image of the post preview on the blog.<br />
 For this, add the following variables under the existing ones in <strong>index.html</strong>:</p>
 <pre><code class="language-html">&lt;!-- Get the post image from its front matter --&gt;

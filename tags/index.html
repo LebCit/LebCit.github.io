@@ -1,70 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-	<meta name="description" content="A list of all the tags" />
-	
-	<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="" />
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-	<title>Tags | { LebCit } </title>
+		<!--Site icon-->
 
-	<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
-	<link rel="stylesheet" href="/static/styles/themes/midday/midday-styles-min.css" />
+		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
 
-	
+		<!--Title-->
+		<title>Tags | { LebCit }</title>
 
-	<!-- COMMON STYLES -->
-	<style>
-	.post-title {
-		font-size: 2em;
-		color: #222;
-		margin-bottom: 0.2em;
-	}
+		<!--Stylesheets-->
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
 
-	.post-content {
-		color: #444;
-		line-height: 1.8em;
-	}
-
-	.post-content a {
-		color: #000036;
-		text-decoration-line: underline;
-		text-decoration-color: #ea215a;
-		text-decoration-style: double;
-		text-decoration-thickness: 0.125em;
-		text-underline-offset: 1.5px;
-		text-decoration-skip-ink: none;
-		transition: 0.5s;
-	}
-
-	.post-content a:hover,
-	.post-content a:focus,
-	.post-content a:active {
-		text-decoration: none;
-		color: white;
-		box-shadow: inset 0 -1.3em 0 0 #000;
-		outline: thin dotted #ea215a;
-	}
-</style>
-
-
-
-<!-- Dynamic Markup Separator -->
-
-
-<!-- Dynamic Markup Separator -->
-
-
-<!-- Dynamic Markup Separator -->
-
-
-<!-- Dynamic Markup Separator -->
-
-
-</head>
-
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+	</head>
 
 	<body>
 		<!--Start page-->
@@ -72,674 +25,868 @@
 			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
 			<!--Start menu-->
-			<style>
-	.invisible {
-		visibility: hidden;
-	}
+			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
 
-	.overlay {
-		position: fixed;
-		width: 0;
-		height: 100%;
-		top: 0;
-		right: 0;
-		background-color: rgba(0, 0, 0, 0.9);
-		z-index: 2;
-		letter-spacing: normal;
-		overflow-x: hidden;
-		transition: 0.5s;
-	}
+				<div class="menu-overlay__content">
+					<!---->
 
-	.overlay-content {
-		position: relative;
-		top: 25%;
-		width: 100%;
-		text-align: center;
-		margin-top: 30px;
-	}
+					<li class="menu-overlay__item">
+						<a href="/" target="">Home</a>
+					</li>
 
-	.overlay li {
-		list-style: none;
-	}
+					<!---->
 
-	.overlay a {
-		padding: 8px;
-		text-decoration: none;
-		font-size: 36px;
-		color: #818181;
-		display: block;
-		transition: 0.3s;
-	}
+					<!---->
 
-	.overlay a:hover,
-	.overlay a:focus {
-		color: #f1f1f1;
-		background-color: #222;
-		border: 1px solid red;
-		border-style: dashed;
-	}
+					<li class="menu-overlay__item">
+						<a href="/blog" target="_self">Blog</a>
+					</li>
 
-	.overlay .close-button {
-		position: absolute;
-		top: 20px;
-		right: 45px;
-		font-size: 60px;
-	}
-</style>
+					<!---->
 
-<div id="main-nav" aria-label="Main navigation" class="overlay invisible" tabindex="-1">
-	<a href="#" id="close-button" class="close-button" aria-label="Close menu" title="Close menu">&times;</a>
+					<!---->
 
-	<div class="overlay-content">
-		<a href="/">Home</a>
+					<li class="menu-overlay__item">
+						<a href="/categories" target="_self">Categories</a>
+					</li>
 
-		
-		<li class="pure-menu-item">
-			<a href="/posts">Archive</a>
-		</li>
-		
-		<li class="pure-menu-item">
-			<a href="/tags">Tags</a>
-		</li>
-		
-		<li class="pure-menu-item">
-			<a href="/search">Search</a>
-		</li>
-		
-		<li class="pure-menu-item">
-			<a href="/pages/my-public-projects">Projects</a>
-		</li>
-		
-		<li class="pure-menu-item">
-			<a href="/pages/about">About Me</a>
-		</li>
-		
-		<li class="pure-menu-item">
-			<a href="/rss.xml">RSS</a>
-		</li>
-		
-	</div>
-</div>
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/tags" target="_self">Tags</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/search" target="_self">Search</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/my-public-projects" target="_self">Projects</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/about-me" target="_self">About Me</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/sitemap" target="_self">Sitemap</a>
+					</li>
+
+					<!---->
+				</div>
+			</div>
 
 			<!--End menu-->
 
 			<!--Start masthead-->
-			<style>
-	/* SITE HEADER */
-	.site-header {
-		background: rgb(61, 79, 93);
-		color: #fff;
-	}
+			<!-- Start #masthead -->
 
-	.sidebar {
-		margin: 1em;
-	}
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="background-image: url(/content/uploads/images/white-graffiti-on-chalkboard-ca40b0890b4997a9.jpg)"
+			>
+				<div class="site-header__overlay"></div>
 
-	.site-title,
-	.site-description {
-		margin: 0;
-		line-height: 1.2;
-	}
+				<!-- Start .site-header__content -->
+				<div class="site-header__content">
+					<div class="site-header__branding">
+						<h1 class="site-header__title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-header__description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
 
-	.site-title a {
-		color: #fff;
-		text-decoration: none;
-	}
-
-	.site-title a:hover,
-	.site-title a:focus {
-		text-decoration: underline;
-	}
-
-	.site-description {
-		font-weight: 300;
-		color: rgb(176, 202, 219);
-		margin: 0.5em 0 2em 0;
-	}
-
-	/* MENU BUTTON */
-	.nav-list {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-
-	.nav-item {
-		display: inline-block;
-	}
-
-	.nav-item a {
-		background: black;
-		border: 2px solid rgb(176, 202, 219);
-		border-radius: 2px;
-		color: #fff;
-		padding: 0.5em 1em;
-		margin-top: 1em;
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
-		font-size: 85%;
-	}
-
-	.nav-item a:hover,
-	.nav-item a:focus {
-		border: 2px solid rgb(61, 146, 201);
-		text-decoration: none;
-	}
-
-	.nav-item a svg {
-		fill: aliceblue;
-		vertical-align: bottom;
-		padding: 4px 0 2px;
-	}
-
-	@media screen and (max-width: 35.5em) {
-		.nav-item a svg {
-			padding-top: 14px;
-		}
-	}
-
-	@media screen and (min-width: 35.5em) and (max-width: 48em) {
-		.nav-item a svg {
-			padding-top: 12px;
-		}
-	}
-
-	@media screen and (min-width: 48em) and (max-width: 63.938em) {
-		.nav-item a svg {
-			padding-top: 10px;
-		}
-	}
-
-	/* more then 1023px an less then 1024px */
-	@media (max-width: 63.969em) {
-		.site-header.bio {
-			background-image: none !important;
-		}
-		.nav {
-			position: fixed;
-			top: 15px;
-			right: 10px;
-			z-index: 1;
-		}
-	}
-
-	@media (min-width: 64em) {
-		.site-header {
-			position: fixed;
-			top: 0;
-			bottom: 0;
-			overflow-y: auto;
-		}
-
-		.site-header.bio {
-			background-repeat: no-repeat;
-			background-position: top;
-			background-size: cover;
-		}
-
-		.site-header.bio .site-header-overlay {
-			position: fixed;
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: rgba(0, 0, 0, 0.6);
-		}
-
-		/* The emerging W3C standard
- that is currently Firefox-only */
-		.site-header {
-			scrollbar-width: thin;
-		}
-
-		/* Works on Chrome/Edge/Safari */
-		.site-header::-webkit-scrollbar {
-			width: 7px;
-		}
-
-		.site-header::-webkit-scrollbar-track {
-			background: #313d48;
-		}
-
-		.site-header::-webkit-scrollbar-thumb {
-			background-color: #81898f;
-		}
-
-		.sidebar {
-			margin: 10% 2em;
-			text-align: left;
-		}
-
-		.site-header.bio .sidebar {
-			position: sticky;
-		}
-	}
-</style>
-
-<!-- Start #masthead -->
-
-<header id="masthead" class="site-header unit-1 unit-lg-2-5 bio" style="background-image: url(/static/images/white-graffiti-on-chalkboard.jpg)">
-	
-
-			<div class="site-header-overlay"></div>
-			<!-- Start .sidebar-->
-			<div class="sidebar">
-				<div class="site-branding">
-					<h1 class="site-title">
-						<a href="/">{ LebCit } </a>
-					</h1>
-					<p class="site-description">Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</p>
+					<nav id="nav" class="site-header__nav" aria-label="MENU">
+						<ul class="site-header__nav-list">
+							<li class="site-header__nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewBox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
 				</div>
+				<!-- End .site-header__content -->
+			</header>
 
-				<!-- Menu button start -->
-				<nav id="nav" class="nav" aria-label="MENU">
-					<ul class="nav-list">
-						<li class="nav-item">
-							<a
-								id="menu-button"
-								aria-controls="main-nav"
-								aria-haspopup="true"
-								tabindex="0"
-								role="button"
-							>
-								<span>MENU</span>
-								<span class="menu-icon" aria-hidden="true">
-									<svg
-										version="1.1"
-										x="0px"
-										y="0px"
-										width="30px"
-										height="30px"
-										viewbox="0 0 30 30"
-										enable-background="new 0 0 30 30"
-									>
-										<rect width="30" height="5" />
-										<rect y="24" width="30" height="5" />
-										<rect y="12" width="30" height="5" />
-									</svg>
-								</span>
-							</a>
-						</li>
-					</ul>
-				</nav>
-				<!-- Menu button end -->
-			</div>
-			<!-- End .sidebar-->
-		</header>
-		<!-- End #masthead-->
+			<!-- End #masthead -->
 
 			<!--End masthead-->
 
 			<!--Start content-->
 			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				
-				<!-- TAGS ROUTE -->
-				<main class="single-post">
-					<!-- Start Tag(s) Listing -->
-					<style>
-	.tags {
-		list-style: none;
-	}
+				<main class="article-view">
+					<!--This is a custom page (categories.html or tags.html) to list available taxonomies.-->
+					<h1>All Tags</h1>
 
-	.tag__link {
-		padding: 5px 5px 0;
-		transition: 0.3s;
-		text-decoration: none;
-		color: #ee4266;
-	}
+					<ul class="tags-list">
+						<li class="tag-list-item">
+							<a href="/tag/accessibility" class="tag-link">accessibility</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-	.tag__link:focus,
-	.tag__link:hover {
-		color: black;
-		box-shadow: inset 0 -1.3em 0 0 #ee4266;
-	}
-	@media screen and (min-width: 64em) {
-		.tag__link {
-			font-size: 2em;
-		}
-	}
-</style>
+						<li class="tag-list-item">
+							<a href="/tag/admin-bar" class="tag-link">admin-bar</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<h1>A list of all the tags 🏷️</h1>
+						<li class="tag-list-item">
+							<a href="/tag/admin-ui" class="tag-link">admin-ui</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
+						<li class="tag-list-item">
+							<a href="/tag/administration" class="tag-link">administration</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/AST">AST (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/api-wrapper" class="tag-link">api-wrapper</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Administration">Administration (2 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/apps-script" class="tag-link">apps-script</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Apps-Script">Apps-Script (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/ast" class="tag-link">ast</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Blog-Doc">Blog-Doc (7 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/automation" class="tag-link">automation</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/CMS">CMS (5 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/backend" class="tag-link">backend</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/CSP">CSP (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/best-practices" class="tag-link">best-practices</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/CSS">CSS (2 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/blog" class="tag-link">blog</a>
+							<span class="post-count">(2 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Copyright">Copyright (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/blog-development" class="tag-link">blog-development</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Customizer">Customizer (3 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/blog-doc" class="tag-link">blog-doc</a>
+							<span class="post-count">(8 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Developer-Guide">Developer-Guide (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/blogging" class="tag-link">blogging</a>
+							<span class="post-count">(2 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Development">Development (25 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/cache" class="tag-link">cache</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Documentation">Documentation (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/clean-blog" class="tag-link">clean-blog</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Dynamic-Content">Dynamic-Content (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/cloud-hosting" class="tag-link">cloud-hosting</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/EJS">EJS (7 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/cms" class="tag-link">cms</a>
+							<span class="post-count">(5 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Eta">Eta (3 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/conditional-dropdowns" class="tag-link">conditional-dropdowns</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Express">Express (5 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/csp" class="tag-link">csp</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Framework">Framework (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/css" class="tag-link">css</a>
+							<span class="post-count">(2 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Frontmatter">Frontmatter (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/css-generator" class="tag-link">css-generator</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Google-Forms">Google-Forms (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/custom-css" class="tag-link">custom-css</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Google-Sheets">Google-Sheets (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/customizer" class="tag-link">customizer</a>
+							<span class="post-count">(3 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Hono">Hono (2 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/data-querying" class="tag-link">data-querying</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/JavaScript">JavaScript (13 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/dependencies" class="tag-link">dependencies</a>
+							<span class="post-count">(2 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/LiteNode">LiteNode (6 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/design" class="tag-link">design</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Markdown">Markdown (5 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/desktop-apps" class="tag-link">desktop-apps</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Markdown-Editor">Markdown-Editor (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/deta" class="tag-link">deta</a>
+							<span class="post-count">(2 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Markdown-Previewer">Markdown-Previewer (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/developer-tools" class="tag-link">developer-tools</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Marked">Marked (4 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/development-tips" class="tag-link">development-tips</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Modules">Modules (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/documentation" class="tag-link">documentation</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Node.js">Node.js (17 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/dry" class="tag-link">dry</a>
+							<span class="post-count">(2 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Nonce">Nonce (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/dynamic-title" class="tag-link">dynamic-title</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Plugin">Plugin (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/editor" class="tag-link">editor</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Programming">Programming (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/ejs" class="tag-link">ejs</a>
+							<span class="post-count">(6 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Query-Language">Query-Language (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/eta" class="tag-link">eta</a>
+							<span class="post-count">(3 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Router">Router (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/express" class="tag-link">express</a>
+							<span class="post-count">(6 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/SSG">SSG (5 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/faq-design" class="tag-link">faq-design</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/STE">STE (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/footer" class="tag-link">footer</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Theme">Theme (3 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/frontend" class="tag-link">frontend</a>
+							<span class="post-count">(3 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Tips-and-Tricks">Tips-and-Tricks (10 posts)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/full-screen" class="tag-link">full-screen</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Toolbar">Toolbar (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/google" class="tag-link">google</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Tutorial">Tutorial (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/google-forms" class="tag-link">google-forms</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Web-Application">Web-Application (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/google-sheets" class="tag-link">google-sheets</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Web-Development">Web-Development (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/google-visualization-api" class="tag-link">google-visualization-api</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Web-Server">Web-Server (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/google-workspace" class="tag-link">google-workspace</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-<ul class="tags">
-	<li class="tag">
-		<a class="tag__link" href="/tags/Wrapper">Wrapper (1 post)</a>
-	</li>
-</ul>
+						<li class="tag-list-item">
+							<a href="/tag/helmet" class="tag-link">helmet</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
+						<li class="tag-list-item">
+							<a href="/tag/hono" class="tag-link">hono</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
 
-					<!-- End Tag(s) Listing -->
+						<li class="tag-list-item">
+							<a href="/tag/html" class="tag-link">html</a>
+							<span class="post-count">(2 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/integration" class="tag-link">integration</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/javascript" class="tag-link">javascript</a>
+							<span class="post-count">(13 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/lightweight" class="tag-link">lightweight</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/lightweight-css" class="tag-link">lightweight-css</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/litenode" class="tag-link">litenode</a>
+							<span class="post-count">(6 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/live-preview" class="tag-link">live-preview</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/markdown" class="tag-link">markdown</a>
+							<span class="post-count">(10 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/minimalist-design" class="tag-link">minimalist-design</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/no-javascript" class="tag-link">no-javascript</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/nodejs" class="tag-link">nodejs</a>
+							<span class="post-count">(20 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/open-source" class="tag-link">open-source</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/page-visibility-api" class="tag-link">page-visibility-api</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/performance" class="tag-link">performance</a>
+							<span class="post-count">(3 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/personal-journey" class="tag-link">personal-journey</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/plugin-development" class="tag-link">plugin-development</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/responsive-design" class="tag-link">responsive-design</a>
+							<span class="post-count">(3 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/router" class="tag-link">router</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/routing" class="tag-link">routing</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/search-plugin" class="tag-link">search-plugin</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/server-to-client-data" class="tag-link">server-to-client-data</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/simple" class="tag-link">simple</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/simplicity" class="tag-link">simplicity</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/ssg" class="tag-link">ssg</a>
+							<span class="post-count">(6 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/static-site" class="tag-link">static-site</a>
+							<span class="post-count">(4 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/ste" class="tag-link">ste</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/tabler" class="tag-link">tabler</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/target" class="tag-link">target</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/template-engine" class="tag-link">template-engine</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/templates" class="tag-link">templates</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/templating" class="tag-link">templating</a>
+							<span class="post-count">(2 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/theme" class="tag-link">theme</a>
+							<span class="post-count">(2 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/theme-customization" class="tag-link">theme-customization</a>
+							<span class="post-count">(2 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/theme-development" class="tag-link">theme-development</a>
+							<span class="post-count">(2 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/themes" class="tag-link">themes</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/thunderbird" class="tag-link">thunderbird</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/toolbar" class="tag-link">toolbar</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/tutorial" class="tag-link">tutorial</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/typography" class="tag-link">typography</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/ui" class="tag-link">ui</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/ui-ux" class="tag-link">ui-ux</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/ux" class="tag-link">ux</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/web-development" class="tag-link">web-development</a>
+							<span class="post-count">(2 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/web-framework" class="tag-link">web-framework</a>
+							<span class="post-count">(2 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/web-security" class="tag-link">web-security</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/web-tools" class="tag-link">web-tools</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/web-tricks" class="tag-link">web-tricks</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/wordpress" class="tag-link">wordpress</a>
+							<span class="post-count">(7 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/wp-add-inline-style" class="tag-link">wp-add-inline-style</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+
+						<li class="tag-list-item">
+							<a href="/tag/wp-api" class="tag-link">wp-api</a>
+							<span class="post-count">(1 posts)</span>
+							<!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+							<!--#each posts...-->
+						</li>
+					</ul>
+
+					<!---->
 				</main>
-				
 			</div>
 			<!--End content-->
 
 			<!--Start footer-->
-			<style>
-	.site-footer {
-		text-align: center;
-		padding-top: 2em;
-	}
-	@media (min-width: 64em) {
-		.site-footer {
-			padding: 2em 3em;
-			margin-left: 40%;
-		}
-	}
-</style>
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2025 { LebCit }</strong>
 
-<footer id="colophon" class="site-footer unit-1">
-	<style>
-	/* more then 1023px an less then 1024px */
-	@media (max-width: 63.969em) {
-		.hide {
-			display: none;
-		}
-	}
-</style>
-
-<!--Dynamic Markup Separator-->
-
-
-<!--Dynamic Markup Separator-->
-
-
-<!--Dynamic Markup Separator-->
-
-
-<!--Dynamic Markup Separator-->
-
-<p class="post-content hide">
-	<em>
-		Note: The
-		<a href="https://unsplash.com/photos/u4hdPI0lVGE">background photo</a>
-		is by
-		<a href="https://unsplash.com/@jontyson">Jon Tyson</a>
-	</em>
-</p>
-
-
-<!--Dynamic Markup Separator-->
-
-
-
-	<div id="site-info" class="site-info">
-		<p>
-			<strong>2016 - 2025 | { LebCit } </strong>
-			<br />
-			Proudly created with <a href='https://github.com/LebCit/blog-doc'>Blog-Doc</a>
-		</p>
-	</div>
-</footer>
+						<br />
+						<!-- Custom Footer Code -->
+						Content in Motion. Powered by Aether.
+					</p>
+				</div>
+			</footer>
 
 			<!--End footer-->
 		</div>
 		<!--End page-->
 
-		
+		<script
+			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
+			onload="hljs.highlightAll()"
+		></script>
 
-		<script type="module" src="/static/scripts/themes/midday/midday-scripts.js"></script>
+		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
 	</body>
 </html>

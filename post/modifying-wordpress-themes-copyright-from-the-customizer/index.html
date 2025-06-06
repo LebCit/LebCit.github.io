@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="A step-by-step guide to adding a Customizer option for footer copyright in WordPress - full code in functions.php included."
+		/>
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+
+		<!--Site icon-->
+
+		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
+
+		<!--Title-->
+		<title>Modifying WordPress theme's copyright from the Customizer | { LebCit }</title>
+
+		<!--Stylesheets-->
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
+
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+	</head>
+
+	<body>
+		<!--Start page-->
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+			<!--Start menu-->
+			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
+
+				<div class="menu-overlay__content">
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/" target="">Home</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/blog" target="_self">Blog</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/categories" target="_self">Categories</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/tags" target="_self">Tags</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/search" target="_self">Search</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/my-public-projects" target="_self">Projects</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/about-me" target="_self">About Me</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/sitemap" target="_self">Sitemap</a>
+					</li>
+
+					<!---->
+				</div>
+			</div>
+
+			<!--End menu-->
+
+			<!--Start masthead-->
+			<!-- Start #masthead -->
+
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="
+					background-image: url(/content/uploads/images/copyright-word-under-magnifying-glass-45966b0e6d3d39ba.webp);
+				"
+			>
+				<div class="site-header__overlay"></div>
+
+				<!-- Start .site-header__content -->
+				<div class="site-header__content">
+					<div class="site-header__branding">
+						<h1 class="site-header__title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-header__description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
+
+					<nav id="nav" class="site-header__nav" aria-label="MENU">
+						<ul class="site-header__nav-list">
+							<li class="site-header__nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewBox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<!-- End .site-header__content -->
+			</header>
+
+			<!-- End #masthead -->
+
+			<!--End masthead-->
+
+			<!--Start content-->
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main class="article-view">
+					<!--The page to display the Markdown content of posts and pages.-->
+					<header class="post-header">
+						<h1 class="post-title">Modifying WordPress theme's copyright from the Customizer</h1>
+
+						<div class="post-meta">
+							<div class="post-date-wrapper">
+								<span>Posted:</span>
+								<time class="post-date" datetime="2025-06-03T06:33:43.434Z"> 2020-05-21 </time>
+
+								<span class="separator">|</span>
+								<span>Updated:</span>
+								<time class="post-updated-date" datetime="2025-06-04T16:23:40.669Z"> 2025-06-04 </time>
+							</div>
+
+							<div class="taxonomy-group">
+								<span>Category:</span>
+								<span class="post-category">
+									<a href="/category/wordpress">wordpress</a>
+								</span>
+							</div>
+
+							<!---->
+
+							<div class="taxonomy-group post-tags-group">
+								<span>Tagged:</span>
+
+								<a class="post-tag" href="/tag/wordpress">wordpress</a>
+
+								<a class="post-tag" href="/tag/customizer">customizer</a>
+
+								<a class="post-tag" href="/tag/theme-customization">theme-customization</a>
+
+								<a class="post-tag" href="/tag/footer">footer</a>
+							</div>
+						</div>
+					</header>
+
+					<div class="article-content">
+						<p>
+							<em
+								>A step-by-step guide to adding a Customizer option for footer copyright in WordPress -
+								full code in functions.php included.</em
+							>
+						</p>
+
+						<!--Content-->
+						<p>
+							One of the most asked question by new WordPress users is:
+							<strong>&quot;how to change the copyright?&quot;</strong>.<br />They don&#39;t want a label
+							of any kind on their site and that&#39;s totally comprehensible.<br />In this post, I&#39;ll
+							be talking of my own sauce to give users the ability to remove or modify the copyright
+							without touching one line of code!
+						</p>
+						<p>
+							If you are new to the Customizer, don&#39;t be afraid, I was too a long time ago...<br />So
+							in this post I&#39;ll show you a technique to control the copyright of WordPress, generally
+							displayed in the footer of a theme, from the Customizer.<br />You can use it in your own
+							theme to give your users a clean and easy way to modify the footer copyright, or use it in a
+							child theme to modify the footer copyright of the parent theme that you are using.
+						</p>
+						<h2>1- Replace the footer copyright by a function</h2>
+
+						<p>
+							First of all select the part that should be modified. Generally speaking, it&#39;s a
+							sentence like: &quot;<em>Proudly powered by WordPress, Theme: theme-name by theme-author</em
+							>&quot;. I&#39;m going to take the generated footer by
+							<a href="https://underscores.me/">_s</a> (underscores) as an example for this task. Looking
+							inside the <strong>footer.php</strong>, we can see a code like this:
+						</p>
+						<pre><code class="language-php">&lt;footer id=&quot;colophon&quot; class=&quot;site-footer&quot;&gt;
+    &lt;div class=&quot;site-info&quot;&gt;
+        &lt;a href=&quot;&lt;?php echo esc_url( __( &#39;https://wordpress.org/&#39;, &#39;midday&#39; ) ); ?&gt;&quot;&gt;
+            &lt;?php
+            /* translators: %s: CMS name, i.e. WordPress. */
+            printf( esc_html__( &#39;Proudly powered by %s&#39;, &#39;midday&#39; ), &#39;WordPress&#39; );
+            ?&gt;
+        &lt;/a&gt;
+        &lt;span class=&quot;sep&quot;&gt; | &lt;/span&gt;
+            &lt;?php
+            /* translators: 1: Theme name, 2: Theme author. */
+            printf( esc_html__( &#39;Theme: %1$s by %2$s.&#39;, &#39;midday&#39; ), &#39;midday&#39;, &#39;&lt;a href=&quot;https://github.com/LebCit&quot;&gt;LebCit&lt;/a&gt;&#39; );
+            ?&gt;
+    &lt;/div&gt;&lt;!-- .site-info --&gt;
+&lt;/footer&gt;&lt;!-- #colophon --&gt;
+</code></pre>
+						<p>Here, we are interested with the code inside</p>
+						<pre><code class="language-html">&lt;div class=&quot;site-info&quot;&gt;&lt;/div&gt;
+</code></pre>
+						<p>
+							so let&#39;s cut it, paste it somewhere else (like notepad), and replace it by a
+							<code>php</code> function.<br />The code should now be like the following:
+						</p>
+						<pre><code class="language-php">&lt;footer id=&quot;colophon&quot; class=&quot;site-footer&quot;&gt;
+    &lt;div id=&quot;site-info&quot; class=&quot;site-info&quot;&gt;
+        &lt;?php midday_site_info(); ?&gt;
+    &lt;/div&gt;&lt;!-- .site-info --&gt;
+&lt;/footer&gt;&lt;!-- #colophon --&gt;
+</code></pre>
+						<p>
+							You can name the function whatever you like, but be sure to replace any name modification
+							according to the changes you have made in the wright place in the code.<br />Please note
+							that I&#39;ve added an <code>&lt;id=&quot;site-info&quot;&gt;</code> this will be used in
+							the Customizer.
+						</p>
+						<h2>2- Put the footer copyright in functions.php</h2>
+
+						<p>
+							Now we have to connect this <code>midday_site_info()</code> function with the block of code
+							previously pasted elsewhere.<br />In the
+							<a href="https://codex.wordpress.org/Functions_File_Explained">functions.php</a> file of
+							your theme or your child theme, put this code, I&#39;ll explain it just after:
+						</p>
+						<pre><code class="language-php">/**
+ * Output the theme&#39;s copyright depending on user&#39;s choice.
+ */
+function midday_site_info() {
+    $midday_footer_copyright_area_checkbox = get_theme_mod( &#39;midday_footer_copyright_area_checkbox&#39;, true );
+    $midday_custom_copyright_textarea      = get_theme_mod( &#39;midday_custom_copyright_textarea&#39;, &#39;&#39; );
+    if ( ! empty( $midday_footer_copyright_area_checkbox ) ) :
+            $html  = &#39;&lt;a href=&quot;&#39; . esc_url( &#39;https://wordpress.org/&#39; ) . &#39;&quot;&gt;&#39; . esc_html( &#39;Proudly powered by WordPress&#39; ) . &#39;&lt;/a&gt;&#39;;
+            $html .= &#39;&lt;span class=&quot;sep&quot;&gt; | &lt;/span&gt;&#39;;
+            $html .= esc_html( &#39;Theme: MidDay by &#39; ) . &#39;&lt;a href=&quot;&#39; . esc_url( &#39;https://lebcit.github.io/&#39; ) . &#39;&quot;&gt;&#39; . esc_html( &#39;LebCit&#39; ) . &#39;&lt;/a&gt;&#39;;
+            echo wp_kses(
+                $html,
+                array(
+                    &#39;a&#39;  =&gt; array(
+                        &#39;href&#39; =&gt; array(),
+                    ),
+                    &#39;span&#39;  =&gt; array(
+                        &#39;class&#39; =&gt; array(),
+                    ),
+                )
+            );
+    elseif ( empty( $midday_footer_copyright_area_checkbox ) &amp;&amp; ! empty( $midday_custom_copyright_textarea ) ) :
+        echo wp_kses_post( $midday_custom_copyright_textarea ); // Allow html.
+    endif;
+}
+</code></pre>
+						<p>
+							What in the hell is this?<br />It&#39;s nothing 😂 it&#39;s just the same pasted elsewhere
+							code in PHP with some variables and an <code>if/elseif</code> statement to take care of the
+							user&#39;s choice.
+						</p>
+						<p>
+							Inside the function, I&#39;ve defined 2 variables. Each one is related to a
+							<code>theme_mod</code> (theme modification) that we will create and explain in a moment.
+						</p>
+						<p>
+							I&#39;ve opened an <code>if</code> statement saying:<br /><em
+								>if the first variable (remember it&#39;s related to a <code>theme_mod</code>, yes
+								it&#39;s a checkbox)</em
+							>
+							😉
+							<em
+								>is not empty (so it have a check tick, it&#39;s checked) please populate the copyright
+								with the following code</em
+							>. The code here is pretty easy to understand. I&#39;ve defined an
+							<code>$html</code> variable replicating the pasted elsewhere code, then I&#39;ve asked PHP
+							to echo this code using
+							<a href="https://developer.wordpress.org/reference/functions/wp_kses/">wp_kses</a> filtering
+							the text content and striping out disallowed HTML.
+						</p>
+						<p>
+							In other words:<br /><em
+								>hey <code>wp_kses</code>, please echo the defined <code>$html</code> variable, and
+								please allow it to only have <code>a</code> tag with <code>href</code> attribute and
+								<code>span</code> tag with <code>class</code> attribute, thank you very much</em
+							>
+							😊
+						</p>
+						<p>
+							After that, I&#39;ve opened an <code>elseif</code> statement saying:<br /><em
+								>okay, if the first variable is empty (the checkbox is not checked) and the second
+								variable (a text area) is not empty, please populate the copyright with the content of
+								the text area allowing the user to use HTML inside it with</em
+							>
+							<a href="https://developer.wordpress.org/reference/functions/wp_kses_post/">wp_kses_post</a>
+							<em
+								>that will keep an eye and make sure the user type allowed HTML only, that&#39;s it
+								I&#39;ve nothing more to ask so please close the if statement with this
+								<code>endif;</code></em
+							>
+						</p>
+						<h2>3- Create settings and controls in the Customizer</h2>
+
+						<p>
+							Do you remember the 2 previous variables?<br />They where related to theme&#39;s
+							modifications.<br />It&#39;s time to create those <code>theme_mod</code> and test our
+							code.<br />To keep the functions.php file clean, we will put the following in a
+							customizer.php file if you don&#39;t have one already. Yous just have to require it from
+							functions.php like so:
+						</p>
+						<pre><code class="language-php">require get_template_directory() . &#39;/inc/customizer.php&#39;;
+</code></pre>
+						<p>
+							Please note that in this example the file is in a folder named inc (for includes) at the
+							root of the theme or the child theme, you can change this but be sure to indicate the
+							correct path.<br />Now, put the following in customizer.php, let&#39;s see the code and
+							explain it later:
+						</p>
+						<pre><code class="language-php">function midday_customize_register( $wp_customize ) {
+    /**
+     * MidDay Theme Panel
+     */
+    $wp_customize-&gt;add_panel(
+        &#39;midday_panel&#39;,
+        array(
+            &#39;title&#39;       =&gt; __( &#39;MidDay Theme&#39;, &#39;midday&#39; ),
+            &#39;description&#39; =&gt; esc_html__( &#39;Customize MidDay Theme&#39;, &#39;midday&#39; ),
+            &#39;priority&#39;    =&gt; 0,
+        )
+    );
+
+    /**
+     * Footer Copyright Area Section.
+     */
+    $wp_customize-&gt;add_section(
+        &#39;midday_footer_copyright_area_section&#39;,
+        array(
+            &#39;title&#39;       =&gt; esc_html__( &#39;Footer Copyright Area&#39;, &#39;midday&#39; ),
+            &#39;description&#39; =&gt; __( &#39;Modify &lt;b&gt;Footer Copyright Area&lt;/b&gt;.&#39;, &#39;midday&#39; ),
+            &#39;panel&#39;       =&gt; &#39;midday_panel&#39;,
+            &#39;priority&#39;    =&gt; 15,
+        )
+    );
+
+    // Default copyright.
+    $wp_customize-&gt;add_setting(
+        &#39;midday_footer_copyright_area_checkbox&#39;,
+        array(
+            &#39;default&#39;           =&gt; true,
+            &#39;transport&#39;         =&gt; &#39;postMessage&#39;,
+            &#39;sanitize_callback&#39; =&gt; &#39;midday_sanitize_checkbox&#39;,
+        )
+    );
+
+    $wp_customize-&gt;add_control(
+        &#39;midday_footer_copyright_area_checkbox&#39;,
+        array(
+            &#39;label&#39;       =&gt; __( &#39;Enable/Disable Default Copyright.&#39;, &#39;midday&#39; ),
+            &#39;description&#39; =&gt; __( &#39;This checkbox, once &lt;b&gt;unchecked&lt;/b&gt;,&lt;br&gt;removes &lt;b&gt;Default Copyright.&lt;/b&gt;&#39;, &#39;midday&#39; ),
+            &#39;section&#39;     =&gt; &#39;midday_footer_copyright_area_section&#39;,
+            &#39;type&#39;        =&gt; &#39;checkbox&#39;,
+        )
+    );
+
+    $wp_customize-&gt;selective_refresh-&gt;add_partial(
+        &#39;midday_footer_copyright_area_checkbox&#39;,
+        array(
+            &#39;selector&#39;        =&gt; &#39;#site-info&#39;,
+            &#39;settings&#39;        =&gt; array( &#39;midday_footer_copyright_area_checkbox&#39; ),
+            &#39;render_callback&#39; =&gt; &#39;midday_site_info&#39;,
+        )
+    );
+
+    // Custom copyright.
+    $wp_customize-&gt;add_setting(
+        &#39;midday_custom_copyright_textarea&#39;,
+        array(
+            &#39;default&#39;           =&gt; &#39;&#39;,
+            &#39;transport&#39;         =&gt; &#39;postMessage&#39;,
+            &#39;sanitize_callback&#39; =&gt; &#39;wp_kses_post&#39;, // Allow html.
+        )
+    );
+
+    $wp_customize-&gt;add_control(
+        &#39;midday_custom_copyright_textarea&#39;,
+        array(
+            &#39;label&#39;       =&gt; esc_html__( &#39;Custom Copyright Textarea&#39;, &#39;midday&#39; ),
+            &#39;description&#39; =&gt; __( &#39;To display a &lt;b&gt;Custom Copyright&lt;/b&gt;,&lt;br&gt;&lt;b&gt;uncheck&lt;/b&gt; the &lt;b&gt;Default Copyright&lt;/b&gt; checkbox,&lt;br&gt;then type a custom copyright in the textarea.&lt;br&gt;&lt;b&gt;HTML&lt;/b&gt; is allowed!&#39;, &#39;midday&#39; ),
+            &#39;section&#39;     =&gt; &#39;midday_footer_copyright_area_section&#39;,
+            &#39;type&#39;        =&gt; &#39;textarea&#39;,
+            &#39;input_attrs&#39; =&gt; array(
+                &#39;style&#39;       =&gt; &#39;border: 1px solid #999&#39;,
+                &#39;placeholder&#39; =&gt; __( &#39;Enter Custom Copyright...&#39;, &#39;midday&#39; ),
+            ),
+        )
+    );
+
+    $wp_customize-&gt;selective_refresh-&gt;add_partial(
+        &#39;midday_custom_copyright_textarea&#39;,
+        array(
+            &#39;selector&#39;        =&gt; &#39;#site-info&#39;,
+            &#39;settings&#39;        =&gt; array( &#39;midday_custom_copyright_textarea&#39; ),
+            &#39;render_callback&#39; =&gt; &#39;midday_site_info&#39;,
+        )
+    );
+
+}
+add_action( &#39;customize_register&#39;, &#39;midday_customize_register&#39; );
+</code></pre>
+						<p>
+							Don&#39;t panic, it&#39;s pretty straightforward!<br />Let&#39;s break it down and
+							you&#39;ll see.
+						</p>
+						<pre><code class="language-php">function mytheme_customize_register( $wp_customize )
+{
+    //All our sections, settings, and controls will be added here
+}
+add_action( &#39;customize_register&#39;, &#39;mytheme_customize_register&#39; );
+</code></pre>
+						<p>
+							This is how we hook a function to the
+							<a href="https://codex.wordpress.org/Plugin_API/Action_Reference/customize_register"
+								>&#39;customize_register&#39;</a
+							>
+							action and put inside it our panels, sections, settings and controls.<br />Looking at our
+							code, you can now understand that I&#39;ve created a panel, a section, 2 settings and their
+							2 related controls.<br />I&#39;m not going to dive into the Customizer, but if you&#39;re
+							not familiar with it, a good start would be this
+							<a
+								href="https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1/"
+								>excellent guide</a
+							>
+							by Anthony Hortin.<br />Instead, I&#39;m going to explain a more important aspect here. If
+							you take a good look at the code, you&#39;ll see something else under each control:
+						</p>
+						<pre><code class="language-php">$wp_customize-&gt;selective_refresh-&gt;add_partial
+</code></pre>
+						<p>
+							What is this and what does it do?<br />Well, look closer and you&#39;ll figure it out
+							yourself 😂<br />
+							Just kidding, but in fact it&#39;s really clear.<br />Let&#39;s take one setting it&#39;s
+							control and the related selective_refresh:
+						</p>
+						<pre><code class="language-php">// Default copyright.
+$wp_customize-&gt;add_setting(
+    &#39;midday_footer_copyright_area_checkbox&#39;,
+    array(
+        &#39;default&#39;           =&gt; true,
+        &#39;transport&#39;         =&gt; &#39;postMessage&#39;,
+        &#39;sanitize_callback&#39; =&gt; &#39;midday_sanitize_checkbox&#39;,
+    )
+);
+
+$wp_customize-&gt;add_control(
+    &#39;midday_footer_copyright_area_checkbox&#39;,
+    array(
+        &#39;label&#39;       =&gt; __( &#39;Enable/Disable Default Copyright.&#39;, &#39;midday&#39; ),
+        &#39;description&#39; =&gt; __( &#39;This checkbox, once &lt;b&gt;unchecked&lt;/b&gt;,&lt;br&gt;removes &lt;b&gt;Default Copyright.&lt;/b&gt;&#39;, &#39;midday&#39; ),
+        &#39;section&#39;     =&gt; &#39;midday_footer_copyright_area_section&#39;,
+        &#39;type&#39;        =&gt; &#39;checkbox&#39;,
+    )
+);
+
+$wp_customize-&gt;selective_refresh-&gt;add_partial(
+    &#39;midday_footer_copyright_area_checkbox&#39;,
+    array(
+        &#39;selector&#39;        =&gt; &#39;#site-info&#39;,
+        &#39;settings&#39;        =&gt; array( &#39;midday_footer_copyright_area_checkbox&#39; ),
+        &#39;render_callback&#39; =&gt; &#39;midday_site_info&#39;,
+    )
+);
+</code></pre>
+						<p>
+							Remember the first variable?<br />Well here is it&#39;s <code>theme_mod</code>!<br />Take a
+							look at the <strong>setting</strong> name
+							<code>midday_footer_copyright_area_checkbox</code> 😉<br />The important part here is
+							<code>&#39;transport&#39; =&gt; &#39;postMessage&#39;</code>, because it tells the browser
+							not to reload, but to make the change(s) in place!<br />Another important aspect in the
+							<strong>setting</strong> is
+							<code>&#39;sanitize_callback&#39; =&gt; &#39;midday_sanitize_checkbox&#39;</code>, this is a
+							function to sanitize the checkbox, you should put it <strong>after</strong> the
+							<code>&#39;customize_register&#39;</code> action hook:
+						</p>
+						<pre><code class="language-php">if ( ! function_exists( &#39;midday_sanitize_checkbox&#39; ) ) {
+    /**
+     * Switch sanitization
+     *
+     * @param string $input Switch value.
+     * @return integer  Sanitized value
+     */
+    function midday_sanitize_checkbox( $input ) {
+        if ( false === $input ) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+}
+</code></pre>
+						<p>
+							In the <strong>control</strong>, the important part is the type of the control, as you can
+							see it&#39;s defined as checkbox, no surprise, WYaskIWYG 😂<br />For the
+							<strong>partial</strong>, the important part is the selector, it must be an <code>id</code>,
+							now you know why I&#39;ve added an <code>id</code> previously 👍<br />If you look at the
+							<code>settings</code> and the <code>render_callback</code> of the <strong>partial</strong>,
+							you&#39;ll understand that everything is related 🔗 and that we are just putting the wright
+							piece in the wright place 🧩
+						</p>
+						<p>
+							You maybe guessed it out or not, but yes I&#39;m developing a new theme called MidDay (in
+							fact I&#39;ve finished it, just some clean up remaining) and I&#39;ll submit it very soon 😁
+						</p>
+						<p>I really hope that this was helpful.</p>
+						<p class="post-content hide">
+							<em
+								>Note: The background image is a photo from
+								<a href="https://pxhere.com/en/photo/952720">PxHere</a>.</em
+							>
+						</p>
+					</div>
+
+					<nav class="post-navigation" aria-label="Post Navigation">
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Previous Post Link (only if there's a previous post) -->
+						<a
+							href="/post/get-google-products-on-desktop-with-thunderbird"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Previous: Get Google Products on Desktop with Thunderbird
+						</a>
+
+						<!--Dynamic Markup Separator-->
+
+						<!-- Next Post Link (only if there's a next post) -->
+						<a
+							href="/post/hide-wordpress-toolbar-with-wp-add-inline-style"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the next post"
+						>
+							Next: Hide WordPress Toolbar with wp_add_inline_style
+						</a>
+					</nav>
+
+					<!---->
+					<div class="related-posts">
+						<h3>You Might Also Like</h3>
+						<div>
+							<section>
+								<a href="/post/creating-a-customizer-control-with-javascript">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/screenshot-creating-a-customizer-control-with-javascript-3ed6040e75ee4dab.webp"
+										alt="Featured image for the post: Creating a Customizer control with JavaScript"
+									/>
+								</a>
+								<h4>
+									<a href="/post/creating-a-customizer-control-with-javascript"
+										>Creating a Customizer control with JavaScript</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/post/listen-for-changes-in-customizer-preview">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/ears-of-chiatto-bunny-3adc4f9e31b4110d.webp"
+										alt="Featured image for the post: Listen for Changes in Customizer Preview!"
+									/>
+								</a>
+								<h4>
+									<a href="/post/listen-for-changes-in-customizer-preview"
+										>Listen for Changes in Customizer Preview!</a
+									>
+								</h4>
+							</section>
+						</div>
+					</div>
+
+					<!---->
+				</main>
+			</div>
+			<!--End content-->
+
+			<!--Start footer-->
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2025 { LebCit }</strong>
+
+						<br />
+						<!-- Custom Footer Code -->
+						Content in Motion. Powered by Aether.
+					</p>
+				</div>
+			</footer>
+
+			<!--End footer-->
+		</div>
+		<!--End page-->
+
+		<script
+			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
+			onload="hljs.highlightAll()"
+		></script>
+
+		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+	</body>
+</html>

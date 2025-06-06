@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Create a blog using Markdown and EJS in Node.js. Parse content with gray-matter and markdown-it, and render posts with Express."
+		/>
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+
+		<!--Site icon-->
+
+		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
+
+		<!--Title-->
+		<title>Markdown blog with EJS | { LebCit }</title>
+
+		<!--Stylesheets-->
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
+
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+	</head>
+
+	<body>
+		<!--Start page-->
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+			<!--Start menu-->
+			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
+
+				<div class="menu-overlay__content">
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/" target="">Home</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/blog" target="_self">Blog</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/categories" target="_self">Categories</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/tags" target="_self">Tags</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/search" target="_self">Search</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/my-public-projects" target="_self">Projects</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/about-me" target="_self">About Me</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/sitemap" target="_self">Sitemap</a>
+					</li>
+
+					<!---->
+				</div>
+			</div>
+
+			<!--End menu-->
+
+			<!--Start masthead-->
+			<!-- Start #masthead -->
+
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="
+					background-image: url(/content/uploads/images/markdown-logo-with-white-background-ffa392cd3bbb0352.webp);
+				"
+			>
+				<div class="site-header__overlay"></div>
+
+				<!-- Start .site-header__content -->
+				<div class="site-header__content">
+					<div class="site-header__branding">
+						<h1 class="site-header__title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-header__description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
+
+					<nav id="nav" class="site-header__nav" aria-label="MENU">
+						<ul class="site-header__nav-list">
+							<li class="site-header__nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewBox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<!-- End .site-header__content -->
+			</header>
+
+			<!-- End #masthead -->
+
+			<!--End masthead-->
+
+			<!--Start content-->
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main class="article-view">
+					<!--The page to display the Markdown content of posts and pages.-->
+					<header class="post-header">
+						<h1 class="post-title">Markdown blog with EJS</h1>
+
+						<div class="post-meta">
+							<div class="post-date-wrapper">
+								<span>Posted:</span>
+								<time class="post-date" datetime="2025-06-03T11:53:03.454Z"> 2022-07-25 </time>
+
+								<span class="separator">|</span>
+								<span>Updated:</span>
+								<time class="post-updated-date" datetime="2025-06-03T20:05:49.528Z"> 2025-06-03 </time>
+							</div>
+
+							<div class="taxonomy-group">
+								<span>Category:</span>
+								<span class="post-category">
+									<a href="/category/web-development">web-development</a>
+								</span>
+							</div>
+
+							<!---->
+
+							<div class="taxonomy-group post-tags-group">
+								<span>Tagged:</span>
+
+								<a class="post-tag" href="/tag/nodejs">nodejs</a>
+
+								<a class="post-tag" href="/tag/ejs">ejs</a>
+
+								<a class="post-tag" href="/tag/express">express</a>
+
+								<a class="post-tag" href="/tag/markdown">markdown</a>
+
+								<a class="post-tag" href="/tag/blog">blog</a>
+							</div>
+						</div>
+					</header>
+
+					<div class="article-content">
+						<p>
+							<em
+								>Create a blog using Markdown and EJS in Node.js. Parse content with gray-matter and
+								markdown-it, and render posts with Express.</em
+							>
+						</p>
+
+						<!--Content-->
+						<h2>Intro</h2>
+
+						<p>
+							Writing a post content with HTML is not as easy as doing it with
+							<a href="https://daringfireball.net/projects/markdown/">Markdown</a>.<br />Since my coming
+							<a href="/post/back-to-the-roots-with-a-static-site">back to the roots whit a static site</a
+							>, I write my posts content with Markdown.<br />A little time after that, I discovered
+							<a href="/post/to-node-or-not-deta-is-the-answer">Deta Cloud</a> and was able to try
+							everything I&#39;ve learned about Node.js on a live server.<br />My favorite templating
+							language is <a href="https://ejs.co/">EJS</a>, and I wanted to create a dead simple blog by
+							combining the content of a Markdown file with an EJS template.<br />After a lot of research
+							and tries &amp; fails, I&#39;ve understood the mechanism needed to accomplish my goal.<br />I
+							found some tutorials about the subject and this tutorial is inspired by the last one I
+							stumbled on,
+							<a
+								href="https://julianterenzio.io/blog/Building%20A%20Markdown%20Blog%20App%20with%20Express%20and%C2%A0EJS"
+								>Building A Markdown Blog App with Express and EJS</a
+							>, with some improvements and all the details.
+						</p>
+						<h2>Requirements</h2>
+
+						<p>To execute our magic spell, we&#39;ll need the following packages:</p>
+						<ol>
+							<li>EJS, to template our application</li>
+							<li><a href="https://expressjs.com/">Express</a>, the web framework for Node.js</li>
+							<li>
+								<a href="https://www.npmjs.com/package/gray-matter">gray-matter</a>, to parse the front
+								matter from the Markdown files
+							</li>
+							<li>
+								<a href="https://www.npmjs.com/package/markdown-it">markdown-it</a>, to parse the
+								Markdown files content
+							</li>
+						</ol>
+						<p>To install them with one command:</p>
+						<p><code>npm i ejs express gray-matter markdown-it</code></p>
+						<h2>Server setup</h2>
+
+						<p>In your main server file, mine is <code>index.js</code>, put the following:</p>
+						<details>
+							<summary>/index.js</summary>
+
+							<pre><code class="language-js">const express = require(&quot;express&quot;)
+const app = express()
+
+// Built-in module to access and interact with the file system
+const fs = require(&quot;fs&quot;)
+// To parse front matter from Markdown files
+const matter = require(&quot;gray-matter&quot;)
+
+app.set(&quot;view engine&quot;, &quot;ejs&quot;)
+app.use(express.static(&quot;public&quot;))
+
+const getPosts = () =&gt; {
+    // Get the posts from their directory
+    const posts = fs.readdirSync(__dirname + &quot;/views/posts&quot;).filter((post) =&gt; post.endsWith(&quot;.md&quot;))
+    // Set the post content as an empty array
+    const postContent = []
+    // Inject into the post content array the front matter
+    posts.forEach((post) =&gt; {
+        postContent.push(matter.read(__dirname + &quot;/views/posts/&quot; + post))
+    })
+
+    /**
+     * 1- Return a list of posts as a two dimensional array containing for each one:
+     * . the post filename with it&#39;s extension (e.g: postFilename.md)
+     * . the post content as an object {content:&quot;Markdown content as a string&quot;, data:{front matter}, excerpt:&quot;&quot;}
+     * 2- Return each array as an object and create a Date instance from it&#39;s date front matter
+     * 3- Sort posts by publication&#39;s date in descending order (newest to oldest)
+     */
+    const postsList = posts
+        .map(function (post, i) {
+            return [post, postContent[i]]
+        })
+        .map((obj) =&gt; {
+            return { ...obj, date: new Date(obj[1].data.date) }
+        })
+        .sort((objA, objB) =&gt; Number(objB.date) - Number(objA.date))
+
+    return postsList
+}
+
+// Render the list of posts on the main route
+app.get(&quot;/&quot;, (req, res) =&gt; {
+    res.render(&quot;postsList&quot;, {
+        posts: getPosts(),
+    })
+})
+
+// Using a route parameter to render each post on a route matching it&#39;s filename
+app.get(&quot;/posts/:post&quot;, (req, res) =&gt; {
+    const postTitle = req.params.post // Get the Markdown filename
+
+    // Read the Markdown file and parse it&#39;s front matter
+    const post = matter.read(__dirname + &quot;/views/posts/&quot; + postTitle + &quot;.md&quot;)
+
+    // Convert the Markdown file content to HTML with markdown-it
+    const md = require(&quot;markdown-it&quot;)({ html: true }) // Allows HTML tags inside the Markdown file
+    const content = post.content // Read the Markdown file content
+    const html = md.render(content) // Convert the Markdown file content to HTML
+
+    // Render the postsTemplate for each post and pass it&#39;s front matter as a data object into postsTemplate
+    res.render(&quot;postsTemplate&quot;, {
+        title: post.data.title,
+        date: post.data.date,
+        postContent: html,
+    })
+})
+
+// Launching the application on port 3000
+app.listen(3000, () =&gt; {
+    console.log(`App 🚀 @ http://localhost:3000`)
+})
+</code></pre>
+						</details>
+
+						<p>
+							As you can see everything is explained in detail.<br /><em
+								>Nota bene: I&#39;m directly using the views folder as the template files location, no
+								need to declare it, Express detects it by default, and the Markdown files are under the
+								views folder inside another folder called posts</em
+							>.
+						</p>
+						<p>
+							I want to bring your attention to one particular point.<br />When we render the
+							<code>postTemplate</code> and pass the Markdown front matter and content as a data object,
+							we can add and pass as many <code>key: value</code> pair as we want, but we can&#39;t call
+							an undefined <code>key</code> inside the <code>postTemplate</code>!<br />So, if you add a
+							<code>description: my post description</code> to the front matter of the Markdown file, you
+							can&#39;t call it directly inside the <code>postTemplate</code> without adding it in the
+							data object.<br /><em
+								>Nota bene: No need to declare the <code>.ejs</code> extension for a template file,
+								Express detects it by default</em
+							>.
+						</p>
+						<h2>Rendering the frontend</h2>
+
+						<p>
+							As you have seen in <code>index.js</code>, I&#39;m rendering a list of posts on the main
+							route from a template called <code>postsList.ejs</code>. Add the following to this file:
+						</p>
+						<pre><code class="language-html">&lt;!-- /views/postsList.ejs --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+        &lt;title&gt;Home | My blog&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;
+            Welcome to my blog
+            &lt;br /&gt;
+            List of recent posts
+        &lt;/h1&gt;
+        &lt;% posts.forEach(post =&gt; { %&gt;
+        &lt;!-- Get the Markdown filename without it&#39;s extension --&gt;
+        &lt;% const postFilename = post[0].replace(/\.[^/.]+$/, &quot;&quot;) %&gt;
+        &lt;!-- Get the Markdown post title from it&#39;s front matter --&gt;
+        &lt;% const postTitle = post[1].data.title %&gt;
+        &lt;!-- Render the title as a link to the post --&gt;
+        &lt;h2&gt;&lt;a href=&quot;/posts/&lt;%= postFilename %&gt;&quot;&gt;&lt;%= postTitle%&gt;&lt;/a&gt;&lt;/h2&gt;
+        &lt;% }) %&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+						<p>
+							Now, each post has the same structure, one template file called
+							<code>postsTemplate.ejs</code>. Add the following to this one:
+						</p>
+						<pre><code class="language-html">&lt;!-- /views/postsTemplate.ejs --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+        &lt;title&gt;&lt;%= title %&gt; | My blog&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;
+        &lt;p&gt;&lt;%= date %&gt;&lt;/p&gt;
+        &lt;div&gt;&lt;%- postContent %&gt;&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+						<p>
+							Everything is in place, we can now write our posts with Markdown in the
+							<code>views</code> folder under the <code>posts</code> folder 🥳
+						</p>
+						<p>I&#39;ve created two files for you to see the output if you try it:</p>
+						<pre><code class="language-md">---
+title: My first article
+date: 2022/07/23
+---
+
+This is the content of my first article
+
+&lt;!--- /views/posts/my-first-article.md --&gt;
+</code></pre>
+						<pre><code class="language-md">---
+title: A second post
+date: 2022/07/25
+---
+
+Here goes the content of my second post
+
+&lt;!--- /views/posts/a-second-post.md --&gt;
+</code></pre>
+						<p>The app structure looks like the following tree:</p>
+						<pre><code class="language-txt">// App&#39;s structure without the node_modules folder
+├── index.js
+├── package-lock.json
+├── package.json
+└── views
+  ├── posts
+  │  ├── a-second-post.md
+  │  └── my-first-article.md
+  ├── postsList.ejs
+  └── postsTemplate.ejs
+</code></pre>
+						<p>
+							I hope that this tutorial will be helpful for everyone trying to create a Markdown blog with
+							EJS.
+						</p>
+					</div>
+
+					<nav class="post-navigation" aria-label="Post Navigation">
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Previous Post Link (only if there's a previous post) -->
+						<a
+							href="/post/express-global-router-for-a-dry-code"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Previous: Express Global Router for a DRY Code
+						</a>
+
+						<!--Dynamic Markup Separator-->
+
+						<!-- Next Post Link (only if there's a next post) -->
+						<a
+							href="/post/turn-a-markdown-blog-to-a-simple-ssg"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the next post"
+						>
+							Next: Turn a Markdown Blog to a Simple SSG
+						</a>
+					</nav>
+
+					<!---->
+					<div class="related-posts">
+						<h3>You Might Also Like</h3>
+						<div>
+							<section>
+								<a
+									href="/post/transferring-variables-and-functions-from-server-to-client-in-a-nodejs-application-using-ejs-and-eta"
+								>
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/transferring-data-generated-with-ai-ef728ca1d65539f0.avif"
+										alt="Featured image for the post: Transferring Variables and Functions from Server to Client in a Node.js Application Using EJS and Eta"
+									/>
+								</a>
+								<h4>
+									<a
+										href="/post/transferring-variables-and-functions-from-server-to-client-in-a-nodejs-application-using-ejs-and-eta"
+										>Transferring Variables and Functions from Server to Client in a Node.js
+										Application Using EJS and Eta</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/post/improving-a-nodejs-app-built-with-express-and-ejs">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/a-lego-wall-cb5f14aca0135679.webp"
+										alt="Featured image for the post: Improving a Node.js app built with Express and EJS"
+									/>
+								</a>
+								<h4>
+									<a href="/post/improving-a-nodejs-app-built-with-express-and-ejs"
+										>Improving a Node.js app built with Express and EJS</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/post/templating-a-nodejs-app-with-ejs">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/block-of-red-orange-yellow-and-green-lego-7443ef69c7d80846.webp"
+										alt="Featured image for the post: Templating a Node.js App with EJS"
+									/>
+								</a>
+								<h4>
+									<a href="/post/templating-a-nodejs-app-with-ejs"
+										>Templating a Node.js App with EJS</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/post/csp-nonce-with-nodejs-and-ejs">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/key-attached-to-another-in-the-lock-of-a-door-239983bd2e3d9fcb.webp"
+										alt="Featured image for the post: CSP nonce with Node.js and EJS"
+									/>
+								</a>
+								<h4>
+									<a href="/post/csp-nonce-with-nodejs-and-ejs">CSP nonce with Node.js and EJS</a>
+								</h4>
+							</section>
+						</div>
+					</div>
+
+					<!---->
+				</main>
+			</div>
+			<!--End content-->
+
+			<!--Start footer-->
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2025 { LebCit }</strong>
+
+						<br />
+						<!-- Custom Footer Code -->
+						Content in Motion. Powered by Aether.
+					</p>
+				</div>
+			</footer>
+
+			<!--End footer-->
+		</div>
+		<!--End page-->
+
+		<script
+			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
+			onload="hljs.highlightAll()"
+		></script>
+
+		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Improve your Express and EJS app with dynamic content, organized routing, and DRY techniques for a cleaner Node.js backend."
+		/>
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+
+		<!--Site icon-->
+
+		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
+
+		<!--Title-->
+		<title>Improving a Node.js app built with Express and EJS | { LebCit }</title>
+
+		<!--Stylesheets-->
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
+
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+	</head>
+
+	<body>
+		<!--Start page-->
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+			<!--Start menu-->
+			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
+
+				<div class="menu-overlay__content">
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/" target="">Home</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/blog" target="_self">Blog</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/categories" target="_self">Categories</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/tags" target="_self">Tags</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/search" target="_self">Search</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/my-public-projects" target="_self">Projects</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/about-me" target="_self">About Me</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/sitemap" target="_self">Sitemap</a>
+					</li>
+
+					<!---->
+				</div>
+			</div>
+
+			<!--End menu-->
+
+			<!--Start masthead-->
+			<!-- Start #masthead -->
+
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="background-image: url(/content/uploads/images/a-lego-wall-cb5f14aca0135679.webp)"
+			>
+				<div class="site-header__overlay"></div>
+
+				<!-- Start .site-header__content -->
+				<div class="site-header__content">
+					<div class="site-header__branding">
+						<h1 class="site-header__title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-header__description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
+
+					<nav id="nav" class="site-header__nav" aria-label="MENU">
+						<ul class="site-header__nav-list">
+							<li class="site-header__nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewBox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<!-- End .site-header__content -->
+			</header>
+
+			<!-- End #masthead -->
+
+			<!--End masthead-->
+
+			<!--Start content-->
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main class="article-view">
+					<!--The page to display the Markdown content of posts and pages.-->
+					<header class="post-header">
+						<h1 class="post-title">Improving a Node.js app built with Express and EJS</h1>
+
+						<div class="post-meta">
+							<div class="post-date-wrapper">
+								<span>Posted:</span>
+								<time class="post-date" datetime="2025-06-03T11:44:20.916Z"> 2022-07-17 </time>
+
+								<span class="separator">|</span>
+								<span>Updated:</span>
+								<time class="post-updated-date" datetime="2025-06-03T20:08:40.365Z"> 2025-06-03 </time>
+							</div>
+
+							<div class="taxonomy-group">
+								<span>Category:</span>
+								<span class="post-category">
+									<a href="/category/web-development">web-development</a>
+								</span>
+							</div>
+
+							<!---->
+
+							<div class="taxonomy-group post-tags-group">
+								<span>Tagged:</span>
+
+								<a class="post-tag" href="/tag/nodejs">nodejs</a>
+
+								<a class="post-tag" href="/tag/express">express</a>
+
+								<a class="post-tag" href="/tag/ejs">ejs</a>
+
+								<a class="post-tag" href="/tag/routing">routing</a>
+
+								<a class="post-tag" href="/tag/dry">dry</a>
+							</div>
+						</div>
+					</header>
+
+					<div class="article-content">
+						<p>
+							<em
+								>Improve your Express and EJS app with dynamic content, organized routing, and DRY
+								techniques for a cleaner Node.js backend.</em
+							>
+						</p>
+
+						<!--Content-->
+						<h2>Intro</h2>
+
+						<p>
+							In the <a href="/post/templating-a-nodejs-app-with-ejs">last tutorial</a>, we&#39;ve built a
+							basic Node.js web application using EJS and Express. So, to understand this one, you should
+							have followed the previous.
+						</p>
+						<p>
+							In this post, we are going to improve this application to make it look nicer on the
+							server.<br />As usual, I&#39;ll be explaining every step so you get the most out of this
+							tutorial if you follow.
+						</p>
+						<h2>Dynamic content</h2>
+
+						<p>
+							Till now, we had a homepage with an image and a button that displays a message when you
+							click on it.<br />We also had an about page with a link inside a paragraph and an image
+							under it.<br />Both pages have different document title, different page title, and the same
+							menu.
+						</p>
+						<p>
+							Nothing fancy in fact, but let&#39;s assume that our homepage will display a list of
+							titles.<br />Those titles may come from each post in a blog.
+						</p>
+						<p>
+							Update <code>index.js</code> to create a list of titles of posts that will be rendered on
+							the homepage.
+						</p>
+						<pre><code class="language-js">// /index.js
+...
+app.get(&quot;/&quot;, function (req, res) {
+    let posts = [
+        { title: &quot;Who invented JavaScript?&quot; },
+        { title: &quot;My first JavaScript piece&quot; },
+        { title: &quot;Logging into the console!&quot; },
+    ]
+    res.render(&quot;index&quot;, {
+        docTitle: &quot;Homepage | EJS App&quot;,
+        pageTitle: &quot;Homepage of templating with EJS application&quot;,
+        posts: posts,
+    })
+})
+...
+</code></pre>
+						<p>
+							We are creating an
+							<a
+								href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+								>array</a
+							>
+							of
+							<a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics"
+								>objects</a
+							>
+							inside the main route <code>&quot;/&quot;</code> called <code>posts</code>, where each
+							object has a <code>key</code> and in front of each one a <code>value</code>.
+						</p>
+						<p>
+							Remember that our main route renders <code>index.ejs</code>. So to access and display those
+							titles, we should update <code>index.ejs</code> to integrate them like so:
+						</p>
+						<pre><code class="language-html">&lt;!-- /views/index.ejs --&gt;
+...
+&lt;!-- Looping through the posts array --&gt;
+&lt;% posts.forEach((post) =&gt; { %&gt;
+&lt;h2&gt;&lt;%= post.title %&gt;&lt;/h2&gt;
+&lt;% }) %&gt;
+&lt;button id=&quot;btn&quot; class=&quot;pure-button&quot;&gt;A Button&lt;/button&gt;
+...
+</code></pre>
+						<p>
+							We are looping through the <code>posts</code> array using the
+							<a
+								href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach"
+								>forEach()</a
+							>
+							method.<br /><strong>Note how we are opening and closing EJS tags!</strong><br />It&#39;s
+							very important to understand the logic of opening and closing the EJS and HTML tags when
+							using them together.<br />The code isn&#39;t difficult at all, we are telling EJS to get the
+							<code>posts</code>, and <code>forEach</code> one we want to display it&#39;s
+							<code>title</code> inside an <code>&lt;h2&gt;</code> tag.<br />Save both files and take a
+							look at the homepage.<br />Great job!
+						</p>
+						<p>
+							In addition to a title, a post should have at least a description to give the reader an idea
+							about it&#39;s content, maybe an image to make it more appealing, and a date indicating how
+							recent and relevant it is in today&#39;s world.<br />Of course it should also have a link to
+							the post itself, but we are not going to do it since we&#39;re not going to create them on
+							the frontend.<br />Let&#39;s update our files to look like so:
+						</p>
+						<pre><code class="language-js">// /index.js
+...
+app.get(&quot;/&quot;, function (req, res) {
+    let posts = [
+        {
+            title: &quot;Who invented JavaScript?&quot;,
+            description: &quot;A post about the father of JavaScript&quot;,
+            date: &quot;2022-06-03&quot;,
+        },
+        {
+            title: &quot;My first JavaScript piece&quot;,
+            description: &quot;A post about my first JavaScript block&quot;,
+            date: &quot;2022-06-10&quot;,
+        },
+        {
+            title: &quot;Logging into the console!&quot;,
+            description: &quot;A post about messages in the console&quot;,
+            date: &quot;2022-06-17&quot;,
+        },
+    ]
+    res.render(&quot;index&quot;, {
+        docTitle: &quot;Homepage | EJS App&quot;,
+        pageTitle: &quot;Homepage of templating with EJS application&quot;,
+        posts: posts,
+    })
+})
+...
+</code></pre>
+						<pre><code class="language-html">&lt;!-- /views/index.ejs --&gt;
+...
+&lt;!-- Looping through the posts array --&gt;
+&lt;% posts.forEach((post) =&gt; { %&gt;
+&lt;!-- Adding the title inside an &lt;h2&gt; --&gt;
+&lt;h2&gt;&lt;%= post.title %&gt;&lt;/h2&gt;
+&lt;!-- Adding the date inside a paragraph --&gt;
+&lt;p&gt;posted on &lt;%= post.date %&gt;&lt;/p&gt;
+&lt;!-- Adding the description inside an &lt;h3&gt; --&gt;
+&lt;h3&gt;&lt;%= post.description %&gt;&lt;/h3&gt;
+&lt;% }) %&gt;
+&lt;!-- Closing the loop --&gt;
+...
+</code></pre>
+						<p>
+							Save both files and take a look at the homepage. All of this is great, but imagine that we
+							have a blog of 50 posts and each post have a title, a link, a description, an image, a date
+							of publication, a date of update, and some tags 😱<br />Yes, <code>index.js</code> would be
+							crowded and difficult to maintain with a huge block of information just for the posts.<br />We&#39;ll
+							be addressing this in the next section.
+						</p>
+						<h2>Organizing the backend</h2>
+
+						<p>
+							Since we are working on a server-side application, our code on the backend will evolve and
+							get longer.<br />We shouldn&#39;t put everything inside our main server file because it will
+							become almost impossible to look for a specific portion to update it or find a bug and
+							correct it...
+						</p>
+						<p>
+							I don&#39;t think that their is a developer who doesn&#39;t split his code.<br />We split
+							our code into pieces where each one is easily trackable in a near or far future to keep it
+							clean and maintainable.
+						</p>
+						<h3>Routing</h3>
+
+						<hr />
+						<p>
+							For now we only have 2 routes, main <code>&quot;/&quot;</code> and
+							<code>&quot;/about&quot;</code>, but when our application will have some other routes where
+							each one have it&#39;s logic and functionalities, our main server file will be huge, a
+							little bit ugly and unmaintainable.
+						</p>
+						<p>
+							Do you remember the
+							<a href="/post/templating-a-nodejs-app-with-ejs#simple-routing">Simple routing</a>
+							section?<br />Well now we&#39;ll do a better one by putting each route in it&#39;s own file.
+						</p>
+						<p>
+							To do so, we&#39;ll use the
+							<a href="https://expressjs.com/en/guide/routing.html#express-router">express.Router</a>
+							class.<br />Create a new folder called <code>routes</code> at the root of the app.<br />Inside
+							this folder, create a file called <code>home.js</code> with the following content:
+						</p>
+						<pre><code class="language-js">// /routes/home.js
+
+const express = require(&quot;express&quot;)
+const router = express.Router()
+
+// Defining a route
+router.get(&quot;/&quot;, (req, res) =&gt; {
+    let posts = [
+        {
+            title: &quot;Who invented JavaScript?&quot;,
+            description: &quot;A post about the father of JavaScript&quot;,
+            date: &quot;2022-06-03&quot;,
+        },
+        {
+            title: &quot;My first JavaScript piece&quot;,
+            description: &quot;A post about my first JavaScript block&quot;,
+            date: &quot;2022-06-10&quot;,
+        },
+        {
+            title: &quot;Logging into the console!&quot;,
+            description: &quot;A post about messages in the console&quot;,
+            date: &quot;2022-06-17&quot;,
+        },
+    ]
+    res.render(&quot;index&quot;, {
+        docTitle: &quot;Homepage | EJS App&quot;,
+        pageTitle: &quot;Homepage of templating with EJS application&quot;,
+        posts: posts,
+    })
+})
+
+module.exports = router
+</code></pre>
+						<p>
+							Instead of <code>app.get</code> we use <code>router.get</code> and <code>export</code> it as
+							a <code>module</code>.<br />Now, in <code>index.js</code>, replace the main route by this:
+						</p>
+						<pre><code class="language-js">// /index.js
+...
+/**
+ * Rendering index page on the main route,
+ * using the express.Router class.
+ */
+app.use(&quot;/&quot;, require(&quot;./routes/home&quot;))
+...
+</code></pre>
+						<p>
+							Here we are telling Express to look for the file <code>home.js</code> that lives under the
+							<code>routes</code> folder and to execute it&#39;s content on the main route
+							<code>&quot;/&quot;</code>.
+						</p>
+						<p>
+							So far, so good, but the <code>posts</code> array will grow and now this
+							<code>home.js</code> file will not be maintainable, so let&#39;s get it out of there inside
+							a separate file where only the posts info lives.<br />Create a file called
+							<code>postsListInfo.js</code> inside the <code>routes</code> folder:
+						</p>
+						<pre><code class="language-js">// /routes/postsListInfo.js
+
+module.exports = [
+    {
+        title: &quot;Who invented JavaScript?&quot;,
+        description: &quot;A post about the father of JavaScript&quot;,
+        date: &quot;2022-06-03&quot;,
+    },
+    {
+        title: &quot;My first JavaScript piece&quot;,
+        description: &quot;A post about my first JavaScript block&quot;,
+        date: &quot;2022-06-10&quot;,
+    },
+    {
+        title: &quot;Logging into the console!&quot;,
+        description: &quot;A post about messages in the console&quot;,
+        date: &quot;2022-06-17&quot;,
+    },
+]
+</code></pre>
+						<p>
+							See, we directly exported the array itself.<br />Now, all we have to do is update
+							<code>home.js</code> like so:
+						</p>
+						<pre><code class="language-js">// /routes/home.js
+
+const express = require(&quot;express&quot;)
+const router = express.Router()
+
+let posts = require(&quot;./postsListInfo&quot;)
+
+// Defining a route
+router.get(&quot;/&quot;, (req, res) =&gt; {
+    res.render(&quot;index&quot;, {
+        docTitle: &quot;Homepage | EJS App&quot;,
+        pageTitle: &quot;Homepage of templating with EJS application&quot;,
+        posts: posts,
+    })
+})
+
+module.exports = router
+</code></pre>
+						<p>Pay attention!</p>
+						<ol>
+							<li>
+								Since the two files are at the same level, we directly require
+								<code>postsListInfo.js</code>. See
+								<a href="/post/templating-a-nodejs-app-with-ejs#paths">Paths</a>.
+							</li>
+							<li>
+								The variable <code>posts</code> assigned to this require statement
+								<strong>should</strong> match the <code>value</code> of the
+								<code>data object</code>!<br />We could name the variable <code>postsListInfo</code>,
+								but the <code>data object</code> would now be <code>posts: postsListInfo</code>. See
+								<a href="/post/templating-a-nodejs-app-with-ejs#data-object">Data object</a>.
+							</li>
+						</ol>
+						<p>
+							Save both files and take a look at the homepage.<br />Great job! We now have the same
+							display on the frontend, but with a clean, clear and maintainable code on the backend!
+						</p>
+						<p>
+							<em
+								>Nota bene: we could create at the root of the app a folder just for the
+								<code>postsListInfo.js</code> file and <code>require</code> it from there</em
+							>.
+						</p>
+						<p>
+							Lets&#39;s now put the <code>&quot;/about&quot;</code> route in it&#39;s own file.<br />Under
+							<code>routes</code>, create a file called <code>about.js</code> with the following content:
+						</p>
+						<pre><code class="language-js">// /routes/about.js
+
+const express = require(&quot;express&quot;)
+const router = express.Router()
+
+// Defining a route
+router.get(&quot;/&quot;, (req, res) =&gt; {
+    res.render(&quot;about&quot;, { docTitle: &quot;About me | EJS App&quot;, pageTitle: &quot;A little bit about myself&quot; })
+})
+
+module.exports = router
+</code></pre>
+						<p>
+							We are defining a route on which we&#39;ll render <code>about.ejs</code>.<br />Now replace
+							<code>&quot;/about&quot;</code> route in <code>index.js</code> by:
+						</p>
+						<pre><code class="language-js">// /index.js
+...
+/**
+ * Rendering about page on the /about route,
+ * using the express.Router class.
+ */
+app.use(&quot;/about&quot;, require(&quot;./routes/about&quot;))
+...
+</code></pre>
+						<p>
+							Here we are telling Express to look for the file <code>about.js</code> that lives under the
+							<code>routes</code> folder and to execute it&#39;s content on the
+							<code>&quot;/about&quot;</code> route.
+						</p>
+						<p>
+							Now, if you ever want to make changes on a specific route, you know where to make them, it
+							will always be under one specific file 😉
+						</p>
+						<h3>Don't Repeat Yourself</h3>
+
+						<hr />
+						<p>
+							Do you remember the
+							<a href="/post/templating-a-nodejs-app-with-ejs#do-not-repeat-yourself">DRY</a>
+							section?<br />Well, in the backend also, you should avoid to repeat yourself!
+						</p>
+						<p>
+							If you take a closer look to <code>postsListInfo.js</code>, you&#39;ll notice that every
+							description begins with <em>A post about</em>, assuming that you&#39;ll follow this pattern
+							for each and every post&#39;s description, or maybe a much longer one such as
+							<em>The content of the following post is about</em>, we could do the following:
+						</p>
+						<pre><code class="language-js">// /routes/postsListInfo.js
+
+const descIntro = &quot;The content of the following post is about&quot;
+
+module.exports = [
+    {
+        title: &quot;Who invented JavaScript?&quot;,
+        description: `${descIntro} the father of JavaScript`,
+        date: &quot;2022-06-03&quot;,
+    },
+    {
+        title: &quot;My first JavaScript piece&quot;,
+        description: `${descIntro} my first JavaScript block`,
+        date: &quot;2022-06-10&quot;,
+    },
+    {
+        title: &quot;Logging into the console!&quot;,
+        description: `${descIntro} messages in the console`,
+        date: &quot;2022-06-17&quot;,
+    },
+]
+</code></pre>
+						<p>
+							<strong>WHAT IS THIS?!</strong><br />This is a
+							<a
+								href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals"
+								>Template string</a
+							>.<br />You can pass a variable into a string by writing the whole string inside backtick
+							and call your variable inside a <code>${}</code> at the desired place.<br /><code
+								>Template literals</code
+							>
+							are much more powerful than that, they can be used inside functions to create reusable
+							blocks, yes just like template engines...
+						</p>
+						<p>
+							On the other hand, if you look at <code>home.js</code> and <code>about.js</code>, they both
+							begin with the same block of code:
+						</p>
+						<pre><code class="language-js">const express = require(&quot;express&quot;)
+const router = express.Router()
+</code></pre>
+						<p>
+							To resolve this one, we&#39;ll use a <code>global.router</code> configuration.<br />Update
+							the content of those files as well as <code>index.js</code>:
+						</p>
+						<pre><code class="language-js">// /routes/home.js
+
+const router = global.router
+
+let posts = require(&quot;./postsListInfo&quot;)
+
+// Rendering index.ejs on the main route.
+router.get(&quot;/&quot;, (req, res) =&gt; {
+    res.render(&quot;index&quot;, {
+        docTitle: &quot;Homepage | EJS App&quot;,
+        pageTitle: &quot;Homepage of templating with EJS application&quot;,
+        posts: posts,
+    })
+})
+
+module.exports = router
+</code></pre>
+						<pre><code class="language-js">// /routes/about.js
+
+const router = global.router
+
+// Rendering about.ejs on /about route.
+router.get(&quot;/about&quot;, (req, res) =&gt; {
+    res.render(&quot;about&quot;, { docTitle: &quot;About me | EJS App&quot;, pageTitle: &quot;A little bit about myself&quot; })
+})
+
+module.exports = router
+</code></pre>
+						<pre><code class="language-js">// /index.js complete file
+const express = require(&quot;express&quot;)
+const app = express()
+
+// Set EJS as template engine
+app.set(&quot;view engine&quot;, &quot;ejs&quot;)
+
+// Serve static files from a folder named public
+app.use(express.static(&quot;public&quot;))
+
+// Require livereload and connectLiveReload
+const livereload = require(&quot;livereload&quot;)
+const connectLiveReload = require(&quot;connect-livereload&quot;)
+
+// Create a server with livereload and fire it up
+const liveReloadServer = livereload.createServer()
+
+// Refresh the browser after each saved change on the server with a delay of 100 ms
+liveReloadServer.server.once(&quot;connection&quot;, () =&gt; {
+    setTimeout(() =&gt; {
+        liveReloadServer.refresh(&quot;/&quot;)
+    }, 100)
+})
+
+// Add livereload script to the response
+app.use(connectLiveReload())
+
+/** Start Routing */
+// Parse an express router to a global router variable
+const router = (global.router = express.Router())
+// Use the global router variable
+app.use(router)
+// Execute home.js content on the entry route of the app.
+app.use(&quot;/&quot;, require(&quot;./routes/home&quot;))
+// Execute about.js content on the entry route of the app.
+app.use(&quot;/&quot;, require(&quot;./routes/about&quot;))
+/** End Routing */
+
+// Launching the app on port 3000
+app.listen(3000, () =&gt; {
+    console.log(`App 🚀 @ http://localhost:3000`)
+})
+</code></pre>
+						<p>Now you know the basics to organize your backend and make it maintainable.</p>
+						<p>
+							To test your new skills, I suggest that you replicate the <strong>Blog</strong> of Pure.css
+							<a href="https://purecss.io/layouts/">Layouts</a> as a Node.js app.
+						</p>
+						<p>I hope that this was helpful.</p>
+						<p class="post-content hide">
+							<em
+								>Note: The background image is a photo by
+								<a href="https://unsplash.com/photos/blue-red-and-white-artwork-lQT_bOWtysE"
+									>Omar Flores</a
+								>.</em
+							>
+						</p>
+					</div>
+
+					<nav class="post-navigation" aria-label="Post Navigation">
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Previous Post Link (only if there's a previous post) -->
+						<a
+							href="/post/templating-a-nodejs-app-with-ejs"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Previous: Templating a Node.js App with EJS
+						</a>
+
+						<!--Dynamic Markup Separator-->
+
+						<!-- Next Post Link (only if there's a next post) -->
+						<a
+							href="/post/express-global-router-for-a-dry-code"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the next post"
+						>
+							Next: Express Global Router for a DRY Code
+						</a>
+					</nav>
+
+					<!---->
+					<div class="related-posts">
+						<h3>You Might Also Like</h3>
+						<div>
+							<section>
+								<a
+									href="/post/transferring-variables-and-functions-from-server-to-client-in-a-nodejs-application-using-ejs-and-eta"
+								>
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/transferring-data-generated-with-ai-ef728ca1d65539f0.avif"
+										alt="Featured image for the post: Transferring Variables and Functions from Server to Client in a Node.js Application Using EJS and Eta"
+									/>
+								</a>
+								<h4>
+									<a
+										href="/post/transferring-variables-and-functions-from-server-to-client-in-a-nodejs-application-using-ejs-and-eta"
+										>Transferring Variables and Functions from Server to Client in a Node.js
+										Application Using EJS and Eta</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/post/markdown-blog-with-ejs">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/markdown-logo-with-white-background-ffa392cd3bbb0352.webp"
+										alt="Featured image for the post: Markdown blog with EJS"
+									/>
+								</a>
+								<h4>
+									<a href="/post/markdown-blog-with-ejs">Markdown blog with EJS</a>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/post/templating-a-nodejs-app-with-ejs">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/block-of-red-orange-yellow-and-green-lego-7443ef69c7d80846.webp"
+										alt="Featured image for the post: Templating a Node.js App with EJS"
+									/>
+								</a>
+								<h4>
+									<a href="/post/templating-a-nodejs-app-with-ejs"
+										>Templating a Node.js App with EJS</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/post/csp-nonce-with-nodejs-and-ejs">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/key-attached-to-another-in-the-lock-of-a-door-239983bd2e3d9fcb.webp"
+										alt="Featured image for the post: CSP nonce with Node.js and EJS"
+									/>
+								</a>
+								<h4>
+									<a href="/post/csp-nonce-with-nodejs-and-ejs">CSP nonce with Node.js and EJS</a>
+								</h4>
+							</section>
+						</div>
+					</div>
+
+					<!---->
+				</main>
+			</div>
+			<!--End content-->
+
+			<!--Start footer-->
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2025 { LebCit }</strong>
+
+						<br />
+						<!-- Custom Footer Code -->
+						Content in Motion. Powered by Aether.
+					</p>
+				</div>
+			</footer>
+
+			<!--End footer-->
+		</div>
+		<!--End page-->
+
+		<script
+			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
+			onload="hljs.highlightAll()"
+		></script>
+
+		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://lebcit.github.io/sitemap.xml
+Sitemap: https://lebcit.github.io/rss.xml

@@ -1,0 +1,1298 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sitemap - { LebCit }</title>
+		<style>
+			:root {
+				--primary-color: #1976d2;
+				--secondary-color: #f5f5f5;
+				--text-color: #333;
+				--light-text: #757575;
+				--border-color: #e0e0e0;
+				--card-bg: white;
+				--card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			}
+
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font-family:
+					-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+					"Helvetica Neue", sans-serif;
+				line-height: 1.6;
+				color: var(--text-color);
+				background-color: var(--secondary-color);
+				max-width: 100%;
+				overflow-x: hidden;
+				padding-bottom: 50px;
+			}
+
+			a {
+				color: var(--primary-color);
+				text-decoration: none;
+				transition: color 0.2s;
+			}
+
+			a:hover {
+				text-decoration: underline;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+
+			header {
+				background-color: var(--primary-color);
+				color: white;
+				padding: 40px 0;
+				margin-bottom: 40px;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			}
+
+			header h1 {
+				margin-bottom: 10px;
+			}
+
+			header p {
+				opacity: 0.9;
+			}
+
+			.sitemap-section {
+				background-color: var(--card-bg);
+				border-radius: 8px;
+				box-shadow: var(--card-shadow);
+				margin-bottom: 30px;
+				overflow: hidden;
+			}
+
+			.section-header {
+				background-color: var(--primary-color);
+				color: white;
+				padding: 15px 20px;
+			}
+
+			.section-content {
+				padding: 0;
+			}
+
+			.item-list {
+				list-style: none;
+			}
+
+			.list-item {
+				border-bottom: 1px solid var(--border-color);
+				padding: 15px 20px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				transition: background-color 0.2s;
+			}
+
+			.list-item:last-child {
+				border-bottom: none;
+			}
+
+			.list-item:hover {
+				background-color: var(--secondary-color);
+			}
+
+			.item-link {
+				flex-grow: 1;
+				margin-right: 15px;
+			}
+
+			.item-date {
+				color: var(--light-text);
+				font-size: 0.9rem;
+				white-space: nowrap;
+			}
+
+			footer {
+				margin-top: 40px;
+				text-align: center;
+				color: var(--light-text);
+			}
+
+			.home-link {
+				display: inline-block;
+				margin-top: 20px;
+				background-color: var(--primary-color);
+				color: white;
+				padding: 10px 20px;
+				border-radius: 4px;
+				font-weight: 500;
+				box-shadow: var(--card-shadow);
+				transition:
+					transform 0.2s,
+					box-shadow 0.2s;
+			}
+
+			.home-link:hover {
+				text-decoration: none;
+				transform: translateY(-2px);
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+			}
+
+			@media (max-width: 768px) {
+				.list-item {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+
+				.item-date {
+					margin-top: 5px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<h1>Sitemap</h1>
+				<p>A complete guide to all pages on { LebCit }</p>
+			</div>
+		</header>
+
+		<div class="container">
+			<div class="sitemap-section">
+				<div class="section-header">
+					<h2>Home</h2>
+				</div>
+				<div class="section-content">
+					<ul class="item-list">
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io">Home Index</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="sitemap-section">
+				<div class="section-header">
+					<h2>Blog Posts</h2>
+				</div>
+				<div class="section-content">
+					<ul class="item-list">
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/blog">Blog Posts Index</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a
+									href="https://lebcit.github.io/post/meet-aether-a-cms-that-actually-gets-out-of-your-way"
+									>Meet Aether: A CMS That Actually Gets Out of Your Way</a
+								>
+							</div>
+							<div class="item-date">06/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/create-your-markdown-blog-in-nodejs"
+									>Create your Markdown blog in Node.js</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/breaking-up-with-expressjs"
+									>Breaking Up With Express.js!</a
+								>
+							</div>
+							<div class="item-date">04/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/from-regexes-to-ast-ste-journey-to-adulthood"
+									>From Regexes to AST: STE Journey to Adulthood</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/blog-doc-version-3x">Blog-Doc Version 3.x</a>
+							</div>
+							<div class="item-date">04/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a
+									href="https://lebcit.github.io/post/ultimate-markdown-based-application-tutorial-in-nodejs"
+									>Ultimate Markdown-based Application Tutorial in Node.js!</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/litenode-nodejs-web-framework"
+									>LiteNode, Node.js Web Framework</a
+								>
+							</div>
+							<div class="item-date">04/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a
+									href="https://lebcit.github.io/post/transferring-variables-and-functions-from-server-to-client-in-a-nodejs-application-using-ejs-and-eta"
+									>Transferring Variables and Functions from Server to Client in a Node.js Application
+									Using EJS and Eta</a
+								>
+							</div>
+							<div class="item-date">04/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a
+									href="https://lebcit.github.io/post/creating-conditional-selections-in-google-forms-using-apps-script"
+									>Creating Conditional Selections in Google Forms using Apps Script</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/googles-query-language-wrapper"
+									>Google's Query Language Wrapper</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/responsive-attributes-generator"
+									>Responsive Attributes Generator</a
+								>
+							</div>
+							<div class="item-date">04/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/sme-do-you-mark-down">SME! Do you Mark Down?!</a>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/a-dedicated-site-for-blog-docs-documentation"
+									>A dedicated site for Blog-Doc's documentation!</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/create-a-simple-markdown-based-blog-in-nodejs"
+									>Create a simple Markdown-based blog in Node.js</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/switch-themes-in-blog-doc"
+									>Switch themes in Blog-Doc!</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/node-modules-is-not-heavy-developers-are-lazy"
+									>node_modules is not heavy, developers are lazy!</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/from-145-to-7">From 145 to 7 💪</a>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/blog-doc-updating-the-administration-design"
+									>Blog-Doc, updating the administration design!</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/blog-doc-the-front-end-administration"
+									>Blog-Doc, the front-end administration!</a
+								>
+							</div>
+							<div class="item-date">04/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/blog-doc-the-simplest-nodejs-cms-and-ssg"
+									>Blog-Doc, The Simplest Node.js CMS and SSG!</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/blog-doc-a-tiny-and-dead-simple-ssg"
+									>Blog-Doc, a tiny and dead simple SSG!</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/click-without-javascript"
+									>Click without JavaScript!</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/turn-a-markdown-blog-to-a-simple-ssg"
+									>Turn a Markdown Blog to a Simple SSG</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/markdown-blog-with-ejs"
+									>Markdown blog with EJS</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/express-global-router-for-a-dry-code"
+									>Express Global Router for a DRY Code</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a
+									href="https://lebcit.github.io/post/improving-a-nodejs-app-built-with-express-and-ejs"
+									>Improving a Node.js app built with Express and EJS</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/templating-a-nodejs-app-with-ejs"
+									>Templating a Node.js App with EJS</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/csp-nonce-with-nodejs-and-ejs"
+									>CSP nonce with Node.js and EJS</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/to-node-or-not-deta-is-the-answer"
+									>To Node or not? Deta is the answer!</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/automatically-close-other-details"
+									>Automatically close other details</a
+								>
+							</div>
+							<div class="item-date">04/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/midday-wordpress-theme"
+									>MidDay WordPress theme</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/creating-a-customizer-control-with-javascript"
+									>Creating a Customizer control with JavaScript</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/clear-your-local-development-cache-with-js"
+									>Clear your local development cache with JS</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/change-page-title-dynamically"
+									>Change Page Title Dynamically</a
+								>
+							</div>
+							<div class="item-date">04/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/listen-for-changes-in-customizer-preview"
+									>Listen for Changes in Customizer Preview!</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/hide-wordpress-toolbar-with-wp-add-inline-style"
+									>Hide WordPress Toolbar with wp_add_inline_style</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a
+									href="https://lebcit.github.io/post/modifying-wordpress-themes-copyright-from-the-customizer"
+									>Modifying WordPress theme's copyright from the Customizer</a
+								>
+							</div>
+							<div class="item-date">04/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/get-google-products-on-desktop-with-thunderbird"
+									>Get Google Products on Desktop with Thunderbird</a
+								>
+							</div>
+							<div class="item-date">03/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/the-clean-blog-wordpress-theme"
+									>The Clean Blog WordPress theme</a
+								>
+							</div>
+							<div class="item-date">04/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/back-to-the-roots-with-a-static-site"
+									>Back to the roots with a static site</a
+								>
+							</div>
+							<div class="item-date">04/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/post/full-screen-morphing-search-plugin"
+									>Full Screen Morphing Search Plugin</a
+								>
+							</div>
+							<div class="item-date">04/06/2025</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="sitemap-section">
+				<div class="section-header">
+					<h2>Pages</h2>
+				</div>
+				<div class="section-content">
+					<ul class="item-list">
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/search">Search</a>
+							</div>
+							<div class="item-date">04/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/page/about-me">About Me</a>
+							</div>
+							<div class="item-date">04/06/2025</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/page/my-public-projects">My Public Projects</a>
+							</div>
+							<div class="item-date">06/06/2025</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="sitemap-section">
+				<div class="section-header">
+					<h2>Categories</h2>
+				</div>
+				<div class="section-content">
+					<ul class="item-list">
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/categories">Categories Index</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/category/frontend-development"
+									>frontend-development</a
+								>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/category/google-apps-script">google-apps-script</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/category/javascript-tools">javascript-tools</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/category/nodejs">nodejs</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/category/nodejs-frameworks">nodejs-frameworks</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/category/nodejs-tutorials">nodejs-tutorials</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/category/productivity">productivity</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/category/security">security</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/category/static-site-generators"
+									>static-site-generators</a
+								>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/category/template-engines">template-engines</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/category/tools-and-editors">tools-and-editors</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/category/web-development">web-development</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/category/wordpress">wordpress</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/category/wordpress-plugins">wordpress-plugins</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/category/wordpress-themes">wordpress-themes</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="sitemap-section">
+				<div class="section-header">
+					<h2>Tags</h2>
+				</div>
+				<div class="section-content">
+					<ul class="item-list">
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tags">Tags Index</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/accessibility">accessibility</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/admin-bar">admin-bar</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/admin-ui">admin-ui</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/administration">administration</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/api-wrapper">api-wrapper</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/apps-script">apps-script</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/ast">ast</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/automation">automation</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/backend">backend</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/best-practices">best-practices</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/blog">blog</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/blog-development">blog-development</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/blog-doc">blog-doc</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/blogging">blogging</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/cache">cache</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/clean-blog">clean-blog</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/cloud-hosting">cloud-hosting</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/cms">cms</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/conditional-dropdowns">conditional-dropdowns</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/csp">csp</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/css">css</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/css-generator">css-generator</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/custom-css">custom-css</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/customizer">customizer</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/data-querying">data-querying</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/dependencies">dependencies</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/design">design</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/desktop-apps">desktop-apps</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/deta">deta</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/developer-tools">developer-tools</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/development-tips">development-tips</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/documentation">documentation</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/dry">dry</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/dynamic-title">dynamic-title</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/editor">editor</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/ejs">ejs</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/eta">eta</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/express">express</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/faq-design">faq-design</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/footer">footer</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/frontend">frontend</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/full-screen">full-screen</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/google">google</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/google-forms">google-forms</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/google-sheets">google-sheets</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/google-visualization-api"
+									>google-visualization-api</a
+								>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/google-workspace">google-workspace</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/helmet">helmet</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/hono">hono</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/html">html</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/integration">integration</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/javascript">javascript</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/lightweight">lightweight</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/lightweight-css">lightweight-css</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/litenode">litenode</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/live-preview">live-preview</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/markdown">markdown</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/minimalist-design">minimalist-design</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/no-javascript">no-javascript</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/nodejs">nodejs</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/open-source">open-source</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/page-visibility-api">page-visibility-api</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/performance">performance</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/personal-journey">personal-journey</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/plugin-development">plugin-development</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/responsive-design">responsive-design</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/router">router</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/routing">routing</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/search-plugin">search-plugin</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/server-to-client-data">server-to-client-data</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/simple">simple</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/simplicity">simplicity</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/ssg">ssg</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/static-site">static-site</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/ste">ste</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/tabler">tabler</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/target">target</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/template-engine">template-engine</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/templates">templates</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/templating">templating</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/theme">theme</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/theme-customization">theme-customization</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/theme-development">theme-development</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/themes">themes</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/thunderbird">thunderbird</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/toolbar">toolbar</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/tutorial">tutorial</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/typography">typography</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/ui">ui</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/ui-ux">ui-ux</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/ux">ux</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/web-development">web-development</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/web-framework">web-framework</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/web-security">web-security</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/web-tools">web-tools</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/web-tricks">web-tricks</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/wordpress">wordpress</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/wp-add-inline-style">wp-add-inline-style</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/tag/wp-api">wp-api</a>
+							</div>
+							<div class="item-date">Updated regularly</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="sitemap-section">
+				<div class="section-header">
+					<h2>Other</h2>
+				</div>
+				<div class="section-content">
+					<ul class="item-list">
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/rss.xml">RSS Feed</a>
+							</div>
+							<div class="item-date">Updated daily</div>
+						</li>
+						<li class="list-item">
+							<div class="item-link">
+								<a href="https://lebcit.github.io/sitemap.xml">XML Sitemap</a>
+							</div>
+							<div class="item-date">Updated daily</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<footer>
+				<p>Last updated: 06/06/2025 04:45:12</p>
+				<a href="https://lebcit.github.io" class="home-link">Return to Homepage</a>
+			</footer>
+		</div>
+	</body>
+</html>

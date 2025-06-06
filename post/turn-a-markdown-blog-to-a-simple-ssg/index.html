@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Convert your Markdown blog into a simple static site generator using Node.js, EJS, and Express with LiveReload and custom routing."
+		/>
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+
+		<!--Site icon-->
+
+		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
+
+		<!--Title-->
+		<title>Turn a Markdown Blog to a Simple SSG | { LebCit }</title>
+
+		<!--Stylesheets-->
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
+
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+	</head>
+
+	<body>
+		<!--Start page-->
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+			<!--Start menu-->
+			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
+
+				<div class="menu-overlay__content">
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/" target="">Home</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/blog" target="_self">Blog</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/categories" target="_self">Categories</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/tags" target="_self">Tags</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/search" target="_self">Search</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/my-public-projects" target="_self">Projects</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/about-me" target="_self">About Me</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/sitemap" target="_self">Sitemap</a>
+					</li>
+
+					<!---->
+				</div>
+			</div>
+
+			<!--End menu-->
+
+			<!--Start masthead-->
+			<!-- Start #masthead -->
+
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="
+					background-image: url(/content/uploads/images/connected-gears-inside-pocket-watch-f35935750221dd13.webp);
+				"
+			>
+				<div class="site-header__overlay"></div>
+
+				<!-- Start .site-header__content -->
+				<div class="site-header__content">
+					<div class="site-header__branding">
+						<h1 class="site-header__title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-header__description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
+
+					<nav id="nav" class="site-header__nav" aria-label="MENU">
+						<ul class="site-header__nav-list">
+							<li class="site-header__nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewBox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<!-- End .site-header__content -->
+			</header>
+
+			<!-- End #masthead -->
+
+			<!--End masthead-->
+
+			<!--Start content-->
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main class="article-view">
+					<!--The page to display the Markdown content of posts and pages.-->
+					<header class="post-header">
+						<h1 class="post-title">Turn a Markdown Blog to a Simple SSG</h1>
+
+						<div class="post-meta">
+							<div class="post-date-wrapper">
+								<span>Posted:</span>
+								<time class="post-date" datetime="2025-06-03T11:58:24.570Z"> 2022-07-31 </time>
+
+								<span class="separator">|</span>
+								<span>Updated:</span>
+								<time class="post-updated-date" datetime="2025-06-03T20:03:52.022Z"> 2025-06-03 </time>
+							</div>
+
+							<div class="taxonomy-group">
+								<span>Category:</span>
+								<span class="post-category">
+									<a href="/category/web-development">web-development</a>
+								</span>
+							</div>
+
+							<!---->
+
+							<div class="taxonomy-group post-tags-group">
+								<span>Tagged:</span>
+
+								<a class="post-tag" href="/tag/ssg">ssg</a>
+
+								<a class="post-tag" href="/tag/markdown">markdown</a>
+
+								<a class="post-tag" href="/tag/nodejs">nodejs</a>
+
+								<a class="post-tag" href="/tag/ejs">ejs</a>
+
+								<a class="post-tag" href="/tag/express">express</a>
+							</div>
+						</div>
+					</header>
+
+					<div class="article-content">
+						<p>
+							<em
+								>Convert your Markdown blog into a simple static site generator using Node.js, EJS, and
+								Express with LiveReload and custom routing.</em
+							>
+						</p>
+
+						<!--Content-->
+						<h2>Intro</h2>
+
+						<p>
+							Over the past few weeks, I mostly wrote on how to template a Node.js application with
+							<a href="https://ejs.co/">EJS</a> using
+							<a href="https://expressjs.com/">Express</a>.<br />Then, I wrote an article showing how to
+							create a Markdown blog in Node.js using EJS, Express,
+							<a href="https://www.npmjs.com/package/gray-matter">gray-matter</a> and
+							<a href="https://www.npmjs.com/package/markdown-it">markdown-it</a>.<br />Today, I&#39;ll
+							combine those tutorials to turn the Markdown blog, from
+							<a href="/post/markdown-blog-with-ejs">the last tutorial</a>, into a simple SSG.
+						</p>
+						<h2>Jamstack & SSG</h2>
+
+						<p>
+							Wherever you head on the web, the content you&#39;ll get as a client is made of HTML, CSS
+							and some JavaScript.<br />Think of HTML as a skeleton, CSS as it&#39;s external shapes and
+							colors, and JavaScript as it&#39;s internal functionalities.<br />With this in mind, you can
+							ask yourself about the need of server side rendering...<br />Static sites are way performant
+							and secure than dynamic ones.<br />But what about the need of interacting with a database or
+							sending data on a particular page...?<br />This is where the JAMstack (JavaScript, APIs, and
+							Markup) steps in to leverage the static notion from &quot;fixed&quot; to &quot;on demand
+							dynamic functionalities&quot; like submitting forms, posting comments, making payments,
+							searching content, authentication, and so on...<br />Today
+							<a href="https://jamstack.org/">Jamstack</a> is a continuous evolving ecosystem allowing
+							developers to build better, faster and more secure applications, without losing the
+							advantage of using dynamic features.
+						</p>
+						<p>
+							All of this is great but <em>easier said than done</em>.<br />I took the time, excitement,
+							ambition and hard work of great developers to bring this concept to life.<br />Today, you
+							can head over the
+							<a href="https://jamstack.org/generators/"
+								>list of Static Site Generators for Jamstack sites</a
+							>, choose what suits your needs, read the documentation, and build your project effortlessly
+							in no time.<br />A simple explanation of a SSG is that it takes data passed to templates and
+							generates HTML pages, just like a blender that gives you a ready-to-drink cocktail.<br />At
+							the date of writing this article, the Jamstack site lists more than 300 SSGs used to
+							pre-built ready to serve HTML pages.<br />But if you want to have your own dead simple SSG,
+							that&#39;s also possible!
+						</p>
+						<h2>Improving our Markdown blog</h2>
+
+						<p>
+							The Markdown blog from the last tutorial was already a simple SSG, since it was taking data
+							passed to templates and generating HTML pages out of them!<br />But everything was inside
+							the main server file and if we wanted to add more functionalities, the file would become
+							crowded and unmaintainable.<br />This is why, I&#39;ll show you how to improve this backend
+							and make it ready to adopt more features.
+						</p>
+						<h3>LiveReload</h3>
+
+						<hr />
+						<p>
+							It would be a waist of time if we had to reload the server and refresh the browser to see
+							our changes each time we make some of them.<br />In
+							<a href="/post/templating-a-nodejs-app-with-ejs">Templating a Node.js app with EJS</a>,
+							we&#39;ve learned how to implement a live reload from the main server file.<br />This time,
+							we&#39;ll put this feature as a separate file.<br />Let&#39;s bring in three development
+							dependencies:
+						</p>
+						<pre><code class="language-bash">npm i -D nodemon livereload connect-livereload
+</code></pre>
+						<p>In the main server file, <code>index.js</code>, add a line to export <code>app</code>:</p>
+						<pre><code class="language-js">// /index.js
+const express = require(&quot;express&quot;)
+const app = express()
+exports.app = app 👈
+...
+</code></pre>
+						<p>
+							Now we can call <code>app</code> in other files 😉<br />At the root of the application,
+							create a file called <code>liveReload.js</code> with the following content:
+						</p>
+						<pre><code class="language-js">// /liveReload.js
+module.exports = () =&gt; {
+    /** Start LiveReload implementation  */
+    const livereload = require(&quot;livereload&quot;)
+    const connectLiveReload = require(&quot;connect-livereload&quot;)
+    const { app } = require(&quot;./index&quot;) 👈
+
+    // Create a server with livereload and fire it up
+    const liveReloadServer = livereload.createServer()
+    // Refresh the browser after each saved change on the server with a delay of 100 ms
+    liveReloadServer.server.once(&quot;connection&quot;, () =&gt; {
+    	setTimeout(() =&gt; {
+    		liveReloadServer.refresh(&quot;/&quot;)
+    	}, 100)
+    })
+    // Add livereload script to the response
+    app.use(connectLiveReload())
+    /** End LiveReload implementation  */
+}
+</code></pre>
+						<p>Now, back to <code>index.js</code>, let&#39;s <code>require</code> this function:</p>
+						<pre><code class="language-js">// /index.js
+...
+app.set(&quot;view engine&quot;, &quot;ejs&quot;)
+app.use(express.static(&quot;public&quot;))
+
+// LiveReload
+const liveReload = require(&quot;./liveReload&quot;)
+liveReload()
+...
+</code></pre>
+						<p>Finally, let&#39;s add a script to <code>package.json</code>:</p>
+						<pre><code class="language-json">// /package.json
+...
+  &quot;scripts&quot;: {
+    &quot;watch&quot;: &quot;nodemon -e js,ejs,css,md&quot;
+  },
+...
+</code></pre>
+						<p>
+							Now, the following command <code>npm run watch</code> will tell Nodemon to watch for any
+							changes in <code>.js</code>, <code>.ejs</code>, <code>.css</code> and
+							<code>.md</code> files, and restart the server while <code>liveReload()</code> will reload
+							the browser.
+						</p>
+						<h3>Routing</h3>
+
+						<hr />
+						<p>
+							The routes where defined in <code>index.js</code>, let&#39;s also put them in their own
+							directory.<br />At the root of the application, create a folder called
+							<code>routes</code>.<br />Inside this folder, create 2 files:
+						</p>
+						<ol>
+							<li><code>mainRoute.js</code></li>
+							<li><code>postsRoute.js</code></li>
+						</ol>
+						<p>
+							The first one is obviously for the homepage, and the second one is for each individual post.
+						</p>
+						<p>
+							Since we have multiple routes and each one will be in it&#39;s own file, let&#39;s use a
+							<a href="/post/express-global-router-for-a-dry-code"
+								>global router in Express for a DRY code</a
+							>.<br />In <code>index.js</code>, parse an <code>express.Router()</code> to a
+							<code>global.router</code> assigned to a <code>router</code> variable, then use it in the
+							app:
+						</p>
+						<pre><code class="language-js">// /index.js
+...
+// LiveReload
+const liveReload = require(&quot;./liveReload&quot;)
+liveReload()
+
+// Express global router
+const router = (global.router = express.Router())
+app.use(router)
+...
+</code></pre>
+						<p>Now, let&#39;s move the logic of each route in it&#39;s own file:</p>
+						<pre><code class="language-js">// /routes/mainRoute.js
+const router = global.router
+
+const fs = require(&quot;fs&quot;)
+const matter = require(&quot;gray-matter&quot;)
+
+const getPosts = () =&gt; {
+    // Get the posts from their directory
+    const posts = fs.readdirSync(`${__dirname}/../views/posts`).filter((post) =&gt; post.endsWith(&quot;.md&quot;))
+    // Set the post content as an empty array
+    const postContent = []
+    // Inject into the post content array the front matter
+    posts.forEach((post) =&gt; {
+        postContent.push(matter.read(`${__dirname}/../views/posts/${post}`))
+    })
+
+    /**
+     * 1- Return a list of posts as a two dimensional array containing for each one:
+     * . the post filename with it&#39;s extension (e.g: postFilename.md)
+     * . the post content as an object {content:&quot;Markdown content as a string&quot;, data:{front matter}, excerpt:&quot;&quot;}
+     * 2- Return each array as an object and create a Date instance from it&#39;s date front matter
+     * 3- Sort posts by publication&#39;s date in descending order (newest to oldest)
+     */
+    const postsList = posts
+        .map(function (post, i) {
+            return [post, postContent[i]]
+        })
+        .map((obj) =&gt; {
+            return { ...obj, date: new Date(obj[1].data.date) }
+        })
+        .sort((objA, objB) =&gt; Number(objB.date) - Number(objA.date))
+
+    return postsList
+}
+
+// Render the list of posts on the main route
+router.get(&quot;/&quot;, (req, res) =&gt; {
+    res.render(&quot;postsList&quot;, {
+        posts: getPosts(),
+    })
+})
+
+module.exports = router
+</code></pre>
+						<pre><code class="language-js">// /routes/postsRoute.js
+const router = global.router
+
+const matter = require(&quot;gray-matter&quot;)
+
+// Using a route parameter to render each post on a route matching it&#39;s filename
+router.get(&quot;/posts/:post&quot;, (req, res) =&gt; {
+    const postTitle = req.params.post // Get the Markdown filename
+
+    // Read the Markdown file and parse it&#39;s front matter
+    const post = matter.read(`${__dirname}/../views/posts/${postTitle}.md`)
+
+    // Convert the Markdown file content to HTML with markdown-it
+    const md = require(&quot;markdown-it&quot;)({ html: true }) // Allows HTML tags inside the Markdown file
+    const content = post.content // Read the Markdown file content
+    const html = md.render(content) // Convert the Markdown file content to HTML
+
+    // Render the postsTemplate for each post and pass it&#39;s front matter as a data object into postsTemplate
+    res.render(&quot;postsTemplate&quot;, {
+        title: post.data.title,
+        date: post.data.date,
+        postContent: html,
+    })
+})
+
+module.exports = router
+</code></pre>
+						<p>
+							<em
+								>Nota bene: in both files, I&#39;ve replaced concatenation with template strings for
+								paths</em
+							>.
+						</p>
+						<p>Update <code>index.js</code> to <code>require</code> those routes:</p>
+						<pre><code class="language-js">// /index.js - COMPLETE FILE
+const express = require(&quot;express&quot;)
+const app = express()
+exports.app = app
+
+app.set(&quot;view engine&quot;, &quot;ejs&quot;)
+app.use(express.static(&quot;public&quot;))
+
+// LiveReload
+const liveReload = require(&quot;./liveReload&quot;)
+liveReload()
+
+// Express global router
+const router = (global.router = express.Router())
+app.use(router)
+
+// Routes
+app.use(&quot;/&quot;, require(&quot;./routes/mainRoute&quot;))
+app.use(&quot;/&quot;, require(&quot;./routes/postsRoute&quot;))
+
+// Launching the application on port 3000
+app.listen(3000, () =&gt; {
+    console.log(`App 🚀 @ http://localhost:3000`)
+})
+</code></pre>
+						<p>Now that&#39;s a clean server file 👍</p>
+						<h3>Styles and Scripts</h3>
+
+						<hr />
+						<p><strong>Important subsection ahead!</strong></p>
+						<p>
+							In a common webapp, we would have a main stylesheet as well as a main scripts file.<br />Both
+							files would be rendered on each and every page of the application, but we all know that we
+							do not need all the styles nor all the scripts on every page!<br />If you look closer to
+							<code>postsRoute.js</code>, even in <code>index.js</code> from the last tutorial, we passed
+							an option along with <code>markdown-it</code> to allow HTML tags inside the Markdown files:
+						</p>
+						<pre><code class="language-js">const md = require(&quot;markdown-it&quot;)({ html: true })
+</code></pre>
+						<p>
+							So we can use <code>&lt;style&gt;</code> and <code>&lt;script&gt;</code> tags inside our
+							Markdown files 😉<br />Let&#39;s try to change the color of the title in
+							<code>my-first-article.md</code>:
+						</p>
+						<pre><code class="language-md">---
+title: My first article
+date: 2022/07/25
+---
+
+This is the content of my first article
+
+&lt;style&gt;h1{color:red}&lt;/style&gt;
+&lt;!-- /views/posts/my-first-article.md --&gt;
+</code></pre>
+						<p>
+							Take a look at this post, the title is now red!<br />But if you look at
+							<code>a-second-post.md</code>, the title is still black!<br />This is awesome, we can load
+							individual styles for each and every post 🥳
+						</p>
+						<p>The same logic is applicable for scripts:</p>
+						<pre><code class="language-md">---
+title: My first article
+date: 2022/07/25
+---
+
+This is the content of my first article
+
+&lt;style&gt;h1{color:red}&lt;/style&gt;
+&lt;script&gt;alert(&quot;Hello from my-first-article.md&quot;)&lt;/script&gt;
+&lt;!-- /views/posts/my-first-article.md --&gt;
+</code></pre>
+						<p>
+							Okay, but what if a page has a decent amount of individual styles or scripts and we
+							don&#39;t want to put the whole block inside the Markdown file?<br />Good question!
+							Easy-peasy, just load it as you would normally do it.<br />Let&#39;s say that I have some
+							particular styles and scripts for <code>a-second-post.md</code>.<br />Create a folder at the
+							root of the application called <code>public</code> and under it create two folders called
+							<code>css</code> and <code>scripts</code>.<br />In <code>css</code>, create a file called
+							<code>second-post-styles.css</code> with the following content:
+						</p>
+						<pre><code class="language-css">/* /public/css/second-post-styles.css */
+h1 {
+    color: blue;
+}
+</code></pre>
+						<p>
+							In <code>scripts</code>, create a file called <code>second-post-scripts.js</code> with the
+							following content:
+						</p>
+						<pre><code class="language-js">/* /public/scripts/second-post-scripts.js */
+console.log(&quot;Hello from second-post-scripts.js&quot;)
+</code></pre>
+						<p>Now, update <code>a-second-post.md</code> to look like this:</p>
+						<pre><code class="language-md">---
+title: A second post
+date: 2022/07/28
+---
+
+Here goes the content of my second post
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/second-post-styles.css&quot;&gt;
+&lt;script src=&quot;/scripts/second-post-scripts.js&quot;&gt;&lt;/script&gt;
+&lt;!--- /views/posts/a-second-post.md --&gt;
+</code></pre>
+						<p>
+							Take a look at this post, the title is now blue and if you open the browser&#39;s console
+							<code>F12</code>, you&#39;ll see the message 🥳
+						</p>
+						<p>
+							⚠️ The first slash <code>/</code> in the paths <code>href</code> and <code>src</code> is
+							mandatory, if you omit it you&#39;ll get an error in the console.<br />The reason is because
+							the <code>link</code> and <code>script</code> tags are treated as a Markdown content,
+							converted to HTML, injected in EJS template, rendered on the frontend.<br />If we omit the
+							first slash, the Markdown parser will think that those folder are in the same folder as the
+							post, the <code>posts</code> folder, then those incorrect paths will be converted to HTML
+							and injected into the EJS template that will render the post on the frontend where the
+							browser will respond with a <code>404 Not Found</code>.<br />By putting a slash
+							<code>/</code> at the beginning of the path, Express will understand that we are asking for
+							folders and files living under the the root directory from which to serve static assets, the
+							<code>public</code> folder:
+						</p>
+						<pre><code class="language-js">app.use(express.static(&quot;public&quot;))
+</code></pre>
+						<p>
+							<em
+								>Nota bene: the first slash <code>/</code> is not mandatory for a path directly defined
+								in a template, an <code>.ejs</code> file</em
+							>.<br />In our case, <code>postsTemplate.ejs</code> is an exception because it&#39;s
+							rendered on a dynamic route where the content comes from a parsed Markdown file, so in this
+							file and every similar file, if we want to use the <code>public</code> folder, all our paths
+							must begin with a slash <code>/</code>.
+						</p>
+						<h2>Conclusion</h2>
+
+						<p>
+							From here, you can take control over this simple SSG and maybe add a
+							<code>pagesTemplate.ejs</code>, a pagination, a contact form, a searchbox...
+						</p>
+						<p>I hope that this was helpful. Thanks for reading so far.</p>
+						<p class="post-content hide">
+							<em
+								>Note: The background image is a photo by
+								<a href="https://unsplash.com/photos/gold-and-silver-round-accessory-UQ2Fw_9oApU"
+									>Laura Ockel</a
+								>.</em
+							>
+						</p>
+					</div>
+
+					<nav class="post-navigation" aria-label="Post Navigation">
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Previous Post Link (only if there's a previous post) -->
+						<a
+							href="/post/markdown-blog-with-ejs"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Previous: Markdown blog with EJS
+						</a>
+
+						<!--Dynamic Markup Separator-->
+
+						<!-- Next Post Link (only if there's a next post) -->
+						<a
+							href="/post/click-without-javascript"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the next post"
+						>
+							Next: Click without JavaScript!
+						</a>
+					</nav>
+
+					<!---->
+					<div class="related-posts">
+						<h3>You Might Also Like</h3>
+						<div>
+							<section>
+								<a href="/post/create-your-markdown-blog-in-nodejs">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/a-close-up-of-a-small-green-plant-in-dirt-3eee36131ac182ee.webp"
+										alt="Featured image for the post: Create your Markdown blog in Node.js"
+									/>
+								</a>
+								<h4>
+									<a href="/post/create-your-markdown-blog-in-nodejs"
+										>Create your Markdown blog in Node.js</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/post/ultimate-markdown-based-application-tutorial-in-nodejs">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/modern-markdown-logo-10277759b896b680.avif"
+										alt="Featured image for the post: Ultimate Markdown-based Application Tutorial in Node.js!"
+									/>
+								</a>
+								<h4>
+									<a href="/post/ultimate-markdown-based-application-tutorial-in-nodejs"
+										>Ultimate Markdown-based Application Tutorial in Node.js!</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/post/create-a-simple-markdown-based-blog-in-nodejs">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/modern-and-clean-markdown-logo-generated-with-ai-75013fca4d4a27de.avif"
+										alt="Featured image for the post: Create a simple Markdown-based blog in Node.js"
+									/>
+								</a>
+								<h4>
+									<a href="/post/create-a-simple-markdown-based-blog-in-nodejs"
+										>Create a simple Markdown-based blog in Node.js</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/post/markdown-blog-with-ejs">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/markdown-logo-with-white-background-ffa392cd3bbb0352.webp"
+										alt="Featured image for the post: Markdown blog with EJS"
+									/>
+								</a>
+								<h4>
+									<a href="/post/markdown-blog-with-ejs">Markdown blog with EJS</a>
+								</h4>
+							</section>
+						</div>
+					</div>
+
+					<!---->
+				</main>
+			</div>
+			<!--End content-->
+
+			<!--Start footer-->
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2025 { LebCit }</strong>
+
+						<br />
+						<!-- Custom Footer Code -->
+						Content in Motion. Powered by Aether.
+					</p>
+				</div>
+			</footer>
+
+			<!--End footer-->
+		</div>
+		<!--End page-->
+
+		<script
+			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
+			onload="hljs.highlightAll()"
+		></script>
+
+		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,919 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Learn how to implement a CSP nonce in Node.js with EJS templates to improve security for inline scripts and styles."
+		/>
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+
+		<!--Site icon-->
+
+		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
+
+		<!--Title-->
+		<title>CSP nonce with Node.js and EJS | { LebCit }</title>
+
+		<!--Stylesheets-->
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
+
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+	</head>
+
+	<body>
+		<!--Start page-->
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+			<!--Start menu-->
+			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
+
+				<div class="menu-overlay__content">
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/" target="">Home</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/blog" target="_self">Blog</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/categories" target="_self">Categories</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/tags" target="_self">Tags</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/search" target="_self">Search</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/my-public-projects" target="_self">Projects</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/about-me" target="_self">About Me</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/sitemap" target="_self">Sitemap</a>
+					</li>
+
+					<!---->
+				</div>
+			</div>
+
+			<!--End menu-->
+
+			<!--Start masthead-->
+			<!-- Start #masthead -->
+
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="
+					background-image: url(/content/uploads/images/key-attached-to-another-in-the-lock-of-a-door-239983bd2e3d9fcb.webp);
+				"
+			>
+				<div class="site-header__overlay"></div>
+
+				<!-- Start .site-header__content -->
+				<div class="site-header__content">
+					<div class="site-header__branding">
+						<h1 class="site-header__title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-header__description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
+
+					<nav id="nav" class="site-header__nav" aria-label="MENU">
+						<ul class="site-header__nav-list">
+							<li class="site-header__nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewBox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<!-- End .site-header__content -->
+			</header>
+
+			<!-- End #masthead -->
+
+			<!--End masthead-->
+
+			<!--Start content-->
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main class="article-view">
+					<!--The page to display the Markdown content of posts and pages.-->
+					<header class="post-header">
+						<h1 class="post-title">CSP nonce with Node.js and EJS</h1>
+
+						<div class="post-meta">
+							<div class="post-date-wrapper">
+								<span>Posted:</span>
+								<time class="post-date" datetime="2025-06-03T08:56:51.839Z"> 2022-07-03 </time>
+
+								<span class="separator">|</span>
+								<span>Updated:</span>
+								<time class="post-updated-date" datetime="2025-06-03T19:26:13.915Z"> 2025-06-03 </time>
+							</div>
+
+							<div class="taxonomy-group">
+								<span>Category:</span>
+								<span class="post-category">
+									<a href="/category/security">security</a>
+								</span>
+							</div>
+
+							<!---->
+
+							<div class="taxonomy-group post-tags-group">
+								<span>Tagged:</span>
+
+								<a class="post-tag" href="/tag/nodejs">nodejs</a>
+
+								<a class="post-tag" href="/tag/csp">csp</a>
+
+								<a class="post-tag" href="/tag/ejs">ejs</a>
+
+								<a class="post-tag" href="/tag/helmet">helmet</a>
+
+								<a class="post-tag" href="/tag/web-security">web-security</a>
+							</div>
+						</div>
+					</header>
+
+					<div class="article-content">
+						<p>
+							<em
+								>Learn how to implement a CSP nonce in Node.js with EJS templates to improve security
+								for inline scripts and styles.</em
+							>
+						</p>
+
+						<!--Content-->
+						<h2>Intro</h2>
+
+						<p>
+							In this post, I will not dive into CSP&#39;s details. The link in the description, above, is
+							enough for a simple introduction to the subject, but if you wish to go deeper I&#39;ll
+							suggest to take a look at:
+						</p>
+						<ul>
+							<li>
+								<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP"
+									>Content Security Policy (CSP) on MDN</a
+								>
+							</li>
+							<li><a href="https://www.w3.org/TR/CSP3/">Content Security Policy Level 3 on W3C</a></li>
+						</ul>
+						<h2>CSP: script-src</h2>
+
+						<p>
+							CSP is manly a way to declare allowed resources to load on a domain or a particular route,
+							to reduce the risk of
+							<a href="https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting"
+								>Cross-site scripting (XSS)</a
+							>
+							attacks.<br />When a script loads into a webpage, the browser blocks the script if it&#39;s
+							not defined in the
+							<a
+								href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src"
+								>script-src</a
+							>
+							directive of the CSP as an allowed resource.<br />When used, CSP will also block inline
+							script tags like:
+						</p>
+						<pre><code class="language-html">&lt;script&gt;
+    doSomething()
+&lt;/script&gt;
+</code></pre>
+						<p>as well as inline event handlers like:</p>
+						<pre><code class="language-html">&lt;button id=&quot;btn&quot; onclick=&quot;doSomething()&quot;&gt;&lt;/button&gt;
+</code></pre>
+						<h2>CSP: style-src</h2>
+
+						<p>
+							Like <code>script-src</code>,
+							<a
+								href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src"
+								>style-src</a
+							>
+							is used to declare the valid sources of styles.
+						</p>
+						<p>
+							CSP <code>style-src</code> directive will block inline style tags and inline style
+							attributes.<br />So, the following will not load:
+						</p>
+						<pre><code class="language-html">// Inline style tag gets ignored
+&lt;style&gt;
+    #my-div {
+        background-color: red;
+    }
+&lt;/style&gt;
+
+// Inline style attribute gets also ignored
+&lt;div id=&quot;my-div&quot; style=&quot;background-color:red&quot;&gt;I will not have a red background!&lt;/div&gt;
+</code></pre>
+						<p>
+							Note that <code>style-src</code> directive will also block styles applied in JS via
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute"
+								>setAttribute</a
+							>.<br />The following example will not be rendered:
+						</p>
+						<pre><code class="language-js">document.getElementById(&quot;my-div&quot;).setAttribute(&quot;style&quot;, &quot;background-color:red;&quot;)
+</code></pre>
+						<p>
+							However, styles set on element&#39;s style property will work.<br />The following example
+							will be rendered:
+						</p>
+						<pre><code class="language-js">document.getElementById(&quot;my-div&quot;).style.backgroundColor = &quot;red&quot;
+</code></pre>
+						<h2>Unsafe expressions</h2>
+
+						<p>
+							There are <strong>unsafe</strong> ways to whitelist inline script tags, inline event
+							handlers, inline style tags and inline styles, but I&#39;m not going to talk about them
+							because they are <strong>unsafe</strong> and break the whole point of a CSP!
+						</p>
+						<h2>Setting CSP in Node.js</h2>
+
+						<p>
+							To define allowed resources in a CSP via Node.js, we have to declare them as a response
+							header:
+						</p>
+						<ol>
+							<li>The user makes a request</li>
+							<li>The server sends a response</li>
+							<li>The browser loads the page along with allowed resources</li>
+						</ol>
+						<p>
+							It&#39;s in the response header that a CSP lives and where the browser will look to know
+							what he can render.
+						</p>
+						<p>Using <a href="https://expressjs.com/">Express</a>, we can simply do the following:</p>
+						<pre><code class="language-js">const express = require(&quot;express&quot;)
+const app = express()
+
+// Set CSP as a middleware function
+app.use(function (req, res, next) {
+    res.setHeader(
+        &quot;Content-Security-Policy&quot;,
+        &quot;default-src &#39;self&#39;; script-src &#39;self&#39;; style-src &#39;self&#39;; font-src &#39;self&#39;; img-src &#39;self&#39;; frame-src &#39;self&#39;&quot;
+    )
+
+    next()
+})
+
+app.get(&quot;/&quot;, (req, res) =&gt; {
+    res.send(&quot;Hello World!&quot;)
+})
+
+app.listen(3000, () =&gt; {
+    console.log(`App 🚀 @ http://localhost:3000`)
+})
+</code></pre>
+						<p>
+							As you can see, we have defined the most used directives to <code>&#39;self&#39;</code>,
+							meaning that we are only allowing resources from the current host (<em
+								>including URL scheme and port number</em
+							>) only.<br />If you run this app (<code>node index</code>), and follow the link, you&#39;ll
+							get a nice <strong>Hello World!</strong><br />If you open the Console (F12), you&#39;ll see
+							nothing since we didn&#39;t do much for now.
+						</p>
+						<h2>EJS</h2>
+
+						<p>
+							To render an <code>HTML</code> page, load external scripts and styles to test our CSP,
+							I&#39;ll be using <a href="https://ejs.co/">EJS</a>.<br />Fell free to use any other
+							template engine that suits your needs.<br />I highly recommend EJS for the following reason:
+						</p>
+						<blockquote>
+							<p>
+								EJS is a simple templating language that lets you generate HTML markup with plain
+								JavaScript.
+							</p>
+						</blockquote>
+						<p>
+							After installing EJS (<code>npm i ejs</code>), we&#39;ll have to create a
+							<code>views</code> folder, at the root of the app, to store the
+							<code>.ejs</code> files.<br />EJS will look inside this folder to <code>render</code> your
+							page(s) the way you instruct him to do. In this folder, create a file called
+							<code>index.ejs</code> with the following content:
+						</p>
+						<details>
+							<summary>/views/index.ejs</summary>
+
+							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+        &lt;title&gt;Document&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Hello from EJS!&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+						</details>
+
+						<p>
+							Yes, an <code>.ejs</code> file is an <code>HTML</code> file in which we can use plain
+							<code>JavaScript</code>, we&#39;ll see that in a moment.
+						</p>
+						<p>Update our main server file to look like this:</p>
+						<details>
+							<summary>/index.js</summary>
+
+							<pre><code class="language-js">const express = require(&quot;express&quot;)
+const app = express()
+
+// Set CSP as a middleware function
+app.use(function (req, res, next) {
+    res.setHeader(
+        &quot;Content-Security-Policy&quot;,
+        &quot;default-src &#39;self&#39;; script-src &#39;self&#39;; style-src &#39;self&#39;; font-src &#39;self&#39;; img-src &#39;self&#39;; frame-src &#39;self&#39;&quot;
+    )
+
+    next()
+})
+
+// Set EJS as a template engine
+app.set(&quot;view engine&quot;, &quot;ejs&quot;)
+
+// Use EJS to render our page(s)
+app.get(&quot;/&quot;, (req, res) =&gt; {
+    res.render(&quot;index&quot;) // renders index.ejs
+})
+
+app.listen(3000, () =&gt; {
+    console.log(`App 🚀 @ http://localhost:3000`)
+})
+</code></pre>
+						</details>
+
+						<h2>External resources</h2>
+
+						<p>
+							Now, to test our CSP, we just have to load some external resources.<br />Let&#39;s bring on
+							<a href="https://purecss.io/">Pure.css</a> and <a href="https://lodash.com/">Lodash</a>.
+							Update <code>index.ejs</code> to look like this:
+						</p>
+						<details>
+							<summary>/views/index.ejs</summary>
+
+							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+        &lt;title&gt;Document&lt;/title&gt;
+        &lt;!-- Pure.css --&gt;
+        &lt;link
+            rel=&quot;stylesheet&quot;
+            href=&quot;https://unpkg.com/purecss@2.1.0/build/pure-min.css&quot;
+            integrity=&quot;sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH&quot;
+            crossorigin=&quot;anonymous&quot;
+        /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Hello from EJS!&lt;/h1&gt;
+
+        &lt;!-- Lodash --&gt;
+        &lt;script src=&quot;https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+						</details>
+
+						<p>Save <code>index.ejs</code>, reload the app in the browser, and open the Console:</p>
+						<details>
+							<summary>Firefox Console</summary>
+
+							<pre><code class="language-js">
+⚠️ Loading failed for the &lt;script&gt; with source “https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js”.
+🛑 Content Security Policy: The page’s settings blocked the loading of a resource at https://unpkg.com/purecss@2.1.0/build/pure-min.css (“style-src”).
+🛑 Content Security Policy: The page’s settings blocked the loading of a resource at https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js (“script-src”).
+</code></pre>
+						</details>
+
+						<details>
+							<summary>Chrome Console</summary>
+
+							<pre><code class="language-js">
+🛑 Refused to load the stylesheet &#39;https://unpkg.com/purecss@2.1.0/build/pure-min.css&#39; because it violates the following Content Security Policy directive: &quot;style-src &#39;self&#39;&quot;. Note that &#39;style-src-elem&#39; was not explicitly set, so &#39;style-src&#39; is used as a fallback.
+🛑 Refused to load the script &#39;https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js&#39; because it violates the following Content Security Policy directive: &quot;script-src &#39;self&#39;&quot;. Note that &#39;script-src-elem&#39; was not explicitly set, so &#39;script-src&#39; is used as a fallback.
+</code></pre>
+						</details>
+
+						<p>
+							Now, you can see that our CSP have blocked Pure.css and Lodash, so everything is working as
+							expected since they are not defined in our CSP as allowed resources to load in the browser.
+						</p>
+						<h2>Helmet</h2>
+
+						<p>
+							Imagine, not necessarily because it happens when you are creating an app, having a
+							reasonable amount of scripts and styles to whitelist.<br />The CSP middleware function in
+							the main server file will grow and become sort of ugly and hard to maintain.<br />An
+							<strong>excellent</strong> alternative would be to use
+							<a href="https://helmetjs.github.io/">Helmet</a> <em>if you&#39;re using Express</em>.
+						</p>
+						<blockquote>
+							<p>Helmet helps you secure your Express apps by setting various HTTP headers.</p>
+						</blockquote>
+						<p>
+							Let&#39;s add Helmet to our Express app with the following command
+							<code>npm i helmet</code>.<br />To easily maintain our CSP, let&#39;s move it inside a
+							<code>middleware</code> folder, a the root of the app, in a file called
+							<code>helmet.js</code>.<br />The app structure looks like the following tree:
+						</p>
+						<pre><code class="language-txt">Application&#39;s root without node_modules folder
+├── index.js
+├── middleware
+│  └── helmet.js
+├── package-lock.json
+├── package.json
+└── views
+  └── index.ejs
+</code></pre>
+						<p>Let&#39;s add a CSP with Helmet:</p>
+						<details>
+							<summary>/middleware/helmet.js</summary>
+
+							<pre><code class="language-js">const helmet = require(&quot;helmet&quot;)
+
+module.exports = helmet()
+</code></pre>
+						</details>
+
+						<p>and update <code>index.js</code> to call this middleware:</p>
+						<details>
+							<summary>/index.js</summary>
+
+							<pre><code class="language-js">const express = require(&quot;express&quot;)
+const app = express()
+
+// Set CSP using Helmet
+const helmet = require(&quot;./middleware/helmet&quot;)
+app.use(helmet)
+
+// Set EJS as a template engine
+app.set(&quot;view engine&quot;, &quot;ejs&quot;)
+
+// Use EJS to render our page(s)
+app.get(&quot;/&quot;, (req, res) =&gt; {
+    res.render(&quot;index&quot;) // renders index.ejs
+})
+
+app.listen(3000, () =&gt; {
+    console.log(`App 🚀 @ http://localhost:3000`)
+})
+</code></pre>
+						</details>
+
+						<p>Save both files, refresh your browser, and open the Console:</p>
+						<details>
+							<summary>Firefox Console</summary>
+
+							<pre><code class="language-js">
+⚠️ Content Security Policy: Couldn’t process unknown directive ‘script-src-attr’
+⚠️ Loading failed for the &lt;script&gt; with source “https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js”.
+🛑 Content Security Policy: The page’s settings blocked the loading of a resource at https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js (“script-src”).
+</code></pre>
+						</details>
+
+						<details>
+							<summary>Chrome Console</summary>
+
+							<pre><code class="language-js">
+🛑 Refused to load the script &#39;https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js&#39; because it violates the following Content Security Policy directive: &quot;script-src &#39;self&#39;&quot;. Note that &#39;script-src-elem&#39; was not explicitly set, so &#39;script-src&#39; is used as a fallback.
+</code></pre>
+						</details>
+
+						<p>
+							As you can see, now only Lodash is blocked 🤔 And Firefox is throwing a warning for an
+							unknown directive.
+						</p>
+						<p>
+							Under the hood, a lot is happening, and it will take a series of posts to explain in detail
+							each header and how to configure them...
+						</p>
+						<p>
+							But just that you know, Helmet sets a bunch of default values to protect your endpoint.<br />One
+							of them is:<br /><code>style-src &#39;self&#39; https: &#39;unsafe-inline&#39;;</code
+							><br />This is the directive allowing Pure.css.<br />It means:
+							<em
+								>&quot;allow any styles&#39; source from my domain, or styles&#39; source served over
+								https, or inline styles&quot;</em
+							>.<br />But as I&#39;ve said before, any <code>&#39;unsafe-...&#39;</code> expression is
+							<strong>unsafe</strong> and should not be used unless their is really no other option...<br />I&#39;ve
+							linked at the beginning of this section to Helmet&#39;s documentation.<br />We&#39;ll be
+							addressing all issues, properly, in the next and last section.
+						</p>
+						<h2>Hash and Nonce</h2>
+
+						<p>
+							To allow the execution of inline scripts, inline event handlers and inline styles, a hash or
+							a nonce that matches the inline code can be specified, to avoid using the
+							<code>&#39;unsafe-inline&#39;</code>expression.
+						</p>
+						<h3>Hash</h3>
+
+						<hr />
+						<p>
+							A <a href="https://content-security-policy.com/hash/">hash</a> is a string composed of two
+							parts connected by a dash with each other:
+						</p>
+						<ol>
+							<li>The cryptographic algorithm used to create the hash value.</li>
+							<li>The base64-encoded hash of a script or style.</li>
+						</ol>
+						<p>CSP supports sha256, sha384 and sha512.</p>
+						<p>
+							But when you hash a script or a style, the generated string matches only the hashed code,
+							meaning that if the code changes in any way (dot, space, new line, comment,
+							added/removed/formatted code), the hash will no longer match the code who gets blocked!<br />In
+							this case, you&#39;ll have to regenerate a hash that matches the modified code...<br />It&#39;s
+							a time consuming process if your code changes a lot, but commonly used and
+							<strong>recommended</strong> over a nonce especially for static scripts.
+						</p>
+						<p>From MDN:</p>
+						<blockquote>
+							<p>
+								Note: Only use nonce for cases where you have no way around using unsafe inline script
+								or style contents. If you don&#39;t need nonce, don&#39;t use it. If your script is
+								static, you could also use a CSP hash instead. (See usage notes on
+								<a
+									href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script"
+									>unsafe inline script</a
+								>.) Always try to take full advantage of CSP protections and avoid nonces or unsafe
+								inline scripts whenever possible.
+							</p>
+						</blockquote>
+						<h3>Nonce</h3>
+
+						<hr />
+						<p>
+							On the other hand, a <a href="https://content-security-policy.com/nonce/">nonce</a> is a
+							cryptographic <strong>number used once</strong>, generated using a cryptographically secure
+							random number generator, that must be unique for each HTTP response as a random
+							base64-encoded string of at least 128 bits of data.
+						</p>
+						<p>
+							So, in the case of server-side rendering, a nonce is more often used, and can be used for
+							inline and external scripts and styles.<br />Note that a <code>nonce-value</code> will not
+							allow stylesheet requests originating from the <code>@import</code> rule!
+						</p>
+						<p>
+							To use a nonce, for a script, we have to declare at the top of our
+							<code>script-src</code> directive the <code>&#39;strict-dynamic&#39;</code> expression to
+							allow the execution of that script as well as any script loaded by this root script.<br />When
+							using the <code>&#39;strict-dynamic&#39;</code> expression, other expressions such as
+							<code>&#39;self&#39;</code> or <code>&#39;unsafe-inline&#39;</code> will be ignored.
+						</p>
+						<p>
+							I like to keep my code clean and maintainable because at one point or another I&#39;ll want
+							to update it, this is why I split (as most developers) my code into pieces where each one is
+							easily trackable in a near or far future. Let&#39;s add a file called
+							<code>nonces.js</code> in the <code>middleware</code> folder, the app structure now looks
+							like the following tree:
+						</p>
+						<pre><code class="language-text">Application&#39;s root without node_modules folder
+├── index.js
+├── middleware
+│  ├── helmet.js
+│  └── nonces.js
+├── package-lock.json
+├── package.json
+└── views
+  └── index.ejs
+</code></pre>
+						<p>Open <code>nonces.js</code> and add the following content:</p>
+						<pre><code class="language-js">// Determining if crypto support is unavailable
+let crypto
+try {
+    crypto = require(&quot;crypto&quot;)
+} catch (err) {
+    console.log(&quot;crypto support is disabled!&quot;)
+}
+
+// Generating a nonce for Lodash with crypto
+let lodashNonce = crypto.randomBytes(16).toString(&quot;hex&quot;)
+
+// Maybe you&#39;ll have some other later
+module.exports = { lodashNonce }
+</code></pre>
+						<p>
+							The <a href="https://nodejs.org/docs/latest-v16.x/api/crypto.html">crypto</a> module is a
+							built-in functionality of Node.js but it&#39;s better to check if it&#39;s included or not,
+							in our installation, just like the docs.
+						</p>
+						<p>Now, update <code>helmet.js</code>:</p>
+						<details>
+							<summary>/middleware/helmet.js</summary>
+
+							<pre><code class="language-js">const helmet = require(&quot;helmet&quot;)
+let { lodashNonce } = require(&quot;./nonces&quot;)
+
+module.exports = helmet({
+    contentSecurityPolicy: {
+        directives: {
+            scriptSrc: [
+                &quot;&#39;strict-dynamic&#39;&quot;, // For nonces to work
+                `&#39;nonce-${lodashNonce}&#39;`,
+            ],
+            scriptSrcAttr: null, // Remove Firefox warning
+            styleSrc: [&quot;&#39;self&#39;&quot;, &quot;https:&quot;], // Remove &#39;unsafe-inline&#39;
+        },
+    },
+})
+</code></pre>
+						</details>
+
+						<p>
+							This way is much elegant, clean and maintainable than a middleware function in the main
+							server file.
+						</p>
+						<p>
+							Finally, we&#39;ll have to pass the generated nonce from the route were we need to load the
+							script as a variable and grab this variable in the route&#39;s template where the script tag
+							is.<br />I&#39;ll be commenting the code to explain the steps:
+						</p>
+						<details>
+							<summary>/index.js</summary>
+
+							<pre><code class="language-js">const express = require(&quot;express&quot;)
+const app = express()
+
+// Set CSP with helmet
+const helmet = require(&quot;./middleware/helmet&quot;)
+app.use(helmet)
+
+app.set(&quot;view engine&quot;, &quot;ejs&quot;)
+
+/**
+ * 1- We require lodashNonce
+ * 2- This is our route &quot;/&quot;
+ * 3- We are rendering &quot;index.ejs&quot;
+ * 4- We pass lodashNonce into the route,
+ * with the second argument of res.render
+ * which is an object, as a variable
+ * 5- This object is now accessible
+ * in the EJS template file
+ * 6- We&#39;ll get lodashNonce value
+ * by the ourGenerateNonce key
+ * in the EJS template file
+ * 7- That&#39;s it here, open index.ejs below
+ */
+let { lodashNonce } = require(&quot;./middleware/nonces&quot;)
+app.get(&quot;/&quot;, (req, res) =&gt; {
+    res.render(&quot;index&quot;, { ourGenerateNonce: lodashNonce })
+})
+
+app.listen(3000, () =&gt; {
+    console.log(`App 🚀 @ http://localhost:3000`)
+})
+</code></pre>
+						</details>
+
+						<details>
+							<summary>/views/index.ejs</summary>
+
+							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+        &lt;title&gt;Document&lt;/title&gt;
+        &lt;!-- Pure.css --&gt;
+        &lt;!-- 
+            Use JSDELIVR to load Pure.css instead of UNPKG
+        --&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.min.css&quot; /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Hello from EJS!&lt;/h1&gt;
+
+        &lt;!-- Lodash --&gt;
+        &lt;!-- 
+            Set the nonce attribute to ourGenerateNonce
+            using EJS output value tag &lt;%= %&gt;
+        --&gt;
+        &lt;script
+            nonce=&quot;&lt;%= ourGenerateNonce %&gt;&quot;
+            src=&quot;https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js&quot;
+        &gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+						</details>
+
+						<p>
+							Save those files,reload your browser and open the browser&#39;s console 🥳🎉🎊<br />Congrats,
+							you&#39;ve just loaded an external script using a nonce!
+						</p>
+						<p>Hope that this post was helpful.<br />Next one will be about EJS.</p>
+						<p class="post-content hide">
+							<em
+								>Note: The background image is a photo by
+								<a href="https://unsplash.com/photos/silver-skeleton-key-on-black-surface-0juktkOTkpU"
+									>Amol Tyagi</a
+								>.</em
+							>
+						</p>
+					</div>
+
+					<nav class="post-navigation" aria-label="Post Navigation">
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Previous Post Link (only if there's a previous post) -->
+						<a
+							href="/post/to-node-or-not-deta-is-the-answer"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Previous: To Node or not? Deta is the answer!
+						</a>
+
+						<!--Dynamic Markup Separator-->
+
+						<!-- Next Post Link (only if there's a next post) -->
+						<a
+							href="/post/templating-a-nodejs-app-with-ejs"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the next post"
+						>
+							Next: Templating a Node.js App with EJS
+						</a>
+					</nav>
+
+					<!---->
+					<div class="related-posts">
+						<h3>You Might Also Like</h3>
+						<div>
+							<section>
+								<a href="/post/templating-a-nodejs-app-with-ejs">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/block-of-red-orange-yellow-and-green-lego-7443ef69c7d80846.webp"
+										alt="Featured image for the post: Templating a Node.js App with EJS"
+									/>
+								</a>
+								<h4>
+									<a href="/post/templating-a-nodejs-app-with-ejs"
+										>Templating a Node.js App with EJS</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/post/improving-a-nodejs-app-built-with-express-and-ejs">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/a-lego-wall-cb5f14aca0135679.webp"
+										alt="Featured image for the post: Improving a Node.js app built with Express and EJS"
+									/>
+								</a>
+								<h4>
+									<a href="/post/improving-a-nodejs-app-built-with-express-and-ejs"
+										>Improving a Node.js app built with Express and EJS</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/post/markdown-blog-with-ejs">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/markdown-logo-with-white-background-ffa392cd3bbb0352.webp"
+										alt="Featured image for the post: Markdown blog with EJS"
+									/>
+								</a>
+								<h4>
+									<a href="/post/markdown-blog-with-ejs">Markdown blog with EJS</a>
+								</h4>
+							</section>
+
+							<section>
+								<a
+									href="/post/transferring-variables-and-functions-from-server-to-client-in-a-nodejs-application-using-ejs-and-eta"
+								>
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/transferring-data-generated-with-ai-ef728ca1d65539f0.avif"
+										alt="Featured image for the post: Transferring Variables and Functions from Server to Client in a Node.js Application Using EJS and Eta"
+									/>
+								</a>
+								<h4>
+									<a
+										href="/post/transferring-variables-and-functions-from-server-to-client-in-a-nodejs-application-using-ejs-and-eta"
+										>Transferring Variables and Functions from Server to Client in a Node.js
+										Application Using EJS and Eta</a
+									>
+								</h4>
+							</section>
+						</div>
+					</div>
+
+					<!---->
+				</main>
+			</div>
+			<!--End content-->
+
+			<!--Start footer-->
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2025 { LebCit }</strong>
+
+						<br />
+						<!-- Custom Footer Code -->
+						Content in Motion. Powered by Aether.
+					</p>
+				</div>
+			</footer>
+
+			<!--End footer-->
+		</div>
+		<!--End page-->
+
+		<script
+			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
+			onload="hljs.highlightAll()"
+		></script>
+
+		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+	</body>
+</html>

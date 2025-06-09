@@ -1,0 +1,1376 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Learn to build Aether CMS themes with custom pages, menus, and pagination." />
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+
+		<!--Site icon-->
+
+		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
+
+		<!--Title-->
+		<title>How to create a theme for Aether CMS | { LebCit }</title>
+
+		<!--Stylesheets-->
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
+
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+	</head>
+
+	<body>
+		<!--Start page-->
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+			<!--Start menu-->
+			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
+
+				<div class="menu-overlay__content">
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/" target="">Home</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/blog" target="_self">Blog</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/categories" target="_self">Categories</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/tags" target="_self">Tags</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/search" target="_self">Search</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/my-public-projects" target="_self">Projects</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/about-me" target="_self">About Me</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/sitemap" target="_self">Sitemap</a>
+					</li>
+
+					<!---->
+				</div>
+			</div>
+
+			<!--End menu-->
+
+			<!--Start masthead-->
+			<!-- Start #masthead -->
+
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="
+					background-image: url(/content/uploads/images/big-white-letter-a-above-staircase-decor-0e2922ccd77faf86.avif);
+				"
+			>
+				<div class="site-header__overlay"></div>
+
+				<!-- Start .site-header__content -->
+				<div class="site-header__content">
+					<div class="site-header__branding">
+						<h1 class="site-header__title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-header__description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
+
+					<nav id="nav" class="site-header__nav" aria-label="MENU">
+						<ul class="site-header__nav-list">
+							<li class="site-header__nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewBox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<!-- End .site-header__content -->
+			</header>
+
+			<!-- End #masthead -->
+
+			<!--End masthead-->
+
+			<!--Start content-->
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main class="article-view">
+					<!--The page to display the Markdown content of posts and pages.-->
+					<header class="post-header">
+						<h1 class="post-title">How to create a theme for Aether CMS</h1>
+
+						<div class="post-meta">
+							<div class="post-date-wrapper">
+								<span>Posted:</span>
+								<time class="post-date" datetime="2025-06-06T20:06:48.540Z"> 2025-06-06 </time>
+
+								<span class="separator">|</span>
+								<span>Updated:</span>
+								<time class="post-updated-date" datetime="2025-06-09T20:52:05.889Z"> 2025-06-09 </time>
+							</div>
+
+							<div class="taxonomy-group">
+								<span>Category:</span>
+								<span class="post-category">
+									<a href="/category/web-development">web-development</a>
+								</span>
+							</div>
+
+							<!---->
+
+							<div class="taxonomy-group post-tags-group">
+								<span>Tagged:</span>
+
+								<a class="post-tag" href="/tag/aether-cms">aether-cms</a>
+
+								<a class="post-tag" href="/tag/theme-development">theme-development</a>
+
+								<a class="post-tag" href="/tag/tutorial">tutorial</a>
+
+								<a class="post-tag" href="/tag/templating">templating</a>
+
+								<a class="post-tag" href="/tag/web-development">web-development</a>
+							</div>
+						</div>
+					</header>
+
+					<div class="article-content">
+						<p>
+							<em>Learn to build Aether CMS themes with custom pages, menus, and pagination.</em>
+						</p>
+
+						<!--Content-->
+						<h2>Intro</h2>
+
+						<p>
+							I&#39;ve released today (2025-06-06)
+							<a href="https://aether-cms.pages.dev/">Aether CMS</a> which is a modern and flexible
+							Node.js content management system with an integrated - ultra fast - static site
+							generator.<br />While I&#39;ve created a detailed documentation for Aether - covering every
+							aspect of its functionalities (including theming) - my decade of experience in theming tells
+							me that even if the system is easy with an in-depth documentation, it&#39;s not directly
+							obvious (even for developers) how things work together.<br />The purpose of this tutorial is
+							to simplify
+							<a href="https://aether-cms.pages.dev/documentation/theming/"
+								>Aether theming&#39;s documentation</a
+							>
+							by offering a clearer, step-by-step approach to creating a theme using a real-world example.
+						</p>
+						<hr class="section-divider" />
+
+						<h2 id="theme-structure">Theme Structure</h2>
+
+						<p>A theme in Aether consists of <strong>3 required files</strong>:</p>
+						<ul>
+							<li><code>theme.json</code> → The configuration file for your Aether theme</li>
+							<li><code>templates/layout.html</code> → The main template for your site</li>
+							<li><code>assets/css/style.css</code> → The main stylesheet for your theme</li>
+						</ul>
+						<p>
+							Assuming you&#39;re building a landing page for a new product, a registration page for an
+							event, a long-form sales page, a mobile app promo with store links, or even a simple
+							&#39;coming soon&#39; page, the basic structure of your Aether theme would look like this:
+						</p>
+						<pre><code class="language-txt">📁 my-aether-theme/
+├── 📁 assets/
+│   └── 📁 css/
+│       └── 🎨 style.css
+├── 📁 templates/
+│   └── 🧩 layout.html
+└── 🛠️ theme.json
+</code></pre>
+						<hr class="subsection-divider" />
+
+						<h3 id="theme-json-file">Theme JSON File</h3>
+
+						<p>
+							The <code>theme.json</code> file of your Aether theme is where you define the configuration
+							fields for it. For brevity I&#39;ll only use the
+							<strong
+								><a
+									href="https://aether-cms.pages.dev/documentation/theming/theme-structure/#required-fields"
+									>required fields for an Aether theme</a
+								></strong
+							>. Create a <code>theme.json</code> file at the root of <code>my-aether-theme</code> and
+							populate it with the following data:
+						</p>
+						<pre><code class="language-json">{
+    &quot;title&quot;: &quot;Clean Blog&quot;,
+    &quot;description&quot;: &quot;Clean and responsive, with a clear typography, perfect for personal blogs&quot;,
+    &quot;version&quot;: &quot;1.0.0&quot;,
+    &quot;author&quot;: &quot;YOUR-NAME-HERE&quot;,
+    &quot;authorUrl&quot;: &quot;&quot;,
+    &quot;tags&quot;: [&quot;blog&quot;, &quot;modern&quot;, &quot;responsive&quot;, &quot;simple&quot;, &quot;clean&quot;],
+    &quot;license&quot;: &quot;GPL-3.0-or-later&quot;,
+    &quot;features&quot;: [
+        &quot;Responsive design&quot;,
+        &quot;One Column&quot;,
+        &quot;SEO optimized&quot;,
+        &quot;Social media integration&quot;,
+        &quot;Featured Images&quot;,
+        &quot;Custom Pages&quot;
+    ],
+    &quot;screenshot&quot;: &quot;&quot;
+}
+</code></pre>
+						<p>
+							These fields are required for the system to allow the theme upload. As you&#39;ve noticed,
+							<code>authorUrl</code> and <code>screenshot</code> are provided with an empty-string
+							(<code>&quot;&quot;</code>); you can do the same for <code>tags</code> and
+							<code>features</code> with an empty-array (<code>[]</code>).<br />The only field you cannot
+							change is <code>license</code>, its value must be exactly
+							<code>&quot;GPL-3.0-or-later&quot;</code>.
+						</p>
+						<hr class="subsection-divider" />
+
+						<h3 id="main-template">Main Template</h3>
+
+						<p>
+							The <code>layout.html</code> file is the main template for your site, it must be located
+							inside a <strong>templates</strong> folder at the root of your theme directory (e.g.,
+							<strong>my-aether-theme/templates/layout.html</strong>).
+						</p>
+						<hr class="subsection-divider" />
+
+						<h3 id="main-stylesheet">Main Stylesheet</h3>
+
+						<p>
+							The <code>style.css</code> file is the main stylesheet for your site. This file must be
+							located inside a <strong>css</strong> folder, which is within an
+							<strong>assets</strong> folder at the root of your theme directory (e.g.,
+							<strong>my-aether-theme/assets/css/style.css</strong>).
+						</p>
+						<hr class="section-divider" />
+
+						<h2 id="templating">Templating</h2>
+
+						<p>
+							Templating is the process of getting data from the backend and displaying it in a template
+							the way we want.<br />In Aether, a template is just an HTML file — the backbone of the web —
+							with a <code>.html</code> extension (e.g., <strong>layout.html</strong>).<br />Aether
+							provides a variety of variables you can use in a theme template, depending on the
+							<a href="https://aether-cms.pages.dev/documentation/theming/template-variables-by-context/"
+								>context</a
+							>.<br />In this tutorial, we&#39;re going to recreate the
+							<a href="https://startbootstrap.com/theme/clean-blog">Clean Blog</a> theme by
+							<a href="https://startbootstrap.com/">Start Bootstrap</a> as an Aether theme.<br />The most
+							important aspect of templating is understanding the structure of the theme you want to
+							create. This makes it easier to break the theme into reusable parts and components,
+							following the
+							<a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a> principle (Don&#39;t
+							Repeat Yourself).
+						</p>
+						<hr class="subsection-divider" />
+
+						<h3 id="clean-blog-structure">Clean Blog Structure</h3>
+
+						<p>
+							By looking at the
+							<a href="https://startbootstrap.com/previews/clean-blog">Clean Blog preview</a>, we can see
+							that the homepage consists of the following parts:
+						</p>
+						<ol>
+							<li>A logo with a navigation menu at the top</li>
+							<li>A hero section with a background image and some text</li>
+							<li>A content section listing posts with navigation</li>
+							<li>A footer with social media links and copyright information</li>
+						</ol>
+						<p>
+							After exploring the available links in the theme’s menu, we can see that the
+							<a href="https://startbootstrap.github.io/startbootstrap-clean-blog/post.html"
+								>post sample</a
+							>
+							features a background image that fills the height of the screen followed by its content. In
+							contrast, the
+							<a href="https://startbootstrap.github.io/startbootstrap-clean-blog/about.html">about</a>
+							and
+							<a href="https://startbootstrap.github.io/startbootstrap-clean-blog/contact.html"
+								>contact</a
+							>
+							pages display their own content.<br />To summarize this quick overview: the post sample page
+							stands out with a slightly different structure, mainly due to its taller background image
+							and unique layout compared to the other pages.
+						</p>
+						<hr class="section-divider" />
+
+						<h2 id="install-aether">Install Aether</h2>
+
+						<p>
+							To follow along with creating Clean Blog as an Aether theme, I recommend installing Aether
+							and working alongside me. This way, you can better grasp the concepts and see how everything
+							comes together visually in your browser.<br />I&#39;ll assume you have Node.js and npm
+							installed on your machine. Make sure your Node.js version is <strong>at least 18</strong>;
+							if not, you can update by installing the latest LTS (Long Term Support) version from the
+							official <a href="https://nodejs.org/en/download">Node.js download page</a>.<br />To install
+							Aether, choose a location on your machine where you prefer to work (e.g., in a
+							<strong>tests</strong> folder) and open it in your code editor (I use VS Code). Then, in the
+							terminal, run the following command:
+						</p>
+						<pre><code class="language-bash">npx create-aether-cms my-cms-site
+</code></pre>
+						<p>
+							This will create a ready-to-use version of Aether in a folder named
+							<strong>my-cms-site</strong>.<br />During the installation process, the terminal will output
+							the following logs until it finishes:
+						</p>
+						<pre><code class="language-bash">$ npx create-aether-cms my-cms-site
+🌳 Creating a new Aether CMS project in my-cms-site...
+Cloning into &#39;D:\tests\my-cms-site&#39;...
+remote: Enumerating objects: 240, done.
+remote: Counting objects: 100% (240/240), done.
+remote: Compressing objects: 100% (212/212), done.
+remote: Total 240 (delta 19), reused 240 (delta 19), pack-reused 0 (from 0)
+Receiving objects: 100% (240/240), 467.82 KiB | 680.00 KiB/s, done.
+Resolving deltas: 100% (19/19), done.
+📄 Created .env file with default settings
+📦 Updated package.json with your project details
+📁 Created default content structure
+📦 Installing dependencies (this might take a few minutes)...
+
+added 7 packages, and audited 8 packages in 2s
+
+found 0 vulnerabilities
+🔄 Setting up git repository...
+✅ Renamed origin remote to upstream
+Do you want to set up a new git origin for your project? (y/n): n
+🔄 Git repository configured with update capabilities
+
+🎉 Success! Created my-cms-site at D:\tests\my-cms-site
+🚀 Get started with the following commands:
+
+    cd my-cms-site
+    npm start
+
+🔑 Default admin credentials:
+    Username: admin
+    Password: admin
+
+📚 For documentation, visit: https://aether-cms.pages.dev/
+</code></pre>
+						<p>
+							During the installation process, you&#39;ll be asked whether you want to connect your Aether
+							installation to a remote Git repository. If you choose not to, the installation will still
+							work locally, and you can always set the Git origin later using:
+						</p>
+						<pre><code class="language-bash">git remote add origin &lt;your-repo-url&gt;
+</code></pre>
+						<p>With Aether set up, let’s get to work and start recreating Clean Blog for Aether!</p>
+						<hr class="section-divider" />
+
+						<h2 id="clean-blog-creation">Clean Blog Creation</h2>
+
+						<p>
+							If you&#39;ve already created your Aether theme structure as described above, just rename
+							the root folder from <strong>my-aether-theme</strong> to <strong>clean-blog</strong>. This
+							helps keep things tidy and follows a logical convention, since the title specified in the
+							<code>theme.json</code> file is <code>&quot;title&quot;: &quot;Clean Blog&quot;</code>.
+						</p>
+						<p>
+							Copy the <strong>clean-blog</strong> folder into <code>my-cms-site/content/themes</code>.
+							Your <strong>content</strong> folder structure should now look like this:
+						</p>
+						<pre><code class="language-txt">📁 content/
+├── 📁 cache/
+├── 📁 data/
+├── 📁 themes/
+│   ├── 📁 clean-blog/
+│   │   ├── 📁 assets/
+│   │   │   └── 📁 css/
+│   │   │       └── 🎨 style.css
+│   │   ├── 📁 templates/
+│   │   │   └── 🧩 layout.html
+│   │   └── 🛠️ theme.json
+│   └── 📁 default/
+├── 📁 uploads/
+</code></pre>
+						<hr class="subsection-divider" />
+
+						<h3 id="starting-aether">Starting Aether</h3>
+
+						<p>
+							If you&#39;re comfortable using the terminal, you can navigate into the folder and start the
+							project by running:
+						</p>
+						<pre><code class="language-bash">cd my-cms-site
+npm start
+</code></pre>
+						<p>
+							Otherwise, open <strong>my-cms-site</strong> with your code editor, open a terminal from
+							there, and run:
+						</p>
+						<pre><code class="language-bash">npm start
+</code></pre>
+						<p>The terminal will output something like this:</p>
+						<pre><code class="language-bash">$ npm start
+
+&gt; aether-cms@1.0.0 start
+&gt; node index.js
+
+Creating default admin user...
+Default admin user created. Username: admin, Password: admin
+You have the latest version of litenode
+App @ http://localhost:8080
+</code></pre>
+						<p>
+							You can now open <a href="http://localhost:8080">http://localhost:8080</a> in your browser,
+							or simply click the link in the terminal output. You’ll be presented with the default Aether
+							theme.
+						</p>
+						<div class="alert alert-info">
+							<div class="alert-icon">ℹ️</div>
+							<div>
+								<strong>Note:</strong> <code>localhost</code> refers to your own computer, it's a way to
+								access the site you're running locally, just for you. The number 8080 is the port it's
+								running on.
+							</div>
+						</div>
+
+						<hr class="subsection-divider" />
+
+						<h3>The Administration</h3>
+
+						<p>
+							To access the Aether administration dashboard, navigate to
+							<a href="http://localhost:8080/aether">http://localhost:8080/aether</a> and log in using the
+							default admin credentials:
+						</p>
+						<ul>
+							<li><strong>Username:</strong> admin</li>
+							<li><strong>Password:</strong> admin</li>
+						</ul>
+						<p>
+							In the Aether dashboard, click the <strong>Themes</strong> link in the left sidebar. You
+							will be redirected to the <strong>Themes Management</strong> page. Click on the
+							<strong>Clean Blog</strong> theme card, and the <strong>Theme Details</strong> sidebar will
+							appear on the right side of your screen, displaying its information.
+						</p>
+						<p>
+							Next, click the <strong>Activate Theme</strong> button. A toast notification will confirm
+							that the theme has been successfully activated, and the page will refresh. Finally, click
+							the <strong>View Site</strong> button at the top of the Aether dashboard. A new tab will
+							open with a blank page.
+						</p>
+						<p>Congratulations! You’ve just created the base for an Aether theme.</p>
+						<hr class="subsection-divider" />
+
+						<h3 id="clean-blog-index">Clean Blog Index</h3>
+
+						<p>
+							As seen previously, the Clean Blog homepage displays a list of posts. We have access to
+							Clean Blog’s source code in its
+							<a href="https://github.com/StartBootstrap/startbootstrap-clean-blog">GitHub repository</a>.
+							Navigate to the
+							<a href="https://github.com/StartBootstrap/startbootstrap-clean-blog/tree/master/dist"
+								>dist</a
+							>
+							folder and copy the <strong>contents</strong> of
+							<a
+								href="https://github.com/StartBootstrap/startbootstrap-clean-blog/blob/master/dist/index.html"
+								>index.html</a
+							>
+							into the <code>content/themes/clean-blog/templates/layout.html</code> file. Now, refresh the
+							blank page tab, and the HTML from <code>layout.html</code> will be rendered.
+						</p>
+						<p>
+							Next, do the same with
+							<a
+								href="https://github.com/StartBootstrap/startbootstrap-clean-blog/blob/master/dist/css/styles.css"
+								>styles.css</a
+							>
+							by copying its <strong>contents</strong> into
+							<code>content/themes/clean-blog/assets/css/style.css</code>. If you refresh the browser, you
+							won’t see any changes yet, because the stylesheet link doesn’t point to the correct path. To
+							fix this, update the link in <code>layout.html</code> as follows:
+						</p>
+						<pre><code class="language-html">&lt;!-- Find this line --&gt;
+&lt;link href=&quot;css/styles.css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;!-- Replace it with --&gt;
+&lt;link href=&quot;/content/themes/clean-blog/assets/css/style.css&quot; rel=&quot;stylesheet&quot; /&gt;
+</code></pre>
+						<p>
+							Finally, to get the
+							<a
+								href="https://github.com/StartBootstrap/startbootstrap-clean-blog/blob/master/dist/js/scripts.js"
+								>scripts</a
+							>
+							working locally, create a <strong>js</strong> folder inside the
+							<strong>assets</strong> directory. Then create a new file named <code>main.js</code> and
+							copy the script’s <strong>contents</strong> into it. Update the script path in
+							<code>layout.html</code> like this:
+						</p>
+						<pre><code class="language-html">&lt;!-- Find this line --&gt;
+&lt;script src=&quot;js/scripts.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- Replace it with --&gt;
+&lt;script src=&quot;/content/themes/clean-blog/assets/js/main.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+						<p>
+							Reload the browser. Abracadabra! You’ve successfully replicated the Clean Blog homepage.<br />Your
+							<strong>clean-blog</strong> folder should now look like this:
+						</p>
+						<pre><code class="language-txt">📁 clean-blog/
+├── 📁 assets/
+│   ├── 📁 css/
+│   │   └── 🎨 style.css
+│   └── 📁 js/
+│       └── 📜 main.js
+├── 📁 templates/
+│   └── 🧩 layout.html
+└── 🛠️ theme.json
+</code></pre>
+						<p>
+							In Aether, static assets like CSS and JavaScript are loaded using
+							<a href="https://www.computerhope.com/issues/ch001708.htm">absolute paths</a> (e.g.
+							<code>/content/themes/clean-blog/assets/...</code>) from the theme&#39;s
+							<strong>assets</strong> folder. You can also organize third-party libraries by placing them
+							in a <strong>vendors</strong> folder within <strong>assets</strong> for easy access and
+							cleaner structure.
+						</p>
+						<div class="alert alert-info">
+							<div class="alert-icon">ℹ️</div>
+							<div>
+								<strong>Note:</strong> For images that you don’t want to upload through the media
+								library, you can create an <strong>images</strong> folder inside the
+								<strong>assets</strong> directory and reference them directly in your templates, always
+								using absolute paths.
+							</div>
+						</div>
+
+						<hr class="subsection-divider" />
+
+						<h3 id="dynamic-rendering">Dynamic Rendering</h3>
+
+						<p>
+							Replicating the Clean Blog homepage was easy and straightforward, just as Aether is designed
+							to be.
+						</p>
+						<p>
+							Now comes the fun part, where you&#39;ll step into the role of an architect: breaking down
+							the structure into reusable parts and components, then dynamically combining them using
+							modern tools like <a href="https://litenode.pages.dev/">LiteNode</a>, the core of Aether. It
+							provides everything you need without relying on any third-party libraries whatsoever!
+						</p>
+						<p>Create 3 new folders within <strong>clean-blog</strong>:</p>
+						<ul>
+							<li>
+								<strong>partials</strong> - contains the main building blocks of the theme (e.g.
+								<code>head</code>, <code>footer</code>, etc.)
+							</li>
+							<li>
+								<strong>contents</strong> – holds the rendering logic for page content based on its
+								context
+							</li>
+							<li>
+								<strong>custom</strong> - holds the rendering logic for
+								<a href="https://aether-cms.pages.dev/documentation/theming/custom-pages/"
+									>custom pages</a
+								>
+								(e.g. <code>blog</code>, <code>search</code>, etc.)
+							</li>
+						</ul>
+						<p>
+							As discussed previously, understanding the structure is a crucial aspect of templating.
+							While we already understood the structure of Clean Blog, we now need to scan its HTML and
+							identify the differences we previously noticed visually. I’ll simplify this task and point
+							out the key differences.
+						</p>
+						<h4>1. The Header of Posts</h4>
+
+						<pre><code class="language-html">&lt;!-- The header for the homepage has this structure --&gt;
+&lt;header class=&quot;masthead&quot; style=&quot;background-image: url(&#39;assets/img/home-bg.jpg&#39;)&quot;&gt;
+    ...
+    &lt;div class=&quot;site-heading&quot;&gt;
+        &lt;h1&gt;Clean Blog&lt;/h1&gt;
+        &lt;span class=&quot;subheading&quot;&gt;A Blog Theme by Start Bootstrap&lt;/span&gt;
+    &lt;/div&gt;
+    ...
+&lt;/header&gt;
+
+&lt;!-- The header for all pages has this structure --&gt;
+&lt;header class=&quot;masthead&quot; style=&quot;background-image: url(&#39;assets/img/home-bg.jpg&#39;)&quot;&gt;
+    ...
+    &lt;div class=&quot;page-heading&quot;&gt;
+        &lt;h1&gt;About Me&lt;/h1&gt;
+        &lt;span class=&quot;subheading&quot;&gt;This is what I do.&lt;/span&gt;
+    &lt;/div&gt;
+    ...
+&lt;/header&gt;
+
+&lt;!-- The header for individual posts has this structure --&gt;
+&lt;header class=&quot;masthead&quot; style=&quot;background-image: url(&#39;assets/img/post-bg.jpg&#39;)&quot;&gt;
+    ...
+    &lt;div class=&quot;post-heading&quot;&gt;
+        &lt;h1&gt;Man must explore, and this is exploration at its greatest&lt;/h1&gt;
+        &lt;h2 class=&quot;subheading&quot;&gt;Problems look mighty small from 150 miles up&lt;/h2&gt;
+        &lt;span class=&quot;meta&quot;&gt;
+            Posted by
+            &lt;a href=&quot;#!&quot;&gt;Start Bootstrap&lt;/a&gt;
+            on August 24, 2023
+        &lt;/span&gt;
+    &lt;/div&gt;
+    ...
+&lt;/header&gt;
+</code></pre>
+						<p>The differences here are:</p>
+						<ul>
+							<li>
+								The homepage header uses a <code>&lt;div&gt;</code> with the class
+								<code>site-heading</code>.
+							</li>
+							<li>
+								The page header uses a <code>&lt;div&gt;</code> with the class
+								<code>page-heading</code>.
+							</li>
+							<li>
+								The post header uses a <code>&lt;div&gt;</code> with the class
+								<code>post-heading</code>.
+							</li>
+							<li>
+								The post subtitle uses an <code>&lt;h2&gt;</code> tag instead of a
+								<code>&lt;span&gt;</code>.
+							</li>
+							<li>
+								Post metadata such as author and date is included in a
+								<code>&lt;span class=&quot;meta&quot;&gt;</code>.
+							</li>
+						</ul>
+						<h4>2. Main Content Wrappers by Content Type</h4>
+
+						<pre><code class="language-html">&lt;!-- 1. Index content --&gt;
+&lt;div class=&quot;container px-4 px-lg-5&quot;&gt;
+    ...
+    &lt;!-- Posts listing --&gt;
+&lt;/div&gt;
+
+&lt;!-- 2. Page content --&gt;
+&lt;main class=&quot;mb-4&quot;&gt;
+    &lt;div class=&quot;container px-4 px-lg-5&quot;&gt;
+        ...
+        &lt;!-- Content of the page --&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;!-- 3. Post content --&gt;
+&lt;article class=&quot;mb-4&quot;&gt;
+    &lt;div class=&quot;container px-4 px-lg-5&quot;&gt;
+        ...
+        &lt;!-- Content of the post --&gt;
+    &lt;/div&gt;
+&lt;/article&gt;
+</code></pre>
+						<p>Here, the differences are:</p>
+						<ul>
+							<li>Index content does not include the <code>mb-4</code> bottom margin class.</li>
+							<li>Page content is wrapped in a <code>&lt;main&gt;</code> element.</li>
+							<li>Post content is wrapped in an <code>&lt;article&gt;</code> element.</li>
+						</ul>
+						<div class="alert alert-warning">
+							<div class="alert-icon">⚠️</div>
+							<div>
+								<strong>Remember:</strong> You're now an architect and need to make practical decisions.
+								Modifying, replacing, or even removing parts or components is part of your job, as long
+								as you understand what you're doing and avoid breaking the theme!
+							</div>
+						</div>
+
+						<hr class="subsection-divider" />
+
+						<h3 id="practical-decisions">Practical Decisions</h3>
+
+						<p>After reviewing the Clean Blog stylesheet and scripts, I found the following:</p>
+						<ol>
+							<li>
+								The <code>.site-heading</code> and <code>.page-heading</code> classes share the same
+								rules.
+							</li>
+							<li>
+								The <code>&lt;article&gt;</code> and <code>&lt;main&gt;</code> tags do not have any
+								specific styles or scripts associated with them.
+							</li>
+						</ol>
+						<p>Based on this, my decisions for the theme are straightforward:</p>
+						<ol>
+							<li>Use <code>.page-heading</code> as the class for homepage headings.</li>
+							<li>
+								Wrap the entire site content in a <code>&lt;main class=&quot;mb-4&quot;&gt;</code> tag.
+							</li>
+						</ol>
+						<p>What does this mean?</p>
+						<p>
+							This means I can safely remove all CSS rules related to <code>.site-heading</code> and unify
+							the site&#39;s content wrapper. Adding some margin to the list of posts on the homepage and
+							changing the <code>&lt;article&gt;</code> wrapper for single posts to
+							<code>&lt;main&gt;</code> will not affect the structure, responsiveness, or functionality of
+							the theme.
+						</p>
+						<p>
+							I&#39;m also going to remove Font Awesome and replace the icons used in the theme with
+							inline SVGs from <a href="https://feathericons.com/">Feather</a>. Loading an entire icon
+							library just for a few icons isn&#39;t a good idea, especially when it comes to performance.
+						</p>
+						<p>
+							In most cases, there&#39;s always a lighter alternative, so don&#39;t be lazy and take the
+							time to look!<br /><strong>Remember:</strong>
+							<em>You don&#39;t need a cannon to kill a fly!</em>
+						</p>
+						<div class="alert alert-info">
+							<div class="alert-icon">ℹ️</div>
+							<div>
+								<strong>Note:</strong> Even if a decision might affect the theme, if you think it’s the
+								right call, you can simply scan the structure and update the relevant IDs, classes, and
+								tags to match your needs.
+							</div>
+						</div>
+
+						<hr class="subsection-divider" />
+
+						<h3 id="clean-blog-templates">Clean Blog Templates</h3>
+
+						<p>
+							Now that we know what changes we&#39;re going to make, it&#39;s finally time to break the
+							theme into reusable parts and components. To do this, you&#39;ll need to create the
+							following files:
+						</p>
+						<ol>
+							<li>
+								<p>In the <strong>partials</strong> folder:</p>
+								<ul>
+									<li><code>head.html</code></li>
+									<li><code>menu.html</code></li>
+									<li><code>header.html</code></li>
+									<li><code>content.html</code></li>
+									<li><code>pagination.html</code></li>
+									<li><code>footer.html</code></li>
+								</ul>
+							</li>
+							<li>
+								<p>In the <strong>contents</strong> folder:</p>
+								<ul>
+									<li><code>404.html</code></li>
+									<li><code>posts-listing.html</code></li>
+								</ul>
+							</li>
+							<li>
+								<p>In the <strong>custom</strong> folder:</p>
+								<ul>
+									<li><code>blog.html</code></li>
+									<li><code>homepage.html</code></li>
+								</ul>
+							</li>
+						</ol>
+						<p>The structure of your <strong>clean-blog</strong> folder should now look like this:</p>
+						<pre><code class="language-txt">📁 clean-blog
+├── 📁 assets
+│   ├── 📁 css
+│   │   └── 🎨 style.css
+│   ├── 📁 js
+│   │   └── 📜 main.js
+│   └── 📦 vendors
+│       └── 📜 bootstrap.bundle.min.js
+├── 📁 contents
+│   ├── ❌ 404.html
+│   └── 📝 posts-listing.html
+├── 📁 custom
+│   ├── 📰 blog.html
+│   └── 🏠 homepage.html
+├── 📁 partials
+│   ├── 🧩 content.html
+│   ├── 🧩 footer.html
+│   ├── 🧩 head.html
+│   ├── 🧩 header.html
+│   └── 🧩 menu.html
+├── 📁 templates
+│   └── 🧱 layout.html
+└── 🛠️ theme.json
+</code></pre>
+						<p>
+							Look closely: I’ve added a <strong>vendors</strong> folder inside the
+							<strong>assets</strong> directory and included the
+							<a href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+								>Bootstrap scripts</a
+							>
+							in a file named <code>bootstrap.bundle.min.js</code>.
+						</p>
+						<p>
+							You can create the folder and file yourself, then copy and paste the content from the link
+							above into that file.
+						</p>
+						<p>
+							Now, for the files in the <strong>contents</strong>, <strong>custom</strong>, and
+							<strong>partials</strong> directories, copy and paste the corresponding content provided
+							below into each file based on its name.
+						</p>
+						<details>
+							<summary>head.html</summary>
+
+							<pre><code class="language-html">&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot; /&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;{{metadata.seoDescription || metadata.excerpt || site.siteDescription}}&quot; /&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;{{metadata.author}}&quot; /&gt;
+    &lt;title&gt;{{homeRoute ? &quot;Home&quot; : metadata.title}} - {{site.siteTitle}}&lt;/title&gt;
+    &lt;link rel=&quot;icon&quot; href=&quot;/content/uploads{{site.siteIcon}}&quot; /&gt;
+
+    &lt;!-- Google fonts--&gt;
+    &lt;link
+        href=&quot;https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&quot;
+        rel=&quot;stylesheet&quot;
+        type=&quot;text/css&quot;
+    /&gt;
+    &lt;link
+        href=&quot;https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&quot;
+        rel=&quot;stylesheet&quot;
+        type=&quot;text/css&quot;
+    /&gt;
+
+    &lt;!-- Core theme CSS (includes Bootstrap)--&gt;
+    &lt;link href=&quot;/content/themes/clean-blog/assets/css/style.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;/head&gt;
+</code></pre>
+						</details>
+
+						<details>
+							<summary>menu.html</summary>
+
+							<pre><code class="language-hbs">&lt;nav class=&quot;navbar navbar-expand-lg navbar-light&quot; id=&quot;mainNav&quot;&gt;
+    &lt;div class=&quot;container px-4 px-lg-5&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;
+            {{site.siteTitle}}
+        &lt;/a&gt;
+        &lt;button
+            class=&quot;navbar-toggler&quot;
+            type=&quot;button&quot;
+            data-bs-toggle=&quot;collapse&quot;
+            data-bs-target=&quot;#navbarResponsive&quot;
+            aria-controls=&quot;navbarResponsive&quot;
+            aria-expanded=&quot;false&quot;
+            aria-label=&quot;Toggle navigation&quot;
+        &gt;
+            Menu
+            &lt;!-- Home Feather Icon --&gt;
+            &lt;svg
+                xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                width=&quot;12&quot;
+                height=&quot;12&quot;
+                viewBox=&quot;0 0 24 24&quot;
+                fill=&quot;none&quot;
+                stroke=&quot;currentColor&quot;
+                stroke-width=&quot;2&quot;
+                stroke-linecap=&quot;round&quot;
+                stroke-linejoin=&quot;round&quot;
+                class=&quot;feather feather-menu&quot;
+            &gt;
+                &lt;line x1=&quot;3&quot; y1=&quot;12&quot; x2=&quot;21&quot; y2=&quot;12&quot; /&gt;
+                &lt;line x1=&quot;3&quot; y1=&quot;6&quot; x2=&quot;21&quot; y2=&quot;6&quot; /&gt;
+                &lt;line x1=&quot;3&quot; y1=&quot;18&quot; x2=&quot;21&quot; y2=&quot;18&quot; /&gt;
+            &lt;/svg&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarResponsive&quot;&gt;
+            &lt;ul class=&quot;navbar-nav ms-auto py-4 py-lg-0&quot;&gt;
+                &lt;!-- Clean Blog menu is a top level menu only. --&gt;
+                &lt;!-- It doesn&#39;t support nested children under a parent. --&gt;
+                &lt;!-- That&#39;s why we retrieve top level items only --&gt;
+                &lt;!-- Learn more about the Aether Menu System at:
+                https://aether-cms.pages.dev/documentation/theming/menu-system/ --&gt;
+                {{#each menuItems}}
+                    &lt;!----&gt;
+                    {{#if depth=0}}
+                        &lt;li class=&quot;nav-item&quot;&gt;
+                            &lt;a class=&quot;nav-link px-lg-3 py-3 py-lg-4&quot; href=&quot;{{url}}&quot;&gt;
+                                {{title}}
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                    {{/if}}
+                    &lt;!----&gt;
+                {{/each}}
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+</code></pre>
+						</details>
+
+						<details>
+							<summary>header.html</summary>
+
+							<pre><code class="language-html">&lt;header class=&quot;masthead&quot; style=&quot;background-image: url(/content/uploads{{metadata.featuredImage.url}})&quot;&gt;
+    &lt;div class=&quot;container position-relative px-4 px-lg-5&quot;&gt;
+        &lt;div class=&quot;row gx-4 gx-lg-5 justify-content-center&quot;&gt;
+            &lt;div class=&quot;col-md-10 col-lg-8 col-xl-7&quot;&gt;
+                &lt;div class=&quot;{{fileType === `post` ? `post-heading` : `page-heading`}}&quot;&gt;
+                    {{#if fileType === &quot;post&quot;}}
+                    &lt;h1&gt;{{metadata.title}}&lt;/h1&gt;
+                    {{#if metadata.subtitle}}
+                    &lt;h2 class=&quot;subheading&quot;&gt;{{metadata.subtitle}}&lt;/h2&gt;
+                    {{/if}}
+                    &lt;span class=&quot;meta&quot;&gt;
+                        Posted by {{metadata.author}} on {{metadata.publishDate | dateFormat(&quot;MMMM D, YYYY&quot;)}}
+                    &lt;/span&gt;
+                    {{#else}}
+                    &lt;h1&gt;{{homeRoute ? site.siteTitle : metadata.title}}&lt;/h1&gt;
+
+                    {{#if homeRoute &amp;&amp; site.siteDescription}}
+                    &lt;h2 class=&quot;subheading&quot;&gt;{{site.siteDescription}}&lt;/h2&gt;
+                    {{#elseif metadata.subtitle}}
+                    &lt;h2 class=&quot;subheading&quot;&gt;{{metadata.subtitle}}&lt;/h2&gt;
+                    {{/if}}
+                    &lt;!----&gt;
+                    {{/if}}
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/header&gt;
+</code></pre>
+						</details>
+
+						<details>
+							<summary>content.html</summary>
+
+							<pre><code class="language-html">&lt;main class=&quot;mb-4&quot;&gt;
+    &lt;div class=&quot;container px-4 px-lg-5&quot;&gt;
+        &lt;div class=&quot;row gx-4 gx-lg-5 justify-content-center&quot;&gt;
+            &lt;div class=&quot;col-md-10 col-lg-8 col-xl-7&quot;&gt;
+                &lt;!-- Content by context  --&gt;
+                &lt;!-- Learn more about variables in Aether by visiting:
+                https://aether-cms.pages.dev/documentation/theming/template-variables-by-context/  --&gt;
+                {{#if notFoundRoute}}
+                &lt;!-- If no content has been found, display the 404.html template content --&gt;
+                {{#include(&quot;contents/404.html&quot;)}}
+                &lt;!----&gt;
+                {{#elseif homeRoute || metadata.slug === &quot;blog&quot;}}
+                &lt;!-- On the homepage and the blog, display the posts-listing.html template --&gt;
+                {{#include(&quot;contents/posts-listing.html&quot;)}}
+                &lt;!----&gt;
+                {{#elseif fileType === &quot;post&quot;}}
+                &lt;!-- For posts, display the post content and pagination --&gt;
+                {{content}}
+                &lt;!----&gt;
+                {{#include(&quot;partials/pagination.html&quot;)}}
+                &lt;!----&gt;
+                {{#else}}
+                &lt;!-- For normal pages, display the page content --&gt;
+                {{content}}
+                &lt;!----&gt;
+                {{/if}}
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+						</details>
+
+						<details>
+							<summary>pagination.html</summary>
+
+							<pre><code class="language-html">&lt;!-- Creating pagination in Aether is super easy, read more about it at:
+https://aether-cms.pages.dev/documentation/theming/working-with-pagination/ --&gt;
+{{#if pagination || prevPost || nextPost}}
+&lt;!-- Posts pagination --&gt;
+&lt;div class=&quot;d-flex justify-content-between mb-4&quot;&gt;
+    {{#if pagination.nextPage}}
+    &lt;!-- Older posts --&gt;
+    &lt;a href=&quot;{{pagination.urls.next}}&quot; class=&quot;btn btn-primary text-uppercase&quot; rel=&quot;next&quot;&gt;← Older Posts&lt;/a&gt;
+    {{/if}}
+
+    &lt;!----&gt;
+
+    {{#if pagination.prevPage}}
+    &lt;!-- Newer posts --&gt;
+    &lt;a href=&quot;{{pagination.urls.prev}}&quot; class=&quot;btn btn-primary text-uppercase ms-auto&quot; rel=&quot;prev&quot;&gt;Newer Posts →&lt;/a&gt;
+    {{/if}}
+
+    &lt;!----&gt;
+
+    {{#if prevPost}}
+    &lt;!-- Previous Post Link (only if there&#39;s a previous post) --&gt;
+    &lt;a
+        href=&quot;/post/{{prevPost.slug}}&quot;
+        class=&quot;prev-post btn btn-primary btn-sm m-3&quot;
+        rel=&quot;prev&quot;
+        aria-label=&quot;Go to the previous post&quot;
+    &gt;
+        Previous: {{prevPost.title}}
+    &lt;/a&gt;
+    {{/if}}
+
+    &lt;!----&gt;
+
+    {{#if nextPost}}
+    &lt;!-- Next Post Link (only if there&#39;s a next post) --&gt;
+    &lt;a
+        href=&quot;/post/{{nextPost.slug}}&quot;
+        class=&quot;next-post btn btn-primary btn-sm m-3 ms-auto&quot;
+        rel=&quot;next&quot;
+        aria-label=&quot;Go to the next post&quot;
+    &gt;
+        Next: {{nextPost.title}}
+    &lt;/a&gt;
+    {{/if}}
+&lt;/div&gt;
+{{/if}}
+</code></pre>
+						</details>
+
+						<details>
+							<summary>footer.html</summary>
+
+							<pre><code class="language-hbs">&lt;footer class=&quot;border-top&quot;&gt;
+    &lt;div class=&quot;container px-4 px-lg-5&quot;&gt;
+        &lt;div class=&quot;row gx-4 gx-lg-5 justify-content-center&quot;&gt;
+            &lt;div class=&quot;col-md-10 col-lg-8 col-xl-7&quot;&gt;
+                &lt;ul class=&quot;list-inline text-center&quot;&gt;
+                    &lt;li class=&quot;list-inline-item&quot;&gt;
+                        &lt;a href=&quot;javascript:void(0)&quot; aria-label=&quot;Twitter&quot;&gt;
+                            &lt;span&gt;
+                                &lt;!-- Twitter Feather Icon --&gt;
+                                &lt;svg
+                                    xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                                    width=&quot;24&quot;
+                                    height=&quot;24&quot;
+                                    viewBox=&quot;0 0 24 24&quot;
+                                    fill=&quot;none&quot;
+                                    stroke=&quot;currentColor&quot;
+                                    stroke-width=&quot;2&quot;
+                                    stroke-linecap=&quot;round&quot;
+                                    stroke-linejoin=&quot;round&quot;
+                                    class=&quot;feather feather-twitter&quot;
+                                    aria-hidden=&quot;true&quot;
+                                &gt;
+                                    &lt;path
+                                        d=&quot;M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z&quot;
+                                    &gt;&lt;/path&gt;
+                                &lt;/svg&gt;
+                            &lt;/span&gt;
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+
+                    &lt;li class=&quot;list-inline-item&quot;&gt;
+                        &lt;a href=&quot;javascript:void(0)&quot; aria-label=&quot;Facebook&quot;&gt;
+                            &lt;span&gt;
+                                &lt;!-- Facebook Feather Icon --&gt;
+                                &lt;svg
+                                    xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                                    width=&quot;24&quot;
+                                    height=&quot;24&quot;
+                                    viewBox=&quot;0 0 24 24&quot;
+                                    fill=&quot;none&quot;
+                                    stroke=&quot;currentColor&quot;
+                                    stroke-width=&quot;2&quot;
+                                    stroke-linecap=&quot;round&quot;
+                                    stroke-linejoin=&quot;round&quot;
+                                    class=&quot;feather feather-facebook&quot;
+                                    aria-hidden=&quot;true&quot;
+                                &gt;
+                                    &lt;path d=&quot;M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z&quot;&gt;&lt;/path&gt;
+                                &lt;/svg&gt;
+                            &lt;/span&gt;
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+
+                    &lt;li class=&quot;list-inline-item&quot;&gt;
+                        &lt;a href=&quot;javascript:void(0)&quot; aria-label=&quot;GitHub&quot;&gt;
+                            &lt;span&gt;
+                                &lt;!-- GitHub Feather Icon --&gt;
+                                &lt;svg
+                                    xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                                    width=&quot;24&quot;
+                                    height=&quot;24&quot;
+                                    viewBox=&quot;0 0 24 24&quot;
+                                    fill=&quot;none&quot;
+                                    stroke=&quot;currentColor&quot;
+                                    stroke-width=&quot;2&quot;
+                                    stroke-linecap=&quot;round&quot;
+                                    stroke-linejoin=&quot;round&quot;
+                                    class=&quot;feather feather-github&quot;
+                                    aria-hidden=&quot;true&quot;
+                                &gt;
+                                    &lt;path
+                                        d=&quot;M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22&quot;
+                                    /&gt;
+                                &lt;/svg&gt;
+                            &lt;/span&gt;
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;div class=&quot;small text-center text-muted fst-italic&quot;&gt;
+                    {{site.footerCode}}
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+						</details>
+
+						<details>
+							<summary>404.html</summary>
+
+							<pre><code class="language-html">&lt;p&gt;
+    We couldn&#39;t find the page you were looking for. It might have been moved, deleted, or you may have typed the URL
+    incorrectly. You can return to the homepage to keep exploring.
+&lt;/p&gt;
+
+&lt;a href=&quot;/&quot; class=&quot;btn btn-success text-uppercase&quot; rel=&quot;next&quot;&gt;Okay, Take Me Home!&lt;/a&gt;
+</code></pre>
+						</details>
+
+						<details>
+							<summary>posts-listing.html</summary>
+
+							<pre><code class="language-html">{{#each posts}}
+&lt;!-- Post preview--&gt;
+&lt;div class=&quot;post-preview&quot;&gt;
+    &lt;a href=&quot;/post/{{metadata.slug}}&quot;&gt;
+        &lt;h2 class=&quot;post-title&quot;&gt;{{metadata.title}}&lt;/h2&gt;
+        {{#if metadata.subtitle}}
+        &lt;h3 class=&quot;post-subtitle&quot;&gt;{{metadata.subtitle}}&lt;/h3&gt;
+        {{/if}}
+    &lt;/a&gt;
+
+    &lt;p class=&quot;post-meta&quot;&gt;Posted by {{metadata.author}} on {{metadata.publishDate | dateFormat(&quot;MMMM D, YYYY&quot;)}}&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Divider--&gt;
+&lt;hr class=&quot;my-4&quot; /&gt;
+{{/each}}
+
+&lt;!----&gt;
+
+{{#include(&quot;partials/pagination.html&quot;)}}
+</code></pre>
+						</details>
+
+						<p>
+							For <code>blog.html</code> and <code>homepage.html</code>, you only need to add a single
+							line to each:
+						</p>
+						<pre><code class="language-html">&lt;!-- A simple and effective trick to avoid building a custom page from scratch.
+If the design is the same, define its logic as we did in content.html.
+Aether&#39;s intelligent template inheritance and resolution will handle the rest.
+Learn more here: https://aether-cms.pages.dev/documentation/theming/template-inheritance-and-resolution/ --&gt;
+{{#include(&quot;templates/layout.html&quot;)}}
+</code></pre>
+						<p>All you have to do after making the necessary replacements is:</p>
+						<ol>
+							<li>Add some <a href="http://localhost:8080/aether/posts/edit">new posts</a>.</li>
+							<li>
+								Add 2 custom <a href="http://localhost:8080/aether/pages/edit">pages</a> named
+								<code>blog</code> and <code>homepage</code>.
+							</li>
+							<li>
+								<a
+									href="https://aether-cms.pages.dev/documentation/user-interface/site-settings/#menu-editor"
+									>Create a menu</a
+								>
+								under the <strong>Menu</strong> tab in the
+								<a href="http://localhost:8080/aether/settings">Site Settings</a>.
+							</li>
+							<li><a href="http://localhost:8080/">Visit your site</a>.</li>
+							<li>
+								Abracadabra! You’ve got a fully working site with a custom Clean Blog theme for Aether.
+							</li>
+						</ol>
+						<hr class="section-divider" />
+
+						<h2 id="wrapping-up">Wrapping Up</h2>
+
+						<p>
+							Aether is so flexible that you could recreate Clean Blog in many different ways.<br />What
+							I’ve shared here is the simplest version, without making full use of Aether’s powerful
+							features.<br />You can now take this as a foundation, build on it, and create something
+							entirely new!
+						</p>
+						<p>
+							I’ve added comments in the templates to help explain each step.<br />If you have any
+							questions about this tutorial or Aether in general, feel free to reach out in the
+							<a href="https://github.com/LebCit/aether-cms/discussions/categories/q-a">Q&amp;A</a>
+							section on GitHub.
+						</p>
+						<p>
+							Soon, I’ll be adding the Clean Blog theme to Aether Marketplace, where you’ll be able to
+							download and use it with just one click.<br />If you plan to use the custom version created
+							in this tutorial, you can name the folder <code>custom-clean-blog</code> and update the
+							<code>theme.json</code> title to <strong>Custom Clean Blog</strong>, just to keep things
+							consistent.
+						</p>
+						<p>
+							You may have noticed (or maybe not!), but I never asked you to restart the server at any
+							point in this tutorial. That’s one of <a href="https://litenode.pages.dev/">LiteNode</a>’s
+							superpowers, the backbone of Aether, which applies changes instantly without needing a
+							reboot.
+						</p>
+						<p>
+							You can learn more about Aether’s powerful features in the
+							<a href="https://aether-cms.pages.dev/">Aether documentation</a>.
+						</p>
+						<p>
+							If you find value in Aether or want to help it grow, your support — whether it&#39;s
+							feedback, sharing, contributing, or funding — can make a real difference. The long-term goal
+							is to build a sustainable open-source project that stays fast, independent, and truly
+							community-driven. If you&#39;d like to support Aether, giving it a star on
+							<a href="https://github.com/LebCit/aether-cms">GitHub</a> would be greatly appreciated and
+							genuinely helpful.
+						</p>
+						<p class="post-content hide">
+							<em
+								>Note: The background image is a photo by
+								<a href="https://unsplash.com/photos/white-big-letter-a-decor-Lmm9kC0FZok"
+									>Bekky Bekks</a
+								>.</em
+							>
+						</p>
+					</div>
+
+					<nav class="post-navigation" aria-label="Post Navigation">
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Previous Post Link (only if there's a previous post) -->
+						<a
+							href="/post/meet-aether-a-cms-that-actually-gets-out-of-your-way"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Previous: Meet Aether: A CMS That Actually Gets Out of Your Way
+						</a>
+
+						<!--Dynamic Markup Separator-->
+					</nav>
+
+					<!---->
+					<div class="related-posts">
+						<h3>You Might Also Like</h3>
+						<div>
+							<section>
+								<a href="/post/meet-aether-a-cms-that-actually-gets-out-of-your-way">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/illustration-of-home-office-setup-with-laptop-notebook-plant-and-coffee-3a15403f2633da4a.avif"
+										alt="Featured image for the post: Meet Aether: A CMS That Actually Gets Out of Your Way"
+									/>
+								</a>
+								<h4>
+									<a href="/post/meet-aether-a-cms-that-actually-gets-out-of-your-way"
+										>Meet Aether: A CMS That Actually Gets Out of Your Way</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/post/litenode-nodejs-web-framework">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/litenode-logo-223189114d5e71ba.avif"
+										alt="Featured image for the post: LiteNode, Node.js Web Framework"
+									/>
+								</a>
+								<h4>
+									<a href="/post/litenode-nodejs-web-framework">LiteNode, Node.js Web Framework</a>
+								</h4>
+							</section>
+						</div>
+					</div>
+
+					<!---->
+				</main>
+			</div>
+			<!--End content-->
+
+			<!--Start footer-->
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2025 { LebCit }</strong>
+
+						<br />
+						<!-- Custom Footer Code -->
+						Content in Motion. Powered by Aether.
+					</p>
+				</div>
+			</footer>
+
+			<!--End footer-->
+		</div>
+		<!--End page-->
+
+		<script
+			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
+			onload="hljs.highlightAll()"
+		></script>
+
+		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+	</body>
+</html>

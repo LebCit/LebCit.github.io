@@ -1,253 +1,233 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta
-			name="description"
-			content="Learn how to listen for live changes in the WordPress Customizer Preview using JavaScript. Understand the Customizer's parts and structure."
-		/>
-		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Learn how to listen for live changes in the WordPress Customizer Preview using JavaScript. Understand the Customizer's parts and structure." />
+    <meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-		<!--Site icon-->
+    <!--Site icon-->
+    
+    <link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
+    
 
-		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
+    <!--Title-->
+    <title>Listen for Changes in Customizer Preview! | { LebCit }</title>
 
-		<!--Title-->
-		<title>Listen for Changes in Customizer Preview! | { LebCit }</title>
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
+    
+    <link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+    
+</head>
 
-		<!--Stylesheets-->
-		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
 
-		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
-	</head>
+    <body>
+        <!--Start page-->
+        <div id="page" class="site grid">
+            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
-	<body>
-		<!--Start page-->
-		<div id="page" class="site grid">
-			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+            <!--Start menu-->
+            <div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+    <a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu">&times;</a>
 
-			<!--Start menu-->
-			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
-				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
-					>&times;</a
-				>
+    <div class="menu-overlay__content">
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/" target="">Home</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/blog" target="_self">Blog</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/categories" target="_self">Categories</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/tags" target="_self">Tags</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/search" target="_self">Search</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/page/my-public-projects" target="_self">Projects</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/page/about-me" target="_self">About Me</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/sitemap" target="_self">Sitemap</a>
+        </li>
+        
+        <!---->
+        
+    </div>
+</div>
 
-				<div class="menu-overlay__content">
-					<!---->
+            <!--End menu-->
 
-					<li class="menu-overlay__item">
-						<a href="/" target="">Home</a>
-					</li>
+            <!--Start masthead-->
+            <!-- Start #masthead -->
 
-					<!---->
+<header
+    id="masthead"
+    class="site-header unit-1 unit-lg-2-5 bio"
+    style="background-image: url(/content/uploads/images/ears-of-chiatto-bunny-3adc4f9e31b4110d.webp)"
+>
+    <div class="site-header__overlay"></div>
 
-					<!---->
+    <!-- Start .site-header__content -->
+<div class="site-header__content">
+    <div class="site-header__branding">
+        <h1 class="site-header__title">
+            <a href="/">{ LebCit }</a>
+        </h1>
+        <p class="site-header__description">Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</p>
+    </div>
 
-					<li class="menu-overlay__item">
-						<a href="/blog" target="_self">Blog</a>
-					</li>
+    <nav id="nav" class="site-header__nav" aria-label="MENU">
+        <ul class="site-header__nav-list">
+            <li class="site-header__nav-item">
+                <a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+                    <span>MENU</span>
+                    <span class="menu-icon" aria-hidden="true">
+                        <svg
+                            version="1.1"
+                            x="0px"
+                            y="0px"
+                            width="30px"
+                            height="30px"
+                            viewBox="0 0 30 30"
+                            enable-background="new 0 0 30 30"
+                        >
+                            <rect width="30" height="5" />
+                            <rect y="24" width="30" height="5" />
+                            <rect y="12" width="30" height="5" />
+                        </svg>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<!-- End .site-header__content -->
 
-					<!---->
+</header>
 
-					<!---->
+<!-- End #masthead -->
 
-					<li class="menu-overlay__item">
-						<a href="/categories" target="_self">Categories</a>
-					</li>
+            <!--End masthead-->
 
-					<!---->
+            <!--Start content-->
+            <div id="content" class="site-content unit-1 unit-lg-3-5">
+                <main
+    class="article-view"
+>
+    
+    <!--The page to display the Markdown content of posts and pages.-->
+    <header class="post-header">
+    <h1 class="post-title">Listen for Changes in Customizer Preview!</h1>
 
-					<!---->
+     <div class="post-meta">
+    <div class="post-date-wrapper">
+        <span>Posted:</span>
+        <time class="post-date" datetime="2025-06-03T07:35:50.231Z">
+            2020-05-24
+        </time>
 
-					<li class="menu-overlay__item">
-						<a href="/tags" target="_self">Tags</a>
-					</li>
+        
+        <span class="separator">|</span>
+        <span>Updated:</span>
+        <time class="post-updated-date" datetime="2025-06-03T19:14:17.752Z">
+            2025-06-03
+        </time>
+        
+    </div>
 
-					<!---->
+    
+    <div class="taxonomy-group">
+        <span>Category:</span>
+        <span class="post-category">
+            <a href="/category/wordpress">wordpress</a>
+        </span>
+    </div>
+    
+    <!---->
+    
+    <div class="taxonomy-group post-tags-group">
+        <span>Tagged:</span>
+        
+        <a class="post-tag" href="/tag/wordpress">wordpress</a>
+        
+        <a class="post-tag" href="/tag/customizer">customizer</a>
+        
+        <a class="post-tag" href="/tag/live-preview">live-preview</a>
+        
+        <a class="post-tag" href="/tag/javascript">javascript</a>
+        
+        <a class="post-tag" href="/tag/theme-customization">theme-customization</a>
+        
+    </div>
+    
+</div>
+ 
+</header>
 
-					<!---->
+<div class="article-content">
+    
+    <p>
+        <em>Learn how to listen for live changes in the WordPress Customizer Preview using JavaScript. Understand the Customizer's parts and structure.</em>
+    </p>
+    
 
-					<li class="menu-overlay__item">
-						<a href="/search" target="_self">Search</a>
-					</li>
+    <!--Content-->
+    <p>One of the most beautiful functionalities of WordPress is the Customizer, because it allows developers to give a simple way for users to modify themes/plugins appearance and behavior.<br>However, this beauty has it&#39;s own code of conduct.<br>Let&#39;s scratch it a little bit to find out how to listen for changes in the Customizer Preview.</p>
+<p>I always like to assume that the reader maybe a beginner, like I was a long time ago, and explain everything from A to Z, so she/he can follow the tutorial or jump to any part according to her/his experience.</p>
+<p>For simplicity and practice, as usual 😊, I’ll be using an <a href="https://underscores.me/">_s</a> (underscores) generated theme, and call it <em>Customizer Preview</em> 😉. It’s a 1 minute process, so don’t be afraid, type in the <em>Theme Name,</em> download it, and upload it like any other theme under <em>Appearance &gt; Themes &gt; Add New &gt; Upload Theme</em>.<br> Now you’re all set and we can begin.</p>
+<h2>Understanding how it’s related</h2>
 
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/page/my-public-projects" target="_self">Projects</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/page/about-me" target="_self">About Me</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/sitemap" target="_self">Sitemap</a>
-					</li>
-
-					<!---->
-				</div>
-			</div>
-
-			<!--End menu-->
-
-			<!--Start masthead-->
-			<!-- Start #masthead -->
-
-			<header
-				id="masthead"
-				class="site-header unit-1 unit-lg-2-5 bio"
-				style="background-image: url(/content/uploads/images/ears-of-chiatto-bunny-3adc4f9e31b4110d.webp)"
-			>
-				<div class="site-header__overlay"></div>
-
-				<!-- Start .site-header__content -->
-				<div class="site-header__content">
-					<div class="site-header__branding">
-						<h1 class="site-header__title">
-							<a href="/">{ LebCit }</a>
-						</h1>
-						<p class="site-header__description">
-							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
-							projects on my own!
-						</p>
-					</div>
-
-					<nav id="nav" class="site-header__nav" aria-label="MENU">
-						<ul class="site-header__nav-list">
-							<li class="site-header__nav-item">
-								<a
-									id="menu-button"
-									aria-controls="main-nav"
-									aria-haspopup="true"
-									tabindex="0"
-									role="button"
-								>
-									<span>MENU</span>
-									<span class="menu-icon" aria-hidden="true">
-										<svg
-											version="1.1"
-											x="0px"
-											y="0px"
-											width="30px"
-											height="30px"
-											viewBox="0 0 30 30"
-											enable-background="new 0 0 30 30"
-										>
-											<rect width="30" height="5" />
-											<rect y="24" width="30" height="5" />
-											<rect y="12" width="30" height="5" />
-										</svg>
-									</span>
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-				<!-- End .site-header__content -->
-			</header>
-
-			<!-- End #masthead -->
-
-			<!--End masthead-->
-
-			<!--Start content-->
-			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				<main class="article-view">
-					<!--The page to display the Markdown content of posts and pages.-->
-					<header class="post-header">
-						<h1 class="post-title">Listen for Changes in Customizer Preview!</h1>
-
-						<div class="post-meta">
-							<div class="post-date-wrapper">
-								<span>Posted:</span>
-								<time class="post-date" datetime="2025-06-03T07:35:50.231Z"> 2020-05-24 </time>
-
-								<span class="separator">|</span>
-								<span>Updated:</span>
-								<time class="post-updated-date" datetime="2025-06-03T19:14:17.752Z"> 2025-06-03 </time>
-							</div>
-
-							<div class="taxonomy-group">
-								<span>Category:</span>
-								<span class="post-category">
-									<a href="/category/wordpress">wordpress</a>
-								</span>
-							</div>
-
-							<!---->
-
-							<div class="taxonomy-group post-tags-group">
-								<span>Tagged:</span>
-
-								<a class="post-tag" href="/tag/wordpress">wordpress</a>
-
-								<a class="post-tag" href="/tag/customizer">customizer</a>
-
-								<a class="post-tag" href="/tag/live-preview">live-preview</a>
-
-								<a class="post-tag" href="/tag/javascript">javascript</a>
-
-								<a class="post-tag" href="/tag/theme-customization">theme-customization</a>
-							</div>
-						</div>
-					</header>
-
-					<div class="article-content">
-						<p>
-							<em
-								>Learn how to listen for live changes in the WordPress Customizer Preview using
-								JavaScript. Understand the Customizer's parts and structure.</em
-							>
-						</p>
-
-						<!--Content-->
-						<p>
-							One of the most beautiful functionalities of WordPress is the Customizer, because it allows
-							developers to give a simple way for users to modify themes/plugins appearance and
-							behavior.<br />However, this beauty has it&#39;s own code of conduct.<br />Let&#39;s scratch
-							it a little bit to find out how to listen for changes in the Customizer Preview.
-						</p>
-						<p>
-							I always like to assume that the reader maybe a beginner, like I was a long time ago, and
-							explain everything from A to Z, so she/he can follow the tutorial or jump to any part
-							according to her/his experience.
-						</p>
-						<p>
-							For simplicity and practice, as usual 😊, I’ll be using an
-							<a href="https://underscores.me/">_s</a> (underscores) generated theme, and call it
-							<em>Customizer Preview</em> 😉. It’s a 1 minute process, so don’t be afraid, type in the
-							<em>Theme Name,</em> download it, and upload it like any other theme under
-							<em>Appearance &gt; Themes &gt; Add New &gt; Upload Theme</em>.<br />
-							Now you’re all set and we can begin.
-						</p>
-						<h2>Understanding how it’s related</h2>
-
-						<p>
-							In the
-							<a href="https://codex.wordpress.org/Functions_File_Explained">functions.php</a> file,
-							search for <em>customizer.php</em>, you’ll find a line like this one:
-						</p>
-						<pre><code class="language-php">require get_template_directory() . &#39;/inc/customizer.php&#39;;
+<p>In the <a href="https://codex.wordpress.org/Functions_File_Explained">functions.php</a> file, search for <em>customizer.php</em>, you’ll find a line like this one:</p>
+<pre><code class="language-php">require get_template_directory() . &#39;/inc/customizer.php&#39;;
 </code></pre>
-						<p>
-							So the file
-							<a href="https://codex.wordpress.org/Theme_Customization_API">customizer.php</a> is located
-							in a folder named <strong><em>inc</em></strong> at the root of the theme. If you look inside
-							this file, at the very bottom, you’ll find a little block of code like this one:
-						</p>
-						<pre><code class="language-php">/**
+<p>So the file <a href="https://codex.wordpress.org/Theme_Customization_API">customizer.php</a> is located in a folder named <strong><em>inc</em></strong> at the root of the theme.
+If you look inside this file, at the very bottom, you’ll find a little block of code like this one:</p>
+<pre><code class="language-php">/**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function customizer_preview_customize_preview_js() {
@@ -255,52 +235,19 @@ function customizer_preview_customize_preview_js() {
 }
 add_action( &#39;customize_preview_init&#39;, &#39;customizer_preview_customize_preview_js&#39; );
 </code></pre>
-						<p>
-							So here, we have a call for another file <strong>customizer.js</strong>, located in a folder
-							named <strong><em>js</em></strong> at the root of the theme.<br />
-							If you take a look inside it, you’ll find a bunch of code allowing us to view the changes we
-							make from the Customizer.
-						</p>
-						<h2>The Customizer’s Parts</h2>
+<p>So here, we have a call for another file <strong>customizer.js</strong>, located in a folder named <strong><em>js</em></strong> at the root of the theme.<br> If you take a look inside it, you’ll find a bunch of code allowing us to view the changes we make from the Customizer.</p>
+<h2>The Customizer’s Parts</h2>
 
-						<p>
-							When you open the Customizer, you’ll find yourself in front of a screen with two parts: a-
-							the <strong>Customizer Pane</strong> where the <strong>Controls</strong> (like Background
-							Image) of a theme are defined in <strong>customizer.php</strong><br />b- the
-							<strong>Customizer Preview</strong> where the <strong>Settings</strong> defined in
-							<strong>customizer.js</strong> act like a bridge between the Controls and their related
-							Partials.
-						</p>
-						<p>
-							A <strong>Partial</strong> is simply a particular part of a theme like the header, the body,
-							the footer, the logo, the site title, the tagline… and so on.
-						</p>
-						<p>
-							As an example, you could have a Control to control the site title color by a Setting linking
-							that color Control to the desired Partial (here the site title).<br />Now, when you change
-							the color Control in the Pane, the defined Setting for this color Control calls the related
-							Partial in the Preview and tells him to change according to the modifications of his
-							Control.
-						</p>
-						<p>
-							If you want to dive more into that, you can read about the
-							<a href="https://developer.wordpress.org/themes/customize-api/customizer-objects/"
-								>Customizer Objects</a
-							>
-							in the Theme Handbook.
-						</p>
-						<h2>Listening to changes</h2>
+<p>When you open the Customizer, you’ll find yourself in front of a screen with two parts:
+a- the <strong>Customizer Pane</strong> where the <strong>Controls</strong> (like Background Image) of a theme are defined in <strong>customizer.php</strong><br>b- the <strong>Customizer Preview</strong> where the <strong>Settings</strong> defined in <strong>customizer.js</strong> act like a bridge between the Controls and their related Partials.</p>
+<p>A <strong>Partial</strong> is simply a particular part of a theme like the header, the body, the footer, the logo, the site title, the tagline… and so on.</p>
+<p>As an example, you could have a Control to control the site title color by a Setting linking that color Control to the desired Partial (here the site title).<br>Now, when you change the color Control in the Pane, the defined Setting for this color Control calls the related Partial in the Preview and tells him to change according to the modifications of his Control.</p>
+<p>If you want to dive more into that, you can read about the <a href="https://developer.wordpress.org/themes/customize-api/customizer-objects/">Customizer Objects</a> in the Theme Handbook.</p>
+<h2>Listening to changes</h2>
 
-						<p>
-							At this point, you understand how the Customizer’s parts communicate.<br />But what if you
-							need to listen for changes in the Preview?<br />This will be mostly a need if you are a
-							developer or in the process of becoming one 💪👍
-						</p>
-						<p>
-							Quick quizz. Where do you think the following code will go?<br />Don’t look under the code
-							before giving an answer 😁
-						</p>
-						<pre><code class="language-js">// Listen for any changes in the Customizer Preview.
+<p>At this point, you understand how the Customizer’s parts communicate.<br>But what if you need to listen for changes in the Preview?<br>This will be mostly a need if you are a developer or in the process of becoming one 💪👍</p>
+<p>Quick quizz. Where do you think the following code will go?<br>Don’t look under the code before giving an answer 😁</p>
+<pre><code class="language-js">// Listen for any changes in the Customizer Preview.
 wp.customize.bind(&quot;change&quot;, function (setting) {
     // Target the Setting, let&#39;s take background_image as an example.
     if (0 === setting.id.indexOf(&quot;background_image&quot;)) {
@@ -315,128 +262,115 @@ wp.customize.bind(&quot;change&quot;, function (setting) {
     }
 })
 </code></pre>
-						<p>
-							What does this code do?<br />It listen to any <code>&#39;change&#39;</code> of a defined
-							<code>( setting )</code>.<br />Remember, a Setting is a bridge allowing communication
-							between a Control and it’s related Partial.<br />So when a communication occurs, a change is
-							ongoing and then done!<br />In the example above, we are listening to any change on the
-							<code>background_image</code>.
-						</p>
-						<p>
-							Did you try to look for <code>background_image</code> in the generated theme from
-							underscores?!<br />If you did, you know by now that it’s not here 🤔 and if you didn’t,
-							don’t, you will not find it!<br />Well, I’ve used it as an example to grab your attention on
-							Core Controls/Settings!<br />Some Controls/Settings comes with WordPress by default, they
-							can be modified or removed, but this will be for another article.
-						</p>
-						<p>
-							I didn’t forget, I just delayed it 😈 The code above should go inside
-							<strong>customizer.js</strong> between a:
-						</p>
-						<pre><code class="language-js">(function ($) { ... YES HERE ... } (jQuery));
+<p>What does this code do?<br>It listen to any <code>&#39;change&#39;</code> of a defined <code>( setting )</code>.<br>Remember, a Setting is a bridge allowing communication between a Control and it’s related Partial.<br>So when a communication occurs, a change is ongoing and then done!<br>In the example above, we are listening to any change on the <code>background_image</code>.</p>
+<p>Did you try to look for <code>background_image</code> in the generated theme from underscores?!<br>If you did, you know by now that it’s not here 🤔 and if you didn’t, don’t, you will not find it!<br>Well, I’ve used it as an example to grab your attention on Core Controls/Settings!<br>Some Controls/Settings comes with WordPress by default, they can be modified or removed, but this will be for another article.</p>
+<p>I didn’t forget, I just delayed it 😈
+The code above should go inside <strong>customizer.js</strong> between a:</p>
+<pre><code class="language-js">(function ($) { ... YES HERE ... } (jQuery));
 </code></pre>
-						<p>I really hope that this will be useful.</p>
-						<p class="post-content hide">
-							<em
-								>Note: The background image is a photo by
-								<a href="https://unsplash.com/photos/brown-and-white-rabbit-PwXIsh7QpsI"
-									>Emiliano Vittoriosi</a
-								>.</em
-							>
-						</p>
-					</div>
+<p>I really hope that this will be useful.</p>
+<p class="post-content hide">
+<em>Note: The background image is a photo by <a href="https://unsplash.com/photos/brown-and-white-rabbit-PwXIsh7QpsI">Emiliano Vittoriosi</a>.</em>
+</p>
+</div>
 
-					<nav class="post-navigation" aria-label="Post Navigation">
-						<!-- Dynamic Markup Separator -->
+<nav
+    class="post-navigation"
+    aria-label="Post Navigation"
+>
+    
 
-						<!-- Dynamic Markup Separator -->
+    <!-- Dynamic Markup Separator -->
 
-						<!-- Previous Post Link (only if there's a previous post) -->
-						<a
-							href="/post/hide-wordpress-toolbar-with-wp-add-inline-style"
-							class="prev-post"
-							rel="prev"
-							aria-label="Go to the previous post"
-						>
-							Previous: Hide WordPress Toolbar with wp_add_inline_style
-						</a>
+    
 
-						<!--Dynamic Markup Separator-->
+    <!-- Dynamic Markup Separator -->
 
-						<!-- Next Post Link (only if there's a next post) -->
-						<a
-							href="/post/change-page-title-dynamically"
-							class="next-post"
-							rel="next"
-							aria-label="Go to the next post"
-						>
-							Next: Change Page Title Dynamically
-						</a>
-					</nav>
+    
+    <!-- Previous Post Link (only if there's a previous post) -->
+    <a href="/post/hide-wordpress-toolbar-with-wp-add-inline-style" class="prev-post" rel="prev" aria-label="Go to the previous post">
+        Previous: Hide WordPress Toolbar with wp_add_inline_style
+    </a>
+    
 
-					<!---->
-					<div class="related-posts">
-						<h3>You Might Also Like</h3>
-						<div>
-							<section>
-								<a href="/post/creating-a-customizer-control-with-javascript">
-									<img
-										class="img-responsive"
-										src="/content/uploads/images/screenshot-creating-a-customizer-control-with-javascript-3ed6040e75ee4dab.webp"
-										alt="Featured image for the post: Creating a Customizer control with JavaScript"
-									/>
-								</a>
-								<h4>
-									<a href="/post/creating-a-customizer-control-with-javascript"
-										>Creating a Customizer control with JavaScript</a
-									>
-								</h4>
-							</section>
+    <!--Dynamic Markup Separator-->
 
-							<section>
-								<a href="/post/modifying-wordpress-themes-copyright-from-the-customizer">
-									<img
-										class="img-responsive"
-										src="/content/uploads/images/copyright-word-under-magnifying-glass-45966b0e6d3d39ba.webp"
-										alt="Featured image for the post: Modifying WordPress theme's copyright from the Customizer"
-									/>
-								</a>
-								<h4>
-									<a href="/post/modifying-wordpress-themes-copyright-from-the-customizer"
-										>Modifying WordPress theme's copyright from the Customizer</a
-									>
-								</h4>
-							</section>
-						</div>
-					</div>
+    
+    <!-- Next Post Link (only if there's a next post) -->
+    <a href="/post/change-page-title-dynamically" class="next-post" rel="next" aria-label="Go to the next post">
+        Next: Change Page Title Dynamically
+    </a>
+    
+</nav>
 
-					<!---->
-				</main>
-			</div>
-			<!--End content-->
 
-			<!--Start footer-->
-			<footer id="colophon" class="site-footer unit-1">
-				<div id="site-info" class="site-info">
-					<p>
-						<strong>2016 - 2025 { LebCit }</strong>
+<!---->
+ <div class="related-posts">
+    <h3>You Might Also Like</h3>
+    <div>
+        
+        <section>
+            <a href="/post/creating-a-customizer-control-with-javascript">
+                <img
+                    class="img-responsive"
+                    src="/content/uploads/images/screenshot-creating-a-customizer-control-with-javascript-3ed6040e75ee4dab.webp"
+                    alt="Featured image for the post: Creating a Customizer control with JavaScript"
+                />
+            </a>
+            <h4>
+                <a href="/post/creating-a-customizer-control-with-javascript">Creating a Customizer control with JavaScript</a>
+            </h4>
+        </section>
+        
+        <section>
+            <a href="/post/modifying-wordpress-themes-copyright-from-the-customizer">
+                <img
+                    class="img-responsive"
+                    src="/content/uploads/images/copyright-word-under-magnifying-glass-45966b0e6d3d39ba.webp"
+                    alt="Featured image for the post: Modifying WordPress theme's copyright from the Customizer"
+                />
+            </a>
+            <h4>
+                <a href="/post/modifying-wordpress-themes-copyright-from-the-customizer">Modifying WordPress theme's copyright from the Customizer</a>
+            </h4>
+        </section>
+        
+    </div>
+</div>
+ 
 
-						<br />
-						<!-- Custom Footer Code -->
-						Content in Motion. Powered by Aether.
-					</p>
-				</div>
-			</footer>
+    <!---->
 
-			<!--End footer-->
-		</div>
-		<!--End page-->
+    
+</main>
 
-		<script
-			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
-			onload="hljs.highlightAll()"
-		></script>
+            </div>
+            <!--End content-->
 
-		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
-	</body>
+            <!--Start footer-->
+            <footer id="colophon" class="site-footer unit-1">
+    <div id="site-info" class="site-info">
+        
+        <p>
+            <strong>2016 - 2025 { LebCit }</strong>
+
+            <br />
+            <!-- Custom Footer Code -->
+            Content in Motion. Powered by Aether.
+        </p>
+    </div>
+</footer>
+
+            <!--End footer-->
+        </div>
+        <!--End page-->
+
+        
+        <script src="/content/themes/midday-custom/assets/vendors/highlight.min.js" onload="hljs.highlightAll()"></script>
+        
+
+        <script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+
+        
+    </body>
 </html>

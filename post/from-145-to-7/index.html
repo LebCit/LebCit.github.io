@@ -1,507 +1,405 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta
-			name="description"
-			content="Blog-Doc goes from 145 to 7 dependencies, proving you can build a full CMS and SSG in Node.js without bloating your project."
-		/>
-		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
-
-		<!--Site icon-->
-
-		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
-
-		<!--Title-->
-		<title>From 145 to 7 💪 | { LebCit }</title>
-
-		<!--Stylesheets-->
-		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
-
-		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
-	</head>
-
-	<body>
-		<!--Start page-->
-		<div id="page" class="site grid">
-			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-
-			<!--Start menu-->
-			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
-				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
-					>&times;</a
-				>
-
-				<div class="menu-overlay__content">
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/" target="">Home</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/blog" target="_self">Blog</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/categories" target="_self">Categories</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/tags" target="_self">Tags</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/search" target="_self">Search</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/page/my-public-projects" target="_self">Projects</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/page/about-me" target="_self">About Me</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/sitemap" target="_self">Sitemap</a>
-					</li>
-
-					<!---->
-				</div>
-			</div>
-
-			<!--End menu-->
-
-			<!--Start masthead-->
-			<!-- Start #masthead -->
-
-			<header
-				id="masthead"
-				class="site-header unit-1 unit-lg-2-5 bio"
-				style="
-					background-image: url(/content/uploads/images/a-cardboard-sign-that-says-all-you-need-is-less-5ad6480a095b0c9a.avif);
-				"
-			>
-				<div class="site-header__overlay"></div>
-
-				<!-- Start .site-header__content -->
-				<div class="site-header__content">
-					<div class="site-header__branding">
-						<h1 class="site-header__title">
-							<a href="/">{ LebCit }</a>
-						</h1>
-						<p class="site-header__description">
-							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
-							projects on my own!
-						</p>
-					</div>
-
-					<nav id="nav" class="site-header__nav" aria-label="MENU">
-						<ul class="site-header__nav-list">
-							<li class="site-header__nav-item">
-								<a
-									id="menu-button"
-									aria-controls="main-nav"
-									aria-haspopup="true"
-									tabindex="0"
-									role="button"
-								>
-									<span>MENU</span>
-									<span class="menu-icon" aria-hidden="true">
-										<svg
-											version="1.1"
-											x="0px"
-											y="0px"
-											width="30px"
-											height="30px"
-											viewBox="0 0 30 30"
-											enable-background="new 0 0 30 30"
-										>
-											<rect width="30" height="5" />
-											<rect y="24" width="30" height="5" />
-											<rect y="12" width="30" height="5" />
-										</svg>
-									</span>
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-				<!-- End .site-header__content -->
-			</header>
-
-			<!-- End #masthead -->
-
-			<!--End masthead-->
-
-			<!--Start content-->
-			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				<main class="article-view">
-					<!--The page to display the Markdown content of posts and pages.-->
-					<header class="post-header">
-						<h1 class="post-title">From 145 to 7 💪</h1>
-
-						<div class="post-meta">
-							<div class="post-date-wrapper">
-								<span>Posted:</span>
-								<time class="post-date" datetime="2025-06-03T12:28:45.542Z"> 2023-07-21 </time>
-
-								<span class="separator">|</span>
-								<span>Updated:</span>
-								<time class="post-updated-date" datetime="2025-06-03T19:54:29.771Z"> 2025-06-03 </time>
-							</div>
-
-							<div class="taxonomy-group">
-								<span>Category:</span>
-								<span class="post-category">
-									<a href="/category/web-development">web-development</a>
-								</span>
-							</div>
-
-							<!---->
-
-							<div class="taxonomy-group post-tags-group">
-								<span>Tagged:</span>
-
-								<a class="post-tag" href="/tag/blog-doc">blog-doc</a>
-
-								<a class="post-tag" href="/tag/dependencies">dependencies</a>
-
-								<a class="post-tag" href="/tag/nodejs">nodejs</a>
-
-								<a class="post-tag" href="/tag/cms">cms</a>
-
-								<a class="post-tag" href="/tag/ssg">ssg</a>
-							</div>
-						</div>
-					</header>
-
-					<div class="article-content">
-						<p>
-							<em
-								>Blog-Doc goes from 145 to 7 dependencies, proving you can build a full CMS and SSG in
-								Node.js without bloating your project.</em
-							>
-						</p>
-
-						<!--Content-->
-						<p>
-							Once in a while, a crazy idea installs itself in your mind, like Blog-Doc.<br />Blog-Doc is
-							not only <em>The Simplest Node.js CMS &amp; SSG</em>, but it&#39;s also
-							<strong>The Best</strong>!<br />I know that my word is not enough to prove the above
-							statement, but numbers and purpose are!
-						</p>
-						<h2>Blog-Doc's beginning</h2>
-
-						<p>
-							It all started with my tutorials about templating a Node.js app with EJS and turning it to a
-							simple SSG with the ability to write content in Markdown.<br />Then, I decided to combine
-							those tutorials just as a proof of concept, and this is how Blog-Doc was created.<br />I
-							created over the years some websites, themes, plugins, web apps... but nothing like
-							Blog-Doc!<br />Each time I work on it I learn something new and find an aspect that can be
-							improved.<br />You can call me crazy, but it&#39;s like the code is asking to be better
-							because it can!
-						</p>
-						<h2>A proof of concept</h2>
-
-						<p>
-							Since Blog-Doc was here, as an SSG, I had to prove that it can be used and modified in any
-							way a developer wants to.<br />I was using 11ty with Nunjucks to generate the static version
-							of my personal blog
-							<a href="https://lebcit.github.io/">https://lebcit.github.io/</a>.<br />So I&#39;ve turned
-							the back-end of my static site to Blog-Doc with EJS without any hesitation and it was an
-							easy task to do.<br />I felt proud and victorious, with some tears in the corners of my
-							eyes, after republishing my site with Blog-Doc.<br />It&#39;s not everyday that a
-							developer&#39;s idea sees the light...
-						</p>
-						<h2>An SSG with a CMS</h2>
-
-						<p>
-							To build a static site with a Static Site Generator you should read a lot of documentation
-							to understand how everything is related and dive for days in your IDE to structure the
-							back-end just to output some HTML, CSS and JS.<br />Moreover, if you don&#39;t have some
-							back-end knowledge, you will not be able to use it or spend hours over hours searching,
-							reading and trying to get the job done...<br />Coming from a long journey as a WordPress
-							developer to Node.js, I wanted any user without any coding knowledge to be able to use
-							Blog-Doc.<br />Not only I created an integrated Content Management System for Blog-Doc, but
-							I&#39;ve also made it user-friendly.<br />Blog-Doc&#39;s administration is a front-end
-							application, yes a front-end one, that can be protected like any other app so don&#39;t
-							freak out.<br />With the CMS in place, I&#39;ve written some articles about it by
-							effectively using it for the task and it worked like a charm.<br />Again I felt more proud,
-							without tears this time, especially since I&#39;m not aware of any SSG having an integrated
-							CMS.
-						</p>
-						<h2>Perfectionist by default</h2>
-
-						<p>
-							I&#39;m the kind of person that doesn&#39;t sit and relax when the code works even if
-							it&#39;s good, I&#39;m always in the quest of improving.<br />One of my
-							<strong>strict coding rules</strong> is that the console of the browser must not output a
-							single warning or error, otherwise, the code isn&#39;t usable.<br />I was not satisfied by
-							the design of Blog-Doc&#39;s administration so I&#39;ve modified it completely to a more
-							modern one using Tabler.<br />Then the tiny unhappy developer sitting in the back of my head
-							said:
-						</p>
-						<ul>
-							<li>
-								&quot;Really! Are you serious? Go find something else to be passionate about it,
-								you&#39;re using a cannon to kill a fly!&quot;<br />That time, he just remembered a meme
-								about Node.js developers using a tremendous amount of modules to achieve simple
-								tasks...<br />So the challenge took place! I had to reduce significantly the number of
-								dependencies that Blog-Doc relies on and keep all of its functionalities!
-							</li>
-						</ul>
-						<h2>Gasworks</h2>
-
-						<p>
-							With all due respect to the time and hard work of every developer who made a Static Site
-							Generator with Node.js, <strong>including the previous versions of Blog-Doc</strong>, those
-							are gasworks!<br />I offer my sincerest apologies in advance to each one of these
-							developers, but an app is not supposed to be a gasworks...<br />To better understand what
-							I&#39;m talking about, I&#39;ll briefly share with you the research that I&#39;ve made
-							starting with the last previous version of Blog-Doc.
-						</p>
-						<p>
-							N.B.: The last previous version of Blog-Doc can be found under the following GitHub
-							repository
-							<a href="https://github.com/LebCit/blog-doc-space"
-								>https://github.com/LebCit/blog-doc-space</a
-							>.
-						</p>
-						<p>
-							To get the size of a node module, you can visite
-							<a href="https://bundlephobia.com/">BUNDLEPHOBIA</a><br />To visualize the dependencies of a
-							node module, you can visit:
-						</p>
-						<ol>
-							<li><a href="https://npmgraph.js.org/">npmgraph -</a></li>
-							<li><a href="http://npm.anvaka.com/#/">Visualization of npm dependencies</a></li>
-						</ol>
-						<h3>Blog-Doc</h3>
-
-						<p>The dependencies of Blog-Doc were as follows:</p>
-						<ul>
-							<li><a href="https://www.npmjs.com/package/archiver">archiver</a></li>
-							<li><a href="https://www.npmjs.com/package/ejs">ejs</a></li>
-							<li><a href="https://www.npmjs.com/package/express">express</a></li>
-							<li><a href="https://www.npmjs.com/package/formidable">formidable</a></li>
-							<li><a href="https://www.npmjs.com/package/gray-matter">gray-matter</a></li>
-							<li><a href="https://www.npmjs.com/package/markdown-it">markdown-it</a></li>
-							<li><a href="https://www.npmjs.com/package/markdown-it-prism">markdown-it-prism</a></li>
-						</ul>
-						<p>
-							Looking at the <code>package.json</code> file of Blog-Doc, a Node.js novice would say that
-							it has 7 dependencies, an amateur would say that it has 52 dependencies after looking to the
-							direct dependencies shown on each dependency page on
-							<a href="https://www.npmjs.com/">NPM</a>, but an advised user would click on each direct
-							dependency to see if it also relies on other dependencies.<br />This is of course a time
-							killer and this is why tools like visualization of npm dependencies exist.<br />To spare you
-							the time, after looking at each dependency, Blog-Doc had 145 dependencies and this is not
-							acceptable!<br />Some of them may stop being maintained or incompatible with other packages
-							and I&#39;ll find myself debugging, losing time and energy over a gasworks that was never
-							intended to be one...
-						</p>
-						<h3>Other SSG</h3>
-
-						<p>
-							Looking at the most used
-							<a href="https://2022.stateofjs.com/en-US/libraries/rendering-frameworks/"
-								>rendering frameworks</a
-							>, I&#39;ve searched the number of dependencies of each one and was completely shocked:
-						</p>
-						<ul>
-							<li>Astro ---&gt; 450</li>
-							<li>SvelteKit ---&gt; 26</li>
-							<li>Next.js ---&gt; 26</li>
-							<li>Docusorus ---&gt; 1009</li>
-							<li>Remix ---&gt; 1</li>
-							<li>Nuxt ---&gt; 592</li>
-							<li>Eleventy ---&gt; 210</li>
-							<li>Gatsby ---&gt; 1246</li>
-						</ul>
-						<p>
-							Do you think that this is normal?!<br />I think that
-							<strong>this is insane</strong>!<br />JavaScript is not about accumulating a gigantic number
-							of lines on top of each other to produce a working application!<br />Starting from ES6 and
-							going forward, the essence of JavaScript is to <strong>write less and do more</strong>!
-						</p>
-						<p>
-							From my point of view, Remix is the only one in the list that is usable but I&#39;m not a
-							fan at all of JSX or JS front-end frameworks.
-						</p>
-						<h2>Long story short</h2>
-
-						<p>
-							After a long week of research, I&#39;ve concluded that Blog-Doc dependencies could be
-							reduced to 7 and 7 only!<br />That&#39;s great news, but now I had to rebuild Blog-Doc from
-							the ground up.<br />Once done,with a much better code organization, I was surprised to see
-							that I&#39;d written much less code compared to the last previous version.<br />At this
-							point, the little man in the back of my head said:
-						</p>
-						<ul>
-							<li>&quot;Knowing that I&#39;m still unsatisfied, May The Code Be With You!&quot;</li>
-						</ul>
-						<p>The actual dependencies of Blog-Doc are as follows:</p>
-						<ul>
-							<li><a href="https://www.npmjs.com/package/@hono/node-server">@hono/node-server</a></li>
-							<li><a href="https://www.npmjs.com/package/adm-zip">adm-zip</a></li>
-							<li><a href="https://www.npmjs.com/package/eta">eta</a></li>
-							<li><a href="https://www.npmjs.com/package/highlight.js">highlight.js</a></li>
-							<li><a href="https://www.npmjs.com/package/hono">hono</a></li>
-							<li><a href="https://www.npmjs.com/package/marked">marked</a></li>
-							<li><a href="https://www.npmjs.com/package/marked-highlight">marked-highlight</a></li>
-						</ul>
-						<p>
-							As you can check it out by yourself with ease, Blog-Doc is now relying on only 7
-							dependencies to output your static site.
-						</p>
-						<h2>Upcoming</h2>
-
-						<p>
-							You can find the newest version of Blog-Doc under its GitHub repository
-							<a href="https://github.com/LebCit/blog-doc">https://github.com/LebCit/blog-doc</a
-							>.<br />The little unsatisfied man in the back of my head intends to:
-						</p>
-						<ol>
-							<li>Reduce the number of dependencies Blog-Doc relies on.</li>
-							<li>Enhance Blog-Doc&#39;s administration and functionalities.</li>
-							<li>Create a design without any CSS framework.</li>
-							<li>Use TinyMCE instead of TOAST UI Editor.</li>
-							<li>Improve, improve and improve 😉</li>
-						</ol>
-						<p>Because ALL YOU NEED IS LESS!</p>
-						<p class="post-content hide">
-							<em
-								>Note: The background image is a photo by
-								<a
-									href="https://unsplash.com/photos/a-cardboard-sign-that-says-all-you-need-is-less-fti002hQCCA"
-									>Etienne Girardet</a
-								>.</em
-							>
-						</p>
-					</div>
-
-					<nav class="post-navigation" aria-label="Post Navigation">
-						<!-- Dynamic Markup Separator -->
-
-						<!-- Dynamic Markup Separator -->
-
-						<!-- Previous Post Link (only if there's a previous post) -->
-						<a
-							href="/post/blog-doc-updating-the-administration-design"
-							class="prev-post"
-							rel="prev"
-							aria-label="Go to the previous post"
-						>
-							Previous: Blog-Doc, updating the administration design!
-						</a>
-
-						<!--Dynamic Markup Separator-->
-
-						<!-- Next Post Link (only if there's a next post) -->
-						<a
-							href="/post/node-modules-is-not-heavy-developers-are-lazy"
-							class="next-post"
-							rel="next"
-							aria-label="Go to the next post"
-						>
-							Next: node_modules is not heavy, developers are lazy!
-						</a>
-					</nav>
-
-					<!---->
-					<div class="related-posts">
-						<h3>You Might Also Like</h3>
-						<div>
-							<section>
-								<a href="/post/node-modules-is-not-heavy-developers-are-lazy">
-									<img
-										class="img-responsive"
-										src="/content/uploads/images/black-words-graffitti-on-yellow-wall-saying-if-you-are-reading-this-it-is-time-to-change-2eb8bd552346003b.avif"
-										alt="Featured image for the post: node_modules is not heavy, developers are lazy!"
-									/>
-								</a>
-								<h4>
-									<a href="/post/node-modules-is-not-heavy-developers-are-lazy"
-										>node_modules is not heavy, developers are lazy!</a
-									>
-								</h4>
-							</section>
-
-							<section>
-								<a href="/post/to-node-or-not-deta-is-the-answer">
-									<img
-										class="img-responsive"
-										src="/content/uploads/images/computer-screen-displaying-node-js-modules-b2dba29d73b5b67d.webp"
-										alt="Featured image for the post: To Node or not? Deta is the answer!"
-									/>
-								</a>
-								<h4>
-									<a href="/post/to-node-or-not-deta-is-the-answer"
-										>To Node or not? Deta is the answer!</a
-									>
-								</h4>
-							</section>
-						</div>
-					</div>
-
-					<!---->
-				</main>
-			</div>
-			<!--End content-->
-
-			<!--Start footer-->
-			<footer id="colophon" class="site-footer unit-1">
-				<div id="site-info" class="site-info">
-					<p>
-						<strong>2016 - 2025 { LebCit }</strong>
-
-						<br />
-						<!-- Custom Footer Code -->
-						Content in Motion. Powered by Aether.
-					</p>
-				</div>
-			</footer>
-
-			<!--End footer-->
-		</div>
-		<!--End page-->
-
-		<script
-			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
-			onload="hljs.highlightAll()"
-		></script>
-
-		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
-	</body>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Blog-Doc goes from 145 to 7 dependencies, proving you can build a full CMS and SSG in Node.js without bloating your project." />
+    <meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+
+    <!--Site icon-->
+    
+    <link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
+    
+
+    <!--Title-->
+    <title>From 145 to 7 💪 | { LebCit }</title>
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
+    
+    <link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+    
+</head>
+
+
+    <body>
+        <!--Start page-->
+        <div id="page" class="site grid">
+            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+            <!--Start menu-->
+            <div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+    <a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu">&times;</a>
+
+    <div class="menu-overlay__content">
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/" target="">Home</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/blog" target="_self">Blog</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/categories" target="_self">Categories</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/tags" target="_self">Tags</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/search" target="_self">Search</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/page/my-public-projects" target="_self">Projects</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/page/about-me" target="_self">About Me</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/sitemap" target="_self">Sitemap</a>
+        </li>
+        
+        <!---->
+        
+    </div>
+</div>
+
+            <!--End menu-->
+
+            <!--Start masthead-->
+            <!-- Start #masthead -->
+
+<header
+    id="masthead"
+    class="site-header unit-1 unit-lg-2-5 bio"
+    style="background-image: url(/content/uploads/images/a-cardboard-sign-that-says-all-you-need-is-less-5ad6480a095b0c9a.avif)"
+>
+    <div class="site-header__overlay"></div>
+
+    <!-- Start .site-header__content -->
+<div class="site-header__content">
+    <div class="site-header__branding">
+        <h1 class="site-header__title">
+            <a href="/">{ LebCit }</a>
+        </h1>
+        <p class="site-header__description">Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</p>
+    </div>
+
+    <nav id="nav" class="site-header__nav" aria-label="MENU">
+        <ul class="site-header__nav-list">
+            <li class="site-header__nav-item">
+                <a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+                    <span>MENU</span>
+                    <span class="menu-icon" aria-hidden="true">
+                        <svg
+                            version="1.1"
+                            x="0px"
+                            y="0px"
+                            width="30px"
+                            height="30px"
+                            viewBox="0 0 30 30"
+                            enable-background="new 0 0 30 30"
+                        >
+                            <rect width="30" height="5" />
+                            <rect y="24" width="30" height="5" />
+                            <rect y="12" width="30" height="5" />
+                        </svg>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<!-- End .site-header__content -->
+
+</header>
+
+<!-- End #masthead -->
+
+            <!--End masthead-->
+
+            <!--Start content-->
+            <div id="content" class="site-content unit-1 unit-lg-3-5">
+                <main
+    class="article-view"
+>
+    
+    <!--The page to display the Markdown content of posts and pages.-->
+    <header class="post-header">
+    <h1 class="post-title">From 145 to 7 💪</h1>
+
+     <div class="post-meta">
+    <div class="post-date-wrapper">
+        <span>Posted:</span>
+        <time class="post-date" datetime="2025-06-03T12:28:45.542Z">
+            2023-07-21
+        </time>
+
+        
+        <span class="separator">|</span>
+        <span>Updated:</span>
+        <time class="post-updated-date" datetime="2025-06-03T19:54:29.771Z">
+            2025-06-03
+        </time>
+        
+    </div>
+
+    
+    <div class="taxonomy-group">
+        <span>Category:</span>
+        <span class="post-category">
+            <a href="/category/web-development">web-development</a>
+        </span>
+    </div>
+    
+    <!---->
+    
+    <div class="taxonomy-group post-tags-group">
+        <span>Tagged:</span>
+        
+        <a class="post-tag" href="/tag/blog-doc">blog-doc</a>
+        
+        <a class="post-tag" href="/tag/dependencies">dependencies</a>
+        
+        <a class="post-tag" href="/tag/nodejs">nodejs</a>
+        
+        <a class="post-tag" href="/tag/cms">cms</a>
+        
+        <a class="post-tag" href="/tag/ssg">ssg</a>
+        
+    </div>
+    
+</div>
+ 
+</header>
+
+<div class="article-content">
+    
+    <p>
+        <em>Blog-Doc goes from 145 to 7 dependencies, proving you can build a full CMS and SSG in Node.js without bloating your project.</em>
+    </p>
+    
+
+    <!--Content-->
+    <p>Once in a while, a crazy idea installs itself in your mind, like Blog-Doc.<br>Blog-Doc is not only <em>The Simplest Node.js CMS &amp; SSG</em>, but it&#39;s also <strong>The Best</strong>!<br>I know that my word is not enough to prove the above statement, but numbers and purpose are!</p>
+<h2>Blog-Doc's beginning</h2>
+
+<p>It all started with my tutorials about templating a Node.js app with EJS and turning it to a simple SSG with the ability to write content in Markdown.<br>Then, I decided to combine those tutorials just as a proof of concept, and this is how Blog-Doc was created.<br>I created over the years some websites, themes, plugins, web apps... but nothing like Blog-Doc!<br>Each time I work on it I learn something new and find an aspect that can be improved.<br>You can call me crazy, but it&#39;s like the code is asking to be better because it can!</p>
+<h2>A proof of concept</h2>
+
+<p>Since Blog-Doc was here, as an SSG, I had to prove that it can be used and modified in any way a developer wants to.<br>I was using 11ty with Nunjucks to generate the static version of my personal blog <a href="https://lebcit.github.io/">https://lebcit.github.io/</a>.<br>So I&#39;ve turned the back-end of my static site to Blog-Doc with EJS without any hesitation and it was an easy task to do.<br>I felt proud and victorious, with some tears in the corners of my eyes, after republishing my site with Blog-Doc.<br>It&#39;s not everyday that a developer&#39;s idea sees the light...</p>
+<h2>An SSG with a CMS</h2>
+
+<p>To build a static site with a Static Site Generator you should read a lot of documentation to understand how everything is related and dive for days in your IDE to structure the back-end just to output some HTML, CSS and JS.<br>Moreover, if you don&#39;t have some back-end knowledge, you will not be able to use it or spend hours over hours searching, reading and trying to get the job done...<br>Coming from a long journey as a WordPress developer to Node.js, I wanted any user without any coding knowledge to be able to use Blog-Doc.<br>Not only I created an integrated Content Management System for Blog-Doc, but I&#39;ve also made it user-friendly.<br>Blog-Doc&#39;s administration is a front-end application, yes a front-end one, that can be protected like any other app so don&#39;t freak out.<br>With the CMS in place, I&#39;ve written some articles about it by effectively using it for the task and it worked like a charm.<br>Again I felt more proud, without tears this time, especially since I&#39;m not aware of any SSG having an integrated CMS.</p>
+<h2>Perfectionist by default</h2>
+
+<p>I&#39;m the kind of person that doesn&#39;t sit and relax when the code works even if it&#39;s good, I&#39;m always in the quest of improving.<br>One of my <strong>strict coding rules</strong> is that the console of the browser must not output a single warning or error, otherwise, the code isn&#39;t usable.<br>I was not satisfied by the design of Blog-Doc&#39;s administration so I&#39;ve modified it completely to a more modern one using Tabler.<br>Then the tiny unhappy developer sitting in the back of my head said:</p>
+<ul>
+<li>&quot;Really! Are you serious? Go find something else to be passionate about it, you&#39;re using a cannon to kill a fly!&quot;<br>That time, he just remembered a meme about Node.js developers using a tremendous amount of modules to achieve simple tasks...<br>So the challenge took place! I had to reduce significantly the number of dependencies that Blog-Doc relies on and keep all of its functionalities!</li>
+</ul>
+<h2>Gasworks</h2>
+
+<p>With all due respect to the time and hard work of every developer who made a Static Site Generator with Node.js, <strong>including the previous versions of Blog-Doc</strong>, those are gasworks!<br>I offer my sincerest apologies in advance to each one of these developers, but an app is not supposed to be a gasworks...<br>To better understand what I&#39;m talking about, I&#39;ll briefly share with you the research that I&#39;ve made starting with the last previous version of Blog-Doc.</p>
+<p>N.B.: The last previous version of Blog-Doc can be found under the following GitHub repository <a href="https://github.com/LebCit/blog-doc-space">https://github.com/LebCit/blog-doc-space</a>.</p>
+<p>To get the size of a node module, you can visite <a href="https://bundlephobia.com/">BUNDLEPHOBIA</a><br>To visualize the dependencies of a node module, you can visit:</p>
+<ol>
+<li><a href="https://npmgraph.js.org/">npmgraph -</a></li>
+<li><a href="http://npm.anvaka.com/#/">Visualization of npm dependencies</a></li>
+</ol>
+<h3>Blog-Doc</h3>
+
+<p>The dependencies of Blog-Doc were as follows:</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/archiver">archiver</a></li>
+<li><a href="https://www.npmjs.com/package/ejs">ejs</a></li>
+<li><a href="https://www.npmjs.com/package/express">express</a></li>
+<li><a href="https://www.npmjs.com/package/formidable">formidable</a></li>
+<li><a href="https://www.npmjs.com/package/gray-matter">gray-matter</a></li>
+<li><a href="https://www.npmjs.com/package/markdown-it">markdown-it</a></li>
+<li><a href="https://www.npmjs.com/package/markdown-it-prism">markdown-it-prism</a></li>
+</ul>
+<p>Looking at the <code>package.json</code> file of Blog-Doc, a Node.js novice would say that it has 7 dependencies, an amateur would say that it has 52 dependencies after looking to the direct dependencies shown on each dependency page on <a href="https://www.npmjs.com/">NPM</a>, but an advised user would click on each direct dependency to see if it also relies on other dependencies.<br>This is of course a time killer and this is why tools like visualization of npm dependencies exist.<br>To spare you the time, after looking at each dependency, Blog-Doc had 145 dependencies and this is not acceptable!<br>Some of them may stop being maintained or incompatible with other packages and I&#39;ll find myself debugging, losing time and energy over a gasworks that was never intended to be one...</p>
+<h3>Other SSG</h3>
+
+<p>Looking at the most used <a href="https://2022.stateofjs.com/en-US/libraries/rendering-frameworks/">rendering frameworks</a>, I&#39;ve searched the number of dependencies of each one and was completely shocked:</p>
+<ul>
+<li>Astro ---&gt; 450</li>
+<li>SvelteKit ---&gt; 26</li>
+<li>Next.js ---&gt; 26</li>
+<li>Docusorus ---&gt; 1009</li>
+<li>Remix ---&gt; 1</li>
+<li>Nuxt ---&gt; 592</li>
+<li>Eleventy ---&gt; 210</li>
+<li>Gatsby ---&gt; 1246</li>
+</ul>
+<p>Do you think that this is normal?!<br>I think that <strong>this is insane</strong>!<br>JavaScript is not about accumulating a gigantic number of lines on top of each other to produce a working application!<br>Starting from ES6 and going forward, the essence of JavaScript is to <strong>write less and do more</strong>!</p>
+<p>From my point of view, Remix is the only one in the list that is usable but I&#39;m not a fan at all of JSX or JS front-end frameworks.</p>
+<h2>Long story short</h2>
+
+<p>After a long week of research, I&#39;ve concluded that Blog-Doc dependencies could be reduced to 7 and 7 only!<br>That&#39;s great news, but now I had to rebuild Blog-Doc from the ground up.<br>Once done,with a much better code organization, I was surprised to see that I&#39;d written much less code compared to the last previous version.<br>At this point, the little man in the back of my head said:</p>
+<ul>
+<li>&quot;Knowing that I&#39;m still unsatisfied, May The Code Be With You!&quot;</li>
+</ul>
+<p>The actual dependencies of Blog-Doc are as follows:</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/@hono/node-server">@hono/node-server</a></li>
+<li><a href="https://www.npmjs.com/package/adm-zip">adm-zip</a></li>
+<li><a href="https://www.npmjs.com/package/eta">eta</a></li>
+<li><a href="https://www.npmjs.com/package/highlight.js">highlight.js</a></li>
+<li><a href="https://www.npmjs.com/package/hono">hono</a></li>
+<li><a href="https://www.npmjs.com/package/marked">marked</a></li>
+<li><a href="https://www.npmjs.com/package/marked-highlight">marked-highlight</a></li>
+</ul>
+<p>As you can check it out by yourself with ease, Blog-Doc is now relying on only 7 dependencies to output your static site.</p>
+<h2>Upcoming</h2>
+
+<p>You can find the newest version of Blog-Doc under its GitHub repository <a href="https://github.com/LebCit/blog-doc">https://github.com/LebCit/blog-doc</a>.<br>The little unsatisfied man in the back of my head intends to:</p>
+<ol>
+<li>Reduce the number of dependencies Blog-Doc relies on.</li>
+<li>Enhance Blog-Doc&#39;s administration and functionalities.</li>
+<li>Create a design without any CSS framework.</li>
+<li>Use TinyMCE instead of TOAST UI Editor.</li>
+<li>Improve, improve and improve 😉</li>
+</ol>
+<p>Because ALL YOU NEED IS LESS!</p>
+<p class="post-content hide">
+<em>Note: The background image is a photo by <a href="https://unsplash.com/photos/a-cardboard-sign-that-says-all-you-need-is-less-fti002hQCCA">Etienne Girardet</a>.</em>
+</p>
+</div>
+
+<nav
+    class="post-navigation"
+    aria-label="Post Navigation"
+>
+    
+
+    <!-- Dynamic Markup Separator -->
+
+    
+
+    <!-- Dynamic Markup Separator -->
+
+    
+    <!-- Previous Post Link (only if there's a previous post) -->
+    <a href="/post/blog-doc-updating-the-administration-design" class="prev-post" rel="prev" aria-label="Go to the previous post">
+        Previous: Blog-Doc, updating the administration design!
+    </a>
+    
+
+    <!--Dynamic Markup Separator-->
+
+    
+    <!-- Next Post Link (only if there's a next post) -->
+    <a href="/post/node-modules-is-not-heavy-developers-are-lazy" class="next-post" rel="next" aria-label="Go to the next post">
+        Next: node_modules is not heavy, developers are lazy!
+    </a>
+    
+</nav>
+
+
+<!---->
+ <div class="related-posts">
+    <h3>You Might Also Like</h3>
+    <div>
+        
+        <section>
+            <a href="/post/node-modules-is-not-heavy-developers-are-lazy">
+                <img
+                    class="img-responsive"
+                    src="/content/uploads/images/black-words-graffitti-on-yellow-wall-saying-if-you-are-reading-this-it-is-time-to-change-2eb8bd552346003b.avif"
+                    alt="Featured image for the post: node_modules is not heavy, developers are lazy!"
+                />
+            </a>
+            <h4>
+                <a href="/post/node-modules-is-not-heavy-developers-are-lazy">node_modules is not heavy, developers are lazy!</a>
+            </h4>
+        </section>
+        
+        <section>
+            <a href="/post/to-node-or-not-deta-is-the-answer">
+                <img
+                    class="img-responsive"
+                    src="/content/uploads/images/computer-screen-displaying-node-js-modules-b2dba29d73b5b67d.webp"
+                    alt="Featured image for the post: To Node or not? Deta is the answer!"
+                />
+            </a>
+            <h4>
+                <a href="/post/to-node-or-not-deta-is-the-answer">To Node or not? Deta is the answer!</a>
+            </h4>
+        </section>
+        
+    </div>
+</div>
+ 
+
+    <!---->
+
+    
+</main>
+
+            </div>
+            <!--End content-->
+
+            <!--Start footer-->
+            <footer id="colophon" class="site-footer unit-1">
+    <div id="site-info" class="site-info">
+        
+        <p>
+            <strong>2016 - 2025 { LebCit }</strong>
+
+            <br />
+            <!-- Custom Footer Code -->
+            Content in Motion. Powered by Aether.
+        </p>
+    </div>
+</footer>
+
+            <!--End footer-->
+        </div>
+        <!--End page-->
+
+        
+        <script src="/content/themes/midday-custom/assets/vendors/highlight.min.js" onload="hljs.highlightAll()"></script>
+        
+
+        <script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+
+        
+    </body>
 </html>

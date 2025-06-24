@@ -1,275 +1,246 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta
-			name="description"
-			content="Create a static Markdown blog in Node.js using LiteNode and Marked. Learn rendering, frontmatter parsing, and static site generation with ease."
-		/>
-		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Create a static Markdown blog in Node.js using LiteNode and Marked. Learn rendering, frontmatter parsing, and static site generation with ease." />
+    <meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-		<!--Site icon-->
+    <!--Site icon-->
+    
+    <link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
+    
 
-		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
+    <!--Title-->
+    <title>Create your Markdown blog in Node.js | { LebCit }</title>
 
-		<!--Title-->
-		<title>Create your Markdown blog in Node.js | { LebCit }</title>
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
+    
+    <link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+    
+</head>
 
-		<!--Stylesheets-->
-		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
 
-		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
-	</head>
+    <body>
+        <!--Start page-->
+        <div id="page" class="site grid">
+            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
-	<body>
-		<!--Start page-->
-		<div id="page" class="site grid">
-			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+            <!--Start menu-->
+            <div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+    <a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu">&times;</a>
 
-			<!--Start menu-->
-			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
-				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
-					>&times;</a
-				>
+    <div class="menu-overlay__content">
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/" target="">Home</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/blog" target="_self">Blog</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/categories" target="_self">Categories</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/tags" target="_self">Tags</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/search" target="_self">Search</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/page/my-public-projects" target="_self">Projects</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/page/about-me" target="_self">About Me</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/sitemap" target="_self">Sitemap</a>
+        </li>
+        
+        <!---->
+        
+    </div>
+</div>
 
-				<div class="menu-overlay__content">
-					<!---->
+            <!--End menu-->
 
-					<li class="menu-overlay__item">
-						<a href="/" target="">Home</a>
-					</li>
+            <!--Start masthead-->
+            <!-- Start #masthead -->
 
-					<!---->
+<header
+    id="masthead"
+    class="site-header unit-1 unit-lg-2-5 bio"
+    style="background-image: url(/content/uploads/images/a-close-up-of-a-small-green-plant-in-dirt-3eee36131ac182ee.webp)"
+>
+    <div class="site-header__overlay"></div>
 
-					<!---->
+    <!-- Start .site-header__content -->
+<div class="site-header__content">
+    <div class="site-header__branding">
+        <h1 class="site-header__title">
+            <a href="/">{ LebCit }</a>
+        </h1>
+        <p class="site-header__description">Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</p>
+    </div>
 
-					<li class="menu-overlay__item">
-						<a href="/blog" target="_self">Blog</a>
-					</li>
+    <nav id="nav" class="site-header__nav" aria-label="MENU">
+        <ul class="site-header__nav-list">
+            <li class="site-header__nav-item">
+                <a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+                    <span>MENU</span>
+                    <span class="menu-icon" aria-hidden="true">
+                        <svg
+                            version="1.1"
+                            x="0px"
+                            y="0px"
+                            width="30px"
+                            height="30px"
+                            viewBox="0 0 30 30"
+                            enable-background="new 0 0 30 30"
+                        >
+                            <rect width="30" height="5" />
+                            <rect y="24" width="30" height="5" />
+                            <rect y="12" width="30" height="5" />
+                        </svg>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<!-- End .site-header__content -->
 
-					<!---->
+</header>
 
-					<!---->
+<!-- End #masthead -->
 
-					<li class="menu-overlay__item">
-						<a href="/categories" target="_self">Categories</a>
-					</li>
+            <!--End masthead-->
 
-					<!---->
+            <!--Start content-->
+            <div id="content" class="site-content unit-1 unit-lg-3-5">
+                <main
+    class="article-view"
+>
+    
+    <!--The page to display the Markdown content of posts and pages.-->
+    <header class="post-header">
+    <h1 class="post-title">Create your Markdown blog in Node.js</h1>
 
-					<!---->
+     <div class="post-meta">
+    <div class="post-date-wrapper">
+        <span>Posted:</span>
+        <time class="post-date" datetime="2025-06-03T17:22:42.420Z">
+            2025-02-26
+        </time>
 
-					<li class="menu-overlay__item">
-						<a href="/tags" target="_self">Tags</a>
-					</li>
+        
+        <span class="separator">|</span>
+        <span>Updated:</span>
+        <time class="post-updated-date" datetime="2025-06-03T19:30:10.289Z">
+            2025-06-03
+        </time>
+        
+    </div>
 
-					<!---->
+    
+    <div class="taxonomy-group">
+        <span>Category:</span>
+        <span class="post-category">
+            <a href="/category/nodejs">nodejs</a>
+        </span>
+    </div>
+    
+    <!---->
+    
+    <div class="taxonomy-group post-tags-group">
+        <span>Tagged:</span>
+        
+        <a class="post-tag" href="/tag/litenode">litenode</a>
+        
+        <a class="post-tag" href="/tag/markdown">markdown</a>
+        
+        <a class="post-tag" href="/tag/static-site">static-site</a>
+        
+        <a class="post-tag" href="/tag/templating">templating</a>
+        
+        <a class="post-tag" href="/tag/blog-development">blog-development</a>
+        
+    </div>
+    
+</div>
+ 
+</header>
 
-					<!---->
+<div class="article-content">
+    
+    <p>
+        <em>Create a static Markdown blog in Node.js using LiteNode and Marked. Learn rendering, frontmatter parsing, and static site generation with ease.</em>
+    </p>
+    
 
-					<li class="menu-overlay__item">
-						<a href="/search" target="_self">Search</a>
-					</li>
+    <!--Content-->
+    <p>I wrote, in December 2023, an article about the same subject (<a href="/post/create-a-simple-markdown-based-blog-in-nodejs">Create a simple Markdown-based blog in Node.js</a>), but this new one will show you how to achieve the same goal with a much simpler and effective approach. By the end of this tutorial, you&#39;ll learn how to generate a static site from your Markdown content.</p>
+<p>I assume you already have an idea of <a href="/post/create-a-simple-markdown-based-blog-in-nodejs#markdown">what Markdown is good for</a>, if you don&#39;t click the link it&#39;s a useful section to read.</p>
+<h2>Dependencies</h2>
 
-					<!---->
+<p>To create your Markdown blog, you&#39;ll only need two dependencies: <a href="https://www.npmjs.com/package/litenode">LiteNode</a> and <a href="https://www.npmjs.com/package/marked">Marked</a>.</p>
+<h2>Installation</h2>
 
-					<!---->
+<ol>
+<li>Create a folder called <strong>markdown-blog-nodejs</strong></li>
+<li>Open it with your code editor. I use <a href="https://code.visualstudio.com/">VSCode</a> that natively supports Markdown</li>
+<li>Initialize your Node.js project: <code>npm init -y</code></li>
+<li>Install the dependencies: <code>npm i litenode marked</code></li>
+</ol>
+<p>These steps will create a <strong>package.json</strong> file and install LiteNode and Marked in your project.</p>
+<h2>Starting your application</h2>
 
-					<li class="menu-overlay__item">
-						<a href="/page/my-public-projects" target="_self">Projects</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/page/about-me" target="_self">About Me</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/sitemap" target="_self">Sitemap</a>
-					</li>
-
-					<!---->
-				</div>
-			</div>
-
-			<!--End menu-->
-
-			<!--Start masthead-->
-			<!-- Start #masthead -->
-
-			<header
-				id="masthead"
-				class="site-header unit-1 unit-lg-2-5 bio"
-				style="
-					background-image: url(/content/uploads/images/a-close-up-of-a-small-green-plant-in-dirt-3eee36131ac182ee.webp);
-				"
-			>
-				<div class="site-header__overlay"></div>
-
-				<!-- Start .site-header__content -->
-				<div class="site-header__content">
-					<div class="site-header__branding">
-						<h1 class="site-header__title">
-							<a href="/">{ LebCit }</a>
-						</h1>
-						<p class="site-header__description">
-							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
-							projects on my own!
-						</p>
-					</div>
-
-					<nav id="nav" class="site-header__nav" aria-label="MENU">
-						<ul class="site-header__nav-list">
-							<li class="site-header__nav-item">
-								<a
-									id="menu-button"
-									aria-controls="main-nav"
-									aria-haspopup="true"
-									tabindex="0"
-									role="button"
-								>
-									<span>MENU</span>
-									<span class="menu-icon" aria-hidden="true">
-										<svg
-											version="1.1"
-											x="0px"
-											y="0px"
-											width="30px"
-											height="30px"
-											viewBox="0 0 30 30"
-											enable-background="new 0 0 30 30"
-										>
-											<rect width="30" height="5" />
-											<rect y="24" width="30" height="5" />
-											<rect y="12" width="30" height="5" />
-										</svg>
-									</span>
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-				<!-- End .site-header__content -->
-			</header>
-
-			<!-- End #masthead -->
-
-			<!--End masthead-->
-
-			<!--Start content-->
-			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				<main class="article-view">
-					<!--The page to display the Markdown content of posts and pages.-->
-					<header class="post-header">
-						<h1 class="post-title">Create your Markdown blog in Node.js</h1>
-
-						<div class="post-meta">
-							<div class="post-date-wrapper">
-								<span>Posted:</span>
-								<time class="post-date" datetime="2025-06-03T17:22:42.420Z"> 2025-02-26 </time>
-
-								<span class="separator">|</span>
-								<span>Updated:</span>
-								<time class="post-updated-date" datetime="2025-06-03T19:30:10.289Z"> 2025-06-03 </time>
-							</div>
-
-							<div class="taxonomy-group">
-								<span>Category:</span>
-								<span class="post-category">
-									<a href="/category/nodejs">nodejs</a>
-								</span>
-							</div>
-
-							<!---->
-
-							<div class="taxonomy-group post-tags-group">
-								<span>Tagged:</span>
-
-								<a class="post-tag" href="/tag/litenode">litenode</a>
-
-								<a class="post-tag" href="/tag/markdown">markdown</a>
-
-								<a class="post-tag" href="/tag/static-site">static-site</a>
-
-								<a class="post-tag" href="/tag/templating">templating</a>
-
-								<a class="post-tag" href="/tag/blog-development">blog-development</a>
-							</div>
-						</div>
-					</header>
-
-					<div class="article-content">
-						<p>
-							<em
-								>Create a static Markdown blog in Node.js using LiteNode and Marked. Learn rendering,
-								frontmatter parsing, and static site generation with ease.</em
-							>
-						</p>
-
-						<!--Content-->
-						<p>
-							I wrote, in December 2023, an article about the same subject (<a
-								href="/post/create-a-simple-markdown-based-blog-in-nodejs"
-								>Create a simple Markdown-based blog in Node.js</a
-							>), but this new one will show you how to achieve the same goal with a much simpler and
-							effective approach. By the end of this tutorial, you&#39;ll learn how to generate a static
-							site from your Markdown content.
-						</p>
-						<p>
-							I assume you already have an idea of
-							<a href="/post/create-a-simple-markdown-based-blog-in-nodejs#markdown"
-								>what Markdown is good for</a
-							>, if you don&#39;t click the link it&#39;s a useful section to read.
-						</p>
-						<h2>Dependencies</h2>
-
-						<p>
-							To create your Markdown blog, you&#39;ll only need two dependencies:
-							<a href="https://www.npmjs.com/package/litenode">LiteNode</a> and
-							<a href="https://www.npmjs.com/package/marked">Marked</a>.
-						</p>
-						<h2>Installation</h2>
-
-						<ol>
-							<li>Create a folder called <strong>markdown-blog-nodejs</strong></li>
-							<li>
-								Open it with your code editor. I use
-								<a href="https://code.visualstudio.com/">VSCode</a> that natively supports Markdown
-							</li>
-							<li>Initialize your Node.js project: <code>npm init -y</code></li>
-							<li>Install the dependencies: <code>npm i litenode marked</code></li>
-						</ol>
-						<p>
-							These steps will create a <strong>package.json</strong> file and install LiteNode and Marked
-							in your project.
-						</p>
-						<h2>Starting your application</h2>
-
-						<p>
-							Before continuing, add <code>&quot;type&quot;: &quot;module&quot;</code> to your
-							<strong>package.json</strong> file to enable the use of <code>import</code> statements
-							instead of <code>require</code>.
-						</p>
-						<p>Create at the root of your project 2 folders:</p>
-						<ol>
-							<li>
-								<strong>views</strong> where the HTML templates and the Markdown files will be stored
-							</li>
-							<li><strong>static</strong> that will hold the front-end styles, scripts, images...</li>
-						</ol>
-						<p>
-							Always at the root of your project, create the entry file <strong>index.js</strong> and
-							populate it with:
-						</p>
-						<pre><code class="language-js">import { LiteNode } from &quot;litenode&quot;
+<p>Before continuing, add <code>&quot;type&quot;: &quot;module&quot;</code> to your <strong>package.json</strong> file to enable the use of <code>import</code> statements instead of <code>require</code>.</p>
+<p>Create at the root of your project 2 folders:</p>
+<ol>
+<li><strong>views</strong> where the HTML templates and the Markdown files will be stored</li>
+<li><strong>static</strong> that will hold the front-end styles, scripts, images...</li>
+</ol>
+<p>Always at the root of your project, create the entry file <strong>index.js</strong> and populate it with:</p>
+<pre><code class="language-js">import { LiteNode } from &quot;litenode&quot;
 import { marked } from &quot;marked&quot; // for later
 
 const app = new LiteNode()
@@ -280,35 +251,27 @@ app.get(&quot;/&quot;, (req, res) =&gt; {
 
 app.startServer()
 </code></pre>
-						<p>Start you application with <code>node index</code>. Your app will respond by:</p>
-						<pre><code class="language-txt">You have the latest version of litenode
+<p>Start you application with <code>node index</code>. Your app will respond by:</p>
+<pre><code class="language-txt">You have the latest version of litenode
 App @ http://localhost:5000
 </code></pre>
-						<p>
-							Click on the link and your default browser will open and display: Welcome to the main route!
-						</p>
-						<h2>Rendering</h2>
+<p>Click on the link and your default browser will open and display: Welcome to the main route!</p>
+<h2>Rendering</h2>
 
-						<p>
-							LiteNode allows you to render HTML templates where you can load Markdown files contents. The
-							Markdown files will be processed in two steps:
-						</p>
-						<ol>
-							<li>LiteNode splits the <code>frontmatter</code> from the <code>content</code></li>
-							<li>
-								Marked parses the <code>content</code> only. You can use any parser that suits your
-								needs but I highly recommend Marked.
-							</li>
-						</ol>
-						<h3>A practical example</h3>
+<p>LiteNode allows you to render HTML templates where you can load Markdown files contents. The Markdown files will be processed in two steps:</p>
+<ol>
+<li>LiteNode splits the <code>frontmatter</code> from the <code>content</code></li>
+<li>Marked parses the <code>content</code> only. You can use any parser that suits your needs but I highly recommend Marked.</li>
+</ol>
+<h3>A practical example</h3>
 
-						<p>Create in the <strong>views</strong> folder 2 files:</p>
-						<ol>
-							<li><strong>index.html</strong>: the main HTML template file</li>
-							<li><strong>home.md</strong>: the Markdown file that holds the contents of the homepage</li>
-						</ol>
-						<p>Add this HTML to <strong>index.html</strong>:</p>
-						<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+<p>Create in the <strong>views</strong> folder 2 files:</p>
+<ol>
+<li><strong>index.html</strong>: the main HTML template file</li>
+<li><strong>home.md</strong>: the Markdown file that holds the contents of the homepage</li>
+</ol>
+<p>Add this HTML to <strong>index.html</strong>:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
         &lt;meta charset=&quot;UTF-8&quot; /&gt;
@@ -322,8 +285,8 @@ App @ http://localhost:5000
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-						<p>And this Markdown to <strong>home.md</strong>:</p>
-						<pre><code class="language-markdown">---
+<p>And this Markdown to <strong>home.md</strong>:</p>
+<pre><code class="language-markdown">---
 docTitle: &quot;Home&quot;
 docDescription: &quot;A Markdown application built with LiteNode and Marked in Node.js&quot;
 ---
@@ -338,8 +301,8 @@ An [MD Cheat Sheet](https://litenode-markdown-app.pages.dev/tutorial/markdown-ch
 LiteNode retrieves dynamic variables from the `frontmatter` like `docTitle` and `docDescription`.&lt;br&gt;
 I can do anything with Markdown using LiteNode because they are made for each other!
 </code></pre>
-						<p>Update <strong>index.js</strong> by replacing the <code>app.get...</code> block with:</p>
-						<pre><code class="language-js">app.get(&quot;/&quot;, (req, res) =&gt; {
+<p>Update <strong>index.js</strong> by replacing the <code>app.get...</code> block with:</p>
+<pre><code class="language-js">app.get(&quot;/&quot;, (req, res) =&gt; {
     // Start by separating the Markdown file &quot;frontmatter&quot; from its &quot;content&quot;
     const parsedMarkdownFileByLiteNode = app.parseMarkdownFile(&quot;home.md&quot;)
 
@@ -358,71 +321,32 @@ I can do anything with Markdown using LiteNode because they are made for each ot
     })
 })
 </code></pre>
-						<p>
-							Since you have modified a server file, in this case <strong>index.js</strong>, you have to
-							restart the server by clicking anywhere in your terminal to give it the focus and hold
-							<code>Ctrl+C</code> to stop the server. Now type <code>node index</code> and click on the
-							link or refresh your browser on the previous page. You can see that dynamic variables like
-							<code>{{fm.docTitle}}</code> are replaced with their corresponding values (e.g.,
-							&#39;Home&#39;) in the rendered <strong>index.html</strong>.
-						</p>
-						<h3>Some explanation</h3>
+<p>Since you have modified a server file, in this case <strong>index.js</strong>, you have to restart the server by clicking anywhere in your terminal to give it the focus and hold <code>Ctrl+C</code> to stop the server. Now type <code>node index</code> and click on the link or refresh your browser on the previous page. You can see that dynamic variables like <code>{{fm.docTitle}}</code> are replaced with their corresponding values (e.g., &#39;Home&#39;) in the rendered <strong>index.html</strong>.</p>
+<h3>Some explanation</h3>
 
-						<p>
-							While the new logic of <code>app.get...</code> in <strong>index.js</strong> is explained by
-							the provided comments, I want to bring your attention on two particular aspects:
-						</p>
-						<ol>
-							<li>
-								The <code>frontmatter</code> has been assigned to <code>fm</code>, so to access
-								<code>docTitle</code> and <code>docDescription</code> we append those
-								<code>frontmatter</code> properties by <code>fm.</code>, it&#39;s just like accessing an
-								object properties with dot notation.
-							</li>
-							<li>
-								The <code>markdownContentParsedToHtmlWithMarked</code> has been assigned to
-								<code>html_content</code>. Any rendered variable that starts with <code>html_</code> in
-								LiteNode will return its raw value. In this case we are instructing LiteNode&#39;s
-								<code>render</code> method to return the raw value of
-								<code>markdownContentParsedToHtmlWithMarked</code>. You can read more about it in the
-								<a href="https://litenode.pages.dev/docs/rendering-templates/#raw-html">RAW HTML</a>
-								section of LiteNode&#39;s documentation.
-							</li>
-						</ol>
-						<h2>A simple HTML blog</h2>
+<p>While the new logic of <code>app.get...</code> in <strong>index.js</strong> is explained by the provided comments, I want to bring your attention on two particular aspects:</p>
+<ol>
+<li>The <code>frontmatter</code> has been assigned to <code>fm</code>, so to access <code>docTitle</code> and <code>docDescription</code> we append those <code>frontmatter</code> properties by <code>fm.</code>, it&#39;s just like accessing an object properties with dot notation.</li>
+<li>The <code>markdownContentParsedToHtmlWithMarked</code> has been assigned to <code>html_content</code>. Any rendered variable that starts with <code>html_</code> in LiteNode will return its raw value. In this case we are instructing LiteNode&#39;s <code>render</code> method to return the raw value of <code>markdownContentParsedToHtmlWithMarked</code>. You can read more about it in the <a href="https://litenode.pages.dev/docs/rendering-templates/#raw-html">RAW HTML</a> section of LiteNode&#39;s documentation.</li>
+</ol>
+<h2>A simple HTML blog</h2>
 
-						<p>
-							For this tutorial, we are going to use the
-							<a href="https://pure-css.github.io/layouts/side-menu/">Responsive Side Menu</a> layout from
-							<a href="https://pure-css.github.io/">https://pure-css.github.io/</a>.
-						</p>
-						<p>
-							In order to facilitate this article I&#39;ve created a
-							<a href="https://github.com/LebCit/markdown-blog-nodejs">GitHub repository</a> that you can
-							clone then launch by:
-						</p>
-						<ol>
-							<li><code>npm i</code>: <strong>only once</strong> to install the dependencies</li>
-							<li><code>npm index</code>: to <strong>start/restart</strong> the application</li>
-						</ol>
-						<p>
-							I also added the logic to build a static site in the <strong>build</strong> folder and a
-							command that you can <code>run</code> to create your static site:
-							<code>npm run build</code>.
-						</p>
-						<p>
-							The code includes detailed comments explaining how both the blog index and individual posts
-							are rendered.<br />
-							The process of building a static site is similar to the rendering one except that we use
-							another method called <code>renderToFile</code> instead of <code>render</code>.
-						</p>
-						<h2>Nota bene</h2>
+<p>For this tutorial, we are going to use the <a href="https://pure-css.github.io/layouts/side-menu/">Responsive Side Menu</a> layout from <a href="https://pure-css.github.io/">https://pure-css.github.io/</a>.</p>
+<p>In order to facilitate this article I&#39;ve created a <a href="https://github.com/LebCit/markdown-blog-nodejs">GitHub repository</a> that you can clone then launch by:</p>
+<ol>
+<li><code>npm i</code>: <strong>only once</strong> to install the dependencies</li>
+<li><code>npm index</code>: to <strong>start/restart</strong> the application</li>
+</ol>
+<p>I also added the logic to build a static site in the <strong>build</strong> folder and a command that you can <code>run</code> to create your static site: <code>npm run build</code>.</p>
+<p>The code includes detailed comments explaining how both the blog index and individual posts are rendered.<br>
+The process of building a static site is similar to the rendering one except that we use another method called <code>renderToFile</code> instead of <code>render</code>.</p>
+<h2>Nota bene</h2>
 
-						<p>Additional notes to help understand key aspects of the code:</p>
-						<h3>The blog</h3>
+<p>Additional notes to help understand key aspects of the code:</p>
+<h3>The blog</h3>
 
-						<p>Here is the code that renders the blog:</p>
-						<pre><code class="language-js">// Route for the blog view
+<p>Here is the code that renders the blog:</p>
+<pre><code class="language-js">// Route for the blog view
 app.get(&quot;/&quot;, async (req, res) =&gt; {
     // Parse all the Markdown files in the posts folder with LiteNode
     // Note that here we use parseMarkdownFileS for multiple fileS
@@ -435,38 +359,22 @@ app.get(&quot;/&quot;, async (req, res) =&gt; {
     })
 })
 </code></pre>
-						<p>
-							Both methods
-							<a href="https://litenode.pages.dev/docs/markdown/#parse-markdown-files"
-								>parseMarkdownFileS</a
-							>
-							and
-							<a href="https://litenode.pages.dev/docs/markdown/#parse-markdown-file"
-								>parseMarkdownFile</a
-							>
-							return the <code>content</code> and the <code>frontmatter</code> but also:
-						</p>
-						<ul>
-							<li><code>filePath</code>: The full path to the file</li>
-							<li><code>fileDir</code>: The directory of the file relative to the base directory</li>
-							<li><code>fileName</code>: The name of the file</li>
-							<li><code>fileBaseName</code>: The base name of the file without its extension</li>
-						</ul>
-						<p>This allowed us in <strong>posts-blog.html</strong> to:</p>
-						<pre><code class="language-html">&lt;!--Wrap each post title in a link to the post--&gt;
+<p>Both methods <a href="https://litenode.pages.dev/docs/markdown/#parse-markdown-files">parseMarkdownFileS</a> and <a href="https://litenode.pages.dev/docs/markdown/#parse-markdown-file">parseMarkdownFile</a> return the <code>content</code> and the <code>frontmatter</code> but also:</p>
+<ul>
+<li><code>filePath</code>: The full path to the file</li>
+<li><code>fileDir</code>: The directory of the file relative to the base directory</li>
+<li><code>fileName</code>: The name of the file</li>
+<li><code>fileBaseName</code>: The base name of the file without its extension</li>
+</ul>
+<p>This allowed us in <strong>posts-blog.html</strong> to:</p>
+<pre><code class="language-html">&lt;!--Wrap each post title in a link to the post--&gt;
 &lt;a href=&quot;/{{fileBaseName}}&quot;&gt;&lt;h1&gt;{{frontmatter.postTitle}}&lt;/h1&gt;&lt;/a&gt;
 </code></pre>
-						<p>
-							You&#39;ll notice that I used in <strong>posts-blog.html</strong> the
-							<a href="https://litenode.pages.dev/docs/rendering-templates/#set">#set</a> and
-							<a href="https://litenode.pages.dev/docs/rendering-templates/#each">#each</a> directives as
-							well as the <a href="https://litenode.pages.dev/docs/ste-filters/#sortby">sortBy</a> and
-							<a href="https://litenode.pages.dev/docs/ste-filters/#truncate">truncate</a> filters.
-						</p>
-						<h3>A post content</h3>
+<p>You&#39;ll notice that I used in <strong>posts-blog.html</strong> the <a href="https://litenode.pages.dev/docs/rendering-templates/#set">#set</a> and <a href="https://litenode.pages.dev/docs/rendering-templates/#each">#each</a> directives as well as the <a href="https://litenode.pages.dev/docs/ste-filters/#sortby">sortBy</a> and <a href="https://litenode.pages.dev/docs/ste-filters/#truncate">truncate</a> filters.</p>
+<h3>A post content</h3>
 
-						<p>In <strong>index.html</strong> inside the <strong>layouts</strong> folder you could do:</p>
-						<pre><code class="language-html">&lt;!--Otherwise display the HTML post content--&gt;
+<p>In <strong>index.html</strong> inside the <strong>layouts</strong> folder you could do:</p>
+<pre><code class="language-html">&lt;!--Otherwise display the HTML post content--&gt;
 &lt;div class=&quot;content&quot;&gt;{{html_content}}&lt;/div&gt;
 
 &lt;!--Instead of--&gt;
@@ -474,174 +382,150 @@ app.get(&quot;/&quot;, async (req, res) =&gt; {
 &lt;!--Otherwise we are on a single post view and we display the post content--&gt;
 &lt;div class=&quot;content&quot;&gt;{{#include(&quot;components/posts-content.html&quot;)}}&lt;/div&gt;
 </code></pre>
-						<p>
-							This was intended to show you how to load a specific HTML file for a single post view
-							because you&#39;ll surely extend it with more dynamic contents, styles and scripts.
-						</p>
-						<h2>The about page</h2>
+<p>This was intended to show you how to load a specific HTML file for a single post view because you&#39;ll surely extend it with more dynamic contents, styles and scripts.</p>
+<h2>The about page</h2>
 
-						<p>
-							In the build process, <strong>about.md</strong> doesn&#39;t have a dedicated route like in
-							the rendering one. Looking at <strong>buildRoutes.js</strong> inside the
-							<strong>build</strong> folder you&#39;ll notice a comment about this aspect:
-						</p>
-						<pre><code class="language-js">// Note that &quot;about.md&quot; will be taken care of here so no need for a separate route for it!
+<p>In the build process, <strong>about.md</strong> doesn&#39;t have a dedicated route like in the rendering one. Looking at <strong>buildRoutes.js</strong> inside the <strong>build</strong> folder you&#39;ll notice a comment about this aspect:</p>
+<pre><code class="language-js">// Note that &quot;about.md&quot; will be taken care of here so no need for a separate route for it!
 const pagesFiles = await app.parseMarkdownFileS(&quot;pages&quot;)
 const postsFiles = await app.parseMarkdownFileS(&quot;posts&quot;)
 // Merge the pages and the posts arrays into a single array named mdFiles
 const mdFiles = pagesFiles.concat(postsFiles)
 </code></pre>
-						<p>
-							Since the files inside the <strong>pages</strong> folder, where <strong>about.md</strong> is
-							located, are parsed along with the files inside the <strong>posts</strong> folder then
-							merged into a single array, we don&#39;t need a separate route to render
-							<strong>about.md</strong> to an HTML file, it&#39;s taken care of right here.
-						</p>
-						<h2>Conclusion</h2>
+<p>Since the files inside the <strong>pages</strong> folder, where <strong>about.md</strong> is located, are parsed along with the files inside the <strong>posts</strong> folder then merged into a single array, we don&#39;t need a separate route to render <strong>about.md</strong> to an HTML file, it&#39;s taken care of right here.</p>
+<h2>Conclusion</h2>
 
-						<p>
-							This tutorial aims to show you how LiteNode simplifies and enhances the process of rendering
-							and building a static site without the need of helper functions, lot of explanations and the
-							use of four modules to do the work of two!
-						</p>
-						<p>
-							This tutorial covers just the basics of LiteNode&#39;s capabilities for rendering and
-							building static sites, providing you with a foundation to explore more advanced features.
-						</p>
-						<p>
-							All you need is to take a look around
-							<a href="https://litenode.pages.dev/">LiteNode&#39;s documentation</a>!
-						</p>
-						<p class="post-content hide">
-							<em
-								>Note: The background image is a photo by
-								<a
-									href="https://unsplash.com/photos/a-close-up-of-a-small-green-plant-in-dirt--FMxvHTCRmw"
-									>Daniel Dan</a
-								>.</em
-							>
-						</p>
-					</div>
+<p>This tutorial aims to show you how LiteNode simplifies and enhances the process of rendering and building a static site without the need of helper functions, lot of explanations and the use of four modules to do the work of two!</p>
+<p>This tutorial covers just the basics of LiteNode&#39;s capabilities for rendering and building static sites, providing you with a foundation to explore more advanced features.</p>
+<p>All you need is to take a look around <a href="https://litenode.pages.dev/">LiteNode&#39;s documentation</a>!</p>
+<p class="post-content hide">
+<em>Note: The background image is a photo by <a href="https://unsplash.com/photos/a-close-up-of-a-small-green-plant-in-dirt--FMxvHTCRmw">Daniel Dan</a>.</em>
+</p>
+</div>
 
-					<nav class="post-navigation" aria-label="Post Navigation">
-						<!-- Dynamic Markup Separator -->
+<nav
+    class="post-navigation"
+    aria-label="Post Navigation"
+>
+    
 
-						<!-- Dynamic Markup Separator -->
+    <!-- Dynamic Markup Separator -->
 
-						<!-- Previous Post Link (only if there's a previous post) -->
-						<a
-							href="/post/breaking-up-with-expressjs"
-							class="prev-post"
-							rel="prev"
-							aria-label="Go to the previous post"
-						>
-							Previous: Breaking Up With Express.js!
-						</a>
+    
 
-						<!--Dynamic Markup Separator-->
+    <!-- Dynamic Markup Separator -->
 
-						<!-- Next Post Link (only if there's a next post) -->
-						<a
-							href="/post/meet-aether-a-cms-that-actually-gets-out-of-your-way"
-							class="next-post"
-							rel="next"
-							aria-label="Go to the next post"
-						>
-							Next: Meet Aether: A CMS That Actually Gets Out of Your Way
-						</a>
-					</nav>
+    
+    <!-- Previous Post Link (only if there's a previous post) -->
+    <a href="/post/breaking-up-with-expressjs" class="prev-post" rel="prev" aria-label="Go to the previous post">
+        Previous: Breaking Up With Express.js!
+    </a>
+    
 
-					<!---->
-					<div class="related-posts">
-						<h3>You Might Also Like</h3>
-						<div>
-							<section>
-								<a href="/post/ultimate-markdown-based-application-tutorial-in-nodejs">
-									<img
-										class="img-responsive"
-										src="/content/uploads/images/modern-markdown-logo-10277759b896b680.avif"
-										alt="Featured image for the post: Ultimate Markdown-based Application Tutorial in Node.js!"
-									/>
-								</a>
-								<h4>
-									<a href="/post/ultimate-markdown-based-application-tutorial-in-nodejs"
-										>Ultimate Markdown-based Application Tutorial in Node.js!</a
-									>
-								</h4>
-							</section>
+    <!--Dynamic Markup Separator-->
 
-							<section>
-								<a href="/post/create-a-simple-markdown-based-blog-in-nodejs">
-									<img
-										class="img-responsive"
-										src="/content/uploads/images/modern-and-clean-markdown-logo-generated-with-ai-75013fca4d4a27de.avif"
-										alt="Featured image for the post: Create a simple Markdown-based blog in Node.js"
-									/>
-								</a>
-								<h4>
-									<a href="/post/create-a-simple-markdown-based-blog-in-nodejs"
-										>Create a simple Markdown-based blog in Node.js</a
-									>
-								</h4>
-							</section>
+    
+    <!-- Next Post Link (only if there's a next post) -->
+    <a href="/post/meet-aether-a-cms-that-actually-gets-out-of-your-way" class="next-post" rel="next" aria-label="Go to the next post">
+        Next: Meet Aether: A CMS That Actually Gets Out of Your Way
+    </a>
+    
+</nav>
 
-							<section>
-								<a href="/post/turn-a-markdown-blog-to-a-simple-ssg">
-									<img
-										class="img-responsive"
-										src="/content/uploads/images/connected-gears-inside-pocket-watch-f35935750221dd13.webp"
-										alt="Featured image for the post: Turn a Markdown Blog to a Simple SSG"
-									/>
-								</a>
-								<h4>
-									<a href="/post/turn-a-markdown-blog-to-a-simple-ssg"
-										>Turn a Markdown Blog to a Simple SSG</a
-									>
-								</h4>
-							</section>
 
-							<section>
-								<a href="/post/markdown-blog-with-ejs">
-									<img
-										class="img-responsive"
-										src="/content/uploads/images/markdown-logo-with-white-background-ffa392cd3bbb0352.webp"
-										alt="Featured image for the post: Markdown blog with EJS"
-									/>
-								</a>
-								<h4>
-									<a href="/post/markdown-blog-with-ejs">Markdown blog with EJS</a>
-								</h4>
-							</section>
-						</div>
-					</div>
+<!---->
+ <div class="related-posts">
+    <h3>You Might Also Like</h3>
+    <div>
+        
+        <section>
+            <a href="/post/ultimate-markdown-based-application-tutorial-in-nodejs">
+                <img
+                    class="img-responsive"
+                    src="/content/uploads/images/modern-markdown-logo-10277759b896b680.avif"
+                    alt="Featured image for the post: Ultimate Markdown-based Application Tutorial in Node.js!"
+                />
+            </a>
+            <h4>
+                <a href="/post/ultimate-markdown-based-application-tutorial-in-nodejs">Ultimate Markdown-based Application Tutorial in Node.js!</a>
+            </h4>
+        </section>
+        
+        <section>
+            <a href="/post/create-a-simple-markdown-based-blog-in-nodejs">
+                <img
+                    class="img-responsive"
+                    src="/content/uploads/images/modern-and-clean-markdown-logo-generated-with-ai-75013fca4d4a27de.avif"
+                    alt="Featured image for the post: Create a simple Markdown-based blog in Node.js"
+                />
+            </a>
+            <h4>
+                <a href="/post/create-a-simple-markdown-based-blog-in-nodejs">Create a simple Markdown-based blog in Node.js</a>
+            </h4>
+        </section>
+        
+        <section>
+            <a href="/post/turn-a-markdown-blog-to-a-simple-ssg">
+                <img
+                    class="img-responsive"
+                    src="/content/uploads/images/connected-gears-inside-pocket-watch-f35935750221dd13.webp"
+                    alt="Featured image for the post: Turn a Markdown Blog to a Simple SSG"
+                />
+            </a>
+            <h4>
+                <a href="/post/turn-a-markdown-blog-to-a-simple-ssg">Turn a Markdown Blog to a Simple SSG</a>
+            </h4>
+        </section>
+        
+        <section>
+            <a href="/post/markdown-blog-with-ejs">
+                <img
+                    class="img-responsive"
+                    src="/content/uploads/images/markdown-logo-with-white-background-ffa392cd3bbb0352.webp"
+                    alt="Featured image for the post: Markdown blog with EJS"
+                />
+            </a>
+            <h4>
+                <a href="/post/markdown-blog-with-ejs">Markdown blog with EJS</a>
+            </h4>
+        </section>
+        
+    </div>
+</div>
+ 
 
-					<!---->
-				</main>
-			</div>
-			<!--End content-->
+    <!---->
 
-			<!--Start footer-->
-			<footer id="colophon" class="site-footer unit-1">
-				<div id="site-info" class="site-info">
-					<p>
-						<strong>2016 - 2025 { LebCit }</strong>
+    
+</main>
 
-						<br />
-						<!-- Custom Footer Code -->
-						Content in Motion. Powered by Aether.
-					</p>
-				</div>
-			</footer>
+            </div>
+            <!--End content-->
 
-			<!--End footer-->
-		</div>
-		<!--End page-->
+            <!--Start footer-->
+            <footer id="colophon" class="site-footer unit-1">
+    <div id="site-info" class="site-info">
+        
+        <p>
+            <strong>2016 - 2025 { LebCit }</strong>
 
-		<script
-			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
-			onload="hljs.highlightAll()"
-		></script>
+            <br />
+            <!-- Custom Footer Code -->
+            Content in Motion. Powered by Aether.
+        </p>
+    </div>
+</footer>
 
-		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
-	</body>
+            <!--End footer-->
+        </div>
+        <!--End page-->
+
+        
+        <script src="/content/themes/midday-custom/assets/vendors/highlight.min.js" onload="hljs.highlightAll()"></script>
+        
+
+        <script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+
+        
+    </body>
 </html>

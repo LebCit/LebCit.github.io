@@ -1,359 +1,350 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta
-			name="description"
-			content="Simple Markdown editor with live preview. Write, edit, and convert Markdown to HTML easily. Perfect for notes, blogs, and Blog-Doc integration."
-		/>
-		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
-
-		<!--Site icon-->
-
-		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
-
-		<!--Title-->
-		<title>SME! Do you Mark Down?! | { LebCit }</title>
-
-		<!--Stylesheets-->
-		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
-
-		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
-	</head>
-
-	<body>
-		<!--Start page-->
-		<div id="page" class="site grid">
-			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-
-			<!--Start menu-->
-			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
-				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
-					>&times;</a
-				>
-
-				<div class="menu-overlay__content">
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/" target="">Home</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/blog" target="_self">Blog</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/categories" target="_self">Categories</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/tags" target="_self">Tags</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/search" target="_self">Search</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/page/my-public-projects" target="_self">Projects</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/page/about-me" target="_self">About Me</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/sitemap" target="_self">Sitemap</a>
-					</li>
-
-					<!---->
-				</div>
-			</div>
-
-			<!--End menu-->
-
-			<!--Start masthead-->
-			<!-- Start #masthead -->
-
-			<header
-				id="masthead"
-				class="site-header unit-1 unit-lg-2-5 bio"
-				style="
-					background-image: url(/content/uploads/images/markdown-logo-generated-with-ai-fb633415971ffee5.webp);
-				"
-			>
-				<div class="site-header__overlay"></div>
-
-				<!-- Start .site-header__content -->
-				<div class="site-header__content">
-					<div class="site-header__branding">
-						<h1 class="site-header__title">
-							<a href="/">{ LebCit }</a>
-						</h1>
-						<p class="site-header__description">
-							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
-							projects on my own!
-						</p>
-					</div>
-
-					<nav id="nav" class="site-header__nav" aria-label="MENU">
-						<ul class="site-header__nav-list">
-							<li class="site-header__nav-item">
-								<a
-									id="menu-button"
-									aria-controls="main-nav"
-									aria-haspopup="true"
-									tabindex="0"
-									role="button"
-								>
-									<span>MENU</span>
-									<span class="menu-icon" aria-hidden="true">
-										<svg
-											version="1.1"
-											x="0px"
-											y="0px"
-											width="30px"
-											height="30px"
-											viewBox="0 0 30 30"
-											enable-background="new 0 0 30 30"
-										>
-											<rect width="30" height="5" />
-											<rect y="24" width="30" height="5" />
-											<rect y="12" width="30" height="5" />
-										</svg>
-									</span>
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-				<!-- End .site-header__content -->
-			</header>
-
-			<!-- End #masthead -->
-
-			<!--End masthead-->
-
-			<!--Start content-->
-			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				<main class="article-view">
-					<!--The page to display the Markdown content of posts and pages.-->
-					<header class="post-header">
-						<h1 class="post-title">SME! Do you Mark Down?!</h1>
-
-						<div class="post-meta">
-							<div class="post-date-wrapper">
-								<span>Posted:</span>
-								<time class="post-date" datetime="2025-06-03T16:31:59.394Z"> 2024-02-02 </time>
-
-								<span class="separator">|</span>
-								<span>Updated:</span>
-								<time class="post-updated-date" datetime="2025-06-03T19:46:32.491Z"> 2025-06-03 </time>
-							</div>
-
-							<div class="taxonomy-group">
-								<span>Category:</span>
-								<span class="post-category">
-									<a href="/category/tools-and-editors">tools-and-editors</a>
-								</span>
-							</div>
-
-							<!---->
-
-							<div class="taxonomy-group post-tags-group">
-								<span>Tagged:</span>
-
-								<a class="post-tag" href="/tag/markdown">markdown</a>
-
-								<a class="post-tag" href="/tag/editor">editor</a>
-
-								<a class="post-tag" href="/tag/blog-doc">blog-doc</a>
-
-								<a class="post-tag" href="/tag/simple">simple</a>
-
-								<a class="post-tag" href="/tag/open-source">open-source</a>
-							</div>
-						</div>
-					</header>
-
-					<div class="article-content">
-						<p>
-							<em
-								>Simple Markdown editor with live preview. Write, edit, and convert Markdown to HTML
-								easily. Perfect for notes, blogs, and Blog-Doc integration.</em
-							>
-						</p>
-
-						<!--Content-->
-						<p>
-							<a href="https://daringfireball.net/projects/markdown/">Markdown</a> is a lightweight markup
-							language designed to be simple and easily readable by humans.<br />Writing and reading
-							documents is a joy with Markdown&#39;s syntax, which is free of intrusive components.<br />I
-							use it to take notes, write my apps content as well as my posts.
-						</p>
-						<p>
-							On the development road of <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>, I
-							found that the actual Markdown editor/previewer could be replaced by a simpler one.<br />This
-							is why I created <a href="https://simple-markdown-editor.pages.dev/">SME</a>, a Simple
-							Markdown Editor.<br />I&#39;ll integrate SME in Blog-Doc as soon as I&#39;ll have enough
-							time and energy.<br />Meanwhile, the online app will always be as is for the benefit of each
-							and everyone needing a simple yet powerful Markdown editor!<br />I hope that you&#39;ll find
-							it useful.<br />Comments, ideas and suggestions are most welcome on
-							<a href="https://github.com/LebCit/sme">SME&#39;s GitHub repository</a>.
-						</p>
-					</div>
-
-					<nav class="post-navigation" aria-label="Post Navigation">
-						<!-- Dynamic Markup Separator -->
-
-						<!-- Dynamic Markup Separator -->
-
-						<!-- Previous Post Link (only if there's a previous post) -->
-						<a
-							href="/post/a-dedicated-site-for-blog-docs-documentation"
-							class="prev-post"
-							rel="prev"
-							aria-label="Go to the previous post"
-						>
-							Previous: A dedicated site for Blog-Doc's documentation!
-						</a>
-
-						<!--Dynamic Markup Separator-->
-
-						<!-- Next Post Link (only if there's a next post) -->
-						<a
-							href="/post/responsive-attributes-generator"
-							class="next-post"
-							rel="next"
-							aria-label="Go to the next post"
-						>
-							Next: Responsive Attributes Generator
-						</a>
-					</nav>
-
-					<!---->
-					<div class="related-posts">
-						<h3>You Might Also Like</h3>
-						<div>
-							<section>
-								<a href="/post/create-your-markdown-blog-in-nodejs">
-									<img
-										class="img-responsive"
-										src="/content/uploads/images/a-close-up-of-a-small-green-plant-in-dirt-3eee36131ac182ee.webp"
-										alt="Featured image for the post: Create your Markdown blog in Node.js"
-									/>
-								</a>
-								<h4>
-									<a href="/post/create-your-markdown-blog-in-nodejs"
-										>Create your Markdown blog in Node.js</a
-									>
-								</h4>
-							</section>
-
-							<section>
-								<a href="/post/ultimate-markdown-based-application-tutorial-in-nodejs">
-									<img
-										class="img-responsive"
-										src="/content/uploads/images/modern-markdown-logo-10277759b896b680.avif"
-										alt="Featured image for the post: Ultimate Markdown-based Application Tutorial in Node.js!"
-									/>
-								</a>
-								<h4>
-									<a href="/post/ultimate-markdown-based-application-tutorial-in-nodejs"
-										>Ultimate Markdown-based Application Tutorial in Node.js!</a
-									>
-								</h4>
-							</section>
-
-							<section>
-								<a href="/post/create-a-simple-markdown-based-blog-in-nodejs">
-									<img
-										class="img-responsive"
-										src="/content/uploads/images/modern-and-clean-markdown-logo-generated-with-ai-75013fca4d4a27de.avif"
-										alt="Featured image for the post: Create a simple Markdown-based blog in Node.js"
-									/>
-								</a>
-								<h4>
-									<a href="/post/create-a-simple-markdown-based-blog-in-nodejs"
-										>Create a simple Markdown-based blog in Node.js</a
-									>
-								</h4>
-							</section>
-
-							<section>
-								<a href="/post/turn-a-markdown-blog-to-a-simple-ssg">
-									<img
-										class="img-responsive"
-										src="/content/uploads/images/connected-gears-inside-pocket-watch-f35935750221dd13.webp"
-										alt="Featured image for the post: Turn a Markdown Blog to a Simple SSG"
-									/>
-								</a>
-								<h4>
-									<a href="/post/turn-a-markdown-blog-to-a-simple-ssg"
-										>Turn a Markdown Blog to a Simple SSG</a
-									>
-								</h4>
-							</section>
-						</div>
-					</div>
-
-					<!---->
-				</main>
-			</div>
-			<!--End content-->
-
-			<!--Start footer-->
-			<footer id="colophon" class="site-footer unit-1">
-				<div id="site-info" class="site-info">
-					<p>
-						<strong>2016 - 2025 { LebCit }</strong>
-
-						<br />
-						<!-- Custom Footer Code -->
-						Content in Motion. Powered by Aether.
-					</p>
-				</div>
-			</footer>
-
-			<!--End footer-->
-		</div>
-		<!--End page-->
-
-		<script
-			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
-			onload="hljs.highlightAll()"
-		></script>
-
-		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
-	</body>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Simple Markdown editor with live preview. Write, edit, and convert Markdown to HTML easily. Perfect for notes, blogs, and Blog-Doc integration." />
+    <meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+
+    <!--Site icon-->
+    
+    <link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
+    
+
+    <!--Title-->
+    <title>SME! Do you Mark Down?! | { LebCit }</title>
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
+    
+    <link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+    
+</head>
+
+
+    <body>
+        <!--Start page-->
+        <div id="page" class="site grid">
+            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+            <!--Start menu-->
+            <div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+    <a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu">&times;</a>
+
+    <div class="menu-overlay__content">
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/" target="">Home</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/blog" target="_self">Blog</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/categories" target="_self">Categories</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/tags" target="_self">Tags</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/search" target="_self">Search</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/page/my-public-projects" target="_self">Projects</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/page/about-me" target="_self">About Me</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/sitemap" target="_self">Sitemap</a>
+        </li>
+        
+        <!---->
+        
+    </div>
+</div>
+
+            <!--End menu-->
+
+            <!--Start masthead-->
+            <!-- Start #masthead -->
+
+<header
+    id="masthead"
+    class="site-header unit-1 unit-lg-2-5 bio"
+    style="background-image: url(/content/uploads/images/markdown-logo-generated-with-ai-fb633415971ffee5.webp)"
+>
+    <div class="site-header__overlay"></div>
+
+    <!-- Start .site-header__content -->
+<div class="site-header__content">
+    <div class="site-header__branding">
+        <h1 class="site-header__title">
+            <a href="/">{ LebCit }</a>
+        </h1>
+        <p class="site-header__description">Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</p>
+    </div>
+
+    <nav id="nav" class="site-header__nav" aria-label="MENU">
+        <ul class="site-header__nav-list">
+            <li class="site-header__nav-item">
+                <a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+                    <span>MENU</span>
+                    <span class="menu-icon" aria-hidden="true">
+                        <svg
+                            version="1.1"
+                            x="0px"
+                            y="0px"
+                            width="30px"
+                            height="30px"
+                            viewBox="0 0 30 30"
+                            enable-background="new 0 0 30 30"
+                        >
+                            <rect width="30" height="5" />
+                            <rect y="24" width="30" height="5" />
+                            <rect y="12" width="30" height="5" />
+                        </svg>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<!-- End .site-header__content -->
+
+</header>
+
+<!-- End #masthead -->
+
+            <!--End masthead-->
+
+            <!--Start content-->
+            <div id="content" class="site-content unit-1 unit-lg-3-5">
+                <main
+    class="article-view"
+>
+    
+    <!--The page to display the Markdown content of posts and pages.-->
+    <header class="post-header">
+    <h1 class="post-title">SME! Do you Mark Down?!</h1>
+
+     <div class="post-meta">
+    <div class="post-date-wrapper">
+        <span>Posted:</span>
+        <time class="post-date" datetime="2025-06-03T16:31:59.394Z">
+            2024-02-02
+        </time>
+
+        
+        <span class="separator">|</span>
+        <span>Updated:</span>
+        <time class="post-updated-date" datetime="2025-06-03T19:46:32.491Z">
+            2025-06-03
+        </time>
+        
+    </div>
+
+    
+    <div class="taxonomy-group">
+        <span>Category:</span>
+        <span class="post-category">
+            <a href="/category/tools-and-editors">tools-and-editors</a>
+        </span>
+    </div>
+    
+    <!---->
+    
+    <div class="taxonomy-group post-tags-group">
+        <span>Tagged:</span>
+        
+        <a class="post-tag" href="/tag/markdown">markdown</a>
+        
+        <a class="post-tag" href="/tag/editor">editor</a>
+        
+        <a class="post-tag" href="/tag/blog-doc">blog-doc</a>
+        
+        <a class="post-tag" href="/tag/simple">simple</a>
+        
+        <a class="post-tag" href="/tag/open-source">open-source</a>
+        
+    </div>
+    
+</div>
+ 
+</header>
+
+<div class="article-content">
+    
+    <p>
+        <em>Simple Markdown editor with live preview. Write, edit, and convert Markdown to HTML easily. Perfect for notes, blogs, and Blog-Doc integration.</em>
+    </p>
+    
+
+    <!--Content-->
+    <p><a href="https://daringfireball.net/projects/markdown/">Markdown</a> is a lightweight markup language designed to be simple and easily readable by humans.<br>Writing and reading documents is a joy with Markdown&#39;s syntax, which is free of intrusive components.<br>I use it to take notes, write my apps content as well as my posts.</p>
+<p>On the development road of <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>, I found that the actual Markdown editor/previewer could be replaced by a simpler one.<br>This is why I created <a href="https://simple-markdown-editor.pages.dev/">SME</a>, a Simple Markdown Editor.<br>I&#39;ll integrate SME in Blog-Doc as soon as I&#39;ll have enough time and energy.<br>Meanwhile, the online app will always be as is for the benefit of each and everyone needing a simple yet powerful Markdown editor!<br>I hope that you&#39;ll find it useful.<br>Comments, ideas and suggestions are most welcome on <a href="https://github.com/LebCit/sme">SME&#39;s GitHub repository</a>.</p>
+
+</div>
+
+<nav
+    class="post-navigation"
+    aria-label="Post Navigation"
+>
+    
+
+    <!-- Dynamic Markup Separator -->
+
+    
+
+    <!-- Dynamic Markup Separator -->
+
+    
+    <!-- Previous Post Link (only if there's a previous post) -->
+    <a href="/post/a-dedicated-site-for-blog-docs-documentation" class="prev-post" rel="prev" aria-label="Go to the previous post">
+        Previous: A dedicated site for Blog-Doc's documentation!
+    </a>
+    
+
+    <!--Dynamic Markup Separator-->
+
+    
+    <!-- Next Post Link (only if there's a next post) -->
+    <a href="/post/responsive-attributes-generator" class="next-post" rel="next" aria-label="Go to the next post">
+        Next: Responsive Attributes Generator
+    </a>
+    
+</nav>
+
+
+<!---->
+ <div class="related-posts">
+    <h3>You Might Also Like</h3>
+    <div>
+        
+        <section>
+            <a href="/post/create-your-markdown-blog-in-nodejs">
+                <img
+                    class="img-responsive"
+                    src="/content/uploads/images/a-close-up-of-a-small-green-plant-in-dirt-3eee36131ac182ee.webp"
+                    alt="Featured image for the post: Create your Markdown blog in Node.js"
+                />
+            </a>
+            <h4>
+                <a href="/post/create-your-markdown-blog-in-nodejs">Create your Markdown blog in Node.js</a>
+            </h4>
+        </section>
+        
+        <section>
+            <a href="/post/ultimate-markdown-based-application-tutorial-in-nodejs">
+                <img
+                    class="img-responsive"
+                    src="/content/uploads/images/modern-markdown-logo-10277759b896b680.avif"
+                    alt="Featured image for the post: Ultimate Markdown-based Application Tutorial in Node.js!"
+                />
+            </a>
+            <h4>
+                <a href="/post/ultimate-markdown-based-application-tutorial-in-nodejs">Ultimate Markdown-based Application Tutorial in Node.js!</a>
+            </h4>
+        </section>
+        
+        <section>
+            <a href="/post/create-a-simple-markdown-based-blog-in-nodejs">
+                <img
+                    class="img-responsive"
+                    src="/content/uploads/images/modern-and-clean-markdown-logo-generated-with-ai-75013fca4d4a27de.avif"
+                    alt="Featured image for the post: Create a simple Markdown-based blog in Node.js"
+                />
+            </a>
+            <h4>
+                <a href="/post/create-a-simple-markdown-based-blog-in-nodejs">Create a simple Markdown-based blog in Node.js</a>
+            </h4>
+        </section>
+        
+        <section>
+            <a href="/post/turn-a-markdown-blog-to-a-simple-ssg">
+                <img
+                    class="img-responsive"
+                    src="/content/uploads/images/connected-gears-inside-pocket-watch-f35935750221dd13.webp"
+                    alt="Featured image for the post: Turn a Markdown Blog to a Simple SSG"
+                />
+            </a>
+            <h4>
+                <a href="/post/turn-a-markdown-blog-to-a-simple-ssg">Turn a Markdown Blog to a Simple SSG</a>
+            </h4>
+        </section>
+        
+    </div>
+</div>
+ 
+
+    <!---->
+
+    
+</main>
+
+            </div>
+            <!--End content-->
+
+            <!--Start footer-->
+            <footer id="colophon" class="site-footer unit-1">
+    <div id="site-info" class="site-info">
+        
+        <p>
+            <strong>2016 - 2025 { LebCit }</strong>
+
+            <br />
+            <!-- Custom Footer Code -->
+            Content in Motion. Powered by Aether.
+        </p>
+    </div>
+</footer>
+
+            <!--End footer-->
+        </div>
+        <!--End page-->
+
+        
+        <script src="/content/themes/midday-custom/assets/vendors/highlight.min.js" onload="hljs.highlightAll()"></script>
+        
+
+        <script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+
+        
+    </body>
 </html>

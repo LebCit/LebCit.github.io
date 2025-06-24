@@ -1,348 +1,316 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta
-			name="description"
-			content="How to access Gmail, Google Calendar, and more on your desktop using Thunderbird - a simple way to integrate Google services locally."
-		/>
-		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="How to access Gmail, Google Calendar, and more on your desktop using Thunderbird - a simple way to integrate Google services locally." />
+    <meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-		<!--Site icon-->
+    <!--Site icon-->
+    
+    <link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
+    
 
-		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
+    <!--Title-->
+    <title>Get Google Products on Desktop with Thunderbird | { LebCit }</title>
 
-		<!--Title-->
-		<title>Get Google Products on Desktop with Thunderbird | { LebCit }</title>
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
+    
+    <link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+    
+</head>
 
-		<!--Stylesheets-->
-		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
 
-		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
-	</head>
+    <body>
+        <!--Start page-->
+        <div id="page" class="site grid">
+            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
-	<body>
-		<!--Start page-->
-		<div id="page" class="site grid">
-			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+            <!--Start menu-->
+            <div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+    <a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu">&times;</a>
 
-			<!--Start menu-->
-			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
-				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
-					>&times;</a
-				>
+    <div class="menu-overlay__content">
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/" target="">Home</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/blog" target="_self">Blog</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/categories" target="_self">Categories</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/tags" target="_self">Tags</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/search" target="_self">Search</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/page/my-public-projects" target="_self">Projects</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/page/about-me" target="_self">About Me</a>
+        </li>
+        
+        <!---->
+        
+        <!---->
+        
+        <li class="menu-overlay__item ">
+            <a href="/sitemap" target="_self">Sitemap</a>
+        </li>
+        
+        <!---->
+        
+    </div>
+</div>
 
-				<div class="menu-overlay__content">
-					<!---->
+            <!--End menu-->
 
-					<li class="menu-overlay__item">
-						<a href="/" target="">Home</a>
-					</li>
+            <!--Start masthead-->
+            <!-- Start #masthead -->
 
-					<!---->
+<header
+    id="masthead"
+    class="site-header unit-1 unit-lg-2-5 bio"
+    style="background-image: url(/content/uploads/images/red-thunderbird-classic-car-photography-9a6d7c7a15809e10.webp)"
+>
+    <div class="site-header__overlay"></div>
 
-					<!---->
+    <!-- Start .site-header__content -->
+<div class="site-header__content">
+    <div class="site-header__branding">
+        <h1 class="site-header__title">
+            <a href="/">{ LebCit }</a>
+        </h1>
+        <p class="site-header__description">Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</p>
+    </div>
 
-					<li class="menu-overlay__item">
-						<a href="/blog" target="_self">Blog</a>
-					</li>
+    <nav id="nav" class="site-header__nav" aria-label="MENU">
+        <ul class="site-header__nav-list">
+            <li class="site-header__nav-item">
+                <a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
+                    <span>MENU</span>
+                    <span class="menu-icon" aria-hidden="true">
+                        <svg
+                            version="1.1"
+                            x="0px"
+                            y="0px"
+                            width="30px"
+                            height="30px"
+                            viewBox="0 0 30 30"
+                            enable-background="new 0 0 30 30"
+                        >
+                            <rect width="30" height="5" />
+                            <rect y="24" width="30" height="5" />
+                            <rect y="12" width="30" height="5" />
+                        </svg>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<!-- End .site-header__content -->
 
-					<!---->
+</header>
 
-					<!---->
+<!-- End #masthead -->
 
-					<li class="menu-overlay__item">
-						<a href="/categories" target="_self">Categories</a>
-					</li>
+            <!--End masthead-->
 
-					<!---->
+            <!--Start content-->
+            <div id="content" class="site-content unit-1 unit-lg-3-5">
+                <main
+    class="article-view"
+>
+    
+    <!--The page to display the Markdown content of posts and pages.-->
+    <header class="post-header">
+    <h1 class="post-title">Get Google Products on Desktop with Thunderbird</h1>
 
-					<!---->
+     <div class="post-meta">
+    <div class="post-date-wrapper">
+        <span>Posted:</span>
+        <time class="post-date" datetime="2025-06-03T06:24:36.897Z">
+            2020-05-14
+        </time>
 
-					<li class="menu-overlay__item">
-						<a href="/tags" target="_self">Tags</a>
-					</li>
+        
+        <span class="separator">|</span>
+        <span>Updated:</span>
+        <time class="post-updated-date" datetime="2025-06-03T19:09:40.226Z">
+            2025-06-03
+        </time>
+        
+    </div>
 
-					<!---->
+    
+    <div class="taxonomy-group">
+        <span>Category:</span>
+        <span class="post-category">
+            <a href="/category/productivity">productivity</a>
+        </span>
+    </div>
+    
+    <!---->
+    
+    <div class="taxonomy-group post-tags-group">
+        <span>Tagged:</span>
+        
+        <a class="post-tag" href="/tag/thunderbird">thunderbird</a>
+        
+        <a class="post-tag" href="/tag/google">google</a>
+        
+        <a class="post-tag" href="/tag/desktop-apps">desktop-apps</a>
+        
+        <a class="post-tag" href="/tag/integration">integration</a>
+        
+    </div>
+    
+</div>
+ 
+</header>
 
-					<!---->
+<div class="article-content">
+    
+    <p>
+        <em>How to access Gmail, Google Calendar, and more on your desktop using Thunderbird - a simple way to integrate Google services locally.</em>
+    </p>
+    
 
-					<li class="menu-overlay__item">
-						<a href="/search" target="_self">Search</a>
-					</li>
+    <!--Content-->
+    <h2>Note </h2>
 
-					<!---->
+<p>This post was updated in June 2025. Some features or services originally mentioned are no longer available.</p>
+<p><strong>Every time</strong> you want to check your Gmail, Agenda, Drive, Keep... on your desktop, you have to open a browser and log in, to be able use them.
+Did you ever asked your self how much time this process is taking in a week, a month, a year?
+Well, with Thunderbird you will not ask yourself that anymore!</p>
+<h2>Thunderbird</h2>
 
-					<!---->
+<p>I&#39;m not going to explain in this post how to install Thunderbird, but you can just go to <a href="https://www.thunderbird.net/en-US/">the official website</a> and download it, the installation process is <strong>very</strong> easy.<br>So, assuming you have Thunderbird installed and running, I&#39;m going to explain how to get all Google products directly inside it, and it&#39;s also very easy to do it.</p>
+<h2>Profile or profiles</h2>
 
-					<li class="menu-overlay__item">
-						<a href="/page/my-public-projects" target="_self">Projects</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/page/about-me" target="_self">About Me</a>
-					</li>
-
-					<!---->
-
-					<!---->
-
-					<li class="menu-overlay__item">
-						<a href="/sitemap" target="_self">Sitemap</a>
-					</li>
-
-					<!---->
-				</div>
-			</div>
-
-			<!--End menu-->
-
-			<!--Start masthead-->
-			<!-- Start #masthead -->
-
-			<header
-				id="masthead"
-				class="site-header unit-1 unit-lg-2-5 bio"
-				style="
-					background-image: url(/content/uploads/images/red-thunderbird-classic-car-photography-9a6d7c7a15809e10.webp);
-				"
-			>
-				<div class="site-header__overlay"></div>
-
-				<!-- Start .site-header__content -->
-				<div class="site-header__content">
-					<div class="site-header__branding">
-						<h1 class="site-header__title">
-							<a href="/">{ LebCit }</a>
-						</h1>
-						<p class="site-header__description">
-							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
-							projects on my own!
-						</p>
-					</div>
-
-					<nav id="nav" class="site-header__nav" aria-label="MENU">
-						<ul class="site-header__nav-list">
-							<li class="site-header__nav-item">
-								<a
-									id="menu-button"
-									aria-controls="main-nav"
-									aria-haspopup="true"
-									tabindex="0"
-									role="button"
-								>
-									<span>MENU</span>
-									<span class="menu-icon" aria-hidden="true">
-										<svg
-											version="1.1"
-											x="0px"
-											y="0px"
-											width="30px"
-											height="30px"
-											viewBox="0 0 30 30"
-											enable-background="new 0 0 30 30"
-										>
-											<rect width="30" height="5" />
-											<rect y="24" width="30" height="5" />
-											<rect y="12" width="30" height="5" />
-										</svg>
-									</span>
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-				<!-- End .site-header__content -->
-			</header>
-
-			<!-- End #masthead -->
-
-			<!--End masthead-->
-
-			<!--Start content-->
-			<div id="content" class="site-content unit-1 unit-lg-3-5">
-				<main class="article-view">
-					<!--The page to display the Markdown content of posts and pages.-->
-					<header class="post-header">
-						<h1 class="post-title">Get Google Products on Desktop with Thunderbird</h1>
-
-						<div class="post-meta">
-							<div class="post-date-wrapper">
-								<span>Posted:</span>
-								<time class="post-date" datetime="2025-06-03T06:24:36.897Z"> 2020-05-14 </time>
-
-								<span class="separator">|</span>
-								<span>Updated:</span>
-								<time class="post-updated-date" datetime="2025-06-03T19:09:40.226Z"> 2025-06-03 </time>
-							</div>
-
-							<div class="taxonomy-group">
-								<span>Category:</span>
-								<span class="post-category">
-									<a href="/category/productivity">productivity</a>
-								</span>
-							</div>
-
-							<!---->
-
-							<div class="taxonomy-group post-tags-group">
-								<span>Tagged:</span>
-
-								<a class="post-tag" href="/tag/thunderbird">thunderbird</a>
-
-								<a class="post-tag" href="/tag/google">google</a>
-
-								<a class="post-tag" href="/tag/desktop-apps">desktop-apps</a>
-
-								<a class="post-tag" href="/tag/integration">integration</a>
-							</div>
-						</div>
-					</header>
-
-					<div class="article-content">
-						<p>
-							<em
-								>How to access Gmail, Google Calendar, and more on your desktop using Thunderbird - a
-								simple way to integrate Google services locally.</em
-							>
-						</p>
-
-						<!--Content-->
-						<h2>Note</h2>
-
-						<p>
-							This post was updated in June 2025. Some features or services originally mentioned are no
-							longer available.
-						</p>
-						<p>
-							<strong>Every time</strong> you want to check your Gmail, Agenda, Drive, Keep... on your
-							desktop, you have to open a browser and log in, to be able use them. Did you ever asked your
-							self how much time this process is taking in a week, a month, a year? Well, with Thunderbird
-							you will not ask yourself that anymore!
-						</p>
-						<h2>Thunderbird</h2>
-
-						<p>
-							I&#39;m not going to explain in this post how to install Thunderbird, but you can just go to
-							<a href="https://www.thunderbird.net/en-US/">the official website</a> and download it, the
-							installation process is <strong>very</strong> easy.<br />So, assuming you have Thunderbird
-							installed and running, I&#39;m going to explain how to get all Google products directly
-							inside it, and it&#39;s also very easy to do it.
-						</p>
-						<h2>Profile or profiles</h2>
-
-						<p>
-							When you install Thunderbird and run it, a default profile will be created. You can access
-							the profiles&#39; manager by typing this command:
-						</p>
-						<pre><code class="language-batch">thunderbird.exe -p
+<p>When you install Thunderbird and run it, a default profile will be created. You can access the profiles&#39; manager by typing this command:</p>
+<pre><code class="language-batch">thunderbird.exe -p
 </code></pre>
-						<p>
-							You&#39;ll then be able to do various actions, as adding, renaming, deleting... a profile
-							and so on...<br />This is not a part of the process but it&#39;s important to know that you
-							can do it, maybe you want to add a profile for your work and another for you 😉 this is a
-							very convenient way to separate your personal stuff 👍<br />Once a profile is created, start
-							it, add your name (as you want to display it for this account), your e-mail, and your
-							password, and that&#39;s it!<br /><strong>Important note</strong> if you use multiple
-							profiles (or even one if you want): you don&#39;t have to type the above command each time
-							you want to access the manager, just untick the <em>Don&#39;t ask at startup</em> box and
-							now you&#39;ll get the manager every time you launch Thunderbird.
-						</p>
-						<h2>Google products</h2>
+<p>You&#39;ll then be able to do various actions, as adding, renaming, deleting... a profile and so on...<br>This is not a part of the process but it&#39;s important to know that you can do it, maybe you want to add a profile for your work and another for you 😉 this is a very convenient way to separate your personal stuff 👍<br>Once a profile is created, start it, add your name (as you want to display it for this account), your e-mail, and your password, and that&#39;s it!<br><strong>Important note</strong> if you use multiple profiles (or even one if you want):
+you don&#39;t have to type the above command each time you want to access the manager, just untick the <em>Don&#39;t ask at startup</em> box and now you&#39;ll get the manager every time you launch Thunderbird.</p>
+<h2>Google products</h2>
 
-						<p>
-							The easiest way is to add only one plugin. To add an extension in Thunderbird, click the
-							main menu button, choose <strong>Add-ons</strong>, then <strong>Extensions</strong> in the
-							left panel, search for <em>ThunderKeepPlus</em> and install it.<br />Once installed, it will
-							ask you to connect to your Google account, after that your Google Keep will be displayed, in
-							a new tab inside Thunderbird, as if it was in a browser and you will have access to all
-							Google products as you usually do in a browser 💪
-						</p>
-						<h2>Security</h2>
+<p>The easiest way is to add only one plugin. To add an extension in Thunderbird, click the main menu button, choose <strong>Add-ons</strong>, then <strong>Extensions</strong> in the left panel, search for <em>ThunderKeepPlus</em> and install it.<br>Once installed, it will ask you to connect to your Google account, after that your Google Keep will be displayed, in a new tab inside Thunderbird, as if it was in a browser and you will have access to all Google products as you usually do in a browser 💪</p>
+<h2>Security</h2>
 
-						<p>
-							I don&#39;t have to tell you to be aware of this technique because you should only do it on
-							your personal machine only, but I&#39;m telling you just for security and conscience reasons
-							😊
-						</p>
-						<h2>Final note</h2>
+<p>I don&#39;t have to tell you to be aware of this technique because you should only do it on your personal machine only, but I&#39;m telling you just for security and conscience reasons 😊</p>
+<h2>Final note</h2>
 
-						<p>
-							If you want to know more about Thunderbird, head over
-							<a href="https://support.mozilla.org/en-US/products/thunderbird">the official support</a> ,
-							everything is well explained.
-						</p>
-						<hr />
-						<p class="post-content hide">
-							<em
-								>Note: The background image is a photo by
-								<a href="https://pxhere.com/en/photo/417303">Les Haines</a></em
-							>
-						</p>
-					</div>
+<p>If you want to know more about Thunderbird, head over <a href="https://support.mozilla.org/en-US/products/thunderbird">the official support</a> , everything is well explained.</p>
+<hr>
+<p class="post-content hide">
+<em>Note: The background image is a photo by <a href="https://pxhere.com/en/photo/417303">Les Haines</a></em>
+</p>
+</div>
 
-					<nav class="post-navigation" aria-label="Post Navigation">
-						<!-- Dynamic Markup Separator -->
+<nav
+    class="post-navigation"
+    aria-label="Post Navigation"
+>
+    
 
-						<!-- Dynamic Markup Separator -->
+    <!-- Dynamic Markup Separator -->
 
-						<!-- Previous Post Link (only if there's a previous post) -->
-						<a
-							href="/post/the-clean-blog-wordpress-theme"
-							class="prev-post"
-							rel="prev"
-							aria-label="Go to the previous post"
-						>
-							Previous: The Clean Blog WordPress theme
-						</a>
+    
 
-						<!--Dynamic Markup Separator-->
+    <!-- Dynamic Markup Separator -->
 
-						<!-- Next Post Link (only if there's a next post) -->
-						<a
-							href="/post/modifying-wordpress-themes-copyright-from-the-customizer"
-							class="next-post"
-							rel="next"
-							aria-label="Go to the next post"
-						>
-							Next: Modifying WordPress theme's copyright from the Customizer
-						</a>
-					</nav>
+    
+    <!-- Previous Post Link (only if there's a previous post) -->
+    <a href="/post/the-clean-blog-wordpress-theme" class="prev-post" rel="prev" aria-label="Go to the previous post">
+        Previous: The Clean Blog WordPress theme
+    </a>
+    
 
-					<!---->
+    <!--Dynamic Markup Separator-->
 
-					<!---->
-				</main>
-			</div>
-			<!--End content-->
+    
+    <!-- Next Post Link (only if there's a next post) -->
+    <a href="/post/modifying-wordpress-themes-copyright-from-the-customizer" class="next-post" rel="next" aria-label="Go to the next post">
+        Next: Modifying WordPress theme's copyright from the Customizer
+    </a>
+    
+</nav>
 
-			<!--Start footer-->
-			<footer id="colophon" class="site-footer unit-1">
-				<div id="site-info" class="site-info">
-					<p>
-						<strong>2016 - 2025 { LebCit }</strong>
 
-						<br />
-						<!-- Custom Footer Code -->
-						Content in Motion. Powered by Aether.
-					</p>
-				</div>
-			</footer>
+<!---->
 
-			<!--End footer-->
-		</div>
-		<!--End page-->
 
-		<script
-			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
-			onload="hljs.highlightAll()"
-		></script>
+    <!---->
 
-		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
-	</body>
+    
+</main>
+
+            </div>
+            <!--End content-->
+
+            <!--Start footer-->
+            <footer id="colophon" class="site-footer unit-1">
+    <div id="site-info" class="site-info">
+        
+        <p>
+            <strong>2016 - 2025 { LebCit }</strong>
+
+            <br />
+            <!-- Custom Footer Code -->
+            Content in Motion. Powered by Aether.
+        </p>
+    </div>
+</footer>
+
+            <!--End footer-->
+        </div>
+        <!--End page-->
+
+        
+        <script src="/content/themes/midday-custom/assets/vendors/highlight.min.js" onload="hljs.highlightAll()"></script>
+        
+
+        <script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+
+        
+    </body>
 </html>

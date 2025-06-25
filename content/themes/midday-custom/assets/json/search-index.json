@@ -1,13 +1,33 @@
 {
   "meta": {
-    "generatedAt": "2025-06-24T11:56:59.822Z",
-    "totalItems": 46,
-    "totalPosts": 43,
+    "generatedAt": "2025-06-25T00:26:00.226Z",
+    "totalItems": 47,
+    "totalPosts": 44,
     "totalPages": 3,
     "themeName": "midday-custom",
     "version": "1.0.0"
   },
   "index": [
+    {
+      "id": "1750790459135",
+      "title": "Old Writer Theme for Aether CMS",
+      "path": "/post/old-writer-theme-for-aether-cms",
+      "content": "Old Writer is a bold, easy-to-read blog theme with a classic terminal look, ideal for writers who value clarity and accessibility.",
+      "excerpt": "",
+      "type": "post",
+      "category": "web-development",
+      "tags": [
+        "aether-cms",
+        "accessibility",
+        "theme",
+        "theme-development",
+        "high-contrast",
+        "web-development",
+        "typography"
+      ],
+      "publishDate": "2025-06-24T21:32",
+      "author": "LebCit"
+    },
     {
       "id": "1750754776548",
       "title": "Game-Changing Search is Here! Aether CMS Just Got Smarter",

@@ -2,9 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lebcit.github.io</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>1.0</priority>
     <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/post/old-writer-theme-for-aether-cms</loc>
+    <lastmod>2025-06-25T00:24:21.566Z</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/post/game-changing-search-is-here-aether-cms-just-got-smarter</loc>
@@ -284,709 +290,715 @@
   </url>
   <url>
     <loc>https://lebcit.github.io/category/web-development</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/category/nodejs</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/category/nodejs-frameworks</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/category/template-engines</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/category/static-site-generators</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/category/nodejs-tutorials</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/category/google-apps-script</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/category/javascript-tools</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/category/tools-and-editors</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/category/frontend-development</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/category/security</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/category/wordpress-themes</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/category/wordpress</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/category/productivity</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/category/wordpress-plugins</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.6</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/aether-cms</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/developer-tools</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/performance</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/search-functionality</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/content-discovery</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/theme-development</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/tutorial</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/templating</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/web-development</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/cms</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/ssg</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/javascript</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/nodejs</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/markdown</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/litenode</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/static-site</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/blog-development</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/web-framework</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/express</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/ste</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/ast</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/template-engine</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/blog-doc</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/lightweight</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/ejs</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/eta</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/server-to-client-data</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/google-forms</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/apps-script</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/conditional-dropdowns</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/automation</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/google-workspace</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/google-sheets</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/api-wrapper</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/data-querying</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/google-visualization-api</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/responsive-design</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/css-generator</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/lightweight-css</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/web-tools</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/frontend</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/editor</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/simple</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/open-source</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/documentation</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/blog</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/hono</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/themes</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/dependencies</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/best-practices</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/admin-ui</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/tabler</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/design</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/administration</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/css</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/deta</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/blogging</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/html</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/no-javascript</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/web-tricks</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/target</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/router</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/dry</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/routing</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/templates</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/csp</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/helmet</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/web-security</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/cloud-hosting</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/backend</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/accessibility</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/ui</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/faq-design</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
-    <priority>0.5</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://lebcit.github.io/tag/wordpress</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/theme</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/theme-development</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/high-contrast</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/web-development</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/typography</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/developer-tools</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/performance</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/search-functionality</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/content-discovery</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/tutorial</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/templating</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/cms</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/ssg</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/javascript</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/nodejs</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/markdown</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/litenode</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/static-site</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/blog-development</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/web-framework</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/express</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/ste</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/ast</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/template-engine</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/blog-doc</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/lightweight</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/ejs</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/eta</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/server-to-client-data</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/google-forms</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/apps-script</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/conditional-dropdowns</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/automation</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/google-workspace</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/google-sheets</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/api-wrapper</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/data-querying</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/google-visualization-api</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/responsive-design</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/css-generator</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/lightweight-css</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/web-tools</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/frontend</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/editor</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/simple</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/open-source</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/documentation</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/blog</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/hono</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/themes</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/dependencies</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/best-practices</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/admin-ui</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/tabler</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/design</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/administration</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/css</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/deta</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/blogging</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/html</loc>
+    <lastmod>2025-06-25T01:07:53.030Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/no-javascript</loc>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/web-tricks</loc>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/target</loc>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/router</loc>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/dry</loc>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/routing</loc>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/templates</loc>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/csp</loc>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/helmet</loc>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/web-security</loc>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/cloud-hosting</loc>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/backend</loc>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/ui</loc>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/faq-design</loc>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://lebcit.github.io/tag/wordpress</loc>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/minimalist-design</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/customizer</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/wp-api</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/cache</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/development-tips</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/page-visibility-api</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/ux</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/dynamic-title</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/live-preview</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/theme-customization</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/wp-add-inline-style</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/admin-bar</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/toolbar</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/custom-css</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/footer</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/thunderbird</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/google</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/desktop-apps</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/integration</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/clean-blog</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/personal-journey</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/simplicity</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/search-plugin</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/full-screen</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/plugin-development</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/tag/ui-ux</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.5</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://lebcit.github.io/rss.xml</loc>
-    <lastmod>2025-06-24T12:00:21.896Z</lastmod>
+    <lastmod>2025-06-25T01:07:53.031Z</lastmod>
     <priority>0.4</priority>
     <changefreq>daily</changefreq>
   </url>

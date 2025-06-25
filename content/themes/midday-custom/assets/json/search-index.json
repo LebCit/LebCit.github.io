@@ -1,836 +1,581 @@
 {
-  "meta": {
-    "generatedAt": "2025-06-25T00:26:00.226Z",
-    "totalItems": 47,
-    "totalPosts": 44,
-    "totalPages": 3,
-    "themeName": "midday-custom",
-    "version": "1.0.0"
-  },
-  "index": [
-    {
-      "id": "1750790459135",
-      "title": "Old Writer Theme for Aether CMS",
-      "path": "/post/old-writer-theme-for-aether-cms",
-      "content": "Old Writer is a bold, easy-to-read blog theme with a classic terminal look, ideal for writers who value clarity and accessibility.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "aether-cms",
-        "accessibility",
-        "theme",
-        "theme-development",
-        "high-contrast",
-        "web-development",
-        "typography"
-      ],
-      "publishDate": "2025-06-24T21:32",
-      "author": "LebCit"
-    },
-    {
-      "id": "1750754776548",
-      "title": "Game-Changing Search is Here! Aether CMS Just Got Smarter",
-      "path": "/post/game-changing-search-is-here-aether-cms-just-got-smarter",
-      "content": "Aether CMS introduces intelligent search with auto-detection, instant JSON indexing, and flexible implementation for any website or theme.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "aether-cms",
-        "developer-tools",
-        "performance",
-        "search-functionality",
-        "content-discovery"
-      ],
-      "publishDate": "2025-06-24T11:42",
-      "author": "LebCit"
-    },
-    {
-      "id": "1749240408540",
-      "title": "How to create a theme for Aether CMS",
-      "path": "/post/how-to-create-a-theme-for-aether-cms",
-      "content": "Learn to build Aether CMS themes with custom pages, menus, and pagination.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "aether-cms",
-        "theme-development",
-        "tutorial",
-        "templating",
-        "web-development"
-      ],
-      "publishDate": "2025-06-06T22:45",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748996351157",
-      "title": "Meet Aether: A CMS That Actually Gets Out of Your Way",
-      "path": "/post/meet-aether-a-cms-that-actually-gets-out-of-your-way",
-      "content": "Aether CMS is a fast, minimal platform built for simplicity. No bloat, just clean, modular architecture for effortless content management.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "cms",
-        "ssg",
-        "javascript",
-        "nodejs",
-        "markdown"
-      ],
-      "publishDate": "2025-06-04T03:17",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748975080674",
-      "title": "Categories",
-      "path": "/categories",
-      "content": "",
-      "excerpt": "",
-      "type": "page",
-      "parentPage": null,
-      "publishDate": "2025-06-03T21:24",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748975105564",
-      "title": "Tags",
-      "path": "/tags",
-      "content": "",
-      "excerpt": "",
-      "type": "page",
-      "parentPage": null,
-      "publishDate": "2025-06-03T21:24",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748974305522",
-      "title": "Blog",
-      "path": "/blog",
-      "content": "",
-      "excerpt": "",
-      "type": "page",
-      "parentPage": null,
-      "publishDate": "2025-06-03T21:11",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748971362420",
-      "title": "Create your Markdown blog in Node.js",
-      "path": "/post/create-your-markdown-blog-in-nodejs",
-      "content": "Create a static Markdown blog in Node.js using LiteNode and Marked. Learn rendering, frontmatter parsing, and static site generation with ease.",
-      "excerpt": "",
-      "type": "post",
-      "category": "nodejs",
-      "tags": [
-        "litenode",
-        "markdown",
-        "static-site",
-        "templating",
-        "blog-development"
-      ],
-      "publishDate": "2025-02-26T20:17",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748970824210",
-      "title": "Breaking Up With Express.js!",
-      "path": "/post/breaking-up-with-expressjs",
-      "content": "Ditch Express.js for LiteNode, a lightweight modern Node.js framework with built-in templates, async/await, markdown support, and smarter static file handling.",
-      "excerpt": "",
-      "type": "post",
-      "category": "nodejs-frameworks",
-      "tags": [
-        "litenode",
-        "nodejs",
-        "web-framework",
-        "javascript",
-        "express"
-      ],
-      "publishDate": "2025-02-24T20:10",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748970601161",
-      "title": "From Regexes to AST: STE Journey to Adulthood",
-      "path": "/post/from-regexes-to-ast-ste-journey-to-adulthood",
-      "content": "Discover how STE transformed from regex placeholders to an AST-based template engine for fewer bugs and more powerful features.",
-      "excerpt": "",
-      "type": "post",
-      "category": "template-engines",
-      "tags": [
-        "ste",
-        "ast",
-        "template-engine",
-        "litenode",
-        "javascript"
-      ],
-      "publishDate": "2025-02-16T20:07",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748970364803",
-      "title": "Blog-Doc Version 3.x",
-      "path": "/post/blog-doc-version-3x",
-      "content": "Blog-Doc 3.x uses LiteNode for a lighter, faster Markdown CMS with a streamlined admin interface and minimal dependencies.",
-      "excerpt": "",
-      "type": "post",
-      "category": "static-site-generators",
-      "tags": [
-        "blog-doc",
-        "litenode",
-        "markdown",
-        "ssg",
-        "nodejs"
-      ],
-      "publishDate": "2024-08-20T20:02",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748970071159",
-      "title": "Ultimate Markdown-based Application Tutorial in Node.js!",
-      "path": "/post/ultimate-markdown-based-application-tutorial-in-nodejs",
-      "content": "Learn to create a Markdown-based Node.js app with LiteNode. Covers setup, Markdown parsing, frontmatter, dynamic rendering, and deployment.",
-      "excerpt": "",
-      "type": "post",
-      "category": "nodejs-tutorials",
-      "tags": [
-        "markdown",
-        "nodejs",
-        "litenode",
-        "tutorial",
-        "web-development"
-      ],
-      "publishDate": "2024-07-01T19:58",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748969844671",
-      "title": "LiteNode, Node.js Web Framework",
-      "path": "/post/litenode-nodejs-web-framework",
-      "content": "Explore LiteNode, a minimal and powerful Node.js framework offering body parsing, static assets, middleware, templating, and Markdown support.",
-      "excerpt": "",
-      "type": "post",
-      "category": "nodejs-frameworks",
-      "tags": [
-        "nodejs",
-        "litenode",
-        "web-framework",
-        "lightweight",
-        "javascript"
-      ],
-      "publishDate": "2024-05-29T19:54",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748969571435",
-      "title": "Transferring Variables and Functions from Server to Client in a Node.js Application Using EJS and Eta",
-      "path": "/post/transferring-variables-and-functions-from-server-to-client-in-a-nodejs-application-using-ejs-and-eta",
-      "content": "Learn how to transfer variables and functions from server to client in Node.js apps using EJS and Eta templates with ease.",
-      "excerpt": "",
-      "type": "post",
-      "category": "nodejs",
-      "tags": [
-        "nodejs",
-        "ejs",
-        "eta",
-        "templating",
-        "server-to-client-data"
-      ],
-      "publishDate": "2024-05-20T19:48",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748969182461",
-      "title": "Creating Conditional Selections in Google Forms using Apps Script",
-      "path": "/post/creating-conditional-selections-in-google-forms-using-apps-script",
-      "content": "Learn to build conditional dropdown selections in Google Forms with Apps Script for a dynamic user experience.",
-      "excerpt": "",
-      "type": "post",
-      "category": "google-apps-script",
-      "tags": [
-        "google-forms",
-        "apps-script",
-        "conditional-dropdowns",
-        "automation",
-        "google-workspace"
-      ],
-      "publishDate": "2024-05-04T19:42",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748968816179",
-      "title": "Google's Query Language Wrapper",
-      "path": "/post/googles-query-language-wrapper",
-      "content": "Access and query public Google Sheets easily with a JS wrapper for Google's Visualization API Query Language to fetch and filter spreadsheet data quickly.",
-      "excerpt": "",
-      "type": "post",
-      "category": "javascript-tools",
-      "tags": [
-        "google-sheets",
-        "api-wrapper",
-        "javascript",
-        "data-querying",
-        "google-visualization-api"
-      ],
-      "publishDate": "2024-04-22T19:36",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748968494969",
-      "title": "Responsive Attributes Generator",
-      "path": "/post/responsive-attributes-generator",
-      "content": "Create minimal, framework-free responsive CSS with the Responsive Attributes Generator. Customize breakpoints and avoid unnecessary bloat in your projects.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "responsive-design",
-        "css-generator",
-        "lightweight-css",
-        "web-tools",
-        "frontend"
-      ],
-      "publishDate": "2024-02-10T19:32",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748968319394",
-      "title": "SME! Do you Mark Down?!",
-      "path": "/post/sme-do-you-mark-down",
-      "content": "Simple Markdown editor with live preview. Write, edit, and convert Markdown to HTML easily. Perfect for notes, blogs, and Blog-Doc integration.",
-      "excerpt": "",
-      "type": "post",
-      "category": "tools-and-editors",
-      "tags": [
-        "markdown",
-        "editor",
-        "blog-doc",
-        "simple",
-        "open-source"
-      ],
-      "publishDate": "2024-02-02T19:26",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748967924242",
-      "title": "A dedicated site for Blog-Doc's documentation!",
-      "path": "/post/a-dedicated-site-for-blog-docs-documentation",
-      "content": "Blog-Doc now has a dedicated documentation site featuring a responsive three-column layout for desktop, adapting to tablets and mobiles seamlessly.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "blog-doc",
-        "documentation",
-        "static-site",
-        "responsive-design",
-        "nodejs"
-      ],
-      "publishDate": "2024-01-21T19:22",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748954591566",
-      "title": "Create a simple Markdown-based blog in Node.js",
-      "path": "/post/create-a-simple-markdown-based-blog-in-nodejs",
-      "content": "Build a simple blog in Node.js using Markdown, Hono, and Eta to render static pages and posts with clean and flexible code.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "nodejs",
-        "markdown",
-        "blog",
-        "hono",
-        "eta"
-      ],
-      "publishDate": "2023-09-12T15:38",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748954225768",
-      "title": "Switch themes in Blog-Doc!",
-      "path": "/post/switch-themes-in-blog-doc",
-      "content": "Blog-Doc introduces theme switching to customize your site’s look with ease while keeping all features and content intact.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "blog-doc",
-        "themes",
-        "cms",
-        "static-site",
-        "nodejs"
-      ],
-      "publishDate": "2023-08-27T15:34",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748953964809",
-      "title": "node_modules is not heavy, developers are lazy!",
-      "path": "/post/node-modules-is-not-heavy-developers-are-lazy",
-      "content": "Explore how misuse and laziness make node_modules heavy and learn modern Node.js practices to keep dependencies lean.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "nodejs",
-        "dependencies",
-        "performance",
-        "best-practices",
-        "blog-doc"
-      ],
-      "publishDate": "2023-07-29T15:29",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748953725542",
-      "title": "From 145 to 7 💪",
-      "path": "/post/from-145-to-7",
-      "content": "Blog-Doc goes from 145 to 7 dependencies, proving you can build a full CMS and SSG in Node.js without bloating your project.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "blog-doc",
-        "dependencies",
-        "nodejs",
-        "cms",
-        "ssg"
-      ],
-      "publishDate": "2023-07-21T15:25",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748953481007",
-      "title": "Blog-Doc, updating the administration design!",
-      "path": "/post/blog-doc-updating-the-administration-design",
-      "content": "Blog-Doc gets a redesigned admin interface using Tabler for a modern and user-friendly content management experience.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "blog-doc",
-        "admin-ui",
-        "tabler",
-        "cms",
-        "design"
-      ],
-      "publishDate": "2023-04-22T15:21",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748953214671",
-      "title": "Blog-Doc, the front-end administration!",
-      "path": "/post/blog-doc-the-front-end-administration",
-      "content": "Explore Blog-Doc’s front-end administration for easy content management, image gallery, settings, and static site generation.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "cms",
-        "blog-doc",
-        "administration",
-        "nodejs",
-        "frontend"
-      ],
-      "publishDate": "2023-04-13T15:17",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748953003326",
-      "title": "Blog-Doc, The Simplest Node.js CMS and SSG!",
-      "path": "/post/blog-doc-the-simplest-nodejs-cms-and-ssg",
-      "content": "Blog-Doc evolves into a simple Node.js CMS and SSG with Markdown editing, front-end admin, and Deta Space support.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "css",
-        "ssg",
-        "nodejs",
-        "markdown",
-        "deta"
-      ],
-      "publishDate": "2023-04-09T15:12",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748952664885",
-      "title": "Blog-Doc, a tiny and dead simple SSG!",
-      "path": "/post/blog-doc-a-tiny-and-dead-simple-ssg",
-      "content": "Discover Blog-Doc, a tiny static site generator built with JavaScript, Eta templates, and Markdown for simple blog or doc sites.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "ssg",
-        "javascript",
-        "markdown",
-        "eta",
-        "blogging"
-      ],
-      "publishDate": "2022-11-13T15:05",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748952226762",
-      "title": "Click without JavaScript!",
-      "path": "/post/click-without-javascript",
-      "content": "Learn how to show and hide elements using only CSS with the :target pseudo-class, no JavaScript needed for simple interactions.",
-      "excerpt": "",
-      "type": "post",
-      "category": "frontend-development",
-      "tags": [
-        "css",
-        "html",
-        "no-javascript",
-        "web-tricks",
-        "target"
-      ],
-      "publishDate": "2022-08-01T14:59",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748951904570",
-      "title": "Turn a Markdown Blog to a Simple SSG",
-      "path": "/post/turn-a-markdown-blog-to-a-simple-ssg",
-      "content": "Convert your Markdown blog into a simple static site generator using Node.js, EJS, and Express with LiveReload and custom routing.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "ssg",
-        "markdown",
-        "nodejs",
-        "ejs",
-        "express"
-      ],
-      "publishDate": "2022-07-31T14:56",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748951583454",
-      "title": "Markdown blog with EJS",
-      "path": "/post/markdown-blog-with-ejs",
-      "content": "Create a blog using Markdown and EJS in Node.js. Parse content with gray-matter and markdown-it, and render posts with Express.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "nodejs",
-        "ejs",
-        "express",
-        "markdown",
-        "blog"
-      ],
-      "publishDate": "2022-07-25T14:49",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748951321316",
-      "title": "Express Global Router for a DRY Code",
-      "path": "/post/express-global-router-for-a-dry-code",
-      "content": "Simplify your Express routing with a global router and avoid repeating boilerplate code in every route file.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "express",
-        "nodejs",
-        "router",
-        "dry",
-        "javascript"
-      ],
-      "publishDate": "2022-07-18T14:46",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748951060916",
-      "title": "Improving a Node.js app built with Express and EJS",
-      "path": "/post/improving-a-nodejs-app-built-with-express-and-ejs",
-      "content": "Improve your Express and EJS app with dynamic content, organized routing, and DRY techniques for a cleaner Node.js backend.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "nodejs",
-        "express",
-        "ejs",
-        "routing",
-        "dry"
-      ],
-      "publishDate": "2022-07-17T14:40",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748950353874",
-      "title": "Templating a Node.js App with EJS",
-      "path": "/post/templating-a-nodejs-app-with-ejs",
-      "content": "Learn to build dynamic Node.js apps using EJS, with full setup, templating, data passing, static files, and LiveReload integration.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "nodejs",
-        "ejs",
-        "express",
-        "templates",
-        "javascript"
-      ],
-      "publishDate": "2022-07-09T14:18",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748941011839",
-      "title": "CSP nonce with Node.js and EJS",
-      "path": "/post/csp-nonce-with-nodejs-and-ejs",
-      "content": "Learn how to implement a CSP nonce in Node.js with EJS templates to improve security for inline scripts and styles.",
-      "excerpt": "",
-      "type": "post",
-      "category": "security",
-      "tags": [
-        "nodejs",
-        "csp",
-        "ejs",
-        "helmet",
-        "web-security"
-      ],
-      "publishDate": "2022-07-03T11:54",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748939221513",
-      "title": "To Node or not? Deta is the answer!",
-      "path": "/post/to-node-or-not-deta-is-the-answer",
-      "content": "Discover how to host and deploy Node.js apps for free using Deta Cloud with Micros, Base, and Drive. Simple, powerful and developer-friendly.",
-      "excerpt": "",
-      "type": "post",
-      "category": null,
-      "tags": [
-        "nodejs",
-        "deta",
-        "cloud-hosting",
-        "backend",
-        "developer-tools"
-      ],
-      "publishDate": "2022-06-26T11:24",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748938967428",
-      "title": "Automatically close other details",
-      "path": "/post/automatically-close-other-details",
-      "content": "Make your FAQ or accordion sections cleaner by closing all other open details tags when one is toggled using simple JavaScript.",
-      "excerpt": "",
-      "type": "post",
-      "category": "frontend-development",
-      "tags": [
-        "javascript",
-        "html",
-        "accessibility",
-        "ui",
-        "faq-design"
-      ],
-      "publishDate": "2021-02-10T11:19",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748938585109",
-      "title": "MidDay WordPress theme",
-      "path": "/post/midday-wordpress-theme",
-      "content": "MidDay is a clean and bold WordPress theme focused on responsive typography and simplicity with no extra clutter or features.",
-      "excerpt": "",
-      "type": "post",
-      "category": "wordpress-themes",
-      "tags": [
-        "wordpress",
-        "theme",
-        "responsive-design",
-        "typography",
-        "minimalist-design"
-      ],
-      "publishDate": "2021-02-02T11:12",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748938250008",
-      "title": "Creating a Customizer control with JavaScript",
-      "path": "/post/creating-a-customizer-control-with-javascript",
-      "content": "Learn how to build a custom control in the WordPress Customizer using JavaScript from start to finish without relying on PHP.",
-      "excerpt": "",
-      "type": "post",
-      "category": "wordpress",
-      "tags": [
-        "wordpress",
-        "javascript",
-        "customizer",
-        "theme-development",
-        "wp-api"
-      ],
-      "publishDate": "2020-06-01T11:07",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748937629204",
-      "title": "Clear your local development cache with JS",
-      "path": "/post/clear-your-local-development-cache-with-js",
-      "content": "Clear your dev cache using JavaScript — no server-side language needed. Fix refresh issues and boost productivity with this JS snippet.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "javascript",
-        "cache",
-        "frontend",
-        "development-tips",
-        "performance"
-      ],
-      "publishDate": "2020-05-27T10:57",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748937087919",
-      "title": "Change Page Title Dynamically",
-      "path": "/post/change-page-title-dynamically",
-      "content": "Use the Page Visibility API and Document.title to change your site's tab title when users leave or return - a simple trick to boost engagement.",
-      "excerpt": "",
-      "type": "post",
-      "category": "frontend-development",
-      "tags": [
-        "javascript",
-        "page-visibility-api",
-        "ux",
-        "dynamic-title"
-      ],
-      "publishDate": "2020-05-26T10:47",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748936150231",
-      "title": "Listen for Changes in Customizer Preview!",
-      "path": "/post/listen-for-changes-in-customizer-preview",
-      "content": "Learn how to listen for live changes in the WordPress Customizer Preview using JavaScript. Understand the Customizer's parts and structure.",
-      "excerpt": "",
-      "type": "post",
-      "category": "wordpress",
-      "tags": [
-        "wordpress",
-        "customizer",
-        "live-preview",
-        "javascript",
-        "theme-customization"
-      ],
-      "publishDate": "2020-05-24T10:33",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748932926085",
-      "title": "Hide WordPress Toolbar with wp_add_inline_style",
-      "path": "/post/hide-wordpress-toolbar-with-wp-add-inline-style",
-      "content": "Learn how to hide the WordPress admin toolbar using wp_add_inline_style - a clean, code-based approach for theme customization.",
-      "excerpt": "",
-      "type": "post",
-      "category": "wordpress",
-      "tags": [
-        "wordpress",
-        "wp-add-inline-style",
-        "admin-bar",
-        "toolbar",
-        "custom-css"
-      ],
-      "publishDate": "2020-05-22T09:39",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748932423434",
-      "title": "Modifying WordPress theme's copyright from the Customizer",
-      "path": "/post/modifying-wordpress-themes-copyright-from-the-customizer",
-      "content": "A step-by-step guide to adding a Customizer option for footer copyright in WordPress - full code in functions.php included.",
-      "excerpt": "",
-      "type": "post",
-      "category": "wordpress",
-      "tags": [
-        "wordpress",
-        "customizer",
-        "theme-customization",
-        "footer"
-      ],
-      "publishDate": "2020-05-21T09:31",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748931876897",
-      "title": "Get Google Products on Desktop with Thunderbird",
-      "path": "/post/get-google-products-on-desktop-with-thunderbird",
-      "content": "How to access Gmail, Google Calendar, and more on your desktop using Thunderbird - a simple way to integrate Google services locally.",
-      "excerpt": "",
-      "type": "post",
-      "category": "productivity",
-      "tags": [
-        "thunderbird",
-        "google",
-        "desktop-apps",
-        "integration"
-      ],
-      "publishDate": "2020-05-14T09:20",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748931447442",
-      "title": "The Clean Blog WordPress theme",
-      "path": "/post/the-clean-blog-wordpress-theme",
-      "content": "My experience creating and using The Clean Blog - my first WordPress theme built for clean design, readability, and blogging simplicity.",
-      "excerpt": "",
-      "type": "post",
-      "category": "wordpress-themes",
-      "tags": [
-        "clean-blog",
-        "theme-development",
-        "blogging",
-        "wordpress",
-        "theme"
-      ],
-      "publishDate": "2020-05-09T09:15",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748930749959",
-      "title": "Back to the roots with a static site",
-      "path": "/post/back-to-the-roots-with-a-static-site",
-      "content": "Sharing my return to static site development. Why I ditched complexity for speed, simplicity, and full control over my web projects.",
-      "excerpt": "",
-      "type": "post",
-      "category": "web-development",
-      "tags": [
-        "static-site",
-        "personal-journey",
-        "simplicity",
-        "performance",
-        "web-development"
-      ],
-      "publishDate": "2020-05-04T08:59",
-      "author": "LebCit"
-    },
-    {
-      "id": "1748895625456",
-      "title": "Full Screen Morphing Search Plugin",
-      "path": "/post/full-screen-morphing-search-plugin",
-      "content": "Discover the Full Screen Morphing Search Plugin, my first custom WordPress plugin with a sleek, animated full-screen search for a better user experience.",
-      "excerpt": "",
-      "type": "post",
-      "category": "wordpress-plugins",
-      "tags": [
-        "wordpress",
-        "search-plugin",
-        "full-screen",
-        "plugin-development",
-        "ui-ux"
-      ],
-      "publishDate": "2020-04-28T23:09",
-      "author": "LebCit"
-    }
-  ]
+	"meta": {
+		"generatedAt": "2025-06-25T00:26:00.226Z",
+		"totalItems": 47,
+		"totalPosts": 44,
+		"totalPages": 3,
+		"themeName": "midday-custom",
+		"version": "1.0.0"
+	},
+	"index": [
+		{
+			"id": "1750790459135",
+			"title": "Old Writer Theme for Aether CMS",
+			"path": "/post/old-writer-theme-for-aether-cms",
+			"content": "Old Writer is a bold, easy-to-read blog theme with a classic terminal look, ideal for writers who value clarity and accessibility.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": [
+				"aether-cms",
+				"accessibility",
+				"theme",
+				"theme-development",
+				"high-contrast",
+				"web-development",
+				"typography"
+			],
+			"publishDate": "2025-06-24T21:32",
+			"author": "LebCit"
+		},
+		{
+			"id": "1750754776548",
+			"title": "Game-Changing Search is Here! Aether CMS Just Got Smarter",
+			"path": "/post/game-changing-search-is-here-aether-cms-just-got-smarter",
+			"content": "Aether CMS introduces intelligent search with auto-detection, instant JSON indexing, and flexible implementation for any website or theme.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["aether-cms", "developer-tools", "performance", "search-functionality", "content-discovery"],
+			"publishDate": "2025-06-24T11:42",
+			"author": "LebCit"
+		},
+		{
+			"id": "1749240408540",
+			"title": "How to create a theme for Aether CMS",
+			"path": "/post/how-to-create-a-theme-for-aether-cms",
+			"content": "Learn to build Aether CMS themes with custom pages, menus, and pagination.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["aether-cms", "theme-development", "tutorial", "templating", "web-development"],
+			"publishDate": "2025-06-06T22:45",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748996351157",
+			"title": "Meet Aether: A CMS That Actually Gets Out of Your Way",
+			"path": "/post/meet-aether-a-cms-that-actually-gets-out-of-your-way",
+			"content": "Aether CMS is a fast, minimal platform built for simplicity. No bloat, just clean, modular architecture for effortless content management.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["cms", "ssg", "javascript", "nodejs", "markdown"],
+			"publishDate": "2025-06-04T03:17",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748975080674",
+			"title": "Categories",
+			"path": "/categories",
+			"content": "",
+			"excerpt": "",
+			"type": "page",
+			"parentPage": null,
+			"publishDate": "2025-06-03T21:24",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748975105564",
+			"title": "Tags",
+			"path": "/tags",
+			"content": "",
+			"excerpt": "",
+			"type": "page",
+			"parentPage": null,
+			"publishDate": "2025-06-03T21:24",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748974305522",
+			"title": "Blog",
+			"path": "/blog",
+			"content": "",
+			"excerpt": "",
+			"type": "page",
+			"parentPage": null,
+			"publishDate": "2025-06-03T21:11",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748971362420",
+			"title": "Create your Markdown blog in Node.js",
+			"path": "/post/create-your-markdown-blog-in-nodejs",
+			"content": "Create a static Markdown blog in Node.js using LiteNode and Marked. Learn rendering, frontmatter parsing, and static site generation with ease.",
+			"excerpt": "",
+			"type": "post",
+			"category": "nodejs",
+			"tags": ["litenode", "markdown", "static-site", "templating", "blog-development"],
+			"publishDate": "2025-02-26T20:17",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748970824210",
+			"title": "Breaking Up With Express.js!",
+			"path": "/post/breaking-up-with-expressjs",
+			"content": "Ditch Express.js for LiteNode, a lightweight modern Node.js framework with built-in templates, async/await, markdown support, and smarter static file handling.",
+			"excerpt": "",
+			"type": "post",
+			"category": "nodejs-frameworks",
+			"tags": ["litenode", "nodejs", "web-framework", "javascript", "express"],
+			"publishDate": "2025-02-24T20:10",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748970601161",
+			"title": "From Regexes to AST: STE Journey to Adulthood",
+			"path": "/post/from-regexes-to-ast-ste-journey-to-adulthood",
+			"content": "Discover how STE transformed from regex placeholders to an AST-based template engine for fewer bugs and more powerful features.",
+			"excerpt": "",
+			"type": "post",
+			"category": "template-engines",
+			"tags": ["ste", "ast", "template-engine", "litenode", "javascript"],
+			"publishDate": "2025-02-16T20:07",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748970364803",
+			"title": "Blog-Doc Version 3.x",
+			"path": "/post/blog-doc-version-3x",
+			"content": "Blog-Doc 3.x uses LiteNode for a lighter, faster Markdown CMS with a streamlined admin interface and minimal dependencies.",
+			"excerpt": "",
+			"type": "post",
+			"category": "static-site-generators",
+			"tags": ["blog-doc", "litenode", "markdown", "ssg", "nodejs"],
+			"publishDate": "2024-08-20T20:02",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748970071159",
+			"title": "Ultimate Markdown-based Application Tutorial in Node.js!",
+			"path": "/post/ultimate-markdown-based-application-tutorial-in-nodejs",
+			"content": "Learn to create a Markdown-based Node.js app with LiteNode. Covers setup, Markdown parsing, frontmatter, dynamic rendering, and deployment.",
+			"excerpt": "",
+			"type": "post",
+			"category": "nodejs-tutorials",
+			"tags": ["markdown", "nodejs", "litenode", "tutorial", "web-development"],
+			"publishDate": "2024-07-01T19:58",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748969844671",
+			"title": "LiteNode, Node.js Web Framework",
+			"path": "/post/litenode-nodejs-web-framework",
+			"content": "Explore LiteNode, a minimal and powerful Node.js framework offering body parsing, static assets, middleware, templating, and Markdown support.",
+			"excerpt": "",
+			"type": "post",
+			"category": "nodejs-frameworks",
+			"tags": ["nodejs", "litenode", "web-framework", "lightweight", "javascript"],
+			"publishDate": "2024-05-29T19:54",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748969571435",
+			"title": "Transferring Variables and Functions from Server to Client in a Node.js Application Using EJS and Eta",
+			"path": "/post/transferring-variables-and-functions-from-server-to-client-in-a-nodejs-application-using-ejs-and-eta",
+			"content": "Learn how to transfer variables and functions from server to client in Node.js apps using EJS and Eta templates with ease.",
+			"excerpt": "",
+			"type": "post",
+			"category": "nodejs",
+			"tags": ["nodejs", "ejs", "eta", "templating", "server-to-client-data"],
+			"publishDate": "2024-05-20T19:48",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748969182461",
+			"title": "Creating Conditional Selections in Google Forms using Apps Script",
+			"path": "/post/creating-conditional-selections-in-google-forms-using-apps-script",
+			"content": "Learn to build conditional dropdown selections in Google Forms with Apps Script for a dynamic user experience.",
+			"excerpt": "",
+			"type": "post",
+			"category": "google-apps-script",
+			"tags": ["google-forms", "apps-script", "conditional-dropdowns", "automation", "google-workspace"],
+			"publishDate": "2024-05-04T19:42",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748968816179",
+			"title": "Google's Query Language Wrapper",
+			"path": "/post/googles-query-language-wrapper",
+			"content": "Access and query public Google Sheets easily with a JS wrapper for Google's Visualization API Query Language to fetch and filter spreadsheet data quickly.",
+			"excerpt": "",
+			"type": "post",
+			"category": "javascript-tools",
+			"tags": ["google-sheets", "api-wrapper", "javascript", "data-querying", "google-visualization-api"],
+			"publishDate": "2024-04-22T19:36",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748968494969",
+			"title": "Responsive Attributes Generator",
+			"path": "/post/responsive-attributes-generator",
+			"content": "Create minimal, framework-free responsive CSS with the Responsive Attributes Generator. Customize breakpoints and avoid unnecessary bloat in your projects.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["responsive-design", "css-generator", "lightweight-css", "web-tools", "frontend"],
+			"publishDate": "2024-02-10T19:32",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748968319394",
+			"title": "SME! Do you Mark Down?!",
+			"path": "/post/sme-do-you-mark-down",
+			"content": "Simple Markdown editor with live preview. Write, edit, and convert Markdown to HTML easily. Perfect for notes, blogs, and Blog-Doc integration.",
+			"excerpt": "",
+			"type": "post",
+			"category": "tools-and-editors",
+			"tags": ["markdown", "editor", "blog-doc", "simple", "open-source"],
+			"publishDate": "2024-02-02T19:26",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748967924242",
+			"title": "A dedicated site for Blog-Doc's documentation!",
+			"path": "/post/a-dedicated-site-for-blog-docs-documentation",
+			"content": "Blog-Doc now has a dedicated documentation site featuring a responsive three-column layout for desktop, adapting to tablets and mobiles seamlessly.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["blog-doc", "documentation", "static-site", "responsive-design", "nodejs"],
+			"publishDate": "2024-01-21T19:22",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748954591566",
+			"title": "Create a simple Markdown-based blog in Node.js",
+			"path": "/post/create-a-simple-markdown-based-blog-in-nodejs",
+			"content": "Build a simple blog in Node.js using Markdown, Hono, and Eta to render static pages and posts with clean and flexible code.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["nodejs", "markdown", "blog", "hono", "eta"],
+			"publishDate": "2023-09-12T15:38",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748954225768",
+			"title": "Switch themes in Blog-Doc!",
+			"path": "/post/switch-themes-in-blog-doc",
+			"content": "Blog-Doc introduces theme switching to customize your site’s look with ease while keeping all features and content intact.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["blog-doc", "themes", "cms", "static-site", "nodejs"],
+			"publishDate": "2023-08-27T15:34",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748953964809",
+			"title": "node_modules is not heavy, developers are lazy!",
+			"path": "/post/node-modules-is-not-heavy-developers-are-lazy",
+			"content": "Explore how misuse and laziness make node_modules heavy and learn modern Node.js practices to keep dependencies lean.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["nodejs", "dependencies", "performance", "best-practices", "blog-doc"],
+			"publishDate": "2023-07-29T15:29",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748953725542",
+			"title": "From 145 to 7 💪",
+			"path": "/post/from-145-to-7",
+			"content": "Blog-Doc goes from 145 to 7 dependencies, proving you can build a full CMS and SSG in Node.js without bloating your project.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["blog-doc", "dependencies", "nodejs", "cms", "ssg"],
+			"publishDate": "2023-07-21T15:25",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748953481007",
+			"title": "Blog-Doc, updating the administration design!",
+			"path": "/post/blog-doc-updating-the-administration-design",
+			"content": "Blog-Doc gets a redesigned admin interface using Tabler for a modern and user-friendly content management experience.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["blog-doc", "admin-ui", "tabler", "cms", "design"],
+			"publishDate": "2023-04-22T15:21",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748953214671",
+			"title": "Blog-Doc, the front-end administration!",
+			"path": "/post/blog-doc-the-front-end-administration",
+			"content": "Explore Blog-Doc’s front-end administration for easy content management, image gallery, settings, and static site generation.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["cms", "blog-doc", "administration", "nodejs", "frontend"],
+			"publishDate": "2023-04-13T15:17",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748953003326",
+			"title": "Blog-Doc, The Simplest Node.js CMS and SSG!",
+			"path": "/post/blog-doc-the-simplest-nodejs-cms-and-ssg",
+			"content": "Blog-Doc evolves into a simple Node.js CMS and SSG with Markdown editing, front-end admin, and Deta Space support.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["css", "ssg", "nodejs", "markdown", "deta"],
+			"publishDate": "2023-04-09T15:12",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748952664885",
+			"title": "Blog-Doc, a tiny and dead simple SSG!",
+			"path": "/post/blog-doc-a-tiny-and-dead-simple-ssg",
+			"content": "Discover Blog-Doc, a tiny static site generator built with JavaScript, Eta templates, and Markdown for simple blog or doc sites.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["ssg", "javascript", "markdown", "eta", "blogging"],
+			"publishDate": "2022-11-13T15:05",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748952226762",
+			"title": "Click without JavaScript!",
+			"path": "/post/click-without-javascript",
+			"content": "Learn how to show and hide elements using only CSS with the :target pseudo-class, no JavaScript needed for simple interactions.",
+			"excerpt": "",
+			"type": "post",
+			"category": "frontend-development",
+			"tags": ["css", "html", "no-javascript", "web-tricks", "target"],
+			"publishDate": "2022-08-01T14:59",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748951904570",
+			"title": "Turn a Markdown Blog to a Simple SSG",
+			"path": "/post/turn-a-markdown-blog-to-a-simple-ssg",
+			"content": "Convert your Markdown blog into a simple static site generator using Node.js, EJS, and Express with LiveReload and custom routing.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["ssg", "markdown", "nodejs", "ejs", "express"],
+			"publishDate": "2022-07-31T14:56",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748951583454",
+			"title": "Markdown blog with EJS",
+			"path": "/post/markdown-blog-with-ejs",
+			"content": "Create a blog using Markdown and EJS in Node.js. Parse content with gray-matter and markdown-it, and render posts with Express.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["nodejs", "ejs", "express", "markdown", "blog"],
+			"publishDate": "2022-07-25T14:49",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748951321316",
+			"title": "Express Global Router for a DRY Code",
+			"path": "/post/express-global-router-for-a-dry-code",
+			"content": "Simplify your Express routing with a global router and avoid repeating boilerplate code in every route file.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["express", "nodejs", "router", "dry", "javascript"],
+			"publishDate": "2022-07-18T14:46",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748951060916",
+			"title": "Improving a Node.js app built with Express and EJS",
+			"path": "/post/improving-a-nodejs-app-built-with-express-and-ejs",
+			"content": "Improve your Express and EJS app with dynamic content, organized routing, and DRY techniques for a cleaner Node.js backend.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["nodejs", "express", "ejs", "routing", "dry"],
+			"publishDate": "2022-07-17T14:40",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748950353874",
+			"title": "Templating a Node.js App with EJS",
+			"path": "/post/templating-a-nodejs-app-with-ejs",
+			"content": "Learn to build dynamic Node.js apps using EJS, with full setup, templating, data passing, static files, and LiveReload integration.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["nodejs", "ejs", "express", "templates", "javascript"],
+			"publishDate": "2022-07-09T14:18",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748941011839",
+			"title": "CSP nonce with Node.js and EJS",
+			"path": "/post/csp-nonce-with-nodejs-and-ejs",
+			"content": "Learn how to implement a CSP nonce in Node.js with EJS templates to improve security for inline scripts and styles.",
+			"excerpt": "",
+			"type": "post",
+			"category": "security",
+			"tags": ["nodejs", "csp", "ejs", "helmet", "web-security"],
+			"publishDate": "2022-07-03T11:54",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748939221513",
+			"title": "To Node or not? Deta is the answer!",
+			"path": "/post/to-node-or-not-deta-is-the-answer",
+			"content": "Discover how to host and deploy Node.js apps for free using Deta Cloud with Micros, Base, and Drive. Simple, powerful and developer-friendly.",
+			"excerpt": "",
+			"type": "post",
+			"category": null,
+			"tags": ["nodejs", "deta", "cloud-hosting", "backend", "developer-tools"],
+			"publishDate": "2022-06-26T11:24",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748938967428",
+			"title": "Automatically close other details",
+			"path": "/post/automatically-close-other-details",
+			"content": "Make your FAQ or accordion sections cleaner by closing all other open details tags when one is toggled using simple JavaScript.",
+			"excerpt": "",
+			"type": "post",
+			"category": "frontend-development",
+			"tags": ["javascript", "html", "accessibility", "ui", "faq-design"],
+			"publishDate": "2021-02-10T11:19",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748938585109",
+			"title": "MidDay WordPress theme",
+			"path": "/post/midday-wordpress-theme",
+			"content": "MidDay is a clean and bold WordPress theme focused on responsive typography and simplicity with no extra clutter or features.",
+			"excerpt": "",
+			"type": "post",
+			"category": "wordpress-themes",
+			"tags": ["wordpress", "theme", "responsive-design", "typography", "minimalist-design"],
+			"publishDate": "2021-02-02T11:12",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748938250008",
+			"title": "Creating a Customizer control with JavaScript",
+			"path": "/post/creating-a-customizer-control-with-javascript",
+			"content": "Learn how to build a custom control in the WordPress Customizer using JavaScript from start to finish without relying on PHP.",
+			"excerpt": "",
+			"type": "post",
+			"category": "wordpress",
+			"tags": ["wordpress", "javascript", "customizer", "theme-development", "wp-api"],
+			"publishDate": "2020-06-01T11:07",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748937629204",
+			"title": "Clear your local development cache with JS",
+			"path": "/post/clear-your-local-development-cache-with-js",
+			"content": "Clear your dev cache using JavaScript — no server-side language needed. Fix refresh issues and boost productivity with this JS snippet.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["javascript", "cache", "frontend", "development-tips", "performance"],
+			"publishDate": "2020-05-27T10:57",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748937087919",
+			"title": "Change Page Title Dynamically",
+			"path": "/post/change-page-title-dynamically",
+			"content": "Use the Page Visibility API and Document.title to change your site's tab title when users leave or return - a simple trick to boost engagement.",
+			"excerpt": "",
+			"type": "post",
+			"category": "frontend-development",
+			"tags": ["javascript", "page-visibility-api", "ux", "dynamic-title"],
+			"publishDate": "2020-05-26T10:47",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748936150231",
+			"title": "Listen for Changes in Customizer Preview!",
+			"path": "/post/listen-for-changes-in-customizer-preview",
+			"content": "Learn how to listen for live changes in the WordPress Customizer Preview using JavaScript. Understand the Customizer's parts and structure.",
+			"excerpt": "",
+			"type": "post",
+			"category": "wordpress",
+			"tags": ["wordpress", "customizer", "live-preview", "javascript", "theme-customization"],
+			"publishDate": "2020-05-24T10:33",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748932926085",
+			"title": "Hide WordPress Toolbar with wp_add_inline_style",
+			"path": "/post/hide-wordpress-toolbar-with-wp-add-inline-style",
+			"content": "Learn how to hide the WordPress admin toolbar using wp_add_inline_style - a clean, code-based approach for theme customization.",
+			"excerpt": "",
+			"type": "post",
+			"category": "wordpress",
+			"tags": ["wordpress", "wp-add-inline-style", "admin-bar", "toolbar", "custom-css"],
+			"publishDate": "2020-05-22T09:39",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748932423434",
+			"title": "Modifying WordPress theme's copyright from the Customizer",
+			"path": "/post/modifying-wordpress-themes-copyright-from-the-customizer",
+			"content": "A step-by-step guide to adding a Customizer option for footer copyright in WordPress - full code in functions.php included.",
+			"excerpt": "",
+			"type": "post",
+			"category": "wordpress",
+			"tags": ["wordpress", "customizer", "theme-customization", "footer"],
+			"publishDate": "2020-05-21T09:31",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748931876897",
+			"title": "Get Google Products on Desktop with Thunderbird",
+			"path": "/post/get-google-products-on-desktop-with-thunderbird",
+			"content": "How to access Gmail, Google Calendar, and more on your desktop using Thunderbird - a simple way to integrate Google services locally.",
+			"excerpt": "",
+			"type": "post",
+			"category": "productivity",
+			"tags": ["thunderbird", "google", "desktop-apps", "integration"],
+			"publishDate": "2020-05-14T09:20",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748931447442",
+			"title": "The Clean Blog WordPress theme",
+			"path": "/post/the-clean-blog-wordpress-theme",
+			"content": "My experience creating and using The Clean Blog - my first WordPress theme built for clean design, readability, and blogging simplicity.",
+			"excerpt": "",
+			"type": "post",
+			"category": "wordpress-themes",
+			"tags": ["clean-blog", "theme-development", "blogging", "wordpress", "theme"],
+			"publishDate": "2020-05-09T09:15",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748930749959",
+			"title": "Back to the roots with a static site",
+			"path": "/post/back-to-the-roots-with-a-static-site",
+			"content": "Sharing my return to static site development. Why I ditched complexity for speed, simplicity, and full control over my web projects.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["static-site", "personal-journey", "simplicity", "performance", "web-development"],
+			"publishDate": "2020-05-04T08:59",
+			"author": "LebCit"
+		},
+		{
+			"id": "1748895625456",
+			"title": "Full Screen Morphing Search Plugin",
+			"path": "/post/full-screen-morphing-search-plugin",
+			"content": "Discover the Full Screen Morphing Search Plugin, my first custom WordPress plugin with a sleek, animated full-screen search for a better user experience.",
+			"excerpt": "",
+			"type": "post",
+			"category": "wordpress-plugins",
+			"tags": ["wordpress", "search-plugin", "full-screen", "plugin-development", "ui-ux"],
+			"publishDate": "2020-04-28T23:09",
+			"author": "LebCit"
+		}
+	]
 }

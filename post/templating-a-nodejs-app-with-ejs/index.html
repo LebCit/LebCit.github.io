@@ -1,277 +1,346 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Learn to build dynamic Node.js apps using EJS, with full setup, templating, data passing, static files, and LiveReload integration." />
-    <meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Learn to build dynamic Node.js apps using EJS, with full setup, templating, data passing, static files, and LiveReload integration."
+		/>
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-    <!--Site icon-->
-    
-    <link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
-    
+		<!--Site icon-->
 
-    <!--Title-->
-    <title>Templating a Node.js App with EJS | { LebCit }</title>
+		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
 
-    <!--Stylesheets-->
-    <link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
-    
-    <link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
-    
-</head>
+		<!--Title-->
+		<title>Templating a Node.js App with EJS | { LebCit }</title>
 
+		<!--Stylesheets-->
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
 
-    <body>
-        <!--Start page-->
-        <div id="page" class="site grid">
-            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+	</head>
 
-            <!--Start menu-->
-            <div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
-    <a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu">&times;</a>
+	<body>
+		<!--Start page-->
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
-    <div class="menu-overlay__content">
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/" target="">Home</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/blog" target="_self">Blog</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/categories" target="_self">Categories</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/tags" target="_self">Tags</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/search" target="_self">Search</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/page/my-public-projects" target="_self">Projects</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/page/about-me" target="_self">About Me</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/sitemap" target="_self">Sitemap</a>
-        </li>
-        
-        <!---->
-        
-    </div>
-</div>
+			<!--Start menu-->
+			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
 
-            <!--End menu-->
+				<div class="menu-overlay__content">
+					<!---->
 
-            <!--Start masthead-->
-            <!-- Start #masthead -->
+					<li class="menu-overlay__item">
+						<a href="/" target="">Home</a>
+					</li>
 
-<header
-    id="masthead"
-    class="site-header unit-1 unit-lg-2-5 bio"
-    style="background-image: url(/content/uploads/images/block-of-red-orange-yellow-and-green-lego-7443ef69c7d80846.webp)"
->
-    <div class="site-header__overlay"></div>
+					<!---->
 
-    <!-- Start .site-header__content -->
-<div class="site-header__content">
-    <div class="site-header__branding">
-        <h1 class="site-header__title">
-            <a href="/">{ LebCit }</a>
-        </h1>
-        <p class="site-header__description">Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</p>
-    </div>
+					<!---->
 
-    <nav id="nav" class="site-header__nav" aria-label="MENU">
-        <ul class="site-header__nav-list">
-            <li class="site-header__nav-item">
-                <a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
-                    <span>MENU</span>
-                    <span class="menu-icon" aria-hidden="true">
-                        <svg
-                            version="1.1"
-                            x="0px"
-                            y="0px"
-                            width="30px"
-                            height="30px"
-                            viewBox="0 0 30 30"
-                            enable-background="new 0 0 30 30"
-                        >
-                            <rect width="30" height="5" />
-                            <rect y="24" width="30" height="5" />
-                            <rect y="12" width="30" height="5" />
-                        </svg>
-                    </span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</div>
-<!-- End .site-header__content -->
+					<li class="menu-overlay__item">
+						<a href="/blog" target="_self">Blog</a>
+					</li>
 
-</header>
+					<!---->
 
-<!-- End #masthead -->
+					<!---->
 
-            <!--End masthead-->
+					<li class="menu-overlay__item">
+						<a href="/categories" target="_self">Categories</a>
+					</li>
 
-            <!--Start content-->
-            <div id="content" class="site-content unit-1 unit-lg-3-5">
-                <main
-    class="article-view"
->
-    
-    <!--The page to display the Markdown content of posts and pages.-->
-    <header class="post-header">
-    <h1 class="post-title">Templating a Node.js App with EJS</h1>
+					<!---->
 
-     <div class="post-meta">
-    <div class="post-date-wrapper">
-        <span>Posted:</span>
-        <time class="post-date" datetime="2025-06-03T11:32:33.874Z">
-            2022-07-09
-        </time>
+					<!---->
 
-        
-        <span class="separator">|</span>
-        <span>Updated:</span>
-        <time class="post-updated-date" datetime="2025-06-03T20:09:52.360Z">
-            2025-06-03
-        </time>
-        
-    </div>
+					<li class="menu-overlay__item">
+						<a href="/tags" target="_self">Tags</a>
+					</li>
 
-    
-    <div class="taxonomy-group">
-        <span>Category:</span>
-        <span class="post-category">
-            <a href="/category/web-development">web-development</a>
-        </span>
-    </div>
-    
-    <!---->
-    
-    <div class="taxonomy-group post-tags-group">
-        <span>Tagged:</span>
-        
-        <a class="post-tag" href="/tag/nodejs">nodejs</a>
-        
-        <a class="post-tag" href="/tag/ejs">ejs</a>
-        
-        <a class="post-tag" href="/tag/express">express</a>
-        
-        <a class="post-tag" href="/tag/templates">templates</a>
-        
-        <a class="post-tag" href="/tag/javascript">javascript</a>
-        
-    </div>
-    
-</div>
- 
-</header>
+					<!---->
 
-<div class="article-content">
-    
-    <p>
-        <em>Learn to build dynamic Node.js apps using EJS, with full setup, templating, data passing, static files, and LiveReload integration.</em>
-    </p>
-    
+					<!---->
 
-    <!--Content-->
-    <h2>Intro</h2>
+					<li class="menu-overlay__item">
+						<a href="/search" target="_self">Search</a>
+					</li>
 
-<p>There are a lot of tutorials about EJS out there, as well as a lot of <a href="https://stackoverflow.com/questions/tagged/ejs">questions/answers</a>.<br>I decided to make my own as a beginner&#39;s guide, full of details, to bring the reader&#39;s attention about what could be going on or maybe off...</p>
-<p>In this post, we are going to build a basic Node.js web application using EJS as a templating language.<br>So, we&#39;ll go through the process step by step and explain every step to understand it 🧠</p>
-<h2 id="template-engines">Template engines</h2>
+					<!---->
 
-<p>A template engine, processor or parser, is a software designed to inject data into a file, that commonly have the same extension as the template language or refers to, by using special markups that the template engine is programmed to understand and execute, resulting in a document where data have been passed from one end to another.</p>
-<p>Why don&#39;t we put the desired data directly into the file?<br>Good question!<br>The simple answer is that template engines where created not only to structure the output of a document, but also to pass, get and set dynamic data as numbers, dates, strings, database information and so on...</p>
-<p>Today, template engines are mostly used to build server-side applications structured as fragments, using a template language to combine those small pieces and pass data across them to rapidly produce a ready to use application.</p>
-<p>Some popular JavaScript template engines:</p>
-<ul>
-<li><a href="https://ejs.co/">EJS</a>: Embedded JavaScript templating</li>
-<li><a href="https://pugjs.org/api/getting-started.html">Pug</a>: Robust, elegant, feature rich template engine for Node.js</li>
-<li><a href="https://handlebarsjs.com/">Handlebars</a>: Minimal templating on steroids</li>
-<li><a href="https://mozilla.github.io/nunjucks/">Nunjucks</a>: A rich and powerful templating language for JavaScript</li>
-<li><a href="https://github.com/janl/mustache.js">Mustache</a>: Logic-less {{mustache}} templates with JavaScript</li>
-</ul>
-<p>I prefer and recommend EJS because:</p>
-<blockquote>
-<p>It&#39;s just plain JavaScript.</p>
-</blockquote>
-<h2>Setup</h2>
+					<!---->
 
-<p>To follow up this tutorial, you&#39;ll need to install on your machine <a href="https://nodejs.org/en/">Node.js</a>, always go for the Long Time Support version, at the time of writing this post it&#39;s 16.15.1 LTS.<br>You&#39;ll also need a code editor, I use and strongly recommend <a href="https://code.visualstudio.com/">VS Code</a>, the best and most developer friendly code editor in my opinion.</p>
-<p>Now, create a folder named ejs where you usually stock your projects, mine is simply projects.<br>Open this folder in VS Code, then open the <a href="https://code.visualstudio.com/docs/editor/integrated-terminal">TERMINAL</a> by pressing on &#39;Ctrl&#39; and &#39;`&#39; (the backtick character under Esc) at the same time.<br>Type the following command to initialize a project using <a href="https://www.npmjs.com/">npm</a> (Node Package Manager):</p>
-<pre><code class="language-bash">npm init -y
+					<li class="menu-overlay__item">
+						<a href="/page/my-public-projects" target="_self">Projects</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/about-me" target="_self">About Me</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/sitemap" target="_self">Sitemap</a>
+					</li>
+
+					<!---->
+				</div>
+			</div>
+
+			<!--End menu-->
+
+			<!--Start masthead-->
+			<!-- Start #masthead -->
+
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="
+					background-image: url(/content/uploads/images/block-of-red-orange-yellow-and-green-lego-7443ef69c7d80846.webp);
+				"
+			>
+				<div class="site-header__overlay"></div>
+
+				<!-- Start .site-header__content -->
+				<div class="site-header__content">
+					<div class="site-header__branding">
+						<h1 class="site-header__title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-header__description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
+
+					<nav id="nav" class="site-header__nav" aria-label="MENU">
+						<ul class="site-header__nav-list">
+							<li class="site-header__nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewBox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<!-- End .site-header__content -->
+			</header>
+
+			<!-- End #masthead -->
+
+			<!--End masthead-->
+
+			<!--Start content-->
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main class="article-view">
+					<!--The page to display the Markdown content of posts and pages.-->
+					<header class="post-header">
+						<h1 class="post-title">Templating a Node.js App with EJS</h1>
+
+						<div class="post-meta">
+							<div class="post-date-wrapper">
+								<span>Posted:</span>
+								<time class="post-date" datetime="2025-06-03T11:32:33.874Z"> 2022-07-09 </time>
+
+								<span class="separator">|</span>
+								<span>Updated:</span>
+								<time class="post-updated-date" datetime="2025-06-03T20:09:52.360Z"> 2025-06-03 </time>
+							</div>
+
+							<div class="taxonomy-group">
+								<span>Category:</span>
+								<span class="post-category">
+									<a href="/category/web-development">web-development</a>
+								</span>
+							</div>
+
+							<!---->
+
+							<div class="taxonomy-group post-tags-group">
+								<span>Tagged:</span>
+
+								<a class="post-tag" href="/tag/nodejs">nodejs</a>
+
+								<a class="post-tag" href="/tag/ejs">ejs</a>
+
+								<a class="post-tag" href="/tag/express">express</a>
+
+								<a class="post-tag" href="/tag/templates">templates</a>
+
+								<a class="post-tag" href="/tag/javascript">javascript</a>
+							</div>
+						</div>
+					</header>
+
+					<div class="article-content">
+						<p>
+							<em
+								>Learn to build dynamic Node.js apps using EJS, with full setup, templating, data
+								passing, static files, and LiveReload integration.</em
+							>
+						</p>
+
+						<!--Content-->
+						<h2>Intro</h2>
+
+						<p>
+							There are a lot of tutorials about EJS out there, as well as a lot of
+							<a href="https://stackoverflow.com/questions/tagged/ejs">questions/answers</a>.<br />I
+							decided to make my own as a beginner&#39;s guide, full of details, to bring the reader&#39;s
+							attention about what could be going on or maybe off...
+						</p>
+						<p>
+							In this post, we are going to build a basic Node.js web application using EJS as a
+							templating language.<br />So, we&#39;ll go through the process step by step and explain
+							every step to understand it 🧠
+						</p>
+						<h2 id="template-engines">Template engines</h2>
+
+						<p>
+							A template engine, processor or parser, is a software designed to inject data into a file,
+							that commonly have the same extension as the template language or refers to, by using
+							special markups that the template engine is programmed to understand and execute, resulting
+							in a document where data have been passed from one end to another.
+						</p>
+						<p>
+							Why don&#39;t we put the desired data directly into the file?<br />Good question!<br />The
+							simple answer is that template engines where created not only to structure the output of a
+							document, but also to pass, get and set dynamic data as numbers, dates, strings, database
+							information and so on...
+						</p>
+						<p>
+							Today, template engines are mostly used to build server-side applications structured as
+							fragments, using a template language to combine those small pieces and pass data across them
+							to rapidly produce a ready to use application.
+						</p>
+						<p>Some popular JavaScript template engines:</p>
+						<ul>
+							<li><a href="https://ejs.co/">EJS</a>: Embedded JavaScript templating</li>
+							<li>
+								<a href="https://pugjs.org/api/getting-started.html">Pug</a>: Robust, elegant, feature
+								rich template engine for Node.js
+							</li>
+							<li><a href="https://handlebarsjs.com/">Handlebars</a>: Minimal templating on steroids</li>
+							<li>
+								<a href="https://mozilla.github.io/nunjucks/">Nunjucks</a>: A rich and powerful
+								templating language for JavaScript
+							</li>
+							<li>
+								<a href="https://github.com/janl/mustache.js">Mustache</a>: Logic-less {{mustache}}
+								templates with JavaScript
+							</li>
+						</ul>
+						<p>I prefer and recommend EJS because:</p>
+						<blockquote>
+							<p>It&#39;s just plain JavaScript.</p>
+						</blockquote>
+						<h2>Setup</h2>
+
+						<p>
+							To follow up this tutorial, you&#39;ll need to install on your machine
+							<a href="https://nodejs.org/en/">Node.js</a>, always go for the Long Time Support version,
+							at the time of writing this post it&#39;s 16.15.1 LTS.<br />You&#39;ll also need a code
+							editor, I use and strongly recommend <a href="https://code.visualstudio.com/">VS Code</a>,
+							the best and most developer friendly code editor in my opinion.
+						</p>
+						<p>
+							Now, create a folder named ejs where you usually stock your projects, mine is simply
+							projects.<br />Open this folder in VS Code, then open the
+							<a href="https://code.visualstudio.com/docs/editor/integrated-terminal">TERMINAL</a> by
+							pressing on &#39;Ctrl&#39; and &#39;`&#39; (the backtick character under Esc) at the same
+							time.<br />Type the following command to initialize a project using
+							<a href="https://www.npmjs.com/">npm</a> (Node Package Manager):
+						</p>
+						<pre><code class="language-bash">npm init -y
 </code></pre>
-<p>This command will create a <code>package.json</code> file at the root of your ejs project. This <code>JSON</code> file contains all the information about your project.<br>You can add a <code>description</code>, modify the <code>version</code>&#39;s app as well as the <code>main</code> entry file of the app (default is <code>index.js</code>), add <code>scripts</code>, <code>keywords</code>, your name as the <code>author</code>, and keep track of installed packages (we&#39;ll see this last one in a moment).<br>You can leave it as it is, and it&#39;s also fine, since we are just testing and not publishing our app.</p>
-<h2>Express</h2>
+						<p>
+							This command will create a <code>package.json</code> file at the root of your ejs project.
+							This <code>JSON</code> file contains all the information about your project.<br />You can
+							add a <code>description</code>, modify the <code>version</code>&#39;s app as well as the
+							<code>main</code> entry file of the app (default is <code>index.js</code>), add
+							<code>scripts</code>, <code>keywords</code>, your name as the <code>author</code>, and keep
+							track of installed packages (we&#39;ll see this last one in a moment).<br />You can leave it
+							as it is, and it&#39;s also fine, since we are just testing and not publishing our app.
+						</p>
+						<h2>Express</h2>
 
-<p>Since we&#39;re building a web app in Node.js, we&#39;ll be using <a href="https://expressjs.com/">Express</a> to simplify our development and take advantage of it&#39;s features:</p>
-<ul>
-<li>Fast server-side development: Time saver, by using features of Node.js as functions</li>
-<li>Middleware: Access application&#39;s request-response cycle</li>
-<li>Routing: Great routing mechanism for client requests</li>
-<li>Templating: Build dynamic content with template engines</li>
-<li>Debugging: Express points to the part where a bug occurs</li>
-</ul>
-<p>Express is the most popular Node.js web framework, written in plain JavaScript, that helps developers build web and mobile applications quickly with ease.<br>Express let&#39;s also developers build the way they want, without forcing them into a specific way of doing things, this is why it&#39;s called unopinionated!</p>
-<p>Install Express by typing the following command in the TERMINAL:</p>
-<pre><code class="language-bash">npm i express
+						<p>
+							Since we&#39;re building a web app in Node.js, we&#39;ll be using
+							<a href="https://expressjs.com/">Express</a> to simplify our development and take advantage
+							of it&#39;s features:
+						</p>
+						<ul>
+							<li>Fast server-side development: Time saver, by using features of Node.js as functions</li>
+							<li>Middleware: Access application&#39;s request-response cycle</li>
+							<li>Routing: Great routing mechanism for client requests</li>
+							<li>Templating: Build dynamic content with template engines</li>
+							<li>Debugging: Express points to the part where a bug occurs</li>
+						</ul>
+						<p>
+							Express is the most popular Node.js web framework, written in plain JavaScript, that helps
+							developers build web and mobile applications quickly with ease.<br />Express let&#39;s also
+							developers build the way they want, without forcing them into a specific way of doing
+							things, this is why it&#39;s called unopinionated!
+						</p>
+						<p>Install Express by typing the following command in the TERMINAL:</p>
+						<pre><code class="language-bash">npm i express
 # i stands for install
 </code></pre>
-<p>This command will install Express into the application.<br>You&#39;ll see after running this command a <code>node_modules</code> folder as well as a <code>package-lock.json</code> file at the root of the app.</p>
-<p>We now have to display the famous <em>Hello World!</em> with Express.<br>The main entry file, if you didn&#39;t change it in <code>package.json</code>, is <code>index.js</code>, this file is commonly known as the main server file.<br>Create this file at the root of the app.<br>The app structure should now look like the following tree:</p>
-<pre><code class="language-txt">Application&#39;s root without node_modules folder
+						<p>
+							This command will install Express into the application.<br />You&#39;ll see after running
+							this command a <code>node_modules</code> folder as well as a
+							<code>package-lock.json</code> file at the root of the app.
+						</p>
+						<p>
+							We now have to display the famous <em>Hello World!</em> with Express.<br />The main entry
+							file, if you didn&#39;t change it in <code>package.json</code>, is <code>index.js</code>,
+							this file is commonly known as the main server file.<br />Create this file at the root of
+							the app.<br />The app structure should now look like the following tree:
+						</p>
+						<pre><code class="language-txt">Application&#39;s root without node_modules folder
 ├── index.js
 ├── package-lock.json
 └── package.json
 </code></pre>
-<p>Put the following code in <code>index.js</code>:</p>
-<details>
-<summary>/index.js</summary>
+						<p>Put the following code in <code>index.js</code>:</p>
+						<details>
+							<summary>/index.js</summary>
 
-<pre><code class="language-js">const express = require(&quot;express&quot;)
+							<pre><code class="language-js">const express = require(&quot;express&quot;)
 const app = express()
 
 app.get(&quot;/&quot;, (req, res) =&gt; {
@@ -283,38 +352,64 @@ app.listen(3000, () =&gt; {
     console.log(`App launched @ http://localhost:3000`)
 })
 </code></pre>
-</details>
+						</details>
 
-<p>To run this app, simply type in the TERMINAL the following command:</p>
-<pre><code class="language-bash">node index
+						<p>To run this app, simply type in the TERMINAL the following command:</p>
+						<pre><code class="language-bash">node index
 </code></pre>
-<p>You&#39;ll immediately see under it:</p>
-<pre><code class="language-bash">App launched @ http://localhost:3000
+						<p>You&#39;ll immediately see under it:</p>
+						<pre><code class="language-bash">App launched @ http://localhost:3000
 </code></pre>
-<p>Put your mouse over the link and click on <strong>Follow link</strong>.<br>If you don&#39;t see it, put your mouse over the link, press <code>Ctrl</code> and click on the link.<br>You now should see a beautiful <em>Hello World!</em> in your default browser!</p>
-<h2>Nodemon</h2>
+						<p>
+							Put your mouse over the link and click on <strong>Follow link</strong>.<br />If you
+							don&#39;t see it, put your mouse over the link, press <code>Ctrl</code> and click on the
+							link.<br />You now should see a beautiful <em>Hello World!</em> in your default browser!
+						</p>
+						<h2>Nodemon</h2>
 
-<p>Remember that this app is a server-side one!<br>Brief and quick example.<br>Try to change <em>Hello World!</em> in <code>index.js</code> to whatever other string, let&#39;s say <em>Hi from server-side!</em> and save the file.<br>If you reload your browser nothing happens, no change is made!<br>This is because the server is still running up your previous code.<br>To display your new string, you should stop the server, restart it, then reload the browser.<br>You can do the following in the TERMINAL:</p>
-<ol>
-<li>Focus inside your TERMINAL and click <code>Ctrl+c</code>, this will stop the server</li>
-<li>Type <code>node index</code>, this will restart the server</li>
-<li>Reload your browser and your new string appears</li>
-</ol>
-<p>When developing, you&#39;ll inspect your changes in the browser as much as you&#39;re coding, the above process to see the new output is unproductive, a time killer, and will make your hate coding.</p>
-<p>Fortunately, their is a very popular and well maintained package called <a href="https://www.npmjs.com/package/nodemon">nodemon</a> that takes care of automatically restarting the Node.js application when changes are detected for a <code>.js</code>, <code>.mjs</code> or <code>.json</code> file in the working directory.<br>Nodemon is configurable and will allow us to define which directories and extensions to watch or even ignore, and that&#39;s just great!</p>
-<p>Let&#39;s install Nodemon.
-In the TERMINAL, type the following command:</p>
-<pre><code class="language-bash">npm i -D nodemon
+						<p>
+							Remember that this app is a server-side one!<br />Brief and quick example.<br />Try to
+							change <em>Hello World!</em> in <code>index.js</code> to whatever other string, let&#39;s
+							say <em>Hi from server-side!</em> and save the file.<br />If you reload your browser nothing
+							happens, no change is made!<br />This is because the server is still running up your
+							previous code.<br />To display your new string, you should stop the server, restart it, then
+							reload the browser.<br />You can do the following in the TERMINAL:
+						</p>
+						<ol>
+							<li>Focus inside your TERMINAL and click <code>Ctrl+c</code>, this will stop the server</li>
+							<li>Type <code>node index</code>, this will restart the server</li>
+							<li>Reload your browser and your new string appears</li>
+						</ol>
+						<p>
+							When developing, you&#39;ll inspect your changes in the browser as much as you&#39;re
+							coding, the above process to see the new output is unproductive, a time killer, and will
+							make your hate coding.
+						</p>
+						<p>
+							Fortunately, their is a very popular and well maintained package called
+							<a href="https://www.npmjs.com/package/nodemon">nodemon</a> that takes care of automatically
+							restarting the Node.js application when changes are detected for a <code>.js</code>,
+							<code>.mjs</code> or <code>.json</code> file in the working directory.<br />Nodemon is
+							configurable and will allow us to define which directories and extensions to watch or even
+							ignore, and that&#39;s just great!
+						</p>
+						<p>Let&#39;s install Nodemon. In the TERMINAL, type the following command:</p>
+						<pre><code class="language-bash">npm i -D nodemon
 # -D is a flag standing for development
 </code></pre>
-<p>This command will install Nodemon as a development package, this means that we need this package only for development and not for production/deployment.<br>Open <code>package.json</code>, remove <code>test</code> command under <code>scripts</code> and replace it by the following one:</p>
-<pre><code class="language-json">&quot;start&quot;: &quot;nodemon index.js&quot;
+						<p>
+							This command will install Nodemon as a development package, this means that we need this
+							package only for development and not for production/deployment.<br />Open
+							<code>package.json</code>, remove <code>test</code> command under <code>scripts</code> and
+							replace it by the following one:
+						</p>
+						<pre><code class="language-json">&quot;start&quot;: &quot;nodemon index.js&quot;
 </code></pre>
-<p>The file should now look like this:</p>
-<details>
-<summary>/package.json</summary>
+						<p>The file should now look like this:</p>
+						<details>
+							<summary>/package.json</summary>
 
-<pre><code class="language-json">{
+							<pre><code class="language-json">{
     &quot;name&quot;: &quot;ejs&quot;,
     &quot;version&quot;: &quot;1.0.0&quot;,
     &quot;description&quot;: &quot;&quot;,
@@ -333,13 +428,15 @@ In the TERMINAL, type the following command:</p>
     }
 }
 </code></pre>
-</details>
+						</details>
 
-<p>Now, all you have to do is to stop the server if it&#39;s running then type in the TERMINAL:</p>
-<pre><code class="language-bash">npm start
+						<p>
+							Now, all you have to do is to stop the server if it&#39;s running then type in the TERMINAL:
+						</p>
+						<pre><code class="language-bash">npm start
 </code></pre>
-<p>You&#39;ll get directly under it:</p>
-<pre><code class="language-bash">&gt; ejs@1.0.0 start
+						<p>You&#39;ll get directly under it:</p>
+						<pre><code class="language-bash">&gt; ejs@1.0.0 start
 &gt; nodemon index.js
 
 [nodemon] 2.0.19
@@ -349,17 +446,25 @@ In the TERMINAL, type the following command:</p>
 [nodemon] starting `node index.js`
 App 🚀 @ http://localhost:3000
 </code></pre>
-<p>Yes, I&#39;ve replaced <em>launched</em> by 🚀 in <code>index.js</code>.<br>Follow the link.<br>Try now to change <em>Hi from server-side!</em> to anything else, save the file and then reload your browser.<br>Great! The server have restarted the app and you can now see your changes, after you have saved them, by reloading the browser.</p>
-<h2>First EJS file</h2>
+						<p>
+							Yes, I&#39;ve replaced <em>launched</em> by 🚀 in <code>index.js</code>.<br />Follow the
+							link.<br />Try now to change <em>Hi from server-side!</em> to anything else, save the file
+							and then reload your browser.<br />Great! The server have restarted the app and you can now
+							see your changes, after you have saved them, by reloading the browser.
+						</p>
+						<h2>First EJS file</h2>
 
-<p>To start using EJS in Node.js, we have first to install it, you should by now know where to type the following command:</p>
-<pre><code class="language-bash">npm i ejs
+						<p>
+							To start using EJS in Node.js, we have first to install it, you should by now know where to
+							type the following command:
+						</p>
+						<pre><code class="language-bash">npm i ejs
 </code></pre>
-<p>Update <code>index.js</code> to <code>set</code> EJS as our template engine:</p>
-<details>
-<summary>/index.js</summary>
+						<p>Update <code>index.js</code> to <code>set</code> EJS as our template engine:</p>
+						<details>
+							<summary>/index.js</summary>
 
-<pre><code class="language-js">const express = require(&quot;express&quot;)
+							<pre><code class="language-js">const express = require(&quot;express&quot;)
 const app = express()
 
 // Set EJS as template engine
@@ -374,21 +479,27 @@ app.listen(3000, () =&gt; {
     console.log(`App 🚀 @ http://localhost:3000`)
 })
 </code></pre>
-</details>
+						</details>
 
-<p>Since EJS is now installed, let&#39;s use it!<br>To do so, we have to create a <code>views</code> folder at the root of our app.<br>Express will look inside this folder to <code>render</code> our page(s) by using EJS as a template engine.<br>Inside <code>views</code>, create an <code>index.ejs</code> file.<br>The app structure should now look like the following tree:</p>
-<pre><code class="language-txt">Application&#39;s root without node_modules folder
+						<p>
+							Since EJS is now installed, let&#39;s use it!<br />To do so, we have to create a
+							<code>views</code> folder at the root of our app.<br />Express will look inside this folder
+							to <code>render</code> our page(s) by using EJS as a template engine.<br />Inside
+							<code>views</code>, create an <code>index.ejs</code> file.<br />The app structure should now
+							look like the following tree:
+						</p>
+						<pre><code class="language-txt">Application&#39;s root without node_modules folder
 ├── index.js
 ├── package-lock.json
 ├── package.json
 └── views
   └── index.ejs
 </code></pre>
-<p>Put the following content inside <code>index.ejs</code>:</p>
-<details>
-<summary>/views/index.ejs</summary>
+						<p>Put the following content inside <code>index.ejs</code>:</p>
+						<details>
+							<summary>/views/index.ejs</summary>
 
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
         &lt;meta charset=&quot;UTF-8&quot; /&gt;
@@ -401,24 +512,49 @@ app.listen(3000, () =&gt; {
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-</details>
+						</details>
 
-<p>As you can see, an <code>.ejs</code> file is just <code>HTML</code> in which we can use plain <code>JavaScript</code>, and we&#39;ll do that later on.</p>
-<p>Now, all we have to do to <code>render</code> this template is to modify only one line in <code>index.js</code>.<br>Replace<br><code>res.send(&quot;Hello World!&quot;)</code><br>by<br><code>res.render(&quot;index&quot;)</code>
-No need to specify the extension of the file because Express has been told to use EJS as a template engine.</p>
-<p>If your server is still running, just reload your browser, otherwise restart it and follow the link.<br>Congrats, your first EJS file is rendered!<br>You can try to modify it, save your modification(s), and refresh your browser to see the changes.</p>
-<h2>LiveReload</h2>
+						<p>
+							As you can see, an <code>.ejs</code> file is just <code>HTML</code> in which we can use
+							plain <code>JavaScript</code>, and we&#39;ll do that later on.
+						</p>
+						<p>
+							Now, all we have to do to <code>render</code> this template is to modify only one line in
+							<code>index.js</code>.<br />Replace<br /><code>res.send(&quot;Hello World!&quot;)</code
+							><br />by<br /><code>res.render(&quot;index&quot;)</code> No need to specify the extension
+							of the file because Express has been told to use EJS as a template engine.
+						</p>
+						<p>
+							If your server is still running, just reload your browser, otherwise restart it and follow
+							the link.<br />Congrats, your first EJS file is rendered!<br />You can try to modify it,
+							save your modification(s), and refresh your browser to see the changes.
+						</p>
+						<h2>LiveReload</h2>
 
-<p>Earlier, we&#39;ve solved a half of the problem, no need to shut down the server and restart it anymore.<br>But what about the browser, should I always refresh it?<br>Absolutely not! This would also be an insane development step to do in today&#39;s world!<br>Imagine having to refresh each and every time you make some changes...</p>
-<p>Let&#39;s bring into our project 2 packages that will do the work for us.<br>Type the following command:</p>
-<pre><code class="language-bash">npm i -D livereload connect-livereload
+						<p>
+							Earlier, we&#39;ve solved a half of the problem, no need to shut down the server and restart
+							it anymore.<br />But what about the browser, should I always refresh it?<br />Absolutely
+							not! This would also be an insane development step to do in today&#39;s world!<br />Imagine
+							having to refresh each and every time you make some changes...
+						</p>
+						<p>
+							Let&#39;s bring into our project 2 packages that will do the work for us.<br />Type the
+							following command:
+						</p>
+						<pre><code class="language-bash">npm i -D livereload connect-livereload
 </code></pre>
-<p>This command will install <a href="https://www.npmjs.com/package/livereload">livereload</a> and <a href="https://www.npmjs.com/package/connect-livereload">connect-livereload</a> as development dependencies, just like Nodemon.<br>As you can guest, they work together, along with Nodemon, to reload the browser when files on the server have been modified.</p>
-<p>Let&#39;s implement this behavior by updating <code>index.js</code>:</p>
-<details>
-<summary>/index.js</summary>
+						<p>
+							This command will install
+							<a href="https://www.npmjs.com/package/livereload">livereload</a> and
+							<a href="https://www.npmjs.com/package/connect-livereload">connect-livereload</a> as
+							development dependencies, just like Nodemon.<br />As you can guest, they work together,
+							along with Nodemon, to reload the browser when files on the server have been modified.
+						</p>
+						<p>Let&#39;s implement this behavior by updating <code>index.js</code>:</p>
+						<details>
+							<summary>/index.js</summary>
 
-<pre><code class="language-js">const express = require(&quot;express&quot;)
+							<pre><code class="language-js">const express = require(&quot;express&quot;)
 const app = express()
 
 // Set EJS as template engine
@@ -451,13 +587,16 @@ app.listen(3000, () =&gt; {
     console.log(`App 🚀 @ http://localhost:3000`)
 })
 </code></pre>
-</details>
+						</details>
 
-<p>A final step is needed for this to work as expected.<br>We&#39;ll have to add a command under <code>scripts</code> in <code>package.json</code>:</p>
-<details>
-<summary>/package.json</summary>
+						<p>
+							A final step is needed for this to work as expected.<br />We&#39;ll have to add a command
+							under <code>scripts</code> in <code>package.json</code>:
+						</p>
+						<details>
+							<summary>/package.json</summary>
 
-<pre><code class="language-json">{
+							<pre><code class="language-json">{
     &quot;name&quot;: &quot;ejs&quot;,
     &quot;version&quot;: &quot;1.0.0&quot;,
     &quot;description&quot;: &quot;&quot;,
@@ -480,27 +619,47 @@ app.listen(3000, () =&gt; {
     }
 }
 </code></pre>
-</details>
+						</details>
 
-<p>This command tells Nodemon to watch for changes of files with a <code>.js</code> or <code>.ejs</code> extension in the app.<br><em>Nota bene</em>: you can change the name of the command to whatever you like!<br>So for example you could rename <em>start</em> to <em>fire</em> and maybe <em>watch</em> to <em>build</em>...</p>
-<p>Now comes the moment of truth.<br>If the server is running stop it.<br>Type the following command:</p>
-<pre><code class="language-bash">npm run watch
+						<p>
+							This command tells Nodemon to watch for changes of files with a <code>.js</code> or
+							<code>.ejs</code> extension in the app.<br /><em>Nota bene</em>: you can change the name of
+							the command to whatever you like!<br />So for example you could rename <em>start</em> to
+							<em>fire</em> and maybe <em>watch</em> to <em>build</em>...
+						</p>
+						<p>
+							Now comes the moment of truth.<br />If the server is running stop it.<br />Type the
+							following command:
+						</p>
+						<pre><code class="language-bash">npm run watch
 </code></pre>
-<p>If you follow the link, you should see a big <em>Hello from EJS</em>.<br>Now, try to change it to whatever you like and save.<br><strong>Abracadabra</strong>, the browser reloads automatically and your changes are rendered to the browser instantly!</p>
-<h2>Templating with EJS</h2>
+						<p>
+							If you follow the link, you should see a big <em>Hello from EJS</em>.<br />Now, try to
+							change it to whatever you like and save.<br /><strong>Abracadabra</strong>, the browser
+							reloads automatically and your changes are rendered to the browser instantly!
+						</p>
+						<h2>Templating with EJS</h2>
 
-<p>Templating is the mechanism of combining multiple parts into one.<br>In the <code>views</code> folder, create a new folder called <code>partials</code>.<br>This folder will contain the different parts of our app.<br>As you know, the main parts of a webpage are:</p>
-<ol>
-<li>The head</li>
-<li>The body</li>
-<li>The footer</li>
-</ol>
-<p>Sometimes, there is also a sidebar, but it&#39;s generally a part of the body.</p>
-<p>Now, create 2 files inside the <code>partials</code> folder:<br><code>head.ejs</code> and <code>footer.ejs</code>.</p>
-<details>
-<summary>/views/partials/head.ejs</summary>
+						<p>
+							Templating is the mechanism of combining multiple parts into one.<br />In the
+							<code>views</code> folder, create a new folder called <code>partials</code>.<br />This
+							folder will contain the different parts of our app.<br />As you know, the main parts of a
+							webpage are:
+						</p>
+						<ol>
+							<li>The head</li>
+							<li>The body</li>
+							<li>The footer</li>
+						</ol>
+						<p>Sometimes, there is also a sidebar, but it&#39;s generally a part of the body.</p>
+						<p>
+							Now, create 2 files inside the <code>partials</code> folder:<br /><code>head.ejs</code> and
+							<code>footer.ejs</code>.
+						</p>
+						<details>
+							<summary>/views/partials/head.ejs</summary>
 
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
         &lt;meta charset=&quot;UTF-8&quot; /&gt;
@@ -511,41 +670,68 @@ app.listen(3000, () =&gt; {
     &lt;body&gt;&lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-</details>
+						</details>
 
-<details>
-<summary>/views/partials/footer.ejs</summary>
+						<details>
+							<summary>/views/partials/footer.ejs</summary>
 
-<pre><code class="language-html">&lt;/body&gt;
+							<pre><code class="language-html">&lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-</details>
+						</details>
 
-<p>Man, your code is a mess!<br>There is no closing tags for <code>html</code> and <code>body</code> in <code>head.ejs</code>, moreover there is two lonely closing tags for <code>html</code> and <code>body</code> in <code>footer.ejs</code>!<br>I know, be patient, the magic is coming.<br>Update <code>index.ejs</code> with the following content:</p>
-<details>
-<summary>/views/index.ejs</summary>
+						<p>
+							Man, your code is a mess!<br />There is no closing tags for <code>html</code> and
+							<code>body</code> in <code>head.ejs</code>, moreover there is two lonely closing tags for
+							<code>html</code> and <code>body</code> in <code>footer.ejs</code>!<br />I know, be patient,
+							the magic is coming.<br />Update <code>index.ejs</code> with the following content:
+						</p>
+						<details>
+							<summary>/views/index.ejs</summary>
 
-<pre><code class="language-html">&lt;%- include(&#39;partials/head&#39;) %&gt;
+							<pre><code class="language-html">&lt;%- include(&#39;partials/head&#39;) %&gt;
 
 &lt;h1&gt;I&#39;m templating with EJS&lt;/h1&gt;
 
 &lt;%- include(&#39;partials/footer&#39;) %&gt;
 </code></pre>
-</details>
+						</details>
 
-<p>Save and go take a look at your browser 😁<br>The code is self explanatory.<br>We are using the <code>include()</code> function of EJS, to <strong>include</strong> a template into another <strong>at a specific location</strong>.<br>This is a <strong>HUGE</strong> step in your dev journey, trust me!</p>
-<p>Ok, it&#39;s very nice, but what&#39;s the benefit since we could put it all together?! 🤔<br>Good question!<br>The first obvious benefit is to write a <strong>DRY</strong> (Don&#39;t Repeat Yourself) code!<br>If you have ever built a static website before, you&#39;ll know that you would include the header, maybe a sidebar, and the footer for each and every page.<br>Well, this will not be the case anymore 😉<br>The second and most amazing benefit is that you&#39;ll be able to write dynamic code by using JavaScript inside the template, you already did it with <code>include()</code>, but we&#39;ll see much more in the next section.</p>
-<h2>Passing data</h2>
+						<p>
+							Save and go take a look at your browser 😁<br />The code is self explanatory.<br />We are
+							using the <code>include()</code> function of EJS, to <strong>include</strong> a template
+							into another <strong>at a specific location</strong>.<br />This is a
+							<strong>HUGE</strong> step in your dev journey, trust me!
+						</p>
+						<p>
+							Ok, it&#39;s very nice, but what&#39;s the benefit since we could put it all together?!
+							🤔<br />Good question!<br />The first obvious benefit is to write a
+							<strong>DRY</strong> (Don&#39;t Repeat Yourself) code!<br />If you have ever built a static
+							website before, you&#39;ll know that you would include the header, maybe a sidebar, and the
+							footer for each and every page.<br />Well, this will not be the case anymore 😉<br />The
+							second and most amazing benefit is that you&#39;ll be able to write dynamic code by using
+							JavaScript inside the template, you already did it with <code>include()</code>, but
+							we&#39;ll see much more in the next section.
+						</p>
+						<h2>Passing data</h2>
 
-<p>This is, in my opinion, the most powerful, used and sensitive functionality of any template engine!<br>Although, we should be aware of how to use it and what we are passing from one file to another and especially from one end (the backend/server) to another (the frontend/browser)!</p>
-<h3 id="simple-routing">Simple routing</h3>
+						<p>
+							This is, in my opinion, the most powerful, used and sensitive functionality of any template
+							engine!<br />Although, we should be aware of how to use it and what we are passing from one
+							file to another and especially from one end (the backend/server) to another (the
+							frontend/browser)!
+						</p>
+						<h3 id="simple-routing">Simple routing</h3>
 
-<hr>
-<p>Let&#39;s begin by adding another page to our app.<br>Create an <code>about.ejs</code> file in the <code>views</code> folder:</p>
-<details>
-<summary>/views/about.ejs</summary>
+						<hr />
+						<p>
+							Let&#39;s begin by adding another page to our app.<br />Create an
+							<code>about.ejs</code> file in the <code>views</code> folder:
+						</p>
+						<details>
+							<summary>/views/about.ejs</summary>
 
-<pre><code class="language-html">&lt;%- include(&#39;partials/head&#39;) %&gt;
+							<pre><code class="language-html">&lt;%- include(&#39;partials/head&#39;) %&gt;
 
 &lt;h1&gt;About me&lt;/h1&gt;
 &lt;p&gt;
@@ -556,28 +742,54 @@ app.listen(3000, () =&gt; {
 
 &lt;%- include(&#39;partials/footer&#39;) %&gt;
 </code></pre>
-</details>
+						</details>
 
-<p>While your server is running up, try to go to the following route:</p>
-<pre><code class="language-txt">http://localhost:3000/about
+						<p>While your server is running up, try to go to the following route:</p>
+						<pre><code class="language-txt">http://localhost:3000/about
 </code></pre>
-<p>You will see an <code>error</code> page with the following message:</p>
-<pre><code class="language-txt">Cannot GET /about
+						<p>You will see an <code>error</code> page with the following message:</p>
+						<pre><code class="language-txt">Cannot GET /about
 </code></pre>
-<p>This is because the <code>/about</code> route was not defined in the backend.<br>Open <code>index.js</code> and add under the main route a new one:</p>
-<pre><code class="language-js">// Rendering about page on the /about route
+						<p>
+							This is because the <code>/about</code> route was not defined in the backend.<br />Open
+							<code>index.js</code> and add under the main route a new one:
+						</p>
+						<pre><code class="language-js">// Rendering about page on the /about route
 app.get(&quot;/about&quot;, (req, res) =&gt; {
     res.render(&quot;about&quot;)
 })
 </code></pre>
-<p>Go back to your browser and refresh it.<br>Why the browser did not refresh itself?<br>Your server did reload the app, but your browser is on an <code>error</code> page and <code>livereload</code> is now blocked, so even if you make changes they will not be reflected on the frontend.<br>When you refresh your browser, you&#39;ll see the content of <code>about.ejs</code>.</p>
-<p>Simple exercise: try to <code>render</code> <code>about.ejs</code> on <code>about-me</code> route.</p>
-<h3 id="data-object">Data object</h3>
+						<p>
+							Go back to your browser and refresh it.<br />Why the browser did not refresh itself?<br />Your
+							server did reload the app, but your browser is on an <code>error</code> page and
+							<code>livereload</code> is now blocked, so even if you make changes they will not be
+							reflected on the frontend.<br />When you refresh your browser, you&#39;ll see the content of
+							<code>about.ejs</code>.
+						</p>
+						<p>
+							Simple exercise: try to <code>render</code> <code>about.ejs</code> on
+							<code>about-me</code> route.
+						</p>
+						<h3 id="data-object">Data object</h3>
 
-<hr>
-<p>If you look closer to the browser&#39;s title when you&#39;re viewing the content of <code>about.ejs</code>, you&#39;ll notice that it&#39;s the same one as <code>index.ejs</code>: <em>EJS App Homepage</em><br>This is because they share the same <code>&lt;title&gt;</code> passed from <code>head.ejs</code>!<br>The <code>&lt;title&gt;</code> is intended to announce the content of a page, so our pages cannot have the same <code>&lt;title&gt;</code> since they provide different content.<br>In a real life situation, an app will have a different <code>&lt;title&gt;</code> for each page rendered on a route.</p>
-<p>To give our pages different titles, we&#39;ll use the <code>data object</code> of EJS on a rendered page.<br>First of all, make sure that you&#39;re viewing <code>about.ejs</code> in your browser.<br>Modify the code that renders it in <code>index.js</code> to:</p>
-<pre><code class="language-js">/**
+						<hr />
+						<p>
+							If you look closer to the browser&#39;s title when you&#39;re viewing the content of
+							<code>about.ejs</code>, you&#39;ll notice that it&#39;s the same one as
+							<code>index.ejs</code>: <em>EJS App Homepage</em><br />This is because they share the same
+							<code>&lt;title&gt;</code> passed from <code>head.ejs</code>!<br />The
+							<code>&lt;title&gt;</code> is intended to announce the content of a page, so our pages
+							cannot have the same <code>&lt;title&gt;</code> since they provide different content.<br />In
+							a real life situation, an app will have a different <code>&lt;title&gt;</code> for each page
+							rendered on a route.
+						</p>
+						<p>
+							To give our pages different titles, we&#39;ll use the <code>data object</code> of EJS on a
+							rendered page.<br />First of all, make sure that you&#39;re viewing
+							<code>about.ejs</code> in your browser.<br />Modify the code that renders it in
+							<code>index.js</code> to:
+						</p>
+						<pre><code class="language-js">/**
  * Rendering about page on the /about route,
  * while passing the document title as a data object.
  */
@@ -585,13 +797,27 @@ app.get(&quot;/about&quot;, (req, res) =&gt; {
     res.render(&quot;about&quot;, { docTitle: &quot;About me | EJS App&quot; })
 })
 </code></pre>
-<p>In <code>head.ejs</code>, modify the <code>&lt;title&gt;</code> line to:</p>
-<pre><code class="language-html">&lt;title&gt;&lt;%= docTitle %&gt;&lt;/title&gt;
+						<p>In <code>head.ejs</code>, modify the <code>&lt;title&gt;</code> line to:</p>
+						<pre><code class="language-html">&lt;title&gt;&lt;%= docTitle %&gt;&lt;/title&gt;
 </code></pre>
-<p>We are passing the <code>docTitle</code> value <code>About me | EJS App</code> from the backend to the frontend as a variable for a rendered page on a route into the <code>&lt;title&gt;</code> tag.<br>Save both files and go take a look at the browser&#39;s title 😁</p>
-<p>Now, go to the homepage at <code>http://localhost:3000/</code>!!!<br><strong>Don&#39;t panic and read</strong>: this is a crucial rule if you ever want to be a developer when you see an error!<br>Express is amazing, it&#39;s showing you the exact position where the error occurred, as well as the error itself: <code>docTitle is not defined</code>.
-Remember that in <code>index.ejs</code> we are including <code>head.ejs</code>.<br>Of course! In <code>head.ejs</code> there is a variable called <code>docTitle</code>, but we didn&#39;t pass it into the page <code>index.ejs</code> rendered on the main route!<br>To do so, modify the main route in <code>index.js</code> to:</p>
-<pre><code class="language-js">/**
+						<p>
+							We are passing the <code>docTitle</code> value <code>About me | EJS App</code> from the
+							backend to the frontend as a variable for a rendered page on a route into the
+							<code>&lt;title&gt;</code> tag.<br />Save both files and go take a look at the browser&#39;s
+							title 😁
+						</p>
+						<p>
+							Now, go to the homepage at <code>http://localhost:3000/</code>!!!<br /><strong
+								>Don&#39;t panic and read</strong
+							>: this is a crucial rule if you ever want to be a developer when you see an error!<br />Express
+							is amazing, it&#39;s showing you the exact position where the error occurred, as well as the
+							error itself: <code>docTitle is not defined</code>. Remember that in
+							<code>index.ejs</code> we are including <code>head.ejs</code>.<br />Of course! In
+							<code>head.ejs</code> there is a variable called <code>docTitle</code>, but we didn&#39;t
+							pass it into the page <code>index.ejs</code> rendered on the main route!<br />To do so,
+							modify the main route in <code>index.js</code> to:
+						</p>
+						<pre><code class="language-js">/**
  * Rendering index page on the main route,
  * while passing the document title as a data object.
  */
@@ -599,31 +825,59 @@ app.get(&quot;/&quot;, (req, res) =&gt; {
     res.render(&quot;index&quot;, { docTitle: &quot;Homepage | EJS App&quot; })
 })
 </code></pre>
-<p>Save the file and refresh your browser.<br><em>You now know why you have to refresh your browser in this case!</em><br>Switch between the homepage and the about page, they are displaying different titles! Great job!</p>
-<h3 id="do-not-repeat-yourself">Don't Repeat Yourself</h3>
+						<p>
+							Save the file and refresh your browser.<br /><em
+								>You now know why you have to refresh your browser in this case!</em
+							><br />Switch between the homepage and the about page, they are displaying different titles!
+							Great job!
+						</p>
+						<h3 id="do-not-repeat-yourself">Don't Repeat Yourself</h3>
 
-<hr>
-<p>Suppose the <code>&lt;h1&gt;</code> tags in <code>index.ejs</code> and <code>about.ejs</code> represent titles of the content in each page, like an article title, just a little bit more descriptive than the document title.<br>Let&#39;s render them by using the data object:</p>
-<pre><code class="language-js">app.get(&quot;/&quot;, (req, res) =&gt; {
+						<hr />
+						<p>
+							Suppose the <code>&lt;h1&gt;</code> tags in <code>index.ejs</code> and
+							<code>about.ejs</code> represent titles of the content in each page, like an article title,
+							just a little bit more descriptive than the document title.<br />Let&#39;s render them by
+							using the data object:
+						</p>
+						<pre><code class="language-js">app.get(&quot;/&quot;, (req, res) =&gt; {
     res.render(&quot;index&quot;, { docTitle: &quot;Homepage | EJS App&quot;, pageTitle: &quot;Homepage of templating with EJS application&quot; })
 })
 </code></pre>
-<pre><code class="language-js">app.get(&quot;/about&quot;, (req, res) =&gt; {
+						<pre><code class="language-js">app.get(&quot;/about&quot;, (req, res) =&gt; {
     res.render(&quot;about&quot;, { docTitle: &quot;About me | EJS App&quot;, pageTitle: &quot;A little bit about myself&quot; })
 })
 </code></pre>
-<p>And of course in each file the <code>&lt;h1&gt;</code> line becomes:<br><code>&lt;h1&gt;&lt;%= pageTitle %&gt;&lt;/h1&gt;</code></p>
-<p>Suppose now that we have in our app just 50 articles, so we will have to write at the very beginning of each blog post the previous line of code.<br>We would be misusing the template engine, since one of it&#39;s benefits is to write <strong>DRY</strong> code!</p>
-<p>To solve this:</p>
-<ol>
-<li>We can create a file for this line and include it at the desired place, just like <code>head.ejs</code> and <code>footer.ejs</code>.</li>
-<li>Or we can put the line just after the opening <code>&lt;body&gt;</code> tag at the end of <code>head.ejs</code>, since this <code>&lt;h1&gt;</code> (article title) appears directly after including <code>head.ejs</code> in both files.</li>
-</ol>
-<p>In this particular case, I prefer the second approach because it&#39;s just one line and not a partial or a huge block of code to be repeated.<br>The file would look like:</p>
-<details>
-<summary>/views/partials/head.ejs</summary>
+						<p>
+							And of course in each file the <code>&lt;h1&gt;</code> line becomes:<br /><code
+								>&lt;h1&gt;&lt;%= pageTitle %&gt;&lt;/h1&gt;</code
+							>
+						</p>
+						<p>
+							Suppose now that we have in our app just 50 articles, so we will have to write at the very
+							beginning of each blog post the previous line of code.<br />We would be misusing the
+							template engine, since one of it&#39;s benefits is to write <strong>DRY</strong> code!
+						</p>
+						<p>To solve this:</p>
+						<ol>
+							<li>
+								We can create a file for this line and include it at the desired place, just like
+								<code>head.ejs</code> and <code>footer.ejs</code>.
+							</li>
+							<li>
+								Or we can put the line just after the opening <code>&lt;body&gt;</code> tag at the end
+								of <code>head.ejs</code>, since this <code>&lt;h1&gt;</code> (article title) appears
+								directly after including <code>head.ejs</code> in both files.
+							</li>
+						</ol>
+						<p>
+							In this particular case, I prefer the second approach because it&#39;s just one line and not
+							a partial or a huge block of code to be repeated.<br />The file would look like:
+						</p>
+						<details>
+							<summary>/views/partials/head.ejs</summary>
 
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
         &lt;meta charset=&quot;UTF-8&quot; /&gt;
@@ -636,32 +890,44 @@ app.get(&quot;/&quot;, (req, res) =&gt; {
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-</details>
+						</details>
 
-<p>Now you have a little idea about passing data from the backend to the frontend as well as one or two benefits a template engine can provide.</p>
-<h2>Navigation</h2>
+						<p>
+							Now you have a little idea about passing data from the backend to the frontend as well as
+							one or two benefits a template engine can provide.
+						</p>
+						<h2>Navigation</h2>
 
-<p>A user can&#39;t guess the different routes of an application.
-An app should help the user to explore and use it&#39;s content by providing a way to navigate between it&#39;s different routes.<br>This is where the navigation comes in.</p>
-<p>Create a <code>nav.ejs</code> in <code>partials.ejs</code> with the following content:</p>
-<details>
-<summary>/views/partials/nav.ejs</summary>
+						<p>
+							A user can&#39;t guess the different routes of an application. An app should help the user
+							to explore and use it&#39;s content by providing a way to navigate between it&#39;s
+							different routes.<br />This is where the navigation comes in.
+						</p>
+						<p>Create a <code>nav.ejs</code> in <code>partials.ejs</code> with the following content:</p>
+						<details>
+							<summary>/views/partials/nav.ejs</summary>
 
-<pre><code class="language-html">&lt;nav&gt;
+							<pre><code class="language-html">&lt;nav&gt;
     &lt;ul&gt;
         &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href=&quot;/about&quot;&gt;About me&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/nav&gt;
 </code></pre>
-</details>
+						</details>
 
-<p>Pay attention, the <code>href</code> attributes are the same as the defined routes on the server!</p>
-<p>Now, let&#39;s include this part in <code>head.ejs</code> after the opening <code>&lt;body&gt;</code> tag and before the <code>&lt;h1&gt;</code>:</p>
-<details>
-<summary>/views/partials/head.ejs</summary>
+						<p>
+							Pay attention, the <code>href</code> attributes are the same as the defined routes on the
+							server!
+						</p>
+						<p>
+							Now, let&#39;s include this part in <code>head.ejs</code> after the opening
+							<code>&lt;body&gt;</code> tag and before the <code>&lt;h1&gt;</code>:
+						</p>
+						<details>
+							<summary>/views/partials/head.ejs</summary>
 
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
         &lt;meta charset=&quot;UTF-8&quot; /&gt;
@@ -676,15 +942,31 @@ An app should help the user to explore and use it&#39;s content by providing a w
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-</details>
+						</details>
 
-<p>Save both files and take a look at your browser.<br>You should have a working navigation above the page title.</p>
-<h2>Static files</h2>
+						<p>
+							Save both files and take a look at your browser.<br />You should have a working navigation
+							above the page title.
+						</p>
+						<h2>Static files</h2>
 
-<p>For now, we&#39;ve been rendering <code>.ejs</code> files, including them one into another, and passing some basic data from the backend to the frontend using the <code>data object</code> of EJS.</p>
-<p>All of this is great but does not put you on the right track by itself to build an entire app.<br>You&#39;ll quickly need to insert images, style the page(s) with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a>, add some interactivity with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a>...</p>
-<p>As I told you before, <em>Express is amazing</em>!<br>One line inside the main server file is all we need to start serving static files.<br>Update <code>index.js</code> by putting the magical line just bellow the template engine:</p>
-<pre><code class="language-js">...
+						<p>
+							For now, we&#39;ve been rendering <code>.ejs</code> files, including them one into another,
+							and passing some basic data from the backend to the frontend using the
+							<code>data object</code> of EJS.
+						</p>
+						<p>
+							All of this is great but does not put you on the right track by itself to build an entire
+							app.<br />You&#39;ll quickly need to insert images, style the page(s) with
+							<a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a>, add some interactivity
+							with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a>...
+						</p>
+						<p>
+							As I told you before, <em>Express is amazing</em>!<br />One line inside the main server file
+							is all we need to start serving static files.<br />Update <code>index.js</code> by putting
+							the magical line just bellow the template engine:
+						</p>
+						<pre><code class="language-js">...
 
 // Set EJS as template engine
 app.set(&quot;view engine&quot;, &quot;ejs&quot;)
@@ -694,113 +976,217 @@ app.use(express.static(&#39;public&#39;))
 
 ...
 </code></pre>
-<p>Now, create a <code>public</code> folder at the root of your application.<br>Remember that this folder will hold files intended to be rendered directly in the browser/frontend.</p>
-<h3>Images</h3>
+						<p>
+							Now, create a <code>public</code> folder at the root of your application.<br />Remember that
+							this folder will hold files intended to be rendered directly in the browser/frontend.
+						</p>
+						<h3>Images</h3>
 
-<hr>
-<p>Let&#39;s begin by creating an <code>img</code> folder inside the <code>public</code> folder.<br>I&#39;ll be getting 2 images from <a href="https://www.pexels.com/">Pexels</a>:</p>
-<ol>
-<li><a href="https://www.pexels.com/photo/computer-humor-the-codefather-funny-programming-meme-11035548/">The code father</a> 🤣</li>
-<li><a href="https://www.pexels.com/photo/aerial-view-of-city-buildings-4659944/">Byblos</a> one of the oldest cities in the world</li>
-</ol>
-<p>I&#39;ve downloaded the smallest available size for each of them, and renamed them to <code>the-code-father.jpg</code> and <code>byblos.jpg</code>.<br>I&#39;ll be including <code>the-code-father.jpg</code> into <code>index.ejs</code>:</p>
-<pre><code class="language-html">&lt;%- include(&#39;partials/head&#39;) %&gt;
+						<hr />
+						<p>
+							Let&#39;s begin by creating an <code>img</code> folder inside the
+							<code>public</code> folder.<br />I&#39;ll be getting 2 images from
+							<a href="https://www.pexels.com/">Pexels</a>:
+						</p>
+						<ol>
+							<li>
+								<a
+									href="https://www.pexels.com/photo/computer-humor-the-codefather-funny-programming-meme-11035548/"
+									>The code father</a
+								>
+								🤣
+							</li>
+							<li>
+								<a href="https://www.pexels.com/photo/aerial-view-of-city-buildings-4659944/">Byblos</a>
+								one of the oldest cities in the world
+							</li>
+						</ol>
+						<p>
+							I&#39;ve downloaded the smallest available size for each of them, and renamed them to
+							<code>the-code-father.jpg</code> and <code>byblos.jpg</code>.<br />I&#39;ll be including
+							<code>the-code-father.jpg</code> into <code>index.ejs</code>:
+						</p>
+						<pre><code class="language-html">&lt;%- include(&#39;partials/head&#39;) %&gt;
 
 &lt;img src=&quot;img/the-code-father.jpg&quot; /&gt;
 
 &lt;%- include(&#39;partials/footer&#39;) %&gt;
 </code></pre>
-<p>Now it&#39;s your turn to insert <code>byblos.jpg</code> into <code>about.ejs</code>.</p>
-<h3>Styles</h3>
+						<p>Now it&#39;s your turn to insert <code>byblos.jpg</code> into <code>about.ejs</code>.</p>
+						<h3>Styles</h3>
 
-<hr>
-<p>We can load styles into a page by:</p>
-<ol>
-<li>Having a stylesheet in our app and load it in the <code>&lt;head&gt;</code> of the document.</li>
-<li>Load a stylesheet in the <code>&lt;head&gt;</code> of the document from a CDN, Content Delivery Network, like <a href="https://www.jsdelivr.com/">JSDELIVR</a>.</li>
-</ol>
-<p>The same logic applies for fonts.</p>
-<p>Create a <code>css</code> folder under the <code>public</code> one.<br>Inside the <code>css</code> folder, create a file called <code>main.css</code>.<br>Basic definition: CSS is used to design the display of webpages.<br>Let&#39;s change the color of the page title to blue, by adding the following in <code>main.css</code>:</p>
-<pre><code class="language-css">h1 {
+						<hr />
+						<p>We can load styles into a page by:</p>
+						<ol>
+							<li>
+								Having a stylesheet in our app and load it in the <code>&lt;head&gt;</code> of the
+								document.
+							</li>
+							<li>
+								Load a stylesheet in the <code>&lt;head&gt;</code> of the document from a CDN, Content
+								Delivery Network, like <a href="https://www.jsdelivr.com/">JSDELIVR</a>.
+							</li>
+						</ol>
+						<p>The same logic applies for fonts.</p>
+						<p>
+							Create a <code>css</code> folder under the <code>public</code> one.<br />Inside the
+							<code>css</code> folder, create a file called <code>main.css</code>.<br />Basic definition:
+							CSS is used to design the display of webpages.<br />Let&#39;s change the color of the page
+							title to blue, by adding the following in <code>main.css</code>:
+						</p>
+						<pre><code class="language-css">h1 {
     color: blue;
 }
 </code></pre>
-<p>If you go to your browser, nothing has changed and in fact it didn&#39;t reload for 2 reasons:</p>
-<ol>
-<li>We didn&#39;t add in the <code>&lt;head&gt;</code> of the document the link that connects this stylesheet, <code>main.css</code>, to the document itself.</li>
-<li>We didn&#39;t instruct Nodemon to reload the app nor the browser when <code>.css</code> files have been changed.</li>
-</ol>
-<p>Open <code>head.ejs</code> and add the link that injects <code>main.css</code> into the document:</p>
-<pre><code class="language-html">...
+						<p>
+							If you go to your browser, nothing has changed and in fact it didn&#39;t reload for 2
+							reasons:
+						</p>
+						<ol>
+							<li>
+								We didn&#39;t add in the <code>&lt;head&gt;</code> of the document the link that
+								connects this stylesheet, <code>main.css</code>, to the document itself.
+							</li>
+							<li>
+								We didn&#39;t instruct Nodemon to reload the app nor the browser when
+								<code>.css</code> files have been changed.
+							</li>
+						</ol>
+						<p>
+							Open <code>head.ejs</code> and add the link that injects <code>main.css</code> into the
+							document:
+						</p>
+						<pre><code class="language-html">...
 &lt;title&gt;&lt;%= docTitle %&gt;&lt;/title&gt;
 
 &lt;!-- Load main.css stylesheet --&gt;
 &lt;link rel=&quot;stylesheet&quot; href=&quot;css/main.css&quot; /&gt;
 ...
 </code></pre>
-<p>If you take a look at your browser, the <code>&lt;h1&gt;</code> tags are now blue.<br>Wait we didn&#39;t instruct Nodemon to watch <code>.css</code> files!<br>That&#39;s right, but it&#39;s watching <code>.ejs</code> files, where a change have been made.</p>
-<p>Try to change <code>blue</code> to <code>red</code> in <code>main.css</code>.<br>Look at your browser, <code>&lt;h1&gt;</code> tags are still in blue.<br>Open <code>package.json</code> and update the <code>watch</code> command to:<br><code>&quot;watch&quot;: &quot;nodemon -e js,ejs,css&quot;</code><br>We are now watching for changes in <code>.css</code> files also.<br>Stop the server and restart it again, <code>&lt;h1&gt;</code> tags are now red.<br>Change red to any color you want and the changes will now by reflect on the frontend.</p>
-<p>This is really nice, but for an app you&#39;ll need some ready to use styles to save time and fasten your development.<br>This is where CSS frameworks come in.<br>There are a lot of CSS frameworks out there, I&#39;ll be using <a href="https://purecss.io/">Pure.css</a>:</p>
-<blockquote>
-<p>A set of small, responsive CSS modules that you can use in every web project.</p>
-</blockquote>
-<p>To load <code>Pure.css</code> I&#39;ll be using JSDELIVR:</p>
-<pre><code class="language-html">&lt;!-- Load main.css stylesheet --&gt;
+						<p>
+							If you take a look at your browser, the <code>&lt;h1&gt;</code> tags are now blue.<br />Wait
+							we didn&#39;t instruct Nodemon to watch <code>.css</code> files!<br />That&#39;s right, but
+							it&#39;s watching <code>.ejs</code> files, where a change have been made.
+						</p>
+						<p>
+							Try to change <code>blue</code> to <code>red</code> in <code>main.css</code>.<br />Look at
+							your browser, <code>&lt;h1&gt;</code> tags are still in blue.<br />Open
+							<code>package.json</code> and update the <code>watch</code> command to:<br /><code
+								>&quot;watch&quot;: &quot;nodemon -e js,ejs,css&quot;</code
+							><br />We are now watching for changes in <code>.css</code> files also.<br />Stop the server
+							and restart it again, <code>&lt;h1&gt;</code> tags are now red.<br />Change red to any color
+							you want and the changes will now by reflect on the frontend.
+						</p>
+						<p>
+							This is really nice, but for an app you&#39;ll need some ready to use styles to save time
+							and fasten your development.<br />This is where CSS frameworks come in.<br />There are a lot
+							of CSS frameworks out there, I&#39;ll be using <a href="https://purecss.io/">Pure.css</a>:
+						</p>
+						<blockquote>
+							<p>A set of small, responsive CSS modules that you can use in every web project.</p>
+						</blockquote>
+						<p>To load <code>Pure.css</code> I&#39;ll be using JSDELIVR:</p>
+						<pre><code class="language-html">&lt;!-- Load main.css stylesheet --&gt;
 &lt;link rel=&quot;stylesheet&quot; href=&quot;css/main.css&quot; /&gt;
 &lt;!-- Load Pure.css stylesheet --&gt;
 &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.min.css&quot; /&gt;
 </code></pre>
-<p>If you look at your browser, you&#39;ll notice some minor changes but nothing much.<br>To see it in action, modify <code>nav.ejs</code>:</p>
-<details>
-<summary>/views/partials/nav.ejs</summary>
+						<p>
+							If you look at your browser, you&#39;ll notice some minor changes but nothing much.<br />To
+							see it in action, modify <code>nav.ejs</code>:
+						</p>
+						<details>
+							<summary>/views/partials/nav.ejs</summary>
 
-<pre><code class="language-html">&lt;nav class=&quot;pure-menu pure-menu-horizontal&quot;&gt;
+							<pre><code class="language-html">&lt;nav class=&quot;pure-menu pure-menu-horizontal&quot;&gt;
     &lt;ul class=&quot;pure-menu-list&quot;&gt;
         &lt;li class=&quot;pure-menu-item&quot;&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
         &lt;li class=&quot;pure-menu-item&quot;&gt;&lt;/li&gt;&lt;a href=&quot;/about&quot;&gt;About me&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/nav&gt;
 </code></pre>
-</details>
+						</details>
 
-<p>Save and take a look at your browser.<br>Congrats, you&#39;ve just used pre-made styles from a loaded framework.<br>Read the framework&#39;s documentation and play with it&#39;s classes to style your page(s).<br>You can also take a look at the <a href="https://purecss.io/layouts/">Layouts</a> that <code>Pure.css</code> provides to have a better understanding of how you can use it.</p>
-<h3>JavaScript</h3>
+						<p>
+							Save and take a look at your browser.<br />Congrats, you&#39;ve just used pre-made styles
+							from a loaded framework.<br />Read the framework&#39;s documentation and play with it&#39;s
+							classes to style your page(s).<br />You can also take a look at the
+							<a href="https://purecss.io/layouts/">Layouts</a> that <code>Pure.css</code> provides to
+							have a better understanding of how you can use it.
+						</p>
+						<h3>JavaScript</h3>
 
-<hr>
-<p>There is no simple definition for <code>JavaScript</code>...<br>Look at <a href="https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites">the frontend technology used in most popular websites</a>.<br>Check also Stack Overflow&#39;s 2021 Developer Survey regarding <a href="https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages">Programming, scripting, and markup languages</a>.<br>In today&#39;s world, web development is mostly about <code>JavaScript</code>.<br>You have been using it all along from the beginning of this tutorial!</p>
-<p>In <code>index.ejs</code> add a <code>&lt;button&gt;</code> inside a <code>&lt;div&gt;</code> under the <code>&lt;img /&gt;</code>:</p>
-<pre><code class="language-html">&lt;div&gt;
+						<hr />
+						<p>
+							There is no simple definition for <code>JavaScript</code>...<br />Look at
+							<a href="https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites"
+								>the frontend technology used in most popular websites</a
+							>.<br />Check also Stack Overflow&#39;s 2021 Developer Survey regarding
+							<a
+								href="https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages"
+								>Programming, scripting, and markup languages</a
+							>.<br />In today&#39;s world, web development is mostly about
+							<code>JavaScript</code>.<br />You have been using it all along from the beginning of this
+							tutorial!
+						</p>
+						<p>
+							In <code>index.ejs</code> add a <code>&lt;button&gt;</code> inside a
+							<code>&lt;div&gt;</code> under the <code>&lt;img /&gt;</code>:
+						</p>
+						<pre><code class="language-html">&lt;div&gt;
     &lt;button id=&quot;btn&quot; class=&quot;pure-button&quot;&gt;A Button&lt;/button&gt;
 &lt;/div&gt;
 </code></pre>
-<p>Create a <code>scripts</code> folder in <code>public</code>.<br>Inside <code>scripts</code>, create a file named <code>main.js</code> and add the following content inside it:</p>
-<details>
-<summary>/public/scripts/main.js</summary>
+						<p>
+							Create a <code>scripts</code> folder in <code>public</code>.<br />Inside
+							<code>scripts</code>, create a file named <code>main.js</code> and add the following content
+							inside it:
+						</p>
+						<details>
+							<summary>/public/scripts/main.js</summary>
 
-<pre><code class="language-js">const btn = document.getElementById(&quot;btn&quot;)
+							<pre><code class="language-js">const btn = document.getElementById(&quot;btn&quot;)
 if (btn) {
     btn.addEventListener(&quot;click&quot;, () =&gt; {
         alert(&quot;Hello from JavaScript!&quot;)
     })
 }
 </code></pre>
-</details>
+						</details>
 
-<p>Just like a stylesheet, a script file should be loaded into the document to work.<br>It&#39;s safer, and best practice, to load scripts at the very end of a document.<br>Modify <code>footer.ejs</code> to look like:</p>
-<pre><code class="language-html">&lt;script src=&quot;scripts/main.js&quot;&gt;&lt;/script&gt;
+						<p>
+							Just like a stylesheet, a script file should be loaded into the document to work.<br />It&#39;s
+							safer, and best practice, to load scripts at the very end of a document.<br />Modify
+							<code>footer.ejs</code> to look like:
+						</p>
+						<pre><code class="language-html">&lt;script src=&quot;scripts/main.js&quot;&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>If you visit the homepage of the app and click on the button, you&#39;ll see a popup with the message defined in <code>main.js</code>.<br><code>JavaScript</code> can do much more than simple interactions, you can control and modify everything in a document...</p>
-<p>There is a countless number of JavaScript frameworks out there to make your development easier and faster or make you hate it, so be very careful of what you&#39;re using and always ask yourself if you really need it or not!</p>
-<p>A personal note about JavaScript: <strong><em>I love vanilla JS</em></strong><br>Meaning that I&#39;m not a fan of frontend JS frameworks, but that&#39;s just me...</p>
-<h3 id="paths">Paths</h3>
+						<p>
+							If you visit the homepage of the app and click on the button, you&#39;ll see a popup with
+							the message defined in <code>main.js</code>.<br /><code>JavaScript</code> can do much more
+							than simple interactions, you can control and modify everything in a document...
+						</p>
+						<p>
+							There is a countless number of JavaScript frameworks out there to make your development
+							easier and faster or make you hate it, so be very careful of what you&#39;re using and
+							always ask yourself if you really need it or not!
+						</p>
+						<p>
+							A personal note about JavaScript: <strong><em>I love vanilla JS</em></strong
+							><br />Meaning that I&#39;m not a fan of frontend JS frameworks, but that&#39;s just me...
+						</p>
+						<h3 id="paths">Paths</h3>
 
-<hr>
-<p><strong>Important subsection ahead!</strong></p>
-<p>You may have noticed or not, but you where using <em>relative paths</em> to <code>include()</code> templates in each other and load assets into the document.</p>
-<p>Consider the tree of our app:</p>
-<pre><code class="language-txt">Application&#39;s root without node_modules folder
+						<hr />
+						<p><strong>Important subsection ahead!</strong></p>
+						<p>
+							You may have noticed or not, but you where using <em>relative paths</em> to
+							<code>include()</code> templates in each other and load assets into the document.
+						</p>
+						<p>Consider the tree of our app:</p>
+						<pre><code class="language-txt">Application&#39;s root without node_modules folder
 ├── index.js
 ├── package-lock.json
 ├── package.json
@@ -820,159 +1206,203 @@ if (btn) {
     ├── head.ejs
     └── nav.ejs
 </code></pre>
-<p>The root is the <code>ejs</code> folder.<br>If 2 or more files lives in the same folder, we say that they are <code>at the same level</code>.</p>
-<p>Sometimes, we need to call a file into another, this is where we should be careful about the process.<br>Always read the documentation of the <code>tools</code> you are using.</p>
-<p>If we where developing without backend technologies, and wanted to load <code>main.css</code> in <code>index.ejs</code>, we would write:</p>
-<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;../../public/css/main.css&quot; /&gt;
+						<p>
+							The root is the <code>ejs</code> folder.<br />If 2 or more files lives in the same folder,
+							we say that they are <code>at the same level</code>.
+						</p>
+						<p>
+							Sometimes, we need to call a file into another, this is where we should be careful about the
+							process.<br />Always read the documentation of the <code>tools</code> you are using.
+						</p>
+						<p>
+							If we where developing without backend technologies, and wanted to load
+							<code>main.css</code> in <code>index.ejs</code>, we would write:
+						</p>
+						<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;../../public/css/main.css&quot; /&gt;
 </code></pre>
-<p>Since we where using Express and EJS as a defined template engine, we where able to use <em>relative paths</em> to call our files.</p>
-<p>⚠️ Never begin with the <code>views</code> folder when templating, he&#39;s already detected by Express!!!</p>
-<p>When using <code>include()</code>:</p>
-<ol>
-<li>If two files are at the same level and we wanted to <code>include()</code> one of them into another, we just type the file name, no need for the extension, like we did with:
-<code>&lt;%- include(&#39;nav&#39;) %&gt;</code></li>
-<li>Otherwise, we navigate to the desired file by typing the folder(s) name(s) where the file is, then the file name without it&#39;s extension, like we did for:<br><code>&lt;%- include(&#39;partials/head&#39;) %&gt;</code> and
-<code>&lt;%- include(&#39;partials/footer&#39;) %&gt;</code></li>
-</ol>
-<p>⚠️ Never begin with the <code>public</code> folder when using it in a template, he&#39;s already detected by Express!!!</p>
-<p>When calling files from <code>public</code>:</p>
-<ol>
-<li>If the file is directly inside the <code>public</code> folder, we just call it <strong>with it&#39;s extension</strong>.<br>Let&#39;s say that <code>the-code-father.jpg</code> was directly inside the public folder and we wanted to call it inside <code>index.ejs</code>, we would write:<br><code>&lt;img src=&quot;the-code-father.jpg&quot; /&gt;</code></li>
-<li>Otherwise, we navigate to the desired file by typing the folder(s) name(s) where the file is, then the file name <strong>with it&#39;s extension</strong>, like we did for:<br><code>&lt;img src=&quot;img/the-code-father.jpg&quot; /&gt;</code></li>
-</ol>
-<h2>Conclusion</h2>
+						<p>
+							Since we where using Express and EJS as a defined template engine, we where able to use
+							<em>relative paths</em> to call our files.
+						</p>
+						<p>
+							⚠️ Never begin with the <code>views</code> folder when templating, he&#39;s already detected
+							by Express!!!
+						</p>
+						<p>When using <code>include()</code>:</p>
+						<ol>
+							<li>
+								If two files are at the same level and we wanted to <code>include()</code> one of them
+								into another, we just type the file name, no need for the extension, like we did with:
+								<code>&lt;%- include(&#39;nav&#39;) %&gt;</code>
+							</li>
+							<li>
+								Otherwise, we navigate to the desired file by typing the folder(s) name(s) where the
+								file is, then the file name without it&#39;s extension, like we did for:<br /><code
+									>&lt;%- include(&#39;partials/head&#39;) %&gt;</code
+								>
+								and <code>&lt;%- include(&#39;partials/footer&#39;) %&gt;</code>
+							</li>
+						</ol>
+						<p>
+							⚠️ Never begin with the <code>public</code> folder when using it in a template, he&#39;s
+							already detected by Express!!!
+						</p>
+						<p>When calling files from <code>public</code>:</p>
+						<ol>
+							<li>
+								If the file is directly inside the <code>public</code> folder, we just call it
+								<strong>with it&#39;s extension</strong>.<br />Let&#39;s say that
+								<code>the-code-father.jpg</code> was directly inside the public folder and we wanted to
+								call it inside <code>index.ejs</code>, we would write:<br /><code
+									>&lt;img src=&quot;the-code-father.jpg&quot; /&gt;</code
+								>
+							</li>
+							<li>
+								Otherwise, we navigate to the desired file by typing the folder(s) name(s) where the
+								file is, then the file name <strong>with it&#39;s extension</strong>, like we did
+								for:<br /><code>&lt;img src=&quot;img/the-code-father.jpg&quot; /&gt;</code>
+							</li>
+						</ol>
+						<h2>Conclusion</h2>
 
-<p>I hope that this tutorial will help a lot of new developers to start using EJS as a template engine in Node.js and understand how things are related together.</p>
-<p>Next one will be about improving this app 😉</p>
-<p><em>This tutorial was specially made for my beloved son 💘</em></p>
-<p class="post-content hide">
-<em>Note: The background image is a photo by <a href="https://unsplash.com/photos/a-close-up-of-many-different-colored-legos-rgP93cPsVEc">Sen</a>.</em>
-</p>
-</div>
+						<p>
+							I hope that this tutorial will help a lot of new developers to start using EJS as a template
+							engine in Node.js and understand how things are related together.
+						</p>
+						<p>Next one will be about improving this app 😉</p>
+						<p><em>This tutorial was specially made for my beloved son 💘</em></p>
+						<p class="post-content hide">
+							<em
+								>Note: The background image is a photo by
+								<a
+									href="https://unsplash.com/photos/a-close-up-of-many-different-colored-legos-rgP93cPsVEc"
+									>Sen</a
+								>.</em
+							>
+						</p>
+					</div>
 
-<nav
-    class="post-navigation"
-    aria-label="Post Navigation"
->
-    
+					<nav class="post-navigation" aria-label="Post Navigation">
+						<!-- Dynamic Markup Separator -->
 
-    <!-- Dynamic Markup Separator -->
+						<!-- Dynamic Markup Separator -->
 
-    
+						<!-- Previous Post Link (only if there's a previous post) -->
+						<a
+							href="/post/csp-nonce-with-nodejs-and-ejs"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Previous: CSP nonce with Node.js and EJS
+						</a>
 
-    <!-- Dynamic Markup Separator -->
+						<!--Dynamic Markup Separator-->
 
-    
-    <!-- Previous Post Link (only if there's a previous post) -->
-    <a href="/post/csp-nonce-with-nodejs-and-ejs" class="prev-post" rel="prev" aria-label="Go to the previous post">
-        Previous: CSP nonce with Node.js and EJS
-    </a>
-    
+						<!-- Next Post Link (only if there's a next post) -->
+						<a
+							href="/post/improving-a-nodejs-app-built-with-express-and-ejs"
+							class="next-post"
+							rel="next"
+							aria-label="Go to the next post"
+						>
+							Next: Improving a Node.js app built with Express and EJS
+						</a>
+					</nav>
 
-    <!--Dynamic Markup Separator-->
+					<!---->
+					<div class="related-posts">
+						<h3>You Might Also Like</h3>
+						<div>
+							<section>
+								<a
+									href="/post/transferring-variables-and-functions-from-server-to-client-in-a-nodejs-application-using-ejs-and-eta"
+								>
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/transferring-data-generated-with-ai-ef728ca1d65539f0.avif"
+										alt="Featured image for the post: Transferring Variables and Functions from Server to Client in a Node.js Application Using EJS and Eta"
+									/>
+								</a>
+								<h4>
+									<a
+										href="/post/transferring-variables-and-functions-from-server-to-client-in-a-nodejs-application-using-ejs-and-eta"
+										>Transferring Variables and Functions from Server to Client in a Node.js
+										Application Using EJS and Eta</a
+									>
+								</h4>
+							</section>
 
-    
-    <!-- Next Post Link (only if there's a next post) -->
-    <a href="/post/improving-a-nodejs-app-built-with-express-and-ejs" class="next-post" rel="next" aria-label="Go to the next post">
-        Next: Improving a Node.js app built with Express and EJS
-    </a>
-    
-</nav>
+							<section>
+								<a href="/post/markdown-blog-with-ejs">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/markdown-logo-with-white-background-ffa392cd3bbb0352.webp"
+										alt="Featured image for the post: Markdown blog with EJS"
+									/>
+								</a>
+								<h4>
+									<a href="/post/markdown-blog-with-ejs">Markdown blog with EJS</a>
+								</h4>
+							</section>
 
+							<section>
+								<a href="/post/improving-a-nodejs-app-built-with-express-and-ejs">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/a-lego-wall-cb5f14aca0135679.webp"
+										alt="Featured image for the post: Improving a Node.js app built with Express and EJS"
+									/>
+								</a>
+								<h4>
+									<a href="/post/improving-a-nodejs-app-built-with-express-and-ejs"
+										>Improving a Node.js app built with Express and EJS</a
+									>
+								</h4>
+							</section>
 
-<!---->
- <div class="related-posts">
-    <h3>You Might Also Like</h3>
-    <div>
-        
-        <section>
-            <a href="/post/transferring-variables-and-functions-from-server-to-client-in-a-nodejs-application-using-ejs-and-eta">
-                <img
-                    class="img-responsive"
-                    src="/content/uploads/images/transferring-data-generated-with-ai-ef728ca1d65539f0.avif"
-                    alt="Featured image for the post: Transferring Variables and Functions from Server to Client in a Node.js Application Using EJS and Eta"
-                />
-            </a>
-            <h4>
-                <a href="/post/transferring-variables-and-functions-from-server-to-client-in-a-nodejs-application-using-ejs-and-eta">Transferring Variables and Functions from Server to Client in a Node.js Application Using EJS and Eta</a>
-            </h4>
-        </section>
-        
-        <section>
-            <a href="/post/markdown-blog-with-ejs">
-                <img
-                    class="img-responsive"
-                    src="/content/uploads/images/markdown-logo-with-white-background-ffa392cd3bbb0352.webp"
-                    alt="Featured image for the post: Markdown blog with EJS"
-                />
-            </a>
-            <h4>
-                <a href="/post/markdown-blog-with-ejs">Markdown blog with EJS</a>
-            </h4>
-        </section>
-        
-        <section>
-            <a href="/post/improving-a-nodejs-app-built-with-express-and-ejs">
-                <img
-                    class="img-responsive"
-                    src="/content/uploads/images/a-lego-wall-cb5f14aca0135679.webp"
-                    alt="Featured image for the post: Improving a Node.js app built with Express and EJS"
-                />
-            </a>
-            <h4>
-                <a href="/post/improving-a-nodejs-app-built-with-express-and-ejs">Improving a Node.js app built with Express and EJS</a>
-            </h4>
-        </section>
-        
-        <section>
-            <a href="/post/csp-nonce-with-nodejs-and-ejs">
-                <img
-                    class="img-responsive"
-                    src="/content/uploads/images/key-attached-to-another-in-the-lock-of-a-door-239983bd2e3d9fcb.webp"
-                    alt="Featured image for the post: CSP nonce with Node.js and EJS"
-                />
-            </a>
-            <h4>
-                <a href="/post/csp-nonce-with-nodejs-and-ejs">CSP nonce with Node.js and EJS</a>
-            </h4>
-        </section>
-        
-    </div>
-</div>
- 
+							<section>
+								<a href="/post/csp-nonce-with-nodejs-and-ejs">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/key-attached-to-another-in-the-lock-of-a-door-239983bd2e3d9fcb.webp"
+										alt="Featured image for the post: CSP nonce with Node.js and EJS"
+									/>
+								</a>
+								<h4>
+									<a href="/post/csp-nonce-with-nodejs-and-ejs">CSP nonce with Node.js and EJS</a>
+								</h4>
+							</section>
+						</div>
+					</div>
 
-    <!---->
+					<!---->
+				</main>
+			</div>
+			<!--End content-->
 
-    
-</main>
+			<!--Start footer-->
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2025 { LebCit }</strong>
 
-            </div>
-            <!--End content-->
+						<br />
+						<!-- Custom Footer Code -->
+						Content in Motion. Powered by Aether.
+					</p>
+				</div>
+			</footer>
 
-            <!--Start footer-->
-            <footer id="colophon" class="site-footer unit-1">
-    <div id="site-info" class="site-info">
-        
-        <p>
-            <strong>2016 - 2025 { LebCit }</strong>
+			<!--End footer-->
+		</div>
+		<!--End page-->
 
-            <br />
-            <!-- Custom Footer Code -->
-            Content in Motion. Powered by Aether.
-        </p>
-    </div>
-</footer>
+		<script
+			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
+			onload="hljs.highlightAll()"
+		></script>
 
-            <!--End footer-->
-        </div>
-        <!--End page-->
-
-        
-        <script src="/content/themes/midday-custom/assets/vendors/highlight.min.js" onload="hljs.highlightAll()"></script>
-        
-
-        <script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
-
-        
-    </body>
+		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+	</body>
 </html>

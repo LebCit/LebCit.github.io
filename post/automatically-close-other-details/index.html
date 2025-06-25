@@ -1,244 +1,254 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Make your FAQ or accordion sections cleaner by closing all other open details tags when one is toggled using simple JavaScript." />
-    <meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Make your FAQ or accordion sections cleaner by closing all other open details tags when one is toggled using simple JavaScript."
+		/>
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-    <!--Site icon-->
-    
-    <link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
-    
+		<!--Site icon-->
 
-    <!--Title-->
-    <title>Automatically close other details | { LebCit }</title>
+		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
 
-    <!--Stylesheets-->
-    <link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
-    
-    <link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
-    
-</head>
+		<!--Title-->
+		<title>Automatically close other details | { LebCit }</title>
 
+		<!--Stylesheets-->
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
 
-    <body>
-        <!--Start page-->
-        <div id="page" class="site grid">
-            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+	</head>
 
-            <!--Start menu-->
-            <div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
-    <a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu">&times;</a>
+	<body>
+		<!--Start page-->
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
-    <div class="menu-overlay__content">
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/" target="">Home</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/blog" target="_self">Blog</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/categories" target="_self">Categories</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/tags" target="_self">Tags</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/search" target="_self">Search</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/page/my-public-projects" target="_self">Projects</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/page/about-me" target="_self">About Me</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/sitemap" target="_self">Sitemap</a>
-        </li>
-        
-        <!---->
-        
-    </div>
-</div>
+			<!--Start menu-->
+			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
 
-            <!--End menu-->
+				<div class="menu-overlay__content">
+					<!---->
 
-            <!--Start masthead-->
-            <!-- Start #masthead -->
+					<li class="menu-overlay__item">
+						<a href="/" target="">Home</a>
+					</li>
 
-<header
-    id="masthead"
-    class="site-header unit-1 unit-lg-2-5 bio"
-    style="background-image: url(/content/uploads/images/matrix-background-ef812129dce08123.webp)"
->
-    <div class="site-header__overlay"></div>
+					<!---->
 
-    <!-- Start .site-header__content -->
-<div class="site-header__content">
-    <div class="site-header__branding">
-        <h1 class="site-header__title">
-            <a href="/">{ LebCit }</a>
-        </h1>
-        <p class="site-header__description">Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</p>
-    </div>
+					<!---->
 
-    <nav id="nav" class="site-header__nav" aria-label="MENU">
-        <ul class="site-header__nav-list">
-            <li class="site-header__nav-item">
-                <a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
-                    <span>MENU</span>
-                    <span class="menu-icon" aria-hidden="true">
-                        <svg
-                            version="1.1"
-                            x="0px"
-                            y="0px"
-                            width="30px"
-                            height="30px"
-                            viewBox="0 0 30 30"
-                            enable-background="new 0 0 30 30"
-                        >
-                            <rect width="30" height="5" />
-                            <rect y="24" width="30" height="5" />
-                            <rect y="12" width="30" height="5" />
-                        </svg>
-                    </span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</div>
-<!-- End .site-header__content -->
+					<li class="menu-overlay__item">
+						<a href="/blog" target="_self">Blog</a>
+					</li>
 
-</header>
+					<!---->
 
-<!-- End #masthead -->
+					<!---->
 
-            <!--End masthead-->
+					<li class="menu-overlay__item">
+						<a href="/categories" target="_self">Categories</a>
+					</li>
 
-            <!--Start content-->
-            <div id="content" class="site-content unit-1 unit-lg-3-5">
-                <main
-    class="article-view"
->
-    
-    <!--The page to display the Markdown content of posts and pages.-->
-    <header class="post-header">
-    <h1 class="post-title">Automatically close other details</h1>
+					<!---->
 
-     <div class="post-meta">
-    <div class="post-date-wrapper">
-        <span>Posted:</span>
-        <time class="post-date" datetime="2025-06-03T08:22:47.428Z">
-            2021-02-10
-        </time>
+					<!---->
 
-        
-        <span class="separator">|</span>
-        <span>Updated:</span>
-        <time class="post-updated-date" datetime="2025-06-04T16:13:49.225Z">
-            2025-06-04
-        </time>
-        
-    </div>
+					<li class="menu-overlay__item">
+						<a href="/tags" target="_self">Tags</a>
+					</li>
 
-    
-    <div class="taxonomy-group">
-        <span>Category:</span>
-        <span class="post-category">
-            <a href="/category/frontend-development">frontend-development</a>
-        </span>
-    </div>
-    
-    <!---->
-    
-    <div class="taxonomy-group post-tags-group">
-        <span>Tagged:</span>
-        
-        <a class="post-tag" href="/tag/javascript">javascript</a>
-        
-        <a class="post-tag" href="/tag/html">html</a>
-        
-        <a class="post-tag" href="/tag/accessibility">accessibility</a>
-        
-        <a class="post-tag" href="/tag/ui">ui</a>
-        
-        <a class="post-tag" href="/tag/faq-design">faq-design</a>
-        
-    </div>
-    
-</div>
- 
-</header>
+					<!---->
 
-<div class="article-content">
-    
-    <p>
-        <em>Make your FAQ or accordion sections cleaner by closing all other open details tags when one is toggled using simple JavaScript.</em>
-    </p>
-    
+					<!---->
 
-    <!--Content-->
-    <p>I was writing a post about MidDay, <a href="/post/midday-wordpress-theme">my new WordPress Theme</a>, and wanted to include a simple FAQ section but with a little of style, this is when I remembered the <code>&lt;details&gt;</code> tag.</p>
-<p>It&#39;s an awesome <strong>accessible</strong> element, similar to an accordion.</p>
-<details>
-<summary>How to create one?</summary>
-You have just opened one 😁<br>
-Just follow the pattern in the code.
+					<li class="menu-overlay__item">
+						<a href="/search" target="_self">Search</a>
+					</li>
 
-<pre><code class="language-html">&lt;details&gt;
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/my-public-projects" target="_self">Projects</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/about-me" target="_self">About Me</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/sitemap" target="_self">Sitemap</a>
+					</li>
+
+					<!---->
+				</div>
+			</div>
+
+			<!--End menu-->
+
+			<!--Start masthead-->
+			<!-- Start #masthead -->
+
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="background-image: url(/content/uploads/images/matrix-background-ef812129dce08123.webp)"
+			>
+				<div class="site-header__overlay"></div>
+
+				<!-- Start .site-header__content -->
+				<div class="site-header__content">
+					<div class="site-header__branding">
+						<h1 class="site-header__title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-header__description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
+
+					<nav id="nav" class="site-header__nav" aria-label="MENU">
+						<ul class="site-header__nav-list">
+							<li class="site-header__nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewBox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<!-- End .site-header__content -->
+			</header>
+
+			<!-- End #masthead -->
+
+			<!--End masthead-->
+
+			<!--Start content-->
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main class="article-view">
+					<!--The page to display the Markdown content of posts and pages.-->
+					<header class="post-header">
+						<h1 class="post-title">Automatically close other details</h1>
+
+						<div class="post-meta">
+							<div class="post-date-wrapper">
+								<span>Posted:</span>
+								<time class="post-date" datetime="2025-06-03T08:22:47.428Z"> 2021-02-10 </time>
+
+								<span class="separator">|</span>
+								<span>Updated:</span>
+								<time class="post-updated-date" datetime="2025-06-04T16:13:49.225Z"> 2025-06-04 </time>
+							</div>
+
+							<div class="taxonomy-group">
+								<span>Category:</span>
+								<span class="post-category">
+									<a href="/category/frontend-development">frontend-development</a>
+								</span>
+							</div>
+
+							<!---->
+
+							<div class="taxonomy-group post-tags-group">
+								<span>Tagged:</span>
+
+								<a class="post-tag" href="/tag/javascript">javascript</a>
+
+								<a class="post-tag" href="/tag/html">html</a>
+
+								<a class="post-tag" href="/tag/accessibility">accessibility</a>
+
+								<a class="post-tag" href="/tag/ui">ui</a>
+
+								<a class="post-tag" href="/tag/faq-design">faq-design</a>
+							</div>
+						</div>
+					</header>
+
+					<div class="article-content">
+						<p>
+							<em
+								>Make your FAQ or accordion sections cleaner by closing all other open details tags when
+								one is toggled using simple JavaScript.</em
+							>
+						</p>
+
+						<!--Content-->
+						<p>
+							I was writing a post about MidDay,
+							<a href="/post/midday-wordpress-theme">my new WordPress Theme</a>, and wanted to include a
+							simple FAQ section but with a little of style, this is when I remembered the
+							<code>&lt;details&gt;</code> tag.
+						</p>
+						<p>It&#39;s an awesome <strong>accessible</strong> element, similar to an accordion.</p>
+						<details>
+							<summary>How to create one?</summary>
+							You have just opened one 😁<br />
+							Just follow the pattern in the code.
+
+							<pre><code class="language-html">&lt;details&gt;
     &lt;summary&gt;Summary/Question about the content&lt;/summary&gt;
     And here is the content, it could be anything, even code like this example 😉
 &lt;/details&gt;
 </code></pre>
-</details>
+						</details>
 
-<p>But when we use more than one <code>&lt;details&gt;</code> tag on the same page, especially when they are one after another, we can see that if one is opened and we open another one, the first stays opened.<br>Imagine having 5 or more after each other, with a reasonable amount of content, they will take a lot of space.
-As an example, you can take a look at this informative pen: <a href="https://codepen.io/jdsteinbach/pen/GYmQjo">Teaching the Details Element with ... Details Elements!</a></p>
-<details>
-<summary>So how to close the opened one?</summary>
-Easy!<br>
-Just include the following code in your scripts file or in a <code>script</code> tag at the bottom of your page before the closing <code>body</code> tag.
+						<p>
+							But when we use more than one <code>&lt;details&gt;</code> tag on the same page, especially
+							when they are one after another, we can see that if one is opened and we open another one,
+							the first stays opened.<br />Imagine having 5 or more after each other, with a reasonable
+							amount of content, they will take a lot of space. As an example, you can take a look at this
+							informative pen:
+							<a href="https://codepen.io/jdsteinbach/pen/GYmQjo"
+								>Teaching the Details Element with ... Details Elements!</a
+							>
+						</p>
+						<details>
+							<summary>So how to close the opened one?</summary>
+							Easy!<br />
+							Just include the following code in your scripts file or in a <code>script</code> tag at the
+							bottom of your page before the closing <code>body</code> tag.
 
-<pre><code class="language-js">/** Close others &lt;details&gt; tag */
+							<pre><code class="language-js">/** Close others &lt;details&gt; tag */
 const allDetails = document.querySelectorAll(&quot;details&quot;)
 
 allDetails.forEach((details) =&gt; {
@@ -253,132 +263,146 @@ allDetails.forEach((details) =&gt; {
     })
 })
 </code></pre>
-</details>
+						</details>
 
-<p>Let&#39;s break it down!</p>
-<p>First we select all the <code>&lt;details&gt;</code> tag:</p>
-<pre><code class="language-js">const allDetails = document.querySelectorAll(&quot;details&quot;)
+						<p>Let&#39;s break it down!</p>
+						<p>First we select all the <code>&lt;details&gt;</code> tag:</p>
+						<pre><code class="language-js">const allDetails = document.querySelectorAll(&quot;details&quot;)
 </code></pre>
-<p>And we iterate over them:</p>
-<pre><code class="language-js">allDetails.forEach(details =&gt; {
+						<p>And we iterate over them:</p>
+						<pre><code class="language-js">allDetails.forEach(details =&gt; {
 </code></pre>
-<p>Then we listen to the <code>toggle</code> event used by the <code>&lt;details&gt;</code> element whenever its state changes between open and closed:</p>
-<pre><code class="language-js">details.addEventListener(&#39;toggle&#39;, (e) =&gt; {
+						<p>
+							Then we listen to the <code>toggle</code> event used by the
+							<code>&lt;details&gt;</code> element whenever its state changes between open and closed:
+						</p>
+						<pre><code class="language-js">details.addEventListener(&#39;toggle&#39;, (e) =&gt; {
 </code></pre>
-<p>Now, we wait for any <code>&lt;details&gt;</code> to be <code>open</code>:</p>
-<pre><code class="language-js">if (details.open) {
+						<p>Now, we wait for any <code>&lt;details&gt;</code> to be <code>open</code>:</p>
+						<pre><code class="language-js">if (details.open) {
 </code></pre>
-<p>We iterate once again over all the <code>&lt;details&gt;</code> and check if anyone of them was not the <code>target</code> of the <code>toggle</code> event and was <code>open</code>, if so, we just close it by removing it&#39;s open state:</p>
-<pre><code class="language-js">allDetails.forEach((details) =&gt; {
+						<p>
+							We iterate once again over all the <code>&lt;details&gt;</code> and check if anyone of them
+							was not the <code>target</code> of the <code>toggle</code> event and was <code>open</code>,
+							if so, we just close it by removing it&#39;s open state:
+						</p>
+						<pre><code class="language-js">allDetails.forEach((details) =&gt; {
     if (details != e.target &amp;&amp; details.open) {
         details.open = false
     }
 })
 </code></pre>
-<p>In other words, if a <code>&lt;details&gt;</code> element was opened, it have the <code>open</code> attribute. Now if another <code>&lt;details&gt;</code> element is open, we remove the <code>open</code> attribute from the previous, leaving only the actual targeted one opened.</p>
-<p>Hope that this was useful, and that you&#39;ll start using <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">The Details disclosure element</a>.</p>
-<p class="post-content hide">
-<em>Note: The background image is a photo by <a href="https://www.pexels.com/photo/close-up-photo-of-matrix-background-1089438/">Markus Spiske</a>.</em>
-</p>
-</div>
+						<p>
+							In other words, if a <code>&lt;details&gt;</code> element was opened, it have the
+							<code>open</code> attribute. Now if another <code>&lt;details&gt;</code> element is open, we
+							remove the <code>open</code> attribute from the previous, leaving only the actual targeted
+							one opened.
+						</p>
+						<p>
+							Hope that this was useful, and that you&#39;ll start using
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details"
+								>The Details disclosure element</a
+							>.
+						</p>
+						<p class="post-content hide">
+							<em
+								>Note: The background image is a photo by
+								<a href="https://www.pexels.com/photo/close-up-photo-of-matrix-background-1089438/"
+									>Markus Spiske</a
+								>.</em
+							>
+						</p>
+					</div>
 
-<nav
-    class="post-navigation"
-    aria-label="Post Navigation"
->
-    
+					<nav class="post-navigation" aria-label="Post Navigation">
+						<!-- Dynamic Markup Separator -->
 
-    <!-- Dynamic Markup Separator -->
+						<!-- Dynamic Markup Separator -->
 
-    
+						<!-- Previous Post Link (only if there's a previous post) -->
+						<a
+							href="/post/midday-wordpress-theme"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Previous: MidDay WordPress theme
+						</a>
 
-    <!-- Dynamic Markup Separator -->
+						<!--Dynamic Markup Separator-->
 
-    
-    <!-- Previous Post Link (only if there's a previous post) -->
-    <a href="/post/midday-wordpress-theme" class="prev-post" rel="prev" aria-label="Go to the previous post">
-        Previous: MidDay WordPress theme
-    </a>
-    
+						<!-- Next Post Link (only if there's a next post) -->
+						<a
+							href="/post/to-node-or-not-deta-is-the-answer"
+							class="next-post"
+							rel="next"
+							aria-label="Go to the next post"
+						>
+							Next: To Node or not? Deta is the answer!
+						</a>
+					</nav>
 
-    <!--Dynamic Markup Separator-->
+					<!---->
+					<div class="related-posts">
+						<h3>You Might Also Like</h3>
+						<div>
+							<section>
+								<a href="/post/change-page-title-dynamically">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/futuristic-nighttime-scene-of-a-robot-changing-the-title-of-a-sign-using-a-laser-pen-51cf7bfc4d499d6c.avif"
+										alt="Featured image for the post: Change Page Title Dynamically"
+									/>
+								</a>
+								<h4>
+									<a href="/post/change-page-title-dynamically">Change Page Title Dynamically</a>
+								</h4>
+							</section>
 
-    
-    <!-- Next Post Link (only if there's a next post) -->
-    <a href="/post/to-node-or-not-deta-is-the-answer" class="next-post" rel="next" aria-label="Go to the next post">
-        Next: To Node or not? Deta is the answer!
-    </a>
-    
-</nav>
+							<section>
+								<a href="/post/clear-your-local-development-cache-with-js">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/stacked-memory-photos-f04a7a031d3f78b1.webp"
+										alt="Featured image for the post: Clear your local development cache with JS"
+									/>
+								</a>
+								<h4>
+									<a href="/post/clear-your-local-development-cache-with-js"
+										>Clear your local development cache with JS</a
+									>
+								</h4>
+							</section>
+						</div>
+					</div>
 
+					<!---->
+				</main>
+			</div>
+			<!--End content-->
 
-<!---->
- <div class="related-posts">
-    <h3>You Might Also Like</h3>
-    <div>
-        
-        <section>
-            <a href="/post/change-page-title-dynamically">
-                <img
-                    class="img-responsive"
-                    src="/content/uploads/images/futuristic-nighttime-scene-of-a-robot-changing-the-title-of-a-sign-using-a-laser-pen-51cf7bfc4d499d6c.avif"
-                    alt="Featured image for the post: Change Page Title Dynamically"
-                />
-            </a>
-            <h4>
-                <a href="/post/change-page-title-dynamically">Change Page Title Dynamically</a>
-            </h4>
-        </section>
-        
-        <section>
-            <a href="/post/clear-your-local-development-cache-with-js">
-                <img
-                    class="img-responsive"
-                    src="/content/uploads/images/stacked-memory-photos-f04a7a031d3f78b1.webp"
-                    alt="Featured image for the post: Clear your local development cache with JS"
-                />
-            </a>
-            <h4>
-                <a href="/post/clear-your-local-development-cache-with-js">Clear your local development cache with JS</a>
-            </h4>
-        </section>
-        
-    </div>
-</div>
- 
+			<!--Start footer-->
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2025 { LebCit }</strong>
 
-    <!---->
+						<br />
+						<!-- Custom Footer Code -->
+						Content in Motion. Powered by Aether.
+					</p>
+				</div>
+			</footer>
 
-    
-</main>
+			<!--End footer-->
+		</div>
+		<!--End page-->
 
-            </div>
-            <!--End content-->
+		<script
+			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
+			onload="hljs.highlightAll()"
+		></script>
 
-            <!--Start footer-->
-            <footer id="colophon" class="site-footer unit-1">
-    <div id="site-info" class="site-info">
-        
-        <p>
-            <strong>2016 - 2025 { LebCit }</strong>
-
-            <br />
-            <!-- Custom Footer Code -->
-            Content in Motion. Powered by Aether.
-        </p>
-    </div>
-</footer>
-
-            <!--End footer-->
-        </div>
-        <!--End page-->
-
-        
-        <script src="/content/themes/midday-custom/assets/vendors/highlight.min.js" onload="hljs.highlightAll()"></script>
-        
-
-        <script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
-
-        
-    </body>
+		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+	</body>
 </html>

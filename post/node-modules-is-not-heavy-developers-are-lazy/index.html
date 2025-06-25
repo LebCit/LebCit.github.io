@@ -1,380 +1,413 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Explore how misuse and laziness make node_modules heavy and learn modern Node.js practices to keep dependencies lean." />
-    <meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Explore how misuse and laziness make node_modules heavy and learn modern Node.js practices to keep dependencies lean."
+		/>
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
 
-    <!--Site icon-->
-    
-    <link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
-    
+		<!--Site icon-->
 
-    <!--Title-->
-    <title>node_modules is not heavy, developers are lazy! | { LebCit }</title>
+		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
 
-    <!--Stylesheets-->
-    <link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
-    
-    <link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
-    
-</head>
+		<!--Title-->
+		<title>node_modules is not heavy, developers are lazy! | { LebCit }</title>
 
+		<!--Stylesheets-->
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
 
-    <body>
-        <!--Start page-->
-        <div id="page" class="site grid">
-            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+	</head>
 
-            <!--Start menu-->
-            <div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
-    <a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu">&times;</a>
+	<body>
+		<!--Start page-->
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
-    <div class="menu-overlay__content">
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/" target="">Home</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/blog" target="_self">Blog</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/categories" target="_self">Categories</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/tags" target="_self">Tags</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/search" target="_self">Search</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/page/my-public-projects" target="_self">Projects</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/page/about-me" target="_self">About Me</a>
-        </li>
-        
-        <!---->
-        
-        <!---->
-        
-        <li class="menu-overlay__item ">
-            <a href="/sitemap" target="_self">Sitemap</a>
-        </li>
-        
-        <!---->
-        
-    </div>
-</div>
+			<!--Start menu-->
+			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
 
-            <!--End menu-->
+				<div class="menu-overlay__content">
+					<!---->
 
-            <!--Start masthead-->
-            <!-- Start #masthead -->
+					<li class="menu-overlay__item">
+						<a href="/" target="">Home</a>
+					</li>
 
-<header
-    id="masthead"
-    class="site-header unit-1 unit-lg-2-5 bio"
-    style="background-image: url(/content/uploads/images/black-words-graffitti-on-yellow-wall-saying-if-you-are-reading-this-it-is-time-to-change-2eb8bd552346003b.avif)"
->
-    <div class="site-header__overlay"></div>
+					<!---->
 
-    <!-- Start .site-header__content -->
-<div class="site-header__content">
-    <div class="site-header__branding">
-        <h1 class="site-header__title">
-            <a href="/">{ LebCit }</a>
-        </h1>
-        <p class="site-header__description">Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</p>
-    </div>
+					<!---->
 
-    <nav id="nav" class="site-header__nav" aria-label="MENU">
-        <ul class="site-header__nav-list">
-            <li class="site-header__nav-item">
-                <a id="menu-button" aria-controls="main-nav" aria-haspopup="true" tabindex="0" role="button">
-                    <span>MENU</span>
-                    <span class="menu-icon" aria-hidden="true">
-                        <svg
-                            version="1.1"
-                            x="0px"
-                            y="0px"
-                            width="30px"
-                            height="30px"
-                            viewBox="0 0 30 30"
-                            enable-background="new 0 0 30 30"
-                        >
-                            <rect width="30" height="5" />
-                            <rect y="24" width="30" height="5" />
-                            <rect y="12" width="30" height="5" />
-                        </svg>
-                    </span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</div>
-<!-- End .site-header__content -->
+					<li class="menu-overlay__item">
+						<a href="/blog" target="_self">Blog</a>
+					</li>
 
-</header>
+					<!---->
 
-<!-- End #masthead -->
+					<!---->
 
-            <!--End masthead-->
+					<li class="menu-overlay__item">
+						<a href="/categories" target="_self">Categories</a>
+					</li>
 
-            <!--Start content-->
-            <div id="content" class="site-content unit-1 unit-lg-3-5">
-                <main
-    class="article-view"
->
-    
-    <!--The page to display the Markdown content of posts and pages.-->
-    <header class="post-header">
-    <h1 class="post-title">node_modules is not heavy, developers are lazy!</h1>
+					<!---->
 
-     <div class="post-meta">
-    <div class="post-date-wrapper">
-        <span>Posted:</span>
-        <time class="post-date" datetime="2025-06-03T12:32:44.809Z">
-            2023-07-29
-        </time>
+					<!---->
 
-        
-        <span class="separator">|</span>
-        <span>Updated:</span>
-        <time class="post-updated-date" datetime="2025-06-03T19:53:16.344Z">
-            2025-06-03
-        </time>
-        
-    </div>
+					<li class="menu-overlay__item">
+						<a href="/tags" target="_self">Tags</a>
+					</li>
 
-    
-    <div class="taxonomy-group">
-        <span>Category:</span>
-        <span class="post-category">
-            <a href="/category/web-development">web-development</a>
-        </span>
-    </div>
-    
-    <!---->
-    
-    <div class="taxonomy-group post-tags-group">
-        <span>Tagged:</span>
-        
-        <a class="post-tag" href="/tag/nodejs">nodejs</a>
-        
-        <a class="post-tag" href="/tag/dependencies">dependencies</a>
-        
-        <a class="post-tag" href="/tag/performance">performance</a>
-        
-        <a class="post-tag" href="/tag/best-practices">best-practices</a>
-        
-        <a class="post-tag" href="/tag/blog-doc">blog-doc</a>
-        
-    </div>
-    
-</div>
- 
-</header>
+					<!---->
 
-<div class="article-content">
-    
-    <p>
-        <em>Explore how misuse and laziness make node_modules heavy and learn modern Node.js practices to keep dependencies lean.</em>
-    </p>
-    
+					<!---->
 
-    <!--Content-->
-    <h2>Intro</h2>
+					<li class="menu-overlay__item">
+						<a href="/search" target="_self">Search</a>
+					</li>
 
-<p>Start typing in the search bar of any browser <strong>node modules</strong> and one of the first three suggestions will be <em>node modules meme</em>.<br />
-Why developers of back-end languages, outside the Node.js environment, started to create jokes about the <code>node_modules</code> folder?<br />
-Is it heavy or misused?!</p>
-<h2>Problem</h2>
+					<!---->
 
-<p>In the early days of Node.js which was created in 2009 and just after the release of the package manager in 2010, anyone with a little knowledge of JavaScript could publish a package.<br />
-Not only packages were massively created, but no one cares at the time if they were good or not!<br />
-People using Node.js back then just searched for the package that will get the job done and installed it.<br />
-Then tutorials about the most used modules came out and every newcomer took the path.<br />
-The problem was, and sadly still mostly is, that developers creating packages to resolve common tasks search for existing modules to a particular aspect and add it as a dependency of theirs to save time.<br />
-As a result, some of the most used packages are a bundle of a considerable amount of other ones, leading to gasworks when it comes to creating an app using them and inevitably making the <code>node_modules</code> folder the heaviest object in the universe...</p>
-<img class="img-responsive" src="/content/uploads/images/node-modules-meme-d8c8fc7028211c9b.jpg" alt="A meme about the node modules folder">
+					<!---->
 
-<h2>Solution</h2>
+					<li class="menu-overlay__item">
+						<a href="/page/my-public-projects" target="_self">Projects</a>
+					</li>
 
-<p>The most famous web framework for Node.js is indisputably <a href="https://expressjs.com/">Express</a> with over <a href="https://www.npmjs.com/package/express">28 million downloads per week</a>!<br />
-Its npm page indicates that it relies on 31 direct dependencies while looking at its <a href="https://npmgraph.js.org/?q=express">graph</a> we can see that its direct dependencies and theirs expand to 58 with a minified bundle size of 573 kB!<br />
-So the majority of Node.js developers don&#39;t think twice to get a web framework and install Express for 2 main reasons:</p>
-<ol>
-<li>They are in their comfort zone with it</li>
-<li>They are just being as lazy as they can</li>
-</ol>
-<p>Aren&#39;t there in the vast Node.js ecosystem any decent alternatives?<br />
-Well, here are two in the following table:</p>
-<style>
-table, th, td {
-  border: 1px solid;
-}
-</style>
+					<!---->
 
-<table>
-<thead>
-<tr>
-<th align="center">Package</th>
-<th align="center">Dependencies</th>
-<th align="center">Minified Bundle Size</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><a href="https://www.npmjs.com/package/itty-router">itty-router</a></td>
-<td align="center">0</td>
-<td align="center">4kB</td>
-</tr>
-<tr>
-<td align="center"><a href="https://www.npmjs.com/package/hono">hono</a></td>
-<td align="center">0</td>
-<td align="center">20kB</td>
-</tr>
-</tbody></table>
-<p>Hono was not designed for Node.js in the first place but it has an <a href="https://www.npmjs.com/package/@hono/node-server">adapter</a> of 3kB with no dependency.</p>
-<h2>Conclusion</h2>
+					<!---->
 
-<p>Some of you may already think that an application is not only about a web framework.<br />
-My simple answer is that I&#39;ve updated <strong><a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>: <em>The simplest Node.js CMS and SSG!</em></strong> to use 7 dependencies only instead of 145 and you can read more about it in <a href="/post/from-145-to-7">From 145 to 7 💪</a>.</p>
-<p class="post-content hide">
-<em>Note: The background image is a photo by <a href="https://unsplash.com/photos/text-YXg0VPwLwnM">hayleigh b</a>.</em>
-</p>
-</div>
+					<li class="menu-overlay__item">
+						<a href="/page/about-me" target="_self">About Me</a>
+					</li>
 
-<nav
-    class="post-navigation"
-    aria-label="Post Navigation"
->
-    
+					<!---->
 
-    <!-- Dynamic Markup Separator -->
+					<!---->
 
-    
+					<li class="menu-overlay__item">
+						<a href="/sitemap" target="_self">Sitemap</a>
+					</li>
 
-    <!-- Dynamic Markup Separator -->
+					<!---->
+				</div>
+			</div>
 
-    
-    <!-- Previous Post Link (only if there's a previous post) -->
-    <a href="/post/from-145-to-7" class="prev-post" rel="prev" aria-label="Go to the previous post">
-        Previous: From 145 to 7 💪
-    </a>
-    
+			<!--End menu-->
 
-    <!--Dynamic Markup Separator-->
+			<!--Start masthead-->
+			<!-- Start #masthead -->
 
-    
-    <!-- Next Post Link (only if there's a next post) -->
-    <a href="/post/switch-themes-in-blog-doc" class="next-post" rel="next" aria-label="Go to the next post">
-        Next: Switch themes in Blog-Doc!
-    </a>
-    
-</nav>
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="
+					background-image: url(/content/uploads/images/black-words-graffitti-on-yellow-wall-saying-if-you-are-reading-this-it-is-time-to-change-2eb8bd552346003b.avif);
+				"
+			>
+				<div class="site-header__overlay"></div>
 
+				<!-- Start .site-header__content -->
+				<div class="site-header__content">
+					<div class="site-header__branding">
+						<h1 class="site-header__title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-header__description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
 
-<!---->
- <div class="related-posts">
-    <h3>You Might Also Like</h3>
-    <div>
-        
-        <section>
-            <a href="/post/to-node-or-not-deta-is-the-answer">
-                <img
-                    class="img-responsive"
-                    src="/content/uploads/images/computer-screen-displaying-node-js-modules-b2dba29d73b5b67d.webp"
-                    alt="Featured image for the post: To Node or not? Deta is the answer!"
-                />
-            </a>
-            <h4>
-                <a href="/post/to-node-or-not-deta-is-the-answer">To Node or not? Deta is the answer!</a>
-            </h4>
-        </section>
-        
-        <section>
-            <a href="/post/from-145-to-7">
-                <img
-                    class="img-responsive"
-                    src="/content/uploads/images/a-cardboard-sign-that-says-all-you-need-is-less-5ad6480a095b0c9a.avif"
-                    alt="Featured image for the post: From 145 to 7 💪"
-                />
-            </a>
-            <h4>
-                <a href="/post/from-145-to-7">From 145 to 7 💪</a>
-            </h4>
-        </section>
-        
-    </div>
-</div>
- 
+					<nav id="nav" class="site-header__nav" aria-label="MENU">
+						<ul class="site-header__nav-list">
+							<li class="site-header__nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewBox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<!-- End .site-header__content -->
+			</header>
 
-    <!---->
+			<!-- End #masthead -->
 
-    
-</main>
+			<!--End masthead-->
 
-            </div>
-            <!--End content-->
+			<!--Start content-->
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main class="article-view">
+					<!--The page to display the Markdown content of posts and pages.-->
+					<header class="post-header">
+						<h1 class="post-title">node_modules is not heavy, developers are lazy!</h1>
 
-            <!--Start footer-->
-            <footer id="colophon" class="site-footer unit-1">
-    <div id="site-info" class="site-info">
-        
-        <p>
-            <strong>2016 - 2025 { LebCit }</strong>
+						<div class="post-meta">
+							<div class="post-date-wrapper">
+								<span>Posted:</span>
+								<time class="post-date" datetime="2025-06-03T12:32:44.809Z"> 2023-07-29 </time>
 
-            <br />
-            <!-- Custom Footer Code -->
-            Content in Motion. Powered by Aether.
-        </p>
-    </div>
-</footer>
+								<span class="separator">|</span>
+								<span>Updated:</span>
+								<time class="post-updated-date" datetime="2025-06-03T19:53:16.344Z"> 2025-06-03 </time>
+							</div>
 
-            <!--End footer-->
-        </div>
-        <!--End page-->
+							<div class="taxonomy-group">
+								<span>Category:</span>
+								<span class="post-category">
+									<a href="/category/web-development">web-development</a>
+								</span>
+							</div>
 
-        
-        <script src="/content/themes/midday-custom/assets/vendors/highlight.min.js" onload="hljs.highlightAll()"></script>
-        
+							<!---->
 
-        <script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+							<div class="taxonomy-group post-tags-group">
+								<span>Tagged:</span>
 
-        
-    </body>
+								<a class="post-tag" href="/tag/nodejs">nodejs</a>
+
+								<a class="post-tag" href="/tag/dependencies">dependencies</a>
+
+								<a class="post-tag" href="/tag/performance">performance</a>
+
+								<a class="post-tag" href="/tag/best-practices">best-practices</a>
+
+								<a class="post-tag" href="/tag/blog-doc">blog-doc</a>
+							</div>
+						</div>
+					</header>
+
+					<div class="article-content">
+						<p>
+							<em
+								>Explore how misuse and laziness make node_modules heavy and learn modern Node.js
+								practices to keep dependencies lean.</em
+							>
+						</p>
+
+						<!--Content-->
+						<h2>Intro</h2>
+
+						<p>
+							Start typing in the search bar of any browser <strong>node modules</strong> and one of the
+							first three suggestions will be <em>node modules meme</em>.<br />
+							Why developers of back-end languages, outside the Node.js environment, started to create
+							jokes about the <code>node_modules</code> folder?<br />
+							Is it heavy or misused?!
+						</p>
+						<h2>Problem</h2>
+
+						<p>
+							In the early days of Node.js which was created in 2009 and just after the release of the
+							package manager in 2010, anyone with a little knowledge of JavaScript could publish a
+							package.<br />
+							Not only packages were massively created, but no one cares at the time if they were good or
+							not!<br />
+							People using Node.js back then just searched for the package that will get the job done and
+							installed it.<br />
+							Then tutorials about the most used modules came out and every newcomer took the path.<br />
+							The problem was, and sadly still mostly is, that developers creating packages to resolve
+							common tasks search for existing modules to a particular aspect and add it as a dependency
+							of theirs to save time.<br />
+							As a result, some of the most used packages are a bundle of a considerable amount of other
+							ones, leading to gasworks when it comes to creating an app using them and inevitably making
+							the <code>node_modules</code> folder the heaviest object in the universe...
+						</p>
+						<img
+							class="img-responsive"
+							src="/content/uploads/images/node-modules-meme-d8c8fc7028211c9b.jpg"
+							alt="A meme about the node modules folder"
+						/>
+
+						<h2>Solution</h2>
+
+						<p>
+							The most famous web framework for Node.js is indisputably
+							<a href="https://expressjs.com/">Express</a> with over
+							<a href="https://www.npmjs.com/package/express">28 million downloads per week</a>!<br />
+							Its npm page indicates that it relies on 31 direct dependencies while looking at its
+							<a href="https://npmgraph.js.org/?q=express">graph</a> we can see that its direct
+							dependencies and theirs expand to 58 with a minified bundle size of 573 kB!<br />
+							So the majority of Node.js developers don&#39;t think twice to get a web framework and
+							install Express for 2 main reasons:
+						</p>
+						<ol>
+							<li>They are in their comfort zone with it</li>
+							<li>They are just being as lazy as they can</li>
+						</ol>
+						<p>
+							Aren&#39;t there in the vast Node.js ecosystem any decent alternatives?<br />
+							Well, here are two in the following table:
+						</p>
+						<style>
+							table,
+							th,
+							td {
+								border: 1px solid;
+							}
+						</style>
+
+						<table>
+							<thead>
+								<tr>
+									<th align="center">Package</th>
+									<th align="center">Dependencies</th>
+									<th align="center">Minified Bundle Size</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="center">
+										<a href="https://www.npmjs.com/package/itty-router">itty-router</a>
+									</td>
+									<td align="center">0</td>
+									<td align="center">4kB</td>
+								</tr>
+								<tr>
+									<td align="center"><a href="https://www.npmjs.com/package/hono">hono</a></td>
+									<td align="center">0</td>
+									<td align="center">20kB</td>
+								</tr>
+							</tbody>
+						</table>
+						<p>
+							Hono was not designed for Node.js in the first place but it has an
+							<a href="https://www.npmjs.com/package/@hono/node-server">adapter</a> of 3kB with no
+							dependency.
+						</p>
+						<h2>Conclusion</h2>
+
+						<p>
+							Some of you may already think that an application is not only about a web framework.<br />
+							My simple answer is that I&#39;ve updated
+							<strong
+								><a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>:
+								<em>The simplest Node.js CMS and SSG!</em></strong
+							>
+							to use 7 dependencies only instead of 145 and you can read more about it in
+							<a href="/post/from-145-to-7">From 145 to 7 💪</a>.
+						</p>
+						<p class="post-content hide">
+							<em
+								>Note: The background image is a photo by
+								<a href="https://unsplash.com/photos/text-YXg0VPwLwnM">hayleigh b</a>.</em
+							>
+						</p>
+					</div>
+
+					<nav class="post-navigation" aria-label="Post Navigation">
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Previous Post Link (only if there's a previous post) -->
+						<a href="/post/from-145-to-7" class="prev-post" rel="prev" aria-label="Go to the previous post">
+							Previous: From 145 to 7 💪
+						</a>
+
+						<!--Dynamic Markup Separator-->
+
+						<!-- Next Post Link (only if there's a next post) -->
+						<a
+							href="/post/switch-themes-in-blog-doc"
+							class="next-post"
+							rel="next"
+							aria-label="Go to the next post"
+						>
+							Next: Switch themes in Blog-Doc!
+						</a>
+					</nav>
+
+					<!---->
+					<div class="related-posts">
+						<h3>You Might Also Like</h3>
+						<div>
+							<section>
+								<a href="/post/to-node-or-not-deta-is-the-answer">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/computer-screen-displaying-node-js-modules-b2dba29d73b5b67d.webp"
+										alt="Featured image for the post: To Node or not? Deta is the answer!"
+									/>
+								</a>
+								<h4>
+									<a href="/post/to-node-or-not-deta-is-the-answer"
+										>To Node or not? Deta is the answer!</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/post/from-145-to-7">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/a-cardboard-sign-that-says-all-you-need-is-less-5ad6480a095b0c9a.avif"
+										alt="Featured image for the post: From 145 to 7 💪"
+									/>
+								</a>
+								<h4>
+									<a href="/post/from-145-to-7">From 145 to 7 💪</a>
+								</h4>
+							</section>
+						</div>
+					</div>
+
+					<!---->
+				</main>
+			</div>
+			<!--End content-->
+
+			<!--Start footer-->
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2025 { LebCit }</strong>
+
+						<br />
+						<!-- Custom Footer Code -->
+						Content in Motion. Powered by Aether.
+					</p>
+				</div>
+			</footer>
+
+			<!--End footer-->
+		</div>
+		<!--End page-->
+
+		<script
+			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
+			onload="hljs.highlightAll()"
+		></script>
+
+		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+	</body>
 </html>

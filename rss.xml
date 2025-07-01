@@ -11,12 +11,31 @@
         <description>Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</description>
         <language>en-us</language>
         <copyright>© 2025 All rights reserved</copyright>
-        <pubDate>Tue, 24 Jun 2025 18:40:59 GMT</pubDate>
-        <lastBuildDate>Wed, 25 Jun 2025 01:07:53 GMT</lastBuildDate>
+        <pubDate>Tue, 01 Jul 2025 00:47:13 GMT</pubDate>
+        <lastBuildDate>Tue, 01 Jul 2025 17:40:48 GMT</lastBuildDate>
         <atom:link href="https://lebcit.github.io/rss.xml" rel="self" type="application/rss+xml" />
         <docs>https://www.rssboard.org/rss-specification</docs>
        
         <!-- Items (Content) -->
+
+    <item>
+        <title>Editorial Theme for Aether CMS</title>
+        <link>https://lebcit.github.io/post/editorial-theme-for-aether-cms</link>
+        <guid isPermaLink="true">https://lebcit.github.io/post/editorial-theme-for-aether-cms</guid>
+        <pubDate>Tue, 01 Jul 2025 00:47:13 GMT</pubDate>
+        <dc:creator>LebCit</dc:creator>
+        <description><![CDATA[From Legacy to Modern
+
+Every developer has that moment when they stumble upon an old template that stops them in their tracks. The design speaks to them: clean...]]></description>
+<category domain="https://lebcit.github.io/category/web-development">web-development</category>
+        <category domain="https://lebcit.github.io/tag/aether-cms">aether-cms</category>
+        <category domain="https://lebcit.github.io/tag/accessibility">accessibility</category>
+        <category domain="https://lebcit.github.io/tag/theme">theme</category>
+        <category domain="https://lebcit.github.io/tag/theme-development">theme-development</category>
+        <category domain="https://lebcit.github.io/tag/web-development">web-development</category>
+        <category domain="https://lebcit.github.io/tag/typography">typography</category>
+        <enclosure url="https://lebcit.github.io/content/uploads/images/grayscale-people-reading-newspapers-on-train-623ee4be65b8f848.avif" type="image/avif" />
+    </item>
 
     <item>
         <title>Old Writer Theme for Aether CMS</title>

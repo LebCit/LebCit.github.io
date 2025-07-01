@@ -1,13 +1,25 @@
 {
 	"meta": {
-		"generatedAt": "2025-06-25T00:26:00.226Z",
-		"totalItems": 47,
-		"totalPosts": 44,
+		"generatedAt": "2025-07-01T17:36:26.493Z",
+		"totalItems": 48,
+		"totalPosts": 45,
 		"totalPages": 3,
 		"themeName": "midday-custom",
 		"version": "1.0.0"
 	},
 	"index": [
+		{
+			"id": "1751330833131",
+			"title": "Editorial Theme for Aether CMS",
+			"path": "/post/editorial-theme-for-aether-cms",
+			"content": "Discover a responsive and accessible editorial template, meticulously designed for editorial websites, blogs, and creative portfolios.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["aether-cms", "accessibility", "theme", "theme-development", "web-development", "typography"],
+			"publishDate": "2025-07-01T03:38",
+			"author": "LebCit"
+		},
 		{
 			"id": "1750790459135",
 			"title": "Old Writer Theme for Aether CMS",

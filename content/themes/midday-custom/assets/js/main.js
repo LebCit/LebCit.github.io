@@ -1,4 +1,5 @@
 import { updateExternalLinks } from "./updateExternalLinks.js"
+import { initRedirect } from "./redirect.js"
 
 /** Skip link focus fix for IE */
 ;(function () {
@@ -98,6 +99,9 @@ const openCloseMenu = (() => {
 window.addEventListener("DOMContentLoaded", () => {
 	openCloseMenu
 	document.querySelectorAll("img").forEach((img) => img.classList.add("img-responsive"))
+
+	// Initialize redirect handling
+	initRedirect()
 })
 
 /** Move Navigation Based on Window Width */

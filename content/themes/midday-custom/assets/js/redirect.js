@@ -30,20 +30,20 @@ function handleRedirect() {
 	if (currentPath.startsWith("/posts/")) {
 		const postSlug = currentPath.replace("/posts/", "")
 		const mappedSlug = POST_TITLE_MAPPINGS[postSlug] || postSlug
-		newPath = "/post/" + mappedSlug + "/"
+		newPath = "/post/" + mappedSlug
 	}
 
 	// Handle /tags/ → /tag/ redirects (and convert to lowercase)
 	// But skip the tags listing page itself (/tags/ or /tags)
 	else if (currentPath.startsWith("/tags/") && currentPath !== "/tags/" && currentPath !== "/tags") {
 		const tagName = currentPath.replace("/tags/", "").toLowerCase()
-		newPath = "/tag/" + tagName + "/"
+		newPath = "/tag/" + tagName
 	}
 
 	// Handle /pages/ → /page/ redirects
 	else if (currentPath.startsWith("/pages/")) {
 		const pageName = currentPath.replace("/pages/", "")
-		newPath = "/page/" + pageName + "/"
+		newPath = "/page/" + pageName
 	}
 
 	// Perform redirect if a new path was determined

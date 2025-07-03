@@ -11,12 +11,28 @@
         <description>Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</description>
         <language>en-us</language>
         <copyright>© 2025 All rights reserved</copyright>
-        <pubDate>Tue, 01 Jul 2025 00:47:13 GMT</pubDate>
-        <lastBuildDate>Wed, 02 Jul 2025 19:06:31 GMT</lastBuildDate>
+        <pubDate>Thu, 03 Jul 2025 10:08:34 GMT</pubDate>
+        <lastBuildDate>Thu, 03 Jul 2025 16:51:35 GMT</lastBuildDate>
         <atom:link href="https://lebcit.github.io/rss.xml" rel="self" type="application/rss+xml" />
         <docs>https://www.rssboard.org/rss-specification</docs>
        
         <!-- Items (Content) -->
+
+    <item>
+        <title>Responding to Hacker News Feedback on Aether CMS</title>
+        <link>https://lebcit.github.io/post/responding-to-hacker-news-feedback-on-aether-cms</link>
+        <guid isPermaLink="true">https://lebcit.github.io/post/responding-to-hacker-news-feedback-on-aether-cms</guid>
+        <pubDate>Thu, 03 Jul 2025 10:08:34 GMT</pubDate>
+        <dc:creator>LebCit</dc:creator>
+        <description><![CDATA[Intro
+
+I was surprised this morning to discover that the [launching post of Aether](/post/meet-aether-a-cms-that-actually-gets-out-of-your-way) got some comment...]]></description>
+<category domain="https://lebcit.github.io/category/web-development">web-development</category>
+        <category domain="https://lebcit.github.io/tag/aether-cms">aether-cms</category>
+        <category domain="https://lebcit.github.io/tag/hacker-news">hacker-news</category>
+        <category domain="https://lebcit.github.io/tag/community-feedback">community-feedback</category>
+        <enclosure url="https://lebcit.github.io/content/uploads/images/red-fire-truck-street-tall-building-753f29b2ca30ce51.avif" type="image/avif" />
+    </item>
 
     <item>
         <title>Editorial Theme for Aether CMS</title>

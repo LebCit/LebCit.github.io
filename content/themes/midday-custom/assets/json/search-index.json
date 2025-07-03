@@ -1,13 +1,25 @@
 {
 	"meta": {
-		"generatedAt": "2025-07-02T18:08:44.613Z",
-		"totalItems": 48,
-		"totalPosts": 45,
+		"generatedAt": "2025-07-03T16:44:25.156Z",
+		"totalItems": 49,
+		"totalPosts": 46,
 		"totalPages": 3,
 		"themeName": "midday-custom",
 		"version": "1.0.0"
 	},
 	"index": [
+		{
+			"id": "1751537314572",
+			"title": "Responding to Hacker News Feedback on Aether CMS",
+			"path": "/post/responding-to-hacker-news-feedback-on-aether-cms",
+			"content": "A follow-up to the Hacker News discussion on Aether CMS, addressing comments, questions, and suggestions from the community.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["aether-cms", "hacker-news", "community-feedback"],
+			"publishDate": "2025-07-03T12:51",
+			"author": "LebCit"
+		},
 		{
 			"id": "1751330833131",
 			"title": "Editorial Theme for Aether CMS",

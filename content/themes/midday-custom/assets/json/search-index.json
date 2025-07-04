@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"generatedAt": "2025-07-03T16:44:25.156Z",
+		"generatedAt": "2025-07-04T18:58:48.766Z",
 		"totalItems": 49,
 		"totalPosts": 46,
 		"totalPages": 3,
@@ -114,7 +114,7 @@
 			"id": "1748974305522",
 			"title": "Blog",
 			"path": "/blog",
-			"content": "",
+			"content": "Read blog articles by LebCit on web development, static sites, JavaScript, accessibility, and more. Learn through tutorials, tips, and project write-ups.",
 			"excerpt": "",
 			"type": "page",
 			"parentPage": null,

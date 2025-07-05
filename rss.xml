@@ -11,12 +11,28 @@
         <description>Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</description>
         <language>en-us</language>
         <copyright>© 2025 All rights reserved</copyright>
-        <pubDate>Thu, 03 Jul 2025 10:08:34 GMT</pubDate>
-        <lastBuildDate>Fri, 04 Jul 2025 19:52:38 GMT</lastBuildDate>
+        <pubDate>Sat, 05 Jul 2025 06:40:41 GMT</pubDate>
+        <lastBuildDate>Sat, 05 Jul 2025 17:34:59 GMT</lastBuildDate>
         <atom:link href="https://lebcit.github.io/rss.xml" rel="self" type="application/rss+xml" />
         <docs>https://www.rssboard.org/rss-specification</docs>
        
         <!-- Items (Content) -->
+
+    <item>
+        <title>The Power of :has() - CSS Can Now Climb the DOM</title>
+        <link>https://lebcit.github.io/post/the-power-of-has-css-can-now-climb-the-dom</link>
+        <guid isPermaLink="true">https://lebcit.github.io/post/the-power-of-has-css-can-now-climb-the-dom</guid>
+        <pubDate>Sat, 05 Jul 2025 06:40:41 GMT</pubDate>
+        <dc:creator>LebCit</dc:creator>
+        <description><![CDATA[CSS has long been evolving to make styling more powerful and intuitive. One of the newest and most exciting additions to the CSS selector arsenal is the `:has()...]]></description>
+<category domain="https://lebcit.github.io/category/web-development">web-development</category>
+        <category domain="https://lebcit.github.io/tag/css">css</category>
+        <category domain="https://lebcit.github.io/tag/design">design</category>
+        <category domain="https://lebcit.github.io/tag/frontend">frontend</category>
+        <category domain="https://lebcit.github.io/tag/no-javascript">no-javascript</category>
+        <category domain="https://lebcit.github.io/tag/has">has</category>
+        <enclosure url="https://lebcit.github.io/content/uploads/images/man-climbing-mountain-ccace9af9a732065.avif" type="image/avif" />
+    </item>
 
     <item>
         <title>Responding to Hacker News Feedback on Aether CMS</title>

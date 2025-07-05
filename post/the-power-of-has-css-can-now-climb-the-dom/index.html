@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--Metadata-->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta
+			name="description"
+			content="Explore how CSS :has() unlocks parent-level styling and smarter UI design with just pure CSS, no JavaScript needed!"
+		/>
+
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+
+		<!--Site icon-->
+
+		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
+
+		<!--Title-->
+		<title>The Power of :has() - CSS Can Now Climb the DOM | { LebCit }</title>
+
+		<!--Stylesheets-->
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
+
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+	</head>
+
+	<body>
+		<!--Start page-->
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+			<!--Start menu-->
+			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
+
+				<div class="menu-overlay__content">
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/" target="">Home</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/blog" target="_self">Blog</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/categories" target="_self">Categories</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/tags" target="_self">Tags</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/search" target="_self">Search</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/my-public-projects" target="_self">Projects</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/about-me" target="_self">About Me</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/sitemap" target="_self">Sitemap</a>
+					</li>
+
+					<!---->
+				</div>
+			</div>
+
+			<!--End menu-->
+
+			<!--Start masthead-->
+			<!-- Start #masthead -->
+
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="background-image: url(/content/uploads/images/man-climbing-mountain-ccace9af9a732065.avif)"
+			>
+				<div class="site-header__overlay"></div>
+
+				<!-- Start .site-header__content -->
+				<div class="site-header__content">
+					<div class="site-header__branding">
+						<h1 class="site-header__title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-header__description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
+
+					<nav id="nav" class="site-header__nav" aria-label="MENU">
+						<ul class="site-header__nav-list">
+							<li class="site-header__nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewBox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<!-- End .site-header__content -->
+			</header>
+
+			<!-- End #masthead -->
+
+			<!--End masthead-->
+
+			<!--Start content-->
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main class="article-view">
+					<!--The page to display the Markdown content of posts and pages.-->
+					<header class="post-header">
+						<h1 class="post-title">The Power of :has() - CSS Can Now Climb the DOM</h1>
+
+						<div class="post-meta">
+							<div class="post-date-wrapper">
+								<span>Posted:</span>
+								<time class="post-date" datetime="2025-07-05T06:40:41.805Z"> 2025-07-05 </time>
+
+								<span class="separator">|</span>
+								<span>Updated:</span>
+								<time class="post-updated-date" datetime="2025-07-05T06:41:52.252Z"> 2025-07-05 </time>
+							</div>
+
+							<div class="taxonomy-group">
+								<span>Category:</span>
+								<span class="post-category">
+									<a href="/category/web-development">web-development</a>
+								</span>
+							</div>
+
+							<!---->
+
+							<div class="taxonomy-group post-tags-group">
+								<span>Tagged:</span>
+
+								<a class="post-tag" href="/tag/css">css</a>
+
+								<a class="post-tag" href="/tag/design">design</a>
+
+								<a class="post-tag" href="/tag/frontend">frontend</a>
+
+								<a class="post-tag" href="/tag/no-javascript">no-javascript</a>
+
+								<a class="post-tag" href="/tag/has">has</a>
+							</div>
+						</div>
+					</header>
+
+					<div class="article-content">
+						<p>
+							<em
+								>Explore how CSS :has() unlocks parent-level styling and smarter UI design with just
+								pure CSS, no JavaScript needed!</em
+							>
+						</p>
+
+						<!--Content-->
+						<p>
+							CSS has long been evolving to make styling more powerful and intuitive. One of the newest
+							and most exciting additions to the CSS selector arsenal is the
+							<code>:has()</code> pseudo-class. This selector enables parent or ancestor selection based
+							on child elements, something that was previously impossible in pure CSS until December 2023.
+						</p>
+						<p>
+							In this article, we&#39;ll explore everything you need to know about <code>:has()</code>:
+							what it is, how it works, its practical uses, browser compatibility, and some gotchas to
+							watch out for.
+						</p>
+						<h2>What is the :has() Pseudo-Class?</h2>
+
+						<p>
+							The <code>:has()</code> pseudo-class selector allows you to select an element
+							<strong
+								>if it contains at least one element that matches the selector inside the
+								parentheses</strong
+							>.
+						</p>
+						<p>
+							In other words, it&#39;s a <em>parent selector</em> that matches an element based on the
+							presence of a child or descendant.
+						</p>
+						<h3>Syntax</h3>
+
+						<pre><code class="language-css">E:has(s) {
+    /* Rules applied to E who has s */
+}
+</code></pre>
+						<ul>
+							<li><code>E</code> = the element you want to style conditionally</li>
+							<li>
+								<code>s</code> = a selector that matches child or descendant elements inside
+								<code>E</code>
+							</li>
+						</ul>
+						<h2>Why is :has() Special?</h2>
+
+						<p>
+							For decades, CSS didn&#39;t had a way to style an element based on its children or
+							descendants. You could style children based on parents, but the reverse was impossible
+							without JavaScript.
+						</p>
+						<p>
+							With <code>:has()</code>, you get this ability natively in CSS, enabling more dynamic and
+							context-aware styling, purely declarative and performant.
+						</p>
+						<h2>Why Use :has() Instead of JavaScript?</h2>
+
+						<ul>
+							<li>
+								<strong>Performance:</strong> Browser optimizes CSS selectors better than DOM
+								manipulation scripts.
+							</li>
+							<li><strong>Simplicity:</strong> Less code, fewer event listeners.</li>
+							<li><strong>Maintainability:</strong> Declarative styling, easier to understand.</li>
+							<li>
+								<strong>Progressive Enhancement:</strong> Works gracefully on modern browsers,
+								doesn&#39;t break UI if unsupported.
+							</li>
+						</ul>
+						<h2>Try It Yourself!</h2>
+
+						<p>
+							Here&#39;s a simple example you can test in a modern browser console or
+							<a href="https://jsfiddle.net/">JSFiddle</a>:
+						</p>
+						<pre><code class="language-html">&lt;style&gt;
+    div:has(p.highlight) {
+        border: 2px solid green;
+        padding: 10px;
+    }
+
+    p.highlight {
+        color: red;
+    }
+&lt;/style&gt;
+
+&lt;div&gt;
+    &lt;p&gt;This paragraph is normal.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+    &lt;p class=&quot;highlight&quot;&gt;This paragraph is highlighted.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+						<p>
+							Only the second <code>&lt;div&gt;</code> will get the green border because it contains a
+							<code>&lt;p&gt;</code> with the <code>.highlight</code> class.
+						</p>
+						<h2>How :has() Works</h2>
+
+						<h3>Example 1: Highlight a Section If It Contains a Focused Input</h3>
+
+						<p>
+							Imagine a form with multiple input fields inside different sections. You want to highlight
+							the section when an input inside it receives focus.
+						</p>
+						<pre><code class="language-css">section:has(input:focus) {
+    border: 2px solid blue;
+    background-color: #f0f8ff;
+}
+</code></pre>
+						<p>
+							This CSS selects any <code>&lt;section&gt;</code> element that contains an
+							<code>&lt;input&gt;</code> currently focused, highlighting that entire section.
+						</p>
+						<h3>Example 2: Style a List Item That Contains a Checkbox That's Checked</h3>
+
+						<p>You can style parent elements based on child states, useful for custom UI effects.</p>
+						<pre><code class="language-css">li:has(input[type=&quot;checkbox&quot;]:checked) {
+    background-color: #d4edda;
+    font-weight: bold;
+}
+</code></pre>
+						<p>This styles any <code>&lt;li&gt;</code> that contains a checked checkbox.</p>
+						<h3>Example 3: Show a Warning if a Form Has an Invalid Input</h3>
+
+						<p>Highlight the form itself if it contains invalid inputs:</p>
+						<pre><code class="language-css">form:has(input:invalid) {
+    border: 2px solid red;
+}
+</code></pre>
+						<h2>Practical & Useful Examples of :has()</h2>
+
+						<h3>1. Highlight a Menu Item When Its Dropdown Is Open</h3>
+
+						<p>
+							If you have a navigation menu where hovering or focusing on a submenu should highlight the
+							parent menu item:
+						</p>
+						<pre><code class="language-css">nav li:has(ul:hover),
+nav li:has(ul:focus-within) {
+    background-color: #eee;
+    font-weight: bold;
+}
+</code></pre>
+						<p>
+							<strong>Why useful?</strong><br />You don&#39;t need JS to highlight the parent
+							<code>&lt;li&gt;</code> when the submenu <code>&lt;ul&gt;</code> is hovered or focused.
+						</p>
+						<h3>2. Style a Card Differently If It Contains an Image</h3>
+
+						<p>If you want cards with images to have a different background than those without:</p>
+						<pre><code class="language-css">.card:has(img) {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+</code></pre>
+						<p>Cards without images stay default; cards with images get a subtle background and border.</p>
+						<h3>3. Disable a Submit Button If a Form Contains Invalid Inputs</h3>
+
+						<p>
+							You can visually disable or style the submit button based on whether the form contains
+							invalid inputs:
+						</p>
+						<pre><code class="language-css">form:has(input:invalid) button[type=&quot;submit&quot;] {
+    background-color: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+</code></pre>
+						<p>This gives instant visual feedback <em>without JS</em>!</p>
+						<h3>4. Style a Parent Container If It Contains a Checked Checkbox</h3>
+
+						<p>Checkboxes inside a list that, when checked, style the entire list item:</p>
+						<pre><code class="language-css">li:has(input[type=&quot;checkbox&quot;]:checked) {
+    background-color: #d1e7dd;
+    text-decoration: line-through;
+    color: #495057;
+}
+</code></pre>
+						<p>Great for todo lists, task managers, etc.</p>
+						<h3>5. Show a Warning Message Only If a Form Has Required Empty Fields</h3>
+
+						<p>If you have a warning element inside a form, show it only when required inputs are empty:</p>
+						<pre><code class="language-css">form:has(input:required:invalid) .warning-message {
+    display: block;
+    color: red;
+}
+
+.warning-message {
+    display: none;
+}
+</code></pre>
+						<p>This CSS-only validation UI enhancement reduces reliance on JS.</p>
+						<h3>6. Expand an Accordion Section When It Contains a Focused Element</h3>
+
+						<p>If an accordion expands when any of its children (like inputs or buttons) gain focus:</p>
+						<pre><code class="language-css">.accordion-item {
+    overflow: hidden;
+}
+
+.accordion-item .accordion-content {
+    max-height: 0;
+    transition: max-height 0.3s ease;
+}
+
+.accordion-item:has(:focus-within) .accordion-content {
+    max-height: 500px; /* expand */
+}
+</code></pre>
+						<p>
+							<strong>Note:</strong> This assumes your accordion content has a reasonable maximum height.
+							For truly dynamic content, consider using <code>max-height: none</code> with a transition on
+							<code>height</code> instead.
+						</p>
+						<h3>7. Prevent Body Scroll When Sidebar Is Open</h3>
+
+						<p>
+							Control the entire page&#39;s overflow behavior based on whether a sidebar or modal is
+							currently open:
+						</p>
+						<pre><code class="language-css">body:has(.sidebar-open) {
+    overflow: hidden;
+}
+</code></pre>
+						<p>
+							<strong>Why useful?</strong><br />When you have a mobile sidebar or modal overlay, you
+							typically want to prevent the background page from scrolling. Instead of toggling classes
+							with JavaScript on the body element, you can simply add/remove the
+							<code>.sidebar-open</code> class on the sidebar itself, and CSS handles the rest.
+						</p>
+						<p><strong>HTML structure:</strong></p>
+						<pre><code class="language-html">&lt;body&gt;
+    &lt;div class=&quot;sidebar&quot; id=&quot;mySidebar&quot;&gt;
+        &lt;!-- sidebar content --&gt;
+    &lt;/div&gt;
+    &lt;main&gt;
+        &lt;!-- page content --&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+</code></pre>
+						<p><strong>JavaScript (minimal):</strong></p>
+						<pre><code class="language-javascript">// Just toggle the class on the sidebar
+document.getElementById(&quot;mySidebar&quot;).classList.toggle(&quot;sidebar-open&quot;)
+// CSS automatically handles body overflow
+</code></pre>
+						<p>
+							This approach keeps your JavaScript focused on state management while letting CSS handle the
+							styling consequences.
+						</p>
+						<h3>8. Dark Mode Toggle Without JavaScript State Management</h3>
+
+						<p>
+							Let a single checkbox control your entire page&#39;s theme without complex JavaScript state
+							management:
+						</p>
+						<pre><code class="language-css">body:has(.theme-toggle:checked) {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body:has(.theme-toggle:checked) .card {
+    background-color: #2d2d2d;
+    border-color: #444;
+}
+
+body:has(.theme-toggle:checked) .btn {
+    background-color: #495057;
+    border-color: #6c757d;
+}
+</code></pre>
+						<p>
+							<strong>Why useful?</strong><br />Traditional dark mode implementations require JavaScript
+							to toggle classes on the body or root element. With <code>:has()</code>, you just need a
+							checkbox anywhere in your DOM, and CSS handles all the theme switching logic declaratively.
+						</p>
+						<h3>9. E-commerce Product Cards with Dynamic States</h3>
+
+						<p>Style product cards differently based on their current state (sale, out of stock, etc.):</p>
+						<pre><code class="language-css">.product-card:has(.sale-price) .original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9em;
+}
+
+.product-card:has(.sale-price) {
+    border: 2px solid #dc3545;
+    position: relative;
+}
+
+.product-card:has(.sale-price)::before {
+    content: &quot;SALE&quot;;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #dc3545;
+    color: white;
+    padding: 2px 8px;
+    font-size: 0.8em;
+    border-radius: 3px;
+}
+
+.product-card:has(.out-of-stock) {
+    opacity: 0.6;
+    pointer-events: none;
+}
+</code></pre>
+						<p>
+							<strong>Why useful?</strong><br />No need to manually add modifier classes like
+							<code>.product-card--on-sale</code>. Just add the sale price or stock status elements, and
+							CSS automatically styles the entire card accordingly.
+						</p>
+						<h3>10. Form Step Indicators with Validation States</h3>
+
+						<p>Create visual step indicators that automatically update based on form validation:</p>
+						<pre><code class="language-css">.form-step:has(input:invalid) .step-indicator {
+    background-color: #dc3545;
+    color: white;
+}
+
+.form-step:has(input:valid) .step-indicator {
+    background-color: #28a745;
+    color: white;
+}
+
+.form-step:has(input:focus) .step-indicator {
+    border: 2px solid #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.form-step:has(input:placeholder-shown) .step-indicator {
+    background-color: #6c757d;
+}
+</code></pre>
+						<p>
+							<strong>Why useful?</strong><br />Perfect for multi-step forms or wizards. The step
+							indicators automatically reflect the current validation state without needing JavaScript to
+							manually update their appearance.
+						</p>
+						<h3>11. Media Gallery with Selection Mode</h3>
+
+						<p>Reveal batch actions and visual feedback when media items are selected:</p>
+						<pre><code class="language-css">.gallery:has(.media-item.selected) .batch-actions {
+    display: flex;
+    position: sticky;
+    bottom: 20px;
+    background: #007bff;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem;
+}
+
+.gallery:has(.media-item.selected) .media-item:not(.selected) {
+    opacity: 0.5;
+    transform: scale(0.95);
+}
+
+.batch-actions {
+    display: none;
+    transition: all 0.3s ease;
+}
+</code></pre>
+						<p>
+							<strong>Why useful?</strong><br />Common pattern in admin interfaces, photo galleries, or
+							file managers. Once any item is selected, the interface automatically switches to
+							&quot;selection mode&quot; with batch actions and visual feedback.
+						</p>
+						<h3>12. Comment System with Interactive States</h3>
+
+						<p>Style comment threads based on their current interaction state:</p>
+						<pre><code class="language-css">.comment:has(.reply-form:not([hidden])) {
+    border-left: 3px solid #007bff;
+    background-color: #f8f9fa;
+    padding-left: 1rem;
+}
+
+.comment:has(.replies) {
+    margin-bottom: 1.5rem;
+}
+
+.comment:has(.replies)::after {
+    content: &quot;&quot;;
+    display: block;
+    width: 2px;
+    background: #dee2e6;
+    position: absolute;
+    left: 20px;
+    height: 100%;
+}
+</code></pre>
+						<p>
+							<strong>Why useful?</strong><br />Automatically style comments when reply forms are open or
+							when they contain reply threads, creating a more dynamic and responsive comment interface.
+						</p>
+						<h3>13. Navigation with Notification Badges</h3>
+
+						<p>Show notification indicators only when there are actual notifications:</p>
+						<pre><code class="language-css">.nav-item:has(.notification-count:not(:empty)) .nav-link::after {
+    content: &quot;&quot;;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #dc3545;
+    border-radius: 50%;
+}
+
+.nav-item:has(.notification-count:not(:empty)) .nav-link {
+    position: relative;
+}
+
+/* Show actual count for numbers */
+.nav-item:has(.notification-count[data-count]) .nav-link::after {
+    content: attr(data-count);
+    width: auto;
+    height: auto;
+    padding: 2px 6px;
+    font-size: 0.7em;
+    line-height: 1;
+    min-width: 16px;
+    text-align: center;
+}
+</code></pre>
+						<p>
+							<strong>Why useful?</strong><br />Clean, semantic approach to notification badges. The badge
+							only appears when there&#39;s actual content, and you can even display the count using data
+							attributes.
+						</p>
+						<h3>Bonus: Nested Example for Complex UI Logic</h3>
+
+						<p>Highlight a comment thread if any reply inside is authored by the current user:</p>
+						<pre><code class="language-css">.comment-thread:has(.reply.author-current-user) {
+    border-left: 4px solid #007bff;
+    background-color: #e7f1ff;
+}
+</code></pre>
+						<h2>Use Cases & Benefits</h2>
+
+						<ul>
+							<li>
+								<strong>Parent selection without JavaScript:</strong> No more need for JS hacks or
+								libraries just to style parents based on children.
+							</li>
+							<li>
+								<strong>Better form styling:</strong> Style form groups or error containers dynamically.
+							</li>
+							<li>
+								<strong>Conditional UI states:</strong> Trigger complex UI changes based on child
+								elements.
+							</li>
+							<li>
+								<strong>Cleaner code:</strong> Reduce reliance on JS for simple conditional styling.
+							</li>
+						</ul>
+						<h2>Browser Support</h2>
+
+						<p>
+							The <code>:has()</code> pseudo-class was standardized in
+							<a href="https://www.w3.org/TR/selectors-4/#has-pseudo">Selectors Level 4</a> and is
+							supported by most modern browsers:
+						</p>
+						<table>
+							<thead>
+								<tr>
+									<th>Browser</th>
+									<th>Support</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Chrome</td>
+									<td>Supported (from v105)</td>
+								</tr>
+								<tr>
+									<td>Edge</td>
+									<td>Supported (from v105)</td>
+								</tr>
+								<tr>
+									<td>Firefox</td>
+									<td>Supported (from v121)</td>
+								</tr>
+								<tr>
+									<td>Safari</td>
+									<td>Supported (from v15.4)</td>
+								</tr>
+								<tr>
+									<td>Opera</td>
+									<td>Supported (from v91)</td>
+								</tr>
+								<tr>
+									<td>Internet Explorer</td>
+									<td>Not supported</td>
+								</tr>
+							</tbody>
+						</table>
+						<p>
+							<strong>Note:</strong> Always check up-to-date compatibility on
+							<a href="https://caniuse.com/css-has">Can I Use</a> before using in production.
+						</p>
+						<h2>Performance Considerations</h2>
+
+						<p>
+							Because <code>:has()</code> lets you select parents based on child selectors, browsers need
+							to do more complex matching. This can have performance implications if used on very large
+							DOM trees or with very complex selectors.
+						</p>
+						<p><strong>What counts as &quot;complex selectors&quot;:</strong></p>
+						<ul>
+							<li>Deep descendant selectors like <code>:has(.level1 .level2 .level3 .target)</code></li>
+							<li>Multiple pseudo-classes like <code>:has(input:focus:valid:required)</code></li>
+							<li>Universal selectors like <code>:has(*:hover)</code></li>
+							<li>Combining <code>:has()</code> with other expensive selectors</li>
+						</ul>
+						<p><strong>Performance tips:</strong></p>
+						<ul>
+							<li>Use <code>:has()</code> selectively and avoid overly broad selectors</li>
+							<li>Prefer child selectors (<code>&gt;</code>) over descendant selectors when possible</li>
+							<li>Avoid using it inside animations or frequently triggered styles</li>
+							<li>Test performance if applying on large or complex pages</li>
+							<li>
+								Consider scoping your <code>:has()</code> selectors to specific containers rather than
+								applying globally
+							</li>
+						</ul>
+						<h2>Gotchas and Limitations</h2>
+
+						<ul>
+							<li>
+								<strong>Browser support:</strong> Not supported on IE or older browsers, fallback or
+								polyfills may be needed
+							</li>
+							<li>
+								<strong>Performance impact:</strong> Complex selectors inside <code>:has()</code> may
+								reduce performance on large DOMs
+							</li>
+							<li>
+								<strong>Sibling relationships:</strong> You can select based on sibling state using
+								combinators like <code>:has(+ .next-sibling)</code> or
+								<code>:has(~ .any-following-sibling)</code>
+							</li>
+							<li>
+								<strong>Specificity:</strong> <code>:has()</code> itself has no specificity, but the
+								selectors inside it count toward specificity calculations
+							</li>
+							<li>
+								<strong>Cannot nest <code>:has()</code>:</strong> You cannot use
+								<code>:has()</code> inside another <code>:has()</code> selector
+							</li>
+						</ul>
+						<h2>Summary</h2>
+
+						<p>
+							The CSS <code>:has()</code> pseudo-class selector is a powerful new tool that finally
+							unlocks parent selection based on children, something developers have long needed. It
+							simplifies conditional styling, reduces dependency on JavaScript, and opens doors for
+							cleaner, more maintainable CSS.
+						</p>
+						<p>
+							While browser support is solid and growing, always check compatibility and performance
+							before using it in production. When used thoughtfully, <code>:has()</code> can eliminate
+							many JavaScript-based styling solutions and make your CSS more declarative and easier to
+							maintain.
+						</p>
+					</div>
+
+					<nav class="post-navigation" aria-label="Post Navigation">
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Previous Post Link (only if there's a previous post) -->
+						<a
+							href="/post/responding-to-hacker-news-feedback-on-aether-cms"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Previous: Responding to Hacker News Feedback on Aether CMS
+						</a>
+
+						<!--Dynamic Markup Separator-->
+					</nav>
+
+					<!---->
+					<div class="related-posts">
+						<h3>You Might Also Like</h3>
+						<div>
+							<section>
+								<a href="/post/click-without-javascript">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/hand-pointing-upward-on-a-pink-background-c14fe9e3cb17777c.webp"
+										alt="Featured image for the post: Click without JavaScript!"
+									/>
+								</a>
+								<h4>
+									<a href="/post/click-without-javascript">Click without JavaScript!</a>
+								</h4>
+							</section>
+						</div>
+					</div>
+
+					<!---->
+				</main>
+			</div>
+			<!--End content-->
+
+			<!--Start footer-->
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2025 { LebCit }</strong>
+
+						<br />
+						<!-- Custom Footer Code -->
+						Content in Motion. Powered by
+						<a href="https://aether-cms.pages.dev/" aria-label="Visit the Aether CMS website">Aether</a>.
+					</p>
+				</div>
+			</footer>
+
+			<!--End footer-->
+		</div>
+		<!--End page-->
+
+		<script
+			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
+			onload="hljs.highlightAll()"
+		></script>
+
+		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+	</body>
+</html>

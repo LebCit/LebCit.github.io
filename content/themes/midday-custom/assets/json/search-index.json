@@ -1,13 +1,25 @@
 {
 	"meta": {
-		"generatedAt": "2025-07-04T18:58:48.766Z",
-		"totalItems": 49,
-		"totalPosts": 46,
+		"generatedAt": "2025-07-05T17:32:06.243Z",
+		"totalItems": 50,
+		"totalPosts": 47,
 		"totalPages": 3,
 		"themeName": "midday-custom",
 		"version": "1.0.0"
 	},
 	"index": [
+		{
+			"id": "1751697641805",
+			"title": "The Power of :has() - CSS Can Now Climb the DOM",
+			"path": "/post/the-power-of-has-css-can-now-climb-the-dom",
+			"content": "Explore how CSS :has() unlocks parent-level styling and smarter UI design with just pure CSS, no JavaScript needed!",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": ["css", "design", "frontend", "no-javascript", "has"],
+			"publishDate": "2025-07-05T08:32",
+			"author": "LebCit"
+		},
 		{
 			"id": "1751537314572",
 			"title": "Responding to Hacker News Feedback on Aether CMS",

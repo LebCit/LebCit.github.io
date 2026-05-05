@@ -219,7 +219,6 @@
 
 						<!--Content-->
 						<h2>A Simpler Way!</h2>
-
 						<p>
 							This tutorial was published in 2023 and is now outdated. A simpler, faster approach using
 							<a href="https://litenode.pages.dev/">LiteNode</a> is now available. Check out the updated
@@ -228,7 +227,6 @@
 							for more efficient implementation steps.
 						</p>
 						<h2>TOC (Table Of Contents)</h2>
-
 						<ul>
 							<li>Intro</li>
 							<li><a href="#markdown">What is Markdown good for?</a></li>
@@ -245,7 +243,6 @@
 							<li><a href="#blog-doc">Blog-Doc</a></li>
 						</ul>
 						<h2>Intro</h2>
-
 						<p>
 							A year ago, I wrote a short post about the same subject:
 							<a href="/post/markdown-blog-with-ejs">Markdown blog with EJS</a>.<br />
@@ -267,7 +264,6 @@
 							reusable blocks to be maintainable.
 						</p>
 						<h2 id="markdown">What is Markdown good for?</h2>
-
 						<p>
 							When a browser displays some content, it&#39;s rendering the <code>HTML</code> structure of
 							a webpage along with its styles and scripts.<br />
@@ -415,7 +411,6 @@ That&#39;s all folks, CU!
 							We will see later how they will be used.
 						</p>
 						<h2 id="markdown-to-html">Converting Markdown to HTML</h2>
-
 						<p>
 							We have seen how to display a preview of a Markdown file, Let&#39;s now use Marked to get
 							the <code>HTML</code> out of it.<br />
@@ -580,7 +575,6 @@ const data = parseFrontMatter(contents)
 							class="img-responsive"
 							alt="Output of a function in the debug panel of VS Code"
 						/>
-
 						<p>
 							As you can see, the returned variable, <code>data</code>, is an accessible object in which
 							we have:
@@ -634,7 +628,6 @@ const html = marked.parse(data.content) // Accessing data content with dot notat
 							the <code>content</code> of the Markdown file 🥳
 						</p>
 						<h2>Using Hono and Eta</h2>
-
 						<p>
 							Having all the ingredients at our disposal, it&#39;s now time to cook and serve!<br />
 							To give our blog a nice design, download the free Bootstrap blog template
@@ -786,7 +779,6 @@ serve(app, ({port}) =&gt; {
   │  └── 📄 from-markdown-to-html.md
 </code></pre>
 						<h3 id="render-blog">The blog</h3>
-
 						<p>
 							As we have seen previously, the main route <code>/</code>, also known as the entry route or
 							the home route, displays the most recent posts.<br />
@@ -1354,7 +1346,6 @@ serve(app, ({ port }) =&gt; {
 							class="img-responsive"
 							alt="Output of a function in the debug panel of VS Code"
 						/>
-
 						<p>So each post is returned as an object containing:</p>
 						<ol>
 							<li>
@@ -1369,7 +1360,6 @@ serve(app, ({ port }) =&gt; {
 							since we don&#39;t need it in the code.
 						</p>
 						<h3 id="render-single-post-page">A single blog post, a single page</h3>
-
 						<p>
 							In this section, we will learn how to render a post and a page on the frontend and we will
 							fix the issues of the previous section regarding the missing elements and the footer&#39;s
@@ -1617,7 +1607,6 @@ imageCredit: The link to the image or its author
 ---
 </code></pre>
 						<h2 id="blog-doc">Blog-Doc</h2>
-
 						<p>
 							This tutorial is a simplified approach to how the blog, the pages and the posts are rendered
 							on the frontend in <a href="https://github.com/LebCit/blog-doc">Blog-Doc</a>: The simplest
@@ -1719,7 +1708,7 @@ imageCredit: The link to the image or its author
 			<footer id="colophon" class="site-footer unit-1">
 				<div id="site-info" class="site-info">
 					<p>
-						<strong>2016 - 2025 { LebCit }</strong>
+						<strong>2016 - 2026 { LebCit }</strong>
 
 						<br />
 						<!-- Custom Footer Code -->

@@ -219,7 +219,6 @@
 
 						<!--Content-->
 						<h2>Intro</h2>
-
 						<p>
 							There are a lot of tutorials about EJS out there, as well as a lot of
 							<a href="https://stackoverflow.com/questions/tagged/ejs">questions/answers</a>.<br />I
@@ -232,7 +231,6 @@
 							every step to understand it 🧠
 						</p>
 						<h2 id="template-engines">Template engines</h2>
-
 						<p>
 							A template engine, processor or parser, is a software designed to inject data into a file,
 							that commonly have the same extension as the template language or refers to, by using
@@ -272,7 +270,6 @@
 							<p>It&#39;s just plain JavaScript.</p>
 						</blockquote>
 						<h2>Setup</h2>
-
 						<p>
 							To follow up this tutorial, you&#39;ll need to install on your machine
 							<a href="https://nodejs.org/en/">Node.js</a>, always go for the Long Time Support version,
@@ -300,7 +297,6 @@
 							as it is, and it&#39;s also fine, since we are just testing and not publishing our app.
 						</p>
 						<h2>Express</h2>
-
 						<p>
 							Since we&#39;re building a web app in Node.js, we&#39;ll be using
 							<a href="https://expressjs.com/">Express</a> to simplify our development and take advantage
@@ -342,7 +338,6 @@
 						<p>Put the following code in <code>index.js</code>:</p>
 						<details>
 							<summary>/index.js</summary>
-
 							<pre><code class="language-js">const express = require(&quot;express&quot;)
 const app = express()
 
@@ -356,7 +351,6 @@ app.listen(3000, () =&gt; {
 })
 </code></pre>
 						</details>
-
 						<p>To run this app, simply type in the TERMINAL the following command:</p>
 						<pre><code class="language-bash">node index
 </code></pre>
@@ -369,7 +363,6 @@ app.listen(3000, () =&gt; {
 							link.<br />You now should see a beautiful <em>Hello World!</em> in your default browser!
 						</p>
 						<h2>Nodemon</h2>
-
 						<p>
 							Remember that this app is a server-side one!<br />Brief and quick example.<br />Try to
 							change <em>Hello World!</em> in <code>index.js</code> to whatever other string, let&#39;s
@@ -411,7 +404,6 @@ app.listen(3000, () =&gt; {
 						<p>The file should now look like this:</p>
 						<details>
 							<summary>/package.json</summary>
-
 							<pre><code class="language-json">{
     &quot;name&quot;: &quot;ejs&quot;,
     &quot;version&quot;: &quot;1.0.0&quot;,
@@ -432,7 +424,6 @@ app.listen(3000, () =&gt; {
 }
 </code></pre>
 						</details>
-
 						<p>
 							Now, all you have to do is to stop the server if it&#39;s running then type in the TERMINAL:
 						</p>
@@ -456,7 +447,6 @@ App 🚀 @ http://localhost:3000
 							see your changes, after you have saved them, by reloading the browser.
 						</p>
 						<h2>First EJS file</h2>
-
 						<p>
 							To start using EJS in Node.js, we have first to install it, you should by now know where to
 							type the following command:
@@ -466,7 +456,6 @@ App 🚀 @ http://localhost:3000
 						<p>Update <code>index.js</code> to <code>set</code> EJS as our template engine:</p>
 						<details>
 							<summary>/index.js</summary>
-
 							<pre><code class="language-js">const express = require(&quot;express&quot;)
 const app = express()
 
@@ -483,7 +472,6 @@ app.listen(3000, () =&gt; {
 })
 </code></pre>
 						</details>
-
 						<p>
 							Since EJS is now installed, let&#39;s use it!<br />To do so, we have to create a
 							<code>views</code> folder at the root of our app.<br />Express will look inside this folder
@@ -501,7 +489,6 @@ app.listen(3000, () =&gt; {
 						<p>Put the following content inside <code>index.ejs</code>:</p>
 						<details>
 							<summary>/views/index.ejs</summary>
-
 							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
@@ -516,7 +503,6 @@ app.listen(3000, () =&gt; {
 &lt;/html&gt;
 </code></pre>
 						</details>
-
 						<p>
 							As you can see, an <code>.ejs</code> file is just <code>HTML</code> in which we can use
 							plain <code>JavaScript</code>, and we&#39;ll do that later on.
@@ -533,7 +519,6 @@ app.listen(3000, () =&gt; {
 							save your modification(s), and refresh your browser to see the changes.
 						</p>
 						<h2>LiveReload</h2>
-
 						<p>
 							Earlier, we&#39;ve solved a half of the problem, no need to shut down the server and restart
 							it anymore.<br />But what about the browser, should I always refresh it?<br />Absolutely
@@ -556,7 +541,6 @@ app.listen(3000, () =&gt; {
 						<p>Let&#39;s implement this behavior by updating <code>index.js</code>:</p>
 						<details>
 							<summary>/index.js</summary>
-
 							<pre><code class="language-js">const express = require(&quot;express&quot;)
 const app = express()
 
@@ -591,14 +575,12 @@ app.listen(3000, () =&gt; {
 })
 </code></pre>
 						</details>
-
 						<p>
 							A final step is needed for this to work as expected.<br />We&#39;ll have to add a command
 							under <code>scripts</code> in <code>package.json</code>:
 						</p>
 						<details>
 							<summary>/package.json</summary>
-
 							<pre><code class="language-json">{
     &quot;name&quot;: &quot;ejs&quot;,
     &quot;version&quot;: &quot;1.0.0&quot;,
@@ -623,7 +605,6 @@ app.listen(3000, () =&gt; {
 }
 </code></pre>
 						</details>
-
 						<p>
 							This command tells Nodemon to watch for changes of files with a <code>.js</code> or
 							<code>.ejs</code> extension in the app.<br /><em>Nota bene</em>: you can change the name of
@@ -642,7 +623,6 @@ app.listen(3000, () =&gt; {
 							reloads automatically and your changes are rendered to the browser instantly!
 						</p>
 						<h2>Templating with EJS</h2>
-
 						<p>
 							Templating is the mechanism of combining multiple parts into one.<br />In the
 							<code>views</code> folder, create a new folder called <code>partials</code>.<br />This
@@ -661,7 +641,6 @@ app.listen(3000, () =&gt; {
 						</p>
 						<details>
 							<summary>/views/partials/head.ejs</summary>
-
 							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
@@ -674,15 +653,12 @@ app.listen(3000, () =&gt; {
 &lt;/html&gt;
 </code></pre>
 						</details>
-
 						<details>
 							<summary>/views/partials/footer.ejs</summary>
-
 							<pre><code class="language-html">&lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
 						</details>
-
 						<p>
 							Man, your code is a mess!<br />There is no closing tags for <code>html</code> and
 							<code>body</code> in <code>head.ejs</code>, moreover there is two lonely closing tags for
@@ -691,7 +667,6 @@ app.listen(3000, () =&gt; {
 						</p>
 						<details>
 							<summary>/views/index.ejs</summary>
-
 							<pre><code class="language-html">&lt;%- include(&#39;partials/head&#39;) %&gt;
 
 &lt;h1&gt;I&#39;m templating with EJS&lt;/h1&gt;
@@ -699,7 +674,6 @@ app.listen(3000, () =&gt; {
 &lt;%- include(&#39;partials/footer&#39;) %&gt;
 </code></pre>
 						</details>
-
 						<p>
 							Save and go take a look at your browser 😁<br />The code is self explanatory.<br />We are
 							using the <code>include()</code> function of EJS, to <strong>include</strong> a template
@@ -717,7 +691,6 @@ app.listen(3000, () =&gt; {
 							we&#39;ll see much more in the next section.
 						</p>
 						<h2>Passing data</h2>
-
 						<p>
 							This is, in my opinion, the most powerful, used and sensitive functionality of any template
 							engine!<br />Although, we should be aware of how to use it and what we are passing from one
@@ -725,7 +698,6 @@ app.listen(3000, () =&gt; {
 							frontend/browser)!
 						</p>
 						<h3 id="simple-routing">Simple routing</h3>
-
 						<hr />
 						<p>
 							Let&#39;s begin by adding another page to our app.<br />Create an
@@ -733,7 +705,6 @@ app.listen(3000, () =&gt; {
 						</p>
 						<details>
 							<summary>/views/about.ejs</summary>
-
 							<pre><code class="language-html">&lt;%- include(&#39;partials/head&#39;) %&gt;
 
 &lt;h1&gt;About me&lt;/h1&gt;
@@ -746,7 +717,6 @@ app.listen(3000, () =&gt; {
 &lt;%- include(&#39;partials/footer&#39;) %&gt;
 </code></pre>
 						</details>
-
 						<p>While your server is running up, try to go to the following route:</p>
 						<pre><code class="language-txt">http://localhost:3000/about
 </code></pre>
@@ -774,7 +744,6 @@ app.get(&quot;/about&quot;, (req, res) =&gt; {
 							<code>about-me</code> route.
 						</p>
 						<h3 id="data-object">Data object</h3>
-
 						<hr />
 						<p>
 							If you look closer to the browser&#39;s title when you&#39;re viewing the content of
@@ -835,7 +804,6 @@ app.get(&quot;/&quot;, (req, res) =&gt; {
 							Great job!
 						</p>
 						<h3 id="do-not-repeat-yourself">Don't Repeat Yourself</h3>
-
 						<hr />
 						<p>
 							Suppose the <code>&lt;h1&gt;</code> tags in <code>index.ejs</code> and
@@ -879,7 +847,6 @@ app.get(&quot;/&quot;, (req, res) =&gt; {
 						</p>
 						<details>
 							<summary>/views/partials/head.ejs</summary>
-
 							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
@@ -894,13 +861,11 @@ app.get(&quot;/&quot;, (req, res) =&gt; {
 &lt;/html&gt;
 </code></pre>
 						</details>
-
 						<p>
 							Now you have a little idea about passing data from the backend to the frontend as well as
 							one or two benefits a template engine can provide.
 						</p>
 						<h2>Navigation</h2>
-
 						<p>
 							A user can&#39;t guess the different routes of an application. An app should help the user
 							to explore and use it&#39;s content by providing a way to navigate between it&#39;s
@@ -909,7 +874,6 @@ app.get(&quot;/&quot;, (req, res) =&gt; {
 						<p>Create a <code>nav.ejs</code> in <code>partials.ejs</code> with the following content:</p>
 						<details>
 							<summary>/views/partials/nav.ejs</summary>
-
 							<pre><code class="language-html">&lt;nav&gt;
     &lt;ul&gt;
         &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
@@ -918,7 +882,6 @@ app.get(&quot;/&quot;, (req, res) =&gt; {
 &lt;/nav&gt;
 </code></pre>
 						</details>
-
 						<p>
 							Pay attention, the <code>href</code> attributes are the same as the defined routes on the
 							server!
@@ -929,7 +892,6 @@ app.get(&quot;/&quot;, (req, res) =&gt; {
 						</p>
 						<details>
 							<summary>/views/partials/head.ejs</summary>
-
 							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
@@ -946,13 +908,11 @@ app.get(&quot;/&quot;, (req, res) =&gt; {
 &lt;/html&gt;
 </code></pre>
 						</details>
-
 						<p>
 							Save both files and take a look at your browser.<br />You should have a working navigation
 							above the page title.
 						</p>
 						<h2>Static files</h2>
-
 						<p>
 							For now, we&#39;ve been rendering <code>.ejs</code> files, including them one into another,
 							and passing some basic data from the backend to the frontend using the
@@ -984,7 +944,6 @@ app.use(express.static(&#39;public&#39;))
 							this folder will hold files intended to be rendered directly in the browser/frontend.
 						</p>
 						<h3>Images</h3>
-
 						<hr />
 						<p>
 							Let&#39;s begin by creating an <code>img</code> folder inside the
@@ -1017,7 +976,6 @@ app.use(express.static(&#39;public&#39;))
 </code></pre>
 						<p>Now it&#39;s your turn to insert <code>byblos.jpg</code> into <code>about.ejs</code>.</p>
 						<h3>Styles</h3>
-
 						<hr />
 						<p>We can load styles into a page by:</p>
 						<ol>
@@ -1100,7 +1058,6 @@ app.use(express.static(&#39;public&#39;))
 						</p>
 						<details>
 							<summary>/views/partials/nav.ejs</summary>
-
 							<pre><code class="language-html">&lt;nav class=&quot;pure-menu pure-menu-horizontal&quot;&gt;
     &lt;ul class=&quot;pure-menu-list&quot;&gt;
         &lt;li class=&quot;pure-menu-item&quot;&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
@@ -1109,7 +1066,6 @@ app.use(express.static(&#39;public&#39;))
 &lt;/nav&gt;
 </code></pre>
 						</details>
-
 						<p>
 							Save and take a look at your browser.<br />Congrats, you&#39;ve just used pre-made styles
 							from a loaded framework.<br />Read the framework&#39;s documentation and play with it&#39;s
@@ -1118,7 +1074,6 @@ app.use(express.static(&#39;public&#39;))
 							have a better understanding of how you can use it.
 						</p>
 						<h3>JavaScript</h3>
-
 						<hr />
 						<p>
 							There is no simple definition for <code>JavaScript</code>...<br />Look at
@@ -1147,7 +1102,6 @@ app.use(express.static(&#39;public&#39;))
 						</p>
 						<details>
 							<summary>/public/scripts/main.js</summary>
-
 							<pre><code class="language-js">const btn = document.getElementById(&quot;btn&quot;)
 if (btn) {
     btn.addEventListener(&quot;click&quot;, () =&gt; {
@@ -1156,7 +1110,6 @@ if (btn) {
 }
 </code></pre>
 						</details>
-
 						<p>
 							Just like a stylesheet, a script file should be loaded into the document to work.<br />It&#39;s
 							safer, and best practice, to load scripts at the very end of a document.<br />Modify
@@ -1181,7 +1134,6 @@ if (btn) {
 							><br />Meaning that I&#39;m not a fan of frontend JS frameworks, but that&#39;s just me...
 						</p>
 						<h3 id="paths">Paths</h3>
-
 						<hr />
 						<p><strong>Important subsection ahead!</strong></p>
 						<p>
@@ -1267,7 +1219,6 @@ if (btn) {
 							</li>
 						</ol>
 						<h2>Conclusion</h2>
-
 						<p>
 							I hope that this tutorial will help a lot of new developers to start using EJS as a template
 							engine in Node.js and understand how things are related together.
@@ -1388,7 +1339,7 @@ if (btn) {
 			<footer id="colophon" class="site-footer unit-1">
 				<div id="site-info" class="site-info">
 					<p>
-						<strong>2016 - 2025 { LebCit }</strong>
+						<strong>2016 - 2026 { LebCit }</strong>
 
 						<br />
 						<!-- Custom Footer Code -->

@@ -233,14 +233,12 @@
 							>, if you don&#39;t click the link it&#39;s a useful section to read.
 						</p>
 						<h2>Dependencies</h2>
-
 						<p>
 							To create your Markdown blog, you&#39;ll only need two dependencies:
 							<a href="https://www.npmjs.com/package/litenode">LiteNode</a> and
 							<a href="https://www.npmjs.com/package/marked">Marked</a>.
 						</p>
 						<h2>Installation</h2>
-
 						<ol>
 							<li>Create a folder called <strong>markdown-blog-nodejs</strong></li>
 							<li>
@@ -255,7 +253,6 @@
 							in your project.
 						</p>
 						<h2>Starting your application</h2>
-
 						<p>
 							Before continuing, add <code>&quot;type&quot;: &quot;module&quot;</code> to your
 							<strong>package.json</strong> file to enable the use of <code>import</code> statements
@@ -291,7 +288,6 @@ App @ http://localhost:5000
 							Click on the link and your default browser will open and display: Welcome to the main route!
 						</p>
 						<h2>Rendering</h2>
-
 						<p>
 							LiteNode allows you to render HTML templates where you can load Markdown files contents. The
 							Markdown files will be processed in two steps:
@@ -304,7 +300,6 @@ App @ http://localhost:5000
 							</li>
 						</ol>
 						<h3>A practical example</h3>
-
 						<p>Create in the <strong>views</strong> folder 2 files:</p>
 						<ol>
 							<li><strong>index.html</strong>: the main HTML template file</li>
@@ -370,7 +365,6 @@ I can do anything with Markdown using LiteNode because they are made for each ot
 							&#39;Home&#39;) in the rendered <strong>index.html</strong>.
 						</p>
 						<h3>Some explanation</h3>
-
 						<p>
 							While the new logic of <code>app.get...</code> in <strong>index.js</strong> is explained by
 							the provided comments, I want to bring your attention on two particular aspects:
@@ -393,7 +387,6 @@ I can do anything with Markdown using LiteNode because they are made for each ot
 							</li>
 						</ol>
 						<h2>A simple HTML blog</h2>
-
 						<p>
 							For this tutorial, we are going to use the
 							<a href="https://pure-css.github.io/layouts/side-menu/">Responsive Side Menu</a> layout from
@@ -420,10 +413,8 @@ I can do anything with Markdown using LiteNode because they are made for each ot
 							another method called <code>renderToFile</code> instead of <code>render</code>.
 						</p>
 						<h2>Nota bene</h2>
-
 						<p>Additional notes to help understand key aspects of the code:</p>
 						<h3>The blog</h3>
-
 						<p>Here is the code that renders the blog:</p>
 						<pre><code class="language-js">// Route for the blog view
 app.get(&quot;/&quot;, async (req, res) =&gt; {
@@ -467,7 +458,6 @@ app.get(&quot;/&quot;, async (req, res) =&gt; {
 							<a href="https://litenode.pages.dev/docs/ste-filters/#truncate">truncate</a> filters.
 						</p>
 						<h3>A post content</h3>
-
 						<p>In <strong>index.html</strong> inside the <strong>layouts</strong> folder you could do:</p>
 						<pre><code class="language-html">&lt;!--Otherwise display the HTML post content--&gt;
 &lt;div class=&quot;content&quot;&gt;{{html_content}}&lt;/div&gt;
@@ -482,7 +472,6 @@ app.get(&quot;/&quot;, async (req, res) =&gt; {
 							because you&#39;ll surely extend it with more dynamic contents, styles and scripts.
 						</p>
 						<h2>The about page</h2>
-
 						<p>
 							In the build process, <strong>about.md</strong> doesn&#39;t have a dedicated route like in
 							the rendering one. Looking at <strong>buildRoutes.js</strong> inside the
@@ -501,7 +490,6 @@ const mdFiles = pagesFiles.concat(postsFiles)
 							<strong>about.md</strong> to an HTML file, it&#39;s taken care of right here.
 						</p>
 						<h2>Conclusion</h2>
-
 						<p>
 							This tutorial aims to show you how LiteNode simplifies and enhances the process of rendering
 							and building a static site without the need of helper functions, lot of explanations and the
@@ -627,7 +615,7 @@ const mdFiles = pagesFiles.concat(postsFiles)
 			<footer id="colophon" class="site-footer unit-1">
 				<div id="site-info" class="site-info">
 					<p>
-						<strong>2016 - 2025 { LebCit }</strong>
+						<strong>2016 - 2026 { LebCit }</strong>
 
 						<br />
 						<!-- Custom Footer Code -->

@@ -213,7 +213,6 @@
 
 						<!--Content-->
 						<h2>Intro</h2>
-
 						<p>
 							I&#39;ve released today (2025-06-06)
 							<a href="https://aether-cms.pages.dev/">Aether CMS</a> which is a modern and flexible
@@ -229,9 +228,7 @@
 							by offering a clearer, step-by-step approach to creating a theme using a real-world example.
 						</p>
 						<hr class="section-divider" />
-
 						<h2 id="theme-structure">Theme Structure</h2>
-
 						<p>A theme in Aether consists of <strong>3 required files</strong>:</p>
 						<ul>
 							<li><code>theme.json</code> → The configuration file for your Aether theme</li>
@@ -252,9 +249,7 @@
 └── 🛠️ theme.json
 </code></pre>
 						<hr class="subsection-divider" />
-
 						<h3 id="theme-json-file">Theme JSON File</h3>
-
 						<p>
 							The <code>theme.json</code> file of your Aether theme is where you define the configuration
 							fields for it. For brevity I&#39;ll only use the
@@ -294,18 +289,14 @@
 							<code>&quot;GPL-3.0-or-later&quot;</code>.
 						</p>
 						<hr class="subsection-divider" />
-
 						<h3 id="main-template">Main Template</h3>
-
 						<p>
 							The <code>layout.html</code> file is the main template for your site, it must be located
 							inside a <strong>templates</strong> folder at the root of your theme directory (e.g.,
 							<strong>my-aether-theme/templates/layout.html</strong>).
 						</p>
 						<hr class="subsection-divider" />
-
 						<h3 id="main-stylesheet">Main Stylesheet</h3>
-
 						<p>
 							The <code>style.css</code> file is the main stylesheet for your site. This file must be
 							located inside a <strong>css</strong> folder, which is within an
@@ -313,9 +304,7 @@
 							<strong>my-aether-theme/assets/css/style.css</strong>).
 						</p>
 						<hr class="section-divider" />
-
 						<h2 id="templating">Templating</h2>
-
 						<p>
 							Templating is the process of getting data from the backend and displaying it in a template
 							the way we want.<br />In Aether, a template is just an HTML file — the backbone of the web —
@@ -333,9 +322,7 @@
 							Repeat Yourself).
 						</p>
 						<hr class="subsection-divider" />
-
 						<h3 id="clean-blog-structure">Clean Blog Structure</h3>
-
 						<p>
 							By looking at the
 							<a href="https://startbootstrap.com/previews/clean-blog">Clean Blog preview</a>, we can see
@@ -364,9 +351,7 @@
 							and unique layout compared to the other pages.
 						</p>
 						<hr class="section-divider" />
-
 						<h2 id="install-aether">Install Aether</h2>
-
 						<p>
 							To follow along with creating Clean Blog as an Aether theme, I recommend installing Aether
 							and working alongside me. This way, you can better grasp the concepts and see how everything
@@ -428,9 +413,7 @@ Do you want to set up a new git origin for your project? (y/n): n
 </code></pre>
 						<p>With Aether set up, let’s get to work and start recreating Clean Blog for Aether!</p>
 						<hr class="section-divider" />
-
 						<h2 id="clean-blog-creation">Clean Blog Creation</h2>
-
 						<p>
 							If you&#39;ve already created your Aether theme structure as described above, just rename
 							the root folder from <strong>my-aether-theme</strong> to <strong>clean-blog</strong>. This
@@ -456,9 +439,7 @@ Do you want to set up a new git origin for your project? (y/n): n
 ├── 📁 uploads/
 </code></pre>
 						<hr class="subsection-divider" />
-
 						<h3 id="starting-aether">Starting Aether</h3>
-
 						<p>
 							If you&#39;re comfortable using the terminal, you can navigate into the folder and start the
 							project by running:
@@ -496,11 +477,8 @@ App @ http://localhost:8080
 								running on.
 							</div>
 						</div>
-
 						<hr class="subsection-divider" />
-
 						<h3>The Administration</h3>
-
 						<p>
 							To access the Aether administration dashboard, navigate to
 							<a href="http://localhost:8080/aether">http://localhost:8080/aether</a> and log in using the
@@ -524,9 +502,7 @@ App @ http://localhost:8080
 						</p>
 						<p>Congratulations! You’ve just created the base for an Aether theme.</p>
 						<hr class="subsection-divider" />
-
 						<h3 id="clean-blog-index">Clean Blog Index</h3>
-
 						<p>
 							As seen previously, the Clean Blog homepage displays a list of posts. We have access to
 							Clean Blog’s source code in its
@@ -608,11 +584,8 @@ App @ http://localhost:8080
 								using absolute paths.
 							</div>
 						</div>
-
 						<hr class="subsection-divider" />
-
 						<h3 id="dynamic-rendering">Dynamic Rendering</h3>
-
 						<p>
 							Replicating the Clean Blog homepage was easy and straightforward, just as Aether is designed
 							to be.
@@ -648,7 +621,6 @@ App @ http://localhost:8080
 							out the key differences.
 						</p>
 						<h4>1. The Header of Posts</h4>
-
 						<pre><code class="language-html">&lt;!-- The header for the homepage has this structure --&gt;
 &lt;header class=&quot;masthead&quot; style=&quot;background-image: url(&#39;assets/img/home-bg.jpg&#39;)&quot;&gt;
     ...
@@ -708,7 +680,6 @@ App @ http://localhost:8080
 							</li>
 						</ul>
 						<h4>2. Main Content Wrappers by Content Type</h4>
-
 						<pre><code class="language-html">&lt;!-- 1. Index content --&gt;
 &lt;div class=&quot;container px-4 px-lg-5&quot;&gt;
     ...
@@ -745,11 +716,8 @@ App @ http://localhost:8080
 								as you understand what you're doing and avoid breaking the theme!
 							</div>
 						</div>
-
 						<hr class="subsection-divider" />
-
 						<h3 id="practical-decisions">Practical Decisions</h3>
-
 						<p>After reviewing the Clean Blog stylesheet and scripts, I found the following:</p>
 						<ol>
 							<li>
@@ -794,11 +762,8 @@ App @ http://localhost:8080
 								tags to match your needs.
 							</div>
 						</div>
-
 						<hr class="subsection-divider" />
-
 						<h3 id="clean-blog-templates">Clean Blog Templates</h3>
-
 						<p>
 							Now that we know what changes we&#39;re going to make, it&#39;s finally time to break the
 							theme into reusable parts and components. To do this, you&#39;ll need to create the
@@ -875,7 +840,6 @@ App @ http://localhost:8080
 						</p>
 						<details>
 							<summary>head.html</summary>
-
 							<pre><code class="language-html">&lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot; /&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot; /&gt;
@@ -901,10 +865,8 @@ App @ http://localhost:8080
 &lt;/head&gt;
 </code></pre>
 						</details>
-
 						<details>
 							<summary>menu.html</summary>
-
 							<pre><code class="language-hbs">&lt;nav class=&quot;navbar navbar-expand-lg navbar-light&quot; id=&quot;mainNav&quot;&gt;
     &lt;div class=&quot;container px-4 px-lg-5&quot;&gt;
         &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;
@@ -962,10 +924,8 @@ App @ http://localhost:8080
 &lt;/nav&gt;
 </code></pre>
 						</details>
-
 						<details>
 							<summary>header.html</summary>
-
 							<pre><code class="language-html">&lt;header class=&quot;masthead&quot; style=&quot;background-image: url(/content/uploads{{metadata.featuredImage.url}})&quot;&gt;
     &lt;div class=&quot;container position-relative px-4 px-lg-5&quot;&gt;
         &lt;div class=&quot;row gx-4 gx-lg-5 justify-content-center&quot;&gt;
@@ -996,10 +956,8 @@ App @ http://localhost:8080
 &lt;/header&gt;
 </code></pre>
 						</details>
-
 						<details>
 							<summary>content.html</summary>
-
 							<pre><code class="language-html">&lt;main class=&quot;mb-4&quot;&gt;
     &lt;div class=&quot;container px-4 px-lg-5&quot;&gt;
         &lt;div class=&quot;row gx-4 gx-lg-5 justify-content-center&quot;&gt;
@@ -1032,10 +990,8 @@ App @ http://localhost:8080
 &lt;/main&gt;
 </code></pre>
 						</details>
-
 						<details>
 							<summary>pagination.html</summary>
-
 							<pre><code class="language-html">&lt;!-- Creating pagination in Aether is super easy, read more about it at:
 https://aether-cms.pages.dev/documentation/theming/working-with-pagination/ --&gt;
 {{#if pagination || prevPost || nextPost}}
@@ -1084,10 +1040,8 @@ https://aether-cms.pages.dev/documentation/theming/working-with-pagination/ --&g
 {{/if}}
 </code></pre>
 						</details>
-
 						<details>
 							<summary>footer.html</summary>
-
 							<pre><code class="language-hbs">&lt;footer class=&quot;border-top&quot;&gt;
     &lt;div class=&quot;container px-4 px-lg-5&quot;&gt;
         &lt;div class=&quot;row gx-4 gx-lg-5 justify-content-center&quot;&gt;
@@ -1175,10 +1129,8 @@ https://aether-cms.pages.dev/documentation/theming/working-with-pagination/ --&g
 &lt;/footer&gt;
 </code></pre>
 						</details>
-
 						<details>
 							<summary>404.html</summary>
-
 							<pre><code class="language-html">&lt;p&gt;
     We couldn&#39;t find the page you were looking for. It might have been moved, deleted, or you may have typed the URL
     incorrectly. You can return to the homepage to keep exploring.
@@ -1187,10 +1139,8 @@ https://aether-cms.pages.dev/documentation/theming/working-with-pagination/ --&g
 &lt;a href=&quot;/&quot; class=&quot;btn btn-success text-uppercase&quot; rel=&quot;next&quot;&gt;Okay, Take Me Home!&lt;/a&gt;
 </code></pre>
 						</details>
-
 						<details>
 							<summary>posts-listing.html</summary>
-
 							<pre><code class="language-html">{{#each posts}}
 &lt;!-- Post preview--&gt;
 &lt;div class=&quot;post-preview&quot;&gt;
@@ -1213,7 +1163,6 @@ https://aether-cms.pages.dev/documentation/theming/working-with-pagination/ --&g
 {{#include(&quot;partials/pagination.html&quot;)}}
 </code></pre>
 						</details>
-
 						<p>
 							For <code>blog.html</code> and <code>homepage.html</code>, you only need to add a single
 							line to each:
@@ -1245,9 +1194,7 @@ Learn more here: https://aether-cms.pages.dev/documentation/theming/template-inh
 							</li>
 						</ol>
 						<hr class="section-divider" />
-
 						<h2 id="wrapping-up">Wrapping Up</h2>
-
 						<p>
 							Aether is so flexible that you could recreate Clean Blog in many different ways.<br />What
 							I’ve shared here is the simplest version, without making full use of Aether’s powerful
@@ -1366,7 +1313,7 @@ Learn more here: https://aether-cms.pages.dev/documentation/theming/template-inh
 			<footer id="colophon" class="site-footer unit-1">
 				<div id="site-info" class="site-info">
 					<p>
-						<strong>2016 - 2025 { LebCit }</strong>
+						<strong>2016 - 2026 { LebCit }</strong>
 
 						<br />
 						<!-- Custom Footer Code -->

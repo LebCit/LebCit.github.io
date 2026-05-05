@@ -10,13 +10,30 @@
         <link>https://lebcit.github.io</link>
         <description>Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</description>
         <language>en-us</language>
-        <copyright>© 2025 All rights reserved</copyright>
-        <pubDate>Sat, 05 Jul 2025 06:40:41 GMT</pubDate>
-        <lastBuildDate>Sat, 05 Jul 2025 17:34:59 GMT</lastBuildDate>
+        <copyright>© 2026 All rights reserved</copyright>
+        <pubDate>Mon, 04 May 2026 14:21:27 GMT</pubDate>
+        <lastBuildDate>Tue, 05 May 2026 03:26:21 GMT</lastBuildDate>
         <atom:link href="https://lebcit.github.io/rss.xml" rel="self" type="application/rss+xml" />
         <docs>https://www.rssboard.org/rss-specification</docs>
        
         <!-- Items (Content) -->
+
+    <item>
+        <title>// bookmarks: Firefox Bookmark Manager</title>
+        <link>https://lebcit.github.io/post/bookmarks-firefox-bookmark-manager</link>
+        <guid isPermaLink="true">https://lebcit.github.io/post/bookmarks-firefox-bookmark-manager</guid>
+        <pubDate>Mon, 04 May 2026 14:21:27 GMT</pubDate>
+        <dc:creator>LebCit</dc:creator>
+        <description><![CDATA[Over time, and silently, your browser&apos;s bookmarks-bar becomes a graveyard for a huge collection of bookmarks.  
+I like Firefox a lot, the only browser that I us...]]></description>
+<category domain="https://lebcit.github.io/category/web-development">web-development</category>
+        <category domain="https://lebcit.github.io/tag/bookmark-manager">bookmark-manager</category>
+        <category domain="https://lebcit.github.io/tag/digital-organization">digital-organization</category>
+        <category domain="https://lebcit.github.io/tag/firefox-extension">firefox-extension</category>
+        <category domain="https://lebcit.github.io/tag/productivity-tools">productivity-tools</category>
+        <category domain="https://lebcit.github.io/tag/open-source">open-source</category>
+        <enclosure url="https://lebcit.github.io/content/uploads/images/a-stack-of-colorful-books-sitting-on-top-of-a-table-d867767bfc23e6ab.avif" type="image/avif" />
+    </item>
 
     <item>
         <title>The Power of :has() - CSS Can Now Climb the DOM</title>

@@ -1,13 +1,31 @@
 {
 	"meta": {
-		"generatedAt": "2025-07-05T17:32:06.243Z",
-		"totalItems": 50,
-		"totalPosts": 47,
+		"generatedAt": "2026-05-05T02:37:11.717Z",
+		"totalItems": 51,
+		"totalPosts": 48,
 		"totalPages": 3,
 		"themeName": "midday-custom",
 		"version": "1.0.0"
 	},
 	"index": [
+		{
+			"id": "20f6be37-d3f5-477e-8ec3-3c7587cbe149",
+			"title": "// bookmarks: Firefox Bookmark Manager",
+			"path": "/post/bookmarks-firefox-bookmark-manager",
+			"content": "Personal Firefox bookmark manager: save pages in one click, then organize, search, tag, move, and browse all bookmarks in a full-page manager.",
+			"excerpt": "",
+			"type": "post",
+			"category": "web-development",
+			"tags": [
+				"bookmark-manager",
+				"digital-organization",
+				"firefox-extension",
+				"productivity-tools",
+				"open-source"
+			],
+			"publishDate": "2026-05-04T17:15",
+			"author": "LebCit"
+		},
 		{
 			"id": "1751697641805",
 			"title": "The Power of :has() - CSS Can Now Climb the DOM",

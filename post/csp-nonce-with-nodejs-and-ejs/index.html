@@ -219,7 +219,6 @@
 
 						<!--Content-->
 						<h2>Intro</h2>
-
 						<p>
 							In this post, I will not dive into CSP&#39;s details. The link in the description, above, is
 							enough for a simple introduction to the subject, but if you wish to go deeper I&#39;ll
@@ -234,7 +233,6 @@
 							<li><a href="https://www.w3.org/TR/CSP3/">Content Security Policy Level 3 on W3C</a></li>
 						</ul>
 						<h2>CSP: script-src</h2>
-
 						<p>
 							CSP is manly a way to declare allowed resources to load on a domain or a particular route,
 							to reduce the risk of
@@ -258,7 +256,6 @@
 						<pre><code class="language-html">&lt;button id=&quot;btn&quot; onclick=&quot;doSomething()&quot;&gt;&lt;/button&gt;
 </code></pre>
 						<h2>CSP: style-src</h2>
-
 						<p>
 							Like <code>script-src</code>,
 							<a
@@ -296,14 +293,12 @@
 						<pre><code class="language-js">document.getElementById(&quot;my-div&quot;).style.backgroundColor = &quot;red&quot;
 </code></pre>
 						<h2>Unsafe expressions</h2>
-
 						<p>
 							There are <strong>unsafe</strong> ways to whitelist inline script tags, inline event
 							handlers, inline style tags and inline styles, but I&#39;m not going to talk about them
 							because they are <strong>unsafe</strong> and break the whole point of a CSP!
 						</p>
 						<h2>Setting CSP in Node.js</h2>
-
 						<p>
 							To define allowed resources in a CSP via Node.js, we have to declare them as a response
 							header:
@@ -348,7 +343,6 @@ app.listen(3000, () =&gt; {
 							nothing since we didn&#39;t do much for now.
 						</p>
 						<h2>EJS</h2>
-
 						<p>
 							To render an <code>HTML</code> page, load external scripts and styles to test our CSP,
 							I&#39;ll be using <a href="https://ejs.co/">EJS</a>.<br />Fell free to use any other
@@ -369,7 +363,6 @@ app.listen(3000, () =&gt; {
 						</p>
 						<details>
 							<summary>/views/index.ejs</summary>
-
 							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
@@ -384,7 +377,6 @@ app.listen(3000, () =&gt; {
 &lt;/html&gt;
 </code></pre>
 						</details>
-
 						<p>
 							Yes, an <code>.ejs</code> file is an <code>HTML</code> file in which we can use plain
 							<code>JavaScript</code>, we&#39;ll see that in a moment.
@@ -392,7 +384,6 @@ app.listen(3000, () =&gt; {
 						<p>Update our main server file to look like this:</p>
 						<details>
 							<summary>/index.js</summary>
-
 							<pre><code class="language-js">const express = require(&quot;express&quot;)
 const app = express()
 
@@ -419,9 +410,7 @@ app.listen(3000, () =&gt; {
 })
 </code></pre>
 						</details>
-
 						<h2>External resources</h2>
-
 						<p>
 							Now, to test our CSP, we just have to load some external resources.<br />Let&#39;s bring on
 							<a href="https://purecss.io/">Pure.css</a> and <a href="https://lodash.com/">Lodash</a>.
@@ -429,7 +418,6 @@ app.listen(3000, () =&gt; {
 						</p>
 						<details>
 							<summary>/views/index.ejs</summary>
-
 							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
@@ -454,33 +442,27 @@ app.listen(3000, () =&gt; {
 &lt;/html&gt;
 </code></pre>
 						</details>
-
 						<p>Save <code>index.ejs</code>, reload the app in the browser, and open the Console:</p>
 						<details>
 							<summary>Firefox Console</summary>
-
 							<pre><code class="language-js">
 ⚠️ Loading failed for the &lt;script&gt; with source “https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js”.
 🛑 Content Security Policy: The page’s settings blocked the loading of a resource at https://unpkg.com/purecss@2.1.0/build/pure-min.css (“style-src”).
 🛑 Content Security Policy: The page’s settings blocked the loading of a resource at https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js (“script-src”).
 </code></pre>
 						</details>
-
 						<details>
 							<summary>Chrome Console</summary>
-
 							<pre><code class="language-js">
 🛑 Refused to load the stylesheet &#39;https://unpkg.com/purecss@2.1.0/build/pure-min.css&#39; because it violates the following Content Security Policy directive: &quot;style-src &#39;self&#39;&quot;. Note that &#39;style-src-elem&#39; was not explicitly set, so &#39;style-src&#39; is used as a fallback.
 🛑 Refused to load the script &#39;https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js&#39; because it violates the following Content Security Policy directive: &quot;script-src &#39;self&#39;&quot;. Note that &#39;script-src-elem&#39; was not explicitly set, so &#39;script-src&#39; is used as a fallback.
 </code></pre>
 						</details>
-
 						<p>
 							Now, you can see that our CSP have blocked Pure.css and Lodash, so everything is working as
 							expected since they are not defined in our CSP as allowed resources to load in the browser.
 						</p>
 						<h2>Helmet</h2>
-
 						<p>
 							Imagine, not necessarily because it happens when you are creating an app, having a
 							reasonable amount of scripts and styles to whitelist.<br />The CSP middleware function in
@@ -509,17 +491,14 @@ app.listen(3000, () =&gt; {
 						<p>Let&#39;s add a CSP with Helmet:</p>
 						<details>
 							<summary>/middleware/helmet.js</summary>
-
 							<pre><code class="language-js">const helmet = require(&quot;helmet&quot;)
 
 module.exports = helmet()
 </code></pre>
 						</details>
-
 						<p>and update <code>index.js</code> to call this middleware:</p>
 						<details>
 							<summary>/index.js</summary>
-
 							<pre><code class="language-js">const express = require(&quot;express&quot;)
 const app = express()
 
@@ -540,26 +519,21 @@ app.listen(3000, () =&gt; {
 })
 </code></pre>
 						</details>
-
 						<p>Save both files, refresh your browser, and open the Console:</p>
 						<details>
 							<summary>Firefox Console</summary>
-
 							<pre><code class="language-js">
 ⚠️ Content Security Policy: Couldn’t process unknown directive ‘script-src-attr’
 ⚠️ Loading failed for the &lt;script&gt; with source “https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js”.
 🛑 Content Security Policy: The page’s settings blocked the loading of a resource at https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js (“script-src”).
 </code></pre>
 						</details>
-
 						<details>
 							<summary>Chrome Console</summary>
-
 							<pre><code class="language-js">
 🛑 Refused to load the script &#39;https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js&#39; because it violates the following Content Security Policy directive: &quot;script-src &#39;self&#39;&quot;. Note that &#39;script-src-elem&#39; was not explicitly set, so &#39;script-src&#39; is used as a fallback.
 </code></pre>
 						</details>
-
 						<p>
 							As you can see, now only Lodash is blocked 🤔 And Firefox is throwing a warning for an
 							unknown directive.
@@ -581,14 +555,12 @@ app.listen(3000, () =&gt; {
 							addressing all issues, properly, in the next and last section.
 						</p>
 						<h2>Hash and Nonce</h2>
-
 						<p>
 							To allow the execution of inline scripts, inline event handlers and inline styles, a hash or
 							a nonce that matches the inline code can be specified, to avoid using the
 							<code>&#39;unsafe-inline&#39;</code>expression.
 						</p>
 						<h3>Hash</h3>
-
 						<hr />
 						<p>
 							A <a href="https://content-security-policy.com/hash/">hash</a> is a string composed of two
@@ -621,7 +593,6 @@ app.listen(3000, () =&gt; {
 							</p>
 						</blockquote>
 						<h3>Nonce</h3>
-
 						<hr />
 						<p>
 							On the other hand, a <a href="https://content-security-policy.com/nonce/">nonce</a> is a
@@ -681,7 +652,6 @@ module.exports = { lodashNonce }
 						<p>Now, update <code>helmet.js</code>:</p>
 						<details>
 							<summary>/middleware/helmet.js</summary>
-
 							<pre><code class="language-js">const helmet = require(&quot;helmet&quot;)
 let { lodashNonce } = require(&quot;./nonces&quot;)
 
@@ -699,7 +669,6 @@ module.exports = helmet({
 })
 </code></pre>
 						</details>
-
 						<p>
 							This way is much elegant, clean and maintainable than a middleware function in the main
 							server file.
@@ -711,7 +680,6 @@ module.exports = helmet({
 						</p>
 						<details>
 							<summary>/index.js</summary>
-
 							<pre><code class="language-js">const express = require(&quot;express&quot;)
 const app = express()
 
@@ -745,10 +713,8 @@ app.listen(3000, () =&gt; {
 })
 </code></pre>
 						</details>
-
 						<details>
 							<summary>/views/index.ejs</summary>
-
 							<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
@@ -778,7 +744,6 @@ app.listen(3000, () =&gt; {
 &lt;/html&gt;
 </code></pre>
 						</details>
-
 						<p>
 							Save those files,reload your browser and open the browser&#39;s console 🥳🎉🎊<br />Congrats,
 							you&#39;ve just loaded an external script using a nonce!
@@ -899,7 +864,7 @@ app.listen(3000, () =&gt; {
 			<footer id="colophon" class="site-footer unit-1">
 				<div id="site-info" class="site-info">
 					<p>
-						<strong>2016 - 2025 { LebCit }</strong>
+						<strong>2016 - 2026 { LebCit }</strong>
 
 						<br />
 						<!-- Custom Footer Code -->

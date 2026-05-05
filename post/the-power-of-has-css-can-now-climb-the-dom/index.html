@@ -228,7 +228,6 @@
 							watch out for.
 						</p>
 						<h2>What is the :has() Pseudo-Class?</h2>
-
 						<p>
 							The <code>:has()</code> pseudo-class selector allows you to select an element
 							<strong
@@ -241,7 +240,6 @@
 							presence of a child or descendant.
 						</p>
 						<h3>Syntax</h3>
-
 						<pre><code class="language-css">E:has(s) {
     /* Rules applied to E who has s */
 }
@@ -254,7 +252,6 @@
 							</li>
 						</ul>
 						<h2>Why is :has() Special?</h2>
-
 						<p>
 							For decades, CSS didn&#39;t had a way to style an element based on its children or
 							descendants. You could style children based on parents, but the reverse was impossible
@@ -265,7 +262,6 @@
 							context-aware styling, purely declarative and performant.
 						</p>
 						<h2>Why Use :has() Instead of JavaScript?</h2>
-
 						<ul>
 							<li>
 								<strong>Performance:</strong> Browser optimizes CSS selectors better than DOM
@@ -279,7 +275,6 @@
 							</li>
 						</ul>
 						<h2>Try It Yourself!</h2>
-
 						<p>
 							Here&#39;s a simple example you can test in a modern browser console or
 							<a href="https://jsfiddle.net/">JSFiddle</a>:
@@ -308,9 +303,7 @@
 							<code>&lt;p&gt;</code> with the <code>.highlight</code> class.
 						</p>
 						<h2>How :has() Works</h2>
-
 						<h3>Example 1: Highlight a Section If It Contains a Focused Input</h3>
-
 						<p>
 							Imagine a form with multiple input fields inside different sections. You want to highlight
 							the section when an input inside it receives focus.
@@ -325,7 +318,6 @@
 							<code>&lt;input&gt;</code> currently focused, highlighting that entire section.
 						</p>
 						<h3>Example 2: Style a List Item That Contains a Checkbox That's Checked</h3>
-
 						<p>You can style parent elements based on child states, useful for custom UI effects.</p>
 						<pre><code class="language-css">li:has(input[type=&quot;checkbox&quot;]:checked) {
     background-color: #d4edda;
@@ -334,16 +326,13 @@
 </code></pre>
 						<p>This styles any <code>&lt;li&gt;</code> that contains a checked checkbox.</p>
 						<h3>Example 3: Show a Warning if a Form Has an Invalid Input</h3>
-
 						<p>Highlight the form itself if it contains invalid inputs:</p>
 						<pre><code class="language-css">form:has(input:invalid) {
     border: 2px solid red;
 }
 </code></pre>
 						<h2>Practical & Useful Examples of :has()</h2>
-
 						<h3>1. Highlight a Menu Item When Its Dropdown Is Open</h3>
-
 						<p>
 							If you have a navigation menu where hovering or focusing on a submenu should highlight the
 							parent menu item:
@@ -359,7 +348,6 @@ nav li:has(ul:focus-within) {
 							<code>&lt;li&gt;</code> when the submenu <code>&lt;ul&gt;</code> is hovered or focused.
 						</p>
 						<h3>2. Style a Card Differently If It Contains an Image</h3>
-
 						<p>If you want cards with images to have a different background than those without:</p>
 						<pre><code class="language-css">.card:has(img) {
     background-color: #f9f9f9;
@@ -368,7 +356,6 @@ nav li:has(ul:focus-within) {
 </code></pre>
 						<p>Cards without images stay default; cards with images get a subtle background and border.</p>
 						<h3>3. Disable a Submit Button If a Form Contains Invalid Inputs</h3>
-
 						<p>
 							You can visually disable or style the submit button based on whether the form contains
 							invalid inputs:
@@ -381,7 +368,6 @@ nav li:has(ul:focus-within) {
 </code></pre>
 						<p>This gives instant visual feedback <em>without JS</em>!</p>
 						<h3>4. Style a Parent Container If It Contains a Checked Checkbox</h3>
-
 						<p>Checkboxes inside a list that, when checked, style the entire list item:</p>
 						<pre><code class="language-css">li:has(input[type=&quot;checkbox&quot;]:checked) {
     background-color: #d1e7dd;
@@ -391,7 +377,6 @@ nav li:has(ul:focus-within) {
 </code></pre>
 						<p>Great for todo lists, task managers, etc.</p>
 						<h3>5. Show a Warning Message Only If a Form Has Required Empty Fields</h3>
-
 						<p>If you have a warning element inside a form, show it only when required inputs are empty:</p>
 						<pre><code class="language-css">form:has(input:required:invalid) .warning-message {
     display: block;
@@ -404,7 +389,6 @@ nav li:has(ul:focus-within) {
 </code></pre>
 						<p>This CSS-only validation UI enhancement reduces reliance on JS.</p>
 						<h3>6. Expand an Accordion Section When It Contains a Focused Element</h3>
-
 						<p>If an accordion expands when any of its children (like inputs or buttons) gain focus:</p>
 						<pre><code class="language-css">.accordion-item {
     overflow: hidden;
@@ -425,7 +409,6 @@ nav li:has(ul:focus-within) {
 							<code>height</code> instead.
 						</p>
 						<h3>7. Prevent Body Scroll When Sidebar Is Open</h3>
-
 						<p>
 							Control the entire page&#39;s overflow behavior based on whether a sidebar or modal is
 							currently open:
@@ -460,7 +443,6 @@ document.getElementById(&quot;mySidebar&quot;).classList.toggle(&quot;sidebar-op
 							styling consequences.
 						</p>
 						<h3>8. Dark Mode Toggle Without JavaScript State Management</h3>
-
 						<p>
 							Let a single checkbox control your entire page&#39;s theme without complex JavaScript state
 							management:
@@ -486,7 +468,6 @@ body:has(.theme-toggle:checked) .btn {
 							checkbox anywhere in your DOM, and CSS handles all the theme switching logic declaratively.
 						</p>
 						<h3>9. E-commerce Product Cards with Dynamic States</h3>
-
 						<p>Style product cards differently based on their current state (sale, out of stock, etc.):</p>
 						<pre><code class="language-css">.product-card:has(.sale-price) .original-price {
     text-decoration: line-through;
@@ -522,7 +503,6 @@ body:has(.theme-toggle:checked) .btn {
 							CSS automatically styles the entire card accordingly.
 						</p>
 						<h3>10. Form Step Indicators with Validation States</h3>
-
 						<p>Create visual step indicators that automatically update based on form validation:</p>
 						<pre><code class="language-css">.form-step:has(input:invalid) .step-indicator {
     background-color: #dc3545;
@@ -549,7 +529,6 @@ body:has(.theme-toggle:checked) .btn {
 							manually update their appearance.
 						</p>
 						<h3>11. Media Gallery with Selection Mode</h3>
-
 						<p>Reveal batch actions and visual feedback when media items are selected:</p>
 						<pre><code class="language-css">.gallery:has(.media-item.selected) .batch-actions {
     display: flex;
@@ -578,7 +557,6 @@ body:has(.theme-toggle:checked) .btn {
 							&quot;selection mode&quot; with batch actions and visual feedback.
 						</p>
 						<h3>12. Comment System with Interactive States</h3>
-
 						<p>Style comment threads based on their current interaction state:</p>
 						<pre><code class="language-css">.comment:has(.reply-form:not([hidden])) {
     border-left: 3px solid #007bff;
@@ -605,7 +583,6 @@ body:has(.theme-toggle:checked) .btn {
 							when they contain reply threads, creating a more dynamic and responsive comment interface.
 						</p>
 						<h3>13. Navigation with Notification Badges</h3>
-
 						<p>Show notification indicators only when there are actual notifications:</p>
 						<pre><code class="language-css">.nav-item:has(.notification-count:not(:empty)) .nav-link::after {
     content: &quot;&quot;;
@@ -640,7 +617,6 @@ body:has(.theme-toggle:checked) .btn {
 							attributes.
 						</p>
 						<h3>Bonus: Nested Example for Complex UI Logic</h3>
-
 						<p>Highlight a comment thread if any reply inside is authored by the current user:</p>
 						<pre><code class="language-css">.comment-thread:has(.reply.author-current-user) {
     border-left: 4px solid #007bff;
@@ -648,7 +624,6 @@ body:has(.theme-toggle:checked) .btn {
 }
 </code></pre>
 						<h2>Use Cases & Benefits</h2>
-
 						<ul>
 							<li>
 								<strong>Parent selection without JavaScript:</strong> No more need for JS hacks or
@@ -666,7 +641,6 @@ body:has(.theme-toggle:checked) .btn {
 							</li>
 						</ul>
 						<h2>Browser Support</h2>
-
 						<p>
 							The <code>:has()</code> pseudo-class was standardized in
 							<a href="https://www.w3.org/TR/selectors-4/#has-pseudo">Selectors Level 4</a> and is
@@ -711,7 +685,6 @@ body:has(.theme-toggle:checked) .btn {
 							<a href="https://caniuse.com/css-has">Can I Use</a> before using in production.
 						</p>
 						<h2>Performance Considerations</h2>
-
 						<p>
 							Because <code>:has()</code> lets you select parents based on child selectors, browsers need
 							to do more complex matching. This can have performance implications if used on very large
@@ -736,7 +709,6 @@ body:has(.theme-toggle:checked) .btn {
 							</li>
 						</ul>
 						<h2>Gotchas and Limitations</h2>
-
 						<ul>
 							<li>
 								<strong>Browser support:</strong> Not supported on IE or older browsers, fallback or
@@ -761,7 +733,6 @@ body:has(.theme-toggle:checked) .btn {
 							</li>
 						</ul>
 						<h2>Summary</h2>
-
 						<p>
 							The CSS <code>:has()</code> pseudo-class selector is a powerful new tool that finally
 							unlocks parent selection based on children, something developers have long needed. It
@@ -792,6 +763,16 @@ body:has(.theme-toggle:checked) .btn {
 						</a>
 
 						<!--Dynamic Markup Separator-->
+
+						<!-- Next Post Link (only if there's a next post) -->
+						<a
+							href="/post/bookmarks-firefox-bookmark-manager"
+							class="next-post"
+							rel="next"
+							aria-label="Go to the next post"
+						>
+							Next: // bookmarks: Firefox Bookmark Manager
+						</a>
 					</nav>
 
 					<!---->
@@ -822,7 +803,7 @@ body:has(.theme-toggle:checked) .btn {
 			<footer id="colophon" class="site-footer unit-1">
 				<div id="site-info" class="site-info">
 					<p>
-						<strong>2016 - 2025 { LebCit }</strong>
+						<strong>2016 - 2026 { LebCit }</strong>
 
 						<br />
 						<!-- Custom Footer Code -->

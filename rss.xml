@@ -11,12 +11,33 @@
         <description>Self-taught Web Developer with a passion for reading, continuous learning, and tackling projects on my own!</description>
         <language>en-us</language>
         <copyright>© 2026 All rights reserved</copyright>
-        <pubDate>Mon, 04 May 2026 14:21:27 GMT</pubDate>
-        <lastBuildDate>Tue, 05 May 2026 10:27:50 GMT</lastBuildDate>
+        <pubDate>Tue, 19 May 2026 11:04:24 GMT</pubDate>
+        <lastBuildDate>Wed, 20 May 2026 21:37:59 GMT</lastBuildDate>
         <atom:link href="https://lebcit.github.io/rss.xml" rel="self" type="application/rss+xml" />
         <docs>https://www.rssboard.org/rss-specification</docs>
        
         <!-- Items (Content) -->
+
+    <item>
+        <title>Repo Migrator</title>
+        <link>https://lebcit.github.io/post/repo-migrator</link>
+        <guid isPermaLink="true">https://lebcit.github.io/post/repo-migrator</guid>
+        <pubDate>Tue, 19 May 2026 11:04:24 GMT</pubDate>
+        <dc:creator>LebCit</dc:creator>
+        <description><![CDATA[Maybe, just maybe, but most certainly because I&apos;m a dinosaur (Old-school web developer — just HTML, CSS, and vanilla JavaScript) and have been away for a while,...]]></description>
+<category domain="https://lebcit.github.io/category/web-development">web-development</category>
+        <category domain="https://lebcit.github.io/tag/codeberg">codeberg</category>
+        <category domain="https://lebcit.github.io/tag/digital-organization">digital-organization</category>
+        <category domain="https://lebcit.github.io/tag/forgejo">forgejo</category>
+        <category domain="https://lebcit.github.io/tag/gitea">gitea</category>
+        <category domain="https://lebcit.github.io/tag/github">github</category>
+        <category domain="https://lebcit.github.io/tag/gitlab">gitlab</category>
+        <category domain="https://lebcit.github.io/tag/open-source">open-source</category>
+        <category domain="https://lebcit.github.io/tag/productivity-tools">productivity-tools</category>
+        <category domain="https://lebcit.github.io/tag/repository-migration">repository-migration</category>
+        <category domain="https://lebcit.github.io/tag/self-hosting">self-hosting</category>
+        <enclosure url="https://lebcit.github.io/content/uploads/images/a-bunch-of-different-colored-folders-on-a-table-4fabe3d82978b4e1.avif" type="image/avif" />
+    </item>
 
     <item>
         <title>// bookmarks: Firefox Bookmark Manager</title>

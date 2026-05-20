@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--Metadata-->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta
+			name="description"
+			content="Self-hosted app for migrating GitHub repositories to Codeberg, Forgejo, Gitea, or GitLab, with permanent repository deletion support."
+		/>
+
+		<meta name="google-site-verification" content="uvbH-6ck13HtnTSvTxZ22YRcI3wok9_oj7X8Aodexo8" />
+
+		<!--Site icon-->
+
+		<link rel="icon" href="/content/uploads/images/lebcit-favicon-8fbda27700a3444e.svg" />
+
+		<!--Title-->
+		<title>Repo Migrator | { LebCit }</title>
+
+		<!--Stylesheets-->
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/css/style.css" />
+
+		<link rel="stylesheet" href="/content/themes/midday-custom/assets/vendors/atom-one-dark.min.css" />
+	</head>
+
+	<body>
+		<!--Start page-->
+		<div id="page" class="site grid">
+			<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+			<!--Start menu-->
+			<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+				<a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu"
+					>&times;</a
+				>
+
+				<div class="menu-overlay__content">
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/" target="">Home</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/blog" target="_self">Blog</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/categories" target="_self">Categories</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/tags" target="_self">Tags</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/search" target="_self">Search</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/my-public-projects" target="_self">Projects</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/page/about-me" target="_self">About Me</a>
+					</li>
+
+					<!---->
+
+					<!---->
+
+					<li class="menu-overlay__item">
+						<a href="/sitemap" target="_self">Sitemap</a>
+					</li>
+
+					<!---->
+				</div>
+			</div>
+
+			<!--End menu-->
+
+			<!--Start masthead-->
+			<!-- Start #masthead -->
+
+			<header
+				id="masthead"
+				class="site-header unit-1 unit-lg-2-5 bio"
+				style="
+					background-image: url(/content/uploads/images/a-bunch-of-different-colored-folders-on-a-table-4fabe3d82978b4e1.avif);
+				"
+			>
+				<div class="site-header__overlay"></div>
+
+				<!-- Start .site-header__content -->
+				<div class="site-header__content">
+					<div class="site-header__branding">
+						<h1 class="site-header__title">
+							<a href="/">{ LebCit }</a>
+						</h1>
+						<p class="site-header__description">
+							Self-taught Web Developer with a passion for reading, continuous learning, and tackling
+							projects on my own!
+						</p>
+					</div>
+
+					<nav id="nav" class="site-header__nav" aria-label="MENU">
+						<ul class="site-header__nav-list">
+							<li class="site-header__nav-item">
+								<a
+									id="menu-button"
+									aria-controls="main-nav"
+									aria-haspopup="true"
+									tabindex="0"
+									role="button"
+								>
+									<span>MENU</span>
+									<span class="menu-icon" aria-hidden="true">
+										<svg
+											version="1.1"
+											x="0px"
+											y="0px"
+											width="30px"
+											height="30px"
+											viewBox="0 0 30 30"
+											enable-background="new 0 0 30 30"
+										>
+											<rect width="30" height="5" />
+											<rect y="24" width="30" height="5" />
+											<rect y="12" width="30" height="5" />
+										</svg>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<!-- End .site-header__content -->
+			</header>
+
+			<!-- End #masthead -->
+
+			<!--End masthead-->
+
+			<!--Start content-->
+			<div id="content" class="site-content unit-1 unit-lg-3-5">
+				<main class="article-view">
+					<!--The page to display the Markdown content of posts and pages.-->
+					<header class="post-header">
+						<h1 class="post-title">Repo Migrator</h1>
+
+						<div class="post-meta">
+							<div class="post-date-wrapper">
+								<span>Posted:</span>
+								<time class="post-date" datetime="2026-05-19T11:04:24.492Z"> 2026-05-19 </time>
+
+								<span class="separator">|</span>
+								<span>Updated:</span>
+								<time class="post-updated-date" datetime="2026-05-20T20:06:18.903Z"> 2026-05-20 </time>
+							</div>
+
+							<div class="taxonomy-group">
+								<span>Category:</span>
+								<span class="post-category">
+									<a href="/category/web-development">web-development</a>
+								</span>
+							</div>
+
+							<!---->
+
+							<div class="taxonomy-group post-tags-group">
+								<span>Tagged:</span>
+
+								<a class="post-tag" href="/tag/codeberg">codeberg</a>
+
+								<a class="post-tag" href="/tag/digital-organization">digital-organization</a>
+
+								<a class="post-tag" href="/tag/forgejo">forgejo</a>
+
+								<a class="post-tag" href="/tag/gitea">gitea</a>
+
+								<a class="post-tag" href="/tag/github">github</a>
+
+								<a class="post-tag" href="/tag/gitlab">gitlab</a>
+
+								<a class="post-tag" href="/tag/open-source">open-source</a>
+
+								<a class="post-tag" href="/tag/productivity-tools">productivity-tools</a>
+
+								<a class="post-tag" href="/tag/repository-migration">repository-migration</a>
+
+								<a class="post-tag" href="/tag/self-hosting">self-hosting</a>
+							</div>
+						</div>
+					</header>
+
+					<div class="article-content">
+						<p>
+							<em
+								>Self-hosted app for migrating GitHub repositories to Codeberg, Forgejo, Gitea, or
+								GitLab, with permanent repository deletion support.</em
+							>
+						</p>
+
+						<!--Content-->
+						<p>
+							Maybe, just maybe, but most certainly because I&#39;m a dinosaur (Old-school web developer —
+							just HTML, CSS, and vanilla JavaScript) and have been away for a while, but not too far, I
+							was aware of the earthquakes happening in code&#39;s world but barely felt them. If you are
+							a developer you know what I&#39;m talking about, otherwise check out
+							<a href="https://www.youtube.com/watch?v=bjcOb28zzF4">Why do you do this, GitHub?</a
+							>.<br />The web is now full of articles, videos and even dedicated pages to show what
+							happened, is happening in real time
+							<a href="https://mrshu.github.io/github-statuses/">The Missing GitHub Status Page</a>, and
+							where all these major cracks are probably going to...<br />AI trained on developers&#39;
+							code without anyone being asked. Open source code modified using AI and made proprietary
+							thanks to &quot;legal&quot; loopholes... Watch
+							<a href="https://www.youtube.com/watch?v=6godSEVvcmU">This Is Crazy</a> if you&#39;re not
+							yet in the picture...<br />Bottom line, AI is being misused from day one at much more
+							dangerous scales — who would have thought it? (sarcasm) — so it&#39;s time to backup your
+							online digital assets (whatever they may be) and search for human clouds if you want to
+							share them, or create your own
+							<a href="https://en.wikipedia.org/wiki/Virtual_private_server">VPS</a>.
+						</p>
+						<h2>Migrating my repos</h2>
+						<p>
+							Millions of developers, enterprises, platforms... were deeply affected by GitHub&#39;s
+							outages, making a lot of them leaving it, and a lot more searching for alternatives...<br />Because
+							I finally swallowed
+							<a href="https://www.youtube.com/watch?v=zE7PKRjrid4">The Red Pill</a> that had been hanging
+							halfway down my throat for years and totally switched back to Linux, I said to myself:
+							&quot;It&#39;s time to make some digital organization!&quot;. Easier said than done with
+							thousands of assets that have been accumulated over the years...<br />I had two urgent
+							priorities:
+						</p>
+						<ol>
+							<li>
+								Bookmarks — For which I created
+								<a href="https://addons.mozilla.org/en-US/firefox/addon/double-slash-bookmarks/"
+									>//bookmarks</a
+								>. You can read more about it on
+								<a href="/post/bookmarks-firefox-bookmark-manager"
+									>// bookmarks: Firefox Bookmark Manager</a
+								>
+							</li>
+							<li>
+								Repositories — For which I created
+								<a href="https://codeberg.org/lebcit/repo-migrator">repo-migrator</a>
+							</li>
+						</ol>
+						<p>
+							I installed a local Forgejo instance and another one on my VPS then migrated all my repos
+							(public and private) in one shot using <code>repo-migrator</code>. Then came the question of
+							finding public cloud-based alternatives...<br />The first obvious thought was GitLab, but I
+							made a lot of research and here is was I found:
+						</p>
+						<ul>
+							<li><a href="https://codeberg.org/">Codeberg</a> — Git hosting</li>
+							<li><a href="https://codefloe.com/">CodeFloe</a> — Git hosting</li>
+							<li><a href="https://about.gitlab.com/">GitLab</a> — Git platform + DevOps</li>
+							<li>
+								<a href="https://foss.heptapod.net/">Heptapod</a> — Mercurial forge built on GitLab CE
+								concepts
+							</li>
+							<li>
+								<a href="https://launchpad.net/">Launchpad</a> — Canonical’s collaboration platform with
+								Git support
+							</li>
+							<li><a href="https://notabug.org/">NotABug</a> — Git hosting</li>
+							<li><a href="https://sourcehut.org/">sourcehut</a> — Git-based development platform</li>
+							<li>
+								<a href="https://savannah.gnu.org/">Savannah</a> — Free software hosting with Git
+								support
+							</li>
+						</ul>
+						<p>
+							Of course there are many more out there like AWS CodeCommit, Azure DevOps, Beanstalk,
+							Bitbucket, OneDev, RhodeCode... but I&#39;m obviously not looking for these 🤣<br />Worth
+							mentioning some self-hosted software:
+						</p>
+						<ul>
+							<li><a href="https://forgejo.org/">Forgejo</a> — Self-hosted Git forge</li>
+							<li><a href="https://gitbucket.github.io/">GitBucket</a> — Self-hosted Git platform</li>
+							<li><a href="https://about.gitea.com/">Gitea</a> — Self-hosted Git forge</li>
+							<li>
+								<a href="https://about.gitlab.com/install/">GitLab Self-Managed</a> — Self-hosted DevOps
+								platform with Git repository management
+							</li>
+							<li><a href="https://gogs.io/">Gogs</a> — Self-hosted Git service</li>
+							<li>
+								<a href="https://radicle.dev/">Radicle</a> — Decentralized self-hosted Git collaboration
+								platform
+							</li>
+						</ul>
+						<h2>Repo Migrator Application</h2>
+						<p>The app is simple, intuitive, and easy to use. It has two pages/views:</p>
+						<ol>
+							<li>The migrator page — To migrate repos</li>
+							<li>The remover page — To delete repos</li>
+						</ol>
+						<h3>Migrator page</h3>
+						<p>The migrator page is composed of:</p>
+						<ul>
+							<li>
+								A header menu — To navigate between the two pages
+								<img
+									src="/content/uploads/images/migrate-header-ff107e1285e01127.png"
+									alt="migrate-header.png"
+								/>
+							</li>
+							<li>
+								A migration source — The platform from which repositories will be migrated, GitHub
+								<img
+									src="/content/uploads/images/migrate-source-64f87298bc1c9f98.png"
+									alt="migrate-source.png"
+								/>
+							</li>
+							<li>
+								A repositories select — Available after fetching GitHub repos, to select the repos you
+								want to migrate
+								<img
+									src="/content/uploads/images/migrate-repositories-5b5442c1888f0b4b.png"
+									alt="migrate-repositories.png"
+								/>
+							</li>
+							<li>
+								A migration destination — To choose where to migrate the fetched GitHub repos
+								<img
+									src="/content/uploads/images/migrate-destination-a0f875ae3f79d75d.png"
+									alt="migrate-destination.png"
+								/>
+							</li>
+							<li>
+								A migration log — That reports the migration status of each repo
+								<img
+									src="/content/uploads/images/migrate-log-b98d61497043b4e9.png"
+									alt="migrate-log.png"
+								/>
+							</li>
+						</ul>
+						<h3>Remover page</h3>
+						<p>The remover page is composed of:</p>
+						<ul>
+							<li>
+								A header menu — To navigate between the two pages
+								<img
+									src="/content/uploads/images/remover-header-830b721f6d54153e.png"
+									alt="remover-header.png"
+								/>
+							</li>
+							<li>
+								A remover source — To select the platform from which you want to delete repositories
+								<img
+									src="/content/uploads/images/remover-source-f121a197a285a2f3.png"
+									alt="remover-source.png"
+								/>
+							</li>
+							<li>
+								A repositories select — Available after fetching repos, to select the repos you want to
+								delete
+								<img
+									src="/content/uploads/images/remover-repositories-a445f959bb8fdc2c.png"
+									alt="remover-repositories.png"
+								/>
+							</li>
+							<li>
+								A double confirmation step — To warn you and make sure that you are aware of your
+								decision
+								<img
+									src="/content/uploads/images/remover-confirmation-058246f90ff12036.png"
+									alt="remover-confirmation.png"
+								/>
+								<img
+									src="/content/uploads/images/remover-confirmation-modal-4ec673dca49a4298.png"
+									alt="remover-confirmation-modal.png"
+								/>
+							</li>
+							<li>
+								A deletion log — That reports the deletion status of each repo
+								<img
+									src="/content/uploads/images/remover-log-57e7add1755f5b2c.png"
+									alt="remover-log.png"
+								/>
+							</li>
+						</ul>
+						<h2>Notes</h2>
+						<ul>
+							<li>
+								The app is made using <a href="https://litenode.pages.dev/">LiteNode</a> only, my
+								Node.js web framework, that proves the unnecessary compilation and complication of
+								multiple packages to achieve simple tasks, just like my CMS/SSG
+								<a href="https://aether-cms.pages.dev/">Aether</a> proves it.
+							</li>
+							<li>
+								For now, the app migrates only: Git history, branches, tags, and releases. If you need
+								to import more data, use the available built-in tools of the platform where you are
+								migrating repositories.
+							</li>
+							<li>The supported platforms are: Codeberg, Forgejo/Gitea, GitHub, GitLab.</li>
+							<li>
+								Zero credentials are hard-coded. All tokens and usernames are submitted through the UI
+								at runtime and never stored.
+							</li>
+							<li>A detailed README is included in the <a href="#source-code">source code</a>.</li>
+						</ul>
+						<h2>On AI Use</h2>
+						<p>
+							Yes, I use AI tools as part of my development process to refine ideas, improve logic, and
+							evaluate architectural decisions more efficiently. Without them, the process would have
+							taken significantly longer — but every decision, every line of code, is still written by
+							me.<br />I see AI as a thinking partner, not a substitute. AI helps get done things much
+							faster, but
+							<strong
+								>any developer must review every line of code, test every aspect and redirect the AI
+								​​when it hallucinates</strong
+							>.
+						</p>
+						<h2 id="source-code">Source Code</h2>
+						<p>MIT-licensed. The application’s source code is available on the following platforms:</p>
+						<ul>
+							<li><a href="https://codeberg.org/lebcit/repo-migrator">Codeberg</a></li>
+							<li><a href="https://github.com/LebCit/repo-migrator">GitHub</a></li>
+							<li><a href="https://gitlab.com/lebcit/repo-migrator">GitLab</a></li>
+						</ul>
+						<p class="post-content hide">
+							<em
+								>Note: The background image is a photo by
+								<a
+									href="https://unsplash.com/photos/a-bunch-of-different-colored-papers-on-a-table-axXa-pSVaIY"
+									>Wahid Khene</a
+								>.</em
+							>
+						</p>
+					</div>
+
+					<nav class="post-navigation" aria-label="Post Navigation">
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Dynamic Markup Separator -->
+
+						<!-- Previous Post Link (only if there's a previous post) -->
+						<a
+							href="/post/bookmarks-firefox-bookmark-manager"
+							class="prev-post"
+							rel="prev"
+							aria-label="Go to the previous post"
+						>
+							Previous: // bookmarks: Firefox Bookmark Manager
+						</a>
+
+						<!--Dynamic Markup Separator-->
+					</nav>
+
+					<!---->
+					<div class="related-posts">
+						<h3>You Might Also Like</h3>
+						<div>
+							<section>
+								<a href="/post/bookmarks-firefox-bookmark-manager">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/a-stack-of-colorful-books-sitting-on-top-of-a-table-d867767bfc23e6ab.avif"
+										alt="Featured image for the post: // bookmarks: Firefox Bookmark Manager"
+									/>
+								</a>
+								<h4>
+									<a href="/post/bookmarks-firefox-bookmark-manager"
+										>// bookmarks: Firefox Bookmark Manager</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/post/meet-aether-a-cms-that-actually-gets-out-of-your-way">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/illustration-of-home-office-setup-with-laptop-notebook-plant-and-coffee-3a15403f2633da4a.avif"
+										alt="Featured image for the post: Meet Aether: A CMS That Actually Gets Out of Your Way"
+									/>
+								</a>
+								<h4>
+									<a href="/post/meet-aether-a-cms-that-actually-gets-out-of-your-way"
+										>Meet Aether: A CMS That Actually Gets Out of Your Way</a
+									>
+								</h4>
+							</section>
+
+							<section>
+								<a href="/post/litenode-nodejs-web-framework">
+									<img
+										class="img-responsive"
+										src="/content/uploads/images/litenode-logo-223189114d5e71ba.avif"
+										alt="Featured image for the post: LiteNode, Node.js Web Framework"
+									/>
+								</a>
+								<h4>
+									<a href="/post/litenode-nodejs-web-framework">LiteNode, Node.js Web Framework</a>
+								</h4>
+							</section>
+						</div>
+					</div>
+
+					<!---->
+				</main>
+			</div>
+			<!--End content-->
+
+			<!--Start footer-->
+			<footer id="colophon" class="site-footer unit-1">
+				<div id="site-info" class="site-info">
+					<p>
+						<strong>2016 - 2026 { LebCit }</strong>
+
+						<br />
+						<!-- Custom Footer Code -->
+						Content in Motion. Powered by
+						<a href="https://aether-cms.pages.dev/" aria-label="Visit the Aether CMS website">Aether</a>.
+					</p>
+				</div>
+			</footer>
+
+			<!--End footer-->
+		</div>
+		<!--End page-->
+
+		<script
+			src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
+			onload="hljs.highlightAll()"
+		></script>
+
+		<script type="module" src="/content/themes/midday-custom/assets/js/main.js"></script>
+	</body>
+</html>

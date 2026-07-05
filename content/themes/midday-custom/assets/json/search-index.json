@@ -1,13 +1,35 @@
 {
 	"meta": {
-		"generatedAt": "2026-05-20T19:38:18.232Z",
-		"totalItems": 52,
-		"totalPosts": 49,
+		"generatedAt": "2026-07-05T22:16:28.565Z",
+		"totalItems": 53,
+		"totalPosts": 50,
 		"totalPages": 3,
 		"themeName": "midday-custom",
 		"version": "1.0.0"
 	},
 	"index": [
+		{
+			"id": "1783278511089",
+			"title": "Blog-Doc Reloaded",
+			"path": "/post/blog-doc-reloaded",
+			"content": "After nearly two years without updates, Blog-Doc is back with a complete rewrite. Inspired by lessons learned while building Aether, this new version brings powerful features while returning to the project's original philosophy: keeping a Node.js CMS and static site generator as simple, lightweight, and enjoyable to use as possible.",
+			"excerpt": "After nearly two years without updates, Blog-Doc is back with a complete rewrite. Inspired by lessons learned while building Aether, this new version brings powerful features while returning to the project's original philosophy: keeping a Node.js CMS and static site generator as simple, lightweight, and enjoyable to use as possible.",
+			"type": "post",
+			"category": null,
+			"tags": [
+				"blog-doc",
+				"nodejs",
+				"cms",
+				"static-site-generator",
+				"ssg",
+				"open-source",
+				"javascript",
+				"web-development",
+				"blogging"
+			],
+			"publishDate": "2026-07-05T22:06",
+			"author": "LebCit"
+		},
 		{
 			"id": "1779188664492",
 			"title": "Repo Migrator",
@@ -15,8 +37,19 @@
 			"content": "Self-hosted app for migrating GitHub repositories to Codeberg, Forgejo, Gitea, or GitLab, with permanent repository deletion support.",
 			"excerpt": "",
 			"type": "post",
-			"category": null,
-			"tags": [],
+			"category": "web-development",
+			"tags": [
+				"codeberg",
+				"digital-organization",
+				"forgejo",
+				"gitea",
+				"github",
+				"gitlab",
+				"open-source",
+				"productivity-tools",
+				"repository-migration",
+				"self-hosting"
+			],
 			"publishDate": "2026-05-19T12:19",
 			"author": "LebCit"
 		},

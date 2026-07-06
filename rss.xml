@@ -12,7 +12,7 @@
         <language>en-us</language>
         <copyright>© 2026 All rights reserved</copyright>
         <pubDate>Sun, 05 Jul 2026 19:08:31 GMT</pubDate>
-        <lastBuildDate>Sun, 05 Jul 2026 22:23:18 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 06 Jul 2026 18:47:15 GMT</lastBuildDate>
         <atom:link href="https://lebcit.github.io/rss.xml" rel="self" type="application/rss+xml" />
         <docs>https://www.rssboard.org/rss-specification</docs>
        
@@ -25,6 +25,7 @@
         <pubDate>Sun, 05 Jul 2026 19:08:31 GMT</pubDate>
         <dc:creator>LebCit</dc:creator>
         <description><![CDATA[After nearly two years without updates, Blog-Doc is back with a complete rewrite. Inspired by lessons learned while building Aether, this new version brings powerful features while returning to the project&apos;s original philosophy: keeping a Node.js CMS and static site generator as simple, lightweight, and enjoyable to use as possible.]]></description>
+<category domain="https://lebcit.github.io/category/web-development">web-development</category>
         <category domain="https://lebcit.github.io/tag/blog-doc">blog-doc</category>
         <category domain="https://lebcit.github.io/tag/nodejs">nodejs</category>
         <category domain="https://lebcit.github.io/tag/cms">cms</category>
